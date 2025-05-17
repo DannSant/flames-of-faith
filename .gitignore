@@ -1,0 +1,48 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# User-specific settings
+UserSettings/
+
+# Crash logs
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.csproj
+*.unityproj
+*.sln
+*.swp
+*.bak
+*.orig
+*.tmp
+
+# Unity's built files
+*.apk
+*.aab
+*.unitypackage
+
+# OS/Editor-generated files
+.DS_Store
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+Thumbs.db
+Desktop.ini
+*.meta~
+
+# Rider project files
+.idea/
+*.sln.iml
+
+# VSCode project files
+.vscode/
+
+# Custom assets folder to ignore
+Assets/AssetPackages/
+Assets/ClassicPixelRPGUI/
