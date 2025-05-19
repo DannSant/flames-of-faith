@@ -16,6 +16,8 @@ namespace Game.Control
         //private InputSystem_Actions inputActions;
         private PlayerInputHandler inputHandler;
         private TrailRenderer dashTrailRenderer;
+        private CharacterVisual characterVisual;
+        private Collider2D characterCollider;
 
         private float dashDuration = .1f;
         private float dashCooldownBase = 2f;
@@ -26,7 +28,9 @@ namespace Game.Control
         protected override void Awake()
         {
             base.Awake();
-            dashTrailRenderer = GetComponent<TrailRenderer>();           
+            dashTrailRenderer = GetComponent<TrailRenderer>();
+            characterCollider = GetComponent<Collider2D>();
+            characterVisual = GetComponentInChildren<CharacterVisual>();
             dashUpdateTimer = new UpdateTimer(dashDuration);
             dashUpdateTimer.OnEventStarted += StartDashing;
             dashUpdateTimer.OnEventComplete += EndDashing;
@@ -53,6 +57,8 @@ namespace Game.Control
             dashUpdateTimer.UpdateEvent();
             dashCooldownTimer.UpdateEvent();
             ManageDashTimerEvent();
+            //TODO review this later, it should disable collider for invincibility frames but still collide with obstacles
+            //CheckAndToggleColliderOnInvincibility();
         }
 
         private void Dash_onStatUpdatedEvent(StatType statType, int value)
@@ -76,7 +82,7 @@ namespace Game.Control
 
         private void StartDashing()
         {
-           
+            characterVisual.PlayDashAnimation();
             PlayerController.Instance.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
         }
@@ -101,6 +107,18 @@ namespace Game.Control
                 float timeLeft = dashCooldownTimer.GetEventTimer();
                 float cooldownDuration = dashCooldownTimer.GetEventDuration();
                 OnDashTimerUpdated?.Invoke(timeLeft, cooldownDuration);
+            }
+        }
+
+        private void CheckAndToggleColliderOnInvincibility()
+        {
+            if (dashUpdateTimer.GetIsEventActive())
+            {
+                characterCollider.enabled = false; // Disable collider during invincibility
+            }
+            else
+            {
+                characterCollider.enabled = true; // Enable collider when not invincible
             }
         }
 

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
+  m_Name: Warrior
+  m_EditorClassIdentifier: 
+  characterName: Isaladia
+  characterClass: 1
+  animatorController: {fileID: 9100000, guid: 0f141bd90ee20c54eb5b6cf5e3b93df9, type: 2}
+  defaultSprite: {fileID: -4057652279525399919, guid: a24b23e2a0e0fcf4795cc3f843fb12dc, type: 3}

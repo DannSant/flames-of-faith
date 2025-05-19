@@ -5,12 +5,13 @@ using UnityEngine;
 
 namespace Game.Combat
 {
+    [Obsolete]
     public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         [SerializeField] private Sword sword;
 
-        public event Action<float,float> OnAttackTimerUpdated;
-        public event Action<float,float> OnSpecialAttackTimerUpdated;
+        //public event Action<float,float> OnAttackTimerUpdated;
+        //public event Action<float,float> OnSpecialAttackTimerUpdated;
 
         protected override void Awake()
         {
@@ -20,8 +21,7 @@ namespace Game.Combat
 
         private void Update()
         {
-            MouseFollowWithOffset();
-            ManageAttackTimer();
+            MouseFollowWithOffset();           
 
         }        
 
@@ -41,19 +41,6 @@ namespace Game.Combat
             }
             transform.localScale = scale;
 
-        }
-
-        private void ManageAttackTimer() 
-        { 
-            if(sword.IsAttackTimerActive())
-            {              
-                OnAttackTimerUpdated?.Invoke(sword.GetAttackTimer(), sword.GetAttackTimerDuration());
-            }
-
-            if (sword.IsSpecialAttackTimerActive())
-            {
-                OnSpecialAttackTimerUpdated?.Invoke(sword.GetSpecialAttackTimer(),sword.GetSpecialAttackTimerDuration());
-            }
-        }
+        }        
     }
 }

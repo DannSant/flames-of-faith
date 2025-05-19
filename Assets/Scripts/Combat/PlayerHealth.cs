@@ -26,18 +26,19 @@ namespace Game.Combat {
         [SerializeField] private float invulnerabilityDuration = 0.5f;
         private float invulnerableUntilTime = 0f;
 
-        [Header("Blinking Settings")]
-        [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private float blinkInterval = 0.1f;
-        private float nextBlinkTime;
-        private bool isCurrentlyVisible = true;
-
         private int armor = 0;
-
+        private CharacterVisual characterVisual;
+       
 
         protected override void Awake()
         {
             base.Awake();
+            characterVisual = GetComponentInChildren<CharacterVisual>();
+            if(characterVisual == null)
+            {
+                Debug.LogError("CharacterVisual component not found on PlayerHealth.");
+            }
+           
         }
 
         private void Start()
@@ -60,26 +61,7 @@ namespace Game.Combat {
                 MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerHealthState;
             }
 
-        }        
-
-        private void Update()
-        {
-            if (Time.time < invulnerableUntilTime)
-            {
-                HandleBlinking();
-            }
-            else if (!isCurrentlyVisible)
-            {
-                // Restore visibility once invulnerability ends
-                if (!isDead) {
-                    spriteRenderer.enabled = true;
-                    isCurrentlyVisible = true;
-                }
-                
-            }
-        }
-
-        
+        }    
 
         private void OnDisable()
         {
@@ -90,12 +72,12 @@ namespace Game.Combat {
             {
                 MainSceneController.Instance.OnGameplayResetRequested -= ResetPlayerHealthState;
             }
-        }
+        }      
 
         private void ResetPlayerHealthState() 
         {
             isDead = false;
-            spriteRenderer.enabled = true;
+            characterVisual?.Show();
             maxHealth = defaultMaxHealth;
             currentHealth = maxHealth;
             armor = 0;
@@ -141,7 +123,7 @@ namespace Game.Combat {
             if (Time.time < invulnerableUntilTime)
             {               
                 return;
-            }
+            }          
 
             // Calculate damage after armor, ensure taking at least 1 damage
             int finalDamage = Mathf.Max(1, amount - armor);
@@ -152,22 +134,12 @@ namespace Game.Combat {
 
             // Set invulnerability time
             invulnerableUntilTime = Time.time + invulnerabilityDuration;
-
+            characterVisual?.TriggerFlash();
             if (currentHealth <= 0)
             {
                 Die();
             }
-        }
-
-        private void HandleBlinking()
-        {
-            if (Time.time >= nextBlinkTime)
-            {
-                isCurrentlyVisible = !isCurrentlyVisible;
-                spriteRenderer.enabled = isCurrentlyVisible;
-                nextBlinkTime = Time.time + blinkInterval;
-            }
-        }
+        }       
 
         public void Heal(int amount)
         {
@@ -193,14 +165,15 @@ namespace Game.Combat {
         }
 
         private IEnumerator DeathRoutine() 
-        {          
-            spriteRenderer.enabled = false; // Hide the player sprite          
+        {
+            characterVisual?.Hide(); // Hide the player sprite          
             yield return new WaitForSeconds(1f);
             onDeath?.Invoke();
         }
 
         public int GetCurrentHealth() => currentHealth;
         public int GetMaxHealth() => maxHealth;
+        public bool IsDead() => isDead;
     }
 
 }

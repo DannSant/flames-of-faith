@@ -1,10 +1,12 @@
 using Game.Control;
 using Game.Progression;
 using Game.Utils;
+using System;
 using UnityEngine;
 
 namespace Game.Combat
 {
+    [Obsolete]
     public class Sword : MonoBehaviour
     {       
         [SerializeField] private GameObject weaponColliderObject;
@@ -19,8 +21,7 @@ namespace Game.Combat
         //private InputSystem_Actions inputActions;
         private Animator animator;
         private Animator playerAnimator;
-        private PolygonCollider2D weaponCollider;
-        private GameObject slashAnim;
+        private PolygonCollider2D weaponCollider;      
         private SpriteRenderer weaponSpriteRenderer;
         private bool attackButtonDown = false;
         private int specialAttackCost = 3;
@@ -31,8 +32,7 @@ namespace Game.Combat
         
 
         private void Awake()
-        {
-           // inputActions = new InputSystem_Actions();
+        {         
             animator = GetComponent<Animator>();
             weaponCollider = weaponColliderObject.GetComponent<PolygonCollider2D>();
             weaponSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -51,7 +51,7 @@ namespace Game.Combat
         {
            
             PlayerProgression.Instance.onStatUpdated -= Sword_onStatUpdatedEvent;
-            PlayerAnimEventsHandler.Instance.OnSpecialAttackEnded -= EndSpecialAttack;
+            //PlayerAnimEventsHandler.Instance.OnSpecialAttackEnded -= EndSpecialAttack;
         }
 
         private void Start()
@@ -65,7 +65,7 @@ namespace Game.Combat
             playerAnimator = PlayerController.Instance.GetComponent<Animator>();
 
             PlayerProgression.Instance.onStatUpdated += Sword_onStatUpdatedEvent;
-            PlayerAnimEventsHandler.Instance.OnSpecialAttackEnded += EndSpecialAttack;
+            //PlayerAnimEventsHandler.Instance.OnSpecialAttackEnded += EndSpecialAttack;
 
         }
 

@@ -17,17 +17,15 @@ namespace Game.Combat {
         [Tooltip("For each AttackSpeed stat, regular damage will increase by this number ")]
         public float attackSpeedScale = 0.0075f;
 
-        /*[Tooltip("Time between special attacks.")]
-        public float specialAttackCooldown = 3f;
+        [Tooltip("Depending on the weapon class damage will scale diferently. Example Melee weapons only scale if damage is done through a weapon collider instead of a projectile")]
+        public WeaponClass weaponClass = WeaponClass.Melee;
+    }
 
-        [Tooltip("Initial damage for special attack")]
-        public int specialBaseDamage = 5;        
-
-        [Tooltip("For each MeleeDamage stat, special damage will increase by this number ")]
-        public int specialAttackScale = 3;*/
-
-        
-
+    public enum WeaponClass { 
+        None,
+        Melee,
+        Ranged,
+        Magic
     }
 
 }

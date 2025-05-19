@@ -12,10 +12,10 @@ namespace Game.UI
 
         private void Start()
         {
-            if(ActiveWeapon.Instance != null)
+            if(WeaponManager.Instance != null)
             {
-                ActiveWeapon.Instance.OnAttackTimerUpdated += UpdateCooldownAttackDisplay;
-                ActiveWeapon.Instance.OnSpecialAttackTimerUpdated += UpdateCooldownSpecialAttackDisplay;
+                WeaponManager.Instance.OnAttackTimerUpdated += UpdateCooldownAttackDisplay;
+                WeaponManager.Instance.OnSpecialAttackTimerUpdated += UpdateCooldownSpecialAttackDisplay;
             }
             if(Dash.Instance != null)
             {
@@ -25,10 +25,10 @@ namespace Game.UI
 
         private void OnDisable()
         {
-            if (ActiveWeapon.Instance != null)
+            if (WeaponManager.Instance != null)
             {
-                ActiveWeapon.Instance.OnAttackTimerUpdated -= UpdateCooldownAttackDisplay;
-                ActiveWeapon.Instance.OnSpecialAttackTimerUpdated -= UpdateCooldownSpecialAttackDisplay;
+                WeaponManager.Instance.OnAttackTimerUpdated -= UpdateCooldownAttackDisplay;
+                WeaponManager.Instance.OnSpecialAttackTimerUpdated -= UpdateCooldownSpecialAttackDisplay;
             }
 
             if (Dash.Instance != null)

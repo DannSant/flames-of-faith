@@ -4,6 +4,7 @@ using Game.Progression;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Scene;
+using Game.Combat;
 namespace Game.Control
 {
     public class PlayerController : Singleton<PlayerController>
@@ -16,11 +17,12 @@ namespace Game.Control
         //private InputSystem_Actions inputActions;
         private PlayerInputHandler inputHandler;
         private Vector2 movement;
-        private Rigidbody2D rb;
-        private Animator animator;
+        private Rigidbody2D rb;       
         private Knockback knockback;
+        private CharacterVisual characterVisual;
 
         private Vector2 defaultPosition;
+        private bool attackButtonDown = false;
 
         public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
         public float DashMultiplier { get; private set; }
@@ -29,14 +31,18 @@ namespace Game.Control
 
         protected override void Awake()
         {
-            base.Awake(); 
-                          
-            //inputActions = new InputSystem_Actions();
-            rb = GetComponent<Rigidbody2D>();
-            animator = GetComponent<Animator>();
+            base.Awake();                           
+           
+            rb = GetComponent<Rigidbody2D>();           
             knockback = GetComponent<Knockback>();
+            characterVisual = GetComponentInChildren<CharacterVisual>();
             DashMultiplier = 1;
             defaultPosition = transform.position;
+
+            if (characterVisual == null)
+            {
+                Debug.LogError("CharacterVisual component not found on PlayerController.");
+            }
         }
 
         private void Start()
@@ -48,6 +54,11 @@ namespace Game.Control
             {
                 MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerPosition;
             }
+          
+            inputHandler.Player.Attack.performed += ctx => StartAttacking();
+            inputHandler.Player.Attack.canceled += ctx => StopAttacking();
+
+            inputHandler.Player.Special.performed += ctx => StartSpecialAttack();
         }
 
         private void OnDisable()
@@ -57,17 +68,30 @@ namespace Game.Control
             {
                 MainSceneController.Instance.OnGameplayResetRequested -= ResetPlayerPosition;
             }
+
+
         }
 
         private void Update()
         {
-            PlayerInput();
+            MovementInput();
+            AttackInput();
             AdjustPlayerFacingDirection();          
         }
 
         private void FixedUpdate()
         {
             Move();
+        }
+
+        private void StartAttacking()
+        {
+            attackButtonDown = true;
+        }
+
+        private void StopAttacking()
+        {
+            attackButtonDown = false;
         }
 
         private void PlayerController_onStatUpdatedEvent(StatType statType, int value)
@@ -87,7 +111,7 @@ namespace Game.Control
             moveSpeed = StatsCalculations.CalculateMoveSpeed(PlayerProgression.Instance.GetStatTotal(StatType.MoveSpeed), baseMoveSpeed, baseMoveScale);
         }
 
-        private void PlayerInput()
+        private void MovementInput()
         {
             if (knockback.IsKnockbacked) {
                 movement = Vector2.zero; // Prevent input during knockback
@@ -95,15 +119,26 @@ namespace Game.Control
             }
             movement = inputHandler.Player.Move.ReadValue<Vector2>();
 
-            if (movement.magnitude > 0f)
-            {
-                animator.SetBool("Move", true);
-            }else
-            {
-                animator.SetBool("Move", false);
-            }
+            bool shouldMove = movement.magnitude > 0f;
+            characterVisual?.PlayMoveAnimation(shouldMove);
+        }
 
-           
+        private void AttackInput()
+        {
+            if (attackButtonDown)
+            {
+                Attack();
+            }
+        }
+
+        private void Attack()
+        {
+            WeaponManager.Instance.Attack();
+        }
+
+        private void StartSpecialAttack()
+        {
+           WeaponManager.Instance.SpecialAttack();
         }
 
         private void Move()
@@ -114,26 +149,27 @@ namespace Game.Control
 
         private void AdjustPlayerFacingDirection()
         {
-            if (Camera.main == null)
+            if (WeaponManager.Instance != null && WeaponManager.Instance.IsAutoAttackEnabled)
             {
-                return;
+                Health target = WeaponManager.Instance.GetCurrentTarget();
+                if (target != null)
+                {
+                    Vector3 targetPosition = target.transform.position;
+                    FacingLeft = (targetPosition.x < transform.position.x);
+                    characterVisual?.SetFacingDirection(FacingLeft);
+                    return;
+                }
             }
-            Vector3 mousePosition = Input.mousePosition;          
-            Vector3 facingDirection = Camera.main.ScreenToWorldPoint(mousePosition);
-            facingDirection.z = 0; // Ensure z is 0 for 2D
 
-            Vector3 direction = (facingDirection - transform.position).normalized;
-            animator.SetFloat("DirectionX", direction.x);
-            animator.SetFloat("DirectionY", direction.y);
-            
-            if (facingDirection.x < direction.x)
-            {
-                FacingLeft = true;
-            }else
-            {
-                FacingLeft = false;
-            }
-            
+            // Default to mouse-based facing
+            if (Camera.main == null) return;
+
+            Vector3 mousePosition = Input.mousePosition;
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            worldMousePosition.z = 0;
+
+            FacingLeft = (worldMousePosition.x < transform.position.x);
+            characterVisual?.SetFacingDirection(FacingLeft);
         }
 
         private float CalculateMoveSpeed()
@@ -165,9 +201,6 @@ namespace Game.Control
         {
             DashMultiplier = 1;
         }
-
-
-
 
     }
 }

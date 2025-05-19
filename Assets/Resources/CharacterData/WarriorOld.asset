@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
+  m_Name: WarriorOld
+  m_EditorClassIdentifier: 
+  characterName: Gabien
+  characterClass: 1
+  animatorController: {fileID: 9100000, guid: 9cfef747ce12c1740b3d6e194321d704, type: 2}
+  defaultSprite: {fileID: 1401861756, guid: a74503a315898ac499f4069dee15c147, type: 3}

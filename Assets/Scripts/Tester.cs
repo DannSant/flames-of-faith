@@ -8,7 +8,7 @@ public class Tester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        /*if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             //Debug.Log("Increasing health");
             PlayerProgression.Instance.UpdateStat(StatType.MaxHealth, 10);
@@ -38,6 +38,6 @@ public class Tester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             PlayerProgression.Instance.UpdateStat(StatType.MaxGrace, 1);
-        }
+        }*/
     }
 }

@@ -12,13 +12,16 @@ namespace Game.UI
         [SerializeField] private UpgradeButtonUI upgradeButtonPrefab;
         [SerializeField] private Button continueButton;
 
+        private List<List<StatValuePair>> upgradeChoiceGroups;
+        private int currentChoiceIndex = 0;
+
         private void Start()
         {
             UpgradeManager upgradeManager = UpgradeManager.Instance;
 
             if (upgradeManager != null)
             {
-                upgradeManager.OnUpgradeOptionsAvailable += ShowUpgradeOptions;
+                upgradeManager.OnUpgradeOptionsAvailable += ShowUpgradeChoices;
                 upgradeManager.OnNoUpgradeAvailable += ShowContinueButton;
             }
 
@@ -34,29 +37,53 @@ namespace Game.UI
             UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
             {
-                upgradeManager.OnUpgradeOptionsAvailable -= ShowUpgradeOptions;
+                upgradeManager.OnUpgradeOptionsAvailable -= ShowUpgradeChoices;
                 upgradeManager.OnNoUpgradeAvailable -= ShowContinueButton;
             }
         }
 
-        private void ShowUpgradeOptions(List<StatValuePair> options)
+        private void ShowUpgradeChoices(List<List<StatValuePair>> choices)
+        {
+            upgradeChoiceGroups = choices;
+            currentChoiceIndex = 0;
+            mainPanel.SetActive(true);
+            ShowCurrentChoice();
+        }
+
+        private void ShowCurrentChoice()
         {
             ClearUpgradeOptions();
-            mainPanel.SetActive(true);
+
+            if (upgradeChoiceGroups == null || currentChoiceIndex >= upgradeChoiceGroups.Count)
+            {
+                ShowContinueButton();
+                return;
+            }
+
             continueButton.gameObject.SetActive(false);
 
-            foreach (StatValuePair statPair in options)
+            foreach (StatValuePair statPair in upgradeChoiceGroups[currentChoiceIndex])
             {
                 UpgradeButtonUI button = Instantiate(upgradeButtonPrefab, mainPanel.transform);
                 button.Initialize(statPair.value, statPair.statType);
+                button.OnUpgradeSelected += HandleUpgradeSelected;
             }
         }
+
+        private void HandleUpgradeSelected(StatType statType, int amount)
+        {
+            PlayerProgression.Instance.UpdateStat(statType, amount);
+            currentChoiceIndex++;
+            ShowCurrentChoice();
+        }
+
         private void ShowContinueButton()
         {
             ClearUpgradeOptions();
             mainPanel.SetActive(true);
             continueButton.gameObject.SetActive(true);
         }
+
         private void ClearUpgradeOptions()
         {
             foreach (Transform child in mainPanel.transform)
@@ -68,5 +95,6 @@ namespace Game.UI
             }
         }
     }
+
 
 }

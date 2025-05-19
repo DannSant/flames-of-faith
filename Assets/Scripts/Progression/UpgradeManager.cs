@@ -4,19 +4,21 @@ using UnityEngine;
 using Game.Waves;
 using Game.Common;
 using System.Linq;
+using Game.Combat;
+using static UnityEngine.Rendering.DebugUI;
+using Game.Scene;
 
 namespace Game.Progression
 {
     
     public class UpgradeManager : Singleton<UpgradeManager>
     {
-        [SerializeField] private List<StatType> eligibleUpgradeStats = new();
-        //[SerializeField] private int statIncreaseAmount = 1;
+        [SerializeField] private List<StatType> eligibleUpgradeStats = new();       
 
         private int lastRecordedLevel = 1;
         private int levelsGainedThisWave = 0;
 
-        public event Action<List<StatValuePair>> OnUpgradeOptionsAvailable;
+        public event Action<List<List<StatValuePair>>> OnUpgradeOptionsAvailable;
         public event Action OnNoUpgradeAvailable;
 
         protected override void Awake()
@@ -35,6 +37,11 @@ namespace Game.Progression
             {
                 WaveSpawner.Instance.OnWaveComplete += HandleWaveComplete;
             }
+
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayResetRequested += ResetUpgradeManagerstate;
+            }
         }
 
         private void OnDestroy()
@@ -43,6 +50,16 @@ namespace Game.Progression
             {
                 WaveSpawner.Instance.OnWaveComplete -= HandleWaveComplete;
             }
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayResetRequested -= ResetUpgradeManagerstate;
+            }
+        }
+
+        private void ResetUpgradeManagerstate()
+        {
+            lastRecordedLevel = 1;
+            levelsGainedThisWave = 0;
         }
 
         private void HandleWaveComplete()
@@ -53,17 +70,24 @@ namespace Game.Progression
 
             if (levelsGainedThisWave > 0)
             {
-                List<StatType> selectedStats = GetRandomStats(3);
-                List<StatValuePair> upgradeOptions = new();
+                List<List<StatValuePair>> upgradeChoiceGroups = new();
 
-                foreach (var stat in selectedStats)
+                for (int i = 0; i < levelsGainedThisWave; i++)
                 {
-                    int tier = RollUpgradeTier(stat);
-                    int value = StatUpgradeDatabase.Instance.GetUpgradeAmount(stat, tier);
-                    upgradeOptions.Add(new StatValuePair(stat, value));
+                    List<StatType> selectedStats = GetRandomStats(3); // Or adjust # of choices here
+                    List<StatValuePair> upgradeOptions = new();
+
+                    foreach (var stat in selectedStats)
+                    {
+                        int tier = RollUpgradeTier(stat);
+                        int value = StatUpgradeDatabase.Instance.GetUpgradeAmount(stat, tier);
+                        upgradeOptions.Add(new StatValuePair(stat, value));
+                    }
+
+                    upgradeChoiceGroups.Add(upgradeOptions);
                 }
 
-                OnUpgradeOptionsAvailable?.Invoke(upgradeOptions);
+                OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups);
             }
             else
             {
@@ -118,11 +142,11 @@ namespace Game.Progression
             return selected;
         }
 
-        public void ApplyUpgrade(StatType selectedStat, int statIncreaseAmount)
+        /*public void ApplyUpgrade(StatType selectedStat, int statIncreaseAmount)
         {
             PlayerProgression.Instance.UpdateStat(selectedStat, statIncreaseAmount);
             WaveSpawner.Instance.ConfirmNextWave();
-        }
+        }*/
 
     }
 }
