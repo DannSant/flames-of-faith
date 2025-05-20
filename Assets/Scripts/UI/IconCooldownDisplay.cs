@@ -2,6 +2,7 @@ using Game.Combat;
 using UnityEngine;
 using UnityEngine.UI;
 using Game.Control;
+using Game.Scene;
 namespace Game.UI
 {
     public class IconCooldownDisplay : MonoBehaviour
@@ -10,30 +11,40 @@ namespace Game.UI
         [SerializeField] private Image cooldownSpecialAttackBackground;
         [SerializeField] private Image cooldownDashBackground;
 
+        private WeaponManager weaponManager;
+
         private void Start()
         {
-            if(WeaponManager.Instance != null)
+            weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
+            if (weaponManager != null)
             {
-                WeaponManager.Instance.OnAttackTimerUpdated += UpdateCooldownAttackDisplay;
-                WeaponManager.Instance.OnSpecialAttackTimerUpdated += UpdateCooldownSpecialAttackDisplay;
+                weaponManager.OnAttackTimerUpdated += UpdateCooldownAttackDisplay;
+                weaponManager.OnSpecialAttackTimerUpdated += UpdateCooldownSpecialAttackDisplay;
             }
-            if(Dash.Instance != null)
+            /*if(Dash.Instance != null)
             {
                 Dash.Instance.OnDashTimerUpdated += UpdateCooldownDashDisplay;
+            }*/
+            var playerDash = PlayerManager.Instance.GetPlayerComponent<Dash>();
+            if (playerDash != null)
+            {
+                playerDash.OnDashTimerUpdated += UpdateCooldownDashDisplay;
+                
             }
         }
 
         private void OnDisable()
         {
-            if (WeaponManager.Instance != null)
+            if (weaponManager != null)
             {
-                WeaponManager.Instance.OnAttackTimerUpdated -= UpdateCooldownAttackDisplay;
-                WeaponManager.Instance.OnSpecialAttackTimerUpdated -= UpdateCooldownSpecialAttackDisplay;
+                weaponManager.OnAttackTimerUpdated -= UpdateCooldownAttackDisplay;
+                weaponManager.OnSpecialAttackTimerUpdated -= UpdateCooldownSpecialAttackDisplay;
             }
-
-            if (Dash.Instance != null)
+            var playerDash = PlayerManager.Instance.GetPlayerComponent<Dash>();
+            if (playerDash != null)
             {
-                Dash.Instance.OnDashTimerUpdated -= UpdateCooldownDashDisplay;
+                playerDash.OnDashTimerUpdated -= UpdateCooldownDashDisplay;
+
             }
         }
 

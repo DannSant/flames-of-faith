@@ -2,13 +2,14 @@ using Game.Common;
 using Game.Control;
 using Game.Progression;
 using Game.Scene;
+using Game.Utils;
 using Game.Waves;
 using System.Collections;
 using UnityEngine;
 using static Game.Progression.PlayerProgression;
 
 namespace Game.Combat {
-    public class PlayerHealth : Singleton<PlayerHealth>
+    public class PlayerHealth : MonoBehaviour, ILateInitializable
     {
         private int defaultMaxHealth = 20; // Default max health value
         private int maxHealth = 20;
@@ -28,11 +29,11 @@ namespace Game.Combat {
 
         private int armor = 0;
         private CharacterVisual characterVisual;
-       
+        private PlayerProgression playerProgression;
 
-        protected override void Awake()
-        {
-            base.Awake();
+
+        private void Awake()
+        {          
             characterVisual = GetComponentInChildren<CharacterVisual>();
             if(characterVisual == null)
             {
@@ -43,17 +44,17 @@ namespace Game.Combat {
 
         private void Start()
         {
-            //currentHealth = maxHealth;
-            currentHealth = PlayerProgression.Instance.GetStatTotal(StatType.MaxHealth);
-            armor = PlayerProgression.Instance.GetStatTotal(StatType.Armor);
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            currentHealth = playerProgression.GetStatTotal(StatType.MaxHealth);
+            armor = playerProgression.GetStatTotal(StatType.Armor);
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 
             // Suscribe to onStatUpdated event to get notifications when the stats for health and armor change
-            PlayerProgression.Instance.onStatUpdated += OnStatUpdated;
+            playerProgression.onStatUpdated += OnStatUpdated;
 
             // Suscribe to wave event to restore health at the start of each wave
-            WaveSpawner.Instance.OnWaveStarted += PlayerHealth_OnWaveStarted;
+            
 
             // Suscribe to OnGameplayResetRequested to reset the state after the game reloads
             if (MainSceneController.Instance != null)
@@ -61,12 +62,21 @@ namespace Game.Combat {
                 MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerHealthState;
             }
 
-        }    
+        }
+
+        public void LateInitialize()
+        {
+            if (WaveSpawner.Instance == null)
+            {
+                Debug.LogError("WaveSpawner instance not found.");
+            }
+            WaveSpawner.Instance.OnWaveStarted += PlayerHealth_OnWaveStarted;
+        }
 
         private void OnDisable()
         {
             // Unsubscribe to avoid memory leaks
-            PlayerProgression.Instance.onStatUpdated -= OnStatUpdated;
+            playerProgression.onStatUpdated -= OnStatUpdated;
             WaveSpawner.Instance.OnWaveStarted -= PlayerHealth_OnWaveStarted;
             if (MainSceneController.Instance != null)
             {

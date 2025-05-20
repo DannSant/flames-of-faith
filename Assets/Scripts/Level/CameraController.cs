@@ -29,7 +29,7 @@ namespace Game.Level
         public void SetPlayerCameraFollow()
         {
             cinemachineCamera = FindFirstObjectByType<CinemachineCamera>();
-            cinemachineCamera.Follow = PlayerController.Instance.transform;
+            cinemachineCamera.Follow = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
         }
     }
 

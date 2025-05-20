@@ -1,6 +1,7 @@
 using Game.AI;
 using Game.Control;
 using Game.Misc;
+using Game.Scene;
 using UnityEngine;
 
 public class EnemyChaserAI : EnemyAIBase
@@ -19,7 +20,8 @@ public class EnemyChaserAI : EnemyAIBase
     protected override void Start()
     {
         base.Start();
-        player = PlayerController.Instance.transform; // Assuming you have a singleton for the player
+        //player = PlayerController.Instance.transform;
+        player = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
     }
 
     protected override void Update()

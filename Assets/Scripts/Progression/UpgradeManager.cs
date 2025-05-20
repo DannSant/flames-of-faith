@@ -21,6 +21,9 @@ namespace Game.Progression
         public event Action<List<List<StatValuePair>>> OnUpgradeOptionsAvailable;
         public event Action OnNoUpgradeAvailable;
 
+        private PlayerProgression playerProgression;
+        private PlayerExperience playerExperience;
+
         protected override void Awake()
         {
             base.Awake();
@@ -28,9 +31,11 @@ namespace Game.Progression
 
         private void Start()
         {
-            if (PlayerExperience.Instance != null)
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            if (playerExperience != null)
             {
-                lastRecordedLevel = PlayerExperience.Instance.GetCurrentLevel();
+                lastRecordedLevel = playerExperience.GetCurrentLevel();
             }
 
             if (WaveSpawner.Instance != null)
@@ -64,7 +69,7 @@ namespace Game.Progression
 
         private void HandleWaveComplete()
         {
-            int currentLevel = PlayerExperience.Instance.GetCurrentLevel();
+            int currentLevel = playerExperience.GetCurrentLevel();
             levelsGainedThisWave = currentLevel - lastRecordedLevel;
             lastRecordedLevel = currentLevel;
 
@@ -99,7 +104,7 @@ namespace Game.Progression
         {
             float[] baseChances = new float[] { 80f, 10f, 8f, 2f }; // Tiers 1–4
 
-            int luck = PlayerProgression.Instance.GetStatTotal(StatType.Luck);
+            int luck = playerProgression.GetStatTotal(StatType.Luck);
 
             // Adjust tier 1
             baseChances[0] = Mathf.Max(0f, baseChances[0] - luck);

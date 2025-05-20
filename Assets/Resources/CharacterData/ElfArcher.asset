@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
+  m_Name: ElfArcher
+  m_EditorClassIdentifier: 
+  characterName: Elf Archer
+  characterClass: 3
+  animatorController: {fileID: 9100000, guid: 281fe65995468ba46bfa19316915ef72, type: 2}
+  defaultSprite: {fileID: 21300000, guid: 41aca6795290d486aa661b867d2f8548, type: 3}

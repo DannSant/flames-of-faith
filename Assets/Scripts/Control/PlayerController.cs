@@ -7,19 +7,20 @@ using Game.Scene;
 using Game.Combat;
 namespace Game.Control
 {
-    public class PlayerController : Singleton<PlayerController>
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float baseMoveSpeed = 5f;
         [SerializeField] private float baseMoveScale = 0.25f;
 
         private float moveSpeed = 1f;
 
-        //private InputSystem_Actions inputActions;
+        private CharacterVisual characterVisual;
+        private PlayerProgression playerProgression;
         private PlayerInputHandler inputHandler;
+        private WeaponManager weaponManager;
         private Vector2 movement;
         private Rigidbody2D rb;       
-        private Knockback knockback;
-        private CharacterVisual characterVisual;
+        private Knockback knockback;        
 
         private Vector2 defaultPosition;
         private bool attackButtonDown = false;
@@ -29,9 +30,8 @@ namespace Game.Control
 
         private bool facingLeft = false;
 
-        protected override void Awake()
-        {
-            base.Awake();                           
+        private void Awake()
+        {                                
            
             rb = GetComponent<Rigidbody2D>();           
             knockback = GetComponent<Knockback>();
@@ -46,24 +46,25 @@ namespace Game.Control
         }
 
         private void Start()
-        {
-            inputHandler = PlayerInputHandler.Instance;
-            PlayerProgression.Instance.onStatUpdated += PlayerController_onStatUpdatedEvent;
+        {           
+            weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();            
+            playerProgression.onStatUpdated += PlayerController_onStatUpdatedEvent;
             SetMoveSpeed();
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerPosition;
             }
-          
+
+            inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
             inputHandler.Player.Attack.performed += ctx => StartAttacking();
             inputHandler.Player.Attack.canceled += ctx => StopAttacking();
-
             inputHandler.Player.Special.performed += ctx => StartSpecialAttack();
         }
 
         private void OnDisable()
         {
-            PlayerProgression.Instance.onStatUpdated -= PlayerController_onStatUpdatedEvent;
+            playerProgression.onStatUpdated -= PlayerController_onStatUpdatedEvent;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested -= ResetPlayerPosition;
@@ -108,7 +109,7 @@ namespace Game.Control
 
         private void SetMoveSpeed() 
         { 
-            moveSpeed = StatsCalculations.CalculateMoveSpeed(PlayerProgression.Instance.GetStatTotal(StatType.MoveSpeed), baseMoveSpeed, baseMoveScale);
+            moveSpeed = StatsCalculations.CalculateMoveSpeed(playerProgression.GetStatTotal(StatType.MoveSpeed), baseMoveSpeed, baseMoveScale);
         }
 
         private void MovementInput()
@@ -133,12 +134,12 @@ namespace Game.Control
 
         private void Attack()
         {
-            WeaponManager.Instance.Attack();
+            weaponManager.Attack();
         }
 
         private void StartSpecialAttack()
         {
-           WeaponManager.Instance.SpecialAttack();
+            weaponManager.SpecialAttack();
         }
 
         private void Move()
@@ -149,9 +150,9 @@ namespace Game.Control
 
         private void AdjustPlayerFacingDirection()
         {
-            if (WeaponManager.Instance != null && WeaponManager.Instance.IsAutoAttackEnabled)
+            if (weaponManager != null && weaponManager.IsAutoAttackEnabled)
             {
-                Health target = WeaponManager.Instance.GetCurrentTarget();
+                Health target = weaponManager.GetCurrentTarget();
                 if (target != null)
                 {
                     Vector3 targetPosition = target.transform.position;

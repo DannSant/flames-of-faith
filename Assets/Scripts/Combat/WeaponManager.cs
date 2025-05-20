@@ -4,7 +4,7 @@ using Game.Control;
 using System;
 namespace Game.Combat
 {
-    public class WeaponManager : Singleton<WeaponManager>
+    public class WeaponManager :MonoBehaviour
     {
         [SerializeField] private WeaponBase startingWeapon;
         [SerializeField] private bool autoAttackEnabled = false;
@@ -15,9 +15,8 @@ namespace Game.Combat
 
         public bool IsAutoAttackEnabled  { get { return autoAttackEnabled; } private set { autoAttackEnabled = value; } }
 
-        protected override void Awake()
-        {
-            base.Awake();
+        private void Awake()
+        {           
             if (startingWeapon != null)
             {
                 EquipWeapon(startingWeapon);                
@@ -39,15 +38,12 @@ namespace Game.Combat
         }
 
         private void ManageAutoAttack()
-        {
-            Debug.Log("ManageAutoAttack");
+        {           
             if (autoAttackEnabled && currentWeapon != null && !currentWeapon.IsAttackTimerActive())
-            {
-                Debug.Log("ManageAutoAttack 2");
+            {               
                 var target = FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange());
                 if (target != null)
-                {
-                    Debug.Log("ManageAutoAttack 3");
+                {                    
                     currentWeapon.SetTarget(target);
                     currentWeapon.Attack();
                 }

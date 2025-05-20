@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 namespace Game.Control
 {
 
-    public class PlayerInputHandler : Singleton<PlayerInputHandler>
+    public class PlayerInputHandler : MonoBehaviour
     {
        
 
@@ -15,20 +15,20 @@ namespace Game.Control
 
         public InputSystem_Actions.PlayerActions Player => inputActions.Player;
 
-        protected override void Awake()
-        {        
-            base.Awake();
+        private void Awake()
+        {
             inputActions = new InputSystem_Actions();
         }
 
         private void Start()
-        {
-            if(PlayerHealth.Instance != null)
+        { 
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                PlayerHealth.Instance.onDeath += DisableInput;
+                playerHealth.onDeath += DisableInput;
             }
 
-            if(MainSceneController.Instance != null)
+            if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested += EnableInput;
             }
@@ -42,9 +42,10 @@ namespace Game.Control
         private void OnDisable()
         {
             inputActions.Disable();
-            if (PlayerHealth.Instance != null)
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                PlayerHealth.Instance.onDeath -= DisableInput;
+                playerHealth.onDeath -= DisableInput;
             }
             if (MainSceneController.Instance != null)
             {

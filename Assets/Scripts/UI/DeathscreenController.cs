@@ -11,16 +11,23 @@ namespace Game.UI
         private void Start()
         {
             deathScreenPanel.SetActive(false);           
-            if (PlayerHealth.Instance != null) {
+            /*if (PlayerHealth.Instance != null) {
                 PlayerHealth.Instance.onDeath += ShowDeathScreen;
+            }*/
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath += ShowDeathScreen;
             }
+            
         }
 
         private void OnDisable()
-        {
-            if (PlayerHealth.Instance != null)
+        {            
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                PlayerHealth.Instance.onDeath -= ShowDeathScreen;
+                playerHealth.onDeath -= ShowDeathScreen;
             }
         }
 

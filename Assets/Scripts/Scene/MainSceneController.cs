@@ -62,6 +62,9 @@ namespace Game.Scene
         {
             yield return StartCoroutine(FadeIn());
 
+            //Spawn player
+            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex);
+
             //unloads gameplay scenes if already loaded (for restart)
             yield return StartCoroutine(UnloadScenesByName(gameplayScenes));
 
@@ -69,7 +72,12 @@ namespace Game.Scene
             yield return StartCoroutine(UnloadScenesByName(mainMenuScenes));
 
             yield return SceneManager.LoadSceneAsync(gameplaySceneName, LoadSceneMode.Additive);
-            yield return SceneManager.LoadSceneAsync(uiSceneName, LoadSceneMode.Additive);            
+            yield return SceneManager.LoadSceneAsync(uiSceneName, LoadSceneMode.Additive);
+
+            // Move the player to the gameplay scene
+            var gameplayScene = SceneManager.GetSceneByName(gameplaySceneName);
+            PlayerManager.Instance.MovePlayerToScene( gameplayScene);
+            PlayerManager.Instance.LateInitializePlayer();
 
             OnGameplayResetRequested?.Invoke();
 

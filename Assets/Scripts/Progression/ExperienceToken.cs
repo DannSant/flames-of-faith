@@ -1,4 +1,5 @@
 using Game.Control;
+using Game.Scene;
 using Game.Waves;
 using UnityEngine;
 
@@ -24,7 +25,8 @@ namespace Game.Progression
 
         private void Start()
         {
-            playerTransform = PlayerController.Instance.transform;
+            //playerTransform = PlayerController.Instance.transform;
+            playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
         }
 
         private void OnEnable()

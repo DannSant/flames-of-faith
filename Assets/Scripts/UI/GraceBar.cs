@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Scene;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -23,16 +24,27 @@ namespace Game.UI
         }
         private void Start()
         {
-            if (PlayerGrace.Instance != null)
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            if (playerGrace != null)
             {
-                PlayerGrace.Instance.onGraceChanged += UpdateGraceBar;
-                UpdateGraceBar(PlayerGrace.Instance.CurrentGrace, PlayerGrace.Instance.MaxGrace);
+                playerGrace.onGraceChanged += UpdateGraceBar;
+                UpdateGraceBar(playerGrace.CurrentGrace, playerGrace.MaxGrace);
             }
             else
             {
                 Debug.LogWarning("PlayerGrace singleton instance not found!");
             }
         }
+
+        private void OnDisable()
+        {
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            if (playerGrace != null)
+            {
+                playerGrace.onGraceChanged -= UpdateGraceBar;
+            }
+        }
+
         private void UpdateGraceBar(int current, int max)
         {
             UpdateGraceText(current, max);

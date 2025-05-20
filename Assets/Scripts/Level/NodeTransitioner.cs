@@ -27,7 +27,7 @@ namespace Game.Level
 
         private void InitializeNode()
         {
-            PlayerController.Instance.transform.position = transform.position;
+            //PlayerController.Instance.transform.position = transform.position;
             CameraController.Instance.SetPlayerCameraFollow();
         }
 

@@ -1,5 +1,6 @@
 using Game.Control;
 using Game.Progression;
+using Game.Scene;
 using Game.Utils;
 using System;
 using UnityEngine;
@@ -50,21 +51,21 @@ namespace Game.Combat
         private void OnDisable()
         {
            
-            PlayerProgression.Instance.onStatUpdated -= Sword_onStatUpdatedEvent;
+            //PlayerProgression.Instance.onStatUpdated -= Sword_onStatUpdatedEvent;
             //PlayerAnimEventsHandler.Instance.OnSpecialAttackEnded -= EndSpecialAttack;
         }
 
         private void Start()
         {
-            inputHandler = PlayerInputHandler.Instance;
+            inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
             inputHandler.Player.Attack.performed += ctx => StartAttacking();
             inputHandler.Player.Attack.canceled += ctx => StopAttacking();
 
             inputHandler.Player.Special.performed += ctx => StartSpecialAttack();
 
-            playerAnimator = PlayerController.Instance.GetComponent<Animator>();
+            //playerAnimator = PlayerController.Instance.GetComponent<Animator>();
 
-            PlayerProgression.Instance.onStatUpdated += Sword_onStatUpdatedEvent;
+            //PlayerProgression.Instance.onStatUpdated += Sword_onStatUpdatedEvent;
             //PlayerAnimEventsHandler.Instance.OnSpecialAttackEnded += EndSpecialAttack;
 
         }
@@ -96,11 +97,11 @@ namespace Game.Combat
         }
 
         private void SetupAttackSpeedVariables() {
-            float attackDelay = StatsCalculations.CalculateAttackDelay(PlayerProgression.Instance.GetStatTotal(StatType.AttackSpeed),weaponData.attackCooldownBase, weaponData.attackSpeedScale);
-            attackTimer.SetEventDuration(attackDelay);
+            //float attackDelay = StatsCalculations.CalculateAttackDelay(PlayerProgression.Instance.GetStatTotal(StatType.AttackSpeed),weaponData.attackCooldownBase, weaponData.attackSpeedScale);
+            //attackTimer.SetEventDuration(attackDelay);
 
-            float specialAttackDelay = StatsCalculations.CalculateAttackDelay(PlayerProgression.Instance.GetStatTotal(StatType.AttackSpeed), specialWeaponData.attackCooldownBase, specialWeaponData.attackSpeedScale);
-           specialAttackTimer.SetEventDuration(specialAttackDelay);
+            //float specialAttackDelay = StatsCalculations.CalculateAttackDelay(PlayerProgression.Instance.GetStatTotal(StatType.AttackSpeed), specialWeaponData.attackCooldownBase, specialWeaponData.attackSpeedScale);
+           //specialAttackTimer.SetEventDuration(specialAttackDelay);
             
         }
 
@@ -113,11 +114,11 @@ namespace Game.Combat
             }
 
             //check cost
-            if(PlayerGrace.Instance.CurrentGrace<=specialAttackCost)
+            /*if(PlayerGrace.Instance.CurrentGrace<=specialAttackCost)
             {
                 return;
             }
-            PlayerGrace.Instance.RemoveGrace(specialAttackCost);
+            PlayerGrace.Instance.RemoveGrace(specialAttackCost);*/
             playerAnimator.SetTrigger("SpecialAttack");
             specialAttackTimer.StartEvent();
             specialAttackCollider.enabled = true;
@@ -145,12 +146,12 @@ namespace Game.Combat
 
         private void WeaponColliderLookAtMouse()
         {
-            Vector2 mousePosition = PlayerController.Instance.GetMouseWorldPosition(); // Get the mouse position in world space
+            /*Vector2 mousePosition = PlayerController.Instance.GetMouseWorldPosition(); // Get the mouse position in world space
             Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-           weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);
+           weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);*/
 
 
         }

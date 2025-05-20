@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Scene;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,10 +23,16 @@ namespace Game.UI {
         }
         private void Start()
         {
-            if (PlayerHealth.Instance != null)
+            /*if (PlayerHealth.Instance != null)
             {
                 PlayerHealth.Instance.onHealthChanged += UpdateHealthBar;
                 UpdateHealthBar(PlayerHealth.Instance.GetCurrentHealth(), PlayerHealth.Instance.GetMaxHealth());
+            }*/
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onHealthChanged += UpdateHealthBar;
+                UpdateHealthBar(playerHealth.GetCurrentHealth(), playerHealth.GetMaxHealth());
             }
             else
             {

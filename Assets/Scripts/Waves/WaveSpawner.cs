@@ -57,19 +57,21 @@ namespace Game.Waves {
         }
 
         private void Start()
-        {
-            StartNextWave();
-            PlayerHealth.Instance.onDeath += OnPlayerDeathDisableWave;
+        {          
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            playerHealth.onDeath += OnPlayerDeathDisableWave;
             // Suscribe to OnGameplayResetRequested to reset the state after the game reloads
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested += ResetWaveSpawnerState;
             }
+            StartNextWave();
         }
 
         private void OnDisable()
-        {
-            PlayerHealth.Instance.onDeath -= OnPlayerDeathDisableWave;
+        {          
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            playerHealth.onDeath -= OnPlayerDeathDisableWave;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested -= ResetWaveSpawnerState;
@@ -188,6 +190,7 @@ namespace Game.Waves {
             );
 
             GameObject enemyGO = Instantiate(prefab, spawnPos, Quaternion.identity);
+            enemyGO.transform.parent = transform; // Set parent to WaveSpawner
             Enemy enemyComponent = enemyGO.GetComponent<Enemy>();
             enemyComponent.Initialize(currentWaveIndex + 1);
 

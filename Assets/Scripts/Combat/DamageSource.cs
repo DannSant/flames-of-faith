@@ -2,6 +2,7 @@ using Game.AI;
 using Game.Control;
 using Game.Misc;
 using Game.Progression;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.Combat
@@ -13,13 +14,19 @@ namespace Game.Combat
         [SerializeField] private float knockbackForce = 15f;
         [SerializeField] private int graceGenerated = 1;
 
-      
+        private PlayerProgression playerProgression;
+
         private WeaponData weaponData;
 
         public WeaponData WeaponData
         {
             get => weaponData;
             set => weaponData = value;
+        }
+
+        private void Start()
+        {
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -36,12 +43,14 @@ namespace Game.Combat
             if (damageableObject != null)
             {
 
-                int damageAmount = weaponData.baseDamage + PlayerProgression.Instance.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
+                int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
                 damageableObject.TakeDamage(damageAmount);
-                PlayerGrace.Instance.AddGrace(graceGenerated);
+                //TODO create event for this
+                //PlayerGrace.Instance.AddGrace(graceGenerated);
                 if (shouldApplyKnockback && knockback != null)
                 {
-                    knockback.ApplyKnockback(PlayerController.Instance.transform, knockbackForce);
+                    var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+                    knockback.ApplyKnockback(playerTransform, knockbackForce);
                 }
             }
         }

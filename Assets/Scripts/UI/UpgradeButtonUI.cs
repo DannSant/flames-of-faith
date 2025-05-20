@@ -21,6 +21,12 @@ namespace Game.UI
             upgradeButton = GetComponent<Button>();
         }
 
+        private void OnDisable()
+        {
+            upgradeButton.onClick.RemoveListener(OnButtonClicked);
+            OnUpgradeSelected = null;
+        }
+
         public void Initialize(int amount, StatType stat)
         {
             this.upgradeAmount = amount;

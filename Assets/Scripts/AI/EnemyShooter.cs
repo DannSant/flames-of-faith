@@ -1,6 +1,7 @@
 using Game.Combat;
 using Game.Control;
 using Game.Misc;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.AI {
@@ -36,7 +37,8 @@ namespace Game.AI {
         protected override void Start()
         {
             base.Start();
-            player = PlayerController.Instance.transform; // Assuming you have a singleton for the player
+            //player = PlayerController.Instance.transform;
+            player = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
         }
 
         protected override void Update()

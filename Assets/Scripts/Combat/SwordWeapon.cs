@@ -1,5 +1,6 @@
 using Game.Control;
 using Game.Progression;
+using Game.Scene;
 using Game.Utils;
 using UnityEngine;
 using static Game.Progression.PlayerProgression;
@@ -14,6 +15,10 @@ namespace Game.Combat
         [SerializeField] private DamageSource specialDamageSource;
        
         private CharacterVisual characterVisual;
+        private PlayerController playerController;
+        private PlayerGrace playerGrace;
+        private PlayerProgression playerProgression;
+        private WeaponManager weaponManager;
         private bool attackButtonDown = false;
         private int specialAttackCost = 3;
 
@@ -30,12 +35,17 @@ namespace Game.Combat
             attackTimer = new UpdateTimer(1);
             specialAttackTimer = new UpdateTimer(1);
 
+            playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
+            playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
+
             SetupAttackSpeedVariables();
 
             mainDamageSource.WeaponData = weaponData;
             specialDamageSource.WeaponData = specialWeaponData;
 
-            PlayerProgression.Instance.onStatUpdated += OnStatUpdated;
+            playerProgression.onStatUpdated += OnStatUpdated;
             characterVisual.OnAttackEndAnimEvent += CharacterVisual_OnAttackEndAnimEvent;
             characterVisual.OnSpecialAttackEndAnimEvent += CharacterVisual_OnSpecialAttackEndAnimEvent;
             
@@ -44,7 +54,7 @@ namespace Game.Combat
 
         private void OnDisable()
         {
-            PlayerProgression.Instance.onStatUpdated -= OnStatUpdated;
+            playerProgression.onStatUpdated -= OnStatUpdated;
             characterVisual.OnAttackEndAnimEvent -= CharacterVisual_OnAttackEndAnimEvent;
             characterVisual.OnSpecialAttackEndAnimEvent -= CharacterVisual_OnSpecialAttackEndAnimEvent;
           
@@ -54,7 +64,7 @@ namespace Game.Combat
         {
             ProcessAttackTimers();
             AttackUpdate();
-            if (WeaponManager.Instance.IsAutoAttackEnabled)
+            if (weaponManager.IsAutoAttackEnabled)
             {
                 WeaponColliderLookAtTarget();
             }else
@@ -75,13 +85,13 @@ namespace Game.Combat
         private void SetupAttackSpeedVariables()
         {
             float attackDelay = StatsCalculations.CalculateAttackDelay(
-                PlayerProgression.Instance.GetStatTotal(StatType.AttackSpeed),
+                playerProgression.GetStatTotal(StatType.AttackSpeed),
                 weaponData.attackCooldownBase,
                 weaponData.attackSpeedScale);
             attackTimer.SetEventDuration(attackDelay);
 
             float specialAttackDelay = StatsCalculations.CalculateAttackDelay(
-                PlayerProgression.Instance.GetStatTotal(StatType.AttackSpeed),
+                playerProgression.GetStatTotal(StatType.AttackSpeed),
                 specialWeaponData.attackCooldownBase,
                 specialWeaponData.attackSpeedScale);
             specialAttackTimer.SetEventDuration(specialAttackDelay);
@@ -101,9 +111,9 @@ namespace Game.Combat
         public override void SpecialAttack()
         {
             if (specialAttackTimer.GetIsEventActive()) return;
-            if (PlayerGrace.Instance.CurrentGrace <= specialAttackCost) return;
+            if (playerGrace.CurrentGrace <= specialAttackCost) return;
 
-            PlayerGrace.Instance.RemoveGrace(specialAttackCost);
+            playerGrace.RemoveGrace(specialAttackCost);
 
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
@@ -134,7 +144,7 @@ namespace Game.Combat
 
         private void WeaponColliderLookAtMouse()
         {
-            Vector2 mousePosition = PlayerController.Instance.GetMouseWorldPosition();
+            Vector2 mousePosition = playerController.GetMouseWorldPosition();
             Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);

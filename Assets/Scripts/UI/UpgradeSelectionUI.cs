@@ -1,4 +1,5 @@
 using Game.Progression;
+using Game.Scene;
 using Game.Waves;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,12 @@ namespace Game.UI
         private List<List<StatValuePair>> upgradeChoiceGroups;
         private int currentChoiceIndex = 0;
 
+        private PlayerProgression playerProgression;
+
         private void Start()
         {
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             UpgradeManager upgradeManager = UpgradeManager.Instance;
-
             if (upgradeManager != null)
             {
                 upgradeManager.OnUpgradeOptionsAvailable += ShowUpgradeChoices;
@@ -72,7 +75,7 @@ namespace Game.UI
 
         private void HandleUpgradeSelected(StatType statType, int amount)
         {
-            PlayerProgression.Instance.UpdateStat(statType, amount);
+            playerProgression.UpdateStat(statType, amount);
             currentChoiceIndex++;
             ShowCurrentChoice();
         }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Progression {
-    public class PlayerProgression : Singleton<PlayerProgression>
+    public class PlayerProgression : MonoBehaviour
     {
         [SerializeField] private List<StatData> initialStats = new List<StatData>();
 
@@ -20,9 +20,8 @@ namespace Game.Progression {
             public int initialValue;             
         }
 
-        protected override void Awake()
-        {
-            base.Awake();
+        private void Awake()
+        {           
             ResetProgression();            
         }
 

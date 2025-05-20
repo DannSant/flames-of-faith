@@ -1,20 +1,22 @@
 using Game.Combat;
 using Game.Common;
 using Game.Progression;
+using Game.Scene;
 using Game.Utils;
 using System;
 using UnityEngine;
 
 namespace Game.Control
 {
-    public class Dash : Singleton<Dash>
+    public class Dash : MonoBehaviour
     {
         [SerializeField] private float dashSpeed = 3f;
 
         public Action<float, float> OnDashTimerUpdated;
 
-        //private InputSystem_Actions inputActions;
         private PlayerInputHandler inputHandler;
+        private PlayerController playerController;
+        private PlayerProgression playerProgression;
         private TrailRenderer dashTrailRenderer;
         private CharacterVisual characterVisual;
         private Collider2D characterCollider;
@@ -25,9 +27,9 @@ namespace Game.Control
         private UpdateTimer dashUpdateTimer;
         private UpdateTimer dashCooldownTimer;
 
-        protected override void Awake()
-        {
-            base.Awake();
+
+        private void Awake()
+        {          
             dashTrailRenderer = GetComponent<TrailRenderer>();
             characterCollider = GetComponent<Collider2D>();
             characterVisual = GetComponentInChildren<CharacterVisual>();
@@ -40,15 +42,17 @@ namespace Game.Control
 
         private void Start()
         {
-            inputHandler = PlayerInputHandler.Instance;
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
             inputHandler.Player.Jump.performed += ctx => StartDashEvent();
 
-            PlayerProgression.Instance.onStatUpdated += Dash_onStatUpdatedEvent;
+            playerProgression.onStatUpdated += Dash_onStatUpdatedEvent;
+            playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
         }
 
         private void OnDisable()
         {
-            PlayerProgression.Instance.onStatUpdated -= Dash_onStatUpdatedEvent;
+            playerProgression.onStatUpdated -= Dash_onStatUpdatedEvent;
         }
 
 
@@ -83,19 +87,21 @@ namespace Game.Control
         private void StartDashing()
         {
             characterVisual.PlayDashAnimation();
-            PlayerController.Instance.ChangeDashMultiplier(dashSpeed);
+            //PlayerController.Instance.ChangeDashMultiplier(dashSpeed);
+            playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
         }
 
         private void EndDashing()
-        {           
-            PlayerController.Instance.ResetDashMultiplier();
+        {
+            //PlayerController.Instance.ResetDashMultiplier();
+            playerController.ResetDashMultiplier();
             dashTrailRenderer.emitting = false;
         }
 
         private void SetupAttackSpeedVariables()
         {
-            float dashCooldown = StatsCalculations.CalculateDashCooldown(PlayerProgression.Instance.GetStatTotal(StatType.DashCooldown), dashCooldownBase);
+            float dashCooldown = StatsCalculations.CalculateDashCooldown(playerProgression.GetStatTotal(StatType.DashCooldown), dashCooldownBase);
             dashCooldownTimer.SetEventDuration(dashCooldown);           
 
         }

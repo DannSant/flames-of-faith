@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Progression
 {
-    public class PlayerExperience : Singleton<PlayerExperience>
+    public class PlayerExperience : MonoBehaviour
     {
         [Header("Experience Growth Settings")]
         [SerializeField] private float baseXPRequired = 10f;
@@ -19,9 +19,11 @@ namespace Game.Progression
         public event Action<int,int> OnPlayerExperienceGainEvent;
         public delegate void OnLevelUp(int newLevel, int newXPRequired);
         public event OnLevelUp onLevelUp;
+        private PlayerProgression playerProgression;
 
         private void Start()
         {
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             // Optionally initialize XP/Level from save data later
             if (MainSceneController.Instance != null)
             {
@@ -56,7 +58,7 @@ namespace Game.Progression
                 currentXP -= xpToLevelUp;
                 currentLevel++;
                 onLevelUp?.Invoke(currentLevel, GetXPRequired(currentLevel));
-               PlayerProgression.Instance.GetStatTotal(StatType.ExperienceToLevelUpReduction);
+                //PlayerProgression.Instance.GetStatTotal(StatType.ExperienceToLevelUpReduction);
                 
             }
         }
@@ -65,7 +67,7 @@ namespace Game.Progression
         public int GetCurrentLevel() => currentLevel;
         public int GetXPRequired(int level)
         {
-            float reductionStat = PlayerProgression.Instance.GetStatTotal(StatType.ExperienceToLevelUpReduction);
+            float reductionStat = playerProgression.GetStatTotal(StatType.ExperienceToLevelUpReduction);
             float reduction = reductionStat * growthReductionPerPoint;
             float dynamicGrowth = baseGrowthRate - reduction;
 

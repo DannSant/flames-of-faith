@@ -27,7 +27,7 @@ namespace Game.Combat
 
         private void MouseFollowWithOffset()
         {
-            Vector2 mousePosition = PlayerController.Instance.GetMouseWorldPosition(); // Get the mouse position in world space
+            /*Vector2 mousePosition = PlayerController.Instance.GetMouseWorldPosition(); // Get the mouse position in world space
             Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
             transform.right = direction; // Rotate the sword to face the mouse position
             Vector2 scale = transform.localScale;
@@ -39,7 +39,7 @@ namespace Game.Combat
             {
                 scale.y = 1;
             }
-            transform.localScale = scale;
+            transform.localScale = scale;*/
 
         }        
     }

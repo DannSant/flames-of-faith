@@ -1,4 +1,5 @@
 using Game.Progression;
+using Game.Scene;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace Game.UI {
 
         [SerializeField] private float fillSpeed = 5f;
 
+        private PlayerExperience playerExperience;
+
         private void Awake()
         {
             experienceSlider = GetComponent<Slider>();            
@@ -21,20 +24,22 @@ namespace Game.UI {
 
         private void Start()
         {
-            if (PlayerExperience.Instance != null)
+            playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            if (playerExperience != null)
             {
-                PlayerExperience.Instance.OnPlayerExperienceGainEvent += OnPlayerExperienceGain;
-                PlayerExperience.Instance.onLevelUp += OnPlayerLevelUp;
+                playerExperience.OnPlayerExperienceGainEvent += OnPlayerExperienceGain;
+                playerExperience.onLevelUp += OnPlayerLevelUp;
             }
             OnPlayerExperienceGain(0, 10);
         }
 
         private void OnDestroy()
         {
-            if (PlayerExperience.Instance != null)
+            playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            if (playerExperience != null)
             {
-                PlayerExperience.Instance.OnPlayerExperienceGainEvent -= OnPlayerExperienceGain;
-                PlayerExperience.Instance.onLevelUp -= OnPlayerLevelUp;
+                playerExperience.OnPlayerExperienceGainEvent -= OnPlayerExperienceGain;
+                playerExperience.onLevelUp -= OnPlayerLevelUp;
             }
         }
 
