@@ -11,7 +11,12 @@ namespace Game.Progression {
         MaxGrace, 
         Armor, 
         ExperienceToLevelUpReduction,
-        Luck, // TODO
+        Luck,
+        RangedDamage,
+        Range,//TODO
+        PierceAmount,
+        MagicDamage,
+        Cleave, //TODO
     }
 
 }

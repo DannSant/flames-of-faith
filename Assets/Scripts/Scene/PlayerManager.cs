@@ -28,8 +28,7 @@ namespace Game.Scene
                 Destroy(currentPlayer);
             }
 
-            GameObject prefab = playerPrefabs[selectedIndex];
-            Debug.Log($"Spawning player prefab: {prefab.name} at {spawnPoint.position}");
+            GameObject prefab = playerPrefabs[selectedIndex];           
             currentPlayer = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
             
         }
@@ -51,7 +50,7 @@ namespace Game.Scene
         {
             if (currentPlayer == null)
             {
-                Debug.LogError("Player not spawned yet.");
+                //Debug.LogError("Player not spawned yet.");
                 return null;
             }
             return currentPlayer?.GetComponent<T>();

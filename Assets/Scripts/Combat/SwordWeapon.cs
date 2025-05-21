@@ -43,11 +43,14 @@ namespace Game.Combat
             SetupAttackSpeedVariables();
 
             mainDamageSource.WeaponData = weaponData;
+            mainDamageSource.OnDamageDealt += OnDamageDealt;
             specialDamageSource.WeaponData = specialWeaponData;
+            specialDamageSource.OnDamageDealt += OnSpecialDamageDealt;
 
             playerProgression.onStatUpdated += OnStatUpdated;
             characterVisual.OnAttackEndAnimEvent += CharacterVisual_OnAttackEndAnimEvent;
             characterVisual.OnSpecialAttackEndAnimEvent += CharacterVisual_OnSpecialAttackEndAnimEvent;
+
             
         }
         
@@ -57,7 +60,10 @@ namespace Game.Combat
             playerProgression.onStatUpdated -= OnStatUpdated;
             characterVisual.OnAttackEndAnimEvent -= CharacterVisual_OnAttackEndAnimEvent;
             characterVisual.OnSpecialAttackEndAnimEvent -= CharacterVisual_OnSpecialAttackEndAnimEvent;
-          
+
+            mainDamageSource.OnDamageDealt -= OnDamageDealt;            
+            specialDamageSource.OnDamageDealt -= OnSpecialDamageDealt;
+
         }
 
         private void Update()
@@ -133,6 +139,22 @@ namespace Game.Combat
             }
         }
 
+        private void OnDamageDealt(int damage, int graceGenerated) 
+        {
+            if (graceGenerated > 0) 
+            {
+                playerGrace.AddGrace(graceGenerated);
+            }
+        }
+
+        private void OnSpecialDamageDealt(int damage, int graceGenerated)
+        {
+            if (graceGenerated > 0)
+            {
+                playerGrace.AddGrace(graceGenerated);
+            }
+        }
+
         private void WeaponColliderLookAtTarget()
         {
             if (currentTarget == null) return;
@@ -167,7 +189,10 @@ namespace Game.Combat
         }
 
 
-        public override float GetWeaponRange() => 3f;
+        public override float GetWeaponRange()
+        {           
+            return weaponData.rangeBase;
+        }
 
         public override bool IsAttackTimerActive() => attackTimer.GetIsEventActive();
         public override bool IsSpecialAttackTimerActive() => specialAttackTimer.GetIsEventActive(); 

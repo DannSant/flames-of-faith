@@ -71,7 +71,11 @@ namespace Game.Waves {
         private void OnDisable()
         {          
             var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
-            playerHealth.onDeath -= OnPlayerDeathDisableWave;
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath -= OnPlayerDeathDisableWave;
+            }
+            
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested -= ResetWaveSpawnerState;

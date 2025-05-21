@@ -1,3 +1,4 @@
+using Game.Combat.Projectiles;
 using UnityEngine;
 
 namespace Game.Combat {
@@ -19,6 +20,15 @@ namespace Game.Combat {
 
         [Tooltip("Depending on the weapon class damage will scale diferently. Example Melee weapons only scale if damage is done through a weapon collider instead of a projectile")]
         public WeaponClass weaponClass = WeaponClass.Melee;
+
+        [Tooltip("Initial range")]
+        public float rangeBase = 3;
+
+        [Tooltip("Prefab of the projectile if applicable")]
+        public ProjectileBase projectilePrefab;
+
+        [Tooltip("Amount of targets the projectile can pierce before gets destroyed")]
+        public int pierceAmount = 1;
     }
 
     public enum WeaponClass { 
