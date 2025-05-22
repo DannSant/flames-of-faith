@@ -13,8 +13,7 @@ namespace Game.Combat
         private PlayerProgression playerProgression;       
 
         private WeaponData weaponData;
-        public Action<int, int> OnDamageDealt;
-       
+        public Action<int, int, GameObject> OnDamageDealt;       
 
         public WeaponData WeaponData
         {
@@ -36,13 +35,14 @@ namespace Game.Combat
         private void ProcessDamageToEnemies(Collider2D collision) 
         {
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
+            Transform transform = collision.transform;
             Knockback knockback = collision.GetComponent<Knockback>();
             if (damageableObject != null)
             {
 
                 int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
                 damageableObject.TakeDamage(damageAmount);               
-                OnDamageDealt?.Invoke(damageAmount, WeaponData.graceGenerated);               
+                OnDamageDealt?.Invoke(damageAmount, WeaponData.graceGenerated, transform.gameObject);               
                 if (WeaponData.shouldApplyKnockback && knockback != null)
                 {
                     var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;

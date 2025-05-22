@@ -3,21 +3,31 @@ using UnityEngine;
 
 namespace Game.Combat.Projectiles
 {
+    public enum ProjectileType
+    {
+        Linear,
+        Homing,
+        Bouncing,
+        Explosive
+    }
+
     public abstract class ProjectileBase : MonoBehaviour
     {
         [SerializeField] protected float speed=5;
-        [SerializeField] private int graceGenerated = 1;
+        [SerializeField] protected ProjectileType projectileType = ProjectileType.Linear;
+
         protected float lifetime;
         protected int pierceCount;
         protected int damageAmount;
         protected Vector2 moveDirection;
         protected bool damageToPlayer = false;
+        protected int graceGenerated = 1;
         private float timer;
 
         int enemyLayerMask;
         int playerLayerMask;
 
-        public Action<int, int> OnDamageDealtEvent;
+        public Action<int, int, GameObject> OnDamageDealtEvent;
 
         private void Awake()
         {
@@ -25,13 +35,14 @@ namespace Game.Combat.Projectiles
             playerLayerMask = LayerMask.NameToLayer("Player");
         }
 
-        public virtual void Initialize(Vector2 direction, int amount, int pierce, float lifeTime, bool damageToPlayer)
+        public virtual void Initialize(Vector2 direction, int damageAmount, int pierce, float lifeTime, bool damageToPlayer, int graceGenerated)
         {
             this.moveDirection = direction.normalized;
-            this.damageAmount = amount;
+            this.damageAmount = damageAmount;
             this.pierceCount = pierce;
             this.lifetime = lifeTime;
             this.damageToPlayer = damageToPlayer;
+            this.graceGenerated = graceGenerated;
             timer = 0f;
         }
 
@@ -54,12 +65,12 @@ namespace Game.Combat.Projectiles
             if (damageToPlayer && other.gameObject.layer == playerLayerMask)
             {
                 DamagePlayer(other.GetComponent<PlayerHealth>());
-                OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated);
+                OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated, gameObject);
             }
             else if (!damageToPlayer && other.gameObject.layer == enemyLayerMask)
             {
                 DamageEnemy(other.GetComponent<Health>());
-                OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated);
+                OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated,gameObject);
             }         
 
         }
@@ -94,5 +105,7 @@ namespace Game.Combat.Projectiles
                 }
             }
         }
+
+        public ProjectileType GetProjectileType() => projectileType;
     }
 }

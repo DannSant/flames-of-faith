@@ -26,16 +26,12 @@ namespace Game.Combat
             mainDamageSource.OnDamageDealt += OnDamageDealt;
             specialDamageSource.WeaponData = specialWeaponData;
             specialDamageSource.OnDamageDealt += OnSpecialDamageDealt;
-
-            //characterVisual.OnAttackEndAnimEvent += OnAttackEndAnimEvent;
-            //characterVisual.OnSpecialAttackEndAnimEvent += OnSpecialAttackEndAnimEvent;
+            
         }
 
         protected override void OnDisable()
         {
-            base.OnDisable();
-            //characterVisual.OnAttackEndAnimEvent -= OnAttackEndAnimEvent;
-            //characterVisual.OnSpecialAttackEndAnimEvent -= OnSpecialAttackEndAnimEvent;
+            base.OnDisable();            
             mainDamageSource.OnDamageDealt -= OnDamageDealt;
             specialDamageSource.OnDamageDealt -= OnSpecialDamageDealt;
         }
@@ -86,12 +82,12 @@ namespace Game.Combat
             specialAttackCollider.SetActive(false);
         }
 
-        private void OnDamageDealt(int damage, int graceGenerated)
+        private void OnDamageDealt(int damage, int graceGenerated, GameObject target)
         {
             GrantGrace(graceGenerated);
         }
 
-        private void OnSpecialDamageDealt(int damage, int graceGenerated)
+        private void OnSpecialDamageDealt(int damage, int graceGenerated, GameObject target)
         {
             GrantGrace(graceGenerated);
         }
@@ -129,12 +125,22 @@ namespace Game.Combat
                     enemy.TakeDamage(cleaveDamage);
                 }
                 Knockback knockback = hit.GetComponent<Knockback>();
-                if (knockback != null)
+                if (cleaveDamage> 0 && knockback != null)
                 {
                     var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
                     knockback.ApplyKnockback(playerTransform, weaponData.knockbackForce);
                 }
             }
+        }
+
+        public DamageSource GetDamageSource()
+        {
+            return mainDamageSource;
+        }
+
+        public DamageSource GetSpecialDamageSource() 
+        {
+            return specialDamageSource;
         }
     }
 

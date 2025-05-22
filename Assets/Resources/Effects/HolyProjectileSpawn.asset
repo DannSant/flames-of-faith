@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aad74c01767cfc489c93e408b9aa81c, type: 3}
+  m_Name: HolyProjectileSpawn
+  m_EditorClassIdentifier: 
+  description: Spawns a holy projectile when dealing damage.
+  prefabToSpawn: {fileID: 5262266157608048503, guid: 0fd8d56699f6083429a35c36cb88c83b, type: 3}
+  spawnCount: 1
+  spawnOffset: {x: 0, y: 0}
+  spawnAtRandomRotation: 0

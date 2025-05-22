@@ -9,11 +9,13 @@ namespace Game.Combat
 {
     public class BowWeapon : WeaponBase
     {
-        
+        public event System.Action<ProjectileBase> onBowAttackLaunched;
+        public event System.Action<ProjectileBase> onBowSpecialAttackLaunched;
+
         public override void Attack()
         {
             if (!attackTimer.GetIsEventActive())
-            {
+            {              
                 characterVisual.PlayAttackAnimation();
                 attackTimer.StartEvent();
             }
@@ -40,9 +42,10 @@ namespace Game.Combat
             int pierceAmount = weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
 
             var projectile = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
-            projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false);
+            projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false, weaponData.graceGenerated);
             projectile.ConfigureAfterSpawn();
             projectile.OnDamageDealtEvent += OnDamageDealt;
+            onBowAttackLaunched?.Invoke(projectile);
         }
 
         protected override void OnSpecialAttackAnimationPlayed()
@@ -62,12 +65,12 @@ namespace Game.Combat
                 Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
                 var projectile = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
-                projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false);
+                projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false, specialWeaponData.graceGenerated);
                 projectile.ConfigureAfterSpawn();
             }
         }
 
-        private void OnDamageDealt(int damage, int graceGenerated)
+        private void OnDamageDealt(int damage, int graceGenerated, GameObject target)
         {
             if (graceGenerated > 0)
             {

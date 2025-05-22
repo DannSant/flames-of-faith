@@ -110,6 +110,7 @@ namespace Game.Combat
         public abstract void SpecialAttack();
 
         public abstract float GetWeaponRange();
+        public WeaponData GetWeaponData() => weaponData;
 
         public virtual bool IsAttackTimerActive() => attackTimer.GetIsEventActive();
         public virtual bool IsSpecialAttackTimerActive() => specialAttackTimer.GetIsEventActive();

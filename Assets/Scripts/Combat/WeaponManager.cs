@@ -96,7 +96,7 @@ namespace Game.Combat
         public void SpecialAttack() => currentWeapon?.SpecialAttack();
         public Health GetCurrentTarget() => currentWeapon?.GetTarget();
 
-        public WeaponBase GetCurrentWeapon() => currentWeapon;
+        public WeaponBase GetCurrentWeapon() => currentWeapon;        
     }
 
 }
