@@ -10,16 +10,11 @@ namespace Game.Combat
 {
     public class DamageSource : MonoBehaviour
     {
-        
-        [SerializeField] private bool shouldApplyKnockback = true;
-        [SerializeField] private float knockbackForce = 15f;
-        [SerializeField] private int graceGenerated = 1;
-
         private PlayerProgression playerProgression;       
 
         private WeaponData weaponData;
-
-        public Action<int, int> OnDamageDealt; 
+        public Action<int, int> OnDamageDealt;
+       
 
         public WeaponData WeaponData
         {
@@ -35,7 +30,6 @@ namespace Game.Combat
         private void OnTriggerEnter2D(Collider2D collision)
         {            
             ProcessDamageToEnemies(collision);
-
         }
 
 
@@ -48,11 +42,11 @@ namespace Game.Combat
 
                 int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
                 damageableObject.TakeDamage(damageAmount);               
-                OnDamageDealt?.Invoke(damageAmount, graceGenerated);               
-                if (shouldApplyKnockback && knockback != null)
+                OnDamageDealt?.Invoke(damageAmount, WeaponData.graceGenerated);               
+                if (WeaponData.shouldApplyKnockback && knockback != null)
                 {
                     var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
-                    knockback.ApplyKnockback(playerTransform, knockbackForce);
+                    knockback.ApplyKnockback(playerTransform, WeaponData.knockbackForce);
                 }
             }
         }

@@ -132,9 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d89584e60ea6fd4e8cc083d5e644e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldApplyKnockback: 1
-  knockbackForce: 7
-  graceGenerated: 0
 --- !u!1 &1924296616617202174
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,9 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d89584e60ea6fd4e8cc083d5e644e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldApplyKnockback: 1
-  knockbackForce: 5
-  graceGenerated: 1
 --- !u!1 &2352844759146296866
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +707,16 @@ MonoBehaviour:
   - statType: 7
     initialValue: 0
   - statType: 8
+    initialValue: 0
+  - statType: 9
+    initialValue: 0
+  - statType: 10
+    initialValue: 0
+  - statType: 11
+    initialValue: 0
+  - statType: 12
+    initialValue: 0
+  - statType: 13
     initialValue: 0
 --- !u!114 &5786349976062706718
 MonoBehaviour:

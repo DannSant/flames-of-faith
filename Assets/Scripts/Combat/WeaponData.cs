@@ -12,7 +12,7 @@ namespace Game.Combat {
         [Tooltip("Initial damage")]
         public int baseDamage = 2;
 
-        [Tooltip("For each MeleeDamage stat, damage will increase by this number ")]
+        [Tooltip("For each MeleeDamage or RangeDamage stat, damage will increase by this number ")]
         public int attackScale = 1;
 
         [Tooltip("For each AttackSpeed stat, regular damage will increase by this number ")]
@@ -22,13 +22,21 @@ namespace Game.Combat {
         public WeaponClass weaponClass = WeaponClass.Melee;
 
         [Tooltip("Initial range")]
-        public float rangeBase = 3;
+        public float rangeBase = 2;
 
         [Tooltip("Prefab of the projectile if applicable")]
         public ProjectileBase projectilePrefab;
 
         [Tooltip("Amount of targets the projectile can pierce before gets destroyed")]
         public int pierceAmount = 1;
+
+        [Tooltip("Knockback force when damage is inflicted")]
+        public float knockbackForce = 15f;
+        [Tooltip("Wether the attack should apply knockback force")]
+        public bool shouldApplyKnockback = true;
+
+        [Tooltip("Amount of grace generated when damage is inflicted")]
+        public int graceGenerated = 1;
     }
 
     public enum WeaponClass { 

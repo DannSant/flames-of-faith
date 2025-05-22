@@ -15,6 +15,9 @@ public static class StatDisplayNameHelper
             StatType.MaxGrace => "Max Grace",
             StatType.Armor => "Armor",
             StatType.ExperienceToLevelUpReduction => "Experience Reduction",
+            StatType.Luck => "Luck",
+            StatType.RangedDamage => "Ranged Damage",
+            StatType.MagicDamage => "Magic Damage",
             _ => statType.ToString()
         };
     }

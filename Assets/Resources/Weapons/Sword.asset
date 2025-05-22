@@ -16,3 +16,10 @@ MonoBehaviour:
   baseDamage: 2
   attackScale: 1
   attackSpeedScale: 0.0075
+  weaponClass: 1
+  rangeBase: 2
+  projectilePrefab: {fileID: 0}
+  pierceAmount: 1
+  knockbackForce: 8
+  shouldApplyKnockback: 1
+  graceGenerated: 1

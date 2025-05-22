@@ -13,9 +13,9 @@ namespace Game.Progression {
         ExperienceToLevelUpReduction,
         Luck,
         RangedDamage,
-        Range,//TODO
+        Range,
         PierceAmount,
-        MagicDamage,
+        MagicDamage, //TODO
         Cleave, //TODO
     }
 

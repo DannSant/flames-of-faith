@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f372df0d47c6dc4bb8ab406e652e8ef, type: 3}
-  m_Name: SwordSpecial
+  m_Name: BowSpecial
   m_EditorClassIdentifier: 
   attackCooldownBase: 3
-  baseDamage: 5
-  attackScale: 3
-  attackSpeedScale: 0.0045
-  weaponClass: 1
-  rangeBase: 2
-  projectilePrefab: {fileID: 0}
-  pierceAmount: 1
-  knockbackForce: 15
+  baseDamage: 6
+  attackScale: 2
+  attackSpeedScale: 0.0075
+  weaponClass: 2
+  rangeBase: 10
+  projectilePrefab: {fileID: 496585674418865635, guid: 48af545d34ba78046be1637164035508, type: 3}
+  pierceAmount: 4
+  knockbackForce: 12
   shouldApplyKnockback: 1
   graceGenerated: 0

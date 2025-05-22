@@ -1,4 +1,5 @@
 using Game.Control;
+using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -13,94 +14,44 @@ namespace Game.Combat
         [SerializeField] private GameObject specialAttackCollider;
         [SerializeField] private DamageSource mainDamageSource;
         [SerializeField] private DamageSource specialDamageSource;
-       
-        private CharacterVisual characterVisual;
-        private PlayerController playerController;
-        private PlayerGrace playerGrace;
-        private PlayerProgression playerProgression;
-        private WeaponManager weaponManager;
-        private bool attackButtonDown = false;
-        private int specialAttackCost = 3;
-
-        private UpdateTimer attackTimer;
-        private UpdateTimer specialAttackTimer;
 
         public override void Initialize(CharacterVisual characterVisual)
         {
-            
-            this.characterVisual = characterVisual;
+            base.Initialize(characterVisual);
+
             weaponColliderObject.SetActive(false);
             specialAttackCollider.SetActive(false);
-
-            attackTimer = new UpdateTimer(1);
-            specialAttackTimer = new UpdateTimer(1);
-
-            playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
-            playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
-            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-            weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
-
-            SetupAttackSpeedVariables();
 
             mainDamageSource.WeaponData = weaponData;
             mainDamageSource.OnDamageDealt += OnDamageDealt;
             specialDamageSource.WeaponData = specialWeaponData;
             specialDamageSource.OnDamageDealt += OnSpecialDamageDealt;
 
-            playerProgression.onStatUpdated += OnStatUpdated;
-            characterVisual.OnAttackEndAnimEvent += CharacterVisual_OnAttackEndAnimEvent;
-            characterVisual.OnSpecialAttackEndAnimEvent += CharacterVisual_OnSpecialAttackEndAnimEvent;
-
-            
+            //characterVisual.OnAttackEndAnimEvent += OnAttackEndAnimEvent;
+            //characterVisual.OnSpecialAttackEndAnimEvent += OnSpecialAttackEndAnimEvent;
         }
-        
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
-            playerProgression.onStatUpdated -= OnStatUpdated;
-            characterVisual.OnAttackEndAnimEvent -= CharacterVisual_OnAttackEndAnimEvent;
-            characterVisual.OnSpecialAttackEndAnimEvent -= CharacterVisual_OnSpecialAttackEndAnimEvent;
-
-            mainDamageSource.OnDamageDealt -= OnDamageDealt;            
+            base.OnDisable();
+            //characterVisual.OnAttackEndAnimEvent -= OnAttackEndAnimEvent;
+            //characterVisual.OnSpecialAttackEndAnimEvent -= OnSpecialAttackEndAnimEvent;
+            mainDamageSource.OnDamageDealt -= OnDamageDealt;
             specialDamageSource.OnDamageDealt -= OnSpecialDamageDealt;
-
         }
 
-        private void Update()
+        protected override void Update()
         {
-            ProcessAttackTimers();
-            AttackUpdate();
+            base.Update();
+
             if (weaponManager.IsAutoAttackEnabled)
             {
-                WeaponColliderLookAtTarget();
-            }else
-            {
-                WeaponColliderLookAtMouse();
+                LookAtTarget();
             }
-            
-        }
-
-        private void OnStatUpdated(StatType statType, int value)
-        {
-            if (statType == StatType.AttackSpeed)
+            else
             {
-                SetupAttackSpeedVariables();
+                LookAtMouse();
             }
-        }
-
-        private void SetupAttackSpeedVariables()
-        {
-            float attackDelay = StatsCalculations.CalculateAttackDelay(
-                playerProgression.GetStatTotal(StatType.AttackSpeed),
-                weaponData.attackCooldownBase,
-                weaponData.attackSpeedScale);
-            attackTimer.SetEventDuration(attackDelay);
-
-            float specialAttackDelay = StatsCalculations.CalculateAttackDelay(
-                playerProgression.GetStatTotal(StatType.AttackSpeed),
-                specialWeaponData.attackCooldownBase,
-                specialWeaponData.attackSpeedScale);
-            specialAttackTimer.SetEventDuration(specialAttackDelay);
         }
 
         public override void Attack()
@@ -108,9 +59,9 @@ namespace Game.Combat
             if (!attackTimer.GetIsEventActive())
             {
                 weaponColliderObject.SetActive(true);
-
-                characterVisual.PlayAttackAnimation();               
+                characterVisual.PlayAttackAnimation();
                 attackTimer.StartEvent();
+                CleaveDamage();
             }
         }
 
@@ -120,51 +71,40 @@ namespace Game.Combat
             if (playerGrace.CurrentGrace <= specialAttackCost) return;
 
             playerGrace.RemoveGrace(specialAttackCost);
-
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             specialAttackCollider.SetActive(true);
         }
 
-        private void EndSpecialAttack()
+        protected override void OnAttackAnimationPlayed()
+        {
+            weaponColliderObject.SetActive(false);
+        }
+
+        protected override void OnSpecialAttackAnimationPlayed()
         {
             specialAttackCollider.SetActive(false);
         }
 
-        private void AttackUpdate()
+        private void OnDamageDealt(int damage, int graceGenerated)
         {
-            if (attackButtonDown && !attackTimer.GetIsEventActive())
-            {
-                Attack();
-            }
-        }
-
-        private void OnDamageDealt(int damage, int graceGenerated) 
-        {
-            if (graceGenerated > 0) 
-            {
-                playerGrace.AddGrace(graceGenerated);
-            }
+            GrantGrace(graceGenerated);
         }
 
         private void OnSpecialDamageDealt(int damage, int graceGenerated)
         {
-            if (graceGenerated > 0)
-            {
-                playerGrace.AddGrace(graceGenerated);
-            }
+            GrantGrace(graceGenerated);
         }
 
-        private void WeaponColliderLookAtTarget()
+        private void LookAtTarget()
         {
             if (currentTarget == null) return;
-
             Vector2 direction = (currentTarget.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
-        private void WeaponColliderLookAtMouse()
+        private void LookAtMouse()
         {
             Vector2 mousePosition = playerController.GetMouseWorldPosition();
             Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
@@ -172,34 +112,30 @@ namespace Game.Combat
             weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
-        private void ProcessAttackTimers()
-        {
-            attackTimer.UpdateEvent();
-            specialAttackTimer.UpdateEvent();
-        }
-
-        private void CharacterVisual_OnAttackEndAnimEvent()
-        {
-            weaponColliderObject.SetActive(false);
-        }
-
-        private void CharacterVisual_OnSpecialAttackEndAnimEvent()
-        {
-           specialAttackCollider.SetActive(false);
-        }
-
-
         public override float GetWeaponRange()
-        {           
+        {
             return weaponData.rangeBase;
         }
 
-        public override bool IsAttackTimerActive() => attackTimer.GetIsEventActive();
-        public override bool IsSpecialAttackTimerActive() => specialAttackTimer.GetIsEventActive(); 
-        public override float GetAttackTimer() => attackTimer.GetEventTimer();
-        public override float GetSpecialAttackTimer() => specialAttackTimer.GetEventTimer();
-        public override float GetAttackTimerDuration() => attackTimer.GetEventDuration();
-        public override float GetSpecialAttackTimerDuration() => specialAttackTimer.GetEventDuration();
+        private void CleaveDamage()
+        {
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, weaponData.rangeBase, LayerMask.GetMask("Enemy"));
+            int cleaveDamage = playerProgression.GetStatTotal(StatType.Cleave);
+            foreach (var hit in hits)
+            {
+                Health enemy = hit.GetComponent<Health>();
+                if (enemy != null) 
+                { 
+                    enemy.TakeDamage(cleaveDamage);
+                }
+                Knockback knockback = hit.GetComponent<Knockback>();
+                if (knockback != null)
+                {
+                    var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+                    knockback.ApplyKnockback(playerTransform, weaponData.knockbackForce);
+                }
+            }
+        }
     }
 
 }
