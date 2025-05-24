@@ -11,7 +11,7 @@ namespace Game.Combat
     {
         [SerializeField] protected WeaponData weaponData;
         [SerializeField] protected WeaponData specialWeaponData;
-        protected Health currentTarget;
+        protected EnemyHealth currentTarget;
 
         protected CharacterVisual characterVisual;
         protected PlayerController playerController;
@@ -99,12 +99,12 @@ namespace Game.Combat
             attackButtonDown = value;
         }
 
-        public virtual void SetTarget(Health target)
+        public virtual void SetTarget(EnemyHealth target)
         {
             currentTarget = target;
         }
 
-        public virtual Health GetTarget() => currentTarget;
+        public virtual EnemyHealth GetTarget() => currentTarget;
 
         public abstract void Attack();
         public abstract void SpecialAttack();

@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 4684830956188767644}
   - component: {fileID: 2584793995653504391}
   - component: {fileID: 7477667297967777243}
-  - component: {fileID: 6353375482832504496}
   - component: {fileID: 6768845874405269870}
   - component: {fileID: 4516994230043450098}
   - component: {fileID: 6151122340408030969}
   - component: {fileID: 8584532731469072917}
   - component: {fileID: 3069986142087091340}
   - component: {fileID: 3459162278116835968}
+  - component: {fileID: 7734621395315368586}
   m_Layer: 7
   m_Name: FlameShooter
   m_TagString: Untagged
@@ -183,20 +183,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6353375482832504496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5199905407145678830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc3143484139014a97cba0ea66ca325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathDelay: 0.3
-  deathVfxPrefab: {fileID: 6136071736594798714, guid: 6610c4469d590e2408887758097d5055, type: 3}
 --- !u!114 &6768845874405269870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,3 +268,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experienceTokenPrefab: {fileID: 776527580442547698, guid: a993aa2d209602d49860f5c468285013, type: 3}
   xpAmount: 4
+--- !u!114 &7734621395315368586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199905407145678830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bc45792a076604cb42a4439b786e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathDelay: 0.5
+  deathVfxPrefab: {fileID: 6136071736594798714, guid: 6610c4469d590e2408887758097d5055, type: 3}

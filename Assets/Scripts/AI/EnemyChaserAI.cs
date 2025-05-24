@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyChaserAI : EnemyAIBase
 {
     private Rigidbody2D rb;
-    private float speed = 2f;
+    private float speed = 1f;
     private Knockback knockback;
 
     protected override void Awake()

@@ -5,7 +5,6 @@ using Game.Waves;
 using Game.Common;
 using System.Linq;
 using Game.Combat;
-using static UnityEngine.Rendering.DebugUI;
 using Game.Scene;
 
 namespace Game.Progression

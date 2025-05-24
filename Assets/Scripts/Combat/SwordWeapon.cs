@@ -119,7 +119,7 @@ namespace Game.Combat
             int cleaveDamage = playerProgression.GetStatTotal(StatType.Cleave);
             foreach (var hit in hits)
             {
-                Health enemy = hit.GetComponent<Health>();
+                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                 if (enemy != null) 
                 { 
                     enemy.TakeDamage(cleaveDamage);

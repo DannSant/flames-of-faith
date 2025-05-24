@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8526461644135740295}
   - component: {fileID: 8794639440015571649}
   - component: {fileID: 6042687595524381101}
-  - component: {fileID: 6871489409178322093}
   - component: {fileID: 8303408640036451153}
   - component: {fileID: 1356098515009511729}
   - component: {fileID: 3825661218281620947}
@@ -20,6 +19,7 @@ GameObject:
   - component: {fileID: 5626450084953274886}
   - component: {fileID: -5925409789601643326}
   - component: {fileID: -9141818035259501149}
+  - component: {fileID: 7008180432358707353}
   m_Layer: 7
   m_Name: SlimeChaser
   m_TagString: Untagged
@@ -161,20 +161,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0032573447, y: -0.33557716}
   m_Size: {x: 0.48523456, y: 0.36794487}
   m_Direction: 1
---- !u!114 &6871489409178322093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917486536579394036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc3143484139014a97cba0ea66ca325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathDelay: 0.3
-  deathVfxPrefab: {fileID: 6136071736594798714, guid: c3b002affe4afff409df04a93e30e7df, type: 3}
 --- !u!114 &8303408640036451153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,3 +263,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experienceTokenPrefab: {fileID: 776527580442547698, guid: a993aa2d209602d49860f5c468285013, type: 3}
   xpAmount: 2
+--- !u!114 &7008180432358707353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917486536579394036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bc45792a076604cb42a4439b786e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathDelay: 0.5
+  deathVfxPrefab: {fileID: 6136071736594798714, guid: c3b002affe4afff409df04a93e30e7df, type: 3}

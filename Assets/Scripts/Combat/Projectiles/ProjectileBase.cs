@@ -69,7 +69,7 @@ namespace Game.Combat.Projectiles
             }
             else if (!damageToPlayer && other.gameObject.layer == enemyLayerMask)
             {
-                DamageEnemy(other.GetComponent<Health>());
+                DamageEnemy(other.GetComponent<EnemyHealth>());
                 OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated,gameObject);
             }         
 
@@ -93,7 +93,7 @@ namespace Game.Combat.Projectiles
             }
         }
 
-        private void DamageEnemy(Health enemyHealth)
+        private void DamageEnemy(EnemyHealth enemyHealth)
         {
             if (enemyHealth != null)
             {

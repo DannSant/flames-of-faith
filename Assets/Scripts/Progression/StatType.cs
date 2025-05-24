@@ -16,7 +16,9 @@ namespace Game.Progression {
         Range,
         PierceAmount,
         MagicDamage, //TODO
-        Cleave, //TODO
+        Cleave,
+        HealthRegen,
+        LifeSteal, //TODO
     }
 
 }

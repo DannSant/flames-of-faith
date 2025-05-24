@@ -8,13 +8,13 @@ namespace Game.AI {
         private EnemyType enemyType;
 
         private EnemyAIBase ai;
-        private Health health;
+        private EnemyHealth health;
         private EnemyDamage damage;
 
         private void Awake()
         {
             ai = GetComponent<EnemyAIBase>();
-            health = GetComponent<Health>();
+            health = GetComponent<EnemyHealth>();
             damage = GetComponent<EnemyDamage>();
         }
 

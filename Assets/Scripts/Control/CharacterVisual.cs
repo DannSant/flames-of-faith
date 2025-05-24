@@ -8,8 +8,10 @@ namespace Game.Control
         [SerializeField] private CharacterClassData characterData;
         [SerializeField] private float flashDuration = 0.1f;
         [SerializeField] private Color flashColor = Color.white;
+        [SerializeField] private SpriteRenderer attackEffect;
 
         private SpriteRenderer spriteRenderer;
+       
         private Animator animator;
         private Color originalColor;
         private bool isFlashing;
@@ -51,6 +53,10 @@ namespace Game.Control
         public void SetFacingDirection(bool facingLeft)
         {
             spriteRenderer.flipX = facingLeft;
+            if (attackEffect != null)
+            {
+                attackEffect.flipX = facingLeft;
+            }
         }
 
         public void TriggerFlash()

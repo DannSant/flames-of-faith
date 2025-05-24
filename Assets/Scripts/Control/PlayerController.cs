@@ -152,7 +152,7 @@ namespace Game.Control
         {
             if (weaponManager != null && weaponManager.IsAutoAttackEnabled)
             {
-                Health target = weaponManager.GetCurrentTarget();
+                EnemyHealth target = weaponManager.GetCurrentTarget();
                 if (target != null)
                 {
                     Vector3 targetPosition = target.transform.position;

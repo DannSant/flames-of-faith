@@ -50,16 +50,16 @@ namespace Game.Combat
             }
         }
 
-        private Health FindClosestEnemyWithinRange(float range)
+        private EnemyHealth FindClosestEnemyWithinRange(float range)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy"));
 
-            Health closest = null;
+            EnemyHealth closest = null;
             float closestDistanceSqr = Mathf.Infinity;
 
             foreach (var hit in hits)
             {
-                Health enemy = hit.GetComponent<Health>();
+                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                 if (enemy != null) // Optional: check if alive
                 {
                     float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
@@ -94,7 +94,7 @@ namespace Game.Combat
 
         public void Attack() => currentWeapon?.Attack();
         public void SpecialAttack() => currentWeapon?.SpecialAttack();
-        public Health GetCurrentTarget() => currentWeapon?.GetTarget();
+        public EnemyHealth GetCurrentTarget() => currentWeapon?.GetTarget();
 
         public WeaponBase GetCurrentWeapon() => currentWeapon;        
     }
