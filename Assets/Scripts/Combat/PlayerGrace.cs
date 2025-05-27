@@ -1,13 +1,14 @@
 using Game.Common;
 using Game.Progression;
 using Game.Scene;
+using Game.Utils;
 using UnityEngine;
 using static Game.Combat.PlayerHealth;
 using static Game.Progression.PlayerProgression;
 
 namespace Game.Combat
 {
-    public class PlayerGrace : MonoBehaviour
+    public class PlayerGrace : MonoBehaviour, ILateInitializable
     {
         private int maxGrace = 10;
         private int currentGrace;       
@@ -21,9 +22,9 @@ namespace Game.Combat
         private void  Awake()
         {           
             currentGrace = 0;
-        }
+        }      
 
-        private void Start()
+        public void LateInitialize()
         {
             var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
@@ -61,7 +62,7 @@ namespace Game.Combat
             if (currentGrace > maxGrace)
             {
                 currentGrace = maxGrace;
-            }
+            }            
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 

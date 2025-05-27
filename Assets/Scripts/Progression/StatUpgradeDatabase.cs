@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Game.Progression
 {
-    [System.Serializable]
+    /*[System.Serializable]
     public struct StatUpgradeConfig
     {
         public StatType statType;
         public int[] tierValues;
     }
-
+    */
     public struct StatValuePair
     {
         public StatType statType;
@@ -28,14 +28,14 @@ namespace Game.Progression
 
     public class StatUpgradeDatabase : Singleton<StatUpgradeDatabase>
     {
-        [SerializeField] private List<StatUpgradeConfig> statUpgradeConfigs;
+        [SerializeField] private List<StatData> statsConfig;
         private Dictionary<StatType, int[]> tierLookup;
        
 
         protected override void Awake()
         {
             base.Awake();
-            tierLookup = statUpgradeConfigs.ToDictionary(cfg => cfg.statType, cfg => cfg.tierValues);
+            tierLookup = statsConfig.ToDictionary(cfg => cfg.StatType, cfg => cfg.TierValues);
         }
 
         public int GetUpgradeAmount(StatType statType, int tier = 0)
@@ -54,6 +54,10 @@ namespace Game.Progression
 
             Debug.LogWarning($"No upgrade value configured for {statType}, tier {tier}");
             return 1; // sensible fallback
+        }
+        public List<StatData> GetStatsConfig()
+        {
+            return statsConfig;
         }
     }
 

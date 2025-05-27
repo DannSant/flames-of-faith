@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\enemychaserai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\enemychaserai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\swordweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\swordweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\control\\charactervisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\control\\charactervisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\statdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\statdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,14 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\stattype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\stattype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\combat\\healthregen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\healthregen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,104 +43,93 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EnemyChaserAI.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\EnemyChaserAI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\EnemyChaserAI.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\EnemyChaserAI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AI\\EnemyChaserAI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
+              "Title": "SwordWeapon.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\SwordWeapon.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\SwordWeapon.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\SwordWeapon.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\SwordWeapon.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAIwEMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T00:25:16.911Z",
+              "WhenOpened": "2025-05-27T00:09:25.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CharacterVisual.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Control\\CharacterVisual.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Control\\CharacterVisual.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Control\\CharacterVisual.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Control\\CharacterVisual.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowDgAAAANAAAAAAAAAA==",
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAiwCgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T00:16:57.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Stat.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\Stat.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\Stat.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\Stat.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\Stat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T23:08:25.473Z",
+              "WhenOpened": "2025-05-27T00:06:58.627Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UpgradeManager.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
+              "Title": "StatData.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\StatData.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Progression\\StatData.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T22:56:35.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PlayerProgression.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T22:47:31.966Z",
+              "WhenOpened": "2025-05-26T23:27:29.826Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "StatType.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatType.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\StatType.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatType.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\StatType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
+              "Title": "UpgradeManager.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAwCAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T22:46:08.161Z",
+              "WhenOpened": "2025-05-26T23:21:30.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerProgression.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T23:21:28.173Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "HealthRegen.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\HealthRegen.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\HealthRegen.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\HealthRegen.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Combat\\HealthRegen.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBAAAAAJAAAAAAAAAA==",
+              "Title": "StatType.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatType.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\StatType.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatType.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Progression\\StatType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T22:45:09.943Z"
+              "WhenOpened": "2025-05-26T23:21:20.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlayerHealth.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "StatUpgradeDatabase.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwBkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T22:35:42.511Z"
+              "WhenOpened": "2025-05-26T23:21:06.323Z",
+              "EditorCaption": ""
             }
           ]
         }

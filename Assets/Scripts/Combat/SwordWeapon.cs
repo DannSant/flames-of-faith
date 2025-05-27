@@ -53,11 +53,10 @@ namespace Game.Combat
         public override void Attack()
         {
             if (!attackTimer.GetIsEventActive())
-            {
-                weaponColliderObject.SetActive(true);
+            {                
                 characterVisual.PlayAttackAnimation();
                 attackTimer.StartEvent();
-                CleaveDamage();
+               
             }
         }
 
@@ -72,6 +71,12 @@ namespace Game.Combat
             specialAttackCollider.SetActive(true);
         }
 
+        protected override void OnAttackAnimationStarted()
+        {
+            weaponColliderObject.SetActive(true);
+            CleaveDamage();
+        }
+
         protected override void OnAttackAnimationPlayed()
         {
             weaponColliderObject.SetActive(false);
@@ -83,7 +88,7 @@ namespace Game.Combat
         }
 
         private void OnDamageDealt(int damage, int graceGenerated, GameObject target)
-        {
+        {          
             GrantGrace(graceGenerated);
         }
 
@@ -120,7 +125,7 @@ namespace Game.Combat
             foreach (var hit in hits)
             {
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-                if (enemy != null) 
+                if (cleaveDamage > 0 && enemy != null) 
                 { 
                     enemy.TakeDamage(cleaveDamage);
                 }

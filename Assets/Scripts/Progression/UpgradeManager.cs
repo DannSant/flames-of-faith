@@ -12,7 +12,7 @@ namespace Game.Progression
     
     public class UpgradeManager : Singleton<UpgradeManager>
     {
-        [SerializeField] private List<StatType> eligibleUpgradeStats = new();       
+        private List<StatType> eligibleUpgradeStats = new();       
 
         private int lastRecordedLevel = 1;
         private int levelsGainedThisWave = 0;
@@ -30,6 +30,7 @@ namespace Game.Progression
 
         private void Start()
         {
+            SetupElegibleStats();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
             if (playerExperience != null)
@@ -57,6 +58,22 @@ namespace Game.Progression
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayResetRequested -= ResetUpgradeManagerstate;
+            }
+        }
+
+        private void SetupElegibleStats()
+        {
+            eligibleUpgradeStats.Clear();
+            foreach (var stat in StatUpgradeDatabase.Instance.GetStatsConfig())
+            {
+                if (stat.AllowLevelUpgrades)
+                {
+                    eligibleUpgradeStats.Add(stat.StatType);
+                }
+            }
+            if (eligibleUpgradeStats.Count == 0)
+            {
+                Debug.LogWarning("No eligible stats found for upgrades.");
             }
         }
 

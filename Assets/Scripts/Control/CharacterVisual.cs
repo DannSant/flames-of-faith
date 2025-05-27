@@ -19,7 +19,9 @@ namespace Game.Control
 
         public CharacterClassData CharacterData => characterData;
 
+        public event Action OnAttackStartAnimEvent;
         public event Action OnAttackEndAnimEvent;
+        public event Action OnSpecialAttackStartAnimEvent;
         public event Action OnSpecialAttackEndAnimEvent;
 
         private void Awake()
@@ -96,9 +98,20 @@ namespace Game.Control
             animator.SetTrigger("Attack");
         }
 
+        public void AttackStartAnimEvent()
+        {
+            OnAttackStartAnimEvent?.Invoke();
+        }
+
+
         public void AttackEndAnimEvent() 
         {
             OnAttackEndAnimEvent?.Invoke();
+        }
+
+        public void SpecialAttackStartAnimEvent()
+        {
+            OnSpecialAttackStartAnimEvent?.Invoke();
         }
 
         public void SpecialAttackEndAnimEvent()

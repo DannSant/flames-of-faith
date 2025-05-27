@@ -1,32 +1,29 @@
 
 using Game.Common;
 using Game.Scene;
+using Game.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Progression {
-    public class PlayerProgression : MonoBehaviour
+    public class PlayerProgression : MonoBehaviour, ILateInitializable
     {
-        [SerializeField] private List<StatData> initialStats = new List<StatData>();
+        //[SerializeField] private List<StatData> initialStats = new List<StatData>();
 
         private Dictionary<StatType, int> currentStats = new Dictionary<StatType, int>();
 
         public delegate void OnStatUpdated(StatType statType, int value);
         public event OnStatUpdated onStatUpdated;
 
-        [System.Serializable]
+        /*[System.Serializable]
         public struct StatData {
             public StatType statType;
             public int initialValue;             
-        }
-
-        private void Awake()
-        {           
-            ResetProgression();            
-        }
+        }*/
+        
 
         private void Start()
-        {
+        {           
             if (MainSceneController.Instance != null)
             {               
                 MainSceneController.Instance.OnGameplayResetRequested += ResetProgression;
@@ -43,11 +40,11 @@ namespace Game.Progression {
 
         private void ResetProgression()
         {
-            currentStats.Clear();
-            foreach (var statData in initialStats)
+            currentStats.Clear();            
+            foreach (var statData in StatUpgradeDatabase.Instance.GetStatsConfig())
             {
-                currentStats.Add(statData.statType, statData.initialValue);
-                onStatUpdated?.Invoke(statData.statType, statData.initialValue);
+                currentStats.Add(statData.StatType, statData.InitialValue);
+                onStatUpdated?.Invoke(statData.StatType, statData.InitialValue);
             }
         }
 
@@ -78,5 +75,9 @@ namespace Game.Progression {
             return currentStats.ContainsKey(statType) ? currentStats[statType] : 0;
         }
 
+        public void LateInitialize()
+        {
+            ResetProgression();
+        }
     }
 }

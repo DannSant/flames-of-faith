@@ -40,7 +40,10 @@ namespace Game.Combat
             SetupAttackSpeedVariables();
 
             playerProgression.onStatUpdated += OnStatUpdated;
+            characterVisual.OnAttackStartAnimEvent += OnAttackAnimationStarted;
             characterVisual.OnAttackEndAnimEvent += OnAttackAnimationPlayed;
+
+            characterVisual.OnSpecialAttackStartAnimEvent += OnSpecialAttackAnimationStarted;
             characterVisual.OnSpecialAttackEndAnimEvent += OnSpecialAttackAnimationPlayed;
         }
 
@@ -53,8 +56,10 @@ namespace Game.Combat
         protected virtual void OnDisable()
         {
             playerProgression.onStatUpdated -= OnStatUpdated;
+            characterVisual.OnAttackStartAnimEvent -= OnAttackAnimationStarted;
             characterVisual.OnAttackEndAnimEvent -= OnAttackAnimationPlayed;
             characterVisual.OnSpecialAttackEndAnimEvent -= OnSpecialAttackAnimationPlayed;
+            characterVisual.OnSpecialAttackStartAnimEvent -= OnSpecialAttackAnimationStarted;
         }
 
         protected virtual void SetupAttackSpeedVariables()
@@ -126,8 +131,9 @@ namespace Game.Combat
                 playerGrace.AddGrace(amount);
             }
         }
-
+        protected virtual void OnAttackAnimationStarted() { }
         protected virtual void OnAttackAnimationPlayed() { }
+        protected virtual void OnSpecialAttackAnimationStarted() { }
         protected virtual void OnSpecialAttackAnimationPlayed() { }
     }
 }
