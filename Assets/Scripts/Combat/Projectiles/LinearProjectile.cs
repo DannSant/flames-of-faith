@@ -4,6 +4,7 @@ namespace Game.Combat.Projectiles
 {
     public class LinearProjectile : ProjectileBase
     {
+        
         protected override void MoveBehavior()
         {
             Vector2 direction =  moveDirection;

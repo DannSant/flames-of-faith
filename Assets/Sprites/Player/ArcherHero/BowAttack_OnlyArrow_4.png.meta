@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: db45822978971be4faef95ecca1af95f
+guid: 29ea8c0dbe63f87409897abf8f3a46a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8656751155369325653
-    second: BowAttack_KG_1_0
+      213: 7612702084091971002
+    second: BowAttack_OnlyArrow_4_0
   - first:
-      213: -8562967563428164567
-    second: BowAttack_KG_1_1
+      213: 2580062897580984058
+    second: BowAttack_OnlyArrow_4_1
   - first:
-      213: -7151465155593309487
-    second: BowAttack_KG_1_2
+      213: 6442990654990182872
+    second: BowAttack_OnlyArrow_4_2
   - first:
-      213: -426984260081679258
-    second: BowAttack_KG_1_3
+      213: -4604120185412986021
+    second: BowAttack_OnlyArrow_4_3
+  - first:
+      213: -267460809822935430
+    second: BowAttack_OnlyArrow_4_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BowAttack_KG_1_0
+      name: BowAttack_OnlyArrow_4_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98893a9fa28da93408b667d4a7d9193c
-      internalID: 872435277
+      spriteID: a5124cc4d490af4479b3d8cacb6fd044
+      internalID: 1496384712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowAttack_KG_1_1
+      name: BowAttack_OnlyArrow_4_1
       rect:
         serializedVersion: 2
         x: 100
@@ -159,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d9bb440e56554d4082201246daddc7f
-      internalID: -857265216
+      spriteID: 0c17d91fe1c7eec47bdb92b91660df62
+      internalID: -1420613924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowAttack_KG_1_2
+      name: BowAttack_OnlyArrow_4_2
       rect:
         serializedVersion: 2
         x: 200
@@ -181,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 361ad473b3d50794cb4b5d5d2122a8bd
-      internalID: 539994722
+      spriteID: 446f23df2e507014891528d817ba59d1
+      internalID: -341996737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowAttack_KG_1_3
+      name: BowAttack_OnlyArrow_4_3
       rect:
         serializedVersion: 2
         x: 300
@@ -203,8 +206,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8060dc342ab8496488fa68848aa298d3
-      internalID: -1476561686
+      spriteID: fe46afb3ba56235418fcde788ee8c692
+      internalID: -1487987779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BowAttack_OnlyArrow_4_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a155c6961c2b5354bb21cc30f420d4f0
+      internalID: 951850899
       vertices: []
       indices: 
       edges: []
@@ -213,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 94a76a611ca1f3d46b792c893716f0c9
+    spriteID: 0ed11d13055db124f9718efc2b510a19
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BowAttack_KG_1_0: 872435277
-      BowAttack_KG_1_1: -857265216
-      BowAttack_KG_1_2: 539994722
-      BowAttack_KG_1_3: -1476561686
+      BowAttack_OnlyArrow_4_0: 1496384712
+      BowAttack_OnlyArrow_4_1: -1420613924
+      BowAttack_OnlyArrow_4_2: -341996737
+      BowAttack_OnlyArrow_4_3: -1487987779
+      BowAttack_OnlyArrow_4_4: 951850899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

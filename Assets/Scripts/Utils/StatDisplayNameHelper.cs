@@ -7,7 +7,7 @@ public static class StatDisplayNameHelper
     {
         return statType switch
         {
-            StatType.MaxHealth => "Max Health",
+            StatType.MaxHealth => "Health",
             StatType.MeleeDamage => "Melee Damage",
             StatType.AttackSpeed => "Attack Speed",
             StatType.MoveSpeed => "Move Speed",
@@ -18,6 +18,9 @@ public static class StatDisplayNameHelper
             StatType.Luck => "Luck",
             StatType.RangedDamage => "Ranged Damage",
             StatType.MagicDamage => "Magic Damage",
+            StatType.PierceAmount => "Pierce Targets",
+            StatType.HealthRegen => "Health Regen",
+            StatType.LifeSteal => "Life Steal",
             _ => statType.ToString()
         };
     }

@@ -65,14 +65,16 @@ AnimationClip:
     flags: 2
   - serializedVersion: 2
     curve:
+    - time: 0
+      value: {fileID: -581044092, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
     - time: 0.13333334
-      value: {fileID: -1980983399, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
+      value: {fileID: -1199503722, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
     - time: 0.26666668
-      value: {fileID: 586654001, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
+      value: {fileID: 1128186890, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
     - time: 0.26666668
       value: {fileID: -1107059587, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
     - time: 0.4
-      value: {fileID: 2030348932, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
+      value: {fileID: -1753663699, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
     attribute: m_Sprite
     path: ArrowEffect
     classID: 212
@@ -117,10 +119,11 @@ AnimationClip:
     - {fileID: -857265216, guid: db45822978971be4faef95ecca1af95f, type: 3}
     - {fileID: 539994722, guid: db45822978971be4faef95ecca1af95f, type: 3}
     - {fileID: -1476561686, guid: db45822978971be4faef95ecca1af95f, type: 3}
-    - {fileID: -1980983399, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
-    - {fileID: 586654001, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
+    - {fileID: -581044092, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
+    - {fileID: -1199503722, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
+    - {fileID: 1128186890, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
     - {fileID: -1107059587, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
-    - {fileID: 2030348932, guid: 2ca57260fae7b9f4ba6f6c36cfe5619a, type: 3}
+    - {fileID: -1753663699, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

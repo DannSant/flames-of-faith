@@ -3,6 +3,7 @@ using Game.Control;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Combat
@@ -12,10 +13,14 @@ namespace Game.Combat
         public event System.Action<ProjectileBase> onBowAttackLaunched;
         public event System.Action<ProjectileBase> onBowSpecialAttackLaunched;
 
+        private Vector3 targetPosition;
+
         public override void Attack()
         {
             if (!attackTimer.GetIsEventActive())
-            {              
+            {
+                if(currentTarget == null) return;
+                targetPosition = currentTarget.transform.position;
                 characterVisual.PlayAttackAnimation();
                 attackTimer.StartEvent();
             }
@@ -33,9 +38,9 @@ namespace Game.Combat
 
         protected override void OnAttackAnimationPlayed()
         {
-            if (currentTarget == null) return;
+            //if (currentTarget == null) return;
             Vector2 spawnPos = transform.position;
-            Vector2 targetPos = currentTarget.transform.position;
+            Vector2 targetPos = targetPosition;//currentTarget.transform.position;
             Vector2 direction = (targetPos - spawnPos).normalized;
 
             int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * weaponData.attackScale;

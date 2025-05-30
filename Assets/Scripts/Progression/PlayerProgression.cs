@@ -63,6 +63,17 @@ namespace Game.Progression {
             }
         }
 
+        public Dictionary<StatType, int> GetAllCurrentStats()
+        {
+            Dictionary<StatType, int> result = new Dictionary<StatType, int>();
+            foreach (var stat in currentStats)
+            {
+                //Debug.Log($"Stat: {stat.Key}, Value: {stat.Value}");
+                result.Add(stat.Key, GetStatTotal(stat.Key));
+            }
+            return result;
+        }
+
         // Method to retrieve a stat total value
         public int GetStatTotal(StatType statType)
         {
