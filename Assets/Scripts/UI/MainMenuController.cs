@@ -17,7 +17,8 @@ namespace Game.UI
         }
         public void StartGame() 
         { 
-            MainSceneController.Instance.LoadGameplay();
+            //MainSceneController.Instance.LoadGameplay();
+            MainSceneController.Instance.LoadLevelSelectorScene();
         }
 
         public void SelectWarrior() 

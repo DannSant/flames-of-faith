@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  baseHealth: 5
 --- !u!114 &3459162278116835968
 MonoBehaviour:
   m_ObjectHideFlags: 0

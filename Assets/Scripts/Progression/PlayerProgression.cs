@@ -6,20 +6,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Progression {
-    public class PlayerProgression : MonoBehaviour, ILateInitializable
-    {
-        //[SerializeField] private List<StatData> initialStats = new List<StatData>();
+    public class PlayerProgression : MonoBehaviour, ILateInitializable, IPrimaryStateLoader
+    {       
 
         private Dictionary<StatType, int> currentStats = new Dictionary<StatType, int>();
 
         public delegate void OnStatUpdated(StatType statType, int value);
         public event OnStatUpdated onStatUpdated;
-
-        /*[System.Serializable]
-        public struct StatData {
-            public StatType statType;
-            public int initialValue;             
-        }*/
         
 
         private void Start()
@@ -89,6 +82,21 @@ namespace Game.Progression {
         public void LateInitialize()
         {
             ResetProgression();
+        }
+
+        public void ResetState()
+        {
+          
+        }
+
+        public void SaveState()
+        {
+            GameSession.Instance.SaveStats(currentStats);
+        }
+
+        public void LoadState()
+        {
+            currentStats = new Dictionary<StatType, int>(GameSession.Instance.PlayerData.savedStats);
         }
     }
 }

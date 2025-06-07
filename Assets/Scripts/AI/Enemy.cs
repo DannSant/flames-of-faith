@@ -7,6 +7,9 @@ namespace Game.AI {
         [SerializeField]
         private EnemyType enemyType;
 
+        [SerializeField]
+        private int baseHealth = 0;
+
         private EnemyAIBase ai;
         private EnemyHealth health;
         private EnemyDamage damage;
@@ -21,7 +24,7 @@ namespace Game.AI {
         public void Initialize(int waveNumber)
         {
             int calculatedDamage = 1 + (waveNumber - 1);
-            int calculatedHealth = 5 + ((waveNumber - 1) * 2);
+            int calculatedHealth = baseHealth + 5 + ((waveNumber - 1) * 2);
 
             damage.SetDamageAmount(calculatedDamage);
             health.SetMaxHealth(calculatedHealth);

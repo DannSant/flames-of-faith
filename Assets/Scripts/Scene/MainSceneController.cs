@@ -11,18 +11,20 @@ namespace Game.Scene
 
     public class MainSceneController : Singleton<MainSceneController>
     {
-        [Header("Scene Names")]
-        [SerializeField] private string mainMenuSceneName = "MainMenu";
-        [SerializeField] private string gameplaySceneName = "Gameplay";
-        [SerializeField] private string uiSceneName = "UI";       
-        [SerializeField] private List<string> mainMenuScenes = new List<string>();
-        [SerializeField] private List<string> gameplayScenes = new List<string>();
+        [Header("Scene Names")]      
+        [SerializeField] private List<string> activeGameplayScenes = new List<string>();
 
         [Header("Loading Screen")]
         [SerializeField] private float fadeDuration = 0.5f;
 
         [Header("Other")]
         [SerializeField] private GameObject startingCamera;
+
+        private readonly List<string> nonGameplaySceneNames = new List<string>
+        {
+            "MainMenu",
+            "LevelSelector"
+        };
 
         public event System.Action OnGameplayResetRequested;
 
@@ -34,7 +36,7 @@ namespace Game.Scene
         private void Start()
         {
             LoadMainMenu();
-            StartCoroutine(DisableStartingCamera());
+           
         }
 
         public void LoadMainMenu()
@@ -42,44 +44,77 @@ namespace Game.Scene
             StartCoroutine(LoadMainMenuRoutine());
         }
 
-        public void LoadGameplay()
+        public void LoadGameplay(LevelData levelData)
         {
-            StartCoroutine(LoadGameplayRoutine());
+            StartCoroutine(LoadGameplayRoutine(levelData));
+        }
+
+        public void LoadLevelSelectorScene()
+        {
+            StartCoroutine(LoadLevelSelectorSceneRoutine());
+        }
+
+        private IEnumerator LoadLevelSelectorSceneRoutine()
+        {
+            yield return StartCoroutine(FadeIn());
+
+            //unloads main menu scenes if coming from main menu
+            yield return StartCoroutine(UnloadScenesByName(nonGameplaySceneNames));
+
+            //unloads gameplay scenes if already loaded (for restart between levels)
+            yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
+
+            //loads level selector scene
+            yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
+
+            yield return StartCoroutine(FadeOut());
         }
 
         private IEnumerator LoadMainMenuRoutine()
         {
             yield return StartCoroutine(FadeIn());
            
-            yield return StartCoroutine(UnloadScenesByName(gameplayScenes));
+            yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
-            yield return SceneManager.LoadSceneAsync(mainMenuSceneName, LoadSceneMode.Additive);
+            yield return SceneManager.LoadSceneAsync(SceneNames.MainMenu, LoadSceneMode.Additive);
 
             yield return StartCoroutine(FadeOut());
         }
 
-        private IEnumerator LoadGameplayRoutine()
+        private IEnumerator LoadGameplayRoutine(LevelData levelData)
         {
+            GameSession.Instance.currentLevel = levelData;
             yield return StartCoroutine(FadeIn());
 
             //Spawn player
-            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex);
+            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, GameSession.Instance.IsNewRun);
+            GameSession.Instance.SetIsNewRun(false);
 
             //unloads gameplay scenes if already loaded (for restart)
-            yield return StartCoroutine(UnloadScenesByName(gameplayScenes));
+            yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
-            //unloads main menu scenes if coming from main menu
-            yield return StartCoroutine(UnloadScenesByName(mainMenuScenes));
+            //unloads main menu scenes and level selector scene if loaded already
+            yield return StartCoroutine(UnloadScenesByName(nonGameplaySceneNames));
 
-            yield return SceneManager.LoadSceneAsync(gameplaySceneName, LoadSceneMode.Additive);
-            yield return SceneManager.LoadSceneAsync(uiSceneName, LoadSceneMode.Additive);
+            // Load the gameplay scene and UI scene
+            yield return SceneManager.LoadSceneAsync(levelData.SceneName, LoadSceneMode.Additive);
+            yield return SceneManager.LoadSceneAsync(SceneNames.UI, LoadSceneMode.Additive);
+            
+
+            //clear previously loaded scenes
+            activeGameplayScenes.Clear();
+            activeGameplayScenes.Add(levelData.SceneName);
+            activeGameplayScenes.Add(SceneNames.UI);
 
             // Move the player to the gameplay scene
-            var gameplayScene = SceneManager.GetSceneByName(gameplaySceneName);
+            var gameplayScene = SceneManager.GetSceneByName(levelData.SceneName);
             PlayerManager.Instance.MovePlayerToScene( gameplayScene);
             PlayerManager.Instance.LateInitializePlayer();
 
-            OnGameplayResetRequested?.Invoke();
+            //Once level and player are loaded, bind events
+            PlayerManager.Instance.BindWaveEventsIfReady();
+
+           OnGameplayResetRequested?.Invoke();
 
             yield return StartCoroutine(FadeOut());
         }
@@ -96,7 +131,12 @@ namespace Game.Scene
                     yield return SceneManager.UnloadSceneAsync(scene);
                    
                 }                
-            }           
+            }
+
+            if (ReferenceEquals(scenesToUnload, activeGameplayScenes))
+            {
+                activeGameplayScenes.Clear();
+            }
 
         }
 
@@ -114,6 +154,10 @@ namespace Game.Scene
                 yield return null;
             }
             img.color = new Color(color.r, color.g, color.b, 1f);
+            if (startingCamera != null)
+            {
+                startingCamera.SetActive(false);
+            }
         }
 
         private IEnumerator FadeOut()

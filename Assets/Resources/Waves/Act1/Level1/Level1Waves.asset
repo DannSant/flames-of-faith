@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b6879ed17e3a8b45bf827216c281865, type: 3}
-  m_Name: Wave1
+  m_Script: {fileID: 11500000, guid: d7ca7bb5fdfcbea4bb6f64de86cbe367, type: 3}
+  m_Name: Level1Waves
   m_EditorClassIdentifier: 
-  waveDuration: 30
-  cooldownDuration: 5
-  enemies:
-  - type: 0
-    amount: 10
-  enemyPool:
-  - type: 0
-    weight: 10
+  waves:
+  - {fileID: 11400000, guid: 1fd57a3fcc5206143a7eceb41f6dd298, type: 2}

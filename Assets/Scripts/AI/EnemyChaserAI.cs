@@ -19,15 +19,14 @@ public class EnemyChaserAI : EnemyAIBase
 
     protected override void Start()
     {
-        base.Start();
-        //player = PlayerController.Instance.transform;
+        base.Start();        
         player = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
     }
 
     protected override void Update()
     {
         base.Update();
-        // Movement is handled in FixedUpdate for physics
+       
     }
 
     private void FixedUpdate()

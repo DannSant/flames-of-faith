@@ -5,6 +5,7 @@ namespace Game.AI {
     {
         SlimeChaser,
         SlimeRoamer,
-        FlameShooter
+        FlameShooter,
+        LightDevourerAttacker,
     }
 }

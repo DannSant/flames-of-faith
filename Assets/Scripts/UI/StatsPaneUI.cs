@@ -53,7 +53,7 @@ namespace Game.UI
             //Show panel
             contentPanel.SetActive(true);
             backgroundPanel.SetActive(true);
-            // Clear all stat rows except the first one
+            // Clear all stat rows
             for (int i = contentPanel.transform.childCount - 1; i >= 0; i--)
             {
                 Destroy(contentPanel.transform.GetChild(i).gameObject);

@@ -1,5 +1,6 @@
 using Game.Common;
 using Game.Utils;
+using Game.Waves;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,7 @@ namespace Game.Scene
 
         public GameObject CurrentPlayer => currentPlayer;
 
-        public void SpawnSelectedPlayer(int selectedIndex)
+        public void SpawnSelectedPlayer(int selectedIndex, bool isNewRun)
         {
             if (currentPlayer != null)
             {
@@ -30,6 +31,16 @@ namespace Game.Scene
 
             GameObject prefab = playerPrefabs[selectedIndex];           
             currentPlayer = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+
+            if (isNewRun)
+            {
+                ResetAllPlayerComponentStates();
+            }
+            else
+            {
+                LoadAllPlayerComponentStates();
+            }
+
             
         }
 
@@ -56,9 +67,74 @@ namespace Game.Scene
             return currentPlayer?.GetComponent<T>();
         }
 
-        public void Clear()
+        public void ClearPlayer()
         {
             currentPlayer = null;
+        }
+        public void BindWaveEventsIfReady()
+        {
+            if (WaveSpawner.Instance != null)
+            {             
+                WaveSpawner.Instance.OnWaveGroupFinished += HandleWaveGroupFinished;
+            }
+        }
+
+        public void UnbindWaveEventsIfReady()
+        {
+            if (WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.OnWaveGroupFinished -= HandleWaveGroupFinished;
+            }
+        }
+
+        private void HandleWaveGroupFinished()
+        {
+            SaveAllPlayerComponentStates();
+
+            // Mark level as beaten
+            GameSession.Instance.MarkLevelBeaten(GameSession.Instance.currentLevel);
+
+            // Load Level Selector scene
+            MainSceneController.Instance.LoadLevelSelectorScene();
+        }
+
+
+        public void SaveAllPlayerComponentStates()
+        {
+            foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
+            {
+                component.SaveState();
+            }
+            foreach (var component in currentPlayer.GetComponentsInChildren<IDependentStateLoader>())
+            {
+                component.SaveState();
+            }
+        }
+
+        public void LoadAllPlayerComponentStates()
+        {
+            foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
+            {
+                component.LoadState();
+            }
+
+            foreach (var component in currentPlayer.GetComponentsInChildren<IDependentStateLoader>())
+            {
+                component.LoadState();
+            }
+        }
+
+        public void ResetAllPlayerComponentStates()
+        {
+            foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
+            {
+                component.ResetState();
+            }
+
+            foreach (var component in currentPlayer.GetComponentsInChildren<IDependentStateLoader>())
+            {
+                component.ResetState();
+            }
         }
     }
 }

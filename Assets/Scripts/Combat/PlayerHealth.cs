@@ -9,8 +9,9 @@ using UnityEngine;
 using static Game.Progression.PlayerProgression;
 
 namespace Game.Combat {
-    public class PlayerHealth : MonoBehaviour, ILateInitializable
+    public class PlayerHealth : MonoBehaviour, ILateInitializable, IDependentStateLoader
     {
+        //state
         private int defaultMaxHealth = 20; // Default max health value
         private int maxHealth = 20;
         private int currentHealth;
@@ -51,16 +52,7 @@ namespace Game.Combat {
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 
             // Suscribe to onStatUpdated event to get notifications when the stats for health and armor change
-            playerProgression.onStatUpdated += OnStatUpdated;
-
-            // Suscribe to wave event to restore health at the start of each wave
-            
-
-            // Suscribe to OnGameplayResetRequested to reset the state after the game reloads
-            if (MainSceneController.Instance != null)
-            {
-                MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerHealthState;
-            }
+            playerProgression.onStatUpdated += OnStatUpdated;           
 
         }
 
@@ -77,11 +69,7 @@ namespace Game.Combat {
         {
             // Unsubscribe to avoid memory leaks
             playerProgression.onStatUpdated -= OnStatUpdated;
-            WaveSpawner.Instance.OnWaveStarted -= PlayerHealth_OnWaveStarted;
-            if (MainSceneController.Instance != null)
-            {
-                MainSceneController.Instance.OnGameplayResetRequested -= ResetPlayerHealthState;
-            }
+            WaveSpawner.Instance.OnWaveStarted -= PlayerHealth_OnWaveStarted;           
         }      
 
         private void ResetPlayerHealthState() 
@@ -184,6 +172,21 @@ namespace Game.Combat {
         public int GetCurrentHealth() => currentHealth;
         public int GetMaxHealth() => maxHealth;
         public bool IsDead() => isDead;
+
+        public void ResetState()
+        {
+            ResetPlayerHealthState();
+        }
+
+        public void SaveState()
+        {
+            GameSession.Instance.SaveCurrentHealth(currentHealth);
+        }
+
+        public void LoadState()
+        {
+            currentHealth = GameSession.Instance.PlayerData.currentHealth;
+        }
     }
 
 }

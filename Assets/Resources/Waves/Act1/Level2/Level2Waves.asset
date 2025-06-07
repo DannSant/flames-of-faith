@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7ca7bb5fdfcbea4bb6f64de86cbe367, type: 3}
-  m_Name: Act1Waves
+  m_Name: Level2Waves
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: 1fd57a3fcc5206143a7eceb41f6dd298, type: 2}
-  - {fileID: 11400000, guid: f1bf9b9599e3f9b40a209550e0e5f50f, type: 2}
-  - {fileID: 11400000, guid: bc6f169ab31810e4ab6290e70bcebe11, type: 2}
-  - {fileID: 11400000, guid: 19268e86faf070c45b1722c0eb6d53cf, type: 2}
-  - {fileID: 11400000, guid: ef831280b8ebe4e4ba15266c97a919e3, type: 2}
+  - {fileID: 11400000, guid: d96d1cdb3db56094b95a8afb32e3e98a, type: 2}
+  - {fileID: 11400000, guid: 930eb27acc0074f45ac0f7b51760ec76, type: 2}
+  - {fileID: 11400000, guid: 1d1d5315ebdb08c44b2941c6a38a9378, type: 2}
+  - {fileID: 11400000, guid: 9a99e1190fda6b046abd4f151b90cb81, type: 2}
+  - {fileID: 11400000, guid: 6d35c83debe232c4088168f9d3fdc3f2, type: 2}

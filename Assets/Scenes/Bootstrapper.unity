@@ -510,14 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c26d0f0490914842a361d6a9ed7e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuSceneName: MainMenu
-  gameplaySceneName: Sandbox1
-  uiSceneName: UIMain
-  mainMenuScenes:
-  - MainMenu
-  gameplayScenes:
-  - Sandbox1
-  - UIMain
+  activeGameplayScenes: []
   fadeDuration: 0.5
   startingCamera: {fileID: 362816607}
 --- !u!4 &845686362
@@ -613,8 +606,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedPlayerIndex: 0
+  allLevels:
+  - SceneName: Level1
+    DisplayName: Jesterwoods Glade
+    IsUnlocked: 1
+    IsBeaten: 0
+    actNumber: 1
+  - SceneName: Level2
+    DisplayName: Jesterwoods Steeps
+    IsUnlocked: 1
+    IsBeaten: 0
+    actNumber: 1
+  currentLevel:
+    SceneName: 
+    DisplayName: 
+    IsUnlocked: 0
+    IsBeaten: 0
+    actNumber: 1
+  beatenLevels: []
   selectedDifficulty: 1
-  isNewRun: 1
 --- !u!4 &1106414866
 Transform:
   m_ObjectHideFlags: 0

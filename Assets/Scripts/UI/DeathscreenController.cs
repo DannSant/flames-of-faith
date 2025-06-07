@@ -38,7 +38,8 @@ namespace Game.UI
 
         public void OnRetryButtonClicked() 
         { 
-            MainSceneController.Instance.LoadGameplay();
+            //todo get the real scene name
+            MainSceneController.Instance.LoadGameplay(null);
         }
 
         public void OnMainMenuButtonClicked()
