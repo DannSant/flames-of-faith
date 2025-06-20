@@ -22,13 +22,24 @@ namespace Game.Combat {
             ProcessDamageToPlayer(collision.collider);
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            ProcessDamageToPlayer(collision);
+        }
+
         private void ProcessDamageToPlayer(Collider2D collision)
         {
-            PlayerHealth health = collision.GetComponent<PlayerHealth>();
-            
+            var health = collision.GetComponent<PlayerHealth>();            
             if (health != null)
             {
                 health.TakeDamage(damageAmount);                
+            }
+
+            var knockback = collision.GetComponent<Knockback>();
+            
+            if (shouldApplyKnockback && knockback!=null)
+            {              
+                knockback.ApplyKnockback(transform, knockbackForce);
             }
         }
     }

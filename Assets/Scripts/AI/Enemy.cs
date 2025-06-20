@@ -1,4 +1,8 @@
+using Game.AI.Behaviors;
 using Game.Combat;
+using Game.Control;
+using Game.Enemies;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.AI {
@@ -6,31 +10,59 @@ namespace Game.AI {
     {
         [SerializeField]
         private EnemyType enemyType;
-
-        [SerializeField]
-        private int baseHealth = 0;
-
-        private EnemyAIBase ai;
+       
         private EnemyHealth health;
-        private EnemyDamage damage;
+       
+        private BehaviorController behaviorController;
+        private EnemyData enemyData;
 
         private void Awake()
-        {
-            ai = GetComponent<EnemyAIBase>();
+        {           
             health = GetComponent<EnemyHealth>();
-            damage = GetComponent<EnemyDamage>();
+           
+            behaviorController = GetComponent<BehaviorController>();
+        }
+
+        private void Start()
+        {
+            enemyData = FindEnemyData();
+        }
+
+        //Finds the EnemyData scriptable object in the EnemyDatabase based on the enemyType.
+        private EnemyData FindEnemyData()
+        {
+            var enemyDatabase = EnemyDatabaseProvider.Instance.EnemyDatabase;
+            if (enemyDatabase == null)
+            {
+                Debug.LogError("EnemyDatabase is not initialized.");
+                return null;
+            }
+            return enemyDatabase.GetEnemyData(enemyType);
         }
 
         public void Initialize(int waveNumber)
         {
-            int calculatedDamage = 1 + (waveNumber - 1);
+            if(enemyData == null)
+            {
+                enemyData = FindEnemyData();
+            }
+
+            int baseHealth = enemyData.healthBase;
             int calculatedHealth = baseHealth + 5 + ((waveNumber - 1) * 2);
+           
+            health.SetMaxHealth(calculatedHealth);    
+            
+            var player = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+            var context = new BehaviorContext
+            {
+                enemyGameObject = gameObject,
+                enemyTransform = transform,
+                playerTransform = player,
+                enemyData = enemyData,
+                waveNumber = waveNumber
+            };
 
-            damage.SetDamageAmount(calculatedDamage);
-            health.SetMaxHealth(calculatedHealth);
-            ai.SetProjectileDamage(calculatedDamage); // Shooter will use this value
-
-            //Debug.Log($"Enemy initialized (Wave {waveNumber}) - Damage: {calculatedDamage}, Health: {calculatedHealth}");
+            behaviorController.Initialize(context);
         }
     }
 

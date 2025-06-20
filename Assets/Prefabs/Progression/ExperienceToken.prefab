@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 845a0aa88d5ccd4498e06260d1e3f60c, type: 3}
+  m_Sprite: {fileID: 8753283621101997260, guid: 8fb3781a391f5e140901af6825af8848, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,8 +176,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.15
+  m_Offset: {x: 0.0006033629, y: -0.0006033927}
+  m_Radius: 0.17775555
 --- !u!114 &4406457940365444562
 MonoBehaviour:
   m_ObjectHideFlags: 0

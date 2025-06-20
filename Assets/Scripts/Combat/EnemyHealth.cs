@@ -12,17 +12,13 @@ namespace Game.Combat
         [SerializeField] private GameObject deathVfxPrefab;
 
         public event OnHealthChanged onHealthChanged;
+        public event OnDeath onDeath;
 
         private int maxHealth;
         private int currentHealth;
-        private Flash flash;
-
-        private ExperienceDropper experienceDropper;
-        private void Awake()
-        {
-            experienceDropper = GetComponent<ExperienceDropper>();
-        }
-
+        private Flash flash;     
+        
+     
         private void Start()
         {
             currentHealth = maxHealth;
@@ -57,11 +53,10 @@ namespace Game.Combat
         {
             yield return new WaitForSeconds(deathDelay);
             var instancedVfx = Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
-            GameObject.Destroy(gameObject);
-            GameObject.Destroy(instancedVfx, 2f); // Destroy the VFX after 2 seconds
+            //GameObject.Destroy(gameObject);
+            onDeath?.Invoke();
+            GameObject.Destroy(instancedVfx, 2f); 
 
-            //Drop experience token
-            experienceDropper.TryDrop();
         }
     }
 }

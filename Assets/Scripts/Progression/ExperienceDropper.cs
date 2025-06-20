@@ -6,8 +6,7 @@ namespace Game.Progression
     {
         [SerializeField] private GameObject experienceTokenPrefab;       
         [SerializeField] private int xpAmount = 1;
-
-        private float dropChance = 0.8f;
+        [SerializeField] private float dropChance = 0.8f;
 
         public void TryDrop()
         {

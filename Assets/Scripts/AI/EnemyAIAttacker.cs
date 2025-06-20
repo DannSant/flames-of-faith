@@ -14,6 +14,8 @@ namespace Game.AI
         [SerializeField]
         private float minDistanceToPlayer = 1f;
         [SerializeField]
+        private float attackCooldown =2f;
+        [SerializeField]
         private GameObject meleeCollider;
 
         //References
@@ -24,6 +26,7 @@ namespace Game.AI
 
         //State
         private bool isAttacking = false;
+        private float attackCooldownTimer = 0;
 
         protected override void Awake()
         {
@@ -45,7 +48,9 @@ namespace Game.AI
         protected override void Update()
         {
             base.Update();
-
+            if (attackCooldownTimer <= attackCooldown) {
+                attackCooldownTimer += Time.deltaTime;
+            }
         }
 
         private void FixedUpdate()
@@ -55,6 +60,8 @@ namespace Game.AI
             {
                 return;
             }
+
+            
 
             Vector2 direction = ((Vector2)player.position - rb.position).normalized;
             Vector2 nextPosition = rb.position + direction * speed * Time.fixedDeltaTime;
@@ -95,6 +102,11 @@ namespace Game.AI
 
         private void TriggerAttack() 
         {
+            if (attackCooldownTimer < attackCooldown)
+            {
+                // Still in cooldown
+                return;
+            }
             isAttacking = true;
             animator.SetTrigger("Attack");
             meleeCollider.SetActive(true);
@@ -102,8 +114,10 @@ namespace Game.AI
 
         public void OnEndAttackAnimation() 
         {
+            Debug.Log("Attack animation ended");
             isAttacking = false;
             meleeCollider.SetActive(false);
+            attackCooldownTimer = 0;
         }
 
         public override void SetProjectileDamage(int amount)

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4604f6b413c4bc94dbf8332f83ed5327, type: 3}
+  m_Name: LightDevourer
+  m_EditorClassIdentifier: 
+  enemyType: 3
+  enemyPrefab: {fileID: 8961352363109504273, guid: cd612d670d67c5544b9b87bfc0bf75e1, type: 3}
+  healthBase: 50
+  damageBase: 8
+  damagePerWave: 2
+  speedBase: 5
+  attackRangeBase: 1
+  xpBase: 1
+  projectileDamageBase: 0
+  projectileDamagePerWave: 0

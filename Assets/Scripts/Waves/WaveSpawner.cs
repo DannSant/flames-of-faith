@@ -1,6 +1,7 @@
 using Game.AI;
 using Game.Combat;
 using Game.Common;
+using Game.Enemies;
 using Game.Scene;
 using System;
 using System.Collections;
@@ -11,8 +12,8 @@ using UnityEngine;
 namespace Game.Waves {
     public class WaveSpawner : Singleton<WaveSpawner>
     {
-        [Header("Enemy Prefabs")]
-        [SerializeField] private List<EnemyPrefabEntry> enemyPrefabEntries;
+        //[Header("Enemy Prefabs")]
+        //[SerializeField] private List<EnemyPrefabEntry> enemyPrefabEntries;
 
         [Header("Spawn Area")]
         [SerializeField] private Vector2 minPosition = new Vector2(14, 5);
@@ -20,7 +21,11 @@ namespace Game.Waves {
 
         [Header("Wave Settings")]
         [SerializeField] private WaveDatabase waveDatabase;
-        
+
+        [Header("Other Settings")]
+        [SerializeField]
+        private bool testMode = false;
+
         private Dictionary<EnemyType, GameObject> enemyPrefabs;
 
         // Events
@@ -46,15 +51,15 @@ namespace Game.Waves {
         protected override void Awake()
         {
             base.Awake();
-
+            var enemyDatabase = EnemyDatabaseProvider.Instance.EnemyDatabase;
             enemyPrefabs = new Dictionary<EnemyType, GameObject>();
-            foreach (var entry in enemyPrefabEntries)
+            foreach (var entry in enemyDatabase.GetAllEnemies())
             {
-                if (!enemyPrefabs.ContainsKey(entry.type))
+                if (!enemyPrefabs.ContainsKey(entry.Key))
                 {
-                    enemyPrefabs.Add(entry.type, entry.prefab);
+                    enemyPrefabs.Add(entry.Key, entry.Value.enemyPrefab);
                 }
-            }
+            }           
         }
 
         private void Start()
@@ -66,7 +71,23 @@ namespace Game.Waves {
             {
                 MainSceneController.Instance.OnGameplayResetRequested += ResetWaveSpawnerState;
             }
-            StartNextWave();
+            if(testMode)
+            {
+                SpawnTestEnemies();
+            }
+            else
+            {
+                StartNextWave();
+            }
+           
+        }
+
+        private void SpawnTestEnemies()
+        {
+            //SpawnEnemy(EnemyType.SlimeChaser);
+            //SpawnEnemy(EnemyType.FlameShooter);
+            //SpawnEnemy(EnemyType.SlimeRoamer);
+            SpawnEnemy(EnemyType.LightDevourerAttacker);
         }
 
         private void OnDisable()
@@ -85,6 +106,8 @@ namespace Game.Waves {
 
         private void Update()
         {
+            if (testMode) return;
+
             if (!waveInProgress || currentWaveIndex >= waveDatabase.waves.Count)
                 return;
 
@@ -126,6 +149,7 @@ namespace Game.Waves {
 
         private void StartNextWave()
         {
+            if (testMode) return;
             currentWaveIndex++;
 
             if (currentWaveIndex >= waveDatabase.waves.Count)

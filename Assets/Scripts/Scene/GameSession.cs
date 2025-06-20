@@ -32,7 +32,8 @@ namespace Game.Scene
 
         protected override void Awake()
         {
-            base.Awake();           
+            base.Awake();
+            playerData = new PlayerData();
         }
 
         public void Initialize()

@@ -43,10 +43,11 @@ namespace Game.Misc
 
         public void ApplyKnockback(Transform damageSource, float force)
         {
+            
+            if (IsKnockbacked) return;
             StartKnockback();
             Vector2 direction = (transform.position - damageSource.position).normalized * force * rb.mass;
-          
-
+                    
             // Apply a force to the Rigidbody2D in the specified direction
             rb.AddForce(direction, ForceMode2D.Impulse);
         }

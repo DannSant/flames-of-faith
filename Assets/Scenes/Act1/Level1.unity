@@ -28850,18 +28850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf98e5249b3a2247b36e9ec33536d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabEntries:
-  - type: 0
-    prefab: {fileID: 1917486536579394036, guid: 59cac1b95d1f707429040704a5674d77, type: 3}
-  - type: 1
-    prefab: {fileID: 2194942802062251975, guid: 386a974052f8c92438ec21248feaafd8, type: 3}
-  - type: 2
-    prefab: {fileID: 5199905407145678830, guid: c1a2c07867eb78b4fad93dc248f00183, type: 3}
-  - type: 3
-    prefab: {fileID: 1917486536579394036, guid: 44a9eca293c028f40b0c0607fb19ddb7, type: 3}
   minPosition: {x: 14, y: 5}
   maxPosition: {x: -13, y: -8}
   waveDatabase: {fileID: 11400000, guid: 4fefed48534ce34498086625d91440fe, type: 2}
+  testMode: 0
 --- !u!4 &2086159099
 Transform:
   m_ObjectHideFlags: 0
