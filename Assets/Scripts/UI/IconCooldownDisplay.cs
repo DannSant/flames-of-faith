@@ -7,6 +7,8 @@ namespace Game.UI
 {
     public class IconCooldownDisplay : MonoBehaviour
     {
+        [SerializeField] private Image attackBackground;
+        [SerializeField] private Image specialAttackBackground;
         [SerializeField] private Image cooldownAttackBackground;
         [SerializeField] private Image cooldownSpecialAttackBackground;
         [SerializeField] private Image cooldownDashBackground;
@@ -29,7 +31,7 @@ namespace Game.UI
             if (playerDash != null)
             {
                 playerDash.OnDashTimerUpdated += UpdateCooldownDashDisplay;
-                
+
             }
         }
 
@@ -64,6 +66,19 @@ namespace Game.UI
         {
             float fill = Mathf.Clamp01(timeLeft / cooldownDuration);
             cooldownDashBackground.fillAmount = fill;
+        }
+
+        public void SetIcons(Sprite attackIcon, Sprite specialAttackIcon)
+        {
+            if (attackBackground != null)
+            {
+                attackBackground.sprite = attackIcon;
+            }            
+            if (specialAttackBackground != null)
+            {
+                specialAttackBackground.sprite = specialAttackIcon;
+            }           
+           
         }
     }
 }

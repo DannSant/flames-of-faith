@@ -36,10 +36,7 @@ namespace Game.Scene
             {
                 ResetAllPlayerComponentStates();
             }
-            else
-            {
-                LoadAllPlayerComponentStates();
-            }
+           
 
             
         }

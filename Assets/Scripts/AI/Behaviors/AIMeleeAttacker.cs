@@ -71,13 +71,18 @@ namespace Game.AI.Behaviors
             
           
             if (animator != null)
+            {
+               
                 animator.SetTrigger("Attack");
+
+            }
         }
 
         public void OnAnimationEventEnd(BehaviorContext context, string eventName)
         {
             var state = context.GetState<MeleeAttackerBehaviorState>(this);
             state.isAttacking = false;
+         
             if (state.meleeCollider != null)
             {
                 state.meleeCollider.enabled = false;
@@ -85,7 +90,7 @@ namespace Game.AI.Behaviors
             {
                 Debug.LogWarning("Melee collider is not set in AIMeleeAttacker behavior state.");
             }
-            
+
         }
 
         public void OnAnimationEventStart(BehaviorContext context, string eventName)

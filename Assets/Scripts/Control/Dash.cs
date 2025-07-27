@@ -8,8 +8,9 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class Dash : MonoBehaviour
+    public class Dash : MonoBehaviour, IDependentStateLoader
     {
+        [SerializeField] private float defaultCooldown = 2f;
         [SerializeField] private float dashSpeed = 3f;
 
         public Action<float, float> OnDashTimerUpdated;
@@ -128,6 +129,19 @@ namespace Game.Control
             }
         }
 
+        public void LoadState()
+        {
+            SetupAttackSpeedVariables();
+        }
 
+        public void SaveState()
+        {
+            // No need to save, it is saved on the player progression component
+        }
+
+        public void ResetState()
+        {
+            dashCooldownTimer.SetEventDuration(defaultCooldown);
+        }
     }
 }

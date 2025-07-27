@@ -1,6 +1,7 @@
 using Game.Common;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,7 +27,10 @@ namespace Game.Scene
             "LevelSelector"
         };
 
-        public event System.Action OnGameplayResetRequested;
+        //public event System.Action OnGameplayResetRequested;
+        public event System.Action OnGameplayStateResetRequested; // For ResetState() only
+        public event System.Action OnGameplayInitialSetup;        // For input/event/UI setup
+        public event System.Action OnGameplayUISetupRequested;    // For UI setup
 
         protected override void Awake()
         {
@@ -46,7 +50,8 @@ namespace Game.Scene
 
         public void LoadGameplay(LevelData levelData)
         {
-            StartCoroutine(LoadGameplayRoutine(levelData));
+            bool shouldReset = GameSession.Instance.IsNewRun;
+            StartCoroutine(LoadGameplayRoutine(levelData, shouldReset));
         }
 
         public void LoadLevelSelectorScene()
@@ -72,8 +77,11 @@ namespace Game.Scene
 
         private IEnumerator LoadMainMenuRoutine()
         {
-            yield return StartCoroutine(FadeIn());
            
+            yield return StartCoroutine(FadeIn());
+
+            CleanupSceneObjects();
+
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
             yield return SceneManager.LoadSceneAsync(SceneNames.MainMenu, LoadSceneMode.Additive);
@@ -81,10 +89,12 @@ namespace Game.Scene
             yield return StartCoroutine(FadeOut());
         }
 
-        private IEnumerator LoadGameplayRoutine(LevelData levelData)
+        private IEnumerator LoadGameplayRoutine(LevelData levelData, bool shouldReset)
         {
             GameSession.Instance.currentLevel = levelData;
             yield return StartCoroutine(FadeIn());
+
+            CleanupSceneObjects();
 
             //Spawn player
             PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, GameSession.Instance.IsNewRun);
@@ -110,11 +120,23 @@ namespace Game.Scene
             var gameplayScene = SceneManager.GetSceneByName(levelData.SceneName);
             PlayerManager.Instance.MovePlayerToScene( gameplayScene);
             PlayerManager.Instance.LateInitializePlayer();
+           
+            yield return new WaitForSeconds(0.1f); // Wait for player to be fully initialized
+
+            //Setup UI events
+            OnGameplayUISetupRequested?.Invoke();
 
             //Once level and player are loaded, bind events
             PlayerManager.Instance.BindWaveEventsIfReady();
+            if (shouldReset)
+            {
+                OnGameplayStateResetRequested?.Invoke();
+            }else
+            {
+                PlayerManager.Instance.LoadAllPlayerComponentStates();
+            }
 
-           OnGameplayResetRequested?.Invoke();
+            OnGameplayInitialSetup?.Invoke();
 
             yield return StartCoroutine(FadeOut());
         }
@@ -185,6 +207,16 @@ namespace Game.Scene
             }
         }
 
+        private void CleanupSceneObjects()
+        {
+            var cleanupHandlers = Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
+                            .OfType<ISceneCleanupHandler>();
+
+            foreach (var handler in cleanupHandlers)
+            {
+                handler.Cleanup();
+            }
+        }
 
     }
 }

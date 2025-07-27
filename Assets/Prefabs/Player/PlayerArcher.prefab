@@ -141,6 +141,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 336429339396672147, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: classData
+      value: 
+      objectReference: {fileID: 11400000, guid: d2e2f00301e42454a854fcc922f1c75c, type: 2}
     - target: {fileID: 3207512564547789242, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Size.x
       value: 0.34329212
@@ -161,6 +165,14 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: startingEffects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'startingEffects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cffba003dd5ba74db595ba090c12f3c, type: 2}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -172,7 +184,7 @@ PrefabInstance:
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4057652279525399919, guid: b9fe66510cb92024599c5501b2d178af, type: 3}
+      objectReference: {fileID: -1083246938582655481, guid: ee8dfae25e66a084bab8a683458bdf5b, type: 3}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

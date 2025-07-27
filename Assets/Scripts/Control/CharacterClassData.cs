@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Control
@@ -9,6 +11,7 @@ namespace Game.Control
         public CharacterClass characterClass;
         public RuntimeAnimatorController animatorController;
         public Sprite defaultSprite;
+        public List<Sprite> abilityIcons;
     }
 
     public enum CharacterClass

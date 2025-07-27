@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4502635186739942398}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.74, y: 0, z: 0}
+  m_LocalPosition: {x: 0.642, y: -0.491, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4502635186739942398}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -67,7 +67,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.030576825, y: 0.077831745}
+  m_Offset: {x: -0.19825363, y: 0.17917103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -77,7 +77,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5385692, y: 1.722723}
+  m_Size: {x: 0.9962301, y: 1.9254016}
   m_EdgeRadius: 0
 --- !u!114 &7601900590944714624
 MonoBehaviour:
@@ -191,19 +191,19 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9f32db3e6d64de14293a66519bc74b81, type: 2}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.x
-      value: 0.88635266
+      value: 0.65098417
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.y
-      value: 1.792326
+      value: 1.9100103
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.x
-      value: 0.031321764
+      value: -0.08636248
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.y
-      value: -0.103896976
+      value: -0.5354059
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Direction
@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1680608187, guid: 07c5ae828d69a534da61ef1ccb97ce1a, type: 3}
+      objectReference: {fileID: 3304496254196849035, guid: d23fc755a0c277844bcaaa309f8ea235, type: 3}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

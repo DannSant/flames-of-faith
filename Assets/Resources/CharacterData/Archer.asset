@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
-  m_Name: ElfArcher
+  m_Name: Archer
   m_EditorClassIdentifier: 
   characterName: Elf Archer
   characterClass: 3
   animatorController: {fileID: 9100000, guid: 281fe65995468ba46bfa19316915ef72, type: 2}
   defaultSprite: {fileID: 21300000, guid: 41aca6795290d486aa661b867d2f8548, type: 3}
+  abilityIcons:
+  - {fileID: 21300000, guid: e2f7cf4dcbe48ed43a010d3cf95019c5, type: 3}
+  - {fileID: 21300000, guid: d45fd7b28cb3d404a94f1eb721fbec6a, type: 3}

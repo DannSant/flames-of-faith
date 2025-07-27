@@ -10,7 +10,7 @@ using Game.Scene;
 namespace Game.Progression
 {
     
-    public class UpgradeManager : Singleton<UpgradeManager>
+    public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler
     {
         private List<StatType> eligibleUpgradeStats = new();       
 
@@ -45,7 +45,7 @@ namespace Game.Progression
 
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested += ResetUpgradeManagerstate;
+                MainSceneController.Instance.OnGameplayStateResetRequested += ResetUpgradeManagerstate;
             }
         }
 
@@ -57,7 +57,7 @@ namespace Game.Progression
             }
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested -= ResetUpgradeManagerstate;
+                MainSceneController.Instance.OnGameplayStateResetRequested -= ResetUpgradeManagerstate;
             }
         }
 
@@ -163,11 +163,18 @@ namespace Game.Progression
             return selected;
         }
 
-        /*public void ApplyUpgrade(StatType selectedStat, int statIncreaseAmount)
+        public void Cleanup()
         {
-            PlayerProgression.Instance.UpdateStat(selectedStat, statIncreaseAmount);
-            WaveSpawner.Instance.ConfirmNextWave();
-        }*/
+            if (WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.OnWaveComplete -= HandleWaveComplete;
+            }
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayStateResetRequested -= ResetUpgradeManagerstate;
+            }
+            Destroy(gameObject);
+        }
 
     }
 }

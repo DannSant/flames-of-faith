@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Combat.Projectiles;
+using System;
 using UnityEngine;
 
 namespace Game.Effects{
@@ -7,14 +8,39 @@ namespace Game.Effects{
 
     public abstract class Effect : ScriptableObject
     {
+        [SerializeField] private string effectID;
+       
+        public string effectName = "New Effect";
+
+        [Tooltip("This value will be multiplied by the level of the item when calculating damage or other state")]
+        public float scalingValue = 1;
         [TextArea] public string description;
+
+        protected EffectStore ownerStore;
+
+        public string EffectID => effectID;
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            // Only assign a new ID if it's empty
+            if (string.IsNullOrEmpty(effectID))
+            {
+                effectID = Guid.NewGuid().ToString();
+                UnityEditor.EditorUtility.SetDirty(this); // Mark asset as modified so Unity saves it
+            }
+        }
+#endif
 
         /// <summary>
         /// Apply this effect to the target GameObject.
         /// This is called when the effect is first added (e.g., item pickup).
         /// </summary>
         /// <param name="target">The GameObject this effect should affect (typically the player).</param>
-        public abstract void Apply(GameObject config);
+        public virtual void Apply(GameObject config, EffectStore effectStore)
+        {
+            ownerStore = effectStore;
+        }
 
         /// <summary>
         /// Cleanup or unsubscribe if necessary when the effect is removed or the game ends.
@@ -27,6 +53,7 @@ namespace Game.Effects{
         /// </summary>
         /// <param name="target">The GameObject this effect is affecting.</param>
         public virtual void Tick(GameObject target) { }
+       
     }
 
 }

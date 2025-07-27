@@ -5,11 +5,11 @@ namespace Game.Control
 {
     public class CharacterVisual : MonoBehaviour
     {
-        [SerializeField] private CharacterClassData characterData;
         [SerializeField] private float flashDuration = 0.1f;
         [SerializeField] private Color flashColor = Color.white;
         [SerializeField] private SpriteRenderer attackEffect;
 
+        private CharacterClassData characterData;
         private SpriteRenderer spriteRenderer;
        
         private Animator animator;
@@ -31,10 +31,10 @@ namespace Game.Control
 
             originalColor = spriteRenderer.color;
 
-            if (characterData != null)
+            /*if (characterData != null)
             {
                 Initialize(characterData);
-            }
+            }*/
         }
 
         public void Initialize(CharacterClassData data)

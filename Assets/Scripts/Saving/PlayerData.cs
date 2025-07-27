@@ -10,6 +10,7 @@ namespace Game.Saving
     {
         public int currentHealth = 0;
         public Dictionary<StatType, int> savedStats = new Dictionary<StatType, int>();
+        public PlayerExperienceData playerExperienceData = new PlayerExperienceData();
     }
 
 }

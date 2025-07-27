@@ -8,6 +8,7 @@ namespace Game.Progression
     public class ExperienceToken : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private int testExtraExperience = 8;
 
         private int xpAmount = 1;
         private float magnetRange = 2f;
@@ -65,7 +66,7 @@ namespace Game.Progression
             if (playerXP != null)
             {
                
-                playerXP.AddExperience(xpAmount);
+                playerXP.AddExperience(xpAmount + testExtraExperience);
                 Destroy(gameObject);
             }
             

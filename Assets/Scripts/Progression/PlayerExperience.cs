@@ -5,7 +5,15 @@ using UnityEngine;
 
 namespace Game.Progression
 {
-    public class PlayerExperience : MonoBehaviour
+    [Serializable]
+    public struct PlayerExperienceData
+    {
+        public int CurrentLevel;
+        public int CurrentXP;
+        public int ExperienceReductionStat; 
+    }
+
+    public class PlayerExperience : MonoBehaviour, IPrimaryStateLoader
     {
         [Header("Experience Growth Settings")]
         [SerializeField] private float baseXPRequired = 10f;
@@ -16,6 +24,7 @@ namespace Game.Progression
         [SerializeField] private int currentLevel = 1;
         [SerializeField] private int currentXP = 0;
 
+        //events
         public event Action<int,int> OnPlayerExperienceGainEvent;
         public delegate void OnLevelUp(int newLevel, int newXPRequired);
         public event OnLevelUp onLevelUp;
@@ -27,7 +36,7 @@ namespace Game.Progression
             // Optionally initialize XP/Level from save data later
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerExperienceState;
+                MainSceneController.Instance.OnGameplayStateResetRequested += ResetPlayerExperienceState;
             }
         }
 
@@ -35,7 +44,7 @@ namespace Game.Progression
         {
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested -= ResetPlayerExperienceState;
+                MainSceneController.Instance.OnGameplayStateResetRequested -= ResetPlayerExperienceState;
             }
         }
 
@@ -74,6 +83,44 @@ namespace Game.Progression
             dynamicGrowth = Mathf.Max(minGrowthRate, dynamicGrowth); // Prevent abuse
 
             return Mathf.CeilToInt(baseXPRequired * Mathf.Pow(dynamicGrowth, level - 1));
+        }
+
+        public void LoadState()
+        {
+            //Load state from GameSession
+            var playerExperienceData = GameSession.Instance.LoadPlayerExperienceState();
+            currentLevel = playerExperienceData.CurrentLevel;
+            currentXP = playerExperienceData.CurrentXP;
+
+            // Get the reduction stat from the state instead of the player progression because we don't know if player progression has loaded yet
+            float reductionStat = playerExperienceData.ExperienceReductionStat;
+
+            // Calculate required experience normally
+            float reduction = reductionStat * growthReductionPerPoint;
+            float dynamicGrowth = baseGrowthRate - reduction;
+            dynamicGrowth = Mathf.Max(minGrowthRate, dynamicGrowth);
+            int requiredExperience = Mathf.CeilToInt(baseXPRequired * Mathf.Pow(dynamicGrowth, currentLevel - 1));
+
+            // Invoke events with loaded state
+            OnPlayerExperienceGainEvent?.Invoke(currentXP, requiredExperience);
+            onLevelUp?.Invoke(currentLevel, requiredExperience);
+
+            
+        }
+
+        public void SaveState()
+        {           
+            GameSession.Instance.SavePlayerExperienceState(new PlayerExperienceData
+            {
+                CurrentLevel = currentLevel,
+                CurrentXP = currentXP,
+                ExperienceReductionStat = playerProgression.GetStatTotal(StatType.ExperienceToLevelUpReduction)
+            });
+        }
+
+        public void ResetState()
+        {
+            ResetPlayerExperienceState();
         }
     }
 

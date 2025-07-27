@@ -102,6 +102,7 @@ namespace Game.AI.Behaviors
 
         public void OnAnimationEventEnd(string eventName)
         {
+           
             foreach (var behavior in updateBehaviors)
             {
                 if (behavior is IAnimationEventReceiver receiver)

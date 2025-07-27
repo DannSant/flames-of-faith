@@ -62,7 +62,7 @@ namespace Game.Combat
             characterVisual.OnSpecialAttackStartAnimEvent -= OnSpecialAttackAnimationStarted;
         }
 
-        protected virtual void SetupAttackSpeedVariables()
+        public virtual void SetupAttackSpeedVariables()
         {
             float attackDelay = StatsCalculations.CalculateAttackDelay(
                 playerProgression.GetStatTotal(StatType.AttackSpeed),

@@ -45,6 +45,7 @@ namespace Game.Misc
         {
             
             if (IsKnockbacked) return;
+            
             StartKnockback();
             Vector2 direction = (transform.position - damageSource.position).normalized * force * rb.mass;
                     

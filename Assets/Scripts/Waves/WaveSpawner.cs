@@ -10,14 +10,16 @@ using System.Linq;
 using UnityEngine;
 
 namespace Game.Waves {
-    public class WaveSpawner : Singleton<WaveSpawner>
+    public class WaveSpawner : Singleton<WaveSpawner>, ISceneCleanupHandler
     {
         //[Header("Enemy Prefabs")]
         //[SerializeField] private List<EnemyPrefabEntry> enemyPrefabEntries;
 
         [Header("Spawn Area")]
-        [SerializeField] private Vector2 minPosition = new Vector2(14, 5);
-        [SerializeField] private Vector2 maxPosition = new Vector2(-13, -8);
+        //[SerializeField] private Vector2 minPosition = new Vector2(14, 5);
+        //[SerializeField] private Vector2 maxPosition = new Vector2(-13, -8);
+        [SerializeField] private List<SpawnZone> spawnZones = new List<SpawnZone>();
+        [SerializeField] private float minSpawnDistanceFromPlayer = 5f;
 
         [Header("Wave Settings")]
         [SerializeField] private WaveDatabase waveDatabase;
@@ -69,7 +71,7 @@ namespace Game.Waves {
             // Suscribe to OnGameplayResetRequested to reset the state after the game reloads
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested += ResetWaveSpawnerState;
+                MainSceneController.Instance.OnGameplayInitialSetup += ResetWaveSpawnerState;
             }
             if(testMode)
             {
@@ -83,11 +85,15 @@ namespace Game.Waves {
         }
 
         private void SpawnTestEnemies()
-        {
-            //SpawnEnemy(EnemyType.SlimeChaser);
-            //SpawnEnemy(EnemyType.FlameShooter);
-            //SpawnEnemy(EnemyType.SlimeRoamer);
-            SpawnEnemy(EnemyType.LightDevourerAttacker);
+        {            
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeChaser);
         }
 
         private void OnDisable()
@@ -100,7 +106,7 @@ namespace Game.Waves {
             
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested -= ResetWaveSpawnerState;
+                MainSceneController.Instance.OnGameplayInitialSetup -= ResetWaveSpawnerState;
             }
         }
 
@@ -214,10 +220,37 @@ namespace Game.Waves {
                 return;
             }
 
-            Vector2 spawnPos = new Vector2(
-                UnityEngine.Random.Range(minPosition.x, maxPosition.x),
-                UnityEngine.Random.Range(minPosition.y, maxPosition.y)
-            );
+            var validZones = spawnZones.Where(zone => !zone.IsPlayerInside).ToList();
+
+            if (validZones.Count == 0)
+            {
+                Debug.LogWarning("No valid spawn zones available!");
+                return;
+            }
+
+            Vector2 playerPos = PlayerManager.Instance.transform.position;
+
+            Vector2 spawnPos = Vector2.zero;
+            int attempts = 0;
+            const int maxAttempts = 10;
+            bool found = false;
+
+            while (!found && attempts < maxAttempts)
+            {
+                var zone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+              
+                spawnPos = zone.GetRandomPointInside();
+                if (Vector2.Distance(spawnPos, playerPos) > minSpawnDistanceFromPlayer)
+                {
+                    found = true;
+                }
+                attempts++;
+            }
+
+            if (!found)
+            {
+                Debug.LogWarning("Could not find spawn point far enough from player.");
+            }
 
             GameObject enemyGO = Instantiate(prefab, spawnPos, Quaternion.identity);
             enemyGO.transform.parent = transform; // Set parent to WaveSpawner
@@ -243,7 +276,22 @@ namespace Game.Waves {
             return pool[0].type; // fallback
         }
 
+        public void Cleanup()
+        {
+            StopAllCoroutines();
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath -= OnPlayerDeathDisableWave;
+            }
 
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayInitialSetup -= ResetWaveSpawnerState;
+            }
+            activeEnemies.Clear();
+            Destroy(gameObject);
+        }
 
     }
 }

@@ -4,7 +4,7 @@ using Game.Control;
 using System;
 namespace Game.Combat
 {
-    public class WeaponManager :MonoBehaviour
+    public class WeaponManager :MonoBehaviour, IDependentStateLoader
     {
         [SerializeField] private WeaponBase startingWeapon;
         [SerializeField] private bool autoAttackEnabled = false;
@@ -96,7 +96,22 @@ namespace Game.Combat
         public void SpecialAttack() => currentWeapon?.SpecialAttack();
         public EnemyHealth GetCurrentTarget() => currentWeapon?.GetTarget();
 
-        public WeaponBase GetCurrentWeapon() => currentWeapon;        
+        public WeaponBase GetCurrentWeapon() => currentWeapon;
+
+        public void LoadState()
+        {
+           currentWeapon.SetupAttackSpeedVariables();
+        }
+
+        public void SaveState()
+        {
+           //no need to save, it is saved in the player progress component
+        }
+
+        public void ResetState()
+        {
+           //initialized on the weapon base 
+        }
     }
 
 }

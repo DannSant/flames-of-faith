@@ -92,7 +92,19 @@ namespace Game.Scene
             foreach (var stat in stats)
             {
                 playerData.savedStats[stat.Key] = stat.Value;
+               
             }
+            
+        }
+
+        public void SavePlayerExperienceState(PlayerExperienceData data)
+        {
+            playerData.playerExperienceData = data;
+        }
+
+        public PlayerExperienceData LoadPlayerExperienceState()
+        {
+            return playerData.playerExperienceData;
         }
 
     }

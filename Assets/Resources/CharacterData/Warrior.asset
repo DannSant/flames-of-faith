@@ -16,3 +16,6 @@ MonoBehaviour:
   characterClass: 1
   animatorController: {fileID: 9100000, guid: 0f141bd90ee20c54eb5b6cf5e3b93df9, type: 2}
   defaultSprite: {fileID: -4057652279525399919, guid: a24b23e2a0e0fcf4795cc3f843fb12dc, type: 3}
+  abilityIcons:
+  - {fileID: 21300000, guid: 95de7ebaf4e06d547b6c94707450d6f2, type: 3}
+  - {fileID: 21300000, guid: e7e072706bb6f8f4097434493f40ddaf, type: 3}

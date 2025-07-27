@@ -6,12 +6,25 @@ using UnityEngine;
 
 namespace Game.Effects
 {
+    [System.Serializable]
+    public struct EffectInstance
+    {
+        public Effect effect;
+        public int count;
+
+        public EffectInstance(Effect effect, int count = 1)
+        {
+            this.effect = effect;
+            this.count = count;
+        }
+    }
+
     public class EffectStore : MonoBehaviour
     {
 
         [SerializeField] private List<Effect> startingEffects = new();
 
-        private List<Effect> activeEffects = new();
+        private List<EffectInstance> activeEffects = new();
         public event Action<Effect> OnEffectAdded;
         public event Action<Effect> OnEffectRemoved;
 
@@ -25,25 +38,59 @@ namespace Game.Effects
 
         public void AddEffect(Effect effect)
         {
-            effect.Apply(this.gameObject);
-            activeEffects.Add(effect);
-            OnEffectAdded?.Invoke(effect);
+            var existing = activeEffects.FirstOrDefault(e => e.effect.EffectID == effect.EffectID);
+
+            if (existing.effect != null)
+            {
+                // Increase the count for matching effect ID
+                int index = activeEffects.FindIndex(e => e.effect.EffectID == effect.EffectID);
+                existing.count++;
+                activeEffects[index] = existing;
+               
+            }
+            else
+            {
+                // New effect, apply and track it
+                effect.Apply(this.gameObject, this);
+                activeEffects.Add(new EffectInstance(effect));
+                OnEffectAdded?.Invoke(effect);
+            }
         }
 
         public void RemoveEffect(Effect effect)
         {
-            activeEffects.Remove(effect);
-            effect.Cleanup();
+            var instance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effect.EffectID);
+            if (instance.effect != null)
+            {
+                activeEffects.Remove(instance);
+                instance.effect.Cleanup();
+                OnEffectRemoved?.Invoke(effect);
+            }
         }
-        public bool HasEffect<T>() where T : Effect
+        public bool HasEffectByID(string effectID)
         {
-            return activeEffects.Any(e => e is T);
+            return activeEffects.Any(ei => ei.effect.EffectID == effectID);
+        }
+
+        public EffectMultiplierConfig GetEffectMultiplierConfig(string effectID)
+        {
+            var effectInstance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effectID);
+            if (effectInstance.effect != null)
+            {
+                return new EffectMultiplierConfig
+                {
+                    count = effectInstance.count,
+                    scaleValue = effectInstance.effect.scalingValue
+                };
+            }
+
+            return new EffectMultiplierConfig();
         }
         public void ClearAll()
         {
-            foreach (var effect in activeEffects)
+            foreach (var effectInstance in activeEffects)
             {
-                effect.Cleanup();
+                effectInstance.effect.Cleanup();
             }
             activeEffects.Clear();
         }

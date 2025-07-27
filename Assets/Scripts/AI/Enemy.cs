@@ -50,14 +50,19 @@ namespace Game.AI {
             int baseHealth = enemyData.healthBase;
             int calculatedHealth = baseHealth + 5 + ((waveNumber - 1) * 2);
            
-            health.SetMaxHealth(calculatedHealth);    
-            
-            var player = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+            health.SetMaxHealth(calculatedHealth);
+
+            var player = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
+            if(player==null)
+            {
+                return;
+            }
+           
             var context = new BehaviorContext
             {
                 enemyGameObject = gameObject,
                 enemyTransform = transform,
-                playerTransform = player,
+                playerTransform = player.transform,
                 enemyData = enemyData,
                 waveNumber = waveNumber
             };

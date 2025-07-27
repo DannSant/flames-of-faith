@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ce3612d0d39be428b67e6c9248a1d3, type: 3}
   m_Name: FlameShoot
   m_EditorClassIdentifier: 
-  minRange: 5
-  maxRange: 7
-  shootCooldown: 2
+  minRange: 3
+  maxRange: 5
+  shootCooldown: 3
   projectilePrefab: {fileID: 4655842776331200841, guid: 0511eec49ac9963478359f4853ae1bc8, type: 3}
-  firePointReference: {fileID: 0}
+  firePointName: FirePoint

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Game.Combat
 {
-    public class DamageSource : MonoBehaviour
+    public class WeaponDamageSource : MonoBehaviour
     {
         private PlayerProgression playerProgression;       
 

@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 7385873791281439729}
   - component: {fileID: 3511806836168854284}
   - component: {fileID: 2356535091906905019}
+  - component: {fileID: 336429339396672147}
   m_Layer: 0
   m_Name: PlayerBase
   m_TagString: Untagged
@@ -626,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695f634fb9b10d449b2ae50906240202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMoveSpeed: 1
   baseMoveSpeed: 3.5
   baseMoveScale: 0.01
 --- !u!114 &6846231228422835459
@@ -640,6 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b992408f0e7a8764d9b32b0d6fd5be73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultCooldown: 2
   dashSpeed: 4
 --- !u!114 &3109023086003309007
 MonoBehaviour:
@@ -653,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98ab5559ab24994294c8fe0278951f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMaxGrace: 10
 --- !u!114 &5987711000833707507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,37 +695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55aa839b84bfbc84292b800f62667f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialStats:
-  - statType: 0
-    initialValue: 20
-  - statType: 6
-    initialValue: 0
-  - statType: 1
-    initialValue: 0
-  - statType: 2
-    initialValue: 0
-  - statType: 3
-    initialValue: 0
-  - statType: 4
-    initialValue: 0
-  - statType: 5
-    initialValue: 10
-  - statType: 7
-    initialValue: 0
-  - statType: 8
-    initialValue: 0
-  - statType: 9
-    initialValue: 0
-  - statType: 10
-    initialValue: 0
-  - statType: 11
-    initialValue: 0
-  - statType: 12
-    initialValue: 0
-  - statType: 13
-    initialValue: 0
-  - statType: 14
-    initialValue: 0
 --- !u!114 &5786349976062706718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,6 +765,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3016f63e1ec2f438b4eee2323976c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &336429339396672147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543883001522524048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d33a43c7475e44ca8556eb96a56006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classData: {fileID: 0}
 --- !u!1 &7211000969120750526
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757f768c58fa5aa44a2a604378150afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 11400000, guid: 79677955bf0858e4bba69b190d113b25, type: 2}
   flashDuration: 0.1
   flashColor: {r: 1, g: 1, b: 1, a: 0}
   attackEffect: {fileID: 0}

@@ -1,12 +1,14 @@
+using Game.Common;
 using Game.Progression;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.Combat
 {
     public class HealthRegen : MonoBehaviour
     {
-         private PlayerProgression playerProgression;
-         private PlayerHealth playerHealth;
+        private PlayerProgression playerProgression;
+        private PlayerHealth playerHealth;
 
         private float regenTimer = 0f;
 
@@ -37,4 +39,5 @@ namespace Game.Combat
             return 5f / (1f + ((hpRegen - 1f) / 2.25f));
         }
     }
-}
+        
+ }

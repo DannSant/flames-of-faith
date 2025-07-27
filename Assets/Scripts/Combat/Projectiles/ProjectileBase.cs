@@ -1,3 +1,5 @@
+using Game.Effects;
+using Game.Progression;
 using System;
 using UnityEngine;
 
@@ -11,7 +13,7 @@ namespace Game.Combat.Projectiles
         Explosive
     }
 
-    public abstract class ProjectileBase : MonoBehaviour
+    public abstract class ProjectileBase : MonoBehaviour, IEffectMultiplier
     {
         [SerializeField] protected float speed=5;
         [SerializeField] protected ProjectileType projectileType = ProjectileType.Linear;
@@ -23,6 +25,8 @@ namespace Game.Combat.Projectiles
         protected bool damageToPlayer = false;
         protected int graceGenerated = 1;
         private float timer;
+        private EffectStore effectStore;
+        private string effectID;
 
         int enemyLayerMask;
         int playerLayerMask;
@@ -97,6 +101,8 @@ namespace Game.Combat.Projectiles
         {
             if (enemyHealth != null)
             {
+
+                int totalDamage = CalculateTotalDamage();
                 enemyHealth.TakeDamage(damageAmount);
                 pierceCount--;
                 if (pierceCount <= 0)
@@ -106,6 +112,23 @@ namespace Game.Combat.Projectiles
             }
         }
 
+        private int CalculateTotalDamage()
+        {
+            
+            return Mathf.FloorToInt(damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
+        }
+
         public ProjectileType GetProjectileType() => projectileType;
+
+
+        public void SetEffectStore(EffectStore effectStore)
+        {
+            this.effectStore = effectStore;
+        }
+
+        public void SetEffectID(string effectID)
+        {
+            this.effectID = effectID;
+        }
     }
 }

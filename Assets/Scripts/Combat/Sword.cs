@@ -12,8 +12,8 @@ namespace Game.Combat
     {       
         [SerializeField] private GameObject weaponColliderObject;
         [SerializeField] private CircleCollider2D specialAttackCollider;      
-        [SerializeField] private DamageSource mainDamageSource;
-        [SerializeField] private DamageSource specialDamageSource;
+        [SerializeField] private WeaponDamageSource mainDamageSource;
+        [SerializeField] private WeaponDamageSource specialDamageSource;
         [Tooltip("Weapon data")]
         [SerializeField] private WeaponData weaponData;
         [SerializeField] private WeaponData specialWeaponData;

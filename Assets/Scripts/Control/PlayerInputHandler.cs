@@ -14,6 +14,7 @@ namespace Game.Control
         private InputSystem_Actions inputActions;
 
         public InputSystem_Actions.PlayerActions Player => inputActions.Player;
+        public InputSystem_Actions.UIActions UI => inputActions.UI;
 
         private void Awake()
         {
@@ -30,7 +31,7 @@ namespace Game.Control
 
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested += EnableInput;
+                MainSceneController.Instance.OnGameplayInitialSetup += EnableInput;
             }
         }
 
@@ -49,7 +50,7 @@ namespace Game.Control
             }
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested -= EnableInput;
+                MainSceneController.Instance.OnGameplayInitialSetup -= EnableInput;
             }
         }
 

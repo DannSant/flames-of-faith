@@ -14,16 +14,18 @@ namespace Game.Effects
         [SerializeField] private int spawnCount = 1;
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
         [SerializeField] private bool spawnAtRandomRotation = true;
+        [Range(0f, 1f)]
+        [SerializeField] private float chanceToSpawn = 1.0f;
 
         
-        private DamageSource damageSource;
+        private WeaponDamageSource damageSource;
         private BowWeapon bow;
         private readonly List<ProjectileBase> registeredProjectiles = new();
 
 
-        public override void Apply(GameObject target)
+        public override void Apply(GameObject target, EffectStore effectStore)
         {
-
+            base.Apply(target, effectStore);
             var currentWeapon = PlayerManager.Instance.GetPlayerComponent<WeaponManager>().GetCurrentWeapon();
 
             if(currentWeapon!=null && currentWeapon is SwordWeapon)
@@ -74,6 +76,9 @@ namespace Game.Effects
 
         private void HandleDamageDealt(int damage, int grace, GameObject target)
         {
+            bool shouldSpawn = Random.Range(0f, 1f) <= chanceToSpawn;
+            if (!shouldSpawn) return;
+
             for (int i = 0; i < spawnCount; i++)
             {
                 Quaternion rotation = spawnAtRandomRotation
@@ -81,7 +86,13 @@ namespace Game.Effects
                     : Quaternion.identity;
 
                 Vector2 spawnPosition = (Vector2)target.transform.position + spawnOffset;
-                GameObject.Instantiate(prefabToSpawn, spawnPosition, rotation);
+                Instantiate(prefabToSpawn, spawnPosition, rotation);
+                var effectMultiplier = prefabToSpawn.GetComponent<IEffectMultiplier>();
+                if (effectMultiplier!=null)
+                {
+                    effectMultiplier.SetEffectStore(ownerStore);
+                    effectMultiplier.SetEffectID(EffectID);
+                }
             }
         }
     }

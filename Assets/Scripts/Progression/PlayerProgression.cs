@@ -19,7 +19,7 @@ namespace Game.Progression {
         {           
             if (MainSceneController.Instance != null)
             {               
-                MainSceneController.Instance.OnGameplayResetRequested += ResetProgression;
+                MainSceneController.Instance.OnGameplayStateResetRequested += ResetProgression;
             }
         }
 
@@ -27,7 +27,7 @@ namespace Game.Progression {
         {
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested -= ResetProgression;
+                MainSceneController.Instance.OnGameplayStateResetRequested -= ResetProgression;
             }
         }
 
@@ -48,8 +48,7 @@ namespace Game.Progression {
             {
                 // Update the stat value
                 currentStats[statType] += value;
-
-                Debug.Log($"Stat updated: {statType} - {currentStats[statType]}");
+                
 
                 // Trigger the event to notify subscribers
                 onStatUpdated?.Invoke(statType, GetStatTotal(statType));
@@ -81,12 +80,12 @@ namespace Game.Progression {
 
         public void LateInitialize()
         {
-            ResetProgression();
+          
         }
 
         public void ResetState()
         {
-          
+           
         }
 
         public void SaveState()
@@ -97,6 +96,7 @@ namespace Game.Progression {
         public void LoadState()
         {
             currentStats = new Dictionary<StatType, int>(GameSession.Instance.PlayerData.savedStats);
+            
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Game.UI
             }
         }
 
-        private void ShowStatsWindow(List<List<StatValuePair>> _) 
+        public void ShowStatsWindow(List<List<StatValuePair>> _) 
         {
             //Show panel
             contentPanel.SetActive(true);
@@ -79,7 +79,7 @@ namespace Game.UI
 
         
 
-        private void HideStatsWindow(int _)
+        public void HideStatsWindow(int _)
         {
             contentPanel.SetActive(false);
             backgroundPanel.SetActive(false);

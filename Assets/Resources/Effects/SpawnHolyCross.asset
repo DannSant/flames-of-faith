@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aad74c01767cfc489c93e408b9aa81c, type: 3}
+  m_Name: SpawnHolyCross
+  m_EditorClassIdentifier: 
+  effectID: 2187437d-7198-4524-9bdb-3eeede1a728c
+  effectName: Concecrate
+  scalingValue: 1
+  description: Chance to Spawn a number of holy crosses that damages enemies who
+    cross it
+  prefabToSpawn: {fileID: 3515589407162799255, guid: dbf35cf2ab47872429062223bb731c6f, type: 3}
+  spawnCount: 3
+  spawnOffset: {x: 0, y: 0}
+  spawnAtRandomRotation: 0
+  chanceToSpawn: 0.5

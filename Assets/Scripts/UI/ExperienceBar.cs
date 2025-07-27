@@ -15,7 +15,7 @@ namespace Game.UI {
 
         [SerializeField] private float fillSpeed = 5f;
 
-        private PlayerExperience playerExperience;
+        //private PlayerExperience playerExperience;
 
         private void Awake()
         {
@@ -24,18 +24,44 @@ namespace Game.UI {
 
         private void Start()
         {
-            playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            //playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            //OnPlayerExperienceGain(0, 10);
+            //OnPlayerLevelUp(1, 10);
+        }
+
+        private void OnEnable()
+        {
+            var mainSceneController = MainSceneController.Instance;
+            if (mainSceneController != null)
+            {
+                mainSceneController.OnGameplayUISetupRequested += SetupEvents;
+            }
+        }
+
+        private void OnDisable()
+        {
+            var mainSceneController = MainSceneController.Instance;
+            if (mainSceneController != null)
+            {
+                mainSceneController.OnGameplayUISetupRequested -= SetupEvents;
+            }
+        }
+
+        private void SetupEvents()
+        {
+            var playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
             if (playerExperience != null)
             {
                 playerExperience.OnPlayerExperienceGainEvent += OnPlayerExperienceGain;
                 playerExperience.onLevelUp += OnPlayerLevelUp;
             }
-            OnPlayerExperienceGain(0, 10);
         }
+
+        
 
         private void OnDestroy()
         {
-            playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            var playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
             if (playerExperience != null)
             {
                 playerExperience.OnPlayerExperienceGainEvent -= OnPlayerExperienceGain;
@@ -45,6 +71,7 @@ namespace Game.UI {
 
         private void OnPlayerExperienceGain(int currentExperience, int maxExperience)
         {
+            //Debug.Log($"ExperienceBar: OnPlayerExperienceGain Current XP: {currentExperience}, Max XP: {maxExperience}");
             if (fillCoroutine != null)
                 StopCoroutine(fillCoroutine);
 
@@ -68,6 +95,7 @@ namespace Game.UI {
 
         private void OnPlayerLevelUp(int newLevel, int newMaxXP) 
         {
+            //Debug.Log($"ExperienceBar: OnPlayerLevelUp newLevel: {newLevel},newMaxXP: {newMaxXP}");
             levelText.SetText($"Level {newLevel}");
             OnPlayerExperienceGain(0, newMaxXP);
         }

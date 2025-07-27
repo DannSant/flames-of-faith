@@ -12,8 +12,8 @@ namespace Game.Combat
     {
         [SerializeField] private GameObject weaponColliderObject;
         [SerializeField] private GameObject specialAttackCollider;
-        [SerializeField] private DamageSource mainDamageSource;
-        [SerializeField] private DamageSource specialDamageSource;
+        [SerializeField] private WeaponDamageSource mainDamageSource;
+        [SerializeField] private WeaponDamageSource specialDamageSource;
 
         public override void Initialize(CharacterVisual characterVisual)
         {
@@ -138,12 +138,12 @@ namespace Game.Combat
             }
         }
 
-        public DamageSource GetDamageSource()
+        public WeaponDamageSource GetDamageSource()
         {
             return mainDamageSource;
         }
 
-        public DamageSource GetSpecialDamageSource() 
+        public WeaponDamageSource GetSpecialDamageSource() 
         {
             return specialDamageSource;
         }

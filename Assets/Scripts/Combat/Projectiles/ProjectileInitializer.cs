@@ -23,17 +23,16 @@ namespace Game.Combat.Projectiles
 
             // Get currently equipped weapon
             var currentWeapon = PlayerManager.Instance.GetPlayerComponent<WeaponManager>().GetCurrentWeapon();
-            var weaponData = currentWeapon.GetWeaponData();
+           // var weaponData = currentWeapon.GetWeaponData();
 
             //Get player progression object
             var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
 
-            //If the weapon is a melee weapon, get the melee damage stat, if not get the ranged damage stat
-            int statDamage = weaponData.weaponClass == WeaponClass.Melee ?
-                playerProgression.GetStatTotal(StatType.MeleeDamage) : playerProgression.GetStatTotal(StatType.RangedDamage);
+            //
+            int statDamage =  playerProgression.GetStatTotal(StatType.RangedDamage);
 
-            int damage = weaponData.baseDamage + statDamage;         
-            int pierce = infinitePierce ? 9999 : weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
+            int damage = statDamage;         
+            int pierce = infinitePierce ? 9999 :  playerProgression.GetStatTotal(StatType.PierceAmount);
 
 
             // Initialize and launch

@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 336429339396672147, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: classData
+      value: 
+      objectReference: {fileID: 11400000, guid: 79677955bf0858e4bba69b190d113b25, type: 2}
     - target: {fileID: 1699160270504772414, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -159,6 +163,14 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: startingEffects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'startingEffects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b14f88663e4e51e44abf42d588d860a8, type: 2}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Size.x
       value: 0.32

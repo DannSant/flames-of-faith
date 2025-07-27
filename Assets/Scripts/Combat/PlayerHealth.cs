@@ -185,7 +185,9 @@ namespace Game.Combat {
 
         public void LoadState()
         {
-            currentHealth = GameSession.Instance.PlayerData.currentHealth;
+            maxHealth = GameSession.Instance.PlayerData.savedStats[StatType.MaxHealth];           
+            currentHealth = maxHealth;
+            armor = GameSession.Instance.PlayerData.savedStats[StatType.Armor];
         }
     }
 

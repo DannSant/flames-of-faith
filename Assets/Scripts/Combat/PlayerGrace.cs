@@ -8,8 +8,9 @@ using static Game.Progression.PlayerProgression;
 
 namespace Game.Combat
 {
-    public class PlayerGrace : MonoBehaviour, ILateInitializable
+    public class PlayerGrace : MonoBehaviour, ILateInitializable, IDependentStateLoader
     {
+        public int defaultMaxGrace = 10;
         private int maxGrace = 10;
         private int currentGrace;       
 
@@ -75,9 +76,21 @@ namespace Game.Combat
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
-        
+        public void LoadState()
+        {
+            maxGrace = GameSession.Instance.PlayerData.savedStats[StatType.MaxGrace];
+            currentGrace = maxGrace;
+        }
 
+        public void SaveState()
+        {
+           //no need to save, it is saved in the player progression component
+        }
 
+        public void ResetState()
+        {
+            maxGrace = defaultMaxGrace;
+        }
     }
 
 }

@@ -17,7 +17,7 @@ namespace Game.AI.Behaviors
 
         public override void Tick(BehaviorContext context)
         {
-            if (context.playerTransform == null || context.enemyTransform == null) return;
+            if (context==null || context.playerTransform == null || context.enemyTransform == null) return;
 
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
           
@@ -46,6 +46,8 @@ namespace Game.AI.Behaviors
             }
 
             if (!state.isChasing) return;
+
+          
 
             Vector2 direction = (context.playerTransform.position - context.enemyTransform.position).normalized;
             Vector2 targetPosition = rb.position + direction * speed * Time.deltaTime;

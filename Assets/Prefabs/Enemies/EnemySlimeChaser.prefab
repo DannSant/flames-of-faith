@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8cbea71d29fb1914883a3b0899ffed2f, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: collisionBehaviors.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'updateBehaviors.Array.data[0]'

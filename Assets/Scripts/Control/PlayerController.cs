@@ -7,8 +7,9 @@ using Game.Scene;
 using Game.Combat;
 namespace Game.Control
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDependentStateLoader
     {
+        [SerializeField] private float defaultMoveSpeed = 1f;
         [SerializeField] private float baseMoveSpeed = 5f;
         [SerializeField] private float baseMoveScale = 0.25f;
 
@@ -53,7 +54,7 @@ namespace Game.Control
             SetMoveSpeed();
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested += ResetPlayerPosition;
+                MainSceneController.Instance.OnGameplayInitialSetup += ResetPlayerPosition;
             }
 
             inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
@@ -67,7 +68,7 @@ namespace Game.Control
             playerProgression.onStatUpdated -= PlayerController_onStatUpdatedEvent;
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayResetRequested -= ResetPlayerPosition;
+                MainSceneController.Instance.OnGameplayInitialSetup -= ResetPlayerPosition;
             }
 
 
@@ -203,5 +204,19 @@ namespace Game.Control
             DashMultiplier = 1;
         }
 
+        public void LoadState()
+        {
+            SetMoveSpeed();
+        }
+
+        public void SaveState()
+        {
+            // No need to save, it is saved on the player progression component
+        }
+
+        public void ResetState()
+        {
+            moveSpeed = defaultMoveSpeed;
+        }
     }
 }
