@@ -25,7 +25,7 @@ namespace Game.Currency
             }
             currencyAmount += amount;
             OnCurrencyChanged?.Invoke(currencyAmount);
-            Debug.Log($"Added {amount} currency. Total: {currencyAmount}");
+            
         }
 
         public void LoadState()

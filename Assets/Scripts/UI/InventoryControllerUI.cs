@@ -42,7 +42,7 @@ namespace Game.UI
             mainPanel.SetActive(value);
         }
 
-        private void ShowInventoryWindow()
+        public void ShowInventoryWindow()
         {
             // Show the inventory panel
             TogglePanel(true);
@@ -52,7 +52,7 @@ namespace Game.UI
 
         }
 
-        private void HideInventoryWindow(int _)
+        public void HideInventoryWindow(int _)
         {
             // Hide the inventory panel
             TogglePanel(false);

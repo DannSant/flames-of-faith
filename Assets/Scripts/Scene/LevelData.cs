@@ -10,5 +10,6 @@ namespace Game.Scene
         public bool IsUnlocked;
         public bool IsBeaten;
         public int actNumber = 1;
+        public bool IsFirstLevel;
     }
 }

@@ -11,6 +11,7 @@ namespace Game.UI
         private PlayerInputHandler inputHandler;
         private bool isPaused = false;
         private StatsPaneUI statsPaneUI;
+        private InventoryControllerUI inventoryControllerUI;
 
         private void Start()
         {
@@ -19,6 +20,7 @@ namespace Game.UI
             inputHandler.UI.Pause.performed += TogglePauseMenu;
 
             statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
+            inventoryControllerUI = FindAnyObjectByType<InventoryControllerUI>();
         }
 
         private void OnDestroy()
@@ -36,12 +38,14 @@ namespace Game.UI
                 inputHandler.Player.Disable();
                 Time.timeScale = 0f; // Pause the game
                 statsPaneUI?.ShowStatsWindow(null); // Show stats pane if available
+                inventoryControllerUI?.ShowInventoryWindow();
             }
             else
             {
                 inputHandler.Player.Enable();
                Time.timeScale = 1f; // Resume the game
                 statsPaneUI?.HideStatsWindow(-1); // Hide stats pane if available
+                inventoryControllerUI?.HideInventoryWindow(0);
 
             }
         }
