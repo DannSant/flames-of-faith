@@ -13,7 +13,9 @@ namespace Game.Progression {
 
         public delegate void OnStatUpdated(StatType statType, int value);
         public event OnStatUpdated onStatUpdated;
-        
+
+        private Dictionary<StatType, int> extraStats = new Dictionary<StatType, int>();
+
 
         private void Start()
         {           
@@ -69,13 +71,37 @@ namespace Game.Progression {
         // Method to retrieve a stat total value
         public int GetStatTotal(StatType statType)
         {
-            return GetStatBase(statType);
+            return GetStatBase(statType) + GetExtraStat(statType);
         }
 
         // Method to retrieve a stat base value
         public int GetStatBase(StatType statType)
         {
             return currentStats.ContainsKey(statType) ? currentStats[statType] : 0;
+        }
+
+        public int GetExtraStat(StatType statType)
+        {
+            return extraStats.ContainsKey(statType) ? extraStats[statType] : 0;
+        }
+
+        // Method to update the player's stat from effects
+        public void UpdateExtraStat(StatType statType, int value)
+        {
+            if (extraStats.ContainsKey(statType))
+            {
+                // Update the stat value
+                extraStats[statType] += value;
+
+
+                // Trigger the event to notify subscribers
+                onStatUpdated?.Invoke(statType, GetStatTotal(statType));
+            }else
+            {
+                // If the stat doesn't exist, add it
+                extraStats.Add(statType, value);
+                onStatUpdated?.Invoke(statType, GetStatTotal(statType));
+            }
         }
 
         public void LateInitialize()

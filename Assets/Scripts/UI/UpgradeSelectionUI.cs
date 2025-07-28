@@ -1,7 +1,9 @@
+using Game.Currency;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +12,10 @@ namespace Game.UI
     public class UpgradeSelectionUI : MonoBehaviour
     {
         [SerializeField] private GameObject mainPanel;
+        [SerializeField] private GameObject coinsGainedObject;
         [SerializeField] private UpgradeButtonUI upgradeButtonPrefab;
         [SerializeField] private Button continueButton;
+        [SerializeField] private TextMeshProUGUI coinsGainedText;
 
         private List<List<StatValuePair>> upgradeChoiceGroups;
         private int currentChoiceIndex = 0;
@@ -20,6 +24,7 @@ namespace Game.UI
 
         private void Start()
         {
+            TogglePanel(false);
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
@@ -30,9 +35,15 @@ namespace Game.UI
 
             continueButton.onClick.AddListener(() =>
             {
-                mainPanel.SetActive(false);
+                TogglePanel(false);
                 WaveSpawner.Instance.ConfirmNextWave();
             });
+
+            CurrencyGenerator currencyGenerator = CurrencyGenerator.Instance;
+            if (currencyGenerator != null)
+            {
+                currencyGenerator.OnCurrencyGenerated += UpdateCoinsGainedText;
+            }
         }
 
         private void OnDisable()
@@ -43,13 +54,24 @@ namespace Game.UI
                 upgradeManager.OnUpgradeOptionsAvailable -= ShowUpgradeChoices;
                 upgradeManager.OnNoUpgradeAvailable -= ShowContinueButton;
             }
+            CurrencyGenerator currencyGenerator = CurrencyGenerator.Instance;
+            if (currencyGenerator != null)
+            {
+                currencyGenerator.OnCurrencyGenerated -= UpdateCoinsGainedText;
+            }
+        }
+
+        private void TogglePanel(bool value)
+        {
+            coinsGainedObject.SetActive(value);
+            mainPanel.SetActive(value);
         }
 
         private void ShowUpgradeChoices(List<List<StatValuePair>> choices)
         {
             upgradeChoiceGroups = choices;
             currentChoiceIndex = 0;
-            mainPanel.SetActive(true);
+            TogglePanel(true);
             ShowCurrentChoice();
         }
 
@@ -83,7 +105,8 @@ namespace Game.UI
         private void ShowContinueButton()
         {
             ClearUpgradeOptions();
-            mainPanel.SetActive(true);
+           
+            TogglePanel(true);
             continueButton.gameObject.SetActive(true);
         }
 
@@ -96,6 +119,15 @@ namespace Game.UI
                     Destroy(child.gameObject);
                 }
             }
+        }
+
+        private void UpdateCoinsGainedText(int coinsGained)
+        {
+            if (!mainPanel.activeInHierarchy)
+            {
+                TogglePanel(true);
+            }
+            coinsGainedText.text = $"Coins Gained: {coinsGained}";
         }
     }
 

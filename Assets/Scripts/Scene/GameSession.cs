@@ -1,4 +1,5 @@
 using Game.Common;
+using Game.Effects;
 using Game.Progression;
 using Game.Saving;
 using System.Collections.Generic;
@@ -95,6 +96,29 @@ namespace Game.Scene
                
             }
             
+        }
+
+        public void SaveEffectStore(List<EffectInstance> effects)
+        {
+            GameSession.Instance.playerData.savedEffects = effects;
+            //Debug.Log($"Saved {effects.Count} effects to player data store.");
+        }
+
+        public List<EffectInstance> LoadEffectStore()
+        {
+            //Debug.Log($"Loaded {GameSession.Instance.playerData.savedEffects.Count} effects to player data store.");
+            return GameSession.Instance.playerData.savedEffects;
+
+        }
+
+        public void SaveCurrencyAmount(int amount)
+        {
+            playerData.currencyAmount = amount;
+        }
+
+        public int LoadCurrencyAmount()
+        {
+            return playerData.currencyAmount;
         }
 
         public void SavePlayerExperienceState(PlayerExperienceData data)

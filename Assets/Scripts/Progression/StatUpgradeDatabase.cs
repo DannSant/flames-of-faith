@@ -14,6 +14,7 @@ namespace Game.Progression
         public int[] tierValues;
     }
     */
+    [System.Serializable]
     public struct StatValuePair
     {
         public StatType statType;

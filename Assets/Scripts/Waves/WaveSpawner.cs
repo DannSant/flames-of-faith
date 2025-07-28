@@ -50,6 +50,8 @@ namespace Game.Waves {
         private List<GameObject> activeEnemies = new List<GameObject>();
         private Coroutine waveCoroutine;
 
+        public int CurrentWaveIndex => currentWaveIndex;
+
         protected override void Awake()
         {
             base.Awake();

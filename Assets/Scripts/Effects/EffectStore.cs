@@ -1,4 +1,6 @@
+using Game.Common;
 using Game.Effects;
+using Game.Scene;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,7 @@ namespace Game.Effects
         }
     }
 
-    public class EffectStore : MonoBehaviour
+    public class EffectStore : MonoBehaviour, IPrimaryStateLoader
     {
 
         [SerializeField] private List<Effect> startingEffects = new();
@@ -28,9 +30,11 @@ namespace Game.Effects
         public event Action<Effect> OnEffectAdded;
         public event Action<Effect> OnEffectRemoved;
 
-        private void Start()
+        
+        private void ResetEffects()
         {
-            foreach(var effect in startingEffects)
+            ClearAll();
+            foreach (var effect in startingEffects)
             {
                 AddEffect(effect);
             }
@@ -46,7 +50,7 @@ namespace Game.Effects
                 int index = activeEffects.FindIndex(e => e.effect.EffectID == effect.EffectID);
                 existing.count++;
                 activeEffects[index] = existing;
-               
+                effect.UpdateEffect(this.gameObject);
             }
             else
             {
@@ -93,6 +97,28 @@ namespace Game.Effects
                 effectInstance.effect.Cleanup();
             }
             activeEffects.Clear();
+        }
+
+        public void LoadState()
+        {
+            var effects = GameSession.Instance.LoadEffectStore();
+            foreach(var effect in effects)
+            {
+                for(int i = 0; i < effect.count; i++)
+                {
+                    AddEffect(effect.effect);
+                }
+            }
+        }
+
+        public void SaveState()
+        {
+           GameSession.Instance.SaveEffectStore(activeEffects);
+        }
+
+        public void ResetState()
+        {
+            ResetEffects();
         }
     }
 

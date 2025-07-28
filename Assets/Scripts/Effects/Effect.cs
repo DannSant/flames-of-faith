@@ -53,7 +53,16 @@ namespace Game.Effects{
         /// </summary>
         /// <param name="target">The GameObject this effect is affecting.</param>
         public virtual void Tick(GameObject target) { }
-       
+
+        /// <summary>
+        /// Re-Apply this effect to the target GameObject.
+        /// This is called when the effect is added again, this method is optional and should only be called if additional action is needed
+        /// when we re add an effect. If not, the effect store will stack up only the count of the effect.
+        /// </summary>
+        /// <param name="target">The GameObject this effect should affect (typically the player).</param>
+        public virtual void UpdateEffect(GameObject config) { }
+
+
     }
 
 }
