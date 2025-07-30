@@ -1,9 +1,11 @@
+using Game.Map;
 using UnityEngine;
 
 namespace Game.Scene
 {
-    [System.Serializable]
-    public class LevelData 
+   
+    [CreateAssetMenu(fileName = "LevelData", menuName = "Level/LevelData")]
+    public class LevelData : ScriptableObject
     {
         public string SceneName;
         public string DisplayName;
@@ -11,5 +13,6 @@ namespace Game.Scene
         public bool IsBeaten;
         public int actNumber = 1;
         public bool IsFirstLevel;
+        public LevelType type;
     }
 }

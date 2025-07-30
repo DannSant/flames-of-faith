@@ -1,42 +1,192 @@
+using Game.Map;
 using Game.Scene;
+using Game.UI.Map;
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 namespace Game.UI
 {
     public class LevelSelectorControllerUI : MonoBehaviour
     {
-        [SerializeField] private GameObject container;
-        [SerializeField] LevelButtonUI levelButtonPrefab;
+        [SerializeField] private GameObject nodesContainer;
+        [SerializeField] private LevelLayerUI levelLayerPrefab;
+        [SerializeField] private Transform connectionLineParent;
+        [SerializeField] private GameObject bezierConnectorPrefab;
+        [SerializeField] private RectTransform playerMapMarker;
 
-        private void Awake()
-        {
-            
-        }
+        private Dictionary<MapNode, LevelNodeUI> nodeUIMap = new();
 
         private void Start()
         {
-            BuildLevelButtons();
+            BuildLevelMap();
+            StartCoroutine(DelayedInitializeMap());
         }
 
-        private void BuildLevelButtons() 
-        {          
-            // Clear all stat rows
-            for (int i = container.transform.childCount - 1; i >= 0; i--)
+        private IEnumerator DelayedInitializeMap()
+        {
+            yield return null; // wait 1 frame
+            InitializeMap();
+        }
+
+        private void InitializeMap()
+        {
+            
+            var lastVisitedNode = LevelSelectionController.Instance.GetLastVisitedNode();
+
+            if (lastVisitedNode == null)
             {
-                Destroy(container.transform.GetChild(i).gameObject);
+                EnableFirstNode();
+            }
+            else
+            {
+                EnableChildNodes(lastVisitedNode);
+                MovePlayerMarkerToParent(lastVisitedNode);
             }
 
-            var availableLevels = GameSession.Instance.GetAvailableLevels();
+        }
 
-            for (int i = 0; i < availableLevels.Count; i++)
+        private void EnableFirstNode()
+        {
+            var currentLayerNodes = LevelSelectionController.Instance.BuildLevelDataOfNodesInCurrentLayer();
+            if (currentLayerNodes == null || currentLayerNodes.Count == 0)
             {
-                var level = availableLevels[i];
-                bool isNextLevel = (i == availableLevels.Count - 1 && !level.IsBeaten);
+                Debug.LogWarning("No nodes found in the current layer.");
+                return;
+            }
 
-                var levelButton = Instantiate(levelButtonPrefab, container.transform);
-                levelButton.Initialize(level, isNextLevel);
+            MapNode firstNode = currentLayerNodes[0];
+
+            if (nodeUIMap.TryGetValue(firstNode, out LevelNodeUI firstNodeUI))
+            {                
+                //Setup first node
+                firstNodeUI.Setup(firstNode.levelData);
+            }
+            else
+            {
+                Debug.LogWarning("First node UI not found in the map.");
             }
         }
+
+        private void EnableChildNodes(MapNode parenNode)
+        {
+            LevelSelectionController.Instance.BuildLevelDataOfNodesInCurrentLayer();
+            var childNodes = parenNode.Children;
+            foreach (MapNode node in childNodes)
+            {
+                if (nodeUIMap.TryGetValue(node, out LevelNodeUI nodeUI))
+                {                    
+                    nodeUI.Setup(node.levelData);
+                }
+            }
+        }
+
+        private void MovePlayerMarkerToParent(MapNode parenNode)
+        {
+            if (nodeUIMap.TryGetValue(parenNode, out LevelNodeUI parentNodeUI))
+            {
+                RectTransform markerParent = playerMapMarker.parent as RectTransform;
+
+                // Convert world position of the first node into local position of the marker's parent
+                Vector2 localPoint;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    markerParent,
+                    RectTransformUtility.WorldToScreenPoint(null, parentNodeUI.transform.position),
+                    null,
+                    out localPoint
+                );
+
+                playerMapMarker.anchoredPosition = localPoint + new Vector2(50f, 0f);
+            }
+        }
+
+        /*private void MovePlayerMarker()
+        {
+            var currentLayerNodes = LevelSelectionController.Instance.GetNodesInCurrentLayer();
+            if (currentLayerNodes == null || currentLayerNodes.Count == 0)
+            {
+                Debug.LogWarning("No nodes found in the current layer.");
+                return;
+            }
+
+            MapNode firstNode = currentLayerNodes[0];
+
+            if (nodeUIMap.TryGetValue(firstNode, out LevelNodeUI firstNodeUI))
+            {
+                RectTransform markerParent = playerMapMarker.parent as RectTransform;
+
+                // Convert world position of the first node into local position of the marker's parent
+                Vector2 localPoint;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    markerParent,
+                    RectTransformUtility.WorldToScreenPoint(null, firstNodeUI.transform.position),
+                    null,
+                    out localPoint
+                );
+
+                playerMapMarker.anchoredPosition = localPoint + new Vector2(50f, 0f);
+
+                Debug.Log($"localPoint: {localPoint}");
+                Debug.Log($"firstNodeUI.transform.position: {firstNodeUI.transform.position}");
+
+
+                //Setup first node
+                firstNodeUI.Setup(firstNode.levelData);
+
+            }
+            else
+            {
+                Debug.LogWarning("First node UI not found in the map.");
+            }
+        }*/
+
+        private void BuildLevelMap()
+        {
+            nodeUIMap.Clear();
+            for (int i = nodesContainer.transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(nodesContainer.transform.GetChild(i).gameObject);
+            }
+
+            var map = LevelSelectionController.Instance.GetCurrentActMap();
+
+            //Generate map
+            foreach (var row in map)
+            {
+                var levelLayerUI = Instantiate(levelLayerPrefab, nodesContainer.transform);
+                List<LevelNodeUI> nodes = levelLayerUI.Initialize(row);
+                foreach (var node in nodes)
+                {                    
+                    nodeUIMap[node.MapNode] = node;
+                }
+            }
+
+            // After all nodes are placed, create connections
+            foreach (var pair in nodeUIMap)
+            {
+                MapNode parentNode = pair.Key;
+                LevelNodeUI parentUI = pair.Value;
+
+                foreach (MapNode child in parentNode.Children)
+                {
+                    if (nodeUIMap.TryGetValue(child, out LevelNodeUI childUI))
+                    {
+                        GameObject lineObj = Instantiate(bezierConnectorPrefab, connectionLineParent);
+                        UIBezierConnector connector = lineObj.GetComponent<UIBezierConnector>();
+                        connector.startPoint = parentUI.GetConnectorPoint();
+                        connector.endPoint = childUI.GetConnectorPoint();
+                       
+                        connector.Refresh();
+                    }
+                }
+            }            
+
+        }
+
+      
     }
 
 }

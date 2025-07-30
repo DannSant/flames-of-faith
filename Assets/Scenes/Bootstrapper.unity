@@ -606,25 +606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedPlayerIndex: 0
-  allLevels:
-  - SceneName: Level1
-    DisplayName: Jesterwoods Glade
-    IsUnlocked: 1
-    IsBeaten: 0
-    actNumber: 1
-  - SceneName: Level2
-    DisplayName: Jesterwoods Steeps
-    IsUnlocked: 1
-    IsBeaten: 0
-    actNumber: 1
-  currentLevel:
-    SceneName: 
-    DisplayName: 
-    IsUnlocked: 0
-    IsBeaten: 0
-    actNumber: 1
-  beatenLevels: []
   selectedDifficulty: 1
+  currentLevel: {fileID: 0}
 --- !u!4 &1106414866
 Transform:
   m_ObjectHideFlags: 0
@@ -677,6 +660,72 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177198580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1493970986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1493970988}
+  - component: {fileID: 1493970987}
+  m_Layer: 0
+  m_Name: LevelSelectionController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1493970987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493970986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bd45a03071f6843b3a85855922fe7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - ActNumber: 1
+    Levels:
+    - {fileID: 11400000, guid: ea5f1af5313ab55489286ea4d753ee42, type: 2}
+    - {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
+    - {fileID: 11400000, guid: f07883d7db6018842b1606deb08e54b2, type: 2}
+    - {fileID: 11400000, guid: 3bd447fc52490d44bac12f163ca7cdcc, type: 2}
+    - {fileID: 11400000, guid: 1c72e165d8e302242a1d855b12e92ea5, type: 2}
+    - {fileID: 11400000, guid: 3c67c76f466578b4fb0abd4ba22626b3, type: 2}
+    - {fileID: 11400000, guid: 37565fdc0c0cae54289660b62c3ccdcc, type: 2}
+    - {fileID: 11400000, guid: 028a68d1f9028f141822d1704cff46bf, type: 2}
+    - {fileID: 11400000, guid: 533b5390c936d014794c320aebb5630b, type: 2}
+    - {fileID: 11400000, guid: ec4449dd161ff084b8f893ec9985dedf, type: 2}
+    ExtraLevels:
+    - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
+    - {fileID: 11400000, guid: 03d25a2467813e547bcee04f5533be1c, type: 2}
+    - {fileID: 11400000, guid: 50e2221f411d4da4baca2394cc5623fb, type: 2}
+    - {fileID: 11400000, guid: bfbf60d48f1988c49b4dffb6030d2555, type: 2}
+    - {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    LayerCount: 7
+  minLevelsPerLayer: 2
+  maxLevelsPerLayer: 4
+--- !u!4 &1493970988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493970986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -945,5 +994,6 @@ SceneRoots:
   - {fileID: 845686362}
   - {fileID: 934455490}
   - {fileID: 1106414866}
+  - {fileID: 1493970988}
   - {fileID: 1177198582}
   - {fileID: 1627399657}

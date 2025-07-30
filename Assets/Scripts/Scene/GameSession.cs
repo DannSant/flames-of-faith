@@ -1,5 +1,6 @@
 using Game.Common;
 using Game.Effects;
+using Game.Map;
 using Game.Progression;
 using Game.Saving;
 using System.Collections.Generic;
@@ -12,14 +13,15 @@ namespace Game.Scene
         [Header("Character Selection")]
         public int SelectedPlayerIndex = 0;
 
-        [Header("Level Progression")]
+        /*[Header("Level Progression")]
         public List<LevelData> allLevels = new List<LevelData>();
-        public LevelData currentLevel;
-        public List<LevelData> beatenLevels = new List<LevelData>();
+     
+        public List<LevelData> beatenLevels = new List<LevelData>();*/
 
         [Header("Other Settings")]
         public DifficultyLevel selectedDifficulty = DifficultyLevel.Normal;
 
+        public LevelData currentLevel;
         //state
         private bool isNewRun = true;
         private bool isInitialized = false;
@@ -28,8 +30,8 @@ namespace Game.Scene
         //Properties
         public bool IsInitialized => isInitialized;
         public bool IsNewRun  => isNewRun;
-        public PlayerData PlayerData => playerData;
-       
+        public PlayerData PlayerData => playerData;       
+
 
         protected override void Awake()
         {
@@ -37,19 +39,21 @@ namespace Game.Scene
             playerData = new PlayerData();
         }
 
+        private void Start()
+        {
+            Initialize();
+        }
+
         public void Initialize()
         {
-            if (isInitialized) return;
-
-            beatenLevels.Clear();
-            
-
-            isInitialized = true;
+            LevelSelectionController.Instance.InitialSetup();            
         }
 
         public void MarkLevelBeaten(LevelData level)
         {
-            if (!beatenLevels.Contains(level))
+            //level.IsBeaten = true;
+            LevelSelectionController.Instance.AdvanceToNextLayer();
+            /*if (!beatenLevels.Contains(level))
             {
                 beatenLevels.Add(level);
             }
@@ -61,21 +65,12 @@ namespace Game.Scene
             if (index >= 0 && index + 1 < allLevels.Count)
             {
                 allLevels[index + 1].IsUnlocked = true;
-            }
+            }*/
         }
 
-        public List<LevelData> GetAvailableLevels()
-        {
-            var result = new List<LevelData>(beatenLevels);
+       
 
-            var nextLevel = allLevels.Find(l => !l.IsBeaten);
-            if (nextLevel != null && !result.Contains(nextLevel))
-            {
-                result.Add(nextLevel);
-            }
 
-            return result;
-        }
 
         public void SetIsNewRun(bool value)
         {
