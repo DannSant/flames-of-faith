@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: HolyProjectileSpawn
   m_EditorClassIdentifier: 
   effectID: 7287a003-abfb-4b23-a7d2-21afbf7971e5
+  icon: {fileID: 21300000, guid: 239d6bf243f66914aaef83720f8a73fb, type: 3}
   effectName: Holy missiles
   scalingValue: 1
-  description: Spawns a holy projectile when dealing damage.
+  description: Spawns a holy projectile when dealing Ranged Damage.
   prefabToSpawn: {fileID: 5262266157608048503, guid: 0fd8d56699f6083429a35c36cb88c83b, type: 3}
   spawnCount: 1
   spawnOffset: {x: 0, y: 0}

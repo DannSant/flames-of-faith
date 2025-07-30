@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: SpawnOrbitingSword
   m_EditorClassIdentifier: 
   effectID: c1263206-ad97-4aa4-a729-abb7bea53583
+  icon: {fileID: 21300000, guid: a17cc5e46a311c34bb30cbf069d7dffa, type: 3}
   effectName: Swords of Fire
   scalingValue: 1
-  description: 
+  description: Creates 2 swords that deal melee damage around the player
   prefabToSpawn: {fileID: 2112430461715336365, guid: e05d40fddffb3e442a049d1645cb204e, type: 3}
   offsetAnglePerObject: 180
   numberOfObjects: 2

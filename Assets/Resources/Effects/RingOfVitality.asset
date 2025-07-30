@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1785f871a791e694e87468f5d079f21f, type: 3}
-  m_Name: HeavyPlateArmor
+  m_Name: RingOfVitality
   m_EditorClassIdentifier: 
-  effectID: 9afe7432-455f-425e-818e-bdb2f6a568f7
-  icon: {fileID: 21300000, guid: 42eeaa35031f7464aaa3df9ce7188fc5, type: 3}
-  effectName: Heavy Plate Armor
+  effectID: 79e154e0-47be-49f8-b1ef-826fa6e6c2f1
+  icon: {fileID: 21300000, guid: d2d9da53886df944a9634e9b45d9159b, type: 3}
+  effectName: Ring Of Vitality
   scalingValue: 1
-  description: Increases armor by 10 but reduces Move Speed by 5 and Attack Speed
-    by 2
+  description: Increases Max Health by 10 and Health Regen by 1
   statModifiers:
-  - statType: 6
+  - statType: 0
     value: 10
-  - statType: 3
-    value: -5
-  - statType: 2
-    value: -2
+  - statType: 14
+    value: 1

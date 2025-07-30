@@ -9,6 +9,7 @@ namespace Game.Effects{
     public abstract class Effect : ScriptableObject
     {
         [SerializeField] private string effectID;
+        [SerializeField] private Sprite icon;
        
         public string effectName = "New Effect";
 
@@ -19,6 +20,7 @@ namespace Game.Effects{
         protected EffectStore ownerStore;
 
         public string EffectID => effectID;
+        public Sprite EffectIcon => icon;
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -61,6 +63,18 @@ namespace Game.Effects{
         /// </summary>
         /// <param name="target">The GameObject this effect should affect (typically the player).</param>
         public virtual void UpdateEffect(GameObject config) { }
+
+        public override string ToString()
+        {
+            return $"EffectID: {effectID}, " +
+                   $"EffectName: {effectName}, " +
+                   $"ScalingValue: {scalingValue}, " +
+                   $"Description: {description}, " +
+                   $"OwnerStore: {ownerStore}, " +
+                   $"EffectIcon: {(icon != null ? icon.name : "None")}";
+        }
+
+
 
 
     }

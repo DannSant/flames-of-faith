@@ -30,7 +30,8 @@ namespace Game.Effects
         public event Action<Effect> OnEffectAdded;
         public event Action<Effect> OnEffectRemoved;
 
-        
+        public List<EffectInstance> ActiveEffects => activeEffects;
+
         private void ResetEffects()
         {
             ClearAll();

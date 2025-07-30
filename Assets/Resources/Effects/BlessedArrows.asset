@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1785f871a791e694e87468f5d079f21f, type: 3}
+  m_Name: BlessedArrows
+  m_EditorClassIdentifier: 
+  effectID: 8338f0dd-7e68-4ed9-af01-aebabcc5688b
+  icon: {fileID: 21300000, guid: e144c32f7580ef04e95ee491b480673f, type: 3}
+  effectName: Blessed Arrows
+  scalingValue: 1
+  description: Inccreases Ranged Damage by 10, Range by 3 and Pierce Amount by 1;
+    Reduces Dash Cooldown Reduction by 2, Armor by 2 and melee Damage by 2
+  statModifiers:
+  - statType: 9
+    value: 10
+  - statType: 10
+    value: 3
+  - statType: 11
+    value: 1
+  - statType: 4
+    value: -2
+  - statType: 6
+    value: -2
+  - statType: 1
+    value: -5
