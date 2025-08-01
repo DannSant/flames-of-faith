@@ -17,6 +17,8 @@ MonoBehaviour:
   effectName: Cursed Coin
   scalingValue: 1
   description: Reduces Luck by 5 but increases Life Steal by 5.
+  buyPrice: 50
+  sellPrice: 0
   statModifiers:
   - statType: 8
     value: -5

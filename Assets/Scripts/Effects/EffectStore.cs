@@ -78,7 +78,7 @@ namespace Game.Effects
         }
 
         public EffectMultiplierConfig GetEffectMultiplierConfig(string effectID)
-        {
+        {          
             var effectInstance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effectID);
             if (effectInstance.effect != null)
             {

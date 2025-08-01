@@ -28,6 +28,18 @@ namespace Game.Currency
             
         }
 
+        public void RemoveCurrency(int amount)
+        {
+            if (amount < 0)
+            {
+                Debug.LogWarning("Cannot add negative currency amount.");
+                return;
+            }
+
+            currencyAmount -= amount;
+            OnCurrencyChanged?.Invoke(currencyAmount);
+        }
+
         public void LoadState()
         {
             currencyAmount = GameSession.Instance.LoadCurrencyAmount();

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  characterName: Isaladia
+  characterName: Warrior
   characterClass: 1
   animatorController: {fileID: 9100000, guid: 0f141bd90ee20c54eb5b6cf5e3b93df9, type: 2}
   defaultSprite: {fileID: -4057652279525399919, guid: a24b23e2a0e0fcf4795cc3f843fb12dc, type: 3}

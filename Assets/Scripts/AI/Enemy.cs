@@ -10,7 +10,9 @@ namespace Game.AI {
     {
         [SerializeField]
         private EnemyType enemyType;
-       
+
+        [SerializeField] private int healthPerWave = 2; // Base health increase per wave
+
         private EnemyHealth health;
        
         private BehaviorController behaviorController;
@@ -48,7 +50,7 @@ namespace Game.AI {
             }
 
             int baseHealth = enemyData.healthBase;
-            int calculatedHealth = baseHealth + 5 + ((waveNumber - 1) * 2);
+            int calculatedHealth = baseHealth  + ((waveNumber - 1) * healthPerWave);
            
             health.SetMaxHealth(calculatedHealth);
 

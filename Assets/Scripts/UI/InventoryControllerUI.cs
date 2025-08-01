@@ -1,6 +1,7 @@
 using Game.Currency;
 using Game.Effects;
 using Game.Scene;
+using Game.Shop;
 using Game.Waves;
 using TMPro;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Game.UI
         [Header("Currency UI Elements")]
         [SerializeField] private TextMeshProUGUI currencyText;
 
-        [Header("Effects UI Elements")]
+        [Header("Effects Tooltip UI Elements")]
         [SerializeField] private TextMeshProUGUI effectNameText;
         [SerializeField] private TextMeshProUGUI effectDescriptionText;
 
@@ -34,6 +35,13 @@ namespace Game.UI
                 waveSpawner.OnWaveComplete += ShowInventoryWindow;
                 waveSpawner.OnWaveStarted += HideInventoryWindow;
             }
+
+            var shopKeeper = FindAnyObjectByType<ShopKeeper>();
+            if (shopKeeper != null)
+            {
+                shopKeeper.onShopWindowOpened += ShowInventoryWindow;
+                shopKeeper.onInventoryWindowRefresh += RefreshInventoryWindow;
+            }
         }
 
         
@@ -45,6 +53,13 @@ namespace Game.UI
             {
                 waveSpawner.OnWaveComplete -= ShowInventoryWindow;
                 waveSpawner.OnWaveStarted -= HideInventoryWindow;
+            }
+
+            var shopKeeper = FindAnyObjectByType<ShopKeeper>();
+            if (shopKeeper != null)
+            {
+                shopKeeper.onShopWindowOpened -= ShowInventoryWindow;
+                shopKeeper.onInventoryWindowRefresh -= RefreshInventoryWindow;
             }
         }
 
@@ -60,9 +75,14 @@ namespace Game.UI
             // Show the inventory panel
             TogglePanel(true);
 
+            RefreshInventoryWindow();
+
+        }
+
+        private void RefreshInventoryWindow()
+        {
             UpdateCurrencyText();
             UpdateEffectsDisplay();
-
         }
 
         private void UpdateCurrencyText() 

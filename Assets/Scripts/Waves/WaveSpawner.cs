@@ -75,7 +75,13 @@ namespace Game.Waves {
             {
                 MainSceneController.Instance.OnGameplayInitialSetup += ResetWaveSpawnerState;
             }
-            if(testMode)
+
+            if (waveDatabase == null)
+            {               
+                return;
+            }
+
+            if (testMode)
             {
                 SpawnTestEnemies();
             }
@@ -155,15 +161,22 @@ namespace Game.Waves {
             activeEnemies.Clear();
         }
 
+        public void GoToNextLevel()
+        {
+            OnWaveGroupFinished?.Invoke();
+        }
+
         private void StartNextWave()
         {
             if (testMode) return;
+            if (waveDatabase == null){ return; }
+
             currentWaveIndex++;
 
             if (currentWaveIndex >= waveDatabase.waves.Count)
-            {              
+            {
                 //Call the event to save data and load level selector scene
-                OnWaveGroupFinished?.Invoke();
+                GoToNextLevel();
                 return;
             }
 
@@ -208,6 +221,7 @@ namespace Game.Waves {
 
         public void ConfirmNextWave()
         {
+            if (waveDatabase == null) { return; }
             if (!waveInProgress && currentWaveIndex < waveDatabase.waves.Count)
             {                
                 StartNextWave();

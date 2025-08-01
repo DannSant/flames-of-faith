@@ -10,21 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b6879ed17e3a8b45bf827216c281865, type: 3}
-  m_Name: Wave5
+  m_Name: Wave3
   m_EditorClassIdentifier: 
-  waveDuration: 45
-  cooldownDuration: 5
-  enemies:
-  - type: 0
-    amount: 20
-  - type: 1
-    amount: 10
-  - type: 2
-    amount: 6
+  waveDuration: 50
+  cooldownDuration: 20
+  enemies: []
   enemyPool:
   - type: 0
-    weight: 7
+    weight: 5
+  - type: 3
+    weight: 3
   - type: 1
     weight: 2
-  - type: 2
-    weight: 1

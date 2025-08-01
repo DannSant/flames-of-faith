@@ -22,6 +22,7 @@ namespace Game.Combat
         private void Start()
         {
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             Destroy(gameObject, totalTime);
         }
 
@@ -70,11 +71,15 @@ namespace Game.Combat
             {
                 damage = playerProgression.GetStatTotal(StatType.MagicDamage);
             }
+           
+            EffectMultiplierConfig effectMultiplierConfig = effectStore.GetEffectMultiplierConfig(effectID); //crashes here
+            
+
             return Mathf.FloorToInt(baseDamage + damage + effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
         }
         public void SetEffectStore(EffectStore effectStore)
         {
-            this.effectStore = effectStore;
+            //this.effectStore = effectStore;
         }
 
         public void SetEffectID(string effectID)

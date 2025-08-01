@@ -90,7 +90,7 @@ namespace Game.Effects
                 var effectMultiplier = prefabToSpawn.GetComponent<IEffectMultiplier>();
                 if (effectMultiplier!=null)
                 {
-                    effectMultiplier.SetEffectStore(ownerStore);
+                    //effectMultiplier.SetEffectStore(ownerStore);
                     effectMultiplier.SetEffectID(EffectID);
                 }
             }

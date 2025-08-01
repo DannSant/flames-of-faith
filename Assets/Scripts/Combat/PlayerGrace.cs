@@ -28,8 +28,14 @@ namespace Game.Combat
         public void LateInitialize()
         {
             var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-            maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
-            playerProgression.onStatUpdated += OnMaxPlayerGraceStatUpdated;
+            if (playerProgression != null)
+            {
+                maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
+                playerProgression.onStatUpdated += OnMaxPlayerGraceStatUpdated;
+            }     
+
+            
+            
         }
 
         private void OnDisable()
@@ -80,6 +86,7 @@ namespace Game.Combat
         {
             maxGrace = GameSession.Instance.PlayerData.savedStats[StatType.MaxGrace];
             currentGrace = maxGrace;
+            onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
         public void SaveState()

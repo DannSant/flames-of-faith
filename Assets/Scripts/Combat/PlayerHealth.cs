@@ -58,18 +58,18 @@ namespace Game.Combat {
 
         public void LateInitialize()
         {
-            if (WaveSpawner.Instance == null)
+            if (MainSceneController.Instance == null)
             {
-                Debug.LogError("WaveSpawner instance not found.");
+                return;
             }
-            WaveSpawner.Instance.OnWaveStarted += PlayerHealth_OnWaveStarted;
+            MainSceneController.Instance.OnGameplayUISetupRequested += PlayerHealth_OnSceneLoaded;
         }
 
         private void OnDisable()
         {
             // Unsubscribe to avoid memory leaks
             playerProgression.onStatUpdated -= OnStatUpdated;
-            WaveSpawner.Instance.OnWaveStarted -= PlayerHealth_OnWaveStarted;           
+            MainSceneController.Instance.OnGameplayUISetupRequested -= PlayerHealth_OnSceneLoaded;
         }      
 
         private void ResetPlayerHealthState() 
@@ -83,7 +83,7 @@ namespace Game.Combat {
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
-        private void PlayerHealth_OnWaveStarted(int obj)
+        private void PlayerHealth_OnSceneLoaded()
         {
             RestoreHealth();
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6879ed17e3a8b45bf827216c281865, type: 3}
   m_Name: Wave2
   m_EditorClassIdentifier: 
-  waveDuration: 35
+  waveDuration: 25
   cooldownDuration: 5
   enemies:
   - type: 0

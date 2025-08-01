@@ -29,7 +29,7 @@ namespace Game.Effects
                 spawned.GetComponent<OrbitingObject>()?.SetOrbitTarget(config.transform, initialAngle);
                 initialAngle += offsetAnglePerObject;
 
-                spawned.GetComponent<IEffectMultiplier>()?.SetEffectStore(effectStore);
+                //spawned.GetComponent<IEffectMultiplier>()?.SetEffectStore(effectStore);
                 spawned.GetComponent<IEffectMultiplier>()?.SetEffectID(EffectID);
                 //spawned.GetComponent<IEffectMultiplier>()?.SetMultiplierConfig(effectStore.GetComponent<EffectMultiplierConfig>());
             }  

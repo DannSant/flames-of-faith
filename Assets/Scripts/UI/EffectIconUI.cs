@@ -11,7 +11,7 @@ namespace Game.UI
     {
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI quantitytext;
-        [SerializeField] private Button iconButton;
+        
 
         private Effect effect;
         private Action<Effect> showTooltipAction;

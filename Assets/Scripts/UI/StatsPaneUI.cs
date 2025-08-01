@@ -30,6 +30,8 @@ namespace Game.UI
             {
                 waveSpawner.OnWaveStarted += HideStatsWindow;
             }
+
+            HideStatsWindow(0);
         }
 
         private void OnDisable()

@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6879ed17e3a8b45bf827216c281865, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: 
-  waveDuration: 300
-  cooldownDuration: 20
-  enemies: []
-  enemyPool:
+  waveDuration: 35
+  cooldownDuration: 5
+  enemies:
+  - type: 0
+    amount: 15
+  - type: 1
+    amount: 10
   - type: 2
-    weight: 10
+    amount: 3
+  enemyPool:
+  - type: 0
+    weight: 5
+  - type: 1
+    weight: 5

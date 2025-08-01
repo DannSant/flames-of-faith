@@ -8,19 +8,26 @@ namespace Game.Effects{
 
     public abstract class Effect : ScriptableObject
     {
+        [Header("Effect data")]
         [SerializeField] private string effectID;
         [SerializeField] private Sprite icon;
-       
-        public string effectName = "New Effect";
-
+        [SerializeField] public string effectName = "New Effect";
         [Tooltip("This value will be multiplied by the level of the item when calculating damage or other state")]
-        public float scalingValue = 1;
-        [TextArea] public string description;
+        [SerializeField] public float scalingValue = 1;
+        [SerializeField] [TextArea] public string description;
+        [SerializeField] private int buyPrice = 0;
+        [SerializeField] private int sellPrice = 0;
 
         protected EffectStore ownerStore;
 
+        //Properties
         public string EffectID => effectID;
         public Sprite EffectIcon => icon;
+        public string EffectName => effectName;
+        public float ScalingValue => scalingValue;
+        public string Description => description;
+        public int BuyPrice => buyPrice;
+        public int SellPrice => sellPrice;
 
 #if UNITY_EDITOR
         private void OnValidate()

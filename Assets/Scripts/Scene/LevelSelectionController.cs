@@ -34,6 +34,9 @@ namespace Game.Scene
         [SerializeField] private int minLevelsPerLayer = 2;
         [SerializeField] private int maxLevelsPerLayer = 4;
 
+        [Header("Testing")]
+        [SerializeField] private LevelData testLevel;
+
         private Dictionary<int, List<LevelData>> levelsByAct = new Dictionary<int, List<LevelData>>();
         private Dictionary<int, List<LevelData>> extraLevelsByAct = new Dictionary<int, List<LevelData>>();
 
@@ -163,6 +166,11 @@ namespace Game.Scene
 
         private LevelData GetRandomExtraLevelOfType(LevelType type) 
         {
+            if (testLevel != null)
+            {
+                return testLevel; // For testing purposes, return a predefined level
+            }
+
             List<LevelData> levelDataList = extraLevelsByAct[currentAct];
             var filteredLevels = levelDataList.Where(level => level.type == type).ToList();
             if (filteredLevels.Count > 0)

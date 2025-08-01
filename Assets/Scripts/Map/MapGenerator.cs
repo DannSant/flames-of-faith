@@ -29,6 +29,7 @@ namespace Game.Map
                 {
                     LevelType type = GetRandomNonBossType(i);
                     layer.Add(new MapNode(type));
+                    //layer.Add(new MapNode(LevelType.Store));
                 }
 
                 // Shuffle to not always have combat at the top
@@ -90,8 +91,10 @@ namespace Game.Map
 
         private LevelType GetRandomNonBossType(int layerIndex)
         {
+
             // Weighting logic could go here (e.g., more stores after certain layers)
-            var possible = new List<LevelType> { LevelType.Combat, LevelType.Rest, LevelType.Store, LevelType.Event };
+            //var possible = new List<LevelType> { LevelType.Combat, LevelType.Rest, LevelType.Store, LevelType.Event };
+            var possible = new List<LevelType> {  LevelType.Store };
             return possible[rng.Next(possible.Count)];
         }
     }

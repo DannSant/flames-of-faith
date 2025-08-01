@@ -22,12 +22,7 @@ namespace Game.UI {
             }
         }
         private void Start()
-        {
-            /*if (PlayerHealth.Instance != null)
-            {
-                PlayerHealth.Instance.onHealthChanged += UpdateHealthBar;
-                UpdateHealthBar(PlayerHealth.Instance.GetCurrentHealth(), PlayerHealth.Instance.GetMaxHealth());
-            }*/
+        {            
             var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
             if (playerHealth != null)
             {

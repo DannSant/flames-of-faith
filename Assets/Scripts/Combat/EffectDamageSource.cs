@@ -18,7 +18,8 @@ namespace Game.Combat
         private string effectID;
         private void Start()
         {
-            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();            
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         }
 
 
@@ -33,8 +34,7 @@ namespace Game.Combat
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
             if (damageableObject != null)
             {
-                int totalDamage = CalculateTotalDamage();
-                Debug.Log($"EffectDamageSource: Dealing {totalDamage} damage to {collision.name} with effect ID: {effectID}");
+                int totalDamage = CalculateTotalDamage();               
                 damageableObject.TakeDamage(totalDamage);
             }
 
@@ -66,7 +66,7 @@ namespace Game.Combat
 
         public void SetEffectStore(EffectStore effectStore)
         {
-            this.effectStore = effectStore;
+            //this.effectStore = effectStore;
         }
 
         public void SetEffectID(string effectID)
