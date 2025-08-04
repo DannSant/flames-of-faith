@@ -3,75 +3,71 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\inventorycontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\inventorycontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\effects\\spawnondamageeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\effects\\spawnondamageeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\experiencebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\experiencebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\continuousdamagesource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\continuousdamagesource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\currency\\currencygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\currency\\currencygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\effects\\spawnobjectonplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\effects\\spawnobjectonplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\shop\\shopcontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\shop\\shopcontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\shop\\shopkeeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\shop\\shopkeeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\map\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\map\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\map\\mapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\shop\\shopcontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\shop\\shopcontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\upgradeselectionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\upgradeselectionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\upgradeselectionui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\inventorycontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\inventorycontrollerui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\currency\\currencywallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\currency\\currencywallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\currency\\currencywallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\shop\\shopiconui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\shop\\shopiconui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\map\\levelnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\map\\levelnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\map\\levelnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -102,63 +98,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 22,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SpawnObjectOnPlayer.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\SpawnObjectOnPlayer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\SpawnObjectOnPlayer.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\SpawnObjectOnPlayer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Effects\\SpawnObjectOnPlayer.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwB8AAAASAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ExperienceBar.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\ExperienceBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\ExperienceBar.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\ExperienceBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\ExperienceBar.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwBwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T00:12:18.995Z",
+              "WhenOpened": "2025-08-01T15:53:13.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SpawnOnDamageEffect.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\SpawnOnDamageEffect.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\SpawnOnDamageEffect.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\SpawnOnDamageEffect.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Effects\\SpawnOnDamageEffect.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAAAFwAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "DeveloperCheats.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T22:45:58.876Z",
+              "WhenOpened": "2025-08-01T15:39:22.727Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ContinuousDamageSource.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\ContinuousDamageSource.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\ContinuousDamageSource.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\ContinuousDamageSource.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Combat\\ContinuousDamageSource.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAwwFEAAAAOAAAAAAAAAA==",
+              "Title": "CurrencyGenerator.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Currency\\CurrencyGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Currency\\CurrencyGenerator.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Currency\\CurrencyGenerator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Currency\\CurrencyGenerator.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAhwDgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T22:39:13.035Z",
+              "WhenOpened": "2025-08-01T13:24:24.696Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Enemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Enemy.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Enemy.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AI\\Enemy.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAwwDAAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T22:30:02.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "StatUpgradeDatabase.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
@@ -166,8 +149,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T22:06:26.076Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T22:06:26.076Z"
             },
             {
               "$type": "Document",
@@ -177,14 +159,13 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
               "RelativeToolTip": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T22:03:51.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T22:03:51.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "PlayerManager.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\PlayerManager.cs",
@@ -192,12 +173,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Scene\\PlayerManager.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwBIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T21:59:01.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T21:59:01.887Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UpgradeSelectionUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\UpgradeSelectionUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UpgradeSelectionUI.cs",
@@ -205,12 +185,11 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\UpgradeSelectionUI.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAQwCYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T17:00:36.648Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T17:00:36.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "MapGenerator.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Map\\MapGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Map\\MapGenerator.cs",
@@ -218,25 +197,23 @@
               "RelativeToolTip": "Assets\\Scripts\\Map\\MapGenerator.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAvwGAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T23:35:04.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T23:35:04.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "WaveSpawner.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAAAhwLcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAEBAAAAAAAAAADgvxEBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T23:31:23.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T23:31:23.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "LevelNodeUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
@@ -244,8 +221,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAowCQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T23:12:40.762Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T23:12:40.762Z"
             },
             {
               "$type": "Document",
@@ -257,25 +233,23 @@
               "RelativeToolTip": "Assets\\Scripts\\Currency\\CurrencyWallet.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAnwBoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T23:03:47.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T23:03:47.75Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "MainSceneController.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\MainSceneController.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scene\\MainSceneController.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAAwIoAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAKUAAAAAAAAAAADgv9EAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T22:51:32.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T22:51:32.234Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "ShopControllerUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Shop\\ShopControllerUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Shop\\ShopControllerUI.cs",
@@ -288,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "ShopIconUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Shop\\ShopIconUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Shop\\ShopIconUI.cs",
@@ -296,25 +270,24 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\Shop\\ShopIconUI.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAnwBsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T22:20:58.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T22:20:58.234Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 0,
               "Title": "InventoryControllerUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\InventoryControllerUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\InventoryControllerUI.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\InventoryControllerUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\InventoryControllerUI.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwFMAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwEIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T22:29:44.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "EffectIconUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\EffectIconUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\EffectIconUI.cs",
@@ -326,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "Effect.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\Effect.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\Effect.cs",
@@ -338,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "LevelSelectionController.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\LevelSelectionController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\LevelSelectionController.cs",
@@ -346,25 +319,24 @@
               "RelativeToolTip": "Assets\\Scripts\\Scene\\LevelSelectionController.cs",
               "ViewState": "AgIAAK0AAAAAAAAAAAAWwKoAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T22:02:08.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T22:02:08.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ShopKeeper.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Shop\\ShopKeeper.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Shop\\ShopKeeper.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Shop\\ShopKeeper.cs",
               "RelativeToolTip": "Assets\\Scripts\\Shop\\ShopKeeper.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAIwEAAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAcwEAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T21:52:58.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "EffectsDatabaseProvider.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\EffectsDatabaseProvider.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\EffectsDatabaseProvider.cs",
@@ -376,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "EffectsDatabase.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\EffectsDatabase.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\EffectsDatabase.cs",
@@ -388,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "EffectStore.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\EffectStore.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\EffectStore.cs",
@@ -396,8 +368,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Effects\\EffectStore.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAASwFAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T16:05:21.509Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-30T16:05:21.509Z"
             }
           ]
         }

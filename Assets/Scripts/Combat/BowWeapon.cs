@@ -72,6 +72,7 @@ namespace Game.Combat
                 var projectile = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
                 projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false, specialWeaponData.graceGenerated);
                 projectile.ConfigureAfterSpawn();
+                onBowSpecialAttackLaunched?.Invoke(projectile);
             }
         }
 

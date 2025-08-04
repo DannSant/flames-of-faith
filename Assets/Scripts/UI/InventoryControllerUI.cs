@@ -29,6 +29,29 @@ namespace Game.UI
         private void Start()
         {
             TogglePanel(false);
+            
+        }
+
+        private void OnEnable()
+        {
+            var mainSceneController = MainSceneController.Instance;
+            if (mainSceneController != null)
+            {
+                mainSceneController.OnGameplayUISetupRequested += SetupEvents;
+            }
+        }
+
+        private void OnDisable()
+        {
+            var mainSceneController = MainSceneController.Instance;
+            if (mainSceneController != null)
+            {
+                mainSceneController.OnGameplayUISetupRequested -= SetupEvents;
+            }
+        }
+
+        private void SetupEvents()
+        {
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if (waveSpawner != null)
             {
@@ -44,9 +67,7 @@ namespace Game.UI
             }
         }
 
-        
-
-        private void OnDisable()
+        private void OnDestroy()
         {
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if (waveSpawner != null)
