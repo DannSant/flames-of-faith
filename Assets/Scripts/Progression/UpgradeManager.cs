@@ -10,7 +10,7 @@ using Game.Scene;
 namespace Game.Progression
 {
     
-    public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler
+    public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler, IDependentStateLoader
     {
         private List<StatType> eligibleUpgradeStats = new();       
 
@@ -176,5 +176,20 @@ namespace Game.Progression
             Destroy(gameObject);
         }
 
+        public void LoadState()
+        {
+            var playerExperienceData = GameSession.Instance.LoadPlayerExperienceState();
+            lastRecordedLevel = playerExperienceData.CurrentLevel;
+        }
+
+        public void SaveState()
+        {
+            //No need to save state, we will retreive it from PlayerExperience
+        }
+
+        public void ResetState()
+        {
+            lastRecordedLevel = 1;
+        }
     }
 }

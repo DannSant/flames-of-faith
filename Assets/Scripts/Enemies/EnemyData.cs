@@ -11,6 +11,7 @@ namespace Game.Enemies
         public int healthBase = 10;
         public int damageBase = 1;
         public int damagePerWave = 1;
+        public int damagePerLevel = 2;
         public float speedBase = 1f;
         public float attackRangeBase = 1f;
         public int xpBase = 1;

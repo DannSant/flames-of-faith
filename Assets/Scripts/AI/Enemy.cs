@@ -12,6 +12,7 @@ namespace Game.AI {
         private EnemyType enemyType;
 
         [SerializeField] private int healthPerWave = 2; // Base health increase per wave
+        [SerializeField] private int healthPerLevel = 3; // Health increase per level
 
         private EnemyHealth health;
        
@@ -50,7 +51,9 @@ namespace Game.AI {
             }
 
             int baseHealth = enemyData.healthBase;
-            int calculatedHealth = baseHealth  + ((waveNumber - 1) * healthPerWave);
+            int levelHealthBonus = GameSession.Instance.LevelsBeaten * healthPerLevel; // Health bonus based on levels beaten
+            int waveHealthBonus = (waveNumber - 1) * healthPerWave;
+            int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
            
             health.SetMaxHealth(calculatedHealth);
 

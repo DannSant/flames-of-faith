@@ -8,13 +8,15 @@ namespace Game.AI.Behaviors
     {
         public override void HandleCollision(Collision2D collision, BehaviorContext context)
         {
+          
             var state = context.GetState<RoamingState>(this);
             if (state == null) return;
 
-            // Reverse direction or pick a new one
-            float x = Random.Range(-1f, 1f);
-            float y = Random.Range(-1f, 1f);
+            // Reverse direction
+            float x = state.moveDirection.x * -1f + Random.Range(-0.2f, 0.2f);
+            float y = state.moveDirection.y * -1f + Random.Range(-0.2f, 0.2f);
             state.moveDirection = new Vector2(x, y).normalized;
+           
         }
     }
 

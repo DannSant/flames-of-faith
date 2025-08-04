@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.29
       objectReference: {fileID: 0}
+    - target: {fileID: 8554701016788818627, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: specialAttackVFXPrefab
+      value: 
+      objectReference: {fileID: 8097316197449660156, guid: df97b3fddeedfa34f828b21236ce3a2a, type: 3}
     - target: {fileID: 8710251989818788120, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Radius
       value: 1.76

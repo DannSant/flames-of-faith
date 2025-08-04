@@ -94,14 +94,8 @@ namespace Game.Waves {
 
         private void SpawnTestEnemies()
         {            
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
-            SpawnEnemy(EnemyType.SlimeChaser);
+            SpawnEnemy(EnemyType.SlimeRoamer);
+            
         }
 
         private void OnDisable()

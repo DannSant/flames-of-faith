@@ -15,6 +15,8 @@ namespace Game.Combat
         [SerializeField] private WeaponDamageSource mainDamageSource;
         [SerializeField] private WeaponDamageSource specialDamageSource;
 
+        [SerializeField] private GameObject specialAttackVFXPrefab;
+
         public override void Initialize(CharacterVisual characterVisual)
         {
             base.Initialize(characterVisual);
@@ -94,6 +96,10 @@ namespace Game.Combat
 
         private void OnSpecialDamageDealt(int damage, int graceGenerated, GameObject target)
         {
+            if (specialAttackVFXPrefab != null)
+            {
+                Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
+            }
             GrantGrace(graceGenerated);
         }
 

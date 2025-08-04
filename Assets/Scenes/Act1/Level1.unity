@@ -29167,6 +29167,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1215842447782199173, guid: 1fc92e0d0bb9e944fba31f5c1ce386ed, type: 3}
+      propertyPath: testMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215842447782199173, guid: 1fc92e0d0bb9e944fba31f5c1ce386ed, type: 3}
       propertyPath: spawnZones.Array.size
       value: 4
       objectReference: {fileID: 0}

@@ -1,4 +1,6 @@
 using Game.Combat;
+using Game.Enemies;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -42,8 +44,9 @@ namespace Game.AI.Behaviors
                     state.meleeCollider.enabled = false;
                     if (colliderObj.TryGetComponent(out EnemyDamage damage))
                     {
-                        int damageAmount = context.enemyData.damageBase +
-                                           (context.enemyData.damagePerWave * (context.waveNumber - 1));
+                        int levelDamageBonus = GameSession.Instance.LevelsBeaten * context.enemyData.damagePerLevel;
+                        int waveDamageBonus = context.enemyData.damagePerWave * (context.waveNumber - 1);
+                        int damageAmount = context.enemyData.damageBase + waveDamageBonus + levelDamageBonus;
                         damage.SetDamageAmount(damageAmount);
                     }
                 }

@@ -21,7 +21,7 @@ namespace Game.Effects
         }
     }
 
-    public class EffectStore : MonoBehaviour, IPrimaryStateLoader
+    public class EffectStore : MonoBehaviour, IDependentStateLoader
     {
 
         [SerializeField] private List<Effect> startingEffects = new();

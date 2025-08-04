@@ -9,17 +9,26 @@ public class Tester : MonoBehaviour
     private PlayerProgression playerProgression;
     private EffectStore effectStore;
     private CurrencyWallet currencyWallet;
+    private PlayerExperience playerExperience;
     private void Start()
     {
         playerProgression = FindAnyObjectByType<PlayerProgression>();
         effectStore = FindAnyObjectByType<EffectStore>();
         currencyWallet = FindAnyObjectByType<CurrencyWallet>();
+        playerExperience = FindAnyObjectByType<PlayerExperience>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+#if UNITY_EDITOR
+        TestFeatures();
+#endif
+    }
+
+    private void TestFeatures()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             effectStore.AddEffect(effectToTest);
         }
@@ -29,8 +38,7 @@ public class Tester : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            //Debug.Log("Increasing armor");
-            playerProgression.UpdateStat(StatType.MeleeDamage, 1);
+            playerExperience.AddExperience(5);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {

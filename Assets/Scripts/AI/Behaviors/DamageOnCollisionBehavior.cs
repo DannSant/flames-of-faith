@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Enemies;
+using Game.Scene;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,8 +42,9 @@ namespace Game.AI.Behaviors
         private int GetDamageAmount(BehaviorContext context)
         {
             var enemyData = context.enemyData;
-            return enemyData.damageBase +
-                   (enemyData.damagePerWave * (context.waveNumber - 1));
+            int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
+            int waveDamageBonus = enemyData.damagePerWave * (context.waveNumber - 1);
+            return enemyData.damageBase + waveDamageBonus + levelDamageBonus;
         }
         
         

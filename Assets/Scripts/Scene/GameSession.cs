@@ -26,11 +26,13 @@ namespace Game.Scene
         private bool isNewRun = true;
         private bool isInitialized = false;
         private PlayerData playerData;
+        private int levelsBeaten = 0; // Track how many levels have been beaten in this session
 
         //Properties
         public bool IsInitialized => isInitialized;
         public bool IsNewRun  => isNewRun;
-        public PlayerData PlayerData => playerData;       
+        public PlayerData PlayerData => playerData;
+        public int LevelsBeaten => levelsBeaten;
 
 
         protected override void Awake()
@@ -46,6 +48,7 @@ namespace Game.Scene
 
         public void Initialize()
         {
+            levelsBeaten = 0;
             LevelSelectionController.Instance.InitialSetup();            
         }
 
@@ -53,6 +56,7 @@ namespace Game.Scene
         {
             //level.IsBeaten = true;
             LevelSelectionController.Instance.AdvanceToNextLayer();
+            levelsBeaten++;
             /*if (!beatenLevels.Contains(level))
             {
                 beatenLevels.Add(level);
