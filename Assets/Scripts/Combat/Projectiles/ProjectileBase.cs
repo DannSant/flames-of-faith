@@ -1,4 +1,5 @@
 using Game.Effects;
+using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using System;
@@ -18,6 +19,7 @@ namespace Game.Combat.Projectiles
     {
         [SerializeField] protected float speed=5;
         [SerializeField] protected ProjectileType projectileType = ProjectileType.Linear;
+        [SerializeField] protected int baseDamage=0;
 
         protected float lifetime;
         protected int pierceCount;
@@ -109,7 +111,8 @@ namespace Game.Combat.Projectiles
             {
 
                 int totalDamage = CalculateTotalDamage();
-                enemyHealth.TakeDamage(damageAmount);
+                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(enemyHealth.transform.position, totalDamage);
+                enemyHealth.TakeDamage(totalDamage);
                 pierceCount--;
                 if (pierceCount <= 0)
                 {
@@ -121,7 +124,7 @@ namespace Game.Combat.Projectiles
         private int CalculateTotalDamage()
         {
             
-            return Mathf.FloorToInt(damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
+            return Mathf.FloorToInt(baseDamage + damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
         }
 
         public ProjectileType GetProjectileType() => projectileType;

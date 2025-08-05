@@ -1,5 +1,6 @@
 using Game.Common;
 using Game.Control;
+using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -121,12 +122,14 @@ namespace Game.Combat {
             if (Time.time < invulnerableUntilTime)
             {               
                 return;
-            }          
+            }            
 
             // Calculate damage after armor, ensure taking at least 1 damage
             int finalDamage = Mathf.Max(1, amount - armor);
             currentHealth -= finalDamage;
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);           
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+            DamageNumberSpawner.Instance.SpawnDamageToPlayerNumber(transform.position, finalDamage);
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 

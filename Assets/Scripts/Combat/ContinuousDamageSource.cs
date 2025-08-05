@@ -1,4 +1,5 @@
 using Game.Effects;
+using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using UnityEngine;
@@ -52,6 +53,7 @@ namespace Game.Combat
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
             if (damageableObject != null) { 
                 int totalDamage = CalculateTotalDamage();
+                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage);
                 damageableObject.TakeDamage(totalDamage);
             }
 

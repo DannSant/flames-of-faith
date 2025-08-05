@@ -41,7 +41,10 @@ namespace Game.Combat
             {
 
                 int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
-                damageableObject.TakeDamage(damageAmount);               
+                damageableObject.TakeDamage(damageAmount); 
+
+                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, damageAmount);
+
                 OnDamageDealt?.Invoke(damageAmount, WeaponData.graceGenerated, transform.gameObject);               
                 if (WeaponData.shouldApplyKnockback && knockback != null)
                 {

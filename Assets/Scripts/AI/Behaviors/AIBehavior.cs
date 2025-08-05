@@ -15,6 +15,14 @@ namespace Game.AI.Behaviors
             return enemyData.damageBase + waveDamageBonus + levelDamageBonus;
         }
 
+        protected int GetRangedDamageAmount(BehaviorContext context)
+        {
+            var enemyData = context.enemyData;
+            int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
+            int waveDamageBonus = enemyData.projectileDamagePerWave * (context.waveNumber - 1);
+            return enemyData.projectileDamageBase + waveDamageBonus + levelDamageBonus;
+        }
+
     }
     public abstract class AIUpdateBehavior : AIBehavior
     {

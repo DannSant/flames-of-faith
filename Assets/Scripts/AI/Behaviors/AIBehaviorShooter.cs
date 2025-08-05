@@ -71,8 +71,18 @@ namespace Game.AI.Behaviors
             {
                 //int damageAmount = context.enemyData.projectileDamageBase +
                 //                 (context.enemyData.projectileDamagePerWave * (context.waveNumber - 1));
-                int damageAmount = GetDamageAmount(context);
+                int damageAmount = GetRangedDamageAmount(context);
+                //Debug.Log($"Projectile Damage Amount: {damageAmount}");
                 damage.SetDamageAmount(damageAmount);
+            }
+
+            if (projectile.TryGetComponent(out EnemyTriggerDamage damageTrigger))
+            {
+                //int damageAmount = context.enemyData.projectileDamageBase +
+                //                 (context.enemyData.projectileDamagePerWave * (context.waveNumber - 1));
+                int damageAmount = GetRangedDamageAmount(context);
+                //Debug.Log($"Projectile Damage Amount: {damageAmount}");
+                damageTrigger.SetDamageAmount(damageAmount);
             }
         }
 
