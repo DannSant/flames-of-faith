@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -68,8 +69,9 @@ namespace Game.AI.Behaviors
 
             if (projectile.TryGetComponent(out EnemyDamage damage))
             {
-                int damageAmount = context.enemyData.projectileDamageBase +
-                                   (context.enemyData.projectileDamagePerWave * (context.waveNumber - 1));
+                //int damageAmount = context.enemyData.projectileDamageBase +
+                //                 (context.enemyData.projectileDamagePerWave * (context.waveNumber - 1));
+                int damageAmount = GetDamageAmount(context);
                 damage.SetDamageAmount(damageAmount);
             }
         }
@@ -80,6 +82,8 @@ namespace Game.AI.Behaviors
             var state = context.GetState<ShooterBehaviorState>(this);
             state.isShooting = false;
         }
+
+        
     }
 
 }

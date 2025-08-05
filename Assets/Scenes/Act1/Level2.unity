@@ -25229,6 +25229,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1798623285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &659117513
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4850006840528384078, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_Name
+      value: UpgradeManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996078072403954743, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53e5d999d9cca6e418084f080f6289ba, type: 3}
 --- !u!1001 &708572501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25825,144 +25882,6 @@ MonoBehaviour:
   HashOfParent: []
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}
---- !u!1 &1091415545
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1091415546}
-  - component: {fileID: 1091415547}
-  - component: {fileID: 1091415548}
-  m_Layer: 0
-  m_Name: UpgradeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1091415546
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091415545}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1091415547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091415545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa25151ec12716745aa8a7c69067c4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1091415548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091415545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa3f94cb01372842ba572e382da1850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statsConfig:
-  - statType: 0
-    initialValue: 20
-    allowLevelUpgrades: 1
-    tierValues: 050000000a0000000f00000014000000
-    category: 0
-  - statType: 1
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 2
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 3
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 4
-    initialValue: 0
-    allowLevelUpgrades: 0
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 5
-    initialValue: 5
-    allowLevelUpgrades: 1
-    tierValues: 02000000040000000600000008000000
-    category: 0
-  - statType: 6
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 7
-    initialValue: 0
-    allowLevelUpgrades: 0
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 8
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 9
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 10
-    initialValue: 0
-    allowLevelUpgrades: 0
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 11
-    initialValue: 0
-    allowLevelUpgrades: 0
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 12
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 13
-    initialValue: 0
-    allowLevelUpgrades: 0
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 14
-    initialValue: 0
-    allowLevelUpgrades: 1
-    tierValues: 01000000020000000300000004000000
-    category: 0
-  - statType: 15
-    initialValue: 0
-    allowLevelUpgrades: 0
-    tierValues: 01000000020000000300000004000000
-    category: 0
 --- !u!1 &1191704675
 GameObject:
   m_ObjectHideFlags: 0
@@ -29374,7 +29293,7 @@ SceneRoots:
   - {fileID: 2096728817}
   - {fileID: 1023357452}
   - {fileID: 975597761}
-  - {fileID: 1091415546}
+  - {fileID: 659117513}
   - {fileID: 1749859407}
   - {fileID: 88217920}
   - {fileID: 1524474681}

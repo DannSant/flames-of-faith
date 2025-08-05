@@ -82,9 +82,13 @@ namespace Game.Scene
 
             CleanupSceneObjects();
 
+           
+
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
             yield return SceneManager.LoadSceneAsync(SceneNames.MainMenu, LoadSceneMode.Additive);
+            yield return new WaitForSeconds(0.1f);
+            GameSession.Instance.Initialize();
 
             yield return StartCoroutine(FadeOut());
         }

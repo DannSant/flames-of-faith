@@ -1,4 +1,5 @@
 using Game.Map;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Game.UI.Map
     {
         [SerializeField] private LevelNodeUI layerNodePrefab;
 
-        public List<LevelNodeUI> Initialize(List<MapNode> nodes)
+        public List<LevelNodeUI> Initialize(List<MapNode> nodes, Action<string> SetLevelNameDisplayText)
         {
             List<LevelNodeUI> nodesUI = new List<LevelNodeUI>();
             //Clear existing nodes
@@ -23,7 +24,7 @@ namespace Game.UI.Map
                 var nodeUI = Instantiate(layerNodePrefab, transform);               
                 var sprite = MapUtils.Instance.GetSprite(node.Type);
                 
-                nodeUI.Initialize(sprite, node.Type, node);
+                nodeUI.Initialize(sprite, node.Type, node, SetLevelNameDisplayText);
                 nodesUI.Add(nodeUI);
             }
 

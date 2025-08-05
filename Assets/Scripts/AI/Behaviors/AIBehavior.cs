@@ -1,3 +1,4 @@
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -5,7 +6,15 @@ namespace Game.AI.Behaviors
     public abstract class AIBehavior : ScriptableObject
     {
         public virtual void Initialize(BehaviorContext ctx) { }
-        
+
+        protected int GetDamageAmount(BehaviorContext context)
+        {
+            var enemyData = context.enemyData;
+            int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
+            int waveDamageBonus = enemyData.damagePerWave * (context.waveNumber - 1);
+            return enemyData.damageBase + waveDamageBonus + levelDamageBonus;
+        }
+
     }
     public abstract class AIUpdateBehavior : AIBehavior
     {

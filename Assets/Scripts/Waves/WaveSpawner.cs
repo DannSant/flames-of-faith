@@ -36,6 +36,7 @@ namespace Game.Waves {
         public event Action<float> OnCooldownTimerUpdated;    // Sends cooldown time
         public event Action OnWaveComplete;                   // Triggered when wave ends
         public event Action OnWaveGroupFinished;              // Triggered when all waves are complete
+        public event Action OnAllLevelsFinished;                    // Triggered when all waves are complete and the game should end
 
 
         // Timers
@@ -157,7 +158,15 @@ namespace Game.Waves {
 
         public void GoToNextLevel()
         {
-            OnWaveGroupFinished?.Invoke();
+            if (waveDatabase!=null && waveDatabase.lastWave)
+            {
+                //Show endscreen
+                OnAllLevelsFinished?.Invoke();
+            }else
+            {
+                // Save state and load level selector scene
+                OnWaveGroupFinished?.Invoke();
+            }
         }
 
         private void StartNextWave()

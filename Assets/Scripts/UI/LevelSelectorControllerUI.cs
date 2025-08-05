@@ -4,6 +4,7 @@ using Game.UI.Map;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Game.UI
         [SerializeField] private Transform connectionLineParent;
         [SerializeField] private GameObject bezierConnectorPrefab;
         [SerializeField] private RectTransform playerMapMarker;
+        [SerializeField] private TextMeshProUGUI levelNametxt;
 
         private Dictionary<MapNode, LevelNodeUI> nodeUIMap = new();
 
@@ -46,6 +48,8 @@ namespace Game.UI
                 EnableChildNodes(lastVisitedNode);
                 MovePlayerMarkerToParent(lastVisitedNode);
             }
+
+            levelNametxt.text = "";
 
         }
 
@@ -101,47 +105,7 @@ namespace Game.UI
 
                 playerMapMarker.anchoredPosition = localPoint + new Vector2(50f, 0f);
             }
-        }
-
-        /*private void MovePlayerMarker()
-        {
-            var currentLayerNodes = LevelSelectionController.Instance.GetNodesInCurrentLayer();
-            if (currentLayerNodes == null || currentLayerNodes.Count == 0)
-            {
-                Debug.LogWarning("No nodes found in the current layer.");
-                return;
-            }
-
-            MapNode firstNode = currentLayerNodes[0];
-
-            if (nodeUIMap.TryGetValue(firstNode, out LevelNodeUI firstNodeUI))
-            {
-                RectTransform markerParent = playerMapMarker.parent as RectTransform;
-
-                // Convert world position of the first node into local position of the marker's parent
-                Vector2 localPoint;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    markerParent,
-                    RectTransformUtility.WorldToScreenPoint(null, firstNodeUI.transform.position),
-                    null,
-                    out localPoint
-                );
-
-                playerMapMarker.anchoredPosition = localPoint + new Vector2(50f, 0f);
-
-                Debug.Log($"localPoint: {localPoint}");
-                Debug.Log($"firstNodeUI.transform.position: {firstNodeUI.transform.position}");
-
-
-                //Setup first node
-                firstNodeUI.Setup(firstNode.levelData);
-
-            }
-            else
-            {
-                Debug.LogWarning("First node UI not found in the map.");
-            }
-        }*/
+        }       
 
         private void BuildLevelMap()
         {
@@ -157,7 +121,7 @@ namespace Game.UI
             foreach (var row in map)
             {
                 var levelLayerUI = Instantiate(levelLayerPrefab, nodesContainer.transform);
-                List<LevelNodeUI> nodes = levelLayerUI.Initialize(row);
+                List<LevelNodeUI> nodes = levelLayerUI.Initialize(row, SetLevelNameDisplayText);
                 foreach (var node in nodes)
                 {                    
                     nodeUIMap[node.MapNode] = node;
@@ -184,6 +148,11 @@ namespace Game.UI
                 }
             }            
 
+        }
+
+        private void SetLevelNameDisplayText(string levelName)
+        {
+            levelNametxt.text = levelName;
         }
 
       

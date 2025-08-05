@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 372941227481264685}
   - component: {fileID: 2350273484191334076}
   - component: {fileID: 9177868434419446245}
+  - component: {fileID: -508021481357401095}
   m_Layer: 0
   m_Name: SlashEffect
   m_TagString: Untagged
@@ -137,3 +138,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 0.55
+--- !u!114 &-508021481357401095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097316197449660156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10efcc58a01a037469d146692bb7e053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

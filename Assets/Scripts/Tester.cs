@@ -42,7 +42,7 @@ public class Tester : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            playerProgression.UpdateStat(StatType.AttackSpeed, 1);
+            playerProgression.UpdateStat(StatType.MaxHealth, 10);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {

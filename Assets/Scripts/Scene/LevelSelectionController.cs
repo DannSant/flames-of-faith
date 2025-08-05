@@ -16,13 +16,15 @@ namespace Game.Scene
         public List<LevelData> Levels;
         public List<LevelData> ExtraLevels;
         public int LayerCount;
+        public LevelData BossLevel;
        
-        public ActConfig(int actNumber, List<LevelData> levels, List<LevelData> extraLevels, int layerCount)
+        public ActConfig(int actNumber, List<LevelData> levels, List<LevelData> extraLevels, int layerCount, LevelData bossLevel)
         {
             ActNumber = actNumber;
             Levels = levels;
             ExtraLevels = extraLevels;
             LayerCount = layerCount;
+            BossLevel = bossLevel;
         }
     }
 
@@ -60,7 +62,8 @@ namespace Game.Scene
 
         private void InitializeLevels()
         {
-          
+            levelsByAct.Clear();
+            extraLevelsByAct.Clear();
             foreach (var levelByAct in levels)
             {
                 if (!levelsByAct.ContainsKey(levelByAct.ActNumber))
@@ -105,8 +108,9 @@ namespace Game.Scene
                     node.levelData = GetNextLevelData();
                 }else if(node.Type == LevelType.Boss)
                 {
-                    node.levelData = null; //TODO add level boss data
-                }else
+                    node.levelData = GetBossLevelByAct(currentAct);
+                }
+                else
                 {
                     node.levelData = GetRandomExtraLevelOfType(node.Type);
                 }
@@ -137,12 +141,23 @@ namespace Game.Scene
 
         }
 
+        public LevelData GetBossLevelByAct(int actNumber)
+        {
+            var actConfig = levels.FirstOrDefault(a => a.ActNumber == actNumber);
+            if (actConfig.Equals(default(ActConfig)))
+            {
+                Debug.LogError($"Act {actNumber} not found in levels configuration.");
+                return null;
+            }
+            return actConfig.BossLevel;
+        }
+
         public void AdvanceToNextLayer()
         {
             if (currentLayer < act1Map.Count - 1)
             {
                 currentLayer++;
-                
+                currentLevelNodeIndex++;
             }
             else
             {
@@ -155,7 +170,7 @@ namespace Game.Scene
             List<LevelData> levelDataList = levelsByAct[currentAct];
             if (currentLevelNodeIndex < levelDataList.Count)
             {
-                return levelDataList[currentLevelNodeIndex++];
+                return levelDataList[currentLevelNodeIndex];
             }
             else
             {

@@ -67,7 +67,7 @@ namespace Game.UI
             {
                 string statName = StatDisplayNameHelper.GetDisplayName(kvp.Key);
                 int statValue = kvp.Value;
-                Color color = getTextColor(); // Default color for now
+                Color color = getTextColor(statValue); // Default color for now
 
                 StatRowUI row = Instantiate(statRowPrefab, contentPanel.transform);
                 row.Initialize(statName, statValue, color);
@@ -87,8 +87,16 @@ namespace Game.UI
             backgroundPanel.SetActive(false);
         }
 
-        private Color getTextColor()
+        private Color getTextColor(int value)
         {
+            if(value < 0)
+            {
+                return Color.red;
+            }
+            else if (value > 0)
+            {
+                return Color.green;
+            }
             return Color.white;
         }
     }

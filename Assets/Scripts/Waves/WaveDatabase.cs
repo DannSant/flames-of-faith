@@ -7,5 +7,7 @@ namespace Game.Waves {
     {
         [Tooltip("List of all wave data, in order.")]
         public List<WaveData> waves = new();
+
+        public bool lastWave = false;
     }
 }

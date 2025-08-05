@@ -713,6 +713,7 @@ MonoBehaviour:
     ExtraLevels:
     - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
     LayerCount: 7
+    BossLevel: {fileID: 11400000, guid: 834d3048fa149dc4393553e00a43d1fd, type: 2}
   minLevelsPerLayer: 2
   maxLevelsPerLayer: 4
   testLevel: {fileID: 0}

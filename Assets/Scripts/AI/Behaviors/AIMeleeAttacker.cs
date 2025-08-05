@@ -44,9 +44,9 @@ namespace Game.AI.Behaviors
                     state.meleeCollider.enabled = false;
                     if (colliderObj.TryGetComponent(out EnemyDamage damage))
                     {
-                        int levelDamageBonus = GameSession.Instance.LevelsBeaten * context.enemyData.damagePerLevel;
-                        int waveDamageBonus = context.enemyData.damagePerWave * (context.waveNumber - 1);
-                        int damageAmount = context.enemyData.damageBase + waveDamageBonus + levelDamageBonus;
+                        //int levelDamageBonus = GameSession.Instance.LevelsBeaten * context.enemyData.damagePerLevel;
+                        //int waveDamageBonus = context.enemyData.damagePerWave * (context.waveNumber - 1);
+                        int damageAmount = GetDamageAmount(context);
                         damage.SetDamageAmount(damageAmount);
                     }
                 }
