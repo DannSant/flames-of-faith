@@ -110,11 +110,13 @@ namespace Game.Scene
 
         public void LoadAllPlayerComponentStates()
         {
+            
             foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
             {
                 component.LoadState();
             }
 
+         
             foreach (var component in currentPlayer.GetComponentsInChildren<IDependentStateLoader>())
             {
                 component.LoadState();

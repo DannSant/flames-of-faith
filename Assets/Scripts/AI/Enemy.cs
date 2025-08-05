@@ -53,7 +53,7 @@ namespace Game.AI {
             int baseHealth = enemyData.healthBase;
             int levelHealthBonus = GameSession.Instance.LevelsBeaten * healthPerLevel; // Health bonus based on levels beaten
             int waveHealthBonus = (waveNumber - 1) * healthPerWave;
-            int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
+            int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;          
            
             health.SetMaxHealth(calculatedHealth);
 

@@ -15,6 +15,7 @@ namespace Game.Enemies
         public float speedBase = 1f;
         public float attackRangeBase = 1f;
         public int xpBase = 1;
+        public int xpPerLevel = 1;
         public int projectileDamageBase;
         public int projectileDamagePerWave;
     }

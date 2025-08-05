@@ -28,8 +28,7 @@ namespace Game.Map
                 for (int j = 1; j < nodeCount; j++)
                 {
                     LevelType type = GetRandomNonBossType(i);
-                    layer.Add(new MapNode(type));
-                    //layer.Add(new MapNode(LevelType.Store));
+                    layer.Add(new MapNode(type));                    
                 }
 
                 // Shuffle to not always have combat at the top
@@ -84,6 +83,18 @@ namespace Game.Map
                     }
                 }
 
+                // Ensure every node in the current layer has at least one child in the next layer
+                foreach (var node in currentLayer)
+                {
+                    if (node.Children.Count == 0)
+                    {
+                        // Connect it to a random node in the next layer
+                        var randomTarget = nextLayer[rng.Next(nextLayer.Count)];
+                        node.Children.Add(randomTarget);
+                        randomTarget.Parents.Add(node);
+                    }
+                }
+
             }
 
             return map;
@@ -94,7 +105,7 @@ namespace Game.Map
 
             // Weighting logic could go here (e.g., more stores after certain layers)
             //var possible = new List<LevelType> { LevelType.Combat, LevelType.Rest, LevelType.Store, LevelType.Event };
-            var possible = new List<LevelType> {  LevelType.Store };
+            var possible = new List<LevelType> { LevelType.Combat, LevelType.Store };
             return possible[rng.Next(possible.Count)];
         }
     }

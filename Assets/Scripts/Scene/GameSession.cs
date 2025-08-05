@@ -39,6 +39,7 @@ namespace Game.Scene
         {
             base.Awake();
             playerData = new PlayerData();
+            Application.targetFrameRate = 60;
         }
 
         private void Start()

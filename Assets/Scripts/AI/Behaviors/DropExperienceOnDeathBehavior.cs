@@ -2,6 +2,7 @@ using Game.AI;
 using Game.AI.Behaviors;
 using Game.Enemies;
 using Game.Progression;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -40,10 +41,11 @@ namespace Game.AI.Behaviors
             {
                 var token = Instantiate(experienceTokenPrefab, enemy.transform.position, Quaternion.identity);
                 var experience = token.GetComponent<ExperienceToken>();
+                int bonusXpPerLevel = GameSession.Instance.LevelsBeaten * enemyData.xpPerLevel;
 
                 if (experience != null)
                 {
-                    experience.SetAmount(enemyData.xpBase);
+                    experience.SetAmount(enemyData.xpBase + bonusXpPerLevel);
                 }
             }
         }

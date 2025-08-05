@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: Increases armor by 10 but reduces Move Speed by 5 and Attack Speed
     by 2
-  buyPrice: 50
+  buyPrice: 25
   sellPrice: 0
   statModifiers:
   - statType: 6

@@ -1,5 +1,6 @@
 using Game.Effects;
 using Game.Progression;
+using Game.Scene;
 using System;
 using UnityEngine;
 
@@ -37,6 +38,11 @@ namespace Game.Combat.Projectiles
         {
             enemyLayerMask = LayerMask.NameToLayer("Enemy");
             playerLayerMask = LayerMask.NameToLayer("Player");
+        }
+
+        private void Start()
+        {
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         }
 
         public virtual void Initialize(Vector2 direction, int damageAmount, int pierce, float lifeTime, bool damageToPlayer, int graceGenerated)
@@ -121,10 +127,10 @@ namespace Game.Combat.Projectiles
         public ProjectileType GetProjectileType() => projectileType;
 
 
-        public void SetEffectStore(EffectStore effectStore)
+        /*public void SetEffectStore(EffectStore effectStore)
         {
-            this.effectStore = effectStore;
-        }
+           
+        }*/
 
         public void SetEffectID(string effectID)
         {

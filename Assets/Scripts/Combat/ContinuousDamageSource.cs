@@ -77,10 +77,10 @@ namespace Game.Combat
 
             return Mathf.FloorToInt(baseDamage + damage + effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
         }
-        public void SetEffectStore(EffectStore effectStore)
+        /*public void SetEffectStore(EffectStore effectStore)
         {
             //this.effectStore = effectStore;
-        }
+        }*/
 
         public void SetEffectID(string effectID)
         {

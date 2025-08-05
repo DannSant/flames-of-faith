@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017d8bbf822750f4bb53e193f11ea1d3, type: 3}
   m_Name: SlimeChase
   m_EditorClassIdentifier: 
-  speed: 3
+  minRange: 0
+  buffer: 0.2
+  useChasePause: 1

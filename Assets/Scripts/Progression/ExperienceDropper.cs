@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Game.Progression
 {
+    [Obsolete]
     public class ExperienceDropper : MonoBehaviour
     {
         [SerializeField] private GameObject experienceTokenPrefab;       
@@ -16,7 +18,7 @@ namespace Game.Progression
                 return;
             }
 
-            if (Random.value <= dropChance)
+            if (UnityEngine.Random.value <= dropChance)
             {
                 var token = Instantiate(experienceTokenPrefab, transform.position, Quaternion.identity);
                 var experience = token.GetComponent<ExperienceToken>();

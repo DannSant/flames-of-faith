@@ -10,7 +10,7 @@ using Game.Scene;
 namespace Game.Progression
 {
     
-    public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler, IDependentStateLoader
+    public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler
     {
         private List<StatType> eligibleUpgradeStats = new();       
 
@@ -47,6 +47,10 @@ namespace Game.Progression
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested += ResetUpgradeManagerstate;
             }
+
+            var playerExperienceData = GameSession.Instance.LoadPlayerExperienceState();
+            lastRecordedLevel = playerExperienceData.CurrentLevel;
+           
         }
 
         private void OnDestroy()
@@ -174,22 +178,6 @@ namespace Game.Progression
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetUpgradeManagerstate;
             }
             Destroy(gameObject);
-        }
-
-        public void LoadState()
-        {
-            var playerExperienceData = GameSession.Instance.LoadPlayerExperienceState();
-            lastRecordedLevel = playerExperienceData.CurrentLevel;
-        }
-
-        public void SaveState()
-        {
-            //No need to save state, we will retreive it from PlayerExperience
-        }
-
-        public void ResetState()
-        {
-            lastRecordedLevel = 1;
-        }
+        }        
     }
 }
