@@ -17,12 +17,16 @@ namespace Game.Progression
         [SerializeField] private bool allowLevelUpgrades;
         [SerializeField] private int[] tierValues;
         [SerializeField] private StatCategory category = StatCategory.Primary;
+        [TextArea]
+        [SerializeField] private string description;
 
         // Public properties (read-only)
         public StatType StatType => statType;
         public int InitialValue => initialValue;
         public bool AllowLevelUpgrades => allowLevelUpgrades;
         public int[] TierValues => tierValues;
+        public StatCategory Category => category;
+        public string Description => description;
 
         // Optional helper: get upgrade value for a specific tier
         public int GetValueForTier(int tier)

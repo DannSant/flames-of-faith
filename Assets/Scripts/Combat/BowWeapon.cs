@@ -1,8 +1,10 @@
+using Game.Audio;
 using Game.Combat.Projectiles;
 using Game.Control;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +12,9 @@ namespace Game.Combat
 {
     public class BowWeapon : WeaponBase
     {
+        [Header("Sound Effects")]
+        [SerializeField] private List<AudioClip> bowAttackSounds = new();
+
         public event System.Action<ProjectileBase> onBowAttackLaunched;
         public event System.Action<ProjectileBase> onBowSpecialAttackLaunched;
 
@@ -21,6 +26,7 @@ namespace Game.Combat
             {
                 if(currentTarget == null) return;
                 targetPosition = currentTarget.transform.position;
+                PlayRandomArrowSound();
                 characterVisual.PlayAttackAnimation();
                 attackTimer.StartEvent();
             }
@@ -90,6 +96,11 @@ namespace Game.Combat
             return weaponData.rangeBase + playerRange;
         }
 
+        private void PlayRandomArrowSound()
+        {
+            var audioClip = bowAttackSounds[Random.Range(0, bowAttackSounds.Count)];
+            AudioManager.Instance.PlaySFX(audioClip,true);
+        }
 
     }
 

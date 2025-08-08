@@ -1,4 +1,5 @@
 using Game.Control;
+using Game.GameSettings;
 using Game.Scene;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
@@ -36,14 +37,14 @@ namespace Game.UI
             if (isPaused)
             {
                 inputHandler.Player.Disable();
-                Time.timeScale = 0f; // Pause the game
+                PauseManager.Instance.SetPause(true); // Pause the game
                 statsPaneUI?.ShowStatsWindow(null); // Show stats pane if available
                 inventoryControllerUI?.ShowInventoryWindow();
             }
             else
             {
                 inputHandler.Player.Enable();
-               Time.timeScale = 1f; // Resume the game
+                PauseManager.Instance.SetPause(false); // Resume the game
                 statsPaneUI?.HideStatsWindow(-1); // Hide stats pane if available
                 inventoryControllerUI?.HideInventoryWindow(0);
 
@@ -52,16 +53,17 @@ namespace Game.UI
 
         public void ResumeGame()
         {
-            isPaused = false;
-            pauseScreenPanel.SetActive(isPaused);
-            inputHandler.Player.Enable();
-            Time.timeScale = 1f; // Resume the game
-            statsPaneUI?.HideStatsWindow(-1); // Hide stats pane if available
+            TogglePauseMenu(default);
+            //isPaused = false;
+            //pauseScreenPanel.SetActive(isPaused);
+            //inputHandler.Player.Enable();
+            //Time.timeScale = 1f; // Resume the game
+            //statsPaneUI?.HideStatsWindow(-1); // Hide stats pane if available
         }
 
         public void ExitGame()
         {
-            Time.timeScale = 1f; // Resume the game
+            PauseManager.Instance.SetPause(false);
             MainSceneController.Instance.LoadMainMenu();
         }
 

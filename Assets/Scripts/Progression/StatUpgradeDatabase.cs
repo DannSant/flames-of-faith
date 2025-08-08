@@ -60,6 +60,17 @@ namespace Game.Progression
         {
             return statsConfig;
         }
+
+        public string GetStatDescription(StatType statType)
+        {
+            var stat = statsConfig.FirstOrDefault(s => s.StatType == statType);
+            if (stat != null)
+            {
+                return stat.Description;
+            }
+            Debug.LogWarning($"No description found for stat {statType}");
+            return string.Empty; // fallback
+        }
     }
 
 }

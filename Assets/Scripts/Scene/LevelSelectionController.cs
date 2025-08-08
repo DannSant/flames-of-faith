@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Common;
 using Game.Map;
 using System.Collections.Generic;
@@ -17,14 +18,16 @@ namespace Game.Scene
         public List<LevelData> ExtraLevels;
         public int LayerCount;
         public LevelData BossLevel;
+        public AudioClip MusicClip;
        
-        public ActConfig(int actNumber, List<LevelData> levels, List<LevelData> extraLevels, int layerCount, LevelData bossLevel)
+        public ActConfig(int actNumber, List<LevelData> levels, List<LevelData> extraLevels, int layerCount, LevelData bossLevel, AudioClip music)
         {
             ActNumber = actNumber;
             Levels = levels;
             ExtraLevels = extraLevels;
             LayerCount = layerCount;
             BossLevel = bossLevel;
+            MusicClip = music;
         }
     }
 
@@ -53,6 +56,7 @@ namespace Game.Scene
         private MapNode lastVisitedNode = null;
 
         private int currentLevelNodeIndex = 0;
+        private int lastActLoaded = 0;
 
         protected override void Awake()
         {
@@ -81,7 +85,23 @@ namespace Game.Scene
             currentAct = 1;
             currentLayer = 0;
             currentNode = 0;
-            act1Map = GenerateMapLevelByAct(currentAct);
+            act1Map = GenerateMapLevelByAct(currentAct);           
+           
+        }
+
+        public void StartMusicOfCurrentAct()
+        {
+            if (lastActLoaded == currentAct)
+            {
+                return; // Music already playing for the current act
+            }
+
+            lastActLoaded = currentAct;
+            var musicClip = levels.FirstOrDefault(a => a.ActNumber == currentAct).MusicClip;
+            if (musicClip != null)
+            {
+                AudioManager.Instance.PlayMusic(musicClip);
+            }
         }
 
         public List<List<MapNode>> GetCurrentActMap()

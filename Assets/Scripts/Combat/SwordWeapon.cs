@@ -1,8 +1,10 @@
+using Game.Audio;
 using Game.Control;
 using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 using static Game.Progression.PlayerProgression;
 
@@ -10,12 +12,17 @@ namespace Game.Combat
 {
     public class SwordWeapon : WeaponBase
     {
+        [Header("Colliders")]
         [SerializeField] private GameObject weaponColliderObject;
         [SerializeField] private GameObject specialAttackCollider;
         [SerializeField] private WeaponDamageSource mainDamageSource;
         [SerializeField] private WeaponDamageSource specialDamageSource;
 
+        [Header("Visual Effects")]
         [SerializeField] private GameObject specialAttackVFXPrefab;
+
+        [Header("Sound Effects")]
+        [SerializeField] private List<AudioClip> swordAttackSounds = new();
 
         public override void Initialize(CharacterVisual characterVisual)
         {
@@ -55,10 +62,10 @@ namespace Game.Combat
         public override void Attack()
         {
             if (!attackTimer.GetIsEventActive())
-            {                
+            {
+                PlayRandomSwordSound();
                 characterVisual.PlayAttackAnimation();
-                attackTimer.StartEvent();
-               
+                attackTimer.StartEvent();               
             }
         }
 
@@ -142,6 +149,12 @@ namespace Game.Combat
                     knockback.ApplyKnockback(playerTransform, weaponData.knockbackForce);
                 }
             }
+        }
+
+        private void PlayRandomSwordSound()
+        {
+            var audioClip =swordAttackSounds[Random.Range(0, swordAttackSounds.Count)];
+            AudioManager.Instance.PlaySFX(audioClip);
         }
 
         public WeaponDamageSource GetDamageSource()

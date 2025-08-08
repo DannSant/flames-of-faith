@@ -70,7 +70,7 @@ namespace Game.UI
                 Color color = getTextColor(statValue); // Default color for now
 
                 StatRowUI row = Instantiate(statRowPrefab, contentPanel.transform);
-                row.Initialize(statName, statValue, color);
+                row.Initialize(statName, statValue, color, kvp.Key);
             }
         }
 

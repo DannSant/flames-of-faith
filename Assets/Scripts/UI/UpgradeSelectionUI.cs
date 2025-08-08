@@ -1,4 +1,6 @@
+using Game.Audio;
 using Game.Currency;
+using Game.GameSettings;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
@@ -36,7 +38,9 @@ namespace Game.UI
             continueButton.onClick.AddListener(() =>
             {
                 TogglePanel(false);
+                PauseManager.Instance.SetPause(false);
                 WaveSpawner.Instance.ConfirmNextWave();
+                AudioManager.Instance.ResetMusicVolume(); // Reset music volume when continuing
             });
 
             CurrencyGenerator currencyGenerator = CurrencyGenerator.Instance;
@@ -73,6 +77,8 @@ namespace Game.UI
             currentChoiceIndex = 0;
             TogglePanel(true);
             ShowCurrentChoice();
+            PauseManager.Instance.SetPause(true); // Pause the game when showing upgrade choices
+            AudioManager.Instance.SetMusicVolume(0.2f); // Lower music volume during upgrade selection
         }
 
         private void ShowCurrentChoice()

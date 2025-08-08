@@ -120,6 +120,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5df4dff9f9887b446879a1938a89a7ed, type: 2}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: deathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: cdb3469de78536044bd09807585c1c7f, type: 3}
+    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: damagedSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 473567ca74c11db488b9b993fd652dc1, type: 3}
+    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathVfxPrefab
       value: 
       objectReference: {fileID: 6136071736594798714, guid: 6610c4469d590e2408887758097d5055, type: 3}

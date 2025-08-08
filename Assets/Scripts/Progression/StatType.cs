@@ -15,10 +15,11 @@ namespace Game.Progression {
         RangedDamage,
         Range,
         PierceAmount,
-        MagicDamage, //TODO
+        MagicDamage,
         Cleave,
         HealthRegen,
         LifeSteal, //TODO
+        SkillDuration //TODO
     }
 
 }

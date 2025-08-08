@@ -2,11 +2,12 @@ using Game.Progression;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.UI
 {
-    public class UpgradeButtonUI : MonoBehaviour
+    public class UpgradeButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private int upgradeAmount;
         private StatType statToUpgrade;
@@ -47,6 +48,27 @@ namespace Game.UI
         private void OnButtonClicked()
         {
             OnUpgradeSelected?.Invoke(statToUpgrade, upgradeAmount);
+        }
+
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+        {
+            if (GeneralComponentsUI.Instance == null)
+            {
+                return;
+            }
+            var tooltipPanel = GeneralComponentsUI.Instance.GeneralTooltipPaneUI;
+            tooltipPanel.HideTooltip();
+        }
+
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        {
+            if (GeneralComponentsUI.Instance == null) {
+                return;
+            }
+            var tooltipPanel = GeneralComponentsUI.Instance.GeneralTooltipPaneUI;
+            string statName = StatDisplayNameHelper.GetDisplayName(statToUpgrade);
+            string description = StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade);
+            tooltipPanel.ShowTooltip(description, statName);
         }
     }
 

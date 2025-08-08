@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Misc;
 using Game.Progression;
 using System.Collections;
@@ -10,6 +11,8 @@ namespace Game.Combat
     {
         [SerializeField] private float deathDelay = 0.5f; // Delay before destroying the object after death
         [SerializeField] private GameObject deathVfxPrefab;
+        [SerializeField] private AudioClip damagedSFX;
+        [SerializeField] private AudioClip deathSFX;
 
         public event OnHealthChanged onHealthChanged;
         public event OnDeath onDeath;
@@ -34,7 +37,10 @@ namespace Game.Combat
 
         public void TakeDamage(int damage)
         {
-          
+            if(damagedSFX!=null)
+            {
+                AudioManager.Instance.PlayLowVolumeSFX(damagedSFX,true);
+            }
             currentHealth -= damage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
             flash.StartFlash();
@@ -46,6 +52,10 @@ namespace Game.Combat
 
         private void DetectDeath()
         {
+            if (damagedSFX != null)
+            {
+                AudioManager.Instance.PlayLowVolumeSFX(deathSFX, true);
+            }
             StartCoroutine(DeathRoutine());
         }
 

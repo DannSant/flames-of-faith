@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Common;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace Game.Scene
 
         [Header("Loading Screen")]
         [SerializeField] private float fadeDuration = 0.5f;
+
+        [Header("Loading Screen")]
+        [SerializeField] private AudioClip mainMenuMusic;
 
         [Header("Other")]
         [SerializeField] private GameObject startingCamera;
@@ -72,17 +76,18 @@ namespace Game.Scene
             //loads level selector scene
             yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
 
+            LevelSelectionController.Instance.StartMusicOfCurrentAct();
+
             yield return StartCoroutine(FadeOut());
         }
 
         private IEnumerator LoadMainMenuRoutine()
-        {
-           
+        {           
             yield return StartCoroutine(FadeIn());
 
             CleanupSceneObjects();
 
-           
+            AudioManager.Instance.PlayMusic(mainMenuMusic);
 
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 

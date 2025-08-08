@@ -63,78 +63,102 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 050000000a0000000f00000014000000
     category: 0
+    description: Max amount of health points of the player
   - statType: 1
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Melee damage caused by Melee weapons or some skills
   - statType: 2
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases cooldown reduction of your auto attack and special attack
+      (R Click)
   - statType: 3
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Max speed which you can move
   - statType: 4
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases cooldown reduction of your Dash skill
   - statType: 5
     initialValue: 5
     allowLevelUpgrades: 1
     tierValues: 02000000040000000600000008000000
     category: 0
+    description: Grace increases damage done by 10% per point. You lose it whenever
+      you clear a wave and you gain some when you rest on Camp Sites. Cannot go below
+      0
   - statType: 6
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Reduces damage received by 1 for each point. Least amount of damage
+      you can receive is 1.
   - statType: 7
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Reduces the required experience to level up
   - statType: 8
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases the chance to find higher tier upgrades when leveling
+      up. Also increases chance to find objects on enemies.
   - statType: 9
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases damage of projectile weapons and skills that spawn projectiles.
   - statType: 10
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases range in which you detect enemies. Only works for Range
+      based weapons
   - statType: 11
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases the amount of targets that your weapon projectiles can
+      pierce before they are destroyed
   - statType: 12
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Increases damage done by Magic weapons and some skills.
   - statType: 13
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Causes damage to enemies around you when you use your auto attack.
+      Only affects Melee weapons.
   - statType: 14
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: Regenerates health over time.
   - statType: 15
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
+    description: 'Chance to heal 1 health when dealing damage. '
