@@ -11,6 +11,7 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI statValueText;
 
         private StatType statType;
+        private GeneralTooltipPaneUI generalTooltipPaneUI;
 
         public void Initialize(string statName, int statValue, Color color, StatType statType)
         {
@@ -25,6 +26,8 @@ namespace Game.UI
                 statValueText.text = statValue.ToString();
                 statValueText.color = color;
             }
+
+            generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
         }
 
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
@@ -33,8 +36,8 @@ namespace Game.UI
             {
                 return;
             }
-            var tooltipPanel = GeneralComponentsUI.Instance.GeneralTooltipPaneUI;
-            tooltipPanel.HideTooltip();
+
+            generalTooltipPaneUI?.HideTooltip();
         }
 
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
@@ -43,10 +46,10 @@ namespace Game.UI
             {
                 return;
             }
-            var tooltipPanel = GeneralComponentsUI.Instance.GeneralTooltipPaneUI;
+           
             string statName = StatDisplayNameHelper.GetDisplayName(statType);
             string description = StatUpgradeDatabase.Instance.GetStatDescription(statType);
-            tooltipPanel.ShowTooltip(description, statName);
+            generalTooltipPaneUI?.ShowTooltip(description, statName);
         }
     }
 }

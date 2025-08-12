@@ -11,8 +11,7 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI descriptionText;
 
         private void Awake()
-        {
-            
+        {            
             mainPanel.SetActive(false);
         }
 

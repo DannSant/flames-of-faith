@@ -41,6 +41,8 @@ namespace Game.UI
                 PauseManager.Instance.SetPause(false);
                 WaveSpawner.Instance.ConfirmNextWave();
                 AudioManager.Instance.ResetMusicVolume(); // Reset music volume when continuing
+                var generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
+                generalTooltipPaneUI?.HideTooltip();
             });
 
             CurrencyGenerator currencyGenerator = CurrencyGenerator.Instance;

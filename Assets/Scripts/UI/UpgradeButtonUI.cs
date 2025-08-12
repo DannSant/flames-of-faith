@@ -12,6 +12,7 @@ namespace Game.UI
         private int upgradeAmount;
         private StatType statToUpgrade;
         private Button upgradeButton;
+        private GeneralTooltipPaneUI generalTooltipPaneUI;
 
         [SerializeField] private TextMeshProUGUI upgradeText;
 
@@ -33,6 +34,8 @@ namespace Game.UI
             this.upgradeAmount = amount;
             this.statToUpgrade = stat;
             SetupUI();
+
+            generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
         }
 
         private void SetupUI() 
@@ -47,6 +50,8 @@ namespace Game.UI
 
         private void OnButtonClicked()
         {
+
+            generalTooltipPaneUI?.HideTooltip();
             OnUpgradeSelected?.Invoke(statToUpgrade, upgradeAmount);
         }
 
@@ -56,8 +61,8 @@ namespace Game.UI
             {
                 return;
             }
-            var tooltipPanel = GeneralComponentsUI.Instance.GeneralTooltipPaneUI;
-            tooltipPanel.HideTooltip();
+
+            generalTooltipPaneUI?.HideTooltip();
         }
 
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
@@ -65,10 +70,10 @@ namespace Game.UI
             if (GeneralComponentsUI.Instance == null) {
                 return;
             }
-            var tooltipPanel = GeneralComponentsUI.Instance.GeneralTooltipPaneUI;
+           
             string statName = StatDisplayNameHelper.GetDisplayName(statToUpgrade);
             string description = StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade);
-            tooltipPanel.ShowTooltip(description, statName);
+            generalTooltipPaneUI?.ShowTooltip(description, statName);
         }
     }
 

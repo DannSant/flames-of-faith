@@ -5,7 +5,7 @@ namespace Game.UI
 {
     public class GeneralComponentsUI : Singleton<GeneralComponentsUI>
     {
-        [SerializeField]
+        /*[SerializeField]
         private GeneralTooltipPaneUI generalTooltipPaneUI;
 
         public GeneralTooltipPaneUI GeneralTooltipPaneUI => generalTooltipPaneUI;
@@ -13,6 +13,8 @@ namespace Game.UI
         protected override void Awake()
         {
             base.Awake();
-        }
+            generalTooltipPaneUI = null;
+            generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
+        }*/
     }
 }

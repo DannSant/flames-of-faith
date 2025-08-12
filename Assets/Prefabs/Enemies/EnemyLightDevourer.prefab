@@ -105,6 +105,10 @@ PrefabInstance:
       propertyPath: enemyType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.678
+      objectReference: {fileID: 0}
     - target: {fileID: 1917486536579394036, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Name
       value: EnemyLightDevourer

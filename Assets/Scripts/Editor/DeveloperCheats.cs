@@ -1,3 +1,4 @@
+using Game.GameSettings;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
@@ -9,6 +10,7 @@ public class DeveloperCheats
     [MenuItem("DevTools/Level/GoToNextLevel")]
     public static void GoToNextLevel()
     {
+        PauseManager.Instance.SetPause(false);
         WaveSpawner.Instance.GoToNextLevel();
     }
 

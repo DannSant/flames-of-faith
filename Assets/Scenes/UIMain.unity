@@ -7074,7 +7074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb2eb78437e76f49abf69b0e46a6d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalTooltipPaneUI: {fileID: 1789838848}
+  generalTooltipPaneUI: {fileID: 0}
 --- !u!4 &1672064787
 Transform:
   m_ObjectHideFlags: 0
@@ -11062,7 +11062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960332065830536428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77087b0de16d9b64f83be2d81918e6a8, type: 3}
   m_Name: 
