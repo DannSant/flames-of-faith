@@ -82,7 +82,7 @@ namespace Game.Combat
             }
         }
 
-        private void OnDamageDealt(int damage, int graceGenerated, GameObject target)
+        private void OnDamageDealt(float damage, int graceGenerated, GameObject target)
         {
             if (graceGenerated > 0)
             {

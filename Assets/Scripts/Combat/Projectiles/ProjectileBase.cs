@@ -34,7 +34,7 @@ namespace Game.Combat.Projectiles
         int enemyLayerMask;
         int playerLayerMask;
 
-        public Action<int, int, GameObject> OnDamageDealtEvent;
+        public Action<float, int, GameObject> OnDamageDealtEvent;
 
         private void Awake()
         {
@@ -110,7 +110,7 @@ namespace Game.Combat.Projectiles
             if (enemyHealth != null)
             {
 
-                int totalDamage = CalculateTotalDamage();
+                float totalDamage = CalculateTotalDamage();
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(enemyHealth.transform.position, totalDamage);
                 enemyHealth.TakeDamage(totalDamage);
                 pierceCount--;
@@ -121,7 +121,7 @@ namespace Game.Combat.Projectiles
             }
         }
 
-        private int CalculateTotalDamage()
+        private float CalculateTotalDamage()
         {
             
             return Mathf.FloorToInt(baseDamage + damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());

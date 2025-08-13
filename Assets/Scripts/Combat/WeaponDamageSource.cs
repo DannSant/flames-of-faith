@@ -13,7 +13,7 @@ namespace Game.Combat
         private PlayerProgression playerProgression;       
 
         private WeaponData weaponData;
-        public Action<int, int, GameObject> OnDamageDealt;       
+        public Action<float, int, GameObject> OnDamageDealt;       
 
         public WeaponData WeaponData
         {
@@ -40,7 +40,7 @@ namespace Game.Combat
             if (damageableObject != null)
             {
 
-                int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
+                float damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;               
                 damageableObject.TakeDamage(damageAmount); 
 
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, damageAmount);

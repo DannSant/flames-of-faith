@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f372df0d47c6dc4bb8ab406e652e8ef, type: 3}
   m_Name: BowSpecial
   m_EditorClassIdentifier: 
-  attackCooldownBase: 3
-  baseDamage: 6
+  attackCooldownBase: 4
+  baseDamage: 5
   attackScale: 2
   attackSpeedScale: 0.0075
   weaponClass: 2

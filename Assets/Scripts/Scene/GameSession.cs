@@ -82,7 +82,7 @@ namespace Game.Scene
             isNewRun = value;
         }
 
-        public void SaveCurrentHealth(int health)
+        public void SaveCurrentHealth(float health)
         {
             playerData.currentHealth = health;
         }

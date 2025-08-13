@@ -96,12 +96,12 @@ namespace Game.Combat
             specialAttackCollider.SetActive(false);
         }
 
-        private void OnDamageDealt(int damage, int graceGenerated, GameObject target)
+        private void OnDamageDealt(float damage, int graceGenerated, GameObject target)
         {          
             GrantGrace(graceGenerated);
         }
 
-        private void OnSpecialDamageDealt(int damage, int graceGenerated, GameObject target)
+        private void OnSpecialDamageDealt(float damage, int graceGenerated, GameObject target)
         {
             if (specialAttackVFXPrefab != null)
             {
@@ -134,7 +134,7 @@ namespace Game.Combat
         private void CleaveDamage()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, weaponData.rangeBase, LayerMask.GetMask("Enemy"));
-            int cleaveDamage = playerProgression.GetStatTotal(StatType.Cleave);
+            float cleaveDamage = playerProgression.GetStatTotal(StatType.Cleave);
             foreach (var hit in hits)
             {
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();

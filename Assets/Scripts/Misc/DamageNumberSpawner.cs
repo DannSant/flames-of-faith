@@ -14,12 +14,12 @@ namespace Game.Misc
             base.Awake();
         }
 
-        public void SpawnDamageToEnemyNumber(Vector3 positionTospawn, int number)
+        public void SpawnDamageToEnemyNumber(Vector3 positionTospawn, float number)
         {
             damageToEnemyNumberPrefab.Spawn(positionTospawn, number);
         }
 
-        public void SpawnDamageToPlayerNumber(Vector3 positionTospawn, int number)
+        public void SpawnDamageToPlayerNumber(Vector3 positionTospawn, float number)
         {
             damageToPlayerNumberPrefab.Spawn(positionTospawn, number);
         }

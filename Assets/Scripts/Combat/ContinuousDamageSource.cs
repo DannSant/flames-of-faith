@@ -51,14 +51,14 @@ namespace Game.Combat
             damageTimer = 0;
 
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
-            if (damageableObject != null) { 
-                int totalDamage = CalculateTotalDamage();
+            if (damageableObject != null) {
+                float totalDamage = CalculateTotalDamage();
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage);
                 damageableObject.TakeDamage(totalDamage);
             }
 
         }
-        private int CalculateTotalDamage()
+        private float CalculateTotalDamage()
         {
             int damage = 0;
             if (weaponClass == WeaponClass.Melee)

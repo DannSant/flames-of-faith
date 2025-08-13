@@ -74,7 +74,7 @@ namespace Game.Effects
             }
         }
 
-        private void HandleDamageDealt(int damage, int grace, GameObject target)
+        private void HandleDamageDealt(float damage, int grace, GameObject target)
         {
             bool shouldSpawn = Random.Range(0f, 1f) <= chanceToSpawn;
             if (!shouldSpawn) return;

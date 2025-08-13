@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f372df0d47c6dc4bb8ab406e652e8ef, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  attackCooldownBase: 1
-  baseDamage: 4
+  attackCooldownBase: 1.5
+  baseDamage: 2
   attackScale: 1
   attackSpeedScale: 0.0075
   weaponClass: 2
-  rangeBase: 10
+  rangeBase: 7
   projectilePrefab: {fileID: 496585674418865635, guid: 48af545d34ba78046be1637164035508, type: 3}
-  pierceAmount: 2
+  pierceAmount: 1
   knockbackForce: 4
   shouldApplyKnockback: 1
   graceGenerated: 1

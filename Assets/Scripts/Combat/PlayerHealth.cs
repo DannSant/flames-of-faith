@@ -13,12 +13,12 @@ namespace Game.Combat {
     public class PlayerHealth : MonoBehaviour, ILateInitializable, IDependentStateLoader
     {
         //state
-        private int defaultMaxHealth = 20; // Default max health value
-        private int maxHealth = 20;
-        private int currentHealth;
+        private float defaultMaxHealth = 20; // Default max health value
+        private float maxHealth = 20;
+        private float currentHealth;
         private bool isDead = false;
 
-        public delegate void OnHealthChanged(int current, int max);
+        public delegate void OnHealthChanged(float current, float max);
         public event OnHealthChanged onHealthChanged;
 
         public delegate void OnDeath();
@@ -31,9 +31,8 @@ namespace Game.Combat {
 
         private int armor = 0;
         private CharacterVisual characterVisual;
-        private PlayerProgression playerProgression;
-
-
+        private PlayerProgression playerProgression;     
+      
         private void Awake()
         {          
             characterVisual = GetComponentInChildren<CharacterVisual>();
@@ -172,8 +171,8 @@ namespace Game.Combat {
             onDeath?.Invoke();
         }
 
-        public int GetCurrentHealth() => currentHealth;
-        public int GetMaxHealth() => maxHealth;
+        public float GetCurrentHealth() => currentHealth;
+        public float GetMaxHealth() => maxHealth;
         public bool IsDead() => isDead;
 
         public void ResetState()

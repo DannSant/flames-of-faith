@@ -21,7 +21,8 @@ namespace Game.Control
         private WeaponManager weaponManager;
         private Vector2 movement;
         private Rigidbody2D rb;       
-        private Knockback knockback;        
+        private Knockback knockback;  
+        private PlayerHealth playerHealth;
 
         private Vector2 defaultPosition;
         private bool attackButtonDown = false;
@@ -36,6 +37,7 @@ namespace Game.Control
            
             rb = GetComponent<Rigidbody2D>();           
             knockback = GetComponent<Knockback>();
+            playerHealth = GetComponent<PlayerHealth>();
             characterVisual = GetComponentInChildren<CharacterVisual>();
             DashMultiplier = 1;
             defaultPosition = transform.position;
@@ -76,6 +78,7 @@ namespace Game.Control
 
         private void Update()
         {
+            if (playerHealth.IsDead()) return;
             MovementInput();
             AttackInput();
             AdjustPlayerFacingDirection();          
@@ -127,20 +130,28 @@ namespace Game.Control
 
         private void AttackInput()
         {
-            if (attackButtonDown)
+            if (attackButtonDown && CanAttack())
             {
                 Attack();
             }
         }
 
         private void Attack()
-        {
+        {           
             weaponManager.Attack();
         }
 
         private void StartSpecialAttack()
         {
             weaponManager.SpecialAttack();
+        }
+
+        private bool CanAttack() 
+        {
+            if (weaponManager == null) return false;
+            var currentWeapon = weaponManager.GetCurrentWeapon();
+            bool canAttack = !(currentWeapon.IsAttackTimerActive() || currentWeapon.IsSpecialAttackTimerActive());
+            return canAttack;
         }
 
         private void Move()

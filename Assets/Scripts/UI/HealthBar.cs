@@ -34,12 +34,12 @@ namespace Game.UI {
                 Debug.LogWarning("PlayerHealth singleton instance not found!");
             }
         }
-        private void UpdateHealthBar(int current, int max)
+        private void UpdateHealthBar(float current, float max)
         {
             UpdateHealthBar(current, max, instant: false);
         }
 
-        private void UpdateHealthBar(int current, int max, bool instant)
+        private void UpdateHealthBar(float current, float max, bool instant)
         {
             if (healthSlider == null || max <= 0) return;
 

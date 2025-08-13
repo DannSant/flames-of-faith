@@ -24,8 +24,8 @@ namespace Game.Combat
         public event OnHealthChanged onHealthChanged;
         public event OnDeath onDeath;
 
-        private int maxHealth;
-        private int currentHealth;
+        private float maxHealth;
+        private float currentHealth;
         private Flash flash;     
         
      
@@ -42,7 +42,7 @@ namespace Game.Combat
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             if(damagedSFX!=null)
             {

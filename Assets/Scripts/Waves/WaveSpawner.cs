@@ -95,7 +95,7 @@ namespace Game.Waves {
 
         private void SpawnTestEnemies()
         {            
-            SpawnEnemy(EnemyType.SlimeRoamer);
+            SpawnEnemy(EnemyType.FlameShooter);
             
         }
 
