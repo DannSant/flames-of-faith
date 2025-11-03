@@ -87,6 +87,11 @@ namespace Game.Scene
             playerData.currentHealth = health;
         }
 
+        public void SaveCurrentGrace(float grace)
+        {
+            playerData.currentGrace = grace;
+        }
+
         public void SaveStats(Dictionary<StatType, int> stats)
         {
             playerData.savedStats.Clear();
@@ -119,6 +124,15 @@ namespace Game.Scene
         public int LoadCurrencyAmount()
         {
             return playerData.currencyAmount;
+        }
+
+        public float LoadCurrentHealth()
+        {
+            return playerData.currentHealth;
+        }
+        public float LoadCurrentGrace()
+        {
+            return playerData.currentGrace;
         }
 
         public void SavePlayerExperienceState(PlayerExperienceData data)

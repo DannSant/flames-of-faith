@@ -35,9 +35,9 @@ namespace Game.Combat
         public override void SpecialAttack()
         {
             if (specialAttackTimer.GetIsEventActive()) return;
-            if (playerGrace.CurrentGrace <= specialAttackCost) return;
+           // if (playerGrace.CurrentGrace <= specialAttackCost) return;
 
-            playerGrace.RemoveGrace(specialAttackCost);
+            //playerGrace.RemoveGrace(specialAttackCost);
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
         }
@@ -84,10 +84,10 @@ namespace Game.Combat
 
         private void OnDamageDealt(float damage, int graceGenerated, GameObject target)
         {
-            if (graceGenerated > 0)
+            /*if (graceGenerated > 0)
             {
                 playerGrace.AddGrace(graceGenerated);
-            }
+            }*/
         }
 
         public override float GetWeaponRange()

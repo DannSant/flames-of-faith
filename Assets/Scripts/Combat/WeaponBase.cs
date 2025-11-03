@@ -15,7 +15,7 @@ namespace Game.Combat
 
         protected CharacterVisual characterVisual;
         protected PlayerController playerController;
-        protected PlayerGrace playerGrace;
+        //protected PlayerGrace playerGrace;
         protected PlayerProgression playerProgression;
         protected WeaponManager weaponManager;
 
@@ -30,7 +30,7 @@ namespace Game.Combat
             this.characterVisual = characterVisual;
 
             playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
-            playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            //playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
 
@@ -126,10 +126,10 @@ namespace Game.Combat
 
         protected void GrantGrace(int amount)
         {
-            if (amount > 0)
+            /*if (amount > 0)
             {
                 playerGrace.AddGrace(amount);
-            }
+            }*/
         }
         protected virtual void OnAttackAnimationStarted() { }
         protected virtual void OnAttackAnimationPlayed() { }

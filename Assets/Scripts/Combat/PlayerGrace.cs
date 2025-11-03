@@ -10,15 +10,16 @@ namespace Game.Combat
 {
     public class PlayerGrace : MonoBehaviour, ILateInitializable, IDependentStateLoader
     {
-        public int defaultMaxGrace = 10;
-        private int maxGrace = 10;
-        private int currentGrace;       
+        public float defaultMaxGrace = 10;
+        public float defaultStartingGrace = 5;
+        private float maxGrace = 10;
+        private float currentGrace =5;       
 
-        public delegate void OnGraceChanged(int current, int max);
+        public delegate void OnGraceChanged(float current, float max);
         public event OnGraceChanged onGraceChanged;
 
-        public int CurrentGrace { get { return currentGrace; } }
-        public int MaxGrace { get { return maxGrace; } }
+        public float CurrentGrace { get { return currentGrace; } }
+        public float MaxGrace { get { return maxGrace; } }
 
         private void  Awake()
         {           
@@ -63,7 +64,7 @@ namespace Game.Combat
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
-        public void AddGrace(int amount)
+        public void AddGrace(float amount)
         {
             currentGrace += amount;
             if (currentGrace > maxGrace)
@@ -73,7 +74,7 @@ namespace Game.Combat
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
-        public void RemoveGrace(int amount) {
+        public void RemoveGrace(float amount) {
             currentGrace -= amount;
             if (currentGrace < 0)
             {
@@ -85,18 +86,19 @@ namespace Game.Combat
         public void LoadState()
         {
             maxGrace = GameSession.Instance.PlayerData.savedStats[StatType.MaxGrace];
-            currentGrace = maxGrace;
+            currentGrace = GameSession.Instance.LoadCurrentGrace();
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
         public void SaveState()
         {
-           //no need to save, it is saved in the player progression component
+            GameSession.Instance.SaveCurrentGrace(currentGrace);
         }
 
         public void ResetState()
         {
             maxGrace = defaultMaxGrace;
+            currentGrace = defaultStartingGrace;
         }
     }
 

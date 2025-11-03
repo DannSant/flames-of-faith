@@ -72,9 +72,9 @@ namespace Game.Combat
         public override void SpecialAttack()
         {
             if (specialAttackTimer.GetIsEventActive()) return;
-            if (playerGrace.CurrentGrace <= specialAttackCost) return;
+            //if (playerGrace.CurrentGrace <= specialAttackCost) return;
 
-            playerGrace.RemoveGrace(specialAttackCost);
+            //playerGrace.RemoveGrace(specialAttackCost);
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             specialAttackCollider.SetActive(true);
@@ -98,7 +98,7 @@ namespace Game.Combat
 
         private void OnDamageDealt(float damage, int graceGenerated, GameObject target)
         {          
-            GrantGrace(graceGenerated);
+            //GrantGrace(graceGenerated);
         }
 
         private void OnSpecialDamageDealt(float damage, int graceGenerated, GameObject target)
@@ -107,7 +107,7 @@ namespace Game.Combat
             {
                 Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
             }
-            GrantGrace(graceGenerated);
+            //GrantGrace(graceGenerated);
         }
 
         private void LookAtTarget()

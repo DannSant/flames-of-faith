@@ -90,7 +90,7 @@ MonoBehaviour:
     category: 0
     description: Increases cooldown reduction of your Dash skill
   - statType: 5
-    initialValue: 5
+    initialValue: 10
     allowLevelUpgrades: 1
     tierValues: 02000000040000000600000008000000
     category: 0

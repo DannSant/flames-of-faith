@@ -23,6 +23,7 @@ namespace Game.Waves {
 
         [Header("Wave Settings")]
         [SerializeField] private WaveDatabase waveDatabase;
+        [SerializeField] private float graceRemovedPerWave = 1f;
 
         [Header("Other Settings")]
         [SerializeField]
@@ -209,6 +210,13 @@ namespace Game.Waves {
             if (waveCoroutine != null)
             {
                 StopCoroutine(waveCoroutine);
+            }
+
+            // Reduce grace when wave ends
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            if (playerGrace != null)
+            {
+                playerGrace.RemoveGrace(graceRemovedPerWave); // Remove 1 grace point
             }
 
             // Destroy all remaining enemies

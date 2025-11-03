@@ -7074,7 +7074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb2eb78437e76f49abf69b0e46a6d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalTooltipPaneUI: {fileID: 0}
 --- !u!4 &1672064787
 Transform:
   m_ObjectHideFlags: 0
@@ -10200,7 +10199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4302391357059339708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10275,7 +10274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4302391357256362434
 MonoBehaviour:
   m_ObjectHideFlags: 0

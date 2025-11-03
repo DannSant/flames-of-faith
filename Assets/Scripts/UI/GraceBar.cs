@@ -45,18 +45,18 @@ namespace Game.UI
             }
         }
 
-        private void UpdateGraceBar(int current, int max)
+        private void UpdateGraceBar(float current, float max)
         {
             UpdateGraceText(current, max);
-            UpdateGraceBar(current, max, instant: false);
+            //UpdateGraceBar(current, max, instant: false);
         }
 
-        private void UpdateGraceText(int current, int max) 
+        private void UpdateGraceText(float current, float max) 
         {
             graceText.text = $"{current}/{max}";
         }
 
-        private void UpdateGraceBar(int current, int max, bool instant)
+        /*private void UpdateGraceBar(int current, int max, bool instant)
         {
            
             if (graceSlider == null || max <= 0) return;
@@ -82,6 +82,6 @@ namespace Game.UI
             }
             Debug.Log("GraceBar: Animation complete. Final value: " + target);
             graceSlider.value = target; // Final snap
-        }
+        }*/
     }
 }
