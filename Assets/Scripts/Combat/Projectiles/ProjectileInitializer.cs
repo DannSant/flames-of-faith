@@ -23,20 +23,20 @@ namespace Game.Combat.Projectiles
 
             // Get currently equipped weapon
             var currentWeapon = PlayerManager.Instance.GetPlayerComponent<WeaponManager>().GetCurrentWeapon();
-           // var weaponData = currentWeapon.GetWeaponData();
+            var weaponData = currentWeapon.GetWeaponData();
 
             //Get player progression object
             var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
 
             //
-            int statDamage =  playerProgression.GetStatTotal(StatType.RangedDamage);
+            //int statDamage =  playerProgression.GetStatTotal(StatType.RangedDamage);
 
-            int damage = statDamage;         
+            //int damage = statDamage;         
             int pierce = infinitePierce ? 9999 :  playerProgression.GetStatTotal(StatType.PierceAmount);
 
 
             // Initialize and launch
-            projectile.Initialize(direction, damage, pierce, lifetime, damageToPlayer, 0);
+            projectile.Initialize(direction, weaponData.baseDamage, pierce, lifetime, damageToPlayer, 0, playerProgression, weaponData);
             projectile.ConfigureAfterSpawn();
         }
         

@@ -49,11 +49,11 @@ namespace Game.Combat
             Vector2 targetPos = targetPosition;//currentTarget.transform.position;
             Vector2 direction = (targetPos - spawnPos).normalized;
 
-            int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * weaponData.attackScale;
+            //int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * weaponData.attackScale;
             int pierceAmount = weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
 
             var projectile = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
-            projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false, weaponData.graceGenerated);
+            projectile.Initialize(direction, weaponData.baseDamage, pierceAmount, 5f, false, weaponData.graceGenerated,playerProgression,weaponData);
             projectile.ConfigureAfterSpawn();
             projectile.OnDamageDealtEvent += OnDamageDealt;
             onBowAttackLaunched?.Invoke(projectile);
@@ -66,7 +66,7 @@ namespace Game.Combat
             float randomOffset = Random.Range(0f, 360f);
             Vector2 spawnPos = transform.position;
 
-            int damageAmount = specialWeaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * specialWeaponData.attackScale;
+            //int damageAmount = specialWeaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * specialWeaponData.attackScale;
             int pierceAmount = specialWeaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
 
             for (int i = 0; i < numProjectiles; i++)
@@ -76,7 +76,7 @@ namespace Game.Combat
                 Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
                 var projectile = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
-                projectile.Initialize(direction, damageAmount, pierceAmount, 5f, false, specialWeaponData.graceGenerated);
+                projectile.Initialize(direction, specialWeaponData.baseDamage, pierceAmount, 5f, false, specialWeaponData.graceGenerated, playerProgression, specialWeaponData);
                 projectile.ConfigureAfterSpawn();
                 onBowSpecialAttackLaunched?.Invoke(projectile);
             }

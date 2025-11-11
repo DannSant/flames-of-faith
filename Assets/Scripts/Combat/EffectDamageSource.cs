@@ -49,7 +49,16 @@ namespace Game.Combat
 
         private float CalculateTotalDamage()
         {
-            int damage = 0;
+            return DamageCalculator.CalculateTotalDamage(
+               new DamageRequest(
+                   baseDamage,
+                   effectStore,
+                   effectID,
+                   weaponClass,
+                   playerProgression,
+                   1
+                   ));
+            /*int damage = 0;
             if (weaponClass == WeaponClass.Melee)
             {
                 damage = playerProgression.GetStatTotal(StatType.MeleeDamage);
@@ -62,7 +71,7 @@ namespace Game.Combat
             {
                 damage = playerProgression.GetStatTotal(StatType.MagicDamage);
             }
-            return Mathf.FloorToInt(baseDamage + damage + effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
+            return Mathf.FloorToInt(baseDamage + damage + effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());*/
         }
 
         /*public void SetEffectStore(EffectStore effectStore)

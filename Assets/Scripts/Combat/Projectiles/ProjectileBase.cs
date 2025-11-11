@@ -19,14 +19,17 @@ namespace Game.Combat.Projectiles
     {
         [SerializeField] protected float speed=5;
         [SerializeField] protected ProjectileType projectileType = ProjectileType.Linear;
-        [SerializeField] protected int baseDamage=0;
+        
+        protected float baseDamage=0;
 
         protected float lifetime;
         protected int pierceCount;
-        protected int damageAmount;
+        //protected int damageAmount;
         protected Vector2 moveDirection;
         protected bool damageToPlayer = false;
         protected int graceGenerated = 1;
+        protected PlayerProgression playerProgression;
+        protected WeaponData weaponData;
         private float timer;
         private EffectStore effectStore;
         private string effectID;
@@ -47,14 +50,16 @@ namespace Game.Combat.Projectiles
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         }
 
-        public virtual void Initialize(Vector2 direction, int damageAmount, int pierce, float lifeTime, bool damageToPlayer, int graceGenerated)
+        public virtual void Initialize(Vector2 direction,float baseDamage, int pierce, float lifeTime, bool damageToPlayer, int graceGenerated, PlayerProgression playerProgression, WeaponData weaponData)
         {
             this.moveDirection = direction.normalized;
-            this.damageAmount = damageAmount;
+            this.baseDamage = baseDamage;
             this.pierceCount = pierce;
             this.lifetime = lifeTime;
             this.damageToPlayer = damageToPlayer;
             this.graceGenerated = graceGenerated;
+            this.playerProgression = playerProgression;
+            this.weaponData = weaponData;
             timer = 0f;
         }
 
@@ -77,12 +82,12 @@ namespace Game.Combat.Projectiles
             if (damageToPlayer && other.gameObject.layer == playerLayerMask)
             {
                 DamagePlayer(other.GetComponent<PlayerHealth>());
-                OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated, gameObject);
+                OnDamageDealtEvent?.Invoke(baseDamage, graceGenerated, gameObject);
             }
             else if (!damageToPlayer && other.gameObject.layer == enemyLayerMask)
             {
                 DamageEnemy(other.GetComponent<EnemyHealth>());
-                OnDamageDealtEvent?.Invoke(damageAmount, graceGenerated,gameObject);
+                OnDamageDealtEvent?.Invoke(baseDamage, graceGenerated,gameObject);
             }         
 
         }
@@ -96,7 +101,7 @@ namespace Game.Combat.Projectiles
         {
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damageAmount);
+                playerHealth.TakeDamage(baseDamage);
                 pierceCount--;
                 if (pierceCount <= 0)
                 {
@@ -123,8 +128,17 @@ namespace Game.Combat.Projectiles
 
         private float CalculateTotalDamage()
         {
-            
-            return Mathf.FloorToInt(baseDamage + damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
+            return DamageCalculator.CalculateTotalDamage(
+                new DamageRequest(
+                    baseDamage,
+                    effectStore,
+                    effectID,
+                    damageToPlayer ? WeaponClass.None : WeaponClass.Ranged,
+                    playerProgression,
+                    weaponData.attackScale
+                )
+            );
+            //return Mathf.FloorToInt(baseDamage + damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
         }
 
         public ProjectileType GetProjectileType() => projectileType;

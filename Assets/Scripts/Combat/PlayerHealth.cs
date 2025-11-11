@@ -114,7 +114,7 @@ namespace Game.Combat {
             armor = Mathf.Max(0, value); // Ensure armor is never negative
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(float amount)
         {
             if (currentHealth <= 0) return;
 
@@ -124,7 +124,7 @@ namespace Game.Combat {
             }            
 
             // Calculate damage after armor, ensure taking at least 1 damage
-            int finalDamage = Mathf.Max(1, amount - armor);
+            float finalDamage = Mathf.Max(1, amount - armor);
             currentHealth -= finalDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
