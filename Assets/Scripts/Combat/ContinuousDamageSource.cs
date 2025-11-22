@@ -8,7 +8,7 @@ namespace Game.Combat
 {
     public class ContinuousDamageSource : MonoBehaviour, IEffectMultiplier
     {
-        [SerializeField] private float totalTime = 10f;
+        [SerializeField] private float baseDurationTime = 3f;
         [SerializeField] private float timeInterval = 1f;
         [SerializeField] private int baseDamage = 5;
         [SerializeField] private WeaponClass weaponClass = WeaponClass.None;
@@ -24,6 +24,8 @@ namespace Game.Combat
         {
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            float totalTime = baseDurationTime + playerProgression.GetStatTotal(StatType.SkillDuration);
+           
             Destroy(gameObject, totalTime);
         }
 

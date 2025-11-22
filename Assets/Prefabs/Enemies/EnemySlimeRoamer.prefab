@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: enemyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: healthPerWave
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.424
+      objectReference: {fileID: 0}
     - target: {fileID: 1917486536579394036, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Name
       value: EnemySlimeRoamer
@@ -56,6 +68,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3015610526306121379, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015610526306121379, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3825661218281620947, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Controller
       value: 
@@ -92,6 +112,10 @@ PrefabInstance:
       propertyPath: 'collisionBehaviors.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 374c36023352e1e40b209f344f0acc1c, type: 2}
+    - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathSFX
       value: 
@@ -107,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2018184794, guid: fd01fb3e6f803d044bc82b8dc349b9b0, type: 3}
+      objectReference: {fileID: 6956152089800820368, guid: 9c4817bf74ef2f34d8ce3f3a31e480c6, type: 3}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

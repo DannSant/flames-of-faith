@@ -18,6 +18,7 @@ namespace Game.Map
 
         public Sprite GetSprite(LevelType type)
         {
+           
             foreach (var icon in iconSprites)
             {
                 if (icon.levelType == type)

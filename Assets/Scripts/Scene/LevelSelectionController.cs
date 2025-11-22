@@ -123,7 +123,8 @@ namespace Game.Scene
 
             foreach(var node in layerNodes)
             {
-                if(node.Type == LevelType.Combat)
+                //Debug.Log($"Assigning level data for node of type {node.Type} in act {currentAct}");
+                if (node.Type == LevelType.Combat)
                 {
                     node.levelData = GetNextLevelData();
                 }else if(node.Type == LevelType.Boss)

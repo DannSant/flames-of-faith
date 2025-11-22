@@ -19,7 +19,8 @@ namespace Game.Progression {
         Cleave,
         HealthRegen,
         LifeSteal, //TODO
-        SkillDuration //TODO
+        SkillDuration,
+        HealingReceived
     }
 
 }

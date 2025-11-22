@@ -14,6 +14,7 @@ namespace Game.UI
         private StatsPaneUI statsPaneUI;
         private InventoryControllerUI inventoryControllerUI;
 
+
         private void Start()
         {
             pauseScreenPanel.SetActive(false);
@@ -33,6 +34,7 @@ namespace Game.UI
         {
             isPaused = !isPaused;
             pauseScreenPanel.SetActive(isPaused);
+
 
             if (isPaused)
             {

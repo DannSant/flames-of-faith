@@ -1,4 +1,5 @@
 using Game.Common;
+using Game.GameSettings;
 using UnityEngine;
 
 namespace Game.Audio
@@ -10,6 +11,7 @@ namespace Game.Audio
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private AudioSource sfxSourceLowVolume;
 
+        [SerializeField] private float defaultMusicLowVolume = 0.1f;
         [SerializeField] private float defaultMusicVolume = 0.7f;
 
 
@@ -17,6 +19,24 @@ namespace Game.Audio
         {
             base.Awake();
             SetMusicVolume(defaultMusicVolume);
+        }
+
+        private void Start()
+        {
+            PauseManager pauseManager = PauseManager.Instance;
+            if (pauseManager != null)
+            {
+                pauseManager.onPauseToggled += OnPauseToggled;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            PauseManager pauseManager = PauseManager.Instance;
+            if (pauseManager != null)
+            {
+                pauseManager.onPauseToggled -= OnPauseToggled;
+            }
         }
 
         public void PlayMusic(AudioClip clip)
@@ -50,6 +70,27 @@ namespace Game.Audio
                 sfxSourceLowVolume.pitch = 1f;
             }
             sfxSourceLowVolume.PlayOneShot(clip);
+        }
+
+        private void OnPauseToggled(bool isPaused)
+        {
+            if (isPaused)
+            {
+                SetLowVolume();
+            }
+            else
+            {
+                SetNormalVolume();
+            }
+        }
+
+        private void SetLowVolume()
+        {
+            musicSource.volume = defaultMusicLowVolume;
+        }
+        private void SetNormalVolume()
+        {
+            musicSource.volume = defaultMusicVolume;
         }
 
         public void StopMusic()

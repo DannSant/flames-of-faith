@@ -56,11 +56,19 @@ namespace Game.Combat
 
         public void SetMaxGrace(int value)
         {
-            maxGrace = value;
-            if (currentGrace > maxGrace)
+            int increasedAmount = value - (int)maxGrace;
+
+            //First time setup
+            if (maxGrace<= 0)
             {
-                currentGrace = maxGrace;
-            }
+                maxGrace = value;
+            }else
+            //Update existing max grace
+            {
+                maxGrace = value;
+                currentGrace = Mathf.Min(currentGrace + increasedAmount, maxGrace);
+            }           
+
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 

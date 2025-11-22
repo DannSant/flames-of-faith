@@ -39,6 +39,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: healthPerWave
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.477

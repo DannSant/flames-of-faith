@@ -102,9 +102,9 @@ namespace Game.Combat {
 
         private void SetMaxHealth(int value)
         {
-           
-            maxHealth = Mathf.Max(1, value); // Ensure it’s always at least 1
-            currentHealth = maxHealth;
+            float increasedAmount = value - maxHealth;
+            maxHealth = Mathf.Max(1, value);
+            currentHealth = currentHealth + increasedAmount;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
@@ -141,9 +141,11 @@ namespace Game.Combat {
             }
         }       
 
-        public void Heal(int amount)
+        public void Heal(float amount)
         {
             if (currentHealth <= 0) return;
+
+            DamageNumberSpawner.Instance.SpawnHealToPlayerNumber(transform.position, amount);
 
             currentHealth += amount;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -174,6 +176,7 @@ namespace Game.Combat {
         public float GetCurrentHealth() => currentHealth;
         public float GetMaxHealth() => maxHealth;
         public bool IsDead() => isDead;
+        public bool IsAtMaxHealth() => currentHealth >= maxHealth;
 
         public void ResetState()
         {
@@ -190,6 +193,7 @@ namespace Game.Combat {
             maxHealth = GameSession.Instance.PlayerData.savedStats[StatType.MaxHealth];           
             currentHealth = maxHealth;
             armor = GameSession.Instance.PlayerData.savedStats[StatType.Armor];
+            onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
     }
 

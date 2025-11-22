@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: healthPerWave
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.483
+      objectReference: {fileID: 0}
     - target: {fileID: 1917486536579394036, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Name
       value: EnemySlimeChaser
@@ -52,6 +64,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3015610526306121379, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015610526306121379, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathBehaviors.Array.size
       value: 1
@@ -94,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.y
-      value: -0.27662417
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathSFX
@@ -107,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 777155719, guid: 1e6c86a02b53b1942bada4c60ce9690b, type: 3}
+      objectReference: {fileID: -4527951488772356435, guid: 9c4817bf74ef2f34d8ce3f3a31e480c6, type: 3}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

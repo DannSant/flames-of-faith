@@ -34,6 +34,8 @@ namespace Game.Combat
     {
         private static PlayerGrace playerGrace;
 
+        private static float graceDamageMultiplier = 0.1f;
+
         public static float CalculateTotalDamage(DamageRequest damageRequest)
         {
             if (playerGrace == null)
@@ -61,13 +63,33 @@ namespace Game.Combat
             var effectStore = damageRequest.EffectStore;
 
             float totalDamage = 0;
+            float graceDamage = 0;
+            float finalDamage = 0;
             if (effectStore == null)
             {
                 totalDamage = baseDamage + progressionStatDamage * damageRequest.WeaponScaleDamage;
-                return Mathf.FloorToInt(totalDamage + playerGrace.CurrentGrace);
+                graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
+                finalDamage = totalDamage + graceDamage;
+                if (finalDamage <= 0)
+                {
+                    return 1f;
+                }
+                return Mathf.FloorToInt(finalDamage);
+                 
             }
             totalDamage = Mathf.FloorToInt(baseDamage + progressionStatDamage + effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).GetMultiplier());
-            return totalDamage + playerGrace.CurrentGrace;
+            graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
+            finalDamage = totalDamage + graceDamage;
+            if (finalDamage<=0)
+            {
+                return 1f;
+            }
+            return finalDamage;
+        }
+
+        private static float GetGraceDamage(float damage, float grace)
+        {
+            return damage * (graceDamageMultiplier * grace);
         }
 
         private static void FindPlayerGrace()

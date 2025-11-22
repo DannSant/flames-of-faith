@@ -162,3 +162,9 @@ MonoBehaviour:
     tierValues: 01000000020000000300000004000000
     category: 0
     description: 'Chance to heal 1 health when dealing damage. '
+  - statType: 16
+    initialValue: 0
+    allowLevelUpgrades: 1
+    tierValues: 01000000020000000300000004000000
+    category: 0
+    description: Increases the duration of item skills

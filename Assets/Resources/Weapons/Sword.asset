@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   attackCooldownBase: 1
-  baseDamage: 2
+  baseDamage: 10
   attackScale: 1
   attackSpeedScale: 0.0075
   weaponClass: 1

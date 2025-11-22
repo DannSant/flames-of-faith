@@ -105,7 +105,7 @@ namespace Game.Map
 
             // Weighting logic could go here (e.g., more stores after certain layers)
             //var possible = new List<LevelType> { LevelType.Combat, LevelType.Rest, LevelType.Store, LevelType.Event };
-            var possible = new List<LevelType> { LevelType.Combat, LevelType.Store };
+            var possible = new List<LevelType> { LevelType.Combat, LevelType.Store, LevelType.Rest };
             return possible[rng.Next(possible.Count)];
         }
     }

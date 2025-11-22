@@ -49,8 +49,7 @@ namespace Game.Progression {
             if (currentStats.ContainsKey(statType))
             {
                 // Update the stat value
-                currentStats[statType] += value;
-                
+                currentStats[statType] += value;           
 
                 // Trigger the event to notify subscribers
                 onStatUpdated?.Invoke(statType, GetStatTotal(statType));

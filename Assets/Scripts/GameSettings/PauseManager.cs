@@ -5,6 +5,9 @@ namespace Game.GameSettings
 {
     public class PauseManager : Singleton<PauseManager>
     {
+        public event System.Action<bool> onPauseToggled;
+
+
         protected override void Awake()
         {
             base.Awake();
@@ -12,6 +15,9 @@ namespace Game.GameSettings
 
         public void SetPause(bool isPaused)
         {
+            // Notify subscribers about the pause state change
+            onPauseToggled?.Invoke(isPaused);
+
             if (isPaused)
             {
                 Time.timeScale = 0f; // Pause the game

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BowSpecial
   m_EditorClassIdentifier: 
   attackCooldownBase: 4
-  baseDamage: 5
+  baseDamage: 15
   attackScale: 2
   attackSpeedScale: 0.0075
   weaponClass: 2

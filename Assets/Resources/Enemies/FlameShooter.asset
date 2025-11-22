@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   enemyPrefab: {fileID: 4302877176766348490, guid: 9e3340d0d9ba00a4daa919be465662a8, type: 3}
-  healthBase: 5
+  healthBase: 50
   damageBase: 1
   damagePerWave: 1
   damagePerLevel: 2
   speedBase: 3
   attackRangeBase: 1
   xpBase: 1
+  xpPerLevel: 1
   projectileDamageBase: 2
   projectileDamagePerWave: 2
