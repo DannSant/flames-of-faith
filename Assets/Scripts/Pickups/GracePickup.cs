@@ -6,6 +6,19 @@ namespace Game.Pickups
     public class GracePickup : BasePickup
     {
         [SerializeField] private int graceAmount = 1;
+
+        public override bool CanBePickedUp(GameObject picker)
+        {
+            var playerGrace = picker.GetComponent<PlayerGrace>();
+            if (playerGrace.IsAtMaxGrace())
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
+        }
+
         public override void OnPickup(GameObject picker)
         {
             var playerGrace = picker.GetComponent<PlayerGrace>();
@@ -14,7 +27,7 @@ namespace Game.Pickups
                 return;
             }
 
-            if(playerGrace.CurrentGrace >= playerGrace.MaxGrace)
+            if(playerGrace.IsAtMaxGrace())
             {
                 return;
             }

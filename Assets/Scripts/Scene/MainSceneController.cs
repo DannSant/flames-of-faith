@@ -150,6 +150,43 @@ namespace Game.Scene
             yield return StartCoroutine(FadeOut());
         }
 
+        public void RetryCurrentRun()
+        {
+            StartCoroutine(RetryCurrentRunRoutine());
+        }
+
+        private IEnumerator RetryCurrentRunRoutine()
+        {
+            Debug.Log("[MainSceneController] Retrying current run...");
+
+            // Mark the session as a new run so future state resets correctly
+            GameSession.Instance.SetIsNewRun(true);
+            GameSession.Instance.Initialize();
+
+            // Fade to black before unloading
+            yield return StartCoroutine(FadeIn());
+
+            // Clean up any persistent gameplay objects
+            CleanupSceneObjects();
+
+            // Unload all active gameplay scenes
+            yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
+
+            // Clear the list after unloading
+            activeGameplayScenes.Clear();
+
+            // Load Level Selector again (fresh run)
+            yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
+
+            // Play the act music if needed
+            LevelSelectionController.Instance.StartMusicOfCurrentAct();
+
+            yield return StartCoroutine(FadeOut());
+
+            Debug.Log("[MainSceneController] Level selector reloaded successfully.");
+        }
+
+
         private IEnumerator UnloadScenesByName(List<string> scenesToUnload)
         {
 

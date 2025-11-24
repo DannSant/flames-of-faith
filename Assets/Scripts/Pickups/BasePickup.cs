@@ -1,3 +1,4 @@
+using Game.Common;
 using Game.Control;
 using Game.Waves;
 using System;
@@ -5,9 +6,10 @@ using UnityEngine;
 
 namespace Game.Pickups
 {
-    public abstract class BasePickup : MonoBehaviour
+    public abstract class BasePickup : MonoBehaviour, ISceneCleanupHandler
     {
         public abstract void OnPickup(GameObject picker);
+        public abstract bool CanBePickedUp(GameObject picker);
 
         private void Start()
         {
@@ -37,6 +39,11 @@ namespace Game.Pickups
             var playerController = other.GetComponent<PlayerController>();
             if(playerController == null) return;
             OnPickup(other.gameObject);
+        }
+
+        public void Cleanup()
+        {
+            Destroy(gameObject);
         }
     }
 }

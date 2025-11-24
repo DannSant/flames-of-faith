@@ -13,7 +13,7 @@ namespace Game.Combat
         public float defaultMaxGrace = 10;
         public float defaultStartingGrace = 5;
         private float maxGrace = 10;
-        private float currentGrace =5;       
+        private float currentGrace = 5;
 
         public delegate void OnGraceChanged(float current, float max);
         public event OnGraceChanged onGraceChanged;
@@ -21,10 +21,10 @@ namespace Game.Combat
         public float CurrentGrace { get { return currentGrace; } }
         public float MaxGrace { get { return maxGrace; } }
 
-        private void  Awake()
-        {           
+        private void Awake()
+        {
             currentGrace = 0;
-        }      
+        }
 
         public void LateInitialize()
         {
@@ -33,10 +33,10 @@ namespace Game.Combat
             {
                 maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
                 playerProgression.onStatUpdated += OnMaxPlayerGraceStatUpdated;
-            }     
+            }
 
-            
-            
+
+
         }
 
         private void OnDisable()
@@ -51,7 +51,7 @@ namespace Game.Combat
             {
                 SetMaxGrace(value);
             }
-            
+
         }
 
         public void SetMaxGrace(int value)
@@ -59,15 +59,16 @@ namespace Game.Combat
             int increasedAmount = value - (int)maxGrace;
 
             //First time setup
-            if (maxGrace<= 0)
+            if (maxGrace <= 0)
             {
                 maxGrace = value;
-            }else
+            }
+            else
             //Update existing max grace
             {
                 maxGrace = value;
                 currentGrace = Mathf.Min(currentGrace + increasedAmount, maxGrace);
-            }           
+            }
 
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
@@ -78,11 +79,12 @@ namespace Game.Combat
             if (currentGrace > maxGrace)
             {
                 currentGrace = maxGrace;
-            }            
+            }
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
-        public void RemoveGrace(float amount) {
+        public void RemoveGrace(float amount)
+        {
             currentGrace -= amount;
             if (currentGrace < 0)
             {
@@ -108,6 +110,9 @@ namespace Game.Combat
             maxGrace = defaultMaxGrace;
             currentGrace = defaultStartingGrace;
         }
+
+        public bool IsAtMaxGrace() => currentGrace >= maxGrace;
+        
     }
 
 }

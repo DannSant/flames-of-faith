@@ -53,22 +53,7 @@ namespace Game.AI.Behaviors
             Vector2 targetPosition = rb.position + direction * speed * Time.deltaTime;
 
             rb.MovePosition(targetPosition);
-            /*if (context.playerTransform == null || context.enemyTransform == null) return;
-
-            var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
-            if (rb == null) return;
-
-            float speed = context.enemyData.speedBase;
-            Vector2 direction = (context.playerTransform.position - context.enemyTransform.position).normalized;
-            Vector2 targetPosition = rb.position + direction * speed * Time.deltaTime;
-
-            if (Vector2.Distance(rb.position, context.playerTransform.position) < minRange)
-            {
-                // If within min range, stop moving
-                targetPosition = rb.position;
-            }
-
-            rb.MovePosition(targetPosition);*/
+         
         }
     }
 

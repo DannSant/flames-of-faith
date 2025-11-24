@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 8218671181128757261}
   - component: {fileID: 5967593692569805974}
   - component: {fileID: 530062329195223839}
+  - component: {fileID: 2603307318486496441}
   m_Layer: 0
   m_Name: HealthPickup
   m_TagString: Untagged
@@ -173,3 +174,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Pickups.HealthPickup
   healAmount: 3
+--- !u!114 &2603307318486496441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557405743796282978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e714b1e805401924fbeb915a8cdd8602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.MagnetToPlayer
+  moveSpeed: 5
+  baseRange: 2

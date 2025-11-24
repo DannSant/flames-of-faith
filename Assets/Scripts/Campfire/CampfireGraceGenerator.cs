@@ -15,18 +15,14 @@ namespace Game.Campfire
         {
             if (!isActive) return;
             var playerGrace = collision.GetComponent<PlayerGrace>();
-            if (playerGrace == null)
+            if (playerGrace != null && playerGrace.IsAtMaxGrace())
             {
-                return;
+                playerGrace.AddGrace(graceAmount);
             }
 
-            if (playerGrace.CurrentGrace >= playerGrace.MaxGrace)
-            {
-                return;
-            }
             isActive = false;
             onPlayerEntersCampfire?.Invoke(true);
-            playerGrace.AddGrace(graceAmount);
+            
         }
 
     }

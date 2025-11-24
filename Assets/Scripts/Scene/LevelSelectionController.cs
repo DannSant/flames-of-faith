@@ -82,9 +82,11 @@ namespace Game.Scene
 
         public void InitialSetup()
         {
+            lastVisitedNode = null;
             currentAct = 1;
             currentLayer = 0;
             currentNode = 0;
+            currentLevelNodeIndex = 0;
             act1Map = GenerateMapLevelByAct(currentAct);           
            
         }

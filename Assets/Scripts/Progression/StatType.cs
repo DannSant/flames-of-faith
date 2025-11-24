@@ -20,7 +20,8 @@ namespace Game.Progression {
         HealthRegen,
         LifeSteal, //TODO
         SkillDuration,
-        HealingReceived
+        HealingReceived,
+        PickupRange
     }
 
 }

@@ -37,10 +37,8 @@ namespace Game.UI
         }
 
         public void OnRetryButtonClicked() 
-        {
-            //todo get the real scene name
-            GameSession.Instance.SetIsNewRun(true);
-            MainSceneController.Instance.LoadGameplay(null);
+        {            
+            MainSceneController.Instance.RetryCurrentRun();
         }
 
         public void OnMainMenuButtonClicked()
