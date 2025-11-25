@@ -698,27 +698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bd45a03071f6843b3a85855922fe7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - ActNumber: 1
-    Levels:
-    - {fileID: 11400000, guid: ea5f1af5313ab55489286ea4d753ee42, type: 2}
-    - {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
-    - {fileID: 11400000, guid: f07883d7db6018842b1606deb08e54b2, type: 2}
-    - {fileID: 11400000, guid: 3bd447fc52490d44bac12f163ca7cdcc, type: 2}
-    - {fileID: 11400000, guid: 1c72e165d8e302242a1d855b12e92ea5, type: 2}
-    - {fileID: 11400000, guid: 3c67c76f466578b4fb0abd4ba22626b3, type: 2}
-    - {fileID: 11400000, guid: 37565fdc0c0cae54289660b62c3ccdcc, type: 2}
-    - {fileID: 11400000, guid: 028a68d1f9028f141822d1704cff46bf, type: 2}
-    - {fileID: 11400000, guid: 533b5390c936d014794c320aebb5630b, type: 2}
-    - {fileID: 11400000, guid: ec4449dd161ff084b8f893ec9985dedf, type: 2}
-    ExtraLevels:
-    - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
-    - {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
-    LayerCount: 7
-    BossLevel: {fileID: 11400000, guid: 834d3048fa149dc4393553e00a43d1fd, type: 2}
-    MusicClip: {fileID: 8300000, guid: 8e3407d0cb4a97e44a21e6cee793fee7, type: 3}
-  minLevelsPerLayer: 2
-  maxLevelsPerLayer: 4
+  acts:
+  - {fileID: 11400000, guid: 156c9fe71f2677c438ffe88d353caded, type: 2}
   testLevel: {fileID: 0}
 --- !u!4 &1493970988
 Transform:

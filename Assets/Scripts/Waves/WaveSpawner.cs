@@ -25,9 +25,10 @@ namespace Game.Waves {
         [SerializeField] private WaveDatabase waveDatabase;
         [SerializeField] private float graceRemovedPerWave = 1f;
 
-        [Header("Other Settings")]
+        [Header("Testing Settings")]
         [SerializeField]
         private bool testMode = false;
+       // [SerializeField] private bool shortDurationWaves = false;
 
         private Dictionary<EnemyType, GameObject> enemyPrefabs;
 
@@ -174,6 +175,8 @@ namespace Game.Waves {
         {
             if (testMode) return;
             if (waveDatabase == null){ return; }
+
+            
 
             currentWaveIndex++;
 

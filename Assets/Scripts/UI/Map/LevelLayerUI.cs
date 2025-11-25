@@ -20,12 +20,12 @@ namespace Game.UI.Map
 
             foreach(MapNode node in nodes)
             {
-                if (node.Type!=LevelType.Boss && node.Children.Count <= 0) continue;
+                /*if (node.Type!=LevelType.Boss && node.Children.Count <= 0) continue;
                 var nodeUI = Instantiate(layerNodePrefab, transform);               
                 var sprite = MapUtils.Instance.GetSprite(node.Type);
                 
                 nodeUI.Initialize(sprite, node.Type, node, SetLevelNameDisplayText);
-                nodesUI.Add(nodeUI);
+                nodesUI.Add(nodeUI);*/
             }
 
             return nodesUI;

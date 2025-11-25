@@ -10,14 +10,16 @@ namespace Game.Map
     public class MapNode
     {
         public LevelType Type { get; set; }  
-        public List<MapNode> Children { get; } = new();
-        public List<MapNode> Parents { get; } = new();
-
         public LevelData levelData;
 
         public MapNode(LevelType type)
         {
             Type = type;
+        }
+        public override string ToString()
+        {
+            string levelName = levelData != null ? levelData.DisplayName : "null";
+            return $"{Type} ({levelName})";
         }
     }
 }

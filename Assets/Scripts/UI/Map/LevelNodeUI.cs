@@ -46,7 +46,7 @@ namespace Game.UI.Map
             nodeButton.onClick.RemoveAllListeners();
             nodeButton.onClick.AddListener(() =>
             {
-                LevelSelectionController.Instance.SetLastVisitedNode(mapNode);
+                //LevelSelectionController.Instance.SetLastVisitedNode(mapNode);
                 MainSceneController.Instance.LoadGameplay(levelData);
             });
             nodeIcon.color = new Color(1, 1, 1, 1);

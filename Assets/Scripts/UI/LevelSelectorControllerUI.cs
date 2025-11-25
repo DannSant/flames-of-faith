@@ -34,7 +34,7 @@ namespace Game.UI
         private void InitializeMap()
         {
             
-            var lastVisitedNode = LevelSelectionController.Instance.GetLastVisitedNode();
+            /*var lastVisitedNode = LevelSelectionController.Instance.GetLastVisitedNode();
 
             if (lastVisitedNode == null)
             {
@@ -46,13 +46,13 @@ namespace Game.UI
                 MovePlayerMarkerToParent(lastVisitedNode);
             }
 
-            levelNametxt.text = "";
+            levelNametxt.text = "";*/
 
         }
 
         private void EnableFirstNode()
         {
-            var currentLayerNodes = LevelSelectionController.Instance.BuildLevelDataOfNodesInCurrentLayer();
+            /*var currentLayerNodes = LevelSelectionController.Instance.BuildLevelDataOfNodesInCurrentLayer();
             if (currentLayerNodes == null || currentLayerNodes.Count == 0)
             {
                 Debug.LogWarning("No nodes found in the current layer.");
@@ -69,12 +69,12 @@ namespace Game.UI
             else
             {
                 Debug.LogWarning("First node UI not found in the map.");
-            }
+            }*/
         }
 
         private void EnableChildNodes(MapNode parenNode)
         {
-            LevelSelectionController.Instance.BuildLevelDataOfNodesInCurrentLayer();
+           /* LevelSelectionController.Instance.BuildLevelDataOfNodesInCurrentLayer();
             var childNodes = parenNode.Children;
             foreach (MapNode node in childNodes)
             {
@@ -82,7 +82,7 @@ namespace Game.UI
                 {                    
                     nodeUI.Setup(node.levelData);
                 }
-            }
+            }*/
         }
 
         private void MovePlayerMarkerToParent(MapNode parenNode)
@@ -106,7 +106,7 @@ namespace Game.UI
 
         private void BuildLevelMap()
         {
-            nodeUIMap.Clear();
+            /*nodeUIMap.Clear();
             for (int i = nodesContainer.transform.childCount - 1; i >= 0; i--)
             {
                 Destroy(nodesContainer.transform.GetChild(i).gameObject);
@@ -143,7 +143,7 @@ namespace Game.UI
                         connector.Refresh();
                     }
                 }
-            }            
+            }   */         
 
         }
 
