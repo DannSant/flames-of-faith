@@ -25,6 +25,14 @@ namespace Game.Waves {
 
         public List<WaveEnemyPoolEntry> enemyPool;
 
+        [Header("Cooldown settings")]
+        [Tooltip("Cooldown for the first enemies of the wave")]
+        public float longCooldown = 5f;
+        [Tooltip("Define how many enemies at the beggining will have long cooldown")]
+        public int amountOfEnemiesWithLongCooldown = 3;
+        [Tooltip("Normal cooldown time")]
+        public float regularCooldown = 1f;
+
         [Serializable]
         public class EnemySpawnInfo
         {

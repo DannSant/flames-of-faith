@@ -22,8 +22,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f07883d7db6018842b1606deb08e54b2, type: 2}
   - {fileID: 11400000, guid: 3bd447fc52490d44bac12f163ca7cdcc, type: 2}
   extraPool:
-  - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
   - {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
+  - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
   middleLayers:
   - combatCount: 1
     extraCount: 1
@@ -31,4 +31,6 @@ MonoBehaviour:
     extraCount: 0
   - combatCount: 1
     extraCount: 2
+  - combatCount: 1
+    extraCount: 0
   possibleExtraLevels: 0100000002000000

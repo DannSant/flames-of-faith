@@ -12,8 +12,6 @@ using UnityEngine;
 namespace Game.Waves {
     public class WaveSpawner : Singleton<WaveSpawner>, ISceneCleanupHandler
     {
-        //[Header("Enemy Prefabs")]
-        //[SerializeField] private List<EnemyPrefabEntry> enemyPrefabEntries;
 
         [Header("Spawn Area")]
         //[SerializeField] private Vector2 minPosition = new Vector2(14, 5);
@@ -38,15 +36,14 @@ namespace Game.Waves {
         public event Action<float> OnCooldownTimerUpdated;    // Sends cooldown time
         public event Action OnWaveComplete;                   // Triggered when wave ends
         public event Action OnWaveGroupFinished;              // Triggered when all waves are complete
-        public event Action OnAllLevelsFinished;                    // Triggered when all waves are complete and the game should end
+        public event Action OnAllLevelsFinished;               // Triggered when all waves are complete and the game should end
 
 
         // Timers
-        private float spawnCooldown = 1f; // per-enemy delay
-        private float timeBetweenWaves = 20f;
+        //private float spawnCooldown = 1f; // per-enemy delay        
         private int currentWaveIndex = -1;
         private float waveTimer;
-        private float cooldownTimer;
+        
         private bool waveInProgress = false;
 
 
@@ -133,8 +130,7 @@ namespace Game.Waves {
 
         private void ResetWaveSpawnerState()
         {
-            waveTimer = 0f;
-            cooldownTimer = 0f;
+            waveTimer = 0f;            
             currentWaveIndex = -1;
             waveInProgress = false;
             StartNextWave();
@@ -202,6 +198,7 @@ namespace Game.Waves {
             {
                 var randomType = GetRandomEnemyFromPool(waveData.enemyPool);
                 SpawnEnemy(randomType);
+                float spawnCooldown = activeEnemies.Count >= waveData.amountOfEnemiesWithLongCooldown ? waveData.regularCooldown : waveData.longCooldown;
                 yield return new WaitForSeconds(spawnCooldown);
             }
         }
