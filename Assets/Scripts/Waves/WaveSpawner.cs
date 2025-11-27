@@ -94,8 +94,9 @@ namespace Game.Waves {
 
         private void SpawnTestEnemies()
         {            
-            SpawnEnemy(EnemyType.FlameShooter);
-            
+            SpawnEnemy(EnemyType.DrekoEye);
+           
+
         }
 
         private void OnDisable()

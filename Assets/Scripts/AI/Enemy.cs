@@ -53,8 +53,9 @@ namespace Game.AI {
             int baseHealth = enemyData.healthBase;
             int levelHealthBonus = GameSession.Instance.LevelsBeaten * healthPerLevel; // Health bonus based on levels beaten
             int waveHealthBonus = (waveNumber - 1) * healthPerWave;
-            int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;          
-           
+            int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
+            var enemyAnimController = GetComponent<EnemyAnimationController>();
+
             health.SetMaxHealth(calculatedHealth);
 
             var player = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
@@ -69,7 +70,8 @@ namespace Game.AI {
                 enemyTransform = transform,
                 playerTransform = player.transform,
                 enemyData = enemyData,
-                waveNumber = waveNumber
+                waveNumber = waveNumber,
+                enemyAnimController = enemyAnimController
             };
 
             behaviorController.Initialize(context);

@@ -97,7 +97,7 @@ namespace Game.Map
         private void HandleNodeHoverEnter(MapNode node)
         {
             string title = node.Type.ToString();
-            Debug.Log($"Hover enter on node: {title}");
+            //Debug.Log($"Hover enter on node: {title}");
             OnNodeHoverEnter?.Invoke(title);
         }
 

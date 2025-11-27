@@ -113,7 +113,7 @@ namespace Game.Map
 
         private void HandleHoverEnter(MapNodeSprite sprite)
         {
-            Debug.Log("HandleHoverEnter called");
+            //Debug.Log("HandleHoverEnter called");
             if (mapNode.levelData == null) return; // locked
             Highlight(true);
             OnHoverEnter?.Invoke(mapNode);

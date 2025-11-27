@@ -110,5 +110,10 @@ namespace Game.AI.Behaviors
             }
         }
 
+        public BehaviorContext GetBehaviorContext()
+        {
+            return context;
+        }
+
     }
 }

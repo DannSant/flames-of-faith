@@ -11,6 +11,10 @@ namespace Game.AI.Behaviors
         public Transform playerTransform;
         public EnemyData enemyData;
         public int waveNumber;
+        public EnemyAnimationController enemyAnimController;
+        public bool isMoving;
+        public Vector2 moveDirection;
+        public bool isShooting;
 
         //public Dictionary<ScriptableObject, float> cooldownTracker = new();
 

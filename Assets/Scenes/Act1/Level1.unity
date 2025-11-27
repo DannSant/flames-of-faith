@@ -29174,7 +29174,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1215842447782199173, guid: 1fc92e0d0bb9e944fba31f5c1ce386ed, type: 3}
       propertyPath: testMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1215842447782199173, guid: 1fc92e0d0bb9e944fba31f5c1ce386ed, type: 3}
       propertyPath: waveDatabase

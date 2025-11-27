@@ -7,5 +7,6 @@ namespace Game.AI {
         SlimeRoamer,
         FlameShooter,
         LightDevourerAttacker,
+        DrekoEye
     }
 }
