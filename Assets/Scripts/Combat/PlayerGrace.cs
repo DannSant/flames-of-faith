@@ -1,4 +1,5 @@
 using Game.Common;
+using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -80,6 +81,7 @@ namespace Game.Combat
             {
                 currentGrace = maxGrace;
             }
+            DamageNumberSpawner.Instance.SpawnGraceGainedNumber(transform.position, amount);
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 

@@ -53,7 +53,7 @@ namespace Game.UI
 
         private void UpdateGraceText(float current, float max) 
         {
-            graceText.text = $"{current}/{max}";
+            graceText.text = $"Grace: {current}/{max}";
         }
 
         /*private void UpdateGraceBar(int current, int max, bool instant)

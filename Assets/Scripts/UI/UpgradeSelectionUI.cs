@@ -113,7 +113,7 @@ namespace Game.UI
         private void ShowContinueButton()
         {
             ClearUpgradeOptions();
-           
+            PauseManager.Instance.SetPause(true); // Pause the game when showing the continue panel
             TogglePanel(true);
             continueButton.gameObject.SetActive(true);
         }
