@@ -1,4 +1,4 @@
-using Game.Common;
+﻿using Game.Common;
 using Game.Effects;
 using Game.Scene;
 using System;
@@ -29,18 +29,20 @@ namespace Game.Effects
         private List<EffectInstance> activeEffects = new();
         public event Action<Effect> OnEffectAdded;
         public event Action<Effect> OnEffectRemoved;
+        public event Action OnEffectsChanged;
 
         public List<EffectInstance> ActiveEffects => activeEffects;
 
         private void ResetEffects()
         {
-            ClearAll();
+            ClearAll();          
             foreach (var effect in startingEffects)
             {
                 AddEffect(effect);
             }
         }
 
+        /*
         public void AddEffect(Effect effect)
         {
             var existing = activeEffects.FirstOrDefault(e => e.effect.EffectID == effect.EffectID);
@@ -60,21 +62,72 @@ namespace Game.Effects
                 activeEffects.Add(new EffectInstance(effect));
                 OnEffectAdded?.Invoke(effect);
             }
+        }*/
+
+        public void AddEffect(Effect effect)
+        {
+            // Check if the effect already exists (by reference or by EffectID if you prefer)
+            var existingIndex = activeEffects.FindIndex(ei => ei.effect == effect);
+
+            if (existingIndex >= 0)
+            {
+                var instance = activeEffects[existingIndex];
+                instance.count++;
+                activeEffects[existingIndex] = instance;
+
+                // ⚠ Counts changing affects stat modifiers
+                OnEffectsChanged?.Invoke();
+                return;
+            }
+
+            // Create new instance
+            var newInstance = new EffectInstance(effect);
+            activeEffects.Add(newInstance);
+
+            // 1) Initialize behaviors
+            foreach (var behavior in effect.Behaviors)
+            {
+                if (behavior == null) continue;
+                behavior.Initialize(gameObject, this, effect);
+                behavior.OnTrigger(EffectTrigger.OnApply);
+            }
+
+            // 2) Call legacy hook (for old effects)
+            effect.Apply(gameObject, this);
+
+            OnEffectAdded?.Invoke(effect);
+            OnEffectsChanged?.Invoke();
+
         }
 
         public void RemoveEffect(Effect effect)
         {
-            var instance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effect.EffectID);
-            if (instance.effect != null)
+            int index = activeEffects.FindIndex(ei => ei.effect == effect);
+            if (index < 0) return;
+
+            var instance = activeEffects[index];
+
+            // You can decide whether to decrement count or remove fully.
+            activeEffects.RemoveAt(index);
+
+            // Cleanup behaviors
+            foreach (var behavior in effect.Behaviors)
             {
-                activeEffects.Remove(instance);
-                instance.effect.Cleanup();
-                OnEffectRemoved?.Invoke(effect);
+                if (behavior == null) continue;
+                behavior.OnTrigger(EffectTrigger.OnRemove);
+                behavior.Cleanup();
             }
+
+            // Legacy cleanup
+            effect.Cleanup();
+
+            OnEffectRemoved?.Invoke(effect);
+            OnEffectsChanged?.Invoke();
         }
-        public bool HasEffectByID(string effectID)
+
+        public bool HasEffect<T>() where T : Effect
         {
-            return activeEffects.Any(ei => ei.effect.EffectID == effectID);
+            return activeEffects.Any(ei => ei.effect is T);
         }
 
         public EffectMultiplierConfig GetEffectMultiplierConfig(string effectID)
@@ -95,21 +148,68 @@ namespace Game.Effects
         {
             foreach (var effectInstance in activeEffects)
             {
+                // Behaviors cleanup
+                foreach (var behavior in effectInstance.effect.Behaviors)
+                {
+                    if (behavior == null) continue;
+                    behavior.OnTrigger(EffectTrigger.OnRemove);
+                    behavior.Cleanup();
+                }
+
+                // Legacy
                 effectInstance.effect.Cleanup();
             }
+
             activeEffects.Clear();
+        }
+
+        /// <summary>
+        /// Called by other systems (combat, damage, etc.) to notify effects.
+        /// Example: call Trigger(EffectTrigger.OnAttack) from your attack code.
+        /// </summary>
+        public void Trigger(EffectTrigger trigger)
+        {
+            foreach (var instance in activeEffects)
+            {
+                var effect = instance.effect;
+                if (effect == null) continue;
+
+                foreach (var behavior in effect.Behaviors)
+                {
+                    if (behavior == null) continue;
+                    behavior.OnTrigger(trigger);
+                }
+            }
+        }
+
+        public List<StatModifier> GetAllStatModifiers()
+        {
+            List<StatModifier> list = new List<StatModifier>();
+
+            foreach (var ei in activeEffects)
+            {
+                foreach (var mod in ei.effect.StatModifiers)
+                {
+                    int count = ei.count;
+                    for (int i = 0; i < count; i++)
+                        list.Add(mod);
+                }
+            }
+
+            return list;
         }
 
         public void LoadState()
         {
             var effects = GameSession.Instance.LoadEffectStore();
-            foreach(var effect in effects)
+            foreach (var effect in effects)
             {
-                for(int i = 0; i < effect.count; i++)
+                for (int i = 0; i < effect.count; i++)
                 {
                     AddEffect(effect.effect);
                 }
             }
+            OnEffectsChanged?.Invoke();
         }
 
         public void SaveState()
@@ -120,6 +220,7 @@ namespace Game.Effects
         public void ResetState()
         {
             ResetEffects();
+            OnEffectsChanged?.Invoke();
         }
     }
 

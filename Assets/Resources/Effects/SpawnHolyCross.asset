@@ -20,8 +20,6 @@ MonoBehaviour:
     cross it. Scales with Magic Damage
   buyPrice: 50
   sellPrice: 0
-  prefabToSpawn: {fileID: 3515589407162799255, guid: dbf35cf2ab47872429062223bb731c6f, type: 3}
-  spawnCount: 3
-  spawnOffset: {x: 0, y: 0}
-  spawnAtRandomRotation: 0
-  chanceToSpawn: 0.5
+  effectStatModifiers: []
+  behaviors:
+  - {fileID: 11400000, guid: 52343fcad531b854ba9387ea4b5821b0, type: 2}

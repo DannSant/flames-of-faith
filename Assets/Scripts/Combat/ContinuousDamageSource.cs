@@ -71,29 +71,9 @@ namespace Game.Combat
                     playerProgression,
                     1
                     ));
-            /*int damage = 0;
-            if (weaponClass == WeaponClass.Melee)
-            {
-                damage = playerProgression.GetStatTotal(StatType.MeleeDamage);
-            }
-            else if (weaponClass == WeaponClass.Ranged)
-            {
-                damage = playerProgression.GetStatTotal(StatType.RangedDamage);
-            }
-            else if (weaponClass == WeaponClass.Magic)
-            {
-                damage = playerProgression.GetStatTotal(StatType.MagicDamage);
-            }
            
-            EffectMultiplierConfig effectMultiplierConfig = effectStore.GetEffectMultiplierConfig(effectID);
-            
-
-            return Mathf.FloorToInt(baseDamage + damage + effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());*/
         }
-        /*public void SetEffectStore(EffectStore effectStore)
-        {
-            //this.effectStore = effectStore;
-        }*/
+       
 
         public void SetEffectID(string effectID)
         {

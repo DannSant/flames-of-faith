@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Game.Misc
 {
-    public class OrbitingObject : MonoBehaviour
+    public class OrbitingObject : MonoBehaviour, IOrbitInitializer
     {
         [SerializeField] private float orbitRadius = 1.5f;
         [SerializeField] private float orbitSpeed = 90f; // degrees per second
         private Transform orbitTarget;
         private float currentAngle = 0f;
        
-        public void SetOrbitTarget(Transform target, float angleOffset = 0f)
+        public void InitializeOrbit(Transform target, float angleOffset = 0f)
         {
             orbitTarget = target;
             currentAngle = 0f;

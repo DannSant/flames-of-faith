@@ -9,33 +9,27 @@ namespace Game.Effects
     public class StatModifierEffect : Effect
     {
         [SerializeField] private List<StatValuePair> statModifiers = new ();
+        [SerializeField] private ModifierType modifierType = ModifierType.Flat;
 
-        public override void Apply(GameObject config, EffectStore effectStore) 
-        { 
-            base.Apply(config, effectStore);
-            var playerProgression = config.GetComponent<PlayerProgression>();
-            AddStatModifierToPlayerProgression(playerProgression);
-        }
-
-        public override void UpdateEffect(GameObject config)
+        public override List<StatModifier> StatModifiers
         {
-            base.UpdateEffect(config);
-            var playerProgression = config.GetComponent<PlayerProgression>();
-            AddStatModifierToPlayerProgression(playerProgression);
-        }
 
-        private void AddStatModifierToPlayerProgression(PlayerProgression playerProgression)
-        {
-           
-            if (playerProgression == null)
+            get
             {
-                Debug.LogWarning("StatModifierEffect: PlayerProgression component not found on the target GameObject.");
-                return;
-            }
+                List<StatModifier> list = new();
 
-            foreach (var modifier in statModifiers)
-            {
-                playerProgression.UpdateExtraStat(modifier.statType, modifier.value);
+                foreach (var pair in statModifiers)
+                {
+                    // Default: flat modifier
+                    list.Add(new StatModifier
+                    {
+                        stat = pair.statType,
+                        type = modifierType,
+                        value = pair.value
+                    });
+                }
+
+                return list;
             }
         }
 

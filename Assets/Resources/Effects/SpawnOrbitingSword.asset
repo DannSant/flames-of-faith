@@ -19,6 +19,6 @@ MonoBehaviour:
   description: Creates 2 swords that deal Melee Damage around the player
   buyPrice: 50
   sellPrice: 0
-  prefabToSpawn: {fileID: 2112430461715336365, guid: e05d40fddffb3e442a049d1645cb204e, type: 3}
-  offsetAnglePerObject: 180
-  numberOfObjects: 2
+  effectStatModifiers: []
+  behaviors:
+  - {fileID: 11400000, guid: 38c9af3fb2337fe45be3675292059e5e, type: 2}

@@ -10,7 +10,7 @@ namespace Game.Effects
     [CreateAssetMenu(fileName = "SpawnOnDamageEffect", menuName = "Effects/Spawn On Damage Effect")]
     public class SpawnOnDamageEffect : Effect
     {
-        [SerializeField] private GameObject prefabToSpawn;
+       /* [SerializeField] private GameObject prefabToSpawn;
         [SerializeField] private int spawnCount = 1;
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
         [SerializeField] private bool spawnAtRandomRotation = true;
@@ -94,7 +94,7 @@ namespace Game.Effects
                     effectMultiplier.SetEffectID(EffectID);
                 }
             }
-        }
+        }*/
     }
 
 

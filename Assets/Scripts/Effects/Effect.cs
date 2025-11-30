@@ -1,12 +1,16 @@
 using Game.Combat;
 using Game.Combat.Projectiles;
+using Game.Database;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace Game.Effects{
    
 
-    public abstract class Effect : ScriptableObject
+    public class Effect : ScriptableObject
     {
         [Header("Effect data")]
         [SerializeField] private string effectID;
@@ -17,17 +21,23 @@ namespace Game.Effects{
         [SerializeField] [TextArea] public string description;
         [SerializeField] private int buyPrice = 0;
         [SerializeField] private int sellPrice = 0;
+        [Header("Stat Modifiers")]
+        [SerializeField] private List<StatModifier> effectStatModifiers = new();
+        [Header("Behaviors")]
+        [SerializeField] private List<EffectBehavior> behaviors = new();
 
         protected EffectStore ownerStore;
 
         //Properties
-        public string EffectID => effectID;
-        public Sprite EffectIcon => icon;
-        public string EffectName => effectName;
-        public float ScalingValue => scalingValue;
-        public string Description => description;
-        public int BuyPrice => buyPrice;
-        public int SellPrice => sellPrice;
+        public string EffectID { get => effectID; set => effectID = value; }
+        public Sprite EffectIcon { get => icon; set => icon = value; }
+        public string EffectName { get => effectName; set => effectName = value; }
+        public float ScalingValue { get => scalingValue; set => scalingValue = value; }
+        public string Description { get => description; set => description = value; }
+        public int BuyPrice { get => buyPrice; set => buyPrice = value; }
+        public int SellPrice { get => sellPrice; set => sellPrice = value; }
+        public virtual List<StatModifier> StatModifiers { get => effectStatModifiers; set => effectStatModifiers = value; }
+        public List<EffectBehavior> Behaviors { get => behaviors; set => behaviors = value; }
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -70,6 +80,31 @@ namespace Game.Effects{
         /// </summary>
         /// <param name="target">The GameObject this effect should affect (typically the player).</param>
         public virtual void UpdateEffect(GameObject config) { }
+
+        public void InitializeFromData(EffectRow row)
+        {          
+
+            EffectID = row.effectID;
+            EffectName = row.name;
+            Description = row.description;
+            BuyPrice = row.priceBuy;
+            SellPrice = row.priceSell;
+
+            // Load icon
+            if (!string.IsNullOrEmpty(row.iconKey))
+                EffectIcon = Resources.Load<Sprite>($"Icons/{row.iconKey}");
+
+            // Deserialize stat modifiers
+            StatModifiers = JsonUtility.FromJson<StatModifierList>(row.statModifiersJson).list;
+
+            // Deserialize behaviors
+            var behaviorIDs = JsonUtility.FromJson<BehaviorIDList>(row.behaviorsJson).ids;
+
+            Behaviors = behaviorIDs
+                .Select(id => Resources.Load<EffectBehavior>($"Effects/EffectBehaviors/{id}"))
+                .Where(b => b != null)
+                .ToList();            
+        }
 
         public override string ToString()
         {

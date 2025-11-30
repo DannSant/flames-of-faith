@@ -27,7 +27,7 @@ public class DeveloperCheats
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression != null)
         {
-            playerProgression.UpdateStat(StatType.MaxHealth, 1);
+            playerProgression.UpdateStat(StatType.MaxHealth, 10);
         }
     }
 
@@ -38,6 +38,16 @@ public class DeveloperCheats
         if (playerProgression!=null)
         {
             playerProgression.UpdateStat(StatType.HealthRegen, 1);
+        }
+    }
+
+    [MenuItem("DevTools/Stats/Increase Melee Damage")]
+    public static void IncreaseMeleeDamage()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.MeleeDamage, 1);
         }
     }
 

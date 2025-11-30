@@ -16,11 +16,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 239d6bf243f66914aaef83720f8a73fb, type: 3}
   effectName: Holy missiles
   scalingValue: 2
-  description: Spawns a holy projectile when dealing Ranged Damage.
+  description: Spawns a holy projectile that deals Ranged Damage. when dealing any
+    kind of damage
   buyPrice: 50
   sellPrice: 0
-  prefabToSpawn: {fileID: 5262266157608048503, guid: 0fd8d56699f6083429a35c36cb88c83b, type: 3}
-  spawnCount: 1
-  spawnOffset: {x: 0, y: 0}
-  spawnAtRandomRotation: 0
-  chanceToSpawn: 1
+  effectStatModifiers: []
+  behaviors:
+  - {fileID: 11400000, guid: d4dfd011e34c32144a74935735d5b476, type: 2}

@@ -1,5 +1,6 @@
 
 using Game.Common;
+using Game.Effects;
 using Game.Scene;
 using Game.Utils;
 using System.Collections.Generic;
@@ -14,23 +15,67 @@ namespace Game.Progression {
         public delegate void OnStatUpdated(StatType statType, int value);
         public event OnStatUpdated onStatUpdated;
 
-        private Dictionary<StatType, int> extraStats = new Dictionary<StatType, int>();
+        private Dictionary<StatType, float> cachedFinalStats = new();
+        private bool statsDirty = true;
 
+        private EffectStore effectStore;
+
+        private void Awake()
+        {
+            effectStore = GetComponent<EffectStore>();
+            effectStore.OnEffectsChanged += HandleEffectsChanged;
+        }
 
         private void Start()
-        {           
+        {
+           
             if (MainSceneController.Instance != null)
             {               
                 MainSceneController.Instance.OnGameplayStateResetRequested += ResetProgression;
             }
+
         }
 
         private void OnDisable()
         {
+            effectStore.OnEffectsChanged -= HandleEffectsChanged;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetProgression;
             }
+        }
+
+        private void RecalculateFinalStats()
+        {
+            cachedFinalStats.Clear();
+
+            float flatBonus;
+            float percentBonus;
+
+            var allModifiers = effectStore.GetAllStatModifiers();
+
+            foreach (var stat in currentStats.Keys)
+            {
+                float baseValue = currentStats[stat];
+                flatBonus = 0f;
+                percentBonus = 0f;
+
+                foreach (var m in allModifiers)
+                {
+                    if (m.stat != stat)
+                        continue;
+
+                    if (m.type == ModifierType.Flat)
+                        flatBonus += m.value;
+                    else if (m.type == ModifierType.PercentAdd)
+                        percentBonus += m.value;
+                }
+
+                float finalValue = (baseValue + flatBonus) * (1f + percentBonus);
+                cachedFinalStats[stat] = finalValue;
+            }
+
+            statsDirty = false;
         }
 
         private void ResetProgression()
@@ -53,6 +98,9 @@ namespace Game.Progression {
 
                 // Trigger the event to notify subscribers
                 onStatUpdated?.Invoke(statType, GetStatTotal(statType));
+
+                // Mark stats as dirty
+                statsDirty = true;
             }
         }
 
@@ -67,25 +115,37 @@ namespace Game.Progression {
             return result;
         }
 
+        private void HandleEffectsChanged()
+        {
+            // Notify all listeners that stats have changed
+            foreach (var stat in currentStats.Keys)
+                onStatUpdated?.Invoke(stat, GetStatTotal(stat));
+        }
+
         // Method to retrieve a stat total value
         public int GetStatTotal(StatType statType)
         {
-            return GetStatBase(statType) + GetExtraStat(statType);
+            return Mathf.FloorToInt(GetFinalStat(statType));
         }
 
         // Method to retrieve a stat base value
-        public int GetStatBase(StatType statType)
+        /*public int GetStatBase(StatType statType)
         {
             return currentStats.ContainsKey(statType) ? currentStats[statType] : 0;
-        }
+        }*/
 
-        public int GetExtraStat(StatType statType)
+        public float GetFinalStat(StatType stat)
         {
-            return extraStats.ContainsKey(statType) ? extraStats[statType] : 0;
+            if (statsDirty)
+            {
+                RecalculateFinalStats();
+            }
+
+            return cachedFinalStats.TryGetValue(stat, out float value) ? value : 0f;
         }
 
         // Method to update the player's stat from effects
-        public void UpdateExtraStat(StatType statType, int value)
+        /*public void UpdateExtraStat(StatType statType, int value)
         {
             if (extraStats.ContainsKey(statType))
             {
@@ -101,16 +161,16 @@ namespace Game.Progression {
                 extraStats.Add(statType, value);
                 onStatUpdated?.Invoke(statType, GetStatTotal(statType));
             }
-        }
+        }*/
 
         public void LateInitialize()
         {
-          
+          // not used
         }
 
         public void ResetState()
         {
-           
+            //State is reset in ResetProgression called from MainSceneController
         }
 
         public void SaveState()
@@ -120,6 +180,7 @@ namespace Game.Progression {
 
         public void LoadState()
         {
+            statsDirty = true;
             currentStats = new Dictionary<StatType, int>(GameSession.Instance.PlayerData.savedStats);
             
         }
