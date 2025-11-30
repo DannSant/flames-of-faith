@@ -1,4 +1,7 @@
 using Game.Database;
+using Game.Effects;
+using Game.Progression;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -8,9 +11,11 @@ namespace Game.Editor.Database
     public class EffectDatabaseWindow : EditorWindow
     {
         private Vector2 scroll;
+        private Vector2 editScroll;
         private List<EffectRow> rows;
         private EffectRow selectedRow;
         private Sprite iconSprite;
+        private List<StatModifier> statModifiers = new List<StatModifier>();
 
         [MenuItem("Tools/Effects/Effect Database")]
         public static void Open()
@@ -37,15 +42,25 @@ namespace Game.Editor.Database
 
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Refresh")) Refresh();
-            if (GUILayout.Button("New Effect")) selectedRow = new EffectRow();
+            if (GUILayout.Button("New Effect")) 
+            { 
+                selectedRow = new EffectRow();
+                iconSprite = null;
+                statModifiers = new List<StatModifier>();
+            }
             GUILayout.EndHorizontal();
 
             EditorGUILayout.Space();
 
             GUILayout.BeginHorizontal();
 
+            // left list (unchanged)
             DrawListPanel();
+
+            // right editor inside scroll view
+            editScroll = GUILayout.BeginScrollView(editScroll, GUILayout.ExpandHeight(true));
             DrawEditPanel();
+            GUILayout.EndScrollView();
 
             GUILayout.EndHorizontal();
         }
@@ -102,6 +117,24 @@ namespace Game.Editor.Database
                 iconSprite = null;
             }
 
+            //Try to generate a list based on the JSON statModifiers field
+            if (!string.IsNullOrEmpty(selectedRow.statModifiersJson))
+            {
+                try
+                {
+                    statModifiers = Newtonsoft.Json.JsonConvert
+                                    .DeserializeObject<List<StatModifier>>(selectedRow.statModifiersJson);
+                }
+                catch
+                {
+                    statModifiers = new List<StatModifier>();
+                }
+            }
+            else
+            {
+                statModifiers = new List<StatModifier>();
+            }
+
             Repaint();
         }
         private void DrawEditPanel()
@@ -118,6 +151,7 @@ namespace Game.Editor.Database
             GUILayout.Label("Edit Effect", EditorStyles.boldLabel);
             EditorGUILayout.Space();
 
+            /*Basic data*/
             selectedRow.effectID = EditorGUILayout.TextField("Effect ID", selectedRow.effectID);
             selectedRow.name = EditorGUILayout.TextField("Name", selectedRow.name);
 
@@ -126,6 +160,7 @@ namespace Game.Editor.Database
 
             EditorGUILayout.Space();
 
+            /*Sprite icon*/
             Sprite newSprite = (Sprite)EditorGUILayout.ObjectField(
                "Icon",
                iconSprite,
@@ -149,14 +184,44 @@ namespace Game.Editor.Database
             }
             EditorGUILayout.SelectableLabel(selectedRow.iconKey, EditorStyles.textField);
 
+            /*Numbers data*/
             selectedRow.scalingValue = EditorGUILayout.FloatField("Scaling Value", selectedRow.scalingValue);
             selectedRow.priceBuy = EditorGUILayout.IntField("Buy Price", selectedRow.priceBuy);
             selectedRow.priceSell = EditorGUILayout.IntField("Sell Price", selectedRow.priceSell);
 
             EditorGUILayout.Space();
-            GUILayout.Label("JSON: Stat Modifiers");
-            selectedRow.statModifiersJson = EditorGUILayout.TextArea(selectedRow.statModifiersJson, GUILayout.Height(50));
 
+            /*Stat modifiers data*/
+            GUILayout.Label("Stat Modifiers", EditorStyles.boldLabel);
+            // Draw the list
+            for (int i = 0; i < statModifiers.Count; i++)
+            {
+                var mod = statModifiers[i];
+                EditorGUILayout.BeginHorizontal("box");
+
+                mod.stat = (StatType)EditorGUILayout.EnumPopup( mod.stat, GUILayout.Width(120));
+                mod.type = (ModifierType)EditorGUILayout.EnumPopup( mod.type, GUILayout.Width(120));
+                mod.value = EditorGUILayout.FloatField( mod.value, GUILayout.Width(60));
+                GUI.backgroundColor = Color.red;
+                if (GUILayout.Button("X", GUILayout.Width(25)))
+                {
+                    statModifiers.RemoveAt(i);
+                    GUI.backgroundColor = Color.white;
+                    break;
+
+                }
+                GUI.backgroundColor = Color.white;
+
+                EditorGUILayout.EndHorizontal();
+            }
+            if (GUILayout.Button("Add Modifier"))
+            {
+                statModifiers.Add(new StatModifier());
+            }
+            EditorGUILayout.SelectableLabel(selectedRow.statModifiersJson, EditorStyles.textArea);
+            EditorGUILayout.Space();
+
+            /*Behaviors data*/
             GUILayout.Label("JSON: Behaviors");
             selectedRow.behaviorsJson = EditorGUILayout.TextArea(selectedRow.behaviorsJson, GUILayout.Height(50));
 
@@ -177,6 +242,11 @@ namespace Game.Editor.Database
                 selectedRow.effectID = System.Guid.NewGuid().ToString();
             }
 
+            // Convert modifiers to JSON
+            selectedRow.statModifiersJson =
+                Newtonsoft.Json.JsonConvert.SerializeObject(statModifiers, Formatting.None);
+
+            // Save to DB
             if (selectedRow.id == 0)
             {
                 EffectDatabase.InsertEffect(selectedRow);
