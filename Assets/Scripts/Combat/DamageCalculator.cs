@@ -77,7 +77,11 @@ namespace Game.Combat
                 return Mathf.FloorToInt(finalDamage);
                  
             }
-            totalDamage = Mathf.FloorToInt(baseDamage + progressionStatDamage + effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).GetMultiplier());
+
+            //Calculate extra damage for effects
+            var effectDamage = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).GetMultiplier();
+            Debug.Log("Effect Damage: " + effectDamage);
+            totalDamage = Mathf.FloorToInt(baseDamage + progressionStatDamage + effectDamage);
             graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
             finalDamage = totalDamage + graceDamage;
             if (finalDamage<=0)

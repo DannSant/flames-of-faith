@@ -61,14 +61,14 @@ public class DeveloperCheats
         }
     }
 
-    [MenuItem("DevTools/Items/Give holy cross")]
+    [MenuItem("DevTools/Items/Give Concecrate")]
     public static void GiveholyCross()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         if(effectStore != null)
         {
-            string holyCrossEffectId = "2187437d-7198-4524-9bdb-3eeede1a728c";
-            effectStore.AddEffect(EffectsDatabase.GetAvailableEffectById(holyCrossEffectId));
+            string holyCrossEffectId = "849c2af3-bc0d-4fca-a444-20c03195458d";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(holyCrossEffectId));
         }
 
     }
@@ -79,8 +79,77 @@ public class DeveloperCheats
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         if (effectStore != null)
         {
-            string effectId = "8338f0dd-7e68-4ed9-af01-aebabcc5688b";
-            effectStore.AddEffect(EffectsDatabase.GetAvailableEffectById(effectId));
+            string effectId = "2d72897d-a44f-47ab-bd4f-cba9e0acd0d8";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+    [MenuItem("DevTools/Items/Ancient Talisman Of Power")]
+    public static void GiveTalismanOfPower()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "976d761f-eb94-4764-94aa-546b0c5b1f92";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+    [MenuItem("DevTools/Items/Crusader Blessing")]
+    public static void GiveCrusaderBlessing()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "91b5f1c5-d818-4dd7-90b4-5a04c82c5209";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
+    [MenuItem("DevTools/Items/Cursed Coin")]
+    public static void GiveCursedCoing()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "38e26abe-c8c3-410c-a47f-0734f9604b77";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+    [MenuItem("DevTools/Items/Goblet of Sacrifice")]
+    public static void GiveGobletOfSacrifice()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "e03ebe22-0327-4bb0-9e9a-240e896e6565";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
+    [MenuItem("DevTools/Items/Heavy Plate Armor")]
+    public static void GiveHeavyPlateArmor()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "60a1824a-1ffe-4866-8493-6d28d5e32c2d";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
+    [MenuItem("DevTools/Items/Swords of Fire")]
+    public static void GiveSwordOfFire()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "f91c7609-c550-47cb-acf4-7c44a4ce5528";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
         }
 
     }

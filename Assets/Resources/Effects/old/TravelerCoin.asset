@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1785f871a791e694e87468f5d079f21f, type: 3}
-  m_Name: Tribesmen Necklace
+  m_Name: TravelerCoin
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.StatModifierEffect
-  effectID: 5904ab43-b40b-401d-a8ea-0db52d3a97d1
-  icon: {fileID: 21300000, guid: 3717a9dbd7d75984e84f5004c62bef1b, type: 3}
-  effectName: Tribesmen Necklace
+  effectID: b18ebf5d-b544-4640-a243-32f0d314446f
+  icon: {fileID: 21300000, guid: 0cbe2c5a40027594da88317f9bb6ae02, type: 3}
+  effectName: Traveler Coin
   scalingValue: 1
-  description: Increases skill Duration and Melee Damage by 3 and Max Grace by 2.
-    But reduces Armor by 5
+  description: Increases Move Speed and Pickup Range by 5 and Luck by 10
   buyPrice: 25
   sellPrice: 0
   statModifiers:
-  - statType: 16
-    value: 3
-  - statType: 1
-    value: 3
-  - statType: 6
-    value: -5
-  - statType: 5
-    value: 2
+  - statType: 3
+    value: 5
+  - statType: 8
+    value: 10
+  - statType: 18
+    value: 5

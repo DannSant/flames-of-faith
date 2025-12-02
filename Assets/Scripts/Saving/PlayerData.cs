@@ -14,7 +14,7 @@ namespace Game.Saving
         public Dictionary<StatType, int> savedStats = new Dictionary<StatType, int>();
         public PlayerExperienceData playerExperienceData = new PlayerExperienceData();
         public List<EffectInstance> savedEffects = new();
-        public int currencyAmount = 0;
+        public int currencyAmount = 0;       
     }
 
 }

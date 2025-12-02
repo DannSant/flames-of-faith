@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa87d5224fa1a04e98376d7e70ca4d9, type: 3}
   m_Name: SpawnOrbitingSwords
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.SpawnAttachedObjectBehaviorEffect
+  behaviorId: SpawnOrbitingSwords
   prefabToSpawn: {fileID: 2112430461715336365, guid: e05d40fddffb3e442a049d1645cb204e, type: 3}
   count: 2
   angleStep: 180

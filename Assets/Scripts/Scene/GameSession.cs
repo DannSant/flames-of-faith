@@ -1,6 +1,7 @@
 using Game.Common;
 using Game.Effects;
 using Game.Map;
+using Game.Metaprogression;
 using Game.Progression;
 using Game.Saving;
 using System.Collections.Generic;
@@ -13,15 +14,11 @@ namespace Game.Scene
         [Header("Character Selection")]
         public int SelectedPlayerIndex = 0;
 
-        /*[Header("Level Progression")]
-        public List<LevelData> allLevels = new List<LevelData>();
-     
-        public List<LevelData> beatenLevels = new List<LevelData>();*/
-
         [Header("Other Settings")]
         public DifficultyLevel selectedDifficulty = DifficultyLevel.Normal;
 
         public LevelData currentLevel;
+
         //state
         private bool isNewRun = true;
         private bool isInitialized = false;
@@ -39,12 +36,12 @@ namespace Game.Scene
         {
             base.Awake();
             playerData = new PlayerData();
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = 60;            
         }
 
         private void Start()
         {
-            Initialize();
+            Initialize();           
         }
 
         public void Initialize()
@@ -54,28 +51,10 @@ namespace Game.Scene
         }
 
         public void MarkLevelBeaten(LevelData level)
-        {
-            //level.IsBeaten = true;
+        {           
             LevelSelectionController.Instance.AdvanceToNextLayer();
-            levelsBeaten++;
-            /*if (!beatenLevels.Contains(level))
-            {
-                beatenLevels.Add(level);
-            }
-
-            level.IsBeaten = true;
-
-            // Unlock next level
-            int index = allLevels.IndexOf(level);
-            if (index >= 0 && index + 1 < allLevels.Count)
-            {
-                allLevels[index + 1].IsUnlocked = true;
-            }*/
+            levelsBeaten++;            
         }
-
-       
-
-
 
         public void SetIsNewRun(bool value)
         {
@@ -144,6 +123,8 @@ namespace Game.Scene
         {
             return playerData.playerExperienceData;
         }
+
+        
 
     }
     public enum DifficultyLevel

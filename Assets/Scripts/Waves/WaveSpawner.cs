@@ -94,7 +94,7 @@ namespace Game.Waves {
 
         private void SpawnTestEnemies()
         {            
-            SpawnEnemy(EnemyType.DrekoEye);
+           // SpawnEnemy(EnemyType.DrekoEye);
            
 
         }

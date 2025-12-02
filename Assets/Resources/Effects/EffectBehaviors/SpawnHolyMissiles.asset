@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739ed46194c618740afb1094b7d78b74, type: 3}
   m_Name: SpawnHolyMissiles
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehavior_SpawnOnDamage
+  behaviorId: SpawnHolyMissiles
   prefabToSpawn: {fileID: 5262266157608048503, guid: 0fd8d56699f6083429a35c36cb88c83b, type: 3}
   spawnCount: 1
   spawnOffset: {x: 0, y: 0}

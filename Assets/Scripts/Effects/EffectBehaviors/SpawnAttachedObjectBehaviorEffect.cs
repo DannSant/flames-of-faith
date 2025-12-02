@@ -16,8 +16,21 @@ namespace Game.Effects.EffectBehaviors
 
         public override void Initialize(GameObject owner, EffectStore store, Effect effect)
         {
-            base.Initialize(owner, store, effect);
-            SpawnObjects();
+            base.Initialize(owner, store, effect);           
+        }
+
+        public override void OnTrigger(EffectTrigger trigger)
+        {
+            switch (trigger)
+            {
+                case EffectTrigger.OnApply:
+                    SpawnObjects();
+                    break;
+
+                case EffectTrigger.OnStack:
+                    UpdateStackScaling();
+                    break;
+            }
         }
 
         private void SpawnObjects()
@@ -44,6 +57,11 @@ namespace Game.Effects.EffectBehaviors
                 spawnedObjects.Add(obj);
                 currentAngle += angleStep;
             }
+        }
+
+        private void UpdateStackScaling()
+        {
+
         }
 
         public override void Cleanup()

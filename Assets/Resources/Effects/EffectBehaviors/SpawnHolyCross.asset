@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739ed46194c618740afb1094b7d78b74, type: 3}
   m_Name: SpawnHolyCross
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehavior_SpawnOnDamage
+  behaviorId: SpawnHolyCross
   prefabToSpawn: {fileID: 3515589407162799255, guid: dbf35cf2ab47872429062223bb731c6f, type: 3}
   spawnCount: 1
   spawnOffset: {x: 0, y: 0}

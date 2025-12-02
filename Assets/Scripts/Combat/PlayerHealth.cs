@@ -91,7 +91,7 @@ namespace Game.Combat {
         private void OnStatUpdated(StatType statType, int value)
         {
             if (statType == StatType.MaxHealth)
-            {
+            {               
                 SetMaxHealth(value);                
             }
             else if (statType == StatType.Armor)

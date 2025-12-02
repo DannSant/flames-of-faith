@@ -9,9 +9,7 @@ namespace Game.Effects
         public float GetMultiplier() => count * scaleValue;
     }
     public interface IEffectMultiplier 
-    {
-        //void SetMultiplierConfig(EffectMultiplierConfig config);
-        //void SetEffectStore(EffectStore effectStore);
+    {        
         void SetEffectID(string effectID);
     }
 }

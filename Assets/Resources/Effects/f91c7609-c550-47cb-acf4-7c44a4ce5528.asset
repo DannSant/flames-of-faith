@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2e46ad4077da34bb4d2296525f6339, type: 3}
-  m_Name: SpawnOrbitingSword
-  m_EditorClassIdentifier: 
-  effectID: c1263206-ad97-4aa4-a729-abb7bea53583
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: f91c7609-c550-47cb-acf4-7c44a4ce5528
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: f91c7609-c550-47cb-acf4-7c44a4ce5528
   icon: {fileID: 21300000, guid: a17cc5e46a311c34bb30cbf069d7dffa, type: 3}
   effectName: Swords of Fire
-  scalingValue: 1
+  scalingValue: 5
   description: Creates 2 swords that deal Melee Damage around the player
   buyPrice: 50
   sellPrice: 0
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: 38c9af3fb2337fe45be3675292059e5e, type: 2}
+  unlockedByDefault: 1

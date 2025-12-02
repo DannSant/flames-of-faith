@@ -1,9 +1,11 @@
 using Game.Misc;
+using System;
 using UnityEngine;
 
 namespace Game.Effects
 {
     [CreateAssetMenu(fileName = "SpawnObjectOnPlayer", menuName = "Effects/SpawnObjectOnPlayer")]
+    [Obsolete("SpawnObjectOnPlayer is deprecated now, use the Tools>Effects>Effects DB to create effects now")]
     public class SpawnObjectOnPlayer : Effect
     {
         /*[SerializeField] private GameObject prefabToSpawn;

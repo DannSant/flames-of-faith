@@ -16,6 +16,7 @@ namespace Game.Editor.Database
         private EffectRow selectedRow;
         private Sprite iconSprite;
         private List<StatModifier> statModifiers = new List<StatModifier>();
+        private List<EffectBehavior> behaviors = new List<EffectBehavior>();
 
         [MenuItem("Tools/Effects/Effect Database")]
         public static void Open()
@@ -47,6 +48,7 @@ namespace Game.Editor.Database
                 selectedRow = new EffectRow();
                 iconSprite = null;
                 statModifiers = new List<StatModifier>();
+                behaviors = new List<EffectBehavior>();
             }
             GUILayout.EndHorizontal();
 
@@ -76,7 +78,7 @@ namespace Game.Editor.Database
                 foreach (var row in rows)
                 {
                     GUILayout.BeginHorizontal("box");
-                    if (GUILayout.Button($"{row.effectID}\n{row.name}", GUILayout.Height(40)))
+                    if (GUILayout.Button($"{row.name}", GUILayout.Height(40)))
                     {
                         selectedRow = new EffectRow
                         {
@@ -135,6 +137,31 @@ namespace Game.Editor.Database
                 statModifiers = new List<StatModifier>();
             }
 
+            if(!string.IsNullOrEmpty(selectedRow.behaviorsJson))
+            {
+                try
+                {
+                    var behaviorsStringList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(selectedRow.behaviorsJson);
+                    behaviors = new List<EffectBehavior>();
+                    foreach (var behaviorID in behaviorsStringList)
+                    {
+                        var behavior = Resources.Load<EffectBehavior>($"Effects/EffectBehaviors/{behaviorID}");
+                        if (behavior != null)
+                        {
+                            behaviors.Add(behavior);
+                        }
+                    }
+                }
+                catch
+                {
+                    behaviors = new List<EffectBehavior>();
+                }
+            }
+            else
+            {
+                behaviors = new List<EffectBehavior>();
+            }
+
             Repaint();
         }
         private void DrawEditPanel()
@@ -188,6 +215,7 @@ namespace Game.Editor.Database
             selectedRow.scalingValue = EditorGUILayout.FloatField("Scaling Value", selectedRow.scalingValue);
             selectedRow.priceBuy = EditorGUILayout.IntField("Buy Price", selectedRow.priceBuy);
             selectedRow.priceSell = EditorGUILayout.IntField("Sell Price", selectedRow.priceSell);
+            selectedRow.unlockedByDefault = EditorGUILayout.IntField("Unlocked by default", selectedRow.unlockedByDefault);
 
             EditorGUILayout.Space();
 
@@ -222,8 +250,29 @@ namespace Game.Editor.Database
             EditorGUILayout.Space();
 
             /*Behaviors data*/
-            GUILayout.Label("JSON: Behaviors");
-            selectedRow.behaviorsJson = EditorGUILayout.TextArea(selectedRow.behaviorsJson, GUILayout.Height(50));
+            GUILayout.Label("Behaviors", EditorStyles.boldLabel);
+            // Draw the list
+            for (int i = 0; i < behaviors.Count; i++)
+            {
+                var behavior = behaviors[i];
+                EditorGUILayout.BeginHorizontal("box");
+                behaviors[i] = (EffectBehavior)EditorGUILayout.ObjectField(behavior, typeof(EffectBehavior), false);
+
+                GUI.backgroundColor = Color.red;
+                if (GUILayout.Button("X", GUILayout.Width(25)))
+                {
+                    behaviors.RemoveAt(i);
+                    GUI.backgroundColor = Color.white;
+                    break;
+                }
+                GUI.backgroundColor = Color.white;
+                EditorGUILayout.EndHorizontal();
+            }
+            if (GUILayout.Button("Add Behavior"))
+            {
+                behaviors.Add(null);
+            }
+            EditorGUILayout.SelectableLabel(selectedRow.behaviorsJson, EditorStyles.textArea);
 
             EditorGUILayout.Space();
 
@@ -245,6 +294,18 @@ namespace Game.Editor.Database
             // Convert modifiers to JSON
             selectedRow.statModifiersJson =
                 Newtonsoft.Json.JsonConvert.SerializeObject(statModifiers, Formatting.None);
+
+            // Convert behaviors to JSON (list of IDs)
+            var behaviorIDs = new List<string>();
+            foreach (var behavior in behaviors)
+            {
+                if (behavior != null)
+                {
+                    behaviorIDs.Add(behavior.BehaviorId);
+                }
+            }
+            selectedRow.behaviorsJson =
+                Newtonsoft.Json.JsonConvert.SerializeObject(behaviorIDs, Formatting.None);
 
             // Save to DB
             if (selectedRow.id == 0)

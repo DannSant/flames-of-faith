@@ -53,7 +53,7 @@ namespace Game.Progression {
             float percentBonus;
 
             var allModifiers = effectStore.GetAllStatModifiers();
-
+           
             foreach (var stat in currentStats.Keys)
             {
                 float baseValue = currentStats[stat];
@@ -73,6 +73,7 @@ namespace Game.Progression {
 
                 float finalValue = (baseValue + flatBonus) * (1f + percentBonus);
                 cachedFinalStats[stat] = finalValue;
+                
             }
 
             statsDirty = false;
@@ -116,10 +117,17 @@ namespace Game.Progression {
         }
 
         private void HandleEffectsChanged()
-        {
+        {          
+
+            // Mark stats as dirty
+            statsDirty = true;
+
             // Notify all listeners that stats have changed
             foreach (var stat in currentStats.Keys)
+            {
                 onStatUpdated?.Invoke(stat, GetStatTotal(stat));
+            }
+                
         }
 
         // Method to retrieve a stat total value
@@ -136,6 +144,7 @@ namespace Game.Progression {
 
         public float GetFinalStat(StatType stat)
         {
+           
             if (statsDirty)
             {
                 RecalculateFinalStats();

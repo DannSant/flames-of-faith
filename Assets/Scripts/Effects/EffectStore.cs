@@ -42,32 +42,11 @@ namespace Game.Effects
             }
         }
 
-        /*
         public void AddEffect(Effect effect)
         {
-            var existing = activeEffects.FirstOrDefault(e => e.effect.EffectID == effect.EffectID);
+            // Check if the effect already exists
+            var existingIndex = activeEffects.FindIndex(ei => ei.effect.EffectID == effect.EffectID);
 
-            if (existing.effect != null)
-            {
-                // Increase the count for matching effect ID
-                int index = activeEffects.FindIndex(e => e.effect.EffectID == effect.EffectID);
-                existing.count++;
-                activeEffects[index] = existing;
-                effect.UpdateEffect(this.gameObject);
-            }
-            else
-            {
-                // New effect, apply and track it
-                effect.Apply(this.gameObject, this);
-                activeEffects.Add(new EffectInstance(effect));
-                OnEffectAdded?.Invoke(effect);
-            }
-        }*/
-
-        public void AddEffect(Effect effect)
-        {
-            // Check if the effect already exists (by reference or by EffectID if you prefer)
-            var existingIndex = activeEffects.FindIndex(ei => ei.effect == effect);
 
             if (existingIndex >= 0)
             {
@@ -75,14 +54,20 @@ namespace Game.Effects
                 instance.count++;
                 activeEffects[existingIndex] = instance;
 
+
+                foreach (var behavior in effect.Behaviors)
+                {
+                    behavior.OnTrigger(EffectTrigger.OnStack);
+                }
+
                 // ⚠ Counts changing affects stat modifiers
-                OnEffectsChanged?.Invoke();
+                OnEffectsChanged?.Invoke();               
                 return;
             }
 
             // Create new instance
             var newInstance = new EffectInstance(effect);
-            activeEffects.Add(newInstance);
+            activeEffects.Add(newInstance);         
 
             // 1) Initialize behaviors
             foreach (var behavior in effect.Behaviors)
@@ -135,6 +120,7 @@ namespace Game.Effects
             var effectInstance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effectID);
             if (effectInstance.effect != null)
             {
+                Debug.Log($"EffectStore: Found effect '{effectID}' with count {effectInstance.count} and scaling value {effectInstance.effect.scalingValue}");
                 return new EffectMultiplierConfig
                 {
                     count = effectInstance.count,

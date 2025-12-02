@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 namespace Game.Effects
 {
     [CreateAssetMenu(fileName = "EffectsDatabase", menuName = "Effects/EffectsDatabase")]
+    [Obsolete("EffectsDatabase is deprecated, replaced by SQLite database")]
     public class EffectsDatabase : ScriptableObject
     {
         public List<Effect> availableEffects;

@@ -29,6 +29,8 @@ namespace Game.Effects.EffectBehaviors
         private readonly List<ProjectileBase> registeredProjectiles = new();
 
 
+
+
         public override void Initialize(GameObject owner, EffectStore store, Effect parentEffect)
         {
             base.Initialize(owner, store, parentEffect);
@@ -55,7 +57,7 @@ namespace Game.Effects.EffectBehaviors
                 bowSource = bow;
                 bowSource.onBowAttackLaunched += RegisterProjectile;
             }
-        }
+        }       
 
 
         public override void Cleanup()
@@ -77,7 +79,6 @@ namespace Game.Effects.EffectBehaviors
 
             registeredProjectiles.Clear();
         }
-
 
         private void RegisterProjectile(ProjectileBase projectile)
         {

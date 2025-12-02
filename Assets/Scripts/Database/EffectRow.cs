@@ -16,6 +16,8 @@ namespace Game.Database
         public int priceSell { get; set; }
         public string iconKey { get; set; }
 
+        public int unlockedByDefault { get; set; }  // 0 = false, 1 = true
+
         // JSON with stat modifiers
         public string statModifiersJson { get; set; }
 

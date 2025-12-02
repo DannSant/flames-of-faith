@@ -17,7 +17,17 @@ MonoBehaviour:
   effectName: Ancient Talisman Of Power
   scalingValue: 1
   description: Increases Melee, Ranged and Magic Damage by 2
-  buyPrice: 30
+  buyPrice: 25
   sellPrice: 0
-  effectStatModifiers: []
+  effectStatModifiers:
+  - stat: 1
+    value: 2
+    type: 0
+  - stat: 9
+    value: 2
+    type: 0
+  - stat: 12
+    value: 2
+    type: 0
   behaviors: []
+  unlockedByDefault: 1

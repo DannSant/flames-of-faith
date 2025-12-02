@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aad74c01767cfc489c93e408b9aa81c, type: 3}
-  m_Name: HolyProjectileSpawn
-  m_EditorClassIdentifier: 
-  effectID: 7287a003-abfb-4b23-a7d2-21afbf7971e5
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: 2bf80c37-2cb1-4792-b7b1-39ff7ac47490
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 2bf80c37-2cb1-4792-b7b1-39ff7ac47490
   icon: {fileID: 21300000, guid: 239d6bf243f66914aaef83720f8a73fb, type: 3}
   effectName: Holy missiles
-  scalingValue: 2
+  scalingValue: 1
   description: Spawns a holy projectile that deals Ranged Damage. when dealing any
     kind of damage
   buyPrice: 50
@@ -23,3 +23,4 @@ MonoBehaviour:
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: d4dfd011e34c32144a74935735d5b476, type: 2}
+  unlockedByDefault: 1

@@ -14,9 +14,9 @@ namespace Game.Map
             // Get the current layer
             int currentLayer = LevelSelectionController.Instance.GetCurrentLayer();
 
-            foreach (var layer in layers) { 
+            /*foreach (var layer in layers) { 
                 Debug.Log(layer.ToString());
-            }
+            }*/
 
             // Render map
             MapRenderer.Instance.RenderMap(layers, currentLayer);

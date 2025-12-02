@@ -25,6 +25,7 @@ namespace Game.Effects{
         [SerializeField] private List<StatModifier> effectStatModifiers = new();
         [Header("Behaviors")]
         [SerializeField] private List<EffectBehavior> behaviors = new();
+        [SerializeField] private bool unlockedByDefault = false;
 
         protected EffectStore ownerStore;
 
@@ -36,8 +37,9 @@ namespace Game.Effects{
         public string Description { get => description; set => description = value; }
         public int BuyPrice { get => buyPrice; set => buyPrice = value; }
         public int SellPrice { get => sellPrice; set => sellPrice = value; }
-        public virtual List<StatModifier> StatModifiers { get => effectStatModifiers; set => effectStatModifiers = value; }
+        public List<StatModifier> StatModifiers { get => effectStatModifiers; set => effectStatModifiers = value; }
         public List<EffectBehavior> Behaviors { get => behaviors; set => behaviors = value; }
+        public bool UnlockedByDefault { get => unlockedByDefault; set => unlockedByDefault = value; }
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -89,16 +91,17 @@ namespace Game.Effects{
             Description = row.description;
             BuyPrice = row.priceBuy;
             SellPrice = row.priceSell;
+            UnlockedByDefault = row.unlockedByDefault == 1 ? true : false;
 
             // Load icon
             if (!string.IsNullOrEmpty(row.iconKey))
                 EffectIcon = Resources.Load<Sprite>($"Icons/{row.iconKey}");
 
-            // Deserialize stat modifiers
-            StatModifiers = JsonUtility.FromJson<StatModifierList>(row.statModifiersJson).list;
+            // Deserialize stat modifiers           
+            StatModifiers = Newtonsoft.Json.JsonConvert.DeserializeObject<List<StatModifier>>(row.statModifiersJson);
 
             // Deserialize behaviors
-            var behaviorIDs = JsonUtility.FromJson<BehaviorIDList>(row.behaviorsJson).ids;
+            var behaviorIDs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(row.behaviorsJson);
 
             Behaviors = behaviorIDs
                 .Select(id => Resources.Load<EffectBehavior>($"Effects/EffectBehaviors/{id}"))

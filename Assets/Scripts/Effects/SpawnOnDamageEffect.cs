@@ -1,6 +1,7 @@
 using Game.Combat;
 using Game.Combat.Projectiles;
 using Game.Scene;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Game.Effects
 {
 
     [CreateAssetMenu(fileName = "SpawnOnDamageEffect", menuName = "Effects/Spawn On Damage Effect")]
+    [Obsolete("SpawnOnDamageEffect is deprecated now, use the Tools>Effects>Effects DB to create effects now")]
     public class SpawnOnDamageEffect : Effect
     {
        /* [SerializeField] private GameObject prefabToSpawn;
