@@ -9,8 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8423726987999494484}
+  - component: {fileID: -7860464790509433183}
   - component: {fileID: 7062102855057406931}
-  - component: {fileID: 496585674418865635}
+  - component: {fileID: 5646688322668009695}
+  - component: {fileID: -3907891743662037269}
+  - component: {fileID: -3600171168619345857}
   m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Untagged
@@ -34,6 +37,33 @@ Transform:
   - {fileID: 711683682971534219}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &-7860464790509433183
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399671665664677946}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &7062102855057406931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80,7 +110,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.08312893, y: 0.45364502}
   m_EdgeRadius: 0
---- !u!114 &496585674418865635
+--- !u!114 &5646688322668009695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,12 +119,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 1399671665664677946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb4496b89723f24e91298b18c0308c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5401637a4ffd0fc44b05ebe6a12c6d4e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
+  baseDurationTime: 3
+  durationStat: 10
+--- !u!114 &-3907891743662037269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399671665664677946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c97ac31a44e6445aaab8db4ca70caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveLinear
   speed: 10
-  projectileType: 0
-  baseDamage: 0
+--- !u!114 &-3600171168619345857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399671665664677946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  baseDamage: 5
+  weaponClass: 2
+  attackScale: 1
+  effectID: 
+  useTriggerEnter: 1
+  useTriggerStay: 0
+  tickInterval: 1
+  shouldStackDamage: 1
+  enablePierce: 1
+  pierceCount: 1
+  applyKnockback: 0
+  knockbackForce: 5
 --- !u!1 &6570579107094143799
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +213,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -168,6 +236,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

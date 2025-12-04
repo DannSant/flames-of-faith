@@ -13,7 +13,7 @@ namespace Game.Combat
         private PlayerProgression playerProgression;       
 
         private WeaponData weaponData;
-        public Action<float, int, GameObject> OnDamageDealt;       
+        public Action<float, GameObject> OnDamageDealt;       
 
         public WeaponData WeaponData
         {
@@ -47,7 +47,7 @@ namespace Game.Combat
 
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, damageAmount);
 
-                OnDamageDealt?.Invoke(damageAmount, WeaponData.graceGenerated, transform.gameObject);               
+                OnDamageDealt?.Invoke(damageAmount, transform.gameObject);               
                 if (WeaponData.shouldApplyKnockback && knockback != null)
                 {
                     var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;

@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3280603524707432037}
+  - component: {fileID: -4457343864818819078}
   - component: {fileID: 5258512098417879203}
-  - component: {fileID: 2054865422791832412}
-  - component: {fileID: 370615903462039172}
+  - component: {fileID: -2379403813331236055}
+  - component: {fileID: 9190267972364934588}
+  - component: {fileID: 4110729191943974511}
+  - component: {fileID: -6525033825346590171}
   m_Layer: 0
   m_Name: HolyProjectile
   m_TagString: Untagged
@@ -35,6 +38,33 @@ Transform:
   - {fileID: 3370826124914703586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &-4457343864818819078
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262266157608048503}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &5258512098417879203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81,7 +111,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.58794403, y: 0.2327168}
   m_EdgeRadius: 0
---- !u!114 &2054865422791832412
+--- !u!114 &-2379403813331236055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,13 +120,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5262266157608048503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb4496b89723f24e91298b18c0308c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5401637a4ffd0fc44b05ebe6a12c6d4e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  projectileType: 0
-  baseDamage: 1
---- !u!114 &370615903462039172
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
+  baseDurationTime: 3
+  durationStat: 16
+--- !u!114 &9190267972364934588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,12 +134,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 5262266157608048503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17fe3dced23d02c47ae4c8d8315f30e6, type: 3}
+  m_Script: {fileID: 11500000, guid: c9c97ac31a44e6445aaab8db4ca70caf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 5
-  damageToPlayer: 0
-  infinitePierce: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveLinear
+  speed: 5
+  rotateTowardsDirection: 1
+--- !u!114 &4110729191943974511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262266157608048503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  baseDamage: 5
+  weaponClass: 2
+  attackScale: 1
+  effectID: 
+  layerMaskName: Enemy
+  useTriggerEnter: 1
+  useTriggerStay: 0
+  tickInterval: 1
+  shouldStackDamage: 1
+  enablePierce: 1
+  pierceCount: 5
+  applyKnockback: 0
+  knockbackForce: 5
+--- !u!114 &-6525033825346590171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262266157608048503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5e214306095e54ea597122e9ca783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.RandomDirectionInitializer
+  minAngle: 0
+  maxAngle: 360
+  initialSpeedOverride: 0
 --- !u!1 &7423261959569150275
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +232,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -185,6 +255,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

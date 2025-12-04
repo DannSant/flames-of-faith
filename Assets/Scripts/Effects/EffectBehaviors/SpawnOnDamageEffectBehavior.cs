@@ -26,7 +26,7 @@ namespace Game.Effects.EffectBehaviors
         // Runtime
         private WeaponDamageSource meleeSource;
         private BowWeapon bowSource;
-        private readonly List<ProjectileBase> registeredProjectiles = new();
+        private readonly List<DamageSourceBase> registeredProjectiles = new();
 
 
 
@@ -80,7 +80,7 @@ namespace Game.Effects.EffectBehaviors
             registeredProjectiles.Clear();
         }
 
-        private void RegisterProjectile(ProjectileBase projectile)
+        private void RegisterProjectile(DamageSourceBase projectile)
         {
             if (projectile == null) return;
 
@@ -89,7 +89,7 @@ namespace Game.Effects.EffectBehaviors
         }
 
 
-        private void HandleDamageDealt(float damage, int grace, GameObject target)
+        private void HandleDamageDealt(float damage, GameObject target)
         {
             // Roll chance
             float roll = Random.Range(0f, 1f);

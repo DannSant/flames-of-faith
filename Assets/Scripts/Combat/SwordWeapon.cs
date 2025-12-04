@@ -22,7 +22,7 @@ namespace Game.Combat
         [SerializeField] private GameObject specialAttackVFXPrefab;
 
         [Header("Sound Effects")]
-        [SerializeField] private List<AudioClip> swordAttackSounds = new();
+        [SerializeField] private List<AudioClip> swordAttackSounds = new();        
 
         public override void Initialize(CharacterVisual characterVisual)
         {
@@ -72,12 +72,11 @@ namespace Game.Combat
         public override void SpecialAttack()
         {
             if (specialAttackTimer.GetIsEventActive()) return;
-            //if (playerGrace.CurrentGrace <= specialAttackCost) return;
 
-            //playerGrace.RemoveGrace(specialAttackCost);
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             specialAttackCollider.SetActive(true);
+            effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
         }
 
         protected override void OnAttackAnimationStarted()
@@ -96,12 +95,12 @@ namespace Game.Combat
             specialAttackCollider.SetActive(false);
         }
 
-        private void OnDamageDealt(float damage, int graceGenerated, GameObject target)
+        private void OnDamageDealt(float damage, GameObject target)
         {          
             //GrantGrace(graceGenerated);
         }
 
-        private void OnSpecialDamageDealt(float damage, int graceGenerated, GameObject target)
+        private void OnSpecialDamageDealt(float damage, GameObject target)
         {
             if (specialAttackVFXPrefab != null)
             {

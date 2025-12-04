@@ -14,7 +14,7 @@ namespace Game.Effects
         OnWaveStart,
         OnWaveEnd,
         OnUpdate,       // per-frame, if you need it
-        OnSecondaryAction, // e.g., a special ability
+        OnSpecialAttack, // e.g., a special ability
         OnStack // when the effect is stacked/increased
     }
     public abstract class EffectBehavior : ScriptableObject

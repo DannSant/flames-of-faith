@@ -1,11 +1,13 @@
 using Game.Audio;
 using Game.Combat.Projectiles;
 using Game.Control;
+using Game.Effects;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
 using System.Collections.Generic;
 using TMPro;
+using Unity.InferenceEngine.Tokenization.PostProcessors.Templating;
 using UnityEngine;
 
 namespace Game.Combat
@@ -15,8 +17,8 @@ namespace Game.Combat
         [Header("Sound Effects")]
         [SerializeField] private List<AudioClip> bowAttackSounds = new();
 
-        public event System.Action<ProjectileBase> onBowAttackLaunched;
-        public event System.Action<ProjectileBase> onBowSpecialAttackLaunched;
+        public event System.Action<DamageSourceBase> onBowAttackLaunched;
+        public event System.Action<DamageSourceBase> onBowSpecialAttackLaunched;
 
         private Vector3 targetPosition;
 
@@ -40,6 +42,7 @@ namespace Game.Combat
             //playerGrace.RemoveGrace(specialAttackCost);
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
+            effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
         }
 
         protected override void OnAttackAnimationPlayed()
@@ -52,11 +55,20 @@ namespace Game.Combat
             //int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * weaponData.attackScale;
             int pierceAmount = weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
 
-            var projectile = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
+            /*var projectile = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
             projectile.Initialize(direction, weaponData.baseDamage, pierceAmount, 5f, false, weaponData.graceGenerated,playerProgression,weaponData);
             projectile.ConfigureAfterSpawn();
-            projectile.OnDamageDealtEvent += OnDamageDealt;
-            onBowAttackLaunched?.Invoke(projectile);
+            projectile.OnDamageDealtEvent += OnDamageDealt;*/
+
+            var go = Instantiate(weaponData.projectilePrefab, spawnPos, Quaternion.identity);
+
+            var move = go.GetComponent<ProjectileMovementBase>();
+            move.Initialize(direction);
+
+            var damage = go.GetComponent<DamageSourceBase>();
+            damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass);
+
+            onBowAttackLaunched?.Invoke(damage);
         }
 
         protected override void OnSpecialAttackAnimationPlayed()
@@ -75,10 +87,18 @@ namespace Game.Combat
                 float rad = angle * Mathf.Deg2Rad;
                 Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
-                var projectile = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
-                projectile.Initialize(direction, specialWeaponData.baseDamage, pierceAmount, 5f, false, specialWeaponData.graceGenerated, playerProgression, specialWeaponData);
-                projectile.ConfigureAfterSpawn();
-                onBowSpecialAttackLaunched?.Invoke(projectile);
+                //var projectile = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
+                //projectile.Initialize(direction, specialWeaponData.baseDamage, pierceAmount, 5f, false, specialWeaponData.graceGenerated, playerProgression, specialWeaponData);
+                //projectile.ConfigureAfterSpawn();
+                //onBowSpecialAttackLaunched?.Invoke(projectile);
+
+                var go = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
+
+                var move = go.GetComponent<ProjectileMovementBase>();
+                move.Initialize(direction);
+
+                var damage = go.GetComponent<DamageSourceBase>();
+                damage.Initialize(specialWeaponData.baseDamage, specialWeaponData.pierceAmount, null, specialWeaponData.weaponClass);
             }
         }
 

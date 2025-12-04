@@ -21,6 +21,16 @@ public class DeveloperCheats
         WaveSpawner.Instance.GoToNextLevel();
     }
 
+    [MenuItem("DevTools/Progression/Give 20 XP")]
+    public static void IncreaseGive20XP()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+        if (playerProgression != null)
+        {
+            playerProgression.AddExperience(20);
+        }
+    }
+
     [MenuItem("DevTools/Stats/Increase Max Health")]
     public static void IncreaseMaxHealth()
     {

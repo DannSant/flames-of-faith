@@ -2,6 +2,7 @@ using Game.Common;
 using UnityEngine;
 using Game.Control;
 using System;
+using Game.Progression;
 namespace Game.Combat
 {
     public class WeaponManager :MonoBehaviour, IDependentStateLoader
@@ -9,6 +10,7 @@ namespace Game.Combat
         [SerializeField] private WeaponBase startingWeapon;
         [SerializeField] private bool autoAttackEnabled = false;
         private WeaponBase currentWeapon;
+        private PlayerProgression playerProgression;
 
         public event Action<float, float> OnAttackTimerUpdated;
         public event Action<float, float> OnSpecialAttackTimerUpdated;
@@ -16,7 +18,8 @@ namespace Game.Combat
         public bool IsAutoAttackEnabled  { get { return autoAttackEnabled; } private set { autoAttackEnabled = value; } }
 
         private void Awake()
-        {           
+        {
+            playerProgression = GetComponent<PlayerProgression>();
             if (startingWeapon != null)
             {
                 EquipWeapon(startingWeapon);                
@@ -52,7 +55,8 @@ namespace Game.Combat
 
         private EnemyHealth FindClosestEnemyWithinRange(float range)
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy"));
+            int additionalRange = playerProgression.GetStatTotal(StatType.Range);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range + additionalRange, LayerMask.GetMask("Enemy"));
 
             EnemyHealth closest = null;
             float closestDistanceSqr = Mathf.Infinity;

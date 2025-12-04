@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: Increases Magic damage by +6 and Pickup Range by  but reduces Melee
     damage and armor by -3
-  buyPrice: 25
+  buyPrice: 50
   sellPrice: 0
   effectStatModifiers:
   - stat: 12

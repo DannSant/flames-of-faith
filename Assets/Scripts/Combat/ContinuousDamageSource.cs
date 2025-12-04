@@ -2,10 +2,12 @@ using Game.Effects;
 using Game.Misc;
 using Game.Progression;
 using Game.Scene;
+using System;
 using UnityEngine;
 
 namespace Game.Combat
 {
+    [Obsolete("Use DamageSourceBase instead")]
     public class ContinuousDamageSource : MonoBehaviour, IEffectMultiplier
     {
         [SerializeField] private float baseDurationTime = 3f;

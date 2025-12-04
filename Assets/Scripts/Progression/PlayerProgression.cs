@@ -95,10 +95,12 @@ namespace Game.Progression {
             if (currentStats.ContainsKey(statType))
             {
                 // Update the stat value
-                currentStats[statType] += value;           
+                currentStats[statType] += value;
+
+                var newStat = GetStatTotal(statType, true);           
 
                 // Trigger the event to notify subscribers
-                onStatUpdated?.Invoke(statType, GetStatTotal(statType));
+                onStatUpdated?.Invoke(statType, newStat);
 
                 // Mark stats as dirty
                 statsDirty = true;
@@ -131,9 +133,9 @@ namespace Game.Progression {
         }
 
         // Method to retrieve a stat total value
-        public int GetStatTotal(StatType statType)
+        public int GetStatTotal(StatType statType, bool forceRecalculate = false)
         {
-            return Mathf.FloorToInt(GetFinalStat(statType));
+            return Mathf.FloorToInt(GetFinalStat(statType, forceRecalculate));
         }
 
         // Method to retrieve a stat base value
@@ -142,10 +144,10 @@ namespace Game.Progression {
             return currentStats.ContainsKey(statType) ? currentStats[statType] : 0;
         }*/
 
-        public float GetFinalStat(StatType stat)
+        public float GetFinalStat(StatType stat, bool forceRecalculate=false)
         {
            
-            if (statsDirty)
+            if (statsDirty || forceRecalculate)
             {
                 RecalculateFinalStats();
             }

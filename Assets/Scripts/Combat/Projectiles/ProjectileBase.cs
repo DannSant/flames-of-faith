@@ -7,24 +7,19 @@ using UnityEngine;
 
 namespace Game.Combat.Projectiles
 {
-    public enum ProjectileType
-    {
-        Linear,
-        Homing,
-        Bouncing,
-        Explosive
-    }
 
+
+    [Obsolete("Use DamageSourceBase and a child of ProjectileMovementBase instead.")]
     public abstract class ProjectileBase : MonoBehaviour, IEffectMultiplier
     {
+
         [SerializeField] protected float speed=5;
         [SerializeField] protected ProjectileType projectileType = ProjectileType.Linear;
         
         protected float baseDamage=0;
 
         protected float lifetime;
-        protected int pierceCount;
-        //protected int damageAmount;
+        protected int pierceCount;     
         protected Vector2 moveDirection;
         protected bool damageToPlayer = false;
         protected int graceGenerated = 1;
@@ -138,16 +133,11 @@ namespace Game.Combat.Projectiles
                     weaponData.attackScale
                 )
             );
-            //return Mathf.FloorToInt(baseDamage + damageAmount +  effectStore.GetEffectMultiplierConfig(effectID).GetMultiplier());
+          
         }
 
         public ProjectileType GetProjectileType() => projectileType;
 
-
-        /*public void SetEffectStore(EffectStore effectStore)
-        {
-           
-        }*/
 
         public void SetEffectID(string effectID)
         {

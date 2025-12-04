@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 127001158790237256}
   - component: {fileID: 1218420769714942248}
   - component: {fileID: 7205234163305277898}
-  - component: {fileID: 6857850343167018142}
   - component: {fileID: -7461754967837800494}
+  - component: {fileID: 5671851549604452202}
   m_Layer: 0
   m_Name: OrbitingSword
   m_TagString: Untagged
@@ -103,21 +103,6 @@ PolygonCollider2D:
       - {x: 0.2587431, y: 0.074987575}
       - {x: 0.25356913, y: 0.26774564}
   m_UseDelaunayMesh: 0
---- !u!114 &6857850343167018142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112430461715336365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b3653415195a1a4aa8fdb45d09ac1f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage: 5
-  weaponClass: 1
-  knockbackForce: 5
 --- !u!114 &-7461754967837800494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +116,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 720
+--- !u!114 &5671851549604452202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112430461715336365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  baseDamage: 5
+  weaponClass: 1
+  attackScale: 5
+  effectID: 
+  useTriggerEnter: 1
+  useTriggerStay: 0
+  tickInterval: 1
+  shouldStackDamage: 1
+  enablePierce: 0
+  pierceCount: 1
+  applyKnockback: 0
+  knockbackForce: 5
 --- !u!1 &4240002554330527036
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +192,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -204,6 +215,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

@@ -1,9 +1,11 @@
 using Game.Scene;
 using UnityEngine;
 using Game.Progression;
+using System;
 
 namespace Game.Combat.Projectiles
 {
+    [Obsolete("Use DamageSourceBase and a child of ProjectileMovementBase instead.")]
     public class ProjectileInitializer : MonoBehaviour
     {
         [SerializeField] private float lifetime = 5f;

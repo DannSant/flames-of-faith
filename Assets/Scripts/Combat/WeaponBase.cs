@@ -1,4 +1,5 @@
 using Game.Control;
+using Game.Effects;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -14,10 +15,10 @@ namespace Game.Combat
         protected EnemyHealth currentTarget;
 
         protected CharacterVisual characterVisual;
-        protected PlayerController playerController;
-        //protected PlayerGrace playerGrace;
+        protected PlayerController playerController;      
         protected PlayerProgression playerProgression;
         protected WeaponManager weaponManager;
+        protected EffectStore effectStore;
 
         protected UpdateTimer attackTimer;
         protected UpdateTimer specialAttackTimer;
@@ -33,6 +34,7 @@ namespace Game.Combat
             //playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
 
             attackTimer = new UpdateTimer(1);
             specialAttackTimer = new UpdateTimer(1);

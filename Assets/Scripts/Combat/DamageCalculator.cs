@@ -12,8 +12,8 @@ namespace Game.Combat
         private string effectID;
         private WeaponClass weaponClass;
         private PlayerProgression playerProgression;
-        private int weaponScaleDamage;
-        public DamageRequest(float damageAmount, EffectStore effectStore, string effectID, WeaponClass weaponClass, PlayerProgression playerProgression, int weaponScaleDamage)
+        private float weaponScaleDamage;
+        public DamageRequest(float damageAmount, EffectStore effectStore, string effectID, WeaponClass weaponClass, PlayerProgression playerProgression, float weaponScaleDamage)
         {
             this.damageAmount = damageAmount;
             this.effectStore = effectStore;
@@ -28,7 +28,12 @@ namespace Game.Combat
         public string EffectID => effectID;
         public WeaponClass WeaponClass => weaponClass;
         public PlayerProgression PlayerProgression => playerProgression;
-        public int WeaponScaleDamage => weaponScaleDamage;
+        public float WeaponScaleDamage => weaponScaleDamage;
+
+        public override string ToString()
+        {
+            return $"DamageRequest(DamageAmount: {damageAmount}, EffectStore: {effectStore}, EffectID: {effectID}, WeaponClass: {weaponClass}, PlayerProgression: {playerProgression}, WeaponScaleDamage: {weaponScaleDamage})";
+        }
     }
     public class DamageCalculator : MonoBehaviour
     {
@@ -42,11 +47,18 @@ namespace Game.Combat
             {
                 FindPlayerGrace();
             }
-
+          
             float baseDamage = damageRequest.DamageAmount;
             float progressionStatDamage = 0;
             var playerProgression = damageRequest.PlayerProgression;
             WeaponClass weaponClass = damageRequest.WeaponClass;
+
+            if(playerProgression == null)
+            {
+                Debug.LogWarning("DamageCalculator: Missing PlayerProgression.");
+                return baseDamage;
+            }
+
             if (weaponClass == WeaponClass.Melee)
             {
                 progressionStatDamage = playerProgression.GetStatTotal(StatType.MeleeDamage);
@@ -79,8 +91,7 @@ namespace Game.Combat
             }
 
             //Calculate extra damage for effects
-            var effectDamage = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).GetMultiplier();
-            Debug.Log("Effect Damage: " + effectDamage);
+            var effectDamage = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).GetMultiplier();           
             totalDamage = Mathf.FloorToInt(baseDamage + progressionStatDamage + effectDamage);
             graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
             finalDamage = totalDamage + graceDamage;

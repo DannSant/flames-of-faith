@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9163789334734064859}
   - component: {fileID: 7093143987306982422}
-  - component: {fileID: 404853730526228654}
+  - component: {fileID: -1070974311560512997}
+  - component: {fileID: 8226258143542772387}
   m_Layer: 0
   m_Name: HolyCross
   m_TagString: Untagged
@@ -80,7 +81,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &404853730526228654
+--- !u!114 &-1070974311560512997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,13 +90,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 3515589407162799255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5282e5400c781149be154c847f1ca3f, type: 3}
+  m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 3
-  timeInterval: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
   baseDamage: 5
-  weaponClass: 2
+  weaponClass: 3
+  attackScale: 1
+  effectID: 
+  useTriggerEnter: 1
+  useTriggerStay: 0
+  tickInterval: 1
+  shouldStackDamage: 0
+  enablePierce: 0
+  pierceCount: 1
+  applyKnockback: 0
+  knockbackForce: 0
+--- !u!114 &8226258143542772387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515589407162799255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5401637a4ffd0fc44b05ebe6a12c6d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
+  baseDurationTime: 3
+  durationStat: 16
 --- !u!1 &5075053212409428641
 GameObject:
   m_ObjectHideFlags: 0

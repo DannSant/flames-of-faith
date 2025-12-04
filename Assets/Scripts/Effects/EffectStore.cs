@@ -119,8 +119,7 @@ namespace Game.Effects
         {          
             var effectInstance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effectID);
             if (effectInstance.effect != null)
-            {
-                Debug.Log($"EffectStore: Found effect '{effectID}' with count {effectInstance.count} and scaling value {effectInstance.effect.scalingValue}");
+            {                
                 return new EffectMultiplierConfig
                 {
                     count = effectInstance.count,

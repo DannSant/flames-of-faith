@@ -8,8 +8,7 @@ namespace Game.Effects
     public enum ModifierType
     {
         Flat,           // +5
-        PercentAdd,     // +10% (additive)
-        PercentMult     // *1.10 (multiplicative)
+        PercentAdd,     // +10% (additive)       
     }
     [Serializable]
     public class StatModifier

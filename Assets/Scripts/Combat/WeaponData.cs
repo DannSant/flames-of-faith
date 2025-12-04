@@ -25,7 +25,7 @@ namespace Game.Combat {
         public float rangeBase = 2;
 
         [Tooltip("Prefab of the projectile if applicable")]
-        public ProjectileBase projectilePrefab;
+        public GameObject projectilePrefab;
 
         [Tooltip("Amount of targets the projectile can pierce before gets destroyed")]
         public int pierceAmount = 1;
