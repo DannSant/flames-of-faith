@@ -1,8 +1,10 @@
 using Game.Scene;
+using System;
 using UnityEngine;
 
 namespace Game.Combat.Projectiles
 {
+    [Obsolete("Use DamageSourceBase and a child of ProjectileMovementBase instead.")]
     public class HomingProjectile : ProjectileBase
     {
         private Transform target;

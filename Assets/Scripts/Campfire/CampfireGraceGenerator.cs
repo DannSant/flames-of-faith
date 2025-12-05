@@ -15,7 +15,12 @@ namespace Game.Campfire
         {
             if (!isActive) return;
             var playerGrace = collision.GetComponent<PlayerGrace>();
-            if (playerGrace != null && playerGrace.IsAtMaxGrace())
+            Debug.Log("Player entered campfire grace generator.");
+            /*if (playerGrace == null) { 
+                Debug.LogWarning("PlayerGrace component not found on player.");
+            }*/
+            
+            if (playerGrace != null && !playerGrace.IsAtMaxGrace())
             {
                 playerGrace.AddGrace(graceAmount);
             }
