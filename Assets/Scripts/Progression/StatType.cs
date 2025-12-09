@@ -21,7 +21,8 @@ namespace Game.Progression {
         LifeSteal, //TODO
         SkillDuration,
         HealingReceived,
-        PickupRange
+        PickupRange,
+        MastowAffinity, 
     }
 
 }

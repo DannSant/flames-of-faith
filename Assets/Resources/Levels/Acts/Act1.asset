@@ -21,6 +21,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
   - {fileID: 11400000, guid: f07883d7db6018842b1606deb08e54b2, type: 2}
   - {fileID: 11400000, guid: 3bd447fc52490d44bac12f163ca7cdcc, type: 2}
+  - {fileID: 11400000, guid: 1c72e165d8e302242a1d855b12e92ea5, type: 2}
+  - {fileID: 11400000, guid: 3c67c76f466578b4fb0abd4ba22626b3, type: 2}
+  - {fileID: 11400000, guid: 37565fdc0c0cae54289660b62c3ccdcc, type: 2}
+  - {fileID: 11400000, guid: 028a68d1f9028f141822d1704cff46bf, type: 2}
+  - {fileID: 11400000, guid: 533b5390c936d014794c320aebb5630b, type: 2}
   extraPool:
   - {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
   - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
@@ -31,6 +36,16 @@ MonoBehaviour:
     extraCount: 0
   - combatCount: 1
     extraCount: 2
+  - combatCount: 1
+    extraCount: 0
+  - combatCount: 1
+    extraCount: 1
+  - combatCount: 1
+    extraCount: 0
+  - combatCount: 1
+    extraCount: 2
+  - combatCount: 1
+    extraCount: 0
   - combatCount: 1
     extraCount: 0
   possibleExtraLevels: 0100000002000000

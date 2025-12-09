@@ -17,6 +17,11 @@ MonoBehaviour:
   enemies: []
   enemyPool:
   - type: 2
-    weight: 5
+    weight: 2
   - type: 3
-    weight: 5
+    weight: 6
+  - type: 4
+    weight: 2
+  longCooldown: 6
+  amountOfEnemiesWithLongCooldown: 5
+  regularCooldown: 0.5

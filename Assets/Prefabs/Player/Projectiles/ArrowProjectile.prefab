@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5646688322668009695}
   - component: {fileID: -3907891743662037269}
   - component: {fileID: -3600171168619345857}
+  - component: {fileID: -9035687851212520077}
   m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Untagged
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveLinear
   speed: 10
+  rotateTowardsDirection: 1
 --- !u!114 &-3600171168619345857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +155,8 @@ MonoBehaviour:
   weaponClass: 2
   attackScale: 1
   effectID: 
+  layerMaskName: Enemy
+  originType: 0
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1
@@ -161,6 +165,18 @@ MonoBehaviour:
   pierceCount: 1
   applyKnockback: 0
   knockbackForce: 5
+--- !u!114 &-9035687851212520077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399671665664677946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90f7ff6062b904479c733b5cbe10ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.DebuffHandler
 --- !u!1 &6570579107094143799
 GameObject:
   m_ObjectHideFlags: 0

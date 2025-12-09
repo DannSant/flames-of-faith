@@ -20,6 +20,6 @@ MonoBehaviour:
   rangeBase: 10
   projectilePrefab: {fileID: 1399671665664677946, guid: 48af545d34ba78046be1637164035508, type: 3}
   pierceAmount: 4
-  knockbackForce: 8
+  knockbackForce: 4
   shouldApplyKnockback: 1
   graceGenerated: 0

@@ -168,3 +168,15 @@ MonoBehaviour:
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases the duration of item skills
+  - statType: 18
+    initialValue: 0
+    allowLevelUpgrades: 1
+    tierValues: 01000000020000000300000004000000
+    category: 0
+    description: Increases the range to pickup items
+  - statType: 19
+    initialValue: 0
+    allowLevelUpgrades: 1
+    tierValues: 01000000020000000300000004000000
+    category: 0
+    description: Increases the strength and duration of debuffs

@@ -21,6 +21,11 @@ public static class StatDisplayNameHelper
             StatType.PierceAmount => "Pierce Targets",
             StatType.HealthRegen => "Health Regen",
             StatType.LifeSteal => "Life Steal",
+            StatType.SkillDuration => "Skill Duration",
+            StatType.HealingReceived => "Healing Received",
+            StatType.PickupRange => "Pickup Range",
+            StatType.Range => "Attack Range",
+            StatType.MastowAffinity => "Mastow Affinity",
             _ => statType.ToString()
         };
     }

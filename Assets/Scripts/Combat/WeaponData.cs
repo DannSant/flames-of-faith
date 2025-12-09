@@ -1,3 +1,4 @@
+using Game.Combat.Elemental;
 using Game.Combat.Projectiles;
 using UnityEngine;
 
@@ -37,6 +38,10 @@ namespace Game.Combat {
 
         [Tooltip("Amount of grace generated when damage is inflicted")]
         public int graceGenerated = 1;
+
+        [Tooltip("Inflict an elemental type debuff")]
+        public ElementalDebuffData elementalDebuffData;
+
     }
 
     public enum WeaponClass { 

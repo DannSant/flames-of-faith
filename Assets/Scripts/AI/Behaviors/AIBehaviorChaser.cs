@@ -1,4 +1,5 @@
 using Game.Enemies;
+using Game.Misc;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -19,9 +20,11 @@ namespace Game.AI.Behaviors
         {
             if (context==null || context.playerTransform == null || context.enemyTransform == null) return;
 
-            var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
-          
+            var rb = context.enemyTransform.GetComponent<Rigidbody2D>();           
             if (rb == null) return;
+
+            var knockback = context.enemyTransform.GetComponent<Knockback>();
+            if (knockback != null && knockback.IsKnockbacked) return;
 
             float speed = context.enemyData.speedBase;
             float distance = Vector2.Distance(rb.position, context.playerTransform.position);
@@ -48,6 +51,8 @@ namespace Game.AI.Behaviors
             if (!state.isChasing) return;
 
           
+
+
 
             Vector2 direction = (context.playerTransform.position - context.enemyTransform.position).normalized;
             Vector2 targetPosition = rb.position + direction * speed * Time.deltaTime;

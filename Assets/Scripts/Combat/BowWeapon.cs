@@ -66,7 +66,7 @@ namespace Game.Combat
             move.Initialize(direction);
 
             var damage = go.GetComponent<DamageSourceBase>();
-            damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass);
+            damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass,weaponData);
 
             onBowAttackLaunched?.Invoke(damage);
         }
@@ -98,7 +98,7 @@ namespace Game.Combat
                 move.Initialize(direction);
 
                 var damage = go.GetComponent<DamageSourceBase>();
-                damage.Initialize(specialWeaponData.baseDamage, specialWeaponData.pierceAmount, null, specialWeaponData.weaponClass);
+                damage.Initialize(specialWeaponData.baseDamage, specialWeaponData.pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
             }
         }
 

@@ -29,6 +29,7 @@ namespace Game.Control
 
         public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
         public float DashMultiplier { get; private set; }
+        public Vector2 DefaultPosition { get { return defaultPosition; } set { defaultPosition = value; } }
 
         private bool facingLeft = false;
 
@@ -40,7 +41,7 @@ namespace Game.Control
             playerHealth = GetComponent<PlayerHealth>();
             characterVisual = GetComponentInChildren<CharacterVisual>();
             DashMultiplier = 1;
-            defaultPosition = transform.position;
+            //defaultPosition = transform.position;
 
             if (characterVisual == null)
             {

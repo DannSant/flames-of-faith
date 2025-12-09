@@ -10,6 +10,7 @@ namespace Game.Misc
         [SerializeField] private DamageNumber damageToPlayerNumberPrefab;
         [SerializeField] private DamageNumber healToPlayerNumberPrefab;
         [SerializeField] private DamageNumber graceGainedNumberPrefab;
+        [SerializeField] private DamageNumber fireDebuffDamageNumberPrefab;
 
         protected override void Awake()
         {
@@ -32,6 +33,10 @@ namespace Game.Misc
         public void SpawnGraceGainedNumber(Vector3 positionTospawn, float number)
         {
             graceGainedNumberPrefab.Spawn(positionTospawn, number);
+        }
+        public void SpawnFireDebuffDamageNumber(Vector3 positionTospawn, float number)
+        {
+            fireDebuffDamageNumberPrefab.Spawn(positionTospawn, number);
         }
     }
 

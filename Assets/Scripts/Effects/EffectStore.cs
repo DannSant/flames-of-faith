@@ -1,5 +1,8 @@
-﻿using Game.Common;
+﻿using Game.Combat.Elemental;
+using Game.Combat;
+using Game.Common;
 using Game.Effects;
+using Game.Effects.EffectBehaviors;
 using Game.Scene;
 using System;
 using System.Collections.Generic;
@@ -17,6 +20,22 @@ namespace Game.Effects
         public EffectInstance(Effect effect, int count = 1)
         {
             this.effect = effect;
+            this.count = count;
+        }
+        
+    }
+
+    public struct EffectDebuffApplyData
+    {
+        public Effect effect;
+        public ElementalDebuffData elementalDebuffData;
+        public int count;
+      
+
+        public EffectDebuffApplyData(Effect effect, ElementalDebuffData elementalDebuffData, int count) 
+        {
+            this.effect = effect;
+            this.elementalDebuffData = elementalDebuffData;
             this.count = count;
         }
     }
@@ -129,6 +148,33 @@ namespace Game.Effects
 
             return new EffectMultiplierConfig();
         }
+
+        public List<EffectDebuffApplyData> GetElementalTypesToApply(DamageOriginType origin, WeaponClass weaponClass)
+        {
+            List<EffectDebuffApplyData> result = new();
+
+            foreach (var inst in activeEffects)
+            {
+                foreach (var behavior in inst.effect.Behaviors)
+                {
+                    if (behavior is ElementalInfusionEffectBehavior infusion)
+                    {
+                        var meta = new ElementalMetadata
+                        {
+                            origin = origin,
+                            weaponClass = weaponClass
+                        };
+
+                        if (infusion.ShouldApply(meta))
+                            result.Add(new EffectDebuffApplyData(inst.effect,infusion.elementalDebuffData,inst.count));
+                    }
+                }
+            }
+
+            return result;
+        }
+
+
         public void ClearAll()
         {
             foreach (var effectInstance in activeEffects)

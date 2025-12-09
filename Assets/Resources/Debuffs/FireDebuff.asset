@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2436316cca02bd649aa870b2c44f8d62, type: 3}
+  m_Name: FireDebuff
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.ElementalDebuffData
+  elementalType: 1
+  baseDuration: 3
+  durationStatScale: 0.25
+  baseStrength: 3
+  strengthStatScale: 1
+  chanceToApply: 1
+  vfx: {fileID: 508358228207870394, guid: 9771c85cc49cb534b8ef6e04860875bd, type: 3}

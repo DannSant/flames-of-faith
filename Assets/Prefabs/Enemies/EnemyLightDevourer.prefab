@@ -107,7 +107,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: healthPerWave
-      value: 10
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: healthPerLevel
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -65,6 +65,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act1/Campfire.unity
     guid: 2b9216d812c087744a2c2044e31ce8c8
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level3_Iso.unity
+    guid: 21dafbcac256a304facf22311ed76865
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level4_Iso.unity
+    guid: f08583f239868b642b5d7da86546059b
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level5_Iso.unity
+    guid: 067fecda91b5ba440b52b5fdca0a6d23
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level6_Iso.unity
+    guid: 249c95c01f0ce1745b6903a71c95a86e
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level7_Iso.unity
+    guid: c6042a319636acf43b9b0a471bbff9fc
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level8_Iso.unity
+    guid: ce18de1a4d8f67c4a8a2a3e0530fc72c
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level9_Iso.unity
+    guid: dedde72b6e78b7345b9578a18e275051
+  - enabled: 1
+    path: Assets/Scenes/Act1/Level2_Iso.unity
+    guid: 95e33be18c0410545959622d679a5ad5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

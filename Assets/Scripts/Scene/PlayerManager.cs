@@ -1,4 +1,6 @@
 using Game.Common;
+using Game.Control;
+using Game.Misc;
 using Game.Utils;
 using Game.Waves;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ namespace Game.Scene
             base.Awake();
         }
         [SerializeField] private List<GameObject> playerPrefabs;
-        [SerializeField] private Transform spawnPoint;
+        //[SerializeField] private Transform spawnPoint;
 
         private GameObject currentPlayer;
 
@@ -29,21 +31,29 @@ namespace Game.Scene
                 Destroy(currentPlayer);
             }
 
-            GameObject prefab = playerPrefabs[selectedIndex];           
-            currentPlayer = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+            GameObject prefab = playerPrefabs[selectedIndex];
+            
+            currentPlayer = Instantiate(prefab, transform.position, Quaternion.identity);
 
             if (isNewRun)
             {
                 ResetAllPlayerComponentStates();
             }
-           
-
             
-        }
+        }       
 
         public void MovePlayerToScene(ManagedScene targetScene)
         {
             SceneManager.MoveGameObjectToScene(currentPlayer, targetScene);
+            SceneManager.SetActiveScene(targetScene);
+            var spawnPoint = FindAnyObjectByType<SpawnPoint>();           
+            var spawnPosition = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;            
+            currentPlayer.transform.position = spawnPosition;            
+            var playerController = currentPlayer.GetComponent<PlayerController>();
+            if(playerController != null)
+            {
+                playerController.DefaultPosition = spawnPosition;
+            }
         }
 
         public void LateInitializePlayer()

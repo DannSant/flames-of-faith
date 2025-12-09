@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9190267972364934588}
   - component: {fileID: 4110729191943974511}
   - component: {fileID: -6525033825346590171}
+  - component: {fileID: -5514398318567338807}
   m_Layer: 0
   m_Name: HolyProjectile
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   attackScale: 1
   effectID: 
   layerMaskName: Enemy
+  originType: 0
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1
@@ -179,6 +181,18 @@ MonoBehaviour:
   minAngle: 0
   maxAngle: 360
   initialSpeedOverride: 0
+--- !u!114 &-5514398318567338807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262266157608048503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90f7ff6062b904479c733b5cbe10ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.DebuffHandler
 --- !u!1 &7423261959569150275
 GameObject:
   m_ObjectHideFlags: 0

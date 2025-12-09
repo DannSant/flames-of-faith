@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using Game.Misc;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -13,6 +14,9 @@ namespace Game.AI.Behaviors
         {
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
             if (rb == null) return;
+
+            var knockback = context.enemyTransform.GetComponent<Knockback>();
+            if (knockback != null && knockback.IsKnockbacked) return;
 
             var state = context.GetState<MoveShootCycleState>(sharedStateGroup);
 

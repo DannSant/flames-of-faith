@@ -561,7 +561,6 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 2779812082305949392, guid: ceb541b9d1caca347aa4be8be7e14e3e, type: 3}
   - {fileID: 1842591873529211112, guid: 39898c2581dc5cf429cf334eb812cd30, type: 3}
-  spawnPoint: {fileID: 934455490}
 --- !u!4 &934455490
 Transform:
   m_ObjectHideFlags: 0
@@ -1341,6 +1340,7 @@ MonoBehaviour:
   damageToPlayerNumberPrefab: {fileID: 3171153609502651806, guid: df47e83195ebe75469111fb6eda668b8, type: 3}
   healToPlayerNumberPrefab: {fileID: 3171153609502651806, guid: f41859adccf56ce449a8c828b59ae6b2, type: 3}
   graceGainedNumberPrefab: {fileID: 3171153609502651806, guid: b7260be350e576b4a93df6508b10a59a, type: 3}
+  fireDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: 2717909dc38758d49beb8f8fcd5ebadf, type: 3}
 --- !u!4 &2071091514
 Transform:
   m_ObjectHideFlags: 0

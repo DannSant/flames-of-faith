@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 5236421020208634294}
   - component: {fileID: 8729711252836321042}
   - component: {fileID: 7104703125509277119}
+  - component: {fileID: -8540169653406218948}
+  - component: {fileID: -1800832208903587473}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Untagged
@@ -265,6 +267,31 @@ MonoBehaviour:
     weight: 0.1
   - pickupPrefab: {fileID: 242527397130525024, guid: f15655290232db74cad9d9d5f3c35064, type: 3}
     weight: 0.1
+--- !u!114 &-8540169653406218948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917486536579394036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a41faaae163d3458cc4c0062b364d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Misc.Knockback
+  knockbackTime: 0.1
+--- !u!114 &-1800832208903587473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917486536579394036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90f7ff6062b904479c733b5cbe10ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.DebuffHandler
 --- !u!1 &3015610524819291867
 GameObject:
   m_ObjectHideFlags: 0

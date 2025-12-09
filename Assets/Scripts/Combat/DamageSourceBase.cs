@@ -1,3 +1,4 @@
+using Game.Combat.Elemental;
 using Game.Control;
 using Game.Effects;
 using Game.Misc;
@@ -16,6 +17,7 @@ namespace Game.Combat
         [SerializeField] private float attackScale = 1f;
         [SerializeField] private string effectID;
         [SerializeField] private string layerMaskName = "Enemy";
+        [SerializeField] private DamageOriginType originType = DamageOriginType.Weapon;
 
         [Header("Hit Mode")]
         [Tooltip("If true, we deal damage when something ENTERS the trigger.")]
@@ -42,8 +44,10 @@ namespace Game.Combat
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
         private float stayTimer = 0f;
-
-        int enemyLayerMask;
+        private int enemyLayerMask;
+        private WeaponData weaponData;
+        
+        public DamageOriginType OriginType => originType;
 
         // In case something external wants to know when we dealt damage
         public event Action<float, GameObject> OnDamageDealtEvent;
@@ -59,12 +63,13 @@ namespace Game.Combat
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         }
 
-        public void Initialize(int baseDamage, int pierceAmount, string effectId, WeaponClass weaponClass)
+        public void Initialize(int baseDamage, int pierceAmount, string effectId, WeaponClass weaponClass, WeaponData weaponData)
         {
             this.baseDamage = baseDamage;
             this.pierceCount = pierceAmount;
             this.effectID = effectId;
             this.weaponClass = weaponClass;
+            this.weaponData = weaponData;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -114,6 +119,9 @@ namespace Game.Combat
                 );
               
                 OnDamageDealtEvent?.Invoke(totalDamage, collision.gameObject);
+
+                // Elemental Debuff (optional)
+                TryApplyElementalDebuff(collision);
             }
 
             // Knockback (optional)
@@ -139,6 +147,35 @@ namespace Game.Combat
                     Destroy(gameObject);
                 }
             }
+        }
+
+        private void TryApplyElementalDebuff(Collider2D collision)
+        {
+
+            //Weapon debuff check
+            var debuffHandler = collision.GetComponent<DebuffHandler>();
+            if (debuffHandler == null) return;
+
+            if (weaponData == null) {
+                Debug.LogWarning("DamageSourceBase: Missing WeaponData for elemental debuff application.");
+               
+            }
+
+            if (weaponData!=null && weaponData.elementalDebuffData!= null && weaponData.elementalDebuffData.ElementalType != ElementalType.None)
+            {
+                var weaponDebuffData = weaponData.elementalDebuffData;
+                int debuffStrengthStat = playerProgression.GetStatTotal(StatType.MastowAffinity);                
+                debuffHandler.TryToApplyDebuff(weaponDebuffData, debuffStrengthStat);
+            }
+
+            //Effect debuff check
+            var debuffsToApply = effectStore.GetElementalTypesToApply(originType, weaponClass);
+            foreach (var debuffData in debuffsToApply)
+            {              
+                int debuffStrengthStat = playerProgression.GetStatTotal(StatType.MastowAffinity) + debuffData.count;                
+                debuffHandler.TryToApplyDebuff(debuffData.elementalDebuffData, debuffStrengthStat);
+            }
+
         }
 
         private float CalculateTotalDamage()
