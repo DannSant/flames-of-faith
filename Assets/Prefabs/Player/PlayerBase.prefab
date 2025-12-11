@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 2356535091906905019}
   - component: {fileID: 336429339396672147}
   - component: {fileID: 9058536188805504039}
+  - component: {fileID: 7099271762150397571}
   m_Layer: 0
   m_Name: PlayerBase
   m_TagString: Untagged
@@ -798,6 +799,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2896bf7771923f1459d196e425a30e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7099271762150397571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543883001522524048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef39c21ee31d174090d3eaa92e0f783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Items.ItemBag
+  pickedUpItems: []
 --- !u!1 &7211000969120750526
 GameObject:
   m_ObjectHideFlags: 0

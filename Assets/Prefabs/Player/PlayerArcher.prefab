@@ -172,12 +172,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: startingEffects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: 'startingEffects.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1c474f3836f60b94e88706ea4f7a1d70, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_FlipX
       value: 0

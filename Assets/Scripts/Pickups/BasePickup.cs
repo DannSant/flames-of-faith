@@ -11,7 +11,7 @@ namespace Game.Pickups
         public abstract void OnPickup(GameObject picker);
         public abstract bool CanBePickedUp(GameObject picker);
 
-        private void Start()
+        protected virtual void Start()
         {
             var waveSpawner = WaveSpawner.Instance;
             if(waveSpawner != null)

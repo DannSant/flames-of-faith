@@ -1,0 +1,4051 @@
+fileFormatVersion: 2
+guid: 42cb41a8a214e1843b163e76c665d960
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1005853445452105624
+    second: WarriorWalkCombat_SS_8f_192x192_0
+  - first:
+      213: 1213684656542601128
+    second: WarriorWalkCombat_SS_8f_192x192_1
+  - first:
+      213: 2863807932538085825
+    second: WarriorWalkCombat_SS_8f_192x192_2
+  - first:
+      213: 1034330593986757368
+    second: WarriorWalkCombat_SS_8f_192x192_3
+  - first:
+      213: -8582844773810276966
+    second: WarriorWalkCombat_SS_8f_192x192_4
+  - first:
+      213: 7181421849626366024
+    second: WarriorWalkCombat_SS_8f_192x192_5
+  - first:
+      213: -1736625001384983923
+    second: WarriorWalkCombat_SS_8f_192x192_6
+  - first:
+      213: 6226079837602575739
+    second: WarriorWalkCombat_SS_8f_192x192_7
+  - first:
+      213: 2085690814612766447
+    second: WarriorWalkCombat_SS_8f_192x192_8
+  - first:
+      213: 3550561514156598787
+    second: WarriorWalkCombat_SS_8f_192x192_9
+  - first:
+      213: 1292955148000928206
+    second: WarriorWalkCombat_SS_8f_192x192_10
+  - first:
+      213: -142070328009586452
+    second: WarriorWalkCombat_SS_8f_192x192_11
+  - first:
+      213: 8267035517703002796
+    second: WarriorWalkCombat_SS_8f_192x192_12
+  - first:
+      213: 6576342592561594657
+    second: WarriorWalkCombat_SS_8f_192x192_13
+  - first:
+      213: -1786773902616736757
+    second: WarriorWalkCombat_SS_8f_192x192_14
+  - first:
+      213: 5793409204738178584
+    second: WarriorWalkCombat_SS_8f_192x192_15
+  - first:
+      213: -7314633156311806384
+    second: WarriorWalkCombat_SS_8f_192x192_16
+  - first:
+      213: 2352810054096976912
+    second: WarriorWalkCombat_SS_8f_192x192_17
+  - first:
+      213: -2678308190621167721
+    second: WarriorWalkCombat_SS_8f_192x192_18
+  - first:
+      213: -3984689314896800767
+    second: WarriorWalkCombat_SS_8f_192x192_19
+  - first:
+      213: -4272830148518106300
+    second: WarriorWalkCombat_SS_8f_192x192_20
+  - first:
+      213: -6218294939667667310
+    second: WarriorWalkCombat_SS_8f_192x192_21
+  - first:
+      213: 1268873764712371999
+    second: WarriorWalkCombat_SS_8f_192x192_22
+  - first:
+      213: -8344152414588063367
+    second: WarriorWalkCombat_SS_8f_192x192_23
+  - first:
+      213: -4179850816523803191
+    second: WarriorWalkCombat_SS_8f_192x192_24
+  - first:
+      213: -6316881034202648914
+    second: WarriorWalkCombat_SS_8f_192x192_25
+  - first:
+      213: 953712265761653891
+    second: WarriorWalkCombat_SS_8f_192x192_26
+  - first:
+      213: 4387284000211299977
+    second: WarriorWalkCombat_SS_8f_192x192_27
+  - first:
+      213: -7560484940883035137
+    second: WarriorWalkCombat_SS_8f_192x192_28
+  - first:
+      213: -8919165602086479271
+    second: WarriorWalkCombat_SS_8f_192x192_29
+  - first:
+      213: 2859873940606549005
+    second: WarriorWalkCombat_SS_8f_192x192_30
+  - first:
+      213: 2867469257034666941
+    second: WarriorWalkCombat_SS_8f_192x192_31
+  - first:
+      213: -2216945430709062367
+    second: WarriorWalkCombat_SS_8f_192x192_32
+  - first:
+      213: 4006248055346699312
+    second: WarriorWalkCombat_SS_8f_192x192_33
+  - first:
+      213: -8608153054982617431
+    second: WarriorWalkCombat_SS_8f_192x192_34
+  - first:
+      213: 5974948888983304825
+    second: WarriorWalkCombat_SS_8f_192x192_35
+  - first:
+      213: 4547820357691264417
+    second: WarriorWalkCombat_SS_8f_192x192_36
+  - first:
+      213: -2372165681974442462
+    second: WarriorWalkCombat_SS_8f_192x192_37
+  - first:
+      213: 3268690312949824358
+    second: WarriorWalkCombat_SS_8f_192x192_38
+  - first:
+      213: -7739582726284032826
+    second: WarriorWalkCombat_SS_8f_192x192_39
+  - first:
+      213: -1054535536767244674
+    second: WarriorWalkCombat_SS_8f_192x192_40
+  - first:
+      213: 3368478049688552798
+    second: WarriorWalkCombat_SS_8f_192x192_41
+  - first:
+      213: -2190914735526443261
+    second: WarriorWalkCombat_SS_8f_192x192_42
+  - first:
+      213: -4154349544294213476
+    second: WarriorWalkCombat_SS_8f_192x192_43
+  - first:
+      213: 6332082534255397465
+    second: WarriorWalkCombat_SS_8f_192x192_44
+  - first:
+      213: -8534177873322906387
+    second: WarriorWalkCombat_SS_8f_192x192_45
+  - first:
+      213: 8747664788337080799
+    second: WarriorWalkCombat_SS_8f_192x192_46
+  - first:
+      213: -559655062740231964
+    second: WarriorWalkCombat_SS_8f_192x192_47
+  - first:
+      213: 5594290438901963147
+    second: WarriorWalkCombat_SS_8f_192x192_48
+  - first:
+      213: -7150124080073835280
+    second: WarriorWalkCombat_SS_8f_192x192_49
+  - first:
+      213: 7224980369957725906
+    second: WarriorWalkCombat_SS_8f_192x192_50
+  - first:
+      213: -6368016301774559970
+    second: WarriorWalkCombat_SS_8f_192x192_51
+  - first:
+      213: -8310456499653888362
+    second: WarriorWalkCombat_SS_8f_192x192_52
+  - first:
+      213: 633696296378840350
+    second: WarriorWalkCombat_SS_8f_192x192_53
+  - first:
+      213: 4116061556513062626
+    second: WarriorWalkCombat_SS_8f_192x192_54
+  - first:
+      213: 5259159956323744708
+    second: WarriorWalkCombat_SS_8f_192x192_55
+  - first:
+      213: 2419736929045136973
+    second: WarriorWalkCombat_SS_8f_192x192_56
+  - first:
+      213: -1628143830384099506
+    second: WarriorWalkCombat_SS_8f_192x192_57
+  - first:
+      213: -6658384024180072887
+    second: WarriorWalkCombat_SS_8f_192x192_58
+  - first:
+      213: 122631834652522529
+    second: WarriorWalkCombat_SS_8f_192x192_59
+  - first:
+      213: 1206824228751425854
+    second: WarriorWalkCombat_SS_8f_192x192_60
+  - first:
+      213: 1123795504720545430
+    second: WarriorWalkCombat_SS_8f_192x192_61
+  - first:
+      213: 3016499355671662659
+    second: WarriorWalkCombat_SS_8f_192x192_62
+  - first:
+      213: 7887681573144373674
+    second: WarriorWalkCombat_SS_8f_192x192_63
+  - first:
+      213: 4979000869824363916
+    second: WarriorWalkCombat_SS_8f_192x192_64
+  - first:
+      213: 8753898555278283315
+    second: WarriorWalkCombat_SS_8f_192x192_65
+  - first:
+      213: 1155324218986670407
+    second: WarriorWalkCombat_SS_8f_192x192_66
+  - first:
+      213: 3937996527736702417
+    second: WarriorWalkCombat_SS_8f_192x192_67
+  - first:
+      213: -3453588394100927724
+    second: WarriorWalkCombat_SS_8f_192x192_68
+  - first:
+      213: 6685661449124037928
+    second: WarriorWalkCombat_SS_8f_192x192_69
+  - first:
+      213: -6001373216747497562
+    second: WarriorWalkCombat_SS_8f_192x192_70
+  - first:
+      213: -7641880898151231260
+    second: WarriorWalkCombat_SS_8f_192x192_71
+  - first:
+      213: 7174877112460419567
+    second: WarriorWalkCombat_SS_8f_192x192_72
+  - first:
+      213: -1638143269200389264
+    second: WarriorWalkCombat_SS_8f_192x192_73
+  - first:
+      213: -6421982589369128594
+    second: WarriorWalkCombat_SS_8f_192x192_74
+  - first:
+      213: 567989246605370127
+    second: WarriorWalkCombat_SS_8f_192x192_75
+  - first:
+      213: -1782691209405872703
+    second: WarriorWalkCombat_SS_8f_192x192_76
+  - first:
+      213: -6403684608833013430
+    second: WarriorWalkCombat_SS_8f_192x192_77
+  - first:
+      213: -4627236322180687297
+    second: WarriorWalkCombat_SS_8f_192x192_78
+  - first:
+      213: 6334141118334736029
+    second: WarriorWalkCombat_SS_8f_192x192_79
+  - first:
+      213: 3943967966865680996
+    second: WarriorWalkCombat_SS_8f_192x192_80
+  - first:
+      213: -1076192136335751705
+    second: WarriorWalkCombat_SS_8f_192x192_81
+  - first:
+      213: 7363659752817667043
+    second: WarriorWalkCombat_SS_8f_192x192_82
+  - first:
+      213: -8517930056241308026
+    second: WarriorWalkCombat_SS_8f_192x192_83
+  - first:
+      213: -8328039191652662059
+    second: WarriorWalkCombat_SS_8f_192x192_84
+  - first:
+      213: 806687760702248646
+    second: WarriorWalkCombat_SS_8f_192x192_85
+  - first:
+      213: -4093065126753860753
+    second: WarriorWalkCombat_SS_8f_192x192_86
+  - first:
+      213: 3402682182751318603
+    second: WarriorWalkCombat_SS_8f_192x192_87
+  - first:
+      213: 6105295720763179528
+    second: WarriorWalkCombat_SS_8f_192x192_88
+  - first:
+      213: 5533787209605603863
+    second: WarriorWalkCombat_SS_8f_192x192_89
+  - first:
+      213: -1088379367761293382
+    second: WarriorWalkCombat_SS_8f_192x192_90
+  - first:
+      213: -2708858728104267136
+    second: WarriorWalkCombat_SS_8f_192x192_91
+  - first:
+      213: 2863352177164672932
+    second: WarriorWalkCombat_SS_8f_192x192_92
+  - first:
+      213: 298096977438641866
+    second: WarriorWalkCombat_SS_8f_192x192_93
+  - first:
+      213: -4463050893356698925
+    second: WarriorWalkCombat_SS_8f_192x192_94
+  - first:
+      213: -6115361554646361501
+    second: WarriorWalkCombat_SS_8f_192x192_95
+  - first:
+      213: -4187517302232859503
+    second: WarriorWalkCombat_SS_8f_192x192_96
+  - first:
+      213: -6775922419580253866
+    second: WarriorWalkCombat_SS_8f_192x192_97
+  - first:
+      213: -7409334770029844160
+    second: WarriorWalkCombat_SS_8f_192x192_98
+  - first:
+      213: 6234397240245881353
+    second: WarriorWalkCombat_SS_8f_192x192_99
+  - first:
+      213: 620287926597769177
+    second: WarriorWalkCombat_SS_8f_192x192_100
+  - first:
+      213: -2006669566739697897
+    second: WarriorWalkCombat_SS_8f_192x192_101
+  - first:
+      213: 323141430511639416
+    second: WarriorWalkCombat_SS_8f_192x192_102
+  - first:
+      213: -5434235315866700518
+    second: WarriorWalkCombat_SS_8f_192x192_103
+  - first:
+      213: 2352355158685805784
+    second: WarriorWalkCombat_SS_8f_192x192_104
+  - first:
+      213: 8743177606244193601
+    second: WarriorWalkCombat_SS_8f_192x192_105
+  - first:
+      213: -355321241860813363
+    second: WarriorWalkCombat_SS_8f_192x192_106
+  - first:
+      213: 882052898127637480
+    second: WarriorWalkCombat_SS_8f_192x192_107
+  - first:
+      213: -8016640070151161482
+    second: WarriorWalkCombat_SS_8f_192x192_108
+  - first:
+      213: 4881232157769499823
+    second: WarriorWalkCombat_SS_8f_192x192_109
+  - first:
+      213: 8847433177695888275
+    second: WarriorWalkCombat_SS_8f_192x192_110
+  - first:
+      213: 3104190405642602365
+    second: WarriorWalkCombat_SS_8f_192x192_111
+  - first:
+      213: 1432467939760818199
+    second: WarriorWalkCombat_SS_8f_192x192_112
+  - first:
+      213: 3590199225795605567
+    second: WarriorWalkCombat_SS_8f_192x192_113
+  - first:
+      213: 3349760130000573913
+    second: WarriorWalkCombat_SS_8f_192x192_114
+  - first:
+      213: -755193704461039174
+    second: WarriorWalkCombat_SS_8f_192x192_115
+  - first:
+      213: -7523791991729315776
+    second: WarriorWalkCombat_SS_8f_192x192_116
+  - first:
+      213: 7461983714855593383
+    second: WarriorWalkCombat_SS_8f_192x192_117
+  - first:
+      213: 8136132864702479396
+    second: WarriorWalkCombat_SS_8f_192x192_118
+  - first:
+      213: -797315993133783312
+    second: WarriorWalkCombat_SS_8f_192x192_119
+  - first:
+      213: 1223607070266366036
+    second: WarriorWalkCombat_SS_8f_192x192_120
+  - first:
+      213: -7773874059690849473
+    second: WarriorWalkCombat_SS_8f_192x192_121
+  - first:
+      213: 1622709008950487188
+    second: WarriorWalkCombat_SS_8f_192x192_122
+  - first:
+      213: 8789031248061678120
+    second: WarriorWalkCombat_SS_8f_192x192_123
+  - first:
+      213: -1750217330753305344
+    second: WarriorWalkCombat_SS_8f_192x192_124
+  - first:
+      213: -7239423304951477575
+    second: WarriorWalkCombat_SS_8f_192x192_125
+  - first:
+      213: 2441107903644920472
+    second: WarriorWalkCombat_SS_8f_192x192_126
+  - first:
+      213: -5437891658594191966
+    second: WarriorWalkCombat_SS_8f_192x192_127
+  - first:
+      213: 5466407921341085397
+    second: WarriorWalkCombat_SS_8f_192x192_128
+  - first:
+      213: -6937643102521964296
+    second: WarriorWalkCombat_SS_8f_192x192_129
+  - first:
+      213: 4724365006258716034
+    second: WarriorWalkCombat_SS_8f_192x192_130
+  - first:
+      213: 1917786907102329032
+    second: WarriorWalkCombat_SS_8f_192x192_131
+  - first:
+      213: 1500561755118254311
+    second: WarriorWalkCombat_SS_8f_192x192_132
+  - first:
+      213: 8648498907078735186
+    second: WarriorWalkCombat_SS_8f_192x192_133
+  - first:
+      213: -6566236240452285673
+    second: WarriorWalkCombat_SS_8f_192x192_134
+  - first:
+      213: -6182310474769012664
+    second: WarriorWalkCombat_SS_8f_192x192_135
+  - first:
+      213: -755192601575477023
+    second: WarriorWalkCombat_SS_8f_192x192_136
+  - first:
+      213: 4865729660890959881
+    second: WarriorWalkCombat_SS_8f_192x192_137
+  - first:
+      213: 5549867927703775928
+    second: WarriorWalkCombat_SS_8f_192x192_138
+  - first:
+      213: -4623237525080503397
+    second: WarriorWalkCombat_SS_8f_192x192_139
+  - first:
+      213: 8668888612063361992
+    second: WarriorWalkCombat_SS_8f_192x192_140
+  - first:
+      213: -8001843338350562781
+    second: WarriorWalkCombat_SS_8f_192x192_141
+  - first:
+      213: 693414214196359144
+    second: WarriorWalkCombat_SS_8f_192x192_142
+  - first:
+      213: 5652923618990398373
+    second: WarriorWalkCombat_SS_8f_192x192_143
+  - first:
+      213: -5099524107864772622
+    second: WarriorWalkCombat_SS_8f_192x192_144
+  - first:
+      213: -360218323136950596
+    second: WarriorWalkCombat_SS_8f_192x192_145
+  - first:
+      213: 8043734816641539461
+    second: WarriorWalkCombat_SS_8f_192x192_146
+  - first:
+      213: -8976482441935615955
+    second: WarriorWalkCombat_SS_8f_192x192_147
+  - first:
+      213: 4199145093753928832
+    second: WarriorWalkCombat_SS_8f_192x192_148
+  - first:
+      213: -8041321300919576583
+    second: WarriorWalkCombat_SS_8f_192x192_149
+  - first:
+      213: 8425292475877071228
+    second: WarriorWalkCombat_SS_8f_192x192_150
+  - first:
+      213: -3685382464117264530
+    second: WarriorWalkCombat_SS_8f_192x192_151
+  - first:
+      213: 9172726504972534629
+    second: WarriorWalkCombat_SS_8f_192x192_152
+  - first:
+      213: 2439793726916679972
+    second: WarriorWalkCombat_SS_8f_192x192_153
+  - first:
+      213: -2481281735685890309
+    second: WarriorWalkCombat_SS_8f_192x192_154
+  - first:
+      213: 491901376411404798
+    second: WarriorWalkCombat_SS_8f_192x192_155
+  - first:
+      213: 3577674633864520568
+    second: WarriorWalkCombat_SS_8f_192x192_156
+  - first:
+      213: 4649223270663192658
+    second: WarriorWalkCombat_SS_8f_192x192_157
+  - first:
+      213: 4364142120111215700
+    second: WarriorWalkCombat_SS_8f_192x192_158
+  - first:
+      213: 7241058106496584073
+    second: WarriorWalkCombat_SS_8f_192x192_159
+  - first:
+      213: 4355334292682053899
+    second: WarriorWalkCombat_SS_8f_192x192_160
+  - first:
+      213: -4765329304967712327
+    second: WarriorWalkCombat_SS_8f_192x192_161
+  - first:
+      213: -3928642358694553393
+    second: WarriorWalkCombat_SS_8f_192x192_162
+  - first:
+      213: 1771100813274066703
+    second: WarriorWalkCombat_SS_8f_192x192_163
+  - first:
+      213: 667218832475429987
+    second: WarriorWalkCombat_SS_8f_192x192_164
+  - first:
+      213: 3120621634358038085
+    second: WarriorWalkCombat_SS_8f_192x192_165
+  - first:
+      213: 2518271328681269098
+    second: WarriorWalkCombat_SS_8f_192x192_166
+  - first:
+      213: 4766204186220550421
+    second: WarriorWalkCombat_SS_8f_192x192_167
+  - first:
+      213: 5096236468429359441
+    second: WarriorWalkCombat_SS_8f_192x192_168
+  - first:
+      213: -1548650277556056892
+    second: WarriorWalkCombat_SS_8f_192x192_169
+  - first:
+      213: -5890158823171054196
+    second: WarriorWalkCombat_SS_8f_192x192_170
+  - first:
+      213: 7414452366912653651
+    second: WarriorWalkCombat_SS_8f_192x192_171
+  - first:
+      213: 7720313346991761825
+    second: WarriorWalkCombat_SS_8f_192x192_172
+  - first:
+      213: -5745575693047034242
+    second: WarriorWalkCombat_SS_8f_192x192_173
+  - first:
+      213: 5571498848316023403
+    second: WarriorWalkCombat_SS_8f_192x192_174
+  - first:
+      213: -2358513255032260049
+    second: WarriorWalkCombat_SS_8f_192x192_175
+  - first:
+      213: 4844160863282017610
+    second: WarriorWalkCombat_SS_8f_192x192_176
+  - first:
+      213: 2302478501362446466
+    second: WarriorWalkCombat_SS_8f_192x192_177
+  - first:
+      213: 4970094245233296649
+    second: WarriorWalkCombat_SS_8f_192x192_178
+  - first:
+      213: 1295906864875800794
+    second: WarriorWalkCombat_SS_8f_192x192_179
+  - first:
+      213: 205641582294348713
+    second: WarriorWalkCombat_SS_8f_192x192_180
+  - first:
+      213: 5635281751743819188
+    second: WarriorWalkCombat_SS_8f_192x192_181
+  - first:
+      213: -3512310327174967575
+    second: WarriorWalkCombat_SS_8f_192x192_182
+  - first:
+      213: -7318748068684959760
+    second: WarriorWalkCombat_SS_8f_192x192_183
+  - first:
+      213: -4175384435427755874
+    second: WarriorWalkCombat_SS_8f_192x192_184
+  - first:
+      213: -1871206145489485491
+    second: WarriorWalkCombat_SS_8f_192x192_185
+  - first:
+      213: -7466716651353679343
+    second: WarriorWalkCombat_SS_8f_192x192_186
+  - first:
+      213: -3958211232524299749
+    second: WarriorWalkCombat_SS_8f_192x192_187
+  - first:
+      213: 6278802935409806950
+    second: WarriorWalkCombat_SS_8f_192x192_188
+  - first:
+      213: -3871431113235555178
+    second: WarriorWalkCombat_SS_8f_192x192_189
+  - first:
+      213: -2271912147696727381
+    second: WarriorWalkCombat_SS_8f_192x192_190
+  - first:
+      213: -6922689130746585942
+    second: WarriorWalkCombat_SS_8f_192x192_191
+  - first:
+      213: -671964761353173006
+    second: WarriorWalkCombat_SS_8f_192x192_192
+  - first:
+      213: 7741643699929481995
+    second: WarriorWalkCombat_SS_8f_192x192_193
+  - first:
+      213: 8101161245559813987
+    second: WarriorWalkCombat_SS_8f_192x192_194
+  - first:
+      213: -4221197236332180065
+    second: WarriorWalkCombat_SS_8f_192x192_195
+  - first:
+      213: 852367692500735487
+    second: WarriorWalkCombat_SS_8f_192x192_196
+  - first:
+      213: -5069727208108794143
+    second: WarriorWalkCombat_SS_8f_192x192_197
+  - first:
+      213: -330538274474429204
+    second: WarriorWalkCombat_SS_8f_192x192_198
+  - first:
+      213: 184397159561949801
+    second: WarriorWalkCombat_SS_8f_192x192_199
+  - first:
+      213: 7956300662811538853
+    second: WarriorWalkCombat_SS_8f_192x192_200
+  - first:
+      213: -3511469459532526077
+    second: WarriorWalkCombat_SS_8f_192x192_201
+  - first:
+      213: -1189740614679821054
+    second: WarriorWalkCombat_SS_8f_192x192_202
+  - first:
+      213: -4642760162739822015
+    second: WarriorWalkCombat_SS_8f_192x192_203
+  - first:
+      213: 2990533643737471804
+    second: WarriorWalkCombat_SS_8f_192x192_204
+  - first:
+      213: -5961312309834726200
+    second: WarriorWalkCombat_SS_8f_192x192_205
+  - first:
+      213: 5624180339656981562
+    second: WarriorWalkCombat_SS_8f_192x192_206
+  - first:
+      213: -3053449295036999972
+    second: WarriorWalkCombat_SS_8f_192x192_207
+  - first:
+      213: -1940040514129280250
+    second: WarriorWalkCombat_SS_8f_192x192_208
+  - first:
+      213: -2982189419032231275
+    second: WarriorWalkCombat_SS_8f_192x192_209
+  - first:
+      213: 1104802169057895009
+    second: WarriorWalkCombat_SS_8f_192x192_210
+  - first:
+      213: -580054960145917096
+    second: WarriorWalkCombat_SS_8f_192x192_211
+  - first:
+      213: 546313715715696350
+    second: WarriorWalkCombat_SS_8f_192x192_212
+  - first:
+      213: -6003252206865670241
+    second: WarriorWalkCombat_SS_8f_192x192_213
+  - first:
+      213: 4847191304027286576
+    second: WarriorWalkCombat_SS_8f_192x192_214
+  - first:
+      213: -4312184189545920820
+    second: WarriorWalkCombat_SS_8f_192x192_215
+  - first:
+      213: 3610103450585542817
+    second: WarriorWalkCombat_SS_8f_192x192_216
+  - first:
+      213: 7944987067161271232
+    second: WarriorWalkCombat_SS_8f_192x192_217
+  - first:
+      213: -1991110606778918516
+    second: WarriorWalkCombat_SS_8f_192x192_218
+  - first:
+      213: 5752437548456899773
+    second: WarriorWalkCombat_SS_8f_192x192_219
+  - first:
+      213: -1392185153612598097
+    second: WarriorWalkCombat_SS_8f_192x192_220
+  - first:
+      213: -6013505202899757956
+    second: WarriorWalkCombat_SS_8f_192x192_221
+  - first:
+      213: -1424821917499810191
+    second: WarriorWalkCombat_SS_8f_192x192_222
+  - first:
+      213: -1608436614171139774
+    second: WarriorWalkCombat_SS_8f_192x192_223
+  - first:
+      213: 5034237450336794608
+    second: WarriorWalkCombat_SS_8f_192x192_224
+  - first:
+      213: 3454779001378229166
+    second: WarriorWalkCombat_SS_8f_192x192_225
+  - first:
+      213: -6407636945821183983
+    second: WarriorWalkCombat_SS_8f_192x192_226
+  - first:
+      213: -7284133484875236515
+    second: WarriorWalkCombat_SS_8f_192x192_227
+  - first:
+      213: 8726226134124212802
+    second: WarriorWalkCombat_SS_8f_192x192_228
+  - first:
+      213: -6115438460538913787
+    second: WarriorWalkCombat_SS_8f_192x192_229
+  - first:
+      213: 1693464010878019281
+    second: WarriorWalkCombat_SS_8f_192x192_230
+  - first:
+      213: 5259272754304692963
+    second: WarriorWalkCombat_SS_8f_192x192_231
+  - first:
+      213: 6281755972069444463
+    second: WarriorWalkCombat_SS_8f_192x192_232
+  - first:
+      213: -6123637652673031147
+    second: WarriorWalkCombat_SS_8f_192x192_233
+  - first:
+      213: 5756016110626174059
+    second: WarriorWalkCombat_SS_8f_192x192_234
+  - first:
+      213: -5707302321838534903
+    second: WarriorWalkCombat_SS_8f_192x192_235
+  - first:
+      213: -8967447382307999967
+    second: WarriorWalkCombat_SS_8f_192x192_236
+  - first:
+      213: -4648437529292392520
+    second: WarriorWalkCombat_SS_8f_192x192_237
+  - first:
+      213: -6556299259198436447
+    second: WarriorWalkCombat_SS_8f_192x192_238
+  - first:
+      213: -8657361559001516159
+    second: WarriorWalkCombat_SS_8f_192x192_239
+  - first:
+      213: -8928972787946606603
+    second: WarriorWalkCombat_SS_8f_192x192_240
+  - first:
+      213: 8756572615530731422
+    second: WarriorWalkCombat_SS_8f_192x192_241
+  - first:
+      213: -8676758425719772905
+    second: WarriorWalkCombat_SS_8f_192x192_242
+  - first:
+      213: -221931303812372803
+    second: WarriorWalkCombat_SS_8f_192x192_243
+  - first:
+      213: -2464919253886912011
+    second: WarriorWalkCombat_SS_8f_192x192_244
+  - first:
+      213: 4815424734317491268
+    second: WarriorWalkCombat_SS_8f_192x192_245
+  - first:
+      213: 1250790173840015833
+    second: WarriorWalkCombat_SS_8f_192x192_246
+  - first:
+      213: -5307404850094268144
+    second: WarriorWalkCombat_SS_8f_192x192_247
+  - first:
+      213: 4519428823638412689
+    second: WarriorWalkCombat_SS_8f_192x192_248
+  - first:
+      213: 7799563477192974328
+    second: WarriorWalkCombat_SS_8f_192x192_249
+  - first:
+      213: -4892261813841807432
+    second: WarriorWalkCombat_SS_8f_192x192_250
+  - first:
+      213: 1723220200630008835
+    second: WarriorWalkCombat_SS_8f_192x192_251
+  - first:
+      213: -8126906692587107849
+    second: WarriorWalkCombat_SS_8f_192x192_252
+  - first:
+      213: -6614798761635663288
+    second: WarriorWalkCombat_SS_8f_192x192_253
+  - first:
+      213: 7959934957393571471
+    second: WarriorWalkCombat_SS_8f_192x192_254
+  - first:
+      213: -3882559055674165415
+    second: WarriorWalkCombat_SS_8f_192x192_255
+  - first:
+      213: -2079836321855606703
+    second: WarriorWalkCombat_SS_8f_192x192_256
+  - first:
+      213: 7401981085114625218
+    second: WarriorWalkCombat_SS_8f_192x192_257
+  - first:
+      213: 3981764472585428516
+    second: WarriorWalkCombat_SS_8f_192x192_258
+  - first:
+      213: -5210443410010353227
+    second: WarriorWalkCombat_SS_8f_192x192_259
+  - first:
+      213: -3762754551557697786
+    second: WarriorWalkCombat_SS_8f_192x192_260
+  - first:
+      213: 8761966145750993008
+    second: WarriorWalkCombat_SS_8f_192x192_261
+  - first:
+      213: 8397239921763384974
+    second: WarriorWalkCombat_SS_8f_192x192_262
+  - first:
+      213: -7495958448543480763
+    second: WarriorWalkCombat_SS_8f_192x192_263
+  - first:
+      213: -5348639158848003676
+    second: WarriorWalkCombat_SS_8f_192x192_264
+  - first:
+      213: -505332842691794431
+    second: WarriorWalkCombat_SS_8f_192x192_265
+  - first:
+      213: -6575409847196527045
+    second: WarriorWalkCombat_SS_8f_192x192_266
+  - first:
+      213: 8716319373803811404
+    second: WarriorWalkCombat_SS_8f_192x192_267
+  - first:
+      213: -6409577065504467936
+    second: WarriorWalkCombat_SS_8f_192x192_268
+  - first:
+      213: 7104486827040525171
+    second: WarriorWalkCombat_SS_8f_192x192_269
+  - first:
+      213: 8107727249963692988
+    second: WarriorWalkCombat_SS_8f_192x192_270
+  - first:
+      213: 1786721597289395519
+    second: WarriorWalkCombat_SS_8f_192x192_271
+  - first:
+      213: -2510850136053068941
+    second: WarriorWalkCombat_SS_8f_192x192_272
+  - first:
+      213: 2051817444129218893
+    second: WarriorWalkCombat_SS_8f_192x192_273
+  - first:
+      213: 6330734153808846271
+    second: WarriorWalkCombat_SS_8f_192x192_274
+  - first:
+      213: 6025348320073281696
+    second: WarriorWalkCombat_SS_8f_192x192_275
+  - first:
+      213: -436808126526028649
+    second: WarriorWalkCombat_SS_8f_192x192_276
+  - first:
+      213: -8269663013911739977
+    second: WarriorWalkCombat_SS_8f_192x192_277
+  - first:
+      213: -8655015338796149375
+    second: WarriorWalkCombat_SS_8f_192x192_278
+  - first:
+      213: 3278931693544511155
+    second: WarriorWalkCombat_SS_8f_192x192_279
+  - first:
+      213: -2335650978637503161
+    second: WarriorWalkCombat_SS_8f_192x192_280
+  - first:
+      213: 6834380804643233189
+    second: WarriorWalkCombat_SS_8f_192x192_281
+  - first:
+      213: -5361315511010052830
+    second: WarriorWalkCombat_SS_8f_192x192_282
+  - first:
+      213: 8627415397739593134
+    second: WarriorWalkCombat_SS_8f_192x192_283
+  - first:
+      213: -2988093253170770927
+    second: WarriorWalkCombat_SS_8f_192x192_284
+  - first:
+      213: -197437421544208634
+    second: WarriorWalkCombat_SS_8f_192x192_285
+  - first:
+      213: 6581270132813526209
+    second: WarriorWalkCombat_SS_8f_192x192_286
+  - first:
+      213: 1226194191228534616
+    second: WarriorWalkCombat_SS_8f_192x192_287
+  - first:
+      213: 3646521802445923990
+    second: WarriorWalkCombat_SS_8f_192x192_288
+  - first:
+      213: 5388258545531027962
+    second: WarriorWalkCombat_SS_8f_192x192_289
+  - first:
+      213: 7259343778645780362
+    second: WarriorWalkCombat_SS_8f_192x192_290
+  - first:
+      213: -6929098268229181259
+    second: WarriorWalkCombat_SS_8f_192x192_291
+  - first:
+      213: 1904434560926627382
+    second: WarriorWalkCombat_SS_8f_192x192_292
+  - first:
+      213: -447706625268157460
+    second: WarriorWalkCombat_SS_8f_192x192_293
+  - first:
+      213: 6158260499954304272
+    second: WarriorWalkCombat_SS_8f_192x192_294
+  - first:
+      213: 1240168515120165093
+    second: WarriorWalkCombat_SS_8f_192x192_295
+  - first:
+      213: -487833657011491032
+    second: WarriorWalkCombat_SS_8f_192x192_296
+  - first:
+      213: 3316597453103873488
+    second: WarriorWalkCombat_SS_8f_192x192_297
+  - first:
+      213: 6749927469159585171
+    second: WarriorWalkCombat_SS_8f_192x192_298
+  - first:
+      213: -3174720726874031261
+    second: WarriorWalkCombat_SS_8f_192x192_299
+  - first:
+      213: 8380033753439737152
+    second: WarriorWalkCombat_SS_8f_192x192_300
+  - first:
+      213: -609491070253035283
+    second: WarriorWalkCombat_SS_8f_192x192_301
+  - first:
+      213: 12937669890731456
+    second: WarriorWalkCombat_SS_8f_192x192_302
+  - first:
+      213: -6322648673853348917
+    second: WarriorWalkCombat_SS_8f_192x192_303
+  - first:
+      213: 601747175020231252
+    second: WarriorWalkCombat_SS_8f_192x192_304
+  - first:
+      213: 1080937613404862170
+    second: WarriorWalkCombat_SS_8f_192x192_305
+  - first:
+      213: 3954777903536305023
+    second: WarriorWalkCombat_SS_8f_192x192_306
+  - first:
+      213: 4085396066886847913
+    second: WarriorWalkCombat_SS_8f_192x192_307
+  - first:
+      213: -2063964695545723341
+    second: WarriorWalkCombat_SS_8f_192x192_308
+  - first:
+      213: 8738911615474150062
+    second: WarriorWalkCombat_SS_8f_192x192_309
+  - first:
+      213: -3957608632349272114
+    second: WarriorWalkCombat_SS_8f_192x192_310
+  - first:
+      213: -6085217115342784016
+    second: WarriorWalkCombat_SS_8f_192x192_311
+  - first:
+      213: -5526716310895949424
+    second: WarriorWalkCombat_SS_8f_192x192_312
+  - first:
+      213: 4638624111278274051
+    second: WarriorWalkCombat_SS_8f_192x192_313
+  - first:
+      213: -8619124760892968988
+    second: WarriorWalkCombat_SS_8f_192x192_314
+  - first:
+      213: 434485657819375798
+    second: WarriorWalkCombat_SS_8f_192x192_315
+  - first:
+      213: -2132867012189374969
+    second: WarriorWalkCombat_SS_8f_192x192_316
+  - first:
+      213: -4349494313566259087
+    second: WarriorWalkCombat_SS_8f_192x192_317
+  - first:
+      213: -7315544431804193229
+    second: WarriorWalkCombat_SS_8f_192x192_318
+  - first:
+      213: -7301472615380618527
+    second: WarriorWalkCombat_SS_8f_192x192_319
+  - first:
+      213: 1755265849943504084
+    second: WarriorWalkCombat_SS_8f_192x192_320
+  - first:
+      213: 7832834010877140362
+    second: WarriorWalkCombat_SS_8f_192x192_321
+  - first:
+      213: 1572699075462271865
+    second: WarriorWalkCombat_SS_8f_192x192_322
+  - first:
+      213: 5906246823835466265
+    second: WarriorWalkCombat_SS_8f_192x192_323
+  - first:
+      213: -1963399959850463345
+    second: WarriorWalkCombat_SS_8f_192x192_324
+  - first:
+      213: 4726247208389306194
+    second: WarriorWalkCombat_SS_8f_192x192_325
+  - first:
+      213: -2900948417958878215
+    second: WarriorWalkCombat_SS_8f_192x192_326
+  - first:
+      213: 1248120732290947335
+    second: WarriorWalkCombat_SS_8f_192x192_327
+  - first:
+      213: 5109576801974381786
+    second: WarriorWalkCombat_SS_8f_192x192_328
+  - first:
+      213: -9013629093513561414
+    second: WarriorWalkCombat_SS_8f_192x192_329
+  - first:
+      213: -2266255092450265854
+    second: WarriorWalkCombat_SS_8f_192x192_330
+  - first:
+      213: 1745288026950764538
+    second: WarriorWalkCombat_SS_8f_192x192_331
+  - first:
+      213: -4911949885956196604
+    second: WarriorWalkCombat_SS_8f_192x192_332
+  - first:
+      213: -1268471608021883221
+    second: WarriorWalkCombat_SS_8f_192x192_333
+  - first:
+      213: 8075804136345652744
+    second: WarriorWalkCombat_SS_8f_192x192_334
+  - first:
+      213: 4469710603979408313
+    second: WarriorWalkCombat_SS_8f_192x192_335
+  - first:
+      213: 2969507127125197127
+    second: WarriorWalkCombat_SS_8f_192x192_336
+  - first:
+      213: 1773764505118468184
+    second: WarriorWalkCombat_SS_8f_192x192_337
+  - first:
+      213: 4429185942648598137
+    second: WarriorWalkCombat_SS_8f_192x192_338
+  - first:
+      213: -6645547115360508159
+    second: WarriorWalkCombat_SS_8f_192x192_339
+  - first:
+      213: -4596432098977898402
+    second: WarriorWalkCombat_SS_8f_192x192_340
+  - first:
+      213: 6590741279976707802
+    second: WarriorWalkCombat_SS_8f_192x192_341
+  - first:
+      213: -7996353463562240201
+    second: WarriorWalkCombat_SS_8f_192x192_342
+  - first:
+      213: -3549446577652181021
+    second: WarriorWalkCombat_SS_8f_192x192_343
+  - first:
+      213: 9213952340056599263
+    second: WarriorWalkCombat_SS_8f_192x192_344
+  - first:
+      213: -8249927435041176591
+    second: WarriorWalkCombat_SS_8f_192x192_345
+  - first:
+      213: -1800395990152941278
+    second: WarriorWalkCombat_SS_8f_192x192_346
+  - first:
+      213: 5869922923419707362
+    second: WarriorWalkCombat_SS_8f_192x192_347
+  - first:
+      213: -8503974330502919333
+    second: WarriorWalkCombat_SS_8f_192x192_348
+  - first:
+      213: -1968635518056726253
+    second: WarriorWalkCombat_SS_8f_192x192_349
+  - first:
+      213: 9201144712371881884
+    second: WarriorWalkCombat_SS_8f_192x192_350
+  - first:
+      213: -6212588586588549109
+    second: WarriorWalkCombat_SS_8f_192x192_351
+  - first:
+      213: 6163247397083238374
+    second: WarriorWalkCombat_SS_8f_192x192_352
+  - first:
+      213: -17175756653011948
+    second: WarriorWalkCombat_SS_8f_192x192_353
+  - first:
+      213: 5149169982074850002
+    second: WarriorWalkCombat_SS_8f_192x192_354
+  - first:
+      213: -2504334644998090554
+    second: WarriorWalkCombat_SS_8f_192x192_355
+  - first:
+      213: 8526615888463878967
+    second: WarriorWalkCombat_SS_8f_192x192_356
+  - first:
+      213: -4067217113909087336
+    second: WarriorWalkCombat_SS_8f_192x192_357
+  - first:
+      213: 6321251787223215649
+    second: WarriorWalkCombat_SS_8f_192x192_358
+  - first:
+      213: 3360814298298037328
+    second: WarriorWalkCombat_SS_8f_192x192_359
+  - first:
+      213: -6145063945803165677
+    second: WarriorWalkCombat_SS_8f_192x192_360
+  - first:
+      213: -4463505115436880610
+    second: WarriorWalkCombat_SS_8f_192x192_361
+  - first:
+      213: 7350766758748671321
+    second: WarriorWalkCombat_SS_8f_192x192_362
+  - first:
+      213: 6483115458099475957
+    second: WarriorWalkCombat_SS_8f_192x192_363
+  - first:
+      213: 1445398045635893137
+    second: WarriorWalkCombat_SS_8f_192x192_364
+  - first:
+      213: -6830246401554443284
+    second: WarriorWalkCombat_SS_8f_192x192_365
+  - first:
+      213: -7768753739499140876
+    second: WarriorWalkCombat_SS_8f_192x192_366
+  - first:
+      213: 958345662222343147
+    second: WarriorWalkCombat_SS_8f_192x192_367
+  - first:
+      213: -5682661619969457086
+    second: WarriorWalkCombat_SS_8f_192x192_368
+  - first:
+      213: -8582573801092392256
+    second: WarriorWalkCombat_SS_8f_192x192_369
+  - first:
+      213: 927804705427083577
+    second: WarriorWalkCombat_SS_8f_192x192_370
+  - first:
+      213: -4403407553701766302
+    second: WarriorWalkCombat_SS_8f_192x192_371
+  - first:
+      213: -4375982927106077145
+    second: WarriorWalkCombat_SS_8f_192x192_372
+  - first:
+      213: 446922089484281380
+    second: WarriorWalkCombat_SS_8f_192x192_373
+  - first:
+      213: -2634508550008273138
+    second: WarriorWalkCombat_SS_8f_192x192_374
+  - first:
+      213: 2791605175918042153
+    second: WarriorWalkCombat_SS_8f_192x192_375
+  - first:
+      213: -6237164189591854604
+    second: WarriorWalkCombat_SS_8f_192x192_376
+  - first:
+      213: 1385746546543576893
+    second: WarriorWalkCombat_SS_8f_192x192_377
+  - first:
+      213: -2130971282365486379
+    second: WarriorWalkCombat_SS_8f_192x192_378
+  - first:
+      213: 762012396295765513
+    second: WarriorWalkCombat_SS_8f_192x192_379
+  - first:
+      213: -5337934052801967881
+    second: WarriorWalkCombat_SS_8f_192x192_380
+  - first:
+      213: -8672289451331150557
+    second: WarriorWalkCombat_SS_8f_192x192_381
+  - first:
+      213: -2092517522057074068
+    second: WarriorWalkCombat_SS_8f_192x192_382
+  - first:
+      213: -4882434083521062892
+    second: WarriorWalkCombat_SS_8f_192x192_383
+  - first:
+      213: 1586135410164516760
+    second: WarriorWalkCombat_SS_8f_192x192_384
+  - first:
+      213: -1192697194452654716
+    second: WarriorWalkCombat_SS_8f_192x192_385
+  - first:
+      213: -5538812581194172271
+    second: WarriorWalkCombat_SS_8f_192x192_386
+  - first:
+      213: 6479611542452256938
+    second: WarriorWalkCombat_SS_8f_192x192_387
+  - first:
+      213: 1548537568252696207
+    second: WarriorWalkCombat_SS_8f_192x192_388
+  - first:
+      213: 610671671307910952
+    second: WarriorWalkCombat_SS_8f_192x192_389
+  - first:
+      213: 5047816709681891387
+    second: WarriorWalkCombat_SS_8f_192x192_390
+  - first:
+      213: 647290110557314859
+    second: WarriorWalkCombat_SS_8f_192x192_391
+  - first:
+      213: 5920204769277678620
+    second: WarriorWalkCombat_SS_8f_192x192_392
+  - first:
+      213: -6791412088508254597
+    second: WarriorWalkCombat_SS_8f_192x192_393
+  - first:
+      213: 7518522400294599683
+    second: WarriorWalkCombat_SS_8f_192x192_394
+  - first:
+      213: -8390280867089781235
+    second: WarriorWalkCombat_SS_8f_192x192_395
+  - first:
+      213: -961670194542913384
+    second: WarriorWalkCombat_SS_8f_192x192_396
+  - first:
+      213: -4951216743623523426
+    second: WarriorWalkCombat_SS_8f_192x192_397
+  - first:
+      213: -8498488194252044511
+    second: WarriorWalkCombat_SS_8f_192x192_398
+  - first:
+      213: -4324617272661093164
+    second: WarriorWalkCombat_SS_8f_192x192_399
+  - first:
+      213: 4546123615456568504
+    second: WarriorWalkCombat_SS_8f_192x192_400
+  - first:
+      213: -2383358021887780243
+    second: WarriorWalkCombat_SS_8f_192x192_401
+  - first:
+      213: -6097983534315738511
+    second: WarriorWalkCombat_SS_8f_192x192_402
+  - first:
+      213: 193092549930351982
+    second: WarriorWalkCombat_SS_8f_192x192_403
+  - first:
+      213: -978326637736784247
+    second: WarriorWalkCombat_SS_8f_192x192_404
+  - first:
+      213: -8437004367868749527
+    second: WarriorWalkCombat_SS_8f_192x192_405
+  - first:
+      213: -6349915478187981683
+    second: WarriorWalkCombat_SS_8f_192x192_406
+  - first:
+      213: -6965671181957263011
+    second: WarriorWalkCombat_SS_8f_192x192_407
+  - first:
+      213: 5817626943140987304
+    second: WarriorWalkCombat_SS_8f_192x192_408
+  - first:
+      213: 2866087195064926828
+    second: WarriorWalkCombat_SS_8f_192x192_409
+  - first:
+      213: -2236760754495647587
+    second: WarriorWalkCombat_SS_8f_192x192_410
+  - first:
+      213: 1988570649611041865
+    second: WarriorWalkCombat_SS_8f_192x192_411
+  - first:
+      213: -6132712262305447850
+    second: WarriorWalkCombat_SS_8f_192x192_412
+  - first:
+      213: -1350348805487995343
+    second: WarriorWalkCombat_SS_8f_192x192_413
+  - first:
+      213: -4168593896886662478
+    second: WarriorWalkCombat_SS_8f_192x192_414
+  - first:
+      213: 1365765216455467428
+    second: WarriorWalkCombat_SS_8f_192x192_415
+  - first:
+      213: 8865785741602939547
+    second: WarriorWalkCombat_SS_8f_192x192_416
+  - first:
+      213: 8334756814318632716
+    second: WarriorWalkCombat_SS_8f_192x192_417
+  - first:
+      213: -229741730220804492
+    second: WarriorWalkCombat_SS_8f_192x192_418
+  - first:
+      213: 6881789257923225802
+    second: WarriorWalkCombat_SS_8f_192x192_419
+  - first:
+      213: 1261403546949678239
+    second: WarriorWalkCombat_SS_8f_192x192_420
+  - first:
+      213: -5884909851916259274
+    second: WarriorWalkCombat_SS_8f_192x192_421
+  - first:
+      213: 8916323503954744636
+    second: WarriorWalkCombat_SS_8f_192x192_422
+  - first:
+      213: 4675105238216927337
+    second: WarriorWalkCombat_SS_8f_192x192_423
+  - first:
+      213: 4368693798891198920
+    second: WarriorWalkCombat_SS_8f_192x192_424
+  - first:
+      213: 7086389715869232275
+    second: WarriorWalkCombat_SS_8f_192x192_425
+  - first:
+      213: -4081052217403867488
+    second: WarriorWalkCombat_SS_8f_192x192_426
+  - first:
+      213: 6874988091005696289
+    second: WarriorWalkCombat_SS_8f_192x192_427
+  - first:
+      213: 6333562528795231684
+    second: WarriorWalkCombat_SS_8f_192x192_428
+  - first:
+      213: -6142708170774629738
+    second: WarriorWalkCombat_SS_8f_192x192_429
+  - first:
+      213: -2141839132898423862
+    second: WarriorWalkCombat_SS_8f_192x192_430
+  - first:
+      213: -5016465894715420826
+    second: WarriorWalkCombat_SS_8f_192x192_431
+  - first:
+      213: -5612538905046720030
+    second: WarriorWalkCombat_SS_8f_192x192_432
+  - first:
+      213: 2165263393320815942
+    second: WarriorWalkCombat_SS_8f_192x192_433
+  - first:
+      213: 8433848669138976400
+    second: WarriorWalkCombat_SS_8f_192x192_434
+  - first:
+      213: 1493021908754635262
+    second: WarriorWalkCombat_SS_8f_192x192_435
+  - first:
+      213: 4282127079016346101
+    second: WarriorWalkCombat_SS_8f_192x192_436
+  - first:
+      213: -3238182742837372830
+    second: WarriorWalkCombat_SS_8f_192x192_437
+  - first:
+      213: 9133720569784653758
+    second: WarriorWalkCombat_SS_8f_192x192_438
+  - first:
+      213: 8472446020862087123
+    second: WarriorWalkCombat_SS_8f_192x192_439
+  - first:
+      213: -4322723435817190390
+    second: WarriorWalkCombat_SS_8f_192x192_440
+  - first:
+      213: -3323075575617100459
+    second: WarriorWalkCombat_SS_8f_192x192_441
+  - first:
+      213: 4528401113857042456
+    second: WarriorWalkCombat_SS_8f_192x192_442
+  - first:
+      213: 433733599442312685
+    second: WarriorWalkCombat_SS_8f_192x192_443
+  - first:
+      213: 4316936346912540258
+    second: WarriorWalkCombat_SS_8f_192x192_444
+  - first:
+      213: -8287976814363361500
+    second: WarriorWalkCombat_SS_8f_192x192_445
+  - first:
+      213: -5686410476433048032
+    second: WarriorWalkCombat_SS_8f_192x192_446
+  - first:
+      213: -6802119323408138065
+    second: WarriorWalkCombat_SS_8f_192x192_447
+  - first:
+      213: 3114613891271422664
+    second: WarriorWalkCombat_SS_8f_192x192_448
+  - first:
+      213: 22453527433067170
+    second: WarriorWalkCombat_SS_8f_192x192_449
+  - first:
+      213: -3393739657298011930
+    second: WarriorWalkCombat_SS_8f_192x192_450
+  - first:
+      213: -646384377131616043
+    second: WarriorWalkCombat_SS_8f_192x192_451
+  - first:
+      213: -1364326157621773694
+    second: WarriorWalkCombat_SS_8f_192x192_452
+  - first:
+      213: 6071239579288291215
+    second: WarriorWalkCombat_SS_8f_192x192_453
+  - first:
+      213: -659033296610380235
+    second: WarriorWalkCombat_SS_8f_192x192_454
+  - first:
+      213: 2009100041926750789
+    second: WarriorWalkCombat_SS_8f_192x192_455
+  - first:
+      213: -3523976801564343510
+    second: WarriorWalkCombat_SS_8f_192x192_456
+  - first:
+      213: 4247183996812713625
+    second: WarriorWalkCombat_SS_8f_192x192_457
+  - first:
+      213: 857188526285110915
+    second: WarriorWalkCombat_SS_8f_192x192_458
+  - first:
+      213: -6458012982736500991
+    second: WarriorWalkCombat_SS_8f_192x192_459
+  - first:
+      213: 3925459774033960802
+    second: WarriorWalkCombat_SS_8f_192x192_460
+  - first:
+      213: 8844701847951669945
+    second: WarriorWalkCombat_SS_8f_192x192_461
+  - first:
+      213: 8557639680639276375
+    second: WarriorWalkCombat_SS_8f_192x192_462
+  - first:
+      213: -2071991338385288469
+    second: WarriorWalkCombat_SS_8f_192x192_463
+  - first:
+      213: -4433277142204057058
+    second: WarriorWalkCombat_SS_8f_192x192_464
+  - first:
+      213: -6928948025871416535
+    second: WarriorWalkCombat_SS_8f_192x192_465
+  - first:
+      213: -3878208619247168198
+    second: WarriorWalkCombat_SS_8f_192x192_466
+  - first:
+      213: -5120205814598592707
+    second: WarriorWalkCombat_SS_8f_192x192_467
+  - first:
+      213: 452134502036451763
+    second: WarriorWalkCombat_SS_8f_192x192_468
+  - first:
+      213: -7696157652142904522
+    second: WarriorWalkCombat_SS_8f_192x192_469
+  - first:
+      213: 9205848188510532582
+    second: WarriorWalkCombat_SS_8f_192x192_470
+  - first:
+      213: -6253900583825197910
+    second: WarriorWalkCombat_SS_8f_192x192_471
+  - first:
+      213: -5809802608764933426
+    second: WarriorWalkCombat_SS_8f_192x192_472
+  - first:
+      213: -8769665369799351455
+    second: WarriorWalkCombat_SS_8f_192x192_473
+  - first:
+      213: 3300848265787965893
+    second: WarriorWalkCombat_SS_8f_192x192_474
+  - first:
+      213: -8062105924590593863
+    second: WarriorWalkCombat_SS_8f_192x192_475
+  - first:
+      213: 1698822041644291242
+    second: WarriorWalkCombat_SS_8f_192x192_476
+  - first:
+      213: 8546479118857549669
+    second: WarriorWalkCombat_SS_8f_192x192_477
+  - first:
+      213: 4383257174517612662
+    second: WarriorWalkCombat_SS_8f_192x192_478
+  - first:
+      213: -2133436688467651167
+    second: WarriorWalkCombat_SS_8f_192x192_479
+  - first:
+      213: 8117135309396190127
+    second: WarriorWalkCombat_SS_8f_192x192_480
+  - first:
+      213: -9213884493868173393
+    second: WarriorWalkCombat_SS_8f_192x192_481
+  - first:
+      213: 3871375806940322498
+    second: WarriorWalkCombat_SS_8f_192x192_482
+  - first:
+      213: -5795911439652426628
+    second: WarriorWalkCombat_SS_8f_192x192_483
+  - first:
+      213: 3715005452665938540
+    second: WarriorWalkCombat_SS_8f_192x192_484
+  - first:
+      213: -6019444735374142765
+    second: WarriorWalkCombat_SS_8f_192x192_485
+  - first:
+      213: -4773904218796410665
+    second: WarriorWalkCombat_SS_8f_192x192_486
+  - first:
+      213: 7025064210956806023
+    second: WarriorWalkCombat_SS_8f_192x192_487
+  - first:
+      213: -8284014913579565556
+    second: WarriorWalkCombat_SS_8f_192x192_488
+  - first:
+      213: 151493847831289750
+    second: WarriorWalkCombat_SS_8f_192x192_489
+  - first:
+      213: -3559873548608206195
+    second: WarriorWalkCombat_SS_8f_192x192_490
+  - first:
+      213: 135425008881307108
+    second: WarriorWalkCombat_SS_8f_192x192_491
+  - first:
+      213: -8488486709750109623
+    second: WarriorWalkCombat_SS_8f_192x192_492
+  - first:
+      213: 1161257348883220848
+    second: WarriorWalkCombat_SS_8f_192x192_493
+  - first:
+      213: 4961845524218918656
+    second: WarriorWalkCombat_SS_8f_192x192_494
+  - first:
+      213: -1548287607971881244
+    second: WarriorWalkCombat_SS_8f_192x192_495
+  - first:
+      213: 2196683724950262882
+    second: WarriorWalkCombat_SS_8f_192x192_496
+  - first:
+      213: -7048543933266497148
+    second: WarriorWalkCombat_SS_8f_192x192_497
+  - first:
+      213: -3558340098961501099
+    second: WarriorWalkCombat_SS_8f_192x192_498
+  - first:
+      213: 6331281250356235027
+    second: WarriorWalkCombat_SS_8f_192x192_499
+  - first:
+      213: 2706254120012193997
+    second: WarriorWalkCombat_SS_8f_192x192_500
+  - first:
+      213: 5531464092962331461
+    second: WarriorWalkCombat_SS_8f_192x192_501
+  - first:
+      213: -8179061243497385350
+    second: WarriorWalkCombat_SS_8f_192x192_502
+  - first:
+      213: -1902886666622496129
+    second: WarriorWalkCombat_SS_8f_192x192_503
+  - first:
+      213: 4826074192415861212
+    second: WarriorWalkCombat_SS_8f_192x192_504
+  - first:
+      213: 6724717284200993009
+    second: WarriorWalkCombat_SS_8f_192x192_505
+  - first:
+      213: 3877843937260959135
+    second: WarriorWalkCombat_SS_8f_192x192_506
+  - first:
+      213: -4202629473028277564
+    second: WarriorWalkCombat_SS_8f_192x192_507
+  - first:
+      213: 424226127424693999
+    second: WarriorWalkCombat_SS_8f_192x192_508
+  - first:
+      213: 3801526419675224599
+    second: WarriorWalkCombat_SS_8f_192x192_509
+  - first:
+      213: 6675658342412722019
+    second: WarriorWalkCombat_SS_8f_192x192_510
+  - first:
+      213: 6874646939675202429
+    second: WarriorWalkCombat_SS_8f_192x192_511
+  - first:
+      213: -3998983888142077677
+    second: WarriorWalkCombat_SS_8f_192x192_512
+  - first:
+      213: 6739595887458974706
+    second: WarriorWalkCombat_SS_8f_192x192_513
+  - first:
+      213: -1477672268620846718
+    second: WarriorWalkCombat_SS_8f_192x192_514
+  - first:
+      213: 6206480791861607398
+    second: WarriorWalkCombat_SS_8f_192x192_515
+  - first:
+      213: -309157748381425399
+    second: WarriorWalkCombat_SS_8f_192x192_516
+  - first:
+      213: 8789837064676648108
+    second: WarriorWalkCombat_SS_8f_192x192_517
+  - first:
+      213: 4927783149415883242
+    second: WarriorWalkCombat_SS_8f_192x192_518
+  - first:
+      213: 7489688227795440578
+    second: WarriorWalkCombat_SS_8f_192x192_519
+  - first:
+      213: 4216923286681513790
+    second: WarriorWalkCombat_SS_8f_192x192_520
+  - first:
+      213: 1566939971036188623
+    second: WarriorWalkCombat_SS_8f_192x192_521
+  - first:
+      213: 2215672761994737045
+    second: WarriorWalkCombat_SS_8f_192x192_522
+  - first:
+      213: -2616508131989229825
+    second: WarriorWalkCombat_SS_8f_192x192_523
+  - first:
+      213: -2728301912848067193
+    second: WarriorWalkCombat_SS_8f_192x192_524
+  - first:
+      213: 7207242594344514280
+    second: WarriorWalkCombat_SS_8f_192x192_525
+  - first:
+      213: -70015386181458918
+    second: WarriorWalkCombat_SS_8f_192x192_526
+  - first:
+      213: 1132542450751473554
+    second: WarriorWalkCombat_SS_8f_192x192_527
+  - first:
+      213: 4183561979073270346
+    second: WarriorWalkCombat_SS_8f_192x192_528
+  - first:
+      213: -976539103456654299
+    second: WarriorWalkCombat_SS_8f_192x192_529
+  - first:
+      213: -4551177153537188665
+    second: WarriorWalkCombat_SS_8f_192x192_530
+  - first:
+      213: 9108381251880177299
+    second: WarriorWalkCombat_SS_8f_192x192_531
+  - first:
+      213: 7495732640652637288
+    second: WarriorWalkCombat_SS_8f_192x192_532
+  - first:
+      213: 249243960524762074
+    second: WarriorWalkCombat_SS_8f_192x192_533
+  - first:
+      213: 8080968669372009384
+    second: WarriorWalkCombat_SS_8f_192x192_534
+  - first:
+      213: -124386947980542108
+    second: WarriorWalkCombat_SS_8f_192x192_535
+  - first:
+      213: 7524064610447799441
+    second: WarriorWalkCombat_SS_8f_192x192_536
+  - first:
+      213: 6855970390879216470
+    second: WarriorWalkCombat_SS_8f_192x192_537
+  - first:
+      213: 9084774239670620787
+    second: WarriorWalkCombat_SS_8f_192x192_538
+  - first:
+      213: 5900020111969687896
+    second: WarriorWalkCombat_SS_8f_192x192_539
+  - first:
+      213: -8987853307435544272
+    second: WarriorWalkCombat_SS_8f_192x192_540
+  - first:
+      213: -4271603065699385262
+    second: WarriorWalkCombat_SS_8f_192x192_541
+  - first:
+      213: -4188981226903171947
+    second: WarriorWalkCombat_SS_8f_192x192_542
+  - first:
+      213: 8327032254180681136
+    second: WarriorWalkCombat_SS_8f_192x192_543
+  - first:
+      213: -6501175289736734596
+    second: WarriorWalkCombat_SS_8f_192x192_544
+  - first:
+      213: 1376392935784969869
+    second: WarriorWalkCombat_SS_8f_192x192_545
+  - first:
+      213: -8267634535672012863
+    second: WarriorWalkCombat_SS_8f_192x192_546
+  - first:
+      213: 2136138501047754488
+    second: WarriorWalkCombat_SS_8f_192x192_547
+  - first:
+      213: -4508738995525545899
+    second: WarriorWalkCombat_SS_8f_192x192_548
+  - first:
+      213: 8594432819431610187
+    second: WarriorWalkCombat_SS_8f_192x192_549
+  - first:
+      213: 7521521310338594349
+    second: WarriorWalkCombat_SS_8f_192x192_550
+  - first:
+      213: 591081257162142813
+    second: WarriorWalkCombat_SS_8f_192x192_551
+  - first:
+      213: -8052768160363017798
+    second: WarriorWalkCombat_SS_8f_192x192_552
+  - first:
+      213: 1682306599243682045
+    second: WarriorWalkCombat_SS_8f_192x192_553
+  - first:
+      213: 6031908539904814785
+    second: WarriorWalkCombat_SS_8f_192x192_554
+  - first:
+      213: 2004216662229940482
+    second: WarriorWalkCombat_SS_8f_192x192_555
+  - first:
+      213: -9196524571943646998
+    second: WarriorWalkCombat_SS_8f_192x192_556
+  - first:
+      213: -3305588256175275534
+    second: WarriorWalkCombat_SS_8f_192x192_557
+  - first:
+      213: -6726108403244444618
+    second: WarriorWalkCombat_SS_8f_192x192_558
+  - first:
+      213: 4082542613789394063
+    second: WarriorWalkCombat_SS_8f_192x192_559
+  - first:
+      213: -5399274081496619904
+    second: WarriorWalkCombat_SS_8f_192x192_560
+  - first:
+      213: 4834726861554228612
+    second: WarriorWalkCombat_SS_8f_192x192_561
+  - first:
+      213: -8971348716797167934
+    second: WarriorWalkCombat_SS_8f_192x192_562
+  - first:
+      213: 8439484893463342220
+    second: WarriorWalkCombat_SS_8f_192x192_563
+  - first:
+      213: 2874156862181339231
+    second: WarriorWalkCombat_SS_8f_192x192_564
+  - first:
+      213: 1350459282597272164
+    second: WarriorWalkCombat_SS_8f_192x192_565
+  - first:
+      213: 2977907397878271765
+    second: WarriorWalkCombat_SS_8f_192x192_566
+  - first:
+      213: 1515790500530093627
+    second: WarriorWalkCombat_SS_8f_192x192_567
+  - first:
+      213: 54317651516652274
+    second: WarriorWalkCombat_SS_8f_192x192_568
+  - first:
+      213: -6021346605635923801
+    second: WarriorWalkCombat_SS_8f_192x192_569
+  - first:
+      213: 1465993562869545630
+    second: WarriorWalkCombat_SS_8f_192x192_570
+  - first:
+      213: 7183818587265519539
+    second: WarriorWalkCombat_SS_8f_192x192_571
+  - first:
+      213: -612004489485656707
+    second: WarriorWalkCombat_SS_8f_192x192_572
+  - first:
+      213: -4319836966842488147
+    second: WarriorWalkCombat_SS_8f_192x192_573
+  - first:
+      213: -6905014129454917180
+    second: WarriorWalkCombat_SS_8f_192x192_574
+  - first:
+      213: 4809902076043684347
+    second: WarriorWalkCombat_SS_8f_192x192_575
+  - first:
+      213: -628583207499004598
+    second: WarriorWalkCombat_SS_8f_192x192_576
+  - first:
+      213: 31931291000262908
+    second: WarriorWalkCombat_SS_8f_192x192_577
+  - first:
+      213: 6174325881739003929
+    second: WarriorWalkCombat_SS_8f_192x192_578
+  - first:
+      213: 5539940120800288095
+    second: WarriorWalkCombat_SS_8f_192x192_579
+  - first:
+      213: -437849639762565579
+    second: WarriorWalkCombat_SS_8f_192x192_580
+  - first:
+      213: 609999092944373312
+    second: WarriorWalkCombat_SS_8f_192x192_581
+  - first:
+      213: -451057768316340521
+    second: WarriorWalkCombat_SS_8f_192x192_582
+  - first:
+      213: 6223104551601842916
+    second: WarriorWalkCombat_SS_8f_192x192_583
+  - first:
+      213: -1029269132116057481
+    second: WarriorWalkCombat_SS_8f_192x192_584
+  - first:
+      213: -5453018118574675902
+    second: WarriorWalkCombat_SS_8f_192x192_585
+  - first:
+      213: 7272292126523002936
+    second: WarriorWalkCombat_SS_8f_192x192_586
+  - first:
+      213: -1354934720943713396
+    second: WarriorWalkCombat_SS_8f_192x192_587
+  - first:
+      213: -6092142627291020272
+    second: WarriorWalkCombat_SS_8f_192x192_588
+  - first:
+      213: 6667310829090705272
+    second: WarriorWalkCombat_SS_8f_192x192_589
+  - first:
+      213: 7074900904697689212
+    second: WarriorWalkCombat_SS_8f_192x192_590
+  - first:
+      213: -6405990293749322873
+    second: WarriorWalkCombat_SS_8f_192x192_591
+  - first:
+      213: 6559377127158561663
+    second: WarriorWalkCombat_SS_8f_192x192_592
+  - first:
+      213: -7826680782537516265
+    second: WarriorWalkCombat_SS_8f_192x192_593
+  - first:
+      213: -8156273711852201264
+    second: WarriorWalkCombat_SS_8f_192x192_594
+  - first:
+      213: -8487203087836841469
+    second: WarriorWalkCombat_SS_8f_192x192_595
+  - first:
+      213: 5260355565931398291
+    second: WarriorWalkCombat_SS_8f_192x192_596
+  - first:
+      213: 8278324645921526962
+    second: WarriorWalkCombat_SS_8f_192x192_597
+  - first:
+      213: 1866795833615345096
+    second: WarriorWalkCombat_SS_8f_192x192_598
+  - first:
+      213: -918463819213736712
+    second: WarriorWalkCombat_SS_8f_192x192_599
+  - first:
+      213: 8547620672813437151
+    second: WarriorWalkCombat_SS_8f_192x192_600
+  - first:
+      213: 923562844197140073
+    second: WarriorWalkCombat_SS_8f_192x192_601
+  - first:
+      213: 7404150595372566751
+    second: WarriorWalkCombat_SS_8f_192x192_602
+  - first:
+      213: -2839168310298685950
+    second: WarriorWalkCombat_SS_8f_192x192_603
+  - first:
+      213: -7250572092758165631
+    second: WarriorWalkCombat_SS_8f_192x192_604
+  - first:
+      213: 2216311902935465088
+    second: WarriorWalkCombat_SS_8f_192x192_605
+  - first:
+      213: -4967795918461282160
+    second: WarriorWalkCombat_SS_8f_192x192_606
+  - first:
+      213: -2493448367263975985
+    second: WarriorWalkCombat_SS_8f_192x192_607
+  - first:
+      213: 1555026637408768237
+    second: WarriorWalkCombat_SS_8f_192x192_608
+  - first:
+      213: 221428727266331929
+    second: WarriorWalkCombat_SS_8f_192x192_609
+  - first:
+      213: 7535449470074855159
+    second: WarriorWalkCombat_SS_8f_192x192_610
+  - first:
+      213: -2124049627256525400
+    second: WarriorWalkCombat_SS_8f_192x192_611
+  - first:
+      213: -3319827750083706230
+    second: WarriorWalkCombat_SS_8f_192x192_612
+  - first:
+      213: 1686747788522838698
+    second: WarriorWalkCombat_SS_8f_192x192_613
+  - first:
+      213: 351966426974466418
+    second: WarriorWalkCombat_SS_8f_192x192_614
+  - first:
+      213: -1466263370389821920
+    second: WarriorWalkCombat_SS_8f_192x192_615
+  - first:
+      213: 471515490468914349
+    second: WarriorWalkCombat_SS_8f_192x192_616
+  - first:
+      213: 3523181709366633304
+    second: WarriorWalkCombat_SS_8f_192x192_617
+  - first:
+      213: -4095220788862443161
+    second: WarriorWalkCombat_SS_8f_192x192_618
+  - first:
+      213: 7607232654346655492
+    second: WarriorWalkCombat_SS_8f_192x192_619
+  - first:
+      213: -4730876879981274003
+    second: WarriorWalkCombat_SS_8f_192x192_620
+  - first:
+      213: -7158975652951338338
+    second: WarriorWalkCombat_SS_8f_192x192_621
+  - first:
+      213: 4824789951412050855
+    second: WarriorWalkCombat_SS_8f_192x192_622
+  - first:
+      213: 132719377309452172
+    second: WarriorWalkCombat_SS_8f_192x192_623
+  - first:
+      213: -1313817363978035283
+    second: WarriorWalkCombat_SS_8f_192x192_624
+  - first:
+      213: 8142903107700165720
+    second: WarriorWalkCombat_SS_8f_192x192_625
+  - first:
+      213: -7494775754551312240
+    second: WarriorWalkCombat_SS_8f_192x192_626
+  - first:
+      213: -2968009359779036021
+    second: WarriorWalkCombat_SS_8f_192x192_627
+  - first:
+      213: 3157716617869355090
+    second: WarriorWalkCombat_SS_8f_192x192_628
+  - first:
+      213: 7475926472363942327
+    second: WarriorWalkCombat_SS_8f_192x192_629
+  - first:
+      213: 7697221892833336973
+    second: WarriorWalkCombat_SS_8f_192x192_630
+  - first:
+      213: -3533695533027602175
+    second: WarriorWalkCombat_SS_8f_192x192_631
+  - first:
+      213: 1425441048482620014
+    second: WarriorWalkCombat_SS_8f_192x192_632
+  - first:
+      213: -4846195118514221147
+    second: WarriorWalkCombat_SS_8f_192x192_633
+  - first:
+      213: -2268322608725770320
+    second: WarriorWalkCombat_SS_8f_192x192_634
+  - first:
+      213: -8527964942028223333
+    second: WarriorWalkCombat_SS_8f_192x192_635
+  - first:
+      213: 7800326210333450698
+    second: WarriorWalkCombat_SS_8f_192x192_636
+  - first:
+      213: 6241561544722228249
+    second: WarriorWalkCombat_SS_8f_192x192_637
+  - first:
+      213: 2764418900858447488
+    second: WarriorWalkCombat_SS_8f_192x192_638
+  - first:
+      213: -4698899029237347001
+    second: WarriorWalkCombat_SS_8f_192x192_639
+  - first:
+      213: 1211114916533760924
+    second: WarriorWalkCombat_SS_8f_192x192_640
+  - first:
+      213: -6523141918957110093
+    second: WarriorWalkCombat_SS_8f_192x192_641
+  - first:
+      213: 6176289087195028551
+    second: WarriorWalkCombat_SS_8f_192x192_642
+  - first:
+      213: 7483535075240484273
+    second: WarriorWalkCombat_SS_8f_192x192_643
+  - first:
+      213: -8314496547358789958
+    second: WarriorWalkCombat_SS_8f_192x192_644
+  - first:
+      213: -4450005502643340758
+    second: WarriorWalkCombat_SS_8f_192x192_645
+  - first:
+      213: -4850716228997770012
+    second: WarriorWalkCombat_SS_8f_192x192_646
+  - first:
+      213: 7187469333404077083
+    second: WarriorWalkCombat_SS_8f_192x192_647
+  - first:
+      213: -7573796020991508692
+    second: WarriorWalkCombat_SS_8f_192x192_648
+  - first:
+      213: -6566829449014529300
+    second: WarriorWalkCombat_SS_8f_192x192_649
+  - first:
+      213: 4381522687278653283
+    second: WarriorWalkCombat_SS_8f_192x192_650
+  - first:
+      213: -1397583543235558348
+    second: WarriorWalkCombat_SS_8f_192x192_651
+  - first:
+      213: -2836130287642685543
+    second: WarriorWalkCombat_SS_8f_192x192_652
+  - first:
+      213: 7962723834392027749
+    second: WarriorWalkCombat_SS_8f_192x192_653
+  - first:
+      213: -464306472854218361
+    second: WarriorWalkCombat_SS_8f_192x192_654
+  - first:
+      213: 4316659640637739274
+    second: WarriorWalkCombat_SS_8f_192x192_655
+  - first:
+      213: -695153977179319591
+    second: WarriorWalkCombat_SS_8f_192x192_656
+  - first:
+      213: 4642453609603989936
+    second: WarriorWalkCombat_SS_8f_192x192_657
+  - first:
+      213: 7345709562131236134
+    second: WarriorWalkCombat_SS_8f_192x192_658
+  - first:
+      213: -2516256021008827024
+    second: WarriorWalkCombat_SS_8f_192x192_659
+  - first:
+      213: -908590862193323293
+    second: WarriorWalkCombat_SS_8f_192x192_660
+  - first:
+      213: 8870529623385391536
+    second: WarriorWalkCombat_SS_8f_192x192_661
+  - first:
+      213: -2945302405493545242
+    second: WarriorWalkCombat_SS_8f_192x192_662
+  - first:
+      213: 1702980689284624831
+    second: WarriorWalkCombat_SS_8f_192x192_663
+  - first:
+      213: -2475825446749524488
+    second: WarriorWalkCombat_SS_8f_192x192_664
+  - first:
+      213: 1815436443676291282
+    second: WarriorWalkCombat_SS_8f_192x192_665
+  - first:
+      213: 6447082485068885788
+    second: WarriorWalkCombat_SS_8f_192x192_666
+  - first:
+      213: -3850869625119680139
+    second: WarriorWalkCombat_SS_8f_192x192_667
+  - first:
+      213: 1444568844319499326
+    second: WarriorWalkCombat_SS_8f_192x192_668
+  - first:
+      213: 3310236742151120167
+    second: WarriorWalkCombat_SS_8f_192x192_669
+  - first:
+      213: 8549676629312468529
+    second: WarriorWalkCombat_SS_8f_192x192_670
+  - first:
+      213: 1140583463042882691
+    second: WarriorWalkCombat_SS_8f_192x192_671
+  - first:
+      213: -7422759090643023457
+    second: WarriorWalkCombat_SS_8f_192x192_672
+  - first:
+      213: -2002567405629870006
+    second: WarriorWalkCombat_SS_8f_192x192_673
+  - first:
+      213: 5115990595158967470
+    second: WarriorWalkCombat_SS_8f_192x192_674
+  - first:
+      213: -6342526208628813548
+    second: WarriorWalkCombat_SS_8f_192x192_675
+  - first:
+      213: 951940820431423864
+    second: WarriorWalkCombat_SS_8f_192x192_676
+  - first:
+      213: -7808053957466141310
+    second: WarriorWalkCombat_SS_8f_192x192_677
+  - first:
+      213: 2116482728053162004
+    second: WarriorWalkCombat_SS_8f_192x192_678
+  - first:
+      213: -3733510198130379655
+    second: WarriorWalkCombat_SS_8f_192x192_679
+  - first:
+      213: -7012726778939802988
+    second: WarriorWalkCombat_SS_8f_192x192_680
+  - first:
+      213: -5987593474674649304
+    second: WarriorWalkCombat_SS_8f_192x192_681
+  - first:
+      213: 639858490766505019
+    second: WarriorWalkCombat_SS_8f_192x192_682
+  - first:
+      213: 2553157409662063996
+    second: WarriorWalkCombat_SS_8f_192x192_683
+  - first:
+      213: -154878655678704919
+    second: WarriorWalkCombat_SS_8f_192x192_684
+  - first:
+      213: 504400882625603020
+    second: WarriorWalkCombat_SS_8f_192x192_685
+  - first:
+      213: -854980086407797353
+    second: WarriorWalkCombat_SS_8f_192x192_686
+  - first:
+      213: 6089093772545405839
+    second: WarriorWalkCombat_SS_8f_192x192_687
+  - first:
+      213: 3994974704568103742
+    second: WarriorWalkCombat_SS_8f_192x192_688
+  - first:
+      213: -3384889432200692417
+    second: WarriorWalkCombat_SS_8f_192x192_689
+  - first:
+      213: -6903333656178835732
+    second: WarriorWalkCombat_SS_8f_192x192_690
+  - first:
+      213: -1468546837790961556
+    second: WarriorWalkCombat_SS_8f_192x192_691
+  - first:
+      213: 6925608158468996111
+    second: WarriorWalkCombat_SS_8f_192x192_692
+  - first:
+      213: -8549249917224195290
+    second: WarriorWalkCombat_SS_8f_192x192_693
+  - first:
+      213: 5710359839752034523
+    second: WarriorWalkCombat_SS_8f_192x192_694
+  - first:
+      213: 2586019592021377158
+    second: WarriorWalkCombat_SS_8f_192x192_695
+  - first:
+      213: -2891192951811928627
+    second: WarriorWalkCombat_SS_8f_192x192_696
+  - first:
+      213: -4784492534604803997
+    second: WarriorWalkCombat_SS_8f_192x192_697
+  - first:
+      213: -3401436489786465413
+    second: WarriorWalkCombat_SS_8f_192x192_698
+  - first:
+      213: -1712614646514254768
+    second: WarriorWalkCombat_SS_8f_192x192_699
+  - first:
+      213: 3793370382529707357
+    second: WarriorWalkCombat_SS_8f_192x192_700
+  - first:
+      213: 6990376849493537671
+    second: WarriorWalkCombat_SS_8f_192x192_701
+  - first:
+      213: -1396174615044209668
+    second: WarriorWalkCombat_SS_8f_192x192_702
+  - first:
+      213: 8732942687424130960
+    second: WarriorWalkCombat_SS_8f_192x192_703
+  - first:
+      213: -6320451133763814567
+    second: WarriorWalkCombat_SS_8f_192x192_704
+  - first:
+      213: -6287129962583747524
+    second: WarriorWalkCombat_SS_8f_192x192_705
+  - first:
+      213: 5793957200773157652
+    second: WarriorWalkCombat_SS_8f_192x192_706
+  - first:
+      213: -8162320544023716001
+    second: WarriorWalkCombat_SS_8f_192x192_707
+  - first:
+      213: -8447213064125234850
+    second: WarriorWalkCombat_SS_8f_192x192_708
+  - first:
+      213: -3659753258344282123
+    second: WarriorWalkCombat_SS_8f_192x192_709
+  - first:
+      213: 5177015873741726786
+    second: WarriorWalkCombat_SS_8f_192x192_710
+  - first:
+      213: 6072518511024445559
+    second: WarriorWalkCombat_SS_8f_192x192_711
+  - first:
+      213: -3677282592269906453
+    second: WarriorWalkCombat_SS_8f_192x192_712
+  - first:
+      213: -297222544661109663
+    second: WarriorWalkCombat_SS_8f_192x192_713
+  - first:
+      213: 8822834578420435976
+    second: WarriorWalkCombat_SS_8f_192x192_714
+  - first:
+      213: 2941460149075237011
+    second: WarriorWalkCombat_SS_8f_192x192_715
+  - first:
+      213: -7417029914069103377
+    second: WarriorWalkCombat_SS_8f_192x192_716
+  - first:
+      213: 6858133979582592886
+    second: WarriorWalkCombat_SS_8f_192x192_717
+  - first:
+      213: 794045180088161831
+    second: WarriorWalkCombat_SS_8f_192x192_718
+  - first:
+      213: -1646855689043925369
+    second: WarriorWalkCombat_SS_8f_192x192_719
+  - first:
+      213: -5135069039480406942
+    second: WarriorWalkCombat_SS_8f_192x192_720
+  - first:
+      213: -961206864150594625
+    second: WarriorWalkCombat_SS_8f_192x192_721
+  - first:
+      213: 8859065222931483159
+    second: WarriorWalkCombat_SS_8f_192x192_722
+  - first:
+      213: 3604830436604809372
+    second: WarriorWalkCombat_SS_8f_192x192_723
+  - first:
+      213: -5422199224514399952
+    second: WarriorWalkCombat_SS_8f_192x192_724
+  - first:
+      213: -357460003776717154
+    second: WarriorWalkCombat_SS_8f_192x192_725
+  - first:
+      213: 7234355382311594726
+    second: WarriorWalkCombat_SS_8f_192x192_726
+  - first:
+      213: -5404998215486634347
+    second: WarriorWalkCombat_SS_8f_192x192_727
+  - first:
+      213: 4931742013772091507
+    second: WarriorWalkCombat_SS_8f_192x192_728
+  - first:
+      213: 8303825263248057028
+    second: WarriorWalkCombat_SS_8f_192x192_729
+  - first:
+      213: 7399372649846977348
+    second: WarriorWalkCombat_SS_8f_192x192_730
+  - first:
+      213: -3081992036977520487
+    second: WarriorWalkCombat_SS_8f_192x192_731
+  - first:
+      213: -8442404596140692026
+    second: WarriorWalkCombat_SS_8f_192x192_732
+  - first:
+      213: -8471397389891695401
+    second: WarriorWalkCombat_SS_8f_192x192_733
+  - first:
+      213: -7268683373888162715
+    second: WarriorWalkCombat_SS_8f_192x192_734
+  - first:
+      213: 3343129548458556133
+    second: WarriorWalkCombat_SS_8f_192x192_735
+  - first:
+      213: 1706707194983447938
+    second: WarriorWalkCombat_SS_8f_192x192_736
+  - first:
+      213: 8980439100848262029
+    second: WarriorWalkCombat_SS_8f_192x192_737
+  - first:
+      213: -1753902494982667870
+    second: WarriorWalkCombat_SS_8f_192x192_738
+  - first:
+      213: -4842024815156964907
+    second: WarriorWalkCombat_SS_8f_192x192_739
+  - first:
+      213: 8182021339232417359
+    second: WarriorWalkCombat_SS_8f_192x192_740
+  - first:
+      213: 4703237180623701680
+    second: WarriorWalkCombat_SS_8f_192x192_741
+  - first:
+      213: -4594632757138115347
+    second: WarriorWalkCombat_SS_8f_192x192_742
+  - first:
+      213: -1236175317447716585
+    second: WarriorWalkCombat_SS_8f_192x192_743
+  - first:
+      213: 7435055375868773728
+    second: WarriorWalkCombat_SS_8f_192x192_744
+  - first:
+      213: -3361229621194723460
+    second: WarriorWalkCombat_SS_8f_192x192_745
+  - first:
+      213: 8433960288797262122
+    second: WarriorWalkCombat_SS_8f_192x192_746
+  - first:
+      213: 6802070510501547923
+    second: WarriorWalkCombat_SS_8f_192x192_747
+  - first:
+      213: -5300774361746416791
+    second: WarriorWalkCombat_SS_8f_192x192_748
+  - first:
+      213: -1654221749339249108
+    second: WarriorWalkCombat_SS_8f_192x192_749
+  - first:
+      213: 5242692684934691552
+    second: WarriorWalkCombat_SS_8f_192x192_750
+  - first:
+      213: 5767494126956934912
+    second: WarriorWalkCombat_SS_8f_192x192_751
+  - first:
+      213: 6544229067162065341
+    second: WarriorWalkCombat_SS_8f_192x192_752
+  - first:
+      213: -7788931067225159828
+    second: WarriorWalkCombat_SS_8f_192x192_753
+  - first:
+      213: -3056756543946081788
+    second: WarriorWalkCombat_SS_8f_192x192_754
+  - first:
+      213: -7828024116953817241
+    second: WarriorWalkCombat_SS_8f_192x192_755
+  - first:
+      213: -2338755394028565225
+    second: WarriorWalkCombat_SS_8f_192x192_756
+  - first:
+      213: -3763659258523889612
+    second: WarriorWalkCombat_SS_8f_192x192_757
+  - first:
+      213: 4384188959840493985
+    second: WarriorWalkCombat_SS_8f_192x192_758
+  - first:
+      213: 8030133741871704789
+    second: WarriorWalkCombat_SS_8f_192x192_759
+  - first:
+      213: -6792315993300149852
+    second: WarriorWalkCombat_SS_8f_192x192_760
+  - first:
+      213: 5384054366310898201
+    second: WarriorWalkCombat_SS_8f_192x192_761
+  - first:
+      213: -3754800000192971191
+    second: WarriorWalkCombat_SS_8f_192x192_762
+  - first:
+      213: -5909715601237943095
+    second: WarriorWalkCombat_SS_8f_192x192_763
+  - first:
+      213: 3053714094117733027
+    second: WarriorWalkCombat_SS_8f_192x192_764
+  - first:
+      213: -6577632455709096342
+    second: WarriorWalkCombat_SS_8f_192x192_765
+  - first:
+      213: -2860448364915288934
+    second: WarriorWalkCombat_SS_8f_192x192_766
+  - first:
+      213: -2308137450472651232
+    second: WarriorWalkCombat_SS_8f_192x192_767
+  - first:
+      213: -4267088570002405896
+    second: WarriorWalkCombat_SS_8f_192x192_768
+  - first:
+      213: 7143041674650331271
+    second: WarriorWalkCombat_SS_8f_192x192_769
+  - first:
+      213: 3170136368339405534
+    second: WarriorWalkCombat_SS_8f_192x192_770
+  - first:
+      213: 2021887512025952952
+    second: WarriorWalkCombat_SS_8f_192x192_771
+  - first:
+      213: 3162732463857003251
+    second: WarriorWalkCombat_SS_8f_192x192_772
+  - first:
+      213: 6561159460119395501
+    second: WarriorWalkCombat_SS_8f_192x192_773
+  - first:
+      213: 6180344485733844193
+    second: WarriorWalkCombat_SS_8f_192x192_774
+  - first:
+      213: -7758813550405886269
+    second: WarriorWalkCombat_SS_8f_192x192_775
+  - first:
+      213: -1961370648700478271
+    second: WarriorWalkCombat_SS_8f_192x192_776
+  - first:
+      213: 4244615439357314181
+    second: WarriorWalkCombat_SS_8f_192x192_777
+  - first:
+      213: 4973811447222983176
+    second: WarriorWalkCombat_SS_8f_192x192_778
+  - first:
+      213: 3899438882202645397
+    second: WarriorWalkCombat_SS_8f_192x192_779
+  - first:
+      213: 2656771377212614039
+    second: WarriorWalkCombat_SS_8f_192x192_780
+  - first:
+      213: -1372641525927079196
+    second: WarriorWalkCombat_SS_8f_192x192_781
+  - first:
+      213: -6956118897114056607
+    second: WarriorWalkCombat_SS_8f_192x192_782
+  - first:
+      213: -5130974173085370826
+    second: WarriorWalkCombat_SS_8f_192x192_783
+  - first:
+      213: -5799073773137604690
+    second: WarriorWalkCombat_SS_8f_192x192_784
+  - first:
+      213: -1544189451013306458
+    second: WarriorWalkCombat_SS_8f_192x192_785
+  - first:
+      213: -8904774199255481908
+    second: WarriorWalkCombat_SS_8f_192x192_786
+  - first:
+      213: -2257996519298307606
+    second: WarriorWalkCombat_SS_8f_192x192_787
+  - first:
+      213: -4083114484854474108
+    second: WarriorWalkCombat_SS_8f_192x192_788
+  - first:
+      213: 3370053012918137765
+    second: WarriorWalkCombat_SS_8f_192x192_789
+  - first:
+      213: 2434198644182471371
+    second: WarriorWalkCombat_SS_8f_192x192_790
+  - first:
+      213: -9148241544013905161
+    second: WarriorWalkCombat_SS_8f_192x192_791
+  - first:
+      213: 931332403769493871
+    second: WarriorWalkCombat_SS_8f_192x192_792
+  - first:
+      213: -4140815774565347643
+    second: WarriorWalkCombat_SS_8f_192x192_793
+  - first:
+      213: -823423014338326386
+    second: WarriorWalkCombat_SS_8f_192x192_794
+  - first:
+      213: 8176696599025503483
+    second: WarriorWalkCombat_SS_8f_192x192_795
+  - first:
+      213: 7516284058139151823
+    second: WarriorWalkCombat_SS_8f_192x192_796
+  - first:
+      213: 3637570758584700668
+    second: WarriorWalkCombat_SS_8f_192x192_797
+  - first:
+      213: -2042217126070149337
+    second: WarriorWalkCombat_SS_8f_192x192_798
+  - first:
+      213: 3173708204028841375
+    second: WarriorWalkCombat_SS_8f_192x192_799
+  - first:
+      213: -263077481817547590
+    second: WarriorWalkCombat_SS_8f_192x192_800
+  - first:
+      213: 7399507572153550589
+    second: WarriorWalkCombat_SS_8f_192x192_801
+  - first:
+      213: -6504343953900046132
+    second: WarriorWalkCombat_SS_8f_192x192_802
+  - first:
+      213: -5310880063839570767
+    second: WarriorWalkCombat_SS_8f_192x192_803
+  - first:
+      213: 2103512877975495566
+    second: WarriorWalkCombat_SS_8f_192x192_804
+  - first:
+      213: -5440938487457757168
+    second: WarriorWalkCombat_SS_8f_192x192_805
+  - first:
+      213: 2428882737451730892
+    second: WarriorWalkCombat_SS_8f_192x192_806
+  - first:
+      213: -2297942973259436352
+    second: WarriorWalkCombat_SS_8f_192x192_807
+  - first:
+      213: 8848629468693157419
+    second: WarriorWalkCombat_SS_8f_192x192_808
+  - first:
+      213: -7534246770804931802
+    second: WarriorWalkCombat_SS_8f_192x192_809
+  - first:
+      213: 5941503856760877699
+    second: WarriorWalkCombat_SS_8f_192x192_810
+  - first:
+      213: -8971719518926015561
+    second: WarriorWalkCombat_SS_8f_192x192_811
+  - first:
+      213: -9000615490724158721
+    second: WarriorWalkCombat_SS_8f_192x192_812
+  - first:
+      213: -2980557455741655581
+    second: WarriorWalkCombat_SS_8f_192x192_813
+  - first:
+      213: -203821302025229047
+    second: WarriorWalkCombat_SS_8f_192x192_814
+  - first:
+      213: 2928161944514511245
+    second: WarriorWalkCombat_SS_8f_192x192_815
+  - first:
+      213: -1764368644206899165
+    second: WarriorWalkCombat_SS_8f_192x192_816
+  - first:
+      213: 5770577858683340047
+    second: WarriorWalkCombat_SS_8f_192x192_817
+  - first:
+      213: -4789197249664784259
+    second: WarriorWalkCombat_SS_8f_192x192_818
+  - first:
+      213: 8972336866725582651
+    second: WarriorWalkCombat_SS_8f_192x192_819
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 192
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8978640216285fd00800000000000000
+      internalID: 1005853445452105624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af4096c3cfd7d010800000000000000
+      internalID: 1213684656542601128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1e0eb342a4eb720800000000000000
+      internalID: 2863807932538085825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f246e2f13eaa5e00800000000000000
+      internalID: 1034330593986757368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9578bee62c93e880800000000000000
+      internalID: -8582844773810276966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84055399f1989a360800000000000000
+      internalID: 7181421849626366024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82c26423c446e7e0800000000000000
+      internalID: -1736625001384983923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75f58700aa776650800000000000000
+      internalID: 6226079837602575739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feef944debcd1fc10800000000000000
+      internalID: 2085690814612766447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3062a7ca2e0264130800000000000000
+      internalID: 3550561514156598787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1ab135bdf71f110800000000000000
+      internalID: 1292955148000928206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce88dd51ac3470ef0800000000000000
+      internalID: -142070328009586452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa9932b0096ab270800000000000000
+      internalID: 8267035517703002796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121c7e6bebcd34b50800000000000000
+      internalID: 6576342592561594657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0c47903a9a1437e0800000000000000
+      internalID: -1786773902616736757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81eb5e61af2566050800000000000000
+      internalID: 5793409204738178584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e8dbf16e33d7a90800000000000000
+      internalID: -7314633156311806384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01cfa6a474cd6a020800000000000000
+      internalID: 2352810054096976912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f810314ecb4dad0800000000000000
+      internalID: -2678308190621167721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 104184d0e2a83b8c0800000000000000
+      internalID: -3984689314896800767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44baffb4e9bd3b4c0800000000000000
+      internalID: -4272830148518106300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 296ef74c2bd24b9a0800000000000000
+      internalID: -6218294939667667310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f175e7a57f1fb9110800000000000000
+      internalID: 1268873764712371999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 971b2c0969d933c80800000000000000
+      internalID: -8344152414588063367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5e8f204df2ef5c0800000000000000
+      internalID: -4179850816523803191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaee2fbea2ee558a0800000000000000
+      internalID: -6316881034202648914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38408a2b0444c3d00800000000000000
+      internalID: 953712265761653891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e6959ad83c2ec30800000000000000
+      internalID: 4387284000211299977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffbf9f0e003c31790800000000000000
+      internalID: -7560484940883035137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a90c20422c83480800000000000000
+      internalID: -8919165602086479271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0cff3c523050b720800000000000000
+      internalID: 2859873940606549005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db397e5c81c4bc720800000000000000
+      internalID: 2867469257034666941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125392c60e3db31e0800000000000000
+      internalID: -2216945430709062367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c1a0d516d099730800000000000000
+      internalID: 4006248055346699312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a641998762b98880800000000000000
+      internalID: -8608153054982617431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97af6fe9b584be250800000000000000
+      internalID: 5974948888983304825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad4a7a158a1d1f30800000000000000
+      internalID: 4547820357691264417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2268a8961ef541fd0800000000000000
+      internalID: -2372165681974442462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b72287588bc5d20800000000000000
+      internalID: 3268690312949824358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4471a348a779490800000000000000
+      internalID: -7739582726284032826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7666f734898d51f0800000000000000
+      internalID: -1054535536767244674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e55036170fc3fbe20800000000000000
+      internalID: 3368478049688552798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30707cfe7ae4891e0800000000000000
+      internalID: -2190914735526443261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c989983a919c856c0800000000000000
+      internalID: -4154349544294213476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a8fbe148310e750800000000000000
+      internalID: 6332082534255397465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dece692b072809980800000000000000
+      internalID: -8534177873322906387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9360327c2f56970800000000000000
+      internalID: 8747664788337080799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e89e948fa4bb38f0800000000000000
+      internalID: -559655062740231964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b899d1da389e2ad40800000000000000
+      internalID: 5594290438901963147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc7b3b3808a5cc90800000000000000
+      internalID: -7150124080073835280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6208ced59444460800000000000000
+      internalID: 7224980369957725906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15a4d8a9e240a7a0800000000000000
+      internalID: -6368016301774559970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6963bc028d35bac80800000000000000
+      internalID: -8310456499653888362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1534219c675bc800800000000000000
+      internalID: 633696296378840350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee3a958d203f1930800000000000000
+      internalID: 4116061556513062626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cbb2a5bd1a4cf840800000000000000
+      internalID: 5259159956323744708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4641a9aae1a49120800000000000000
+      internalID: 2419736929045136973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f36b200dba769e0800000000000000
+      internalID: -1628143830384099506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_58
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e5c94f10ba893a0800000000000000
+      internalID: -6658384024180072887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_59
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1283e9ef00da3b100800000000000000
+      internalID: 122631834652522529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e314015fd308fb010800000000000000
+      internalID: 1206824228751425854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_61
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6968c03be06889f00800000000000000
+      internalID: 1123795504720545430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_62
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34011009e22ccd920800000000000000
+      internalID: 3016499355671662659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorWalkCombat_SS_8f_192x192_63
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa92aac999ca67d60800000000000000
+      internalID: 7887681573144373674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6f5b647463ee108438f9b9c12e504d03
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      WarriorWalkCombat_SS_8f_192x192_0: 1005853445452105624
+      WarriorWalkCombat_SS_8f_192x192_1: 1213684656542601128
+      WarriorWalkCombat_SS_8f_192x192_10: 1292955148000928206
+      WarriorWalkCombat_SS_8f_192x192_11: -142070328009586452
+      WarriorWalkCombat_SS_8f_192x192_12: 8267035517703002796
+      WarriorWalkCombat_SS_8f_192x192_13: 6576342592561594657
+      WarriorWalkCombat_SS_8f_192x192_14: -1786773902616736757
+      WarriorWalkCombat_SS_8f_192x192_15: 5793409204738178584
+      WarriorWalkCombat_SS_8f_192x192_16: -7314633156311806384
+      WarriorWalkCombat_SS_8f_192x192_17: 2352810054096976912
+      WarriorWalkCombat_SS_8f_192x192_18: -2678308190621167721
+      WarriorWalkCombat_SS_8f_192x192_19: -3984689314896800767
+      WarriorWalkCombat_SS_8f_192x192_2: 2863807932538085825
+      WarriorWalkCombat_SS_8f_192x192_20: -4272830148518106300
+      WarriorWalkCombat_SS_8f_192x192_21: -6218294939667667310
+      WarriorWalkCombat_SS_8f_192x192_22: 1268873764712371999
+      WarriorWalkCombat_SS_8f_192x192_23: -8344152414588063367
+      WarriorWalkCombat_SS_8f_192x192_24: -4179850816523803191
+      WarriorWalkCombat_SS_8f_192x192_25: -6316881034202648914
+      WarriorWalkCombat_SS_8f_192x192_26: 953712265761653891
+      WarriorWalkCombat_SS_8f_192x192_27: 4387284000211299977
+      WarriorWalkCombat_SS_8f_192x192_28: -7560484940883035137
+      WarriorWalkCombat_SS_8f_192x192_29: -8919165602086479271
+      WarriorWalkCombat_SS_8f_192x192_3: 1034330593986757368
+      WarriorWalkCombat_SS_8f_192x192_30: 2859873940606549005
+      WarriorWalkCombat_SS_8f_192x192_31: 2867469257034666941
+      WarriorWalkCombat_SS_8f_192x192_32: -2216945430709062367
+      WarriorWalkCombat_SS_8f_192x192_33: 4006248055346699312
+      WarriorWalkCombat_SS_8f_192x192_34: -8608153054982617431
+      WarriorWalkCombat_SS_8f_192x192_35: 5974948888983304825
+      WarriorWalkCombat_SS_8f_192x192_36: 4547820357691264417
+      WarriorWalkCombat_SS_8f_192x192_37: -2372165681974442462
+      WarriorWalkCombat_SS_8f_192x192_38: 3268690312949824358
+      WarriorWalkCombat_SS_8f_192x192_39: -7739582726284032826
+      WarriorWalkCombat_SS_8f_192x192_4: -8582844773810276966
+      WarriorWalkCombat_SS_8f_192x192_40: -1054535536767244674
+      WarriorWalkCombat_SS_8f_192x192_41: 3368478049688552798
+      WarriorWalkCombat_SS_8f_192x192_42: -2190914735526443261
+      WarriorWalkCombat_SS_8f_192x192_43: -4154349544294213476
+      WarriorWalkCombat_SS_8f_192x192_44: 6332082534255397465
+      WarriorWalkCombat_SS_8f_192x192_45: -8534177873322906387
+      WarriorWalkCombat_SS_8f_192x192_46: 8747664788337080799
+      WarriorWalkCombat_SS_8f_192x192_47: -559655062740231964
+      WarriorWalkCombat_SS_8f_192x192_48: 5594290438901963147
+      WarriorWalkCombat_SS_8f_192x192_49: -7150124080073835280
+      WarriorWalkCombat_SS_8f_192x192_5: 7181421849626366024
+      WarriorWalkCombat_SS_8f_192x192_50: 7224980369957725906
+      WarriorWalkCombat_SS_8f_192x192_51: -6368016301774559970
+      WarriorWalkCombat_SS_8f_192x192_52: -8310456499653888362
+      WarriorWalkCombat_SS_8f_192x192_53: 633696296378840350
+      WarriorWalkCombat_SS_8f_192x192_54: 4116061556513062626
+      WarriorWalkCombat_SS_8f_192x192_55: 5259159956323744708
+      WarriorWalkCombat_SS_8f_192x192_56: 2419736929045136973
+      WarriorWalkCombat_SS_8f_192x192_57: -1628143830384099506
+      WarriorWalkCombat_SS_8f_192x192_58: -6658384024180072887
+      WarriorWalkCombat_SS_8f_192x192_59: 122631834652522529
+      WarriorWalkCombat_SS_8f_192x192_6: -1736625001384983923
+      WarriorWalkCombat_SS_8f_192x192_60: 1206824228751425854
+      WarriorWalkCombat_SS_8f_192x192_61: 1123795504720545430
+      WarriorWalkCombat_SS_8f_192x192_62: 3016499355671662659
+      WarriorWalkCombat_SS_8f_192x192_63: 7887681573144373674
+      WarriorWalkCombat_SS_8f_192x192_7: 6226079837602575739
+      WarriorWalkCombat_SS_8f_192x192_8: 2085690814612766447
+      WarriorWalkCombat_SS_8f_192x192_9: 3550561514156598787
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

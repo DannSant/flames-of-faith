@@ -267,6 +267,8 @@ MonoBehaviour:
     weight: 0.1
   - pickupPrefab: {fileID: 242527397130525024, guid: f15655290232db74cad9d9d5f3c35064, type: 3}
     weight: 0.1
+  - pickupPrefab: {fileID: 2148069401913672984, guid: 0fcfaddd5f19ea048926abd99c8a0833, type: 3}
+    weight: 0.1
 --- !u!114 &-8540169653406218948
 MonoBehaviour:
   m_ObjectHideFlags: 0

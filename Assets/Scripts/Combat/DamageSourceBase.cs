@@ -156,11 +156,6 @@ namespace Game.Combat
             var debuffHandler = collision.GetComponent<DebuffHandler>();
             if (debuffHandler == null) return;
 
-            if (weaponData == null) {
-                Debug.LogWarning("DamageSourceBase: Missing WeaponData for elemental debuff application.");
-               
-            }
-
             if (weaponData!=null && weaponData.elementalDebuffData!= null && weaponData.elementalDebuffData.ElementalType != ElementalType.None)
             {
                 var weaponDebuffData = weaponData.elementalDebuffData;

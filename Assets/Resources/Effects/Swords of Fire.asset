@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Swords of Fire
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: f91c7609-c550-47cb-acf4-7c44a4ce5528
+  icon: {fileID: 21300000, guid: a17cc5e46a311c34bb30cbf069d7dffa, type: 3}
+  effectName: Swords of Fire
+  scalingValue: 1
+  description: Creates 2 swords that deal Melee Damage around the player
+  buyPrice: 50
+  sellPrice: 15
+  effectStatModifiers: []
+  behaviors:
+  - {fileID: 11400000, guid: 38c9af3fb2337fe45be3675292059e5e, type: 2}
+  unlockedByDefault: 1

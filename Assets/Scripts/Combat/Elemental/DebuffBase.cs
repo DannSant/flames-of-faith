@@ -4,7 +4,6 @@ namespace Game.Combat.Elemental
 {
     public abstract class DebuffBase : MonoBehaviour
     {
-        [SerializeField] private ElementalDebuffData elementalDebuffData;
         protected EnemyHealth enemyHealth;
        
         protected float duration;

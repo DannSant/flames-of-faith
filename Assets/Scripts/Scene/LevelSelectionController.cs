@@ -94,7 +94,7 @@ namespace Game.Scene
                 layersByAct[actConfig.ActNumber] = map;
             }
 
-            Debug.Log($"[LevelSelectionController] Generated maps for all acts. Number of Acts: {layersByAct.Count}");
+            //Debug.Log($"[LevelSelectionController] Generated maps for all acts. Number of Acts: {layersByAct.Count}");
 
         }
 

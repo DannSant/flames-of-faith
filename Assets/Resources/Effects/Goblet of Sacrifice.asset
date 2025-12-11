@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Goblet of Sacrifice
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: e03ebe22-0327-4bb0-9e9a-240e896e6565
+  icon: {fileID: 21300000, guid: 2b2ac416c523a864da4c8932c345d76a, type: 3}
+  effectName: Goblet of Sacrifice
+  scalingValue: 1
+  description: 'Increases Max Grace and Magic Damage by +5
+
+    Reduces Max Health
+    -15
+
+    Reduces Health Regen -5'
+  buyPrice: 50
+  sellPrice: 15
+  effectStatModifiers:
+  - stat: 5
+    value: 5
+    type: 0
+  - stat: 12
+    value: 5
+    type: 0
+  - stat: 0
+    value: -15
+    type: 0
+  - stat: 14
+    value: -5
+    type: 0
+  behaviors: []
+  unlockedByDefault: 1

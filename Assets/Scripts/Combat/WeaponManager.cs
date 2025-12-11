@@ -55,7 +55,8 @@ namespace Game.Combat
 
         private EnemyHealth FindClosestEnemyWithinRange(float range)
         {
-            int additionalRange = playerProgression.GetStatTotal(StatType.Range);
+            bool isRangeWeapon = currentWeapon.GetWeaponData().weaponClass == WeaponClass.Ranged || currentWeapon.GetWeaponData().weaponClass == WeaponClass.Magic;
+            int additionalRange = isRangeWeapon ? playerProgression.GetStatTotal(StatType.Range) : 0;
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range + additionalRange, LayerMask.GetMask("Enemy"));
 
             EnemyHealth closest = null;

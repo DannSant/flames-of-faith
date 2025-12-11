@@ -1,0 +1,4487 @@
+fileFormatVersion: 2
+guid: a59dd8fed48eb5347b05d3f5238d457d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3217553733896556371
+    second: WarriorDash_SS_9f_192x192_0
+  - first:
+      213: 3360078146772441870
+    second: WarriorDash_SS_9f_192x192_1
+  - first:
+      213: -8107890601478874398
+    second: WarriorDash_SS_9f_192x192_2
+  - first:
+      213: 5995188023626515407
+    second: WarriorDash_SS_9f_192x192_3
+  - first:
+      213: -8786937860858724719
+    second: WarriorDash_SS_9f_192x192_4
+  - first:
+      213: -3242746238637863126
+    second: WarriorDash_SS_9f_192x192_5
+  - first:
+      213: 8821826935695457751
+    second: WarriorDash_SS_9f_192x192_6
+  - first:
+      213: -5830508129655317276
+    second: WarriorDash_SS_9f_192x192_7
+  - first:
+      213: 2530334843876924171
+    second: WarriorDash_SS_9f_192x192_8
+  - first:
+      213: -4334444467899987472
+    second: WarriorDash_SS_9f_192x192_9
+  - first:
+      213: 3132834497119468551
+    second: WarriorDash_SS_9f_192x192_10
+  - first:
+      213: 8082599379654065186
+    second: WarriorDash_SS_9f_192x192_11
+  - first:
+      213: -7319637845553471111
+    second: WarriorDash_SS_9f_192x192_12
+  - first:
+      213: 6782745244550638418
+    second: WarriorDash_SS_9f_192x192_13
+  - first:
+      213: 9065904142246325851
+    second: WarriorDash_SS_9f_192x192_14
+  - first:
+      213: 6129795206344450674
+    second: WarriorDash_SS_9f_192x192_15
+  - first:
+      213: -513503492176190710
+    second: WarriorDash_SS_9f_192x192_16
+  - first:
+      213: -7193526623987484755
+    second: WarriorDash_SS_9f_192x192_17
+  - first:
+      213: 4869693606549166727
+    second: WarriorDash_SS_9f_192x192_18
+  - first:
+      213: 5607521175699320164
+    second: WarriorDash_SS_9f_192x192_19
+  - first:
+      213: -8800061606657685855
+    second: WarriorDash_SS_9f_192x192_20
+  - first:
+      213: -4319025742203737205
+    second: WarriorDash_SS_9f_192x192_21
+  - first:
+      213: -4657170197798889873
+    second: WarriorDash_SS_9f_192x192_22
+  - first:
+      213: -6822149562482619655
+    second: WarriorDash_SS_9f_192x192_23
+  - first:
+      213: 7965421305775612774
+    second: WarriorDash_SS_9f_192x192_24
+  - first:
+      213: 8107133143914457244
+    second: WarriorDash_SS_9f_192x192_25
+  - first:
+      213: 591949055864510557
+    second: WarriorDash_SS_9f_192x192_26
+  - first:
+      213: 322320234025552695
+    second: WarriorDash_SS_9f_192x192_27
+  - first:
+      213: -625142974410889991
+    second: WarriorDash_SS_9f_192x192_28
+  - first:
+      213: -7792605276628444147
+    second: WarriorDash_SS_9f_192x192_29
+  - first:
+      213: -2337359066524009167
+    second: WarriorDash_SS_9f_192x192_30
+  - first:
+      213: -3835577923448069292
+    second: WarriorDash_SS_9f_192x192_31
+  - first:
+      213: -6513621496692703292
+    second: WarriorDash_SS_9f_192x192_32
+  - first:
+      213: 1367398553144812506
+    second: WarriorDash_SS_9f_192x192_33
+  - first:
+      213: 7854634322956376203
+    second: WarriorDash_SS_9f_192x192_34
+  - first:
+      213: -5289845537056487031
+    second: WarriorDash_SS_9f_192x192_35
+  - first:
+      213: 5132291882329255643
+    second: WarriorDash_SS_9f_192x192_36
+  - first:
+      213: -6629218330774838476
+    second: WarriorDash_SS_9f_192x192_37
+  - first:
+      213: -8479470479368028601
+    second: WarriorDash_SS_9f_192x192_38
+  - first:
+      213: 5948738113418688741
+    second: WarriorDash_SS_9f_192x192_39
+  - first:
+      213: -5474605475693130316
+    second: WarriorDash_SS_9f_192x192_40
+  - first:
+      213: -5242323337216066736
+    second: WarriorDash_SS_9f_192x192_41
+  - first:
+      213: -8786482405581835585
+    second: WarriorDash_SS_9f_192x192_42
+  - first:
+      213: -9160081204358639932
+    second: WarriorDash_SS_9f_192x192_43
+  - first:
+      213: 3532307838691376475
+    second: WarriorDash_SS_9f_192x192_44
+  - first:
+      213: 2106617869200036515
+    second: WarriorDash_SS_9f_192x192_45
+  - first:
+      213: 5575623567928828306
+    second: WarriorDash_SS_9f_192x192_46
+  - first:
+      213: -1838953205746572410
+    second: WarriorDash_SS_9f_192x192_47
+  - first:
+      213: 2022477694067666027
+    second: WarriorDash_SS_9f_192x192_48
+  - first:
+      213: -8165969122806889968
+    second: WarriorDash_SS_9f_192x192_49
+  - first:
+      213: 5790166844617000320
+    second: WarriorDash_SS_9f_192x192_50
+  - first:
+      213: 939286556453300319
+    second: WarriorDash_SS_9f_192x192_51
+  - first:
+      213: 4902708563676956255
+    second: WarriorDash_SS_9f_192x192_52
+  - first:
+      213: -3751187994546481723
+    second: WarriorDash_SS_9f_192x192_53
+  - first:
+      213: -7905507592468276912
+    second: WarriorDash_SS_9f_192x192_54
+  - first:
+      213: -8198685763531890106
+    second: WarriorDash_SS_9f_192x192_55
+  - first:
+      213: 3895099526892835027
+    second: WarriorDash_SS_9f_192x192_56
+  - first:
+      213: -7535381243504869479
+    second: WarriorDash_SS_9f_192x192_57
+  - first:
+      213: -962706243164541645
+    second: WarriorDash_SS_9f_192x192_58
+  - first:
+      213: -6438778868136606259
+    second: WarriorDash_SS_9f_192x192_59
+  - first:
+      213: -5217698227409753930
+    second: WarriorDash_SS_9f_192x192_60
+  - first:
+      213: -1975775430944624129
+    second: WarriorDash_SS_9f_192x192_61
+  - first:
+      213: 5996409058159428621
+    second: WarriorDash_SS_9f_192x192_62
+  - first:
+      213: 2464974764559727792
+    second: WarriorDash_SS_9f_192x192_63
+  - first:
+      213: -6353139064464834797
+    second: WarriorDash_SS_9f_192x192_64
+  - first:
+      213: -1200418795060351738
+    second: WarriorDash_SS_9f_192x192_65
+  - first:
+      213: -6651569442439508842
+    second: WarriorDash_SS_9f_192x192_66
+  - first:
+      213: -7888502742404045451
+    second: WarriorDash_SS_9f_192x192_67
+  - first:
+      213: 8214968482635170093
+    second: WarriorDash_SS_9f_192x192_68
+  - first:
+      213: 3260078118287470648
+    second: WarriorDash_SS_9f_192x192_69
+  - first:
+      213: 8443284409751973015
+    second: WarriorDash_SS_9f_192x192_70
+  - first:
+      213: 2950789552269065011
+    second: WarriorDash_SS_9f_192x192_71
+  - first:
+      213: -5640328999316428981
+    second: WarriorDash_SS_9f_192x192_72
+  - first:
+      213: 1391028566254991074
+    second: WarriorDash_SS_9f_192x192_73
+  - first:
+      213: 5844905467306042864
+    second: WarriorDash_SS_9f_192x192_74
+  - first:
+      213: 7758054402168037234
+    second: WarriorDash_SS_9f_192x192_75
+  - first:
+      213: -2787456270535168288
+    second: WarriorDash_SS_9f_192x192_76
+  - first:
+      213: -294322468422175329
+    second: WarriorDash_SS_9f_192x192_77
+  - first:
+      213: -1233596480233138793
+    second: WarriorDash_SS_9f_192x192_78
+  - first:
+      213: 8793504048089981508
+    second: WarriorDash_SS_9f_192x192_79
+  - first:
+      213: 5304678830781820464
+    second: WarriorDash_SS_9f_192x192_80
+  - first:
+      213: -1090683820332480252
+    second: WarriorDash_SS_9f_192x192_81
+  - first:
+      213: -5740996878083258790
+    second: WarriorDash_SS_9f_192x192_82
+  - first:
+      213: -5214536329428187332
+    second: WarriorDash_SS_9f_192x192_83
+  - first:
+      213: 8719595235008888246
+    second: WarriorDash_SS_9f_192x192_84
+  - first:
+      213: -8065580498319510500
+    second: WarriorDash_SS_9f_192x192_85
+  - first:
+      213: -6486503302170965059
+    second: WarriorDash_SS_9f_192x192_86
+  - first:
+      213: -6734885234830257594
+    second: WarriorDash_SS_9f_192x192_87
+  - first:
+      213: 8246831859615644878
+    second: WarriorDash_SS_9f_192x192_88
+  - first:
+      213: 1366719635934603480
+    second: WarriorDash_SS_9f_192x192_89
+  - first:
+      213: -2629959819454056453
+    second: WarriorDash_SS_9f_192x192_90
+  - first:
+      213: 7381266442725827699
+    second: WarriorDash_SS_9f_192x192_91
+  - first:
+      213: 1282818489674443612
+    second: WarriorDash_SS_9f_192x192_92
+  - first:
+      213: -8063495059678880399
+    second: WarriorDash_SS_9f_192x192_93
+  - first:
+      213: -4158404735705615431
+    second: WarriorDash_SS_9f_192x192_94
+  - first:
+      213: -8220866825248887758
+    second: WarriorDash_SS_9f_192x192_95
+  - first:
+      213: 739621972226227956
+    second: WarriorDash_SS_9f_192x192_96
+  - first:
+      213: -910649170593739467
+    second: WarriorDash_SS_9f_192x192_97
+  - first:
+      213: 914999269307641418
+    second: WarriorDash_SS_9f_192x192_98
+  - first:
+      213: -6222515906759283736
+    second: WarriorDash_SS_9f_192x192_99
+  - first:
+      213: -9030744800322822029
+    second: WarriorDash_SS_9f_192x192_100
+  - first:
+      213: 5702003349146910970
+    second: WarriorDash_SS_9f_192x192_101
+  - first:
+      213: -9097061315639198127
+    second: WarriorDash_SS_9f_192x192_102
+  - first:
+      213: -8411834743998053113
+    second: WarriorDash_SS_9f_192x192_103
+  - first:
+      213: 6915907539106488307
+    second: WarriorDash_SS_9f_192x192_104
+  - first:
+      213: 8631830311961942139
+    second: WarriorDash_SS_9f_192x192_105
+  - first:
+      213: -5626759538525011327
+    second: WarriorDash_SS_9f_192x192_106
+  - first:
+      213: 1507139738808285450
+    second: WarriorDash_SS_9f_192x192_107
+  - first:
+      213: -819037004402308333
+    second: WarriorDash_SS_9f_192x192_108
+  - first:
+      213: 3523251955490517208
+    second: WarriorDash_SS_9f_192x192_109
+  - first:
+      213: -7068714036361788561
+    second: WarriorDash_SS_9f_192x192_110
+  - first:
+      213: -3164585410265607598
+    second: WarriorDash_SS_9f_192x192_111
+  - first:
+      213: 5669658759649953495
+    second: WarriorDash_SS_9f_192x192_112
+  - first:
+      213: 2333826198130062503
+    second: WarriorDash_SS_9f_192x192_113
+  - first:
+      213: 1279043402918369146
+    second: WarriorDash_SS_9f_192x192_114
+  - first:
+      213: -960473848811797916
+    second: WarriorDash_SS_9f_192x192_115
+  - first:
+      213: -4394460947613176648
+    second: WarriorDash_SS_9f_192x192_116
+  - first:
+      213: -2252771944961398912
+    second: WarriorDash_SS_9f_192x192_117
+  - first:
+      213: 4994135809598321365
+    second: WarriorDash_SS_9f_192x192_118
+  - first:
+      213: -1116745794386978092
+    second: WarriorDash_SS_9f_192x192_119
+  - first:
+      213: 4566592428157241251
+    second: WarriorDash_SS_9f_192x192_120
+  - first:
+      213: 892221222276267353
+    second: WarriorDash_SS_9f_192x192_121
+  - first:
+      213: 2907827653766298433
+    second: WarriorDash_SS_9f_192x192_122
+  - first:
+      213: 3187966592896262078
+    second: WarriorDash_SS_9f_192x192_123
+  - first:
+      213: 6359307347707082050
+    second: WarriorDash_SS_9f_192x192_124
+  - first:
+      213: -4264565331617324637
+    second: WarriorDash_SS_9f_192x192_125
+  - first:
+      213: 6747258765388793384
+    second: WarriorDash_SS_9f_192x192_126
+  - first:
+      213: -5431527023247624494
+    second: WarriorDash_SS_9f_192x192_127
+  - first:
+      213: 943298650520821258
+    second: WarriorDash_SS_9f_192x192_128
+  - first:
+      213: -2834105174388380911
+    second: WarriorDash_SS_9f_192x192_129
+  - first:
+      213: -1344596591654653016
+    second: WarriorDash_SS_9f_192x192_130
+  - first:
+      213: -1940628314651319557
+    second: WarriorDash_SS_9f_192x192_131
+  - first:
+      213: -8562990817283176859
+    second: WarriorDash_SS_9f_192x192_132
+  - first:
+      213: -453456718527470132
+    second: WarriorDash_SS_9f_192x192_133
+  - first:
+      213: -700583477533622013
+    second: WarriorDash_SS_9f_192x192_134
+  - first:
+      213: -3481470411371561179
+    second: WarriorDash_SS_9f_192x192_135
+  - first:
+      213: 1915079442224204214
+    second: WarriorDash_SS_9f_192x192_136
+  - first:
+      213: -1333820786642389570
+    second: WarriorDash_SS_9f_192x192_137
+  - first:
+      213: -105713027302286689
+    second: WarriorDash_SS_9f_192x192_138
+  - first:
+      213: 2248023756669956126
+    second: WarriorDash_SS_9f_192x192_139
+  - first:
+      213: 7731190832764776080
+    second: WarriorDash_SS_9f_192x192_140
+  - first:
+      213: 4013040829695483808
+    second: WarriorDash_SS_9f_192x192_141
+  - first:
+      213: -8277975009982934405
+    second: WarriorDash_SS_9f_192x192_142
+  - first:
+      213: -3832142143982131682
+    second: WarriorDash_SS_9f_192x192_143
+  - first:
+      213: -2884271092730803222
+    second: WarriorDash_SS_9f_192x192_144
+  - first:
+      213: -1413969481706121833
+    second: WarriorDash_SS_9f_192x192_145
+  - first:
+      213: -8585283155197252672
+    second: WarriorDash_SS_9f_192x192_146
+  - first:
+      213: 177527753832137642
+    second: WarriorDash_SS_9f_192x192_147
+  - first:
+      213: -3719721456520292798
+    second: WarriorDash_SS_9f_192x192_148
+  - first:
+      213: -9010204587068635153
+    second: WarriorDash_SS_9f_192x192_149
+  - first:
+      213: -8675090030093329575
+    second: WarriorDash_SS_9f_192x192_150
+  - first:
+      213: 4246965277849882355
+    second: WarriorDash_SS_9f_192x192_151
+  - first:
+      213: -5146631117141797948
+    second: WarriorDash_SS_9f_192x192_152
+  - first:
+      213: 5495799104885879088
+    second: WarriorDash_SS_9f_192x192_153
+  - first:
+      213: 5969031732941307832
+    second: WarriorDash_SS_9f_192x192_154
+  - first:
+      213: -7170289747501794456
+    second: WarriorDash_SS_9f_192x192_155
+  - first:
+      213: 9150622024188574729
+    second: WarriorDash_SS_9f_192x192_156
+  - first:
+      213: -7489144788960285808
+    second: WarriorDash_SS_9f_192x192_157
+  - first:
+      213: 1635241593019836377
+    second: WarriorDash_SS_9f_192x192_158
+  - first:
+      213: -8276127448393429450
+    second: WarriorDash_SS_9f_192x192_159
+  - first:
+      213: -673496557628073502
+    second: WarriorDash_SS_9f_192x192_160
+  - first:
+      213: 2740790295894131582
+    second: WarriorDash_SS_9f_192x192_161
+  - first:
+      213: 8615185590856349554
+    second: WarriorDash_SS_9f_192x192_162
+  - first:
+      213: -2225559263071426563
+    second: WarriorDash_SS_9f_192x192_163
+  - first:
+      213: -5046174266273800591
+    second: WarriorDash_SS_9f_192x192_164
+  - first:
+      213: 3334778462442022446
+    second: WarriorDash_SS_9f_192x192_165
+  - first:
+      213: -101763414591970461
+    second: WarriorDash_SS_9f_192x192_166
+  - first:
+      213: -4659794813529293683
+    second: WarriorDash_SS_9f_192x192_167
+  - first:
+      213: -7048908755938442638
+    second: WarriorDash_SS_9f_192x192_168
+  - first:
+      213: 3476100023804784772
+    second: WarriorDash_SS_9f_192x192_169
+  - first:
+      213: 5088834891301696016
+    second: WarriorDash_SS_9f_192x192_170
+  - first:
+      213: 8367952424535482873
+    second: WarriorDash_SS_9f_192x192_171
+  - first:
+      213: -4311084162480610290
+    second: WarriorDash_SS_9f_192x192_172
+  - first:
+      213: -7072377873795138825
+    second: WarriorDash_SS_9f_192x192_173
+  - first:
+      213: 3608783100198619853
+    second: WarriorDash_SS_9f_192x192_174
+  - first:
+      213: 4203964325259621179
+    second: WarriorDash_SS_9f_192x192_175
+  - first:
+      213: -9037506097051869337
+    second: WarriorDash_SS_9f_192x192_176
+  - first:
+      213: -3196138410154088972
+    second: WarriorDash_SS_9f_192x192_177
+  - first:
+      213: 2883859872832619347
+    second: WarriorDash_SS_9f_192x192_178
+  - first:
+      213: 4125195937413311559
+    second: WarriorDash_SS_9f_192x192_179
+  - first:
+      213: 5639087553464759906
+    second: WarriorDash_SS_9f_192x192_180
+  - first:
+      213: 7182483320322485785
+    second: WarriorDash_SS_9f_192x192_181
+  - first:
+      213: -3513742919945557657
+    second: WarriorDash_SS_9f_192x192_182
+  - first:
+      213: -405739389731013879
+    second: WarriorDash_SS_9f_192x192_183
+  - first:
+      213: 4928304527404706293
+    second: WarriorDash_SS_9f_192x192_184
+  - first:
+      213: 3276032924130832351
+    second: WarriorDash_SS_9f_192x192_185
+  - first:
+      213: 9092003986755944110
+    second: WarriorDash_SS_9f_192x192_186
+  - first:
+      213: 4042044221907422190
+    second: WarriorDash_SS_9f_192x192_187
+  - first:
+      213: -6937081829062957088
+    second: WarriorDash_SS_9f_192x192_188
+  - first:
+      213: -2804933172631382265
+    second: WarriorDash_SS_9f_192x192_189
+  - first:
+      213: 7430746113050348139
+    second: WarriorDash_SS_9f_192x192_190
+  - first:
+      213: 6712765401905571814
+    second: WarriorDash_SS_9f_192x192_191
+  - first:
+      213: 206005667983818887
+    second: WarriorDash_SS_9f_192x192_192
+  - first:
+      213: -7633172362021447909
+    second: WarriorDash_SS_9f_192x192_193
+  - first:
+      213: -6354887330909416795
+    second: WarriorDash_SS_9f_192x192_194
+  - first:
+      213: -5859274835681410625
+    second: WarriorDash_SS_9f_192x192_195
+  - first:
+      213: -6811134322913889095
+    second: WarriorDash_SS_9f_192x192_196
+  - first:
+      213: -7117661349602703065
+    second: WarriorDash_SS_9f_192x192_197
+  - first:
+      213: -9161620095100582008
+    second: WarriorDash_SS_9f_192x192_198
+  - first:
+      213: 6745600486671909165
+    second: WarriorDash_SS_9f_192x192_199
+  - first:
+      213: 5185351579514443622
+    second: WarriorDash_SS_9f_192x192_200
+  - first:
+      213: 7516331374413087148
+    second: WarriorDash_SS_9f_192x192_201
+  - first:
+      213: 2191972095485347782
+    second: WarriorDash_SS_9f_192x192_202
+  - first:
+      213: 6612754748562340661
+    second: WarriorDash_SS_9f_192x192_203
+  - first:
+      213: 4452268342305453128
+    second: WarriorDash_SS_9f_192x192_204
+  - first:
+      213: -6746726316280125185
+    second: WarriorDash_SS_9f_192x192_205
+  - first:
+      213: -5766584224066388118
+    second: WarriorDash_SS_9f_192x192_206
+  - first:
+      213: 1442650282088802523
+    second: WarriorDash_SS_9f_192x192_207
+  - first:
+      213: -2018822761964268678
+    second: WarriorDash_SS_9f_192x192_208
+  - first:
+      213: -2512891775167353324
+    second: WarriorDash_SS_9f_192x192_209
+  - first:
+      213: 4053086044887573069
+    second: WarriorDash_SS_9f_192x192_210
+  - first:
+      213: -3726100981298932372
+    second: WarriorDash_SS_9f_192x192_211
+  - first:
+      213: 3095483932907204708
+    second: WarriorDash_SS_9f_192x192_212
+  - first:
+      213: -7132406352952317116
+    second: WarriorDash_SS_9f_192x192_213
+  - first:
+      213: 758998903775932441
+    second: WarriorDash_SS_9f_192x192_214
+  - first:
+      213: -6864582514378325664
+    second: WarriorDash_SS_9f_192x192_215
+  - first:
+      213: 1476603250669331856
+    second: WarriorDash_SS_9f_192x192_216
+  - first:
+      213: -4540278972479616316
+    second: WarriorDash_SS_9f_192x192_217
+  - first:
+      213: 1228456486575070070
+    second: WarriorDash_SS_9f_192x192_218
+  - first:
+      213: 4970731973752187599
+    second: WarriorDash_SS_9f_192x192_219
+  - first:
+      213: -389038573443928664
+    second: WarriorDash_SS_9f_192x192_220
+  - first:
+      213: 7844067278200097035
+    second: WarriorDash_SS_9f_192x192_221
+  - first:
+      213: -4951063069817479609
+    second: WarriorDash_SS_9f_192x192_222
+  - first:
+      213: 1615816731305163744
+    second: WarriorDash_SS_9f_192x192_223
+  - first:
+      213: 5319216887798205537
+    second: WarriorDash_SS_9f_192x192_224
+  - first:
+      213: 5341377048811558515
+    second: WarriorDash_SS_9f_192x192_225
+  - first:
+      213: 4870868685236065857
+    second: WarriorDash_SS_9f_192x192_226
+  - first:
+      213: -8460657270868362137
+    second: WarriorDash_SS_9f_192x192_227
+  - first:
+      213: -8624556180517403103
+    second: WarriorDash_SS_9f_192x192_228
+  - first:
+      213: 5304642973997571654
+    second: WarriorDash_SS_9f_192x192_229
+  - first:
+      213: 5486142370675824765
+    second: WarriorDash_SS_9f_192x192_230
+  - first:
+      213: -8835387572411721557
+    second: WarriorDash_SS_9f_192x192_231
+  - first:
+      213: -558824063885792937
+    second: WarriorDash_SS_9f_192x192_232
+  - first:
+      213: 7756853363699066096
+    second: WarriorDash_SS_9f_192x192_233
+  - first:
+      213: 3213883504982745932
+    second: WarriorDash_SS_9f_192x192_234
+  - first:
+      213: -1073456201498434149
+    second: WarriorDash_SS_9f_192x192_235
+  - first:
+      213: -6686548779354029132
+    second: WarriorDash_SS_9f_192x192_236
+  - first:
+      213: -8061423990854046212
+    second: WarriorDash_SS_9f_192x192_237
+  - first:
+      213: -8522862579484625864
+    second: WarriorDash_SS_9f_192x192_238
+  - first:
+      213: -7619021199045899536
+    second: WarriorDash_SS_9f_192x192_239
+  - first:
+      213: 2381231013987864710
+    second: WarriorDash_SS_9f_192x192_240
+  - first:
+      213: -4566493324469736142
+    second: WarriorDash_SS_9f_192x192_241
+  - first:
+      213: -2627566542528300638
+    second: WarriorDash_SS_9f_192x192_242
+  - first:
+      213: -5965366138057550691
+    second: WarriorDash_SS_9f_192x192_243
+  - first:
+      213: 4756888413346765755
+    second: WarriorDash_SS_9f_192x192_244
+  - first:
+      213: 3308863713128957913
+    second: WarriorDash_SS_9f_192x192_245
+  - first:
+      213: 4894195013922586534
+    second: WarriorDash_SS_9f_192x192_246
+  - first:
+      213: -13629050441882090
+    second: WarriorDash_SS_9f_192x192_247
+  - first:
+      213: -6501613751409384866
+    second: WarriorDash_SS_9f_192x192_248
+  - first:
+      213: 6453216942341494360
+    second: WarriorDash_SS_9f_192x192_249
+  - first:
+      213: 5024272319474037749
+    second: WarriorDash_SS_9f_192x192_250
+  - first:
+      213: -8802844524315038025
+    second: WarriorDash_SS_9f_192x192_251
+  - first:
+      213: 8936884516268193056
+    second: WarriorDash_SS_9f_192x192_252
+  - first:
+      213: 6563793978537422739
+    second: WarriorDash_SS_9f_192x192_253
+  - first:
+      213: -4399207841574517965
+    second: WarriorDash_SS_9f_192x192_254
+  - first:
+      213: 6891265373921359423
+    second: WarriorDash_SS_9f_192x192_255
+  - first:
+      213: 7285399557157887269
+    second: WarriorDash_SS_9f_192x192_256
+  - first:
+      213: -1136900028540540422
+    second: WarriorDash_SS_9f_192x192_257
+  - first:
+      213: 6482852883294897931
+    second: WarriorDash_SS_9f_192x192_258
+  - first:
+      213: -1988009415489453692
+    second: WarriorDash_SS_9f_192x192_259
+  - first:
+      213: -5810529458099574969
+    second: WarriorDash_SS_9f_192x192_260
+  - first:
+      213: -6856405548789705502
+    second: WarriorDash_SS_9f_192x192_261
+  - first:
+      213: 3337407171561215201
+    second: WarriorDash_SS_9f_192x192_262
+  - first:
+      213: -3656130556627236201
+    second: WarriorDash_SS_9f_192x192_263
+  - first:
+      213: -7360058982624121240
+    second: WarriorDash_SS_9f_192x192_264
+  - first:
+      213: 8647849743283897414
+    second: WarriorDash_SS_9f_192x192_265
+  - first:
+      213: -3985208802327182428
+    second: WarriorDash_SS_9f_192x192_266
+  - first:
+      213: -5343622364018076320
+    second: WarriorDash_SS_9f_192x192_267
+  - first:
+      213: -6632589531045868452
+    second: WarriorDash_SS_9f_192x192_268
+  - first:
+      213: -8783523519750058540
+    second: WarriorDash_SS_9f_192x192_269
+  - first:
+      213: 4020225338528747392
+    second: WarriorDash_SS_9f_192x192_270
+  - first:
+      213: 5781386917556783089
+    second: WarriorDash_SS_9f_192x192_271
+  - first:
+      213: 2481339734702497861
+    second: WarriorDash_SS_9f_192x192_272
+  - first:
+      213: 6221587581832199178
+    second: WarriorDash_SS_9f_192x192_273
+  - first:
+      213: -176392916473255165
+    second: WarriorDash_SS_9f_192x192_274
+  - first:
+      213: 178758764676788252
+    second: WarriorDash_SS_9f_192x192_275
+  - first:
+      213: -4858359398990013534
+    second: WarriorDash_SS_9f_192x192_276
+  - first:
+      213: 3625078450192162835
+    second: WarriorDash_SS_9f_192x192_277
+  - first:
+      213: -5453607177378548696
+    second: WarriorDash_SS_9f_192x192_278
+  - first:
+      213: 2375257222268665632
+    second: WarriorDash_SS_9f_192x192_279
+  - first:
+      213: -1187390371175350169
+    second: WarriorDash_SS_9f_192x192_280
+  - first:
+      213: -2275685446624499994
+    second: WarriorDash_SS_9f_192x192_281
+  - first:
+      213: 5236608033428224961
+    second: WarriorDash_SS_9f_192x192_282
+  - first:
+      213: 1485621537554230926
+    second: WarriorDash_SS_9f_192x192_283
+  - first:
+      213: 5506037967278135176
+    second: WarriorDash_SS_9f_192x192_284
+  - first:
+      213: 1191082523973271197
+    second: WarriorDash_SS_9f_192x192_285
+  - first:
+      213: -8285513038044975985
+    second: WarriorDash_SS_9f_192x192_286
+  - first:
+      213: 9062242791840002202
+    second: WarriorDash_SS_9f_192x192_287
+  - first:
+      213: -504973302393418038
+    second: WarriorDash_SS_9f_192x192_288
+  - first:
+      213: -2844911227846028295
+    second: WarriorDash_SS_9f_192x192_289
+  - first:
+      213: 9030429784289666744
+    second: WarriorDash_SS_9f_192x192_290
+  - first:
+      213: 6435209875367865182
+    second: WarriorDash_SS_9f_192x192_291
+  - first:
+      213: 7172479204467316290
+    second: WarriorDash_SS_9f_192x192_292
+  - first:
+      213: -2458425020214276252
+    second: WarriorDash_SS_9f_192x192_293
+  - first:
+      213: -8474234922525223078
+    second: WarriorDash_SS_9f_192x192_294
+  - first:
+      213: 3117282552123039009
+    second: WarriorDash_SS_9f_192x192_295
+  - first:
+      213: -7443963225376883844
+    second: WarriorDash_SS_9f_192x192_296
+  - first:
+      213: 5538499259426987663
+    second: WarriorDash_SS_9f_192x192_297
+  - first:
+      213: 1583455953607270966
+    second: WarriorDash_SS_9f_192x192_298
+  - first:
+      213: -8029749264070596788
+    second: WarriorDash_SS_9f_192x192_299
+  - first:
+      213: 1677027175874062260
+    second: WarriorDash_SS_9f_192x192_300
+  - first:
+      213: -51111298125247207
+    second: WarriorDash_SS_9f_192x192_301
+  - first:
+      213: 2363305645727203967
+    second: WarriorDash_SS_9f_192x192_302
+  - first:
+      213: -8122846046057655738
+    second: WarriorDash_SS_9f_192x192_303
+  - first:
+      213: -645919857470477405
+    second: WarriorDash_SS_9f_192x192_304
+  - first:
+      213: -1646061879147894251
+    second: WarriorDash_SS_9f_192x192_305
+  - first:
+      213: 2705151259456271521
+    second: WarriorDash_SS_9f_192x192_306
+  - first:
+      213: 3501174723374723679
+    second: WarriorDash_SS_9f_192x192_307
+  - first:
+      213: -374430502782577368
+    second: WarriorDash_SS_9f_192x192_308
+  - first:
+      213: 1883499404721814515
+    second: WarriorDash_SS_9f_192x192_309
+  - first:
+      213: 7707413896299047947
+    second: WarriorDash_SS_9f_192x192_310
+  - first:
+      213: 5435961428681104670
+    second: WarriorDash_SS_9f_192x192_311
+  - first:
+      213: 5635609757166774777
+    second: WarriorDash_SS_9f_192x192_312
+  - first:
+      213: 1669269043597433100
+    second: WarriorDash_SS_9f_192x192_313
+  - first:
+      213: -7765394418234859336
+    second: WarriorDash_SS_9f_192x192_314
+  - first:
+      213: -4496350716786983171
+    second: WarriorDash_SS_9f_192x192_315
+  - first:
+      213: 2134787041346210321
+    second: WarriorDash_SS_9f_192x192_316
+  - first:
+      213: 2996634090643415228
+    second: WarriorDash_SS_9f_192x192_317
+  - first:
+      213: 5791733944437228303
+    second: WarriorDash_SS_9f_192x192_318
+  - first:
+      213: 2038418557104527695
+    second: WarriorDash_SS_9f_192x192_319
+  - first:
+      213: -8082617504655169180
+    second: WarriorDash_SS_9f_192x192_320
+  - first:
+      213: -4480744203618301114
+    second: WarriorDash_SS_9f_192x192_321
+  - first:
+      213: 7994708897477542376
+    second: WarriorDash_SS_9f_192x192_322
+  - first:
+      213: 6390689972321668253
+    second: WarriorDash_SS_9f_192x192_323
+  - first:
+      213: -594365290824519688
+    second: WarriorDash_SS_9f_192x192_324
+  - first:
+      213: -1361978617844644823
+    second: WarriorDash_SS_9f_192x192_325
+  - first:
+      213: -8845385130608099234
+    second: WarriorDash_SS_9f_192x192_326
+  - first:
+      213: 525188245012069885
+    second: WarriorDash_SS_9f_192x192_327
+  - first:
+      213: -8014457450628931001
+    second: WarriorDash_SS_9f_192x192_328
+  - first:
+      213: 3313019364586004418
+    second: WarriorDash_SS_9f_192x192_329
+  - first:
+      213: 3842735511980632719
+    second: WarriorDash_SS_9f_192x192_330
+  - first:
+      213: 1594362031972141250
+    second: WarriorDash_SS_9f_192x192_331
+  - first:
+      213: -4910074055101502547
+    second: WarriorDash_SS_9f_192x192_332
+  - first:
+      213: -7023866694351088315
+    second: WarriorDash_SS_9f_192x192_333
+  - first:
+      213: 6322501782219380366
+    second: WarriorDash_SS_9f_192x192_334
+  - first:
+      213: 6053604572326873038
+    second: WarriorDash_SS_9f_192x192_335
+  - first:
+      213: 9103940613519493540
+    second: WarriorDash_SS_9f_192x192_336
+  - first:
+      213: 6753665822228713317
+    second: WarriorDash_SS_9f_192x192_337
+  - first:
+      213: -1044814618894659765
+    second: WarriorDash_SS_9f_192x192_338
+  - first:
+      213: -5256553850303219249
+    second: WarriorDash_SS_9f_192x192_339
+  - first:
+      213: 955207410506981505
+    second: WarriorDash_SS_9f_192x192_340
+  - first:
+      213: -2374999561841808161
+    second: WarriorDash_SS_9f_192x192_341
+  - first:
+      213: 4445328303573888576
+    second: WarriorDash_SS_9f_192x192_342
+  - first:
+      213: -8088973903387906413
+    second: WarriorDash_SS_9f_192x192_343
+  - first:
+      213: 7723551299816410197
+    second: WarriorDash_SS_9f_192x192_344
+  - first:
+      213: -5123184148288274875
+    second: WarriorDash_SS_9f_192x192_345
+  - first:
+      213: 4093362114298843155
+    second: WarriorDash_SS_9f_192x192_346
+  - first:
+      213: -223262844872599973
+    second: WarriorDash_SS_9f_192x192_347
+  - first:
+      213: 8498110937828957599
+    second: WarriorDash_SS_9f_192x192_348
+  - first:
+      213: 8225051251703359079
+    second: WarriorDash_SS_9f_192x192_349
+  - first:
+      213: -6024207910130580189
+    second: WarriorDash_SS_9f_192x192_350
+  - first:
+      213: -4211249818373835608
+    second: WarriorDash_SS_9f_192x192_351
+  - first:
+      213: -6850429491823114301
+    second: WarriorDash_SS_9f_192x192_352
+  - first:
+      213: 7579991147115391193
+    second: WarriorDash_SS_9f_192x192_353
+  - first:
+      213: 8265592246978555570
+    second: WarriorDash_SS_9f_192x192_354
+  - first:
+      213: 1934723850476443606
+    second: WarriorDash_SS_9f_192x192_355
+  - first:
+      213: -5252332009459635764
+    second: WarriorDash_SS_9f_192x192_356
+  - first:
+      213: 1833539517168818622
+    second: WarriorDash_SS_9f_192x192_357
+  - first:
+      213: -5873862719521411803
+    second: WarriorDash_SS_9f_192x192_358
+  - first:
+      213: -7069561880434625479
+    second: WarriorDash_SS_9f_192x192_359
+  - first:
+      213: -8166775426448826230
+    second: WarriorDash_SS_9f_192x192_360
+  - first:
+      213: -6713044962460665214
+    second: WarriorDash_SS_9f_192x192_361
+  - first:
+      213: 8100912408252444856
+    second: WarriorDash_SS_9f_192x192_362
+  - first:
+      213: 4766898836130891145
+    second: WarriorDash_SS_9f_192x192_363
+  - first:
+      213: 6669171482738883867
+    second: WarriorDash_SS_9f_192x192_364
+  - first:
+      213: 8403525183288934389
+    second: WarriorDash_SS_9f_192x192_365
+  - first:
+      213: 6706698117278269719
+    second: WarriorDash_SS_9f_192x192_366
+  - first:
+      213: 733036075899893955
+    second: WarriorDash_SS_9f_192x192_367
+  - first:
+      213: -5664083211285521780
+    second: WarriorDash_SS_9f_192x192_368
+  - first:
+      213: -7559501316967482729
+    second: WarriorDash_SS_9f_192x192_369
+  - first:
+      213: -5423674097085897794
+    second: WarriorDash_SS_9f_192x192_370
+  - first:
+      213: 3769148421718888216
+    second: WarriorDash_SS_9f_192x192_371
+  - first:
+      213: -4581520694239163516
+    second: WarriorDash_SS_9f_192x192_372
+  - first:
+      213: -8934744678048511534
+    second: WarriorDash_SS_9f_192x192_373
+  - first:
+      213: 4559518249362163431
+    second: WarriorDash_SS_9f_192x192_374
+  - first:
+      213: 4972978890382075014
+    second: WarriorDash_SS_9f_192x192_375
+  - first:
+      213: 6054704551625901747
+    second: WarriorDash_SS_9f_192x192_376
+  - first:
+      213: 5535365532753458170
+    second: WarriorDash_SS_9f_192x192_377
+  - first:
+      213: 2062818053964438504
+    second: WarriorDash_SS_9f_192x192_378
+  - first:
+      213: -1315340831498839939
+    second: WarriorDash_SS_9f_192x192_379
+  - first:
+      213: -1527459494300972912
+    second: WarriorDash_SS_9f_192x192_380
+  - first:
+      213: -6576161149724302579
+    second: WarriorDash_SS_9f_192x192_381
+  - first:
+      213: 3757271082223419023
+    second: WarriorDash_SS_9f_192x192_382
+  - first:
+      213: -6088196036869078520
+    second: WarriorDash_SS_9f_192x192_383
+  - first:
+      213: -1912824602034105780
+    second: WarriorDash_SS_9f_192x192_384
+  - first:
+      213: 6759399806801113448
+    second: WarriorDash_SS_9f_192x192_385
+  - first:
+      213: 6331625880409275538
+    second: WarriorDash_SS_9f_192x192_386
+  - first:
+      213: -440574074920967810
+    second: WarriorDash_SS_9f_192x192_387
+  - first:
+      213: -5448321373432742903
+    second: WarriorDash_SS_9f_192x192_388
+  - first:
+      213: -6582438456002421103
+    second: WarriorDash_SS_9f_192x192_389
+  - first:
+      213: 4092838645179715753
+    second: WarriorDash_SS_9f_192x192_390
+  - first:
+      213: -4262437426453320671
+    second: WarriorDash_SS_9f_192x192_391
+  - first:
+      213: -1276515006120049211
+    second: WarriorDash_SS_9f_192x192_392
+  - first:
+      213: 4223825437649095960
+    second: WarriorDash_SS_9f_192x192_393
+  - first:
+      213: 4460408278710317756
+    second: WarriorDash_SS_9f_192x192_394
+  - first:
+      213: 7478068111589714729
+    second: WarriorDash_SS_9f_192x192_395
+  - first:
+      213: -6539215145842955009
+    second: WarriorDash_SS_9f_192x192_396
+  - first:
+      213: -5155221236491685715
+    second: WarriorDash_SS_9f_192x192_397
+  - first:
+      213: 5537396160317374255
+    second: WarriorDash_SS_9f_192x192_398
+  - first:
+      213: -1541712075341039166
+    second: WarriorDash_SS_9f_192x192_399
+  - first:
+      213: 5024954673946509581
+    second: WarriorDash_SS_9f_192x192_400
+  - first:
+      213: -5729618059626622863
+    second: WarriorDash_SS_9f_192x192_401
+  - first:
+      213: -8249257559973355240
+    second: WarriorDash_SS_9f_192x192_402
+  - first:
+      213: -8886659768726566576
+    second: WarriorDash_SS_9f_192x192_403
+  - first:
+      213: 7297730528863751688
+    second: WarriorDash_SS_9f_192x192_404
+  - first:
+      213: 3010016950420165277
+    second: WarriorDash_SS_9f_192x192_405
+  - first:
+      213: 7155111595083621743
+    second: WarriorDash_SS_9f_192x192_406
+  - first:
+      213: -6895825003033100812
+    second: WarriorDash_SS_9f_192x192_407
+  - first:
+      213: -8132179702147298906
+    second: WarriorDash_SS_9f_192x192_408
+  - first:
+      213: -1654361089089186698
+    second: WarriorDash_SS_9f_192x192_409
+  - first:
+      213: -5806538554759307179
+    second: WarriorDash_SS_9f_192x192_410
+  - first:
+      213: -185912780504570426
+    second: WarriorDash_SS_9f_192x192_411
+  - first:
+      213: 8362163514677681139
+    second: WarriorDash_SS_9f_192x192_412
+  - first:
+      213: 1284418101872901294
+    second: WarriorDash_SS_9f_192x192_413
+  - first:
+      213: 1769284721595157010
+    second: WarriorDash_SS_9f_192x192_414
+  - first:
+      213: -6620935701172700341
+    second: WarriorDash_SS_9f_192x192_415
+  - first:
+      213: 9222793558063559229
+    second: WarriorDash_SS_9f_192x192_416
+  - first:
+      213: 534337293430423935
+    second: WarriorDash_SS_9f_192x192_417
+  - first:
+      213: 4458785289693093853
+    second: WarriorDash_SS_9f_192x192_418
+  - first:
+      213: 2732329826643757762
+    second: WarriorDash_SS_9f_192x192_419
+  - first:
+      213: 7033826885191933770
+    second: WarriorDash_SS_9f_192x192_420
+  - first:
+      213: -3995895681964835712
+    second: WarriorDash_SS_9f_192x192_421
+  - first:
+      213: 4435896406478704822
+    second: WarriorDash_SS_9f_192x192_422
+  - first:
+      213: -6577531611899045394
+    second: WarriorDash_SS_9f_192x192_423
+  - first:
+      213: 1531619416646453211
+    second: WarriorDash_SS_9f_192x192_424
+  - first:
+      213: -2581980029049916481
+    second: WarriorDash_SS_9f_192x192_425
+  - first:
+      213: -559996841570945083
+    second: WarriorDash_SS_9f_192x192_426
+  - first:
+      213: 4729683782126457788
+    second: WarriorDash_SS_9f_192x192_427
+  - first:
+      213: -6781820227524298993
+    second: WarriorDash_SS_9f_192x192_428
+  - first:
+      213: 8423279599923923821
+    second: WarriorDash_SS_9f_192x192_429
+  - first:
+      213: 1541147091312965931
+    second: WarriorDash_SS_9f_192x192_430
+  - first:
+      213: 1015871684182982131
+    second: WarriorDash_SS_9f_192x192_431
+  - first:
+      213: -125610879135702111
+    second: WarriorDash_SS_9f_192x192_432
+  - first:
+      213: -1852272804091096519
+    second: WarriorDash_SS_9f_192x192_433
+  - first:
+      213: 2017457593345695932
+    second: WarriorDash_SS_9f_192x192_434
+  - first:
+      213: 6811135235416222639
+    second: WarriorDash_SS_9f_192x192_435
+  - first:
+      213: 2849723221111578578
+    second: WarriorDash_SS_9f_192x192_436
+  - first:
+      213: -5579492890614701573
+    second: WarriorDash_SS_9f_192x192_437
+  - first:
+      213: 1921784879111245558
+    second: WarriorDash_SS_9f_192x192_438
+  - first:
+      213: 8872506307726790964
+    second: WarriorDash_SS_9f_192x192_439
+  - first:
+      213: -5705925259967032240
+    second: WarriorDash_SS_9f_192x192_440
+  - first:
+      213: 3319841231408339030
+    second: WarriorDash_SS_9f_192x192_441
+  - first:
+      213: 2775310176534075591
+    second: WarriorDash_SS_9f_192x192_442
+  - first:
+      213: -7996404532300301919
+    second: WarriorDash_SS_9f_192x192_443
+  - first:
+      213: 8332456434823697135
+    second: WarriorDash_SS_9f_192x192_444
+  - first:
+      213: 8416247557316369486
+    second: WarriorDash_SS_9f_192x192_445
+  - first:
+      213: -4001034897503474601
+    second: WarriorDash_SS_9f_192x192_446
+  - first:
+      213: -6981758245104324665
+    second: WarriorDash_SS_9f_192x192_447
+  - first:
+      213: 2923594290241297639
+    second: WarriorDash_SS_9f_192x192_448
+  - first:
+      213: 7146260062455486359
+    second: WarriorDash_SS_9f_192x192_449
+  - first:
+      213: 8619252983077864315
+    second: WarriorDash_SS_9f_192x192_450
+  - first:
+      213: -8253953578859896247
+    second: WarriorDash_SS_9f_192x192_451
+  - first:
+      213: 2234123136490297275
+    second: WarriorDash_SS_9f_192x192_452
+  - first:
+      213: 2299956091777120804
+    second: WarriorDash_SS_9f_192x192_453
+  - first:
+      213: 8232313723877583074
+    second: WarriorDash_SS_9f_192x192_454
+  - first:
+      213: 7548382197036470773
+    second: WarriorDash_SS_9f_192x192_455
+  - first:
+      213: -3356859084262411418
+    second: WarriorDash_SS_9f_192x192_456
+  - first:
+      213: -1342571530736932453
+    second: WarriorDash_SS_9f_192x192_457
+  - first:
+      213: 6801467489038086254
+    second: WarriorDash_SS_9f_192x192_458
+  - first:
+      213: 793686668098844271
+    second: WarriorDash_SS_9f_192x192_459
+  - first:
+      213: 4578246533062489867
+    second: WarriorDash_SS_9f_192x192_460
+  - first:
+      213: 5165748861948138990
+    second: WarriorDash_SS_9f_192x192_461
+  - first:
+      213: 6711576711639595270
+    second: WarriorDash_SS_9f_192x192_462
+  - first:
+      213: -8579834116576254261
+    second: WarriorDash_SS_9f_192x192_463
+  - first:
+      213: -2677074576201234209
+    second: WarriorDash_SS_9f_192x192_464
+  - first:
+      213: 3281504449112465683
+    second: WarriorDash_SS_9f_192x192_465
+  - first:
+      213: -3468343412433625240
+    second: WarriorDash_SS_9f_192x192_466
+  - first:
+      213: 7934111243712087363
+    second: WarriorDash_SS_9f_192x192_467
+  - first:
+      213: -7076651800886282013
+    second: WarriorDash_SS_9f_192x192_468
+  - first:
+      213: -3957607511673451335
+    second: WarriorDash_SS_9f_192x192_469
+  - first:
+      213: 6258421719995432862
+    second: WarriorDash_SS_9f_192x192_470
+  - first:
+      213: -4350715622048403671
+    second: WarriorDash_SS_9f_192x192_471
+  - first:
+      213: -1916116242435851459
+    second: WarriorDash_SS_9f_192x192_472
+  - first:
+      213: 7373528059213957924
+    second: WarriorDash_SS_9f_192x192_473
+  - first:
+      213: 5643080351206419769
+    second: WarriorDash_SS_9f_192x192_474
+  - first:
+      213: -6503908371486632399
+    second: WarriorDash_SS_9f_192x192_475
+  - first:
+      213: -3840357894264332058
+    second: WarriorDash_SS_9f_192x192_476
+  - first:
+      213: 7187184002287570710
+    second: WarriorDash_SS_9f_192x192_477
+  - first:
+      213: 1001637164022729870
+    second: WarriorDash_SS_9f_192x192_478
+  - first:
+      213: -2510963243436322129
+    second: WarriorDash_SS_9f_192x192_479
+  - first:
+      213: 6650270043797010864
+    second: WarriorDash_SS_9f_192x192_480
+  - first:
+      213: 5286898071296536273
+    second: WarriorDash_SS_9f_192x192_481
+  - first:
+      213: 3168728262307901775
+    second: WarriorDash_SS_9f_192x192_482
+  - first:
+      213: 20797172289159701
+    second: WarriorDash_SS_9f_192x192_483
+  - first:
+      213: -5128170027180097892
+    second: WarriorDash_SS_9f_192x192_484
+  - first:
+      213: -1994034767471068592
+    second: WarriorDash_SS_9f_192x192_485
+  - first:
+      213: 6175569634012602119
+    second: WarriorDash_SS_9f_192x192_486
+  - first:
+      213: -8256525252641474254
+    second: WarriorDash_SS_9f_192x192_487
+  - first:
+      213: -7295047690999593000
+    second: WarriorDash_SS_9f_192x192_488
+  - first:
+      213: 4633052947559270788
+    second: WarriorDash_SS_9f_192x192_489
+  - first:
+      213: -5807925613050399660
+    second: WarriorDash_SS_9f_192x192_490
+  - first:
+      213: 6157024195438001649
+    second: WarriorDash_SS_9f_192x192_491
+  - first:
+      213: -323691467125281237
+    second: WarriorDash_SS_9f_192x192_492
+  - first:
+      213: -4253273764166169760
+    second: WarriorDash_SS_9f_192x192_493
+  - first:
+      213: 5321640044697924671
+    second: WarriorDash_SS_9f_192x192_494
+  - first:
+      213: 1815275880612550264
+    second: WarriorDash_SS_9f_192x192_495
+  - first:
+      213: 567264375124010201
+    second: WarriorDash_SS_9f_192x192_496
+  - first:
+      213: 2995417205460645634
+    second: WarriorDash_SS_9f_192x192_497
+  - first:
+      213: -5832910662342368478
+    second: WarriorDash_SS_9f_192x192_498
+  - first:
+      213: 4343181765556927603
+    second: WarriorDash_SS_9f_192x192_499
+  - first:
+      213: -5867435100653953131
+    second: WarriorDash_SS_9f_192x192_500
+  - first:
+      213: 817299928323660983
+    second: WarriorDash_SS_9f_192x192_501
+  - first:
+      213: -6700324586156858219
+    second: WarriorDash_SS_9f_192x192_502
+  - first:
+      213: 7297837825847077324
+    second: WarriorDash_SS_9f_192x192_503
+  - first:
+      213: -5465703425527955580
+    second: WarriorDash_SS_9f_192x192_504
+  - first:
+      213: -3624724178680768287
+    second: WarriorDash_SS_9f_192x192_505
+  - first:
+      213: -7588400048811399908
+    second: WarriorDash_SS_9f_192x192_506
+  - first:
+      213: -2451105075209375799
+    second: WarriorDash_SS_9f_192x192_507
+  - first:
+      213: 4877353660258510251
+    second: WarriorDash_SS_9f_192x192_508
+  - first:
+      213: 227269080039653030
+    second: WarriorDash_SS_9f_192x192_509
+  - first:
+      213: 6110591963491370081
+    second: WarriorDash_SS_9f_192x192_510
+  - first:
+      213: -2757082116315996046
+    second: WarriorDash_SS_9f_192x192_511
+  - first:
+      213: -1970258866209787282
+    second: WarriorDash_SS_9f_192x192_512
+  - first:
+      213: 5502992836184452766
+    second: WarriorDash_SS_9f_192x192_513
+  - first:
+      213: 961501156627843163
+    second: WarriorDash_SS_9f_192x192_514
+  - first:
+      213: -8399221597341740359
+    second: WarriorDash_SS_9f_192x192_515
+  - first:
+      213: 116023079502699697
+    second: WarriorDash_SS_9f_192x192_516
+  - first:
+      213: -3851810992817293836
+    second: WarriorDash_SS_9f_192x192_517
+  - first:
+      213: 1691434436071002873
+    second: WarriorDash_SS_9f_192x192_518
+  - first:
+      213: 8287811117658034157
+    second: WarriorDash_SS_9f_192x192_519
+  - first:
+      213: 8420325851999952985
+    second: WarriorDash_SS_9f_192x192_520
+  - first:
+      213: 4178468598811126662
+    second: WarriorDash_SS_9f_192x192_521
+  - first:
+      213: -8566810671522987768
+    second: WarriorDash_SS_9f_192x192_522
+  - first:
+      213: 6394015527605430402
+    second: WarriorDash_SS_9f_192x192_523
+  - first:
+      213: -3805698756826373195
+    second: WarriorDash_SS_9f_192x192_524
+  - first:
+      213: -3756491242376190548
+    second: WarriorDash_SS_9f_192x192_525
+  - first:
+      213: 2053803221048491372
+    second: WarriorDash_SS_9f_192x192_526
+  - first:
+      213: 7585286141387285193
+    second: WarriorDash_SS_9f_192x192_527
+  - first:
+      213: 4268786534718871570
+    second: WarriorDash_SS_9f_192x192_528
+  - first:
+      213: 1474505470768763559
+    second: WarriorDash_SS_9f_192x192_529
+  - first:
+      213: -3911597272483654201
+    second: WarriorDash_SS_9f_192x192_530
+  - first:
+      213: -7237970434564999434
+    second: WarriorDash_SS_9f_192x192_531
+  - first:
+      213: 7893884351822954483
+    second: WarriorDash_SS_9f_192x192_532
+  - first:
+      213: -2327074003768451353
+    second: WarriorDash_SS_9f_192x192_533
+  - first:
+      213: 2885638566451045947
+    second: WarriorDash_SS_9f_192x192_534
+  - first:
+      213: 46985764443653031
+    second: WarriorDash_SS_9f_192x192_535
+  - first:
+      213: -437822459463283013
+    second: WarriorDash_SS_9f_192x192_536
+  - first:
+      213: 3298417377429677107
+    second: WarriorDash_SS_9f_192x192_537
+  - first:
+      213: 6339542985194127983
+    second: WarriorDash_SS_9f_192x192_538
+  - first:
+      213: 1758499094336535869
+    second: WarriorDash_SS_9f_192x192_539
+  - first:
+      213: -816431673516102573
+    second: WarriorDash_SS_9f_192x192_540
+  - first:
+      213: 2729538028632659884
+    second: WarriorDash_SS_9f_192x192_541
+  - first:
+      213: 6764001335202357112
+    second: WarriorDash_SS_9f_192x192_542
+  - first:
+      213: -6749370249134369120
+    second: WarriorDash_SS_9f_192x192_543
+  - first:
+      213: -8087918907328540504
+    second: WarriorDash_SS_9f_192x192_544
+  - first:
+      213: -6499407633705134014
+    second: WarriorDash_SS_9f_192x192_545
+  - first:
+      213: 7612472981682728906
+    second: WarriorDash_SS_9f_192x192_546
+  - first:
+      213: 7992654661901476290
+    second: WarriorDash_SS_9f_192x192_547
+  - first:
+      213: -8870585387572618774
+    second: WarriorDash_SS_9f_192x192_548
+  - first:
+      213: -1524920952031218876
+    second: WarriorDash_SS_9f_192x192_549
+  - first:
+      213: -160805615093606066
+    second: WarriorDash_SS_9f_192x192_550
+  - first:
+      213: -7262760827151599599
+    second: WarriorDash_SS_9f_192x192_551
+  - first:
+      213: -2449734111969905845
+    second: WarriorDash_SS_9f_192x192_552
+  - first:
+      213: -6325962998955631483
+    second: WarriorDash_SS_9f_192x192_553
+  - first:
+      213: -4702517034018279002
+    second: WarriorDash_SS_9f_192x192_554
+  - first:
+      213: -8898090595745690465
+    second: WarriorDash_SS_9f_192x192_555
+  - first:
+      213: -2756161025554247428
+    second: WarriorDash_SS_9f_192x192_556
+  - first:
+      213: -1213222738375815864
+    second: WarriorDash_SS_9f_192x192_557
+  - first:
+      213: -199013398639658690
+    second: WarriorDash_SS_9f_192x192_558
+  - first:
+      213: -7371461434530545046
+    second: WarriorDash_SS_9f_192x192_559
+  - first:
+      213: -5436025013736687026
+    second: WarriorDash_SS_9f_192x192_560
+  - first:
+      213: 1777892977630815465
+    second: WarriorDash_SS_9f_192x192_561
+  - first:
+      213: -2444429696021334542
+    second: WarriorDash_SS_9f_192x192_562
+  - first:
+      213: -1656492523282161501
+    second: WarriorDash_SS_9f_192x192_563
+  - first:
+      213: 4785422011054771819
+    second: WarriorDash_SS_9f_192x192_564
+  - first:
+      213: 1564840108160197195
+    second: WarriorDash_SS_9f_192x192_565
+  - first:
+      213: 5510432586122863932
+    second: WarriorDash_SS_9f_192x192_566
+  - first:
+      213: 684476199558723099
+    second: WarriorDash_SS_9f_192x192_567
+  - first:
+      213: 662877803391451980
+    second: WarriorDash_SS_9f_192x192_568
+  - first:
+      213: 2794600429986506652
+    second: WarriorDash_SS_9f_192x192_569
+  - first:
+      213: -896724941127375542
+    second: WarriorDash_SS_9f_192x192_570
+  - first:
+      213: -2632567319544714400
+    second: WarriorDash_SS_9f_192x192_571
+  - first:
+      213: -6494036293960371116
+    second: WarriorDash_SS_9f_192x192_572
+  - first:
+      213: 7323419768079896342
+    second: WarriorDash_SS_9f_192x192_573
+  - first:
+      213: 4469183723310998528
+    second: WarriorDash_SS_9f_192x192_574
+  - first:
+      213: 5447303362162160267
+    second: WarriorDash_SS_9f_192x192_575
+  - first:
+      213: -3970285533705447458
+    second: WarriorDash_SS_9f_192x192_576
+  - first:
+      213: -6298693338578350766
+    second: WarriorDash_SS_9f_192x192_577
+  - first:
+      213: -6967409771640044326
+    second: WarriorDash_SS_9f_192x192_578
+  - first:
+      213: 98581040314955499
+    second: WarriorDash_SS_9f_192x192_579
+  - first:
+      213: -8159364300050851255
+    second: WarriorDash_SS_9f_192x192_580
+  - first:
+      213: 6923065518913338409
+    second: WarriorDash_SS_9f_192x192_581
+  - first:
+      213: -859683018543366157
+    second: WarriorDash_SS_9f_192x192_582
+  - first:
+      213: -4445206921334134713
+    second: WarriorDash_SS_9f_192x192_583
+  - first:
+      213: -6967945755651037537
+    second: WarriorDash_SS_9f_192x192_584
+  - first:
+      213: 8481286913365307065
+    second: WarriorDash_SS_9f_192x192_585
+  - first:
+      213: -7504542290626754157
+    second: WarriorDash_SS_9f_192x192_586
+  - first:
+      213: 7857569433246731536
+    second: WarriorDash_SS_9f_192x192_587
+  - first:
+      213: -4035802009056880247
+    second: WarriorDash_SS_9f_192x192_588
+  - first:
+      213: 5862081468051726473
+    second: WarriorDash_SS_9f_192x192_589
+  - first:
+      213: -6241259756467148153
+    second: WarriorDash_SS_9f_192x192_590
+  - first:
+      213: 6147068529997061861
+    second: WarriorDash_SS_9f_192x192_591
+  - first:
+      213: 4329891351394229451
+    second: WarriorDash_SS_9f_192x192_592
+  - first:
+      213: -1798840529976935916
+    second: WarriorDash_SS_9f_192x192_593
+  - first:
+      213: -9035269649318085259
+    second: WarriorDash_SS_9f_192x192_594
+  - first:
+      213: 8700938177800514733
+    second: WarriorDash_SS_9f_192x192_595
+  - first:
+      213: 6795849836358784902
+    second: WarriorDash_SS_9f_192x192_596
+  - first:
+      213: 8924159344215107155
+    second: WarriorDash_SS_9f_192x192_597
+  - first:
+      213: 5560536881475224519
+    second: WarriorDash_SS_9f_192x192_598
+  - first:
+      213: -5823024397953347956
+    second: WarriorDash_SS_9f_192x192_599
+  - first:
+      213: 8175231877091193740
+    second: WarriorDash_SS_9f_192x192_600
+  - first:
+      213: 3000938565790010220
+    second: WarriorDash_SS_9f_192x192_601
+  - first:
+      213: -2123374075056500346
+    second: WarriorDash_SS_9f_192x192_602
+  - first:
+      213: 1218552017495147521
+    second: WarriorDash_SS_9f_192x192_603
+  - first:
+      213: 2612222349492788339
+    second: WarriorDash_SS_9f_192x192_604
+  - first:
+      213: -1868497618961720924
+    second: WarriorDash_SS_9f_192x192_605
+  - first:
+      213: 8743224854301699311
+    second: WarriorDash_SS_9f_192x192_606
+  - first:
+      213: 5468074599787982528
+    second: WarriorDash_SS_9f_192x192_607
+  - first:
+      213: 8269765626936771461
+    second: WarriorDash_SS_9f_192x192_608
+  - first:
+      213: 6580994418402333562
+    second: WarriorDash_SS_9f_192x192_609
+  - first:
+      213: 6690863741807436012
+    second: WarriorDash_SS_9f_192x192_610
+  - first:
+      213: 6124689503311387093
+    second: WarriorDash_SS_9f_192x192_611
+  - first:
+      213: 4160616409844954801
+    second: WarriorDash_SS_9f_192x192_612
+  - first:
+      213: -1132745196601141309
+    second: WarriorDash_SS_9f_192x192_613
+  - first:
+      213: -1043493604453734732
+    second: WarriorDash_SS_9f_192x192_614
+  - first:
+      213: -2371635956143186267
+    second: WarriorDash_SS_9f_192x192_615
+  - first:
+      213: 6066917883182877580
+    second: WarriorDash_SS_9f_192x192_616
+  - first:
+      213: -316796686644818073
+    second: WarriorDash_SS_9f_192x192_617
+  - first:
+      213: -2886978585154154480
+    second: WarriorDash_SS_9f_192x192_618
+  - first:
+      213: -17892281104074272
+    second: WarriorDash_SS_9f_192x192_619
+  - first:
+      213: 8571494296693438910
+    second: WarriorDash_SS_9f_192x192_620
+  - first:
+      213: 4625157992588121983
+    second: WarriorDash_SS_9f_192x192_621
+  - first:
+      213: -4623279813064681506
+    second: WarriorDash_SS_9f_192x192_622
+  - first:
+      213: -3553069704117759105
+    second: WarriorDash_SS_9f_192x192_623
+  - first:
+      213: -3875451505064575890
+    second: WarriorDash_SS_9f_192x192_624
+  - first:
+      213: -153630868825549406
+    second: WarriorDash_SS_9f_192x192_625
+  - first:
+      213: 4274397408591530407
+    second: WarriorDash_SS_9f_192x192_626
+  - first:
+      213: 4192415689249428216
+    second: WarriorDash_SS_9f_192x192_627
+  - first:
+      213: -8366112532638101681
+    second: WarriorDash_SS_9f_192x192_628
+  - first:
+      213: 7998280463297818400
+    second: WarriorDash_SS_9f_192x192_629
+  - first:
+      213: -6799223172577836055
+    second: WarriorDash_SS_9f_192x192_630
+  - first:
+      213: 7907332580912910439
+    second: WarriorDash_SS_9f_192x192_631
+  - first:
+      213: -3955322619481165943
+    second: WarriorDash_SS_9f_192x192_632
+  - first:
+      213: -2863377179012473287
+    second: WarriorDash_SS_9f_192x192_633
+  - first:
+      213: 5617417091090557414
+    second: WarriorDash_SS_9f_192x192_634
+  - first:
+      213: 6886205620289167829
+    second: WarriorDash_SS_9f_192x192_635
+  - first:
+      213: 5937067160778092968
+    second: WarriorDash_SS_9f_192x192_636
+  - first:
+      213: 7998054448402868813
+    second: WarriorDash_SS_9f_192x192_637
+  - first:
+      213: -3604543605934385957
+    second: WarriorDash_SS_9f_192x192_638
+  - first:
+      213: -8919224036856841968
+    second: WarriorDash_SS_9f_192x192_639
+  - first:
+      213: -853161278875751342
+    second: WarriorDash_SS_9f_192x192_640
+  - first:
+      213: -3073618946472215714
+    second: WarriorDash_SS_9f_192x192_641
+  - first:
+      213: 4617185660105486046
+    second: WarriorDash_SS_9f_192x192_642
+  - first:
+      213: 7261896654476518687
+    second: WarriorDash_SS_9f_192x192_643
+  - first:
+      213: 8374990273845460911
+    second: WarriorDash_SS_9f_192x192_644
+  - first:
+      213: -2566408978431157638
+    second: WarriorDash_SS_9f_192x192_645
+  - first:
+      213: -5815056162057062505
+    second: WarriorDash_SS_9f_192x192_646
+  - first:
+      213: -8370555417860358940
+    second: WarriorDash_SS_9f_192x192_647
+  - first:
+      213: 9033954100659203448
+    second: WarriorDash_SS_9f_192x192_648
+  - first:
+      213: -3776204373327942073
+    second: WarriorDash_SS_9f_192x192_649
+  - first:
+      213: 8678341098919099470
+    second: WarriorDash_SS_9f_192x192_650
+  - first:
+      213: 9149212917341205080
+    second: WarriorDash_SS_9f_192x192_651
+  - first:
+      213: -6177590486778308825
+    second: WarriorDash_SS_9f_192x192_652
+  - first:
+      213: -7355390145729598487
+    second: WarriorDash_SS_9f_192x192_653
+  - first:
+      213: 8202647704143243644
+    second: WarriorDash_SS_9f_192x192_654
+  - first:
+      213: -1833249940652261563
+    second: WarriorDash_SS_9f_192x192_655
+  - first:
+      213: 2103518133932483905
+    second: WarriorDash_SS_9f_192x192_656
+  - first:
+      213: 5046704159317804397
+    second: WarriorDash_SS_9f_192x192_657
+  - first:
+      213: 4272845481829320745
+    second: WarriorDash_SS_9f_192x192_658
+  - first:
+      213: -6794122118411523287
+    second: WarriorDash_SS_9f_192x192_659
+  - first:
+      213: -3413250018602532714
+    second: WarriorDash_SS_9f_192x192_660
+  - first:
+      213: -7626703566104441804
+    second: WarriorDash_SS_9f_192x192_661
+  - first:
+      213: 3018220578925983692
+    second: WarriorDash_SS_9f_192x192_662
+  - first:
+      213: -373629395307956779
+    second: WarriorDash_SS_9f_192x192_663
+  - first:
+      213: 7985175309113114614
+    second: WarriorDash_SS_9f_192x192_664
+  - first:
+      213: 6180459442775343862
+    second: WarriorDash_SS_9f_192x192_665
+  - first:
+      213: -8454426904369060732
+    second: WarriorDash_SS_9f_192x192_666
+  - first:
+      213: -2140206053025730560
+    second: WarriorDash_SS_9f_192x192_667
+  - first:
+      213: -2054012151679327900
+    second: WarriorDash_SS_9f_192x192_668
+  - first:
+      213: -5280459026603122879
+    second: WarriorDash_SS_9f_192x192_669
+  - first:
+      213: 4420284058385852215
+    second: WarriorDash_SS_9f_192x192_670
+  - first:
+      213: -3280890745494302930
+    second: WarriorDash_SS_9f_192x192_671
+  - first:
+      213: -3113972997412546289
+    second: WarriorDash_SS_9f_192x192_672
+  - first:
+      213: -2355448634188880885
+    second: WarriorDash_SS_9f_192x192_673
+  - first:
+      213: 5124409702698089006
+    second: WarriorDash_SS_9f_192x192_674
+  - first:
+      213: 1736710669842285359
+    second: WarriorDash_SS_9f_192x192_675
+  - first:
+      213: 8072434013155089008
+    second: WarriorDash_SS_9f_192x192_676
+  - first:
+      213: -6353417103940051634
+    second: WarriorDash_SS_9f_192x192_677
+  - first:
+      213: -4932895334765599698
+    second: WarriorDash_SS_9f_192x192_678
+  - first:
+      213: 8235072321407713358
+    second: WarriorDash_SS_9f_192x192_679
+  - first:
+      213: 811302190161507849
+    second: WarriorDash_SS_9f_192x192_680
+  - first:
+      213: -2693402859558477112
+    second: WarriorDash_SS_9f_192x192_681
+  - first:
+      213: 3697234631256205167
+    second: WarriorDash_SS_9f_192x192_682
+  - first:
+      213: -2144673042558021728
+    second: WarriorDash_SS_9f_192x192_683
+  - first:
+      213: 4560068264247500952
+    second: WarriorDash_SS_9f_192x192_684
+  - first:
+      213: -6119050147998430703
+    second: WarriorDash_SS_9f_192x192_685
+  - first:
+      213: 624853299113748108
+    second: WarriorDash_SS_9f_192x192_686
+  - first:
+      213: -5032608783299173719
+    second: WarriorDash_SS_9f_192x192_687
+  - first:
+      213: 7498746843055481204
+    second: WarriorDash_SS_9f_192x192_688
+  - first:
+      213: 3898111878477183049
+    second: WarriorDash_SS_9f_192x192_689
+  - first:
+      213: -3889373248965232241
+    second: WarriorDash_SS_9f_192x192_690
+  - first:
+      213: -40258603605192053
+    second: WarriorDash_SS_9f_192x192_691
+  - first:
+      213: 5566543279618843663
+    second: WarriorDash_SS_9f_192x192_692
+  - first:
+      213: 6241273232560524782
+    second: WarriorDash_SS_9f_192x192_693
+  - first:
+      213: 6446867006303397863
+    second: WarriorDash_SS_9f_192x192_694
+  - first:
+      213: -1427053514697293204
+    second: WarriorDash_SS_9f_192x192_695
+  - first:
+      213: -3295642121733483386
+    second: WarriorDash_SS_9f_192x192_696
+  - first:
+      213: -7977490983740637308
+    second: WarriorDash_SS_9f_192x192_697
+  - first:
+      213: -6575853661922374225
+    second: WarriorDash_SS_9f_192x192_698
+  - first:
+      213: 7989315859494503918
+    second: WarriorDash_SS_9f_192x192_699
+  - first:
+      213: 1419624769604237412
+    second: WarriorDash_SS_9f_192x192_700
+  - first:
+      213: -2337653561195644501
+    second: WarriorDash_SS_9f_192x192_701
+  - first:
+      213: -7577681382662932539
+    second: WarriorDash_SS_9f_192x192_702
+  - first:
+      213: -5930181927636768810
+    second: WarriorDash_SS_9f_192x192_703
+  - first:
+      213: 9214595102748983082
+    second: WarriorDash_SS_9f_192x192_704
+  - first:
+      213: -8985836887379722995
+    second: WarriorDash_SS_9f_192x192_705
+  - first:
+      213: -55704099011012212
+    second: WarriorDash_SS_9f_192x192_706
+  - first:
+      213: -6997594192125403826
+    second: WarriorDash_SS_9f_192x192_707
+  - first:
+      213: 3959458140396732254
+    second: WarriorDash_SS_9f_192x192_708
+  - first:
+      213: 4945460989493242219
+    second: WarriorDash_SS_9f_192x192_709
+  - first:
+      213: -551923102277160513
+    second: WarriorDash_SS_9f_192x192_710
+  - first:
+      213: 8357866048503602808
+    second: WarriorDash_SS_9f_192x192_711
+  - first:
+      213: 2313404284396003830
+    second: WarriorDash_SS_9f_192x192_712
+  - first:
+      213: -6744984608701319895
+    second: WarriorDash_SS_9f_192x192_713
+  - first:
+      213: -4099217173146485186
+    second: WarriorDash_SS_9f_192x192_714
+  - first:
+      213: 7822651821931527235
+    second: WarriorDash_SS_9f_192x192_715
+  - first:
+      213: 8904424613710935503
+    second: WarriorDash_SS_9f_192x192_716
+  - first:
+      213: 3532858813435168434
+    second: WarriorDash_SS_9f_192x192_717
+  - first:
+      213: 4389046079737836298
+    second: WarriorDash_SS_9f_192x192_718
+  - first:
+      213: 264981056874460827
+    second: WarriorDash_SS_9f_192x192_719
+  - first:
+      213: -7972684895498004874
+    second: WarriorDash_SS_9f_192x192_720
+  - first:
+      213: 2630541817240321348
+    second: WarriorDash_SS_9f_192x192_721
+  - first:
+      213: -9014791937995979830
+    second: WarriorDash_SS_9f_192x192_722
+  - first:
+      213: 2041973011219140891
+    second: WarriorDash_SS_9f_192x192_723
+  - first:
+      213: -8050281792651621369
+    second: WarriorDash_SS_9f_192x192_724
+  - first:
+      213: -1694369830460449510
+    second: WarriorDash_SS_9f_192x192_725
+  - first:
+      213: 4588054295006668810
+    second: WarriorDash_SS_9f_192x192_726
+  - first:
+      213: -7240961686879057099
+    second: WarriorDash_SS_9f_192x192_727
+  - first:
+      213: -7808842536370874178
+    second: WarriorDash_SS_9f_192x192_728
+  - first:
+      213: -9061251354529792792
+    second: WarriorDash_SS_9f_192x192_729
+  - first:
+      213: 450072534462182324
+    second: WarriorDash_SS_9f_192x192_730
+  - first:
+      213: 6251215086299137552
+    second: WarriorDash_SS_9f_192x192_731
+  - first:
+      213: -7115027899500838408
+    second: WarriorDash_SS_9f_192x192_732
+  - first:
+      213: 3569220012275490400
+    second: WarriorDash_SS_9f_192x192_733
+  - first:
+      213: 5063305328212665037
+    second: WarriorDash_SS_9f_192x192_734
+  - first:
+      213: 8311772997631813139
+    second: WarriorDash_SS_9f_192x192_735
+  - first:
+      213: 3327944986518511872
+    second: WarriorDash_SS_9f_192x192_736
+  - first:
+      213: 4251185355271463769
+    second: WarriorDash_SS_9f_192x192_737
+  - first:
+      213: -8646057843718393840
+    second: WarriorDash_SS_9f_192x192_738
+  - first:
+      213: -7330971198364898382
+    second: WarriorDash_SS_9f_192x192_739
+  - first:
+      213: 2602209876713004618
+    second: WarriorDash_SS_9f_192x192_740
+  - first:
+      213: 3394944717329949299
+    second: WarriorDash_SS_9f_192x192_741
+  - first:
+      213: 268800512082683781
+    second: WarriorDash_SS_9f_192x192_742
+  - first:
+      213: -8784589674635672193
+    second: WarriorDash_SS_9f_192x192_743
+  - first:
+      213: 2046001877397822744
+    second: WarriorDash_SS_9f_192x192_744
+  - first:
+      213: 8462237054955361183
+    second: WarriorDash_SS_9f_192x192_745
+  - first:
+      213: -7215497121258780267
+    second: WarriorDash_SS_9f_192x192_746
+  - first:
+      213: 5169007573588172349
+    second: WarriorDash_SS_9f_192x192_747
+  - first:
+      213: -2373948671556106162
+    second: WarriorDash_SS_9f_192x192_748
+  - first:
+      213: -8474110157539137271
+    second: WarriorDash_SS_9f_192x192_749
+  - first:
+      213: 2166385446175908454
+    second: WarriorDash_SS_9f_192x192_750
+  - first:
+      213: 331725702171443454
+    second: WarriorDash_SS_9f_192x192_751
+  - first:
+      213: 915492367949300981
+    second: WarriorDash_SS_9f_192x192_752
+  - first:
+      213: 3370713091565944331
+    second: WarriorDash_SS_9f_192x192_753
+  - first:
+      213: -4081605116502160405
+    second: WarriorDash_SS_9f_192x192_754
+  - first:
+      213: -7051200902134886914
+    second: WarriorDash_SS_9f_192x192_755
+  - first:
+      213: -533486769261742362
+    second: WarriorDash_SS_9f_192x192_756
+  - first:
+      213: 3887605870234355700
+    second: WarriorDash_SS_9f_192x192_757
+  - first:
+      213: 5325279479323314807
+    second: WarriorDash_SS_9f_192x192_758
+  - first:
+      213: 6530730318035199616
+    second: WarriorDash_SS_9f_192x192_759
+  - first:
+      213: 3428387718037026109
+    second: WarriorDash_SS_9f_192x192_760
+  - first:
+      213: -4611726720588676212
+    second: WarriorDash_SS_9f_192x192_761
+  - first:
+      213: 2594156515035824379
+    second: WarriorDash_SS_9f_192x192_762
+  - first:
+      213: -7724100920385738637
+    second: WarriorDash_SS_9f_192x192_763
+  - first:
+      213: -4679635312520092343
+    second: WarriorDash_SS_9f_192x192_764
+  - first:
+      213: 8422618337933971366
+    second: WarriorDash_SS_9f_192x192_765
+  - first:
+      213: 4380175118176832364
+    second: WarriorDash_SS_9f_192x192_766
+  - first:
+      213: 368270298685151481
+    second: WarriorDash_SS_9f_192x192_767
+  - first:
+      213: 3464927330122892051
+    second: WarriorDash_SS_9f_192x192_768
+  - first:
+      213: -2080349402920415618
+    second: WarriorDash_SS_9f_192x192_769
+  - first:
+      213: -8020468993565707473
+    second: WarriorDash_SS_9f_192x192_770
+  - first:
+      213: -2744688480220443981
+    second: WarriorDash_SS_9f_192x192_771
+  - first:
+      213: 4297380480498054638
+    second: WarriorDash_SS_9f_192x192_772
+  - first:
+      213: -1119641667875192699
+    second: WarriorDash_SS_9f_192x192_773
+  - first:
+      213: -456005151194055884
+    second: WarriorDash_SS_9f_192x192_774
+  - first:
+      213: -8980911796681559755
+    second: WarriorDash_SS_9f_192x192_775
+  - first:
+      213: -8235278230674136063
+    second: WarriorDash_SS_9f_192x192_776
+  - first:
+      213: -7732223923359050202
+    second: WarriorDash_SS_9f_192x192_777
+  - first:
+      213: -4131807705235729276
+    second: WarriorDash_SS_9f_192x192_778
+  - first:
+      213: -2381183502740599294
+    second: WarriorDash_SS_9f_192x192_779
+  - first:
+      213: 8607413947096137931
+    second: WarriorDash_SS_9f_192x192_780
+  - first:
+      213: 1020386456823225247
+    second: WarriorDash_SS_9f_192x192_781
+  - first:
+      213: -9137416586524918966
+    second: WarriorDash_SS_9f_192x192_782
+  - first:
+      213: 5991802968621700743
+    second: WarriorDash_SS_9f_192x192_783
+  - first:
+      213: -8048126913995483773
+    second: WarriorDash_SS_9f_192x192_784
+  - first:
+      213: -8988977773635968772
+    second: WarriorDash_SS_9f_192x192_785
+  - first:
+      213: -4153211854673725891
+    second: WarriorDash_SS_9f_192x192_786
+  - first:
+      213: 2137093998070720396
+    second: WarriorDash_SS_9f_192x192_787
+  - first:
+      213: 241651981005289606
+    second: WarriorDash_SS_9f_192x192_788
+  - first:
+      213: 3182650282535587555
+    second: WarriorDash_SS_9f_192x192_789
+  - first:
+      213: -6501488449697984010
+    second: WarriorDash_SS_9f_192x192_790
+  - first:
+      213: -1077099675774050097
+    second: WarriorDash_SS_9f_192x192_791
+  - first:
+      213: -1306028592640191329
+    second: WarriorDash_SS_9f_192x192_792
+  - first:
+      213: -2645202813669441046
+    second: WarriorDash_SS_9f_192x192_793
+  - first:
+      213: -3407353524974250082
+    second: WarriorDash_SS_9f_192x192_794
+  - first:
+      213: 5896087990465283772
+    second: WarriorDash_SS_9f_192x192_795
+  - first:
+      213: 5164519028151785128
+    second: WarriorDash_SS_9f_192x192_796
+  - first:
+      213: -3539789034170929741
+    second: WarriorDash_SS_9f_192x192_797
+  - first:
+      213: -6851291577976094381
+    second: WarriorDash_SS_9f_192x192_798
+  - first:
+      213: 307511374652927320
+    second: WarriorDash_SS_9f_192x192_799
+  - first:
+      213: 3941364246508843039
+    second: WarriorDash_SS_9f_192x192_800
+  - first:
+      213: -6343676213905471778
+    second: WarriorDash_SS_9f_192x192_801
+  - first:
+      213: 8160886575445737735
+    second: WarriorDash_SS_9f_192x192_802
+  - first:
+      213: -4452130275987164337
+    second: WarriorDash_SS_9f_192x192_803
+  - first:
+      213: -4265609406300274856
+    second: WarriorDash_SS_9f_192x192_804
+  - first:
+      213: 1677464779922893266
+    second: WarriorDash_SS_9f_192x192_805
+  - first:
+      213: 3972505359287211986
+    second: WarriorDash_SS_9f_192x192_806
+  - first:
+      213: -5379150556381422348
+    second: WarriorDash_SS_9f_192x192_807
+  - first:
+      213: 4864639940034936944
+    second: WarriorDash_SS_9f_192x192_808
+  - first:
+      213: -4054023004893250631
+    second: WarriorDash_SS_9f_192x192_809
+  - first:
+      213: -3080884528407973151
+    second: WarriorDash_SS_9f_192x192_810
+  - first:
+      213: -8102338359725130837
+    second: WarriorDash_SS_9f_192x192_811
+  - first:
+      213: 3031073119208204929
+    second: WarriorDash_SS_9f_192x192_812
+  - first:
+      213: -5093098728894540570
+    second: WarriorDash_SS_9f_192x192_813
+  - first:
+      213: -3689921134030145210
+    second: WarriorDash_SS_9f_192x192_814
+  - first:
+      213: 3009214023784236685
+    second: WarriorDash_SS_9f_192x192_815
+  - first:
+      213: -8636359386814006669
+    second: WarriorDash_SS_9f_192x192_816
+  - first:
+      213: -8376108368749698796
+    second: WarriorDash_SS_9f_192x192_817
+  - first:
+      213: -8007721853052169402
+    second: WarriorDash_SS_9f_192x192_818
+  - first:
+      213: 7044202857991147605
+    second: WarriorDash_SS_9f_192x192_819
+  - first:
+      213: -6788275495135468709
+    second: WarriorDash_SS_9f_192x192_820
+  - first:
+      213: 5720078717253301610
+    second: WarriorDash_SS_9f_192x192_821
+  - first:
+      213: -2492564126982608063
+    second: WarriorDash_SS_9f_192x192_822
+  - first:
+      213: -9044400184036662044
+    second: WarriorDash_SS_9f_192x192_823
+  - first:
+      213: 497522138662410046
+    second: WarriorDash_SS_9f_192x192_824
+  - first:
+      213: -6693887728317455174
+    second: WarriorDash_SS_9f_192x192_825
+  - first:
+      213: 2503493922137501723
+    second: WarriorDash_SS_9f_192x192_826
+  - first:
+      213: -2701480323466691575
+    second: WarriorDash_SS_9f_192x192_827
+  - first:
+      213: 3710697958177537927
+    second: WarriorDash_SS_9f_192x192_828
+  - first:
+      213: 4206653118626615766
+    second: WarriorDash_SS_9f_192x192_829
+  - first:
+      213: -6306755688699787546
+    second: WarriorDash_SS_9f_192x192_830
+  - first:
+      213: 5416046553661937069
+    second: WarriorDash_SS_9f_192x192_831
+  - first:
+      213: 6054400717724971209
+    second: WarriorDash_SS_9f_192x192_832
+  - first:
+      213: 1742187824509816
+    second: WarriorDash_SS_9f_192x192_833
+  - first:
+      213: 2048427009843736004
+    second: WarriorDash_SS_9f_192x192_834
+  - first:
+      213: 6132275844988767071
+    second: WarriorDash_SS_9f_192x192_835
+  - first:
+      213: 4569656140475805761
+    second: WarriorDash_SS_9f_192x192_836
+  - first:
+      213: 116913002878360316
+    second: WarriorDash_SS_9f_192x192_837
+  - first:
+      213: 7984185872356209062
+    second: WarriorDash_SS_9f_192x192_838
+  - first:
+      213: -26853233553357883
+    second: WarriorDash_SS_9f_192x192_839
+  - first:
+      213: 1869720470002653845
+    second: WarriorDash_SS_9f_192x192_840
+  - first:
+      213: -3232890871731427882
+    second: WarriorDash_SS_9f_192x192_841
+  - first:
+      213: 3241345221669364041
+    second: WarriorDash_SS_9f_192x192_842
+  - first:
+      213: -4104044126290015820
+    second: WarriorDash_SS_9f_192x192_843
+  - first:
+      213: 4666795647854176877
+    second: WarriorDash_SS_9f_192x192_844
+  - first:
+      213: -6877953424435144783
+    second: WarriorDash_SS_9f_192x192_845
+  - first:
+      213: 8296257611999658726
+    second: WarriorDash_SS_9f_192x192_846
+  - first:
+      213: -8911255019576588553
+    second: WarriorDash_SS_9f_192x192_847
+  - first:
+      213: 9008969095176698445
+    second: WarriorDash_SS_9f_192x192_848
+  - first:
+      213: 2648798841264737157
+    second: WarriorDash_SS_9f_192x192_849
+  - first:
+      213: 6644298228833547128
+    second: WarriorDash_SS_9f_192x192_850
+  - first:
+      213: -2741684602633924664
+    second: WarriorDash_SS_9f_192x192_851
+  - first:
+      213: -1225309351399713861
+    second: WarriorDash_SS_9f_192x192_852
+  - first:
+      213: 8310058043033013510
+    second: WarriorDash_SS_9f_192x192_853
+  - first:
+      213: -6961770655550863992
+    second: WarriorDash_SS_9f_192x192_854
+  - first:
+      213: -6464643381189262407
+    second: WarriorDash_SS_9f_192x192_855
+  - first:
+      213: -5790106812929928673
+    second: WarriorDash_SS_9f_192x192_856
+  - first:
+      213: 5022859077279803326
+    second: WarriorDash_SS_9f_192x192_857
+  - first:
+      213: -7623246480782026528
+    second: WarriorDash_SS_9f_192x192_858
+  - first:
+      213: -3816114572817481365
+    second: WarriorDash_SS_9f_192x192_859
+  - first:
+      213: 6954223753896696461
+    second: WarriorDash_SS_9f_192x192_860
+  - first:
+      213: -3540015802211325458
+    second: WarriorDash_SS_9f_192x192_861
+  - first:
+      213: 436166815642584863
+    second: WarriorDash_SS_9f_192x192_862
+  - first:
+      213: 1671117109688046735
+    second: WarriorDash_SS_9f_192x192_863
+  - first:
+      213: 8670409577014544512
+    second: WarriorDash_SS_9f_192x192_864
+  - first:
+      213: -3472822621126365336
+    second: WarriorDash_SS_9f_192x192_865
+  - first:
+      213: -5143132925849417172
+    second: WarriorDash_SS_9f_192x192_866
+  - first:
+      213: 7136025547857253987
+    second: WarriorDash_SS_9f_192x192_867
+  - first:
+      213: -1691860919205089990
+    second: WarriorDash_SS_9f_192x192_868
+  - first:
+      213: -3510162036020125693
+    second: WarriorDash_SS_9f_192x192_869
+  - first:
+      213: 8682568938411444877
+    second: WarriorDash_SS_9f_192x192_870
+  - first:
+      213: 8599566901428928175
+    second: WarriorDash_SS_9f_192x192_871
+  - first:
+      213: -4638358538268672133
+    second: WarriorDash_SS_9f_192x192_872
+  - first:
+      213: -5349694115718811729
+    second: WarriorDash_SS_9f_192x192_873
+  - first:
+      213: 8856149651836112532
+    second: WarriorDash_SS_9f_192x192_874
+  - first:
+      213: 3090849320346855529
+    second: WarriorDash_SS_9f_192x192_875
+  - first:
+      213: 224378756442102519
+    second: WarriorDash_SS_9f_192x192_876
+  - first:
+      213: -6949208561598948305
+    second: WarriorDash_SS_9f_192x192_877
+  - first:
+      213: 3195434252211225021
+    second: WarriorDash_SS_9f_192x192_878
+  - first:
+      213: 6705742041658907025
+    second: WarriorDash_SS_9f_192x192_879
+  - first:
+      213: -6720214672077685019
+    second: WarriorDash_SS_9f_192x192_880
+  - first:
+      213: -4928403532534783948
+    second: WarriorDash_SS_9f_192x192_881
+  - first:
+      213: -4630837753425409422
+    second: WarriorDash_SS_9f_192x192_882
+  - first:
+      213: 1938082747921243863
+    second: WarriorDash_SS_9f_192x192_883
+  - first:
+      213: 8454404477757274295
+    second: WarriorDash_SS_9f_192x192_884
+  - first:
+      213: -42856576972725037
+    second: WarriorDash_SS_9f_192x192_885
+  - first:
+      213: -8021429304528586463
+    second: WarriorDash_SS_9f_192x192_886
+  - first:
+      213: -4618254433073857493
+    second: WarriorDash_SS_9f_192x192_887
+  - first:
+      213: -5234796030301231737
+    second: WarriorDash_SS_9f_192x192_888
+  - first:
+      213: -7488753310150131412
+    second: WarriorDash_SS_9f_192x192_889
+  - first:
+      213: -3043943923947780049
+    second: WarriorDash_SS_9f_192x192_890
+  - first:
+      213: 4648422573687011806
+    second: WarriorDash_SS_9f_192x192_891
+  - first:
+      213: -8396243871270156940
+    second: WarriorDash_SS_9f_192x192_892
+  - first:
+      213: -6083100984031229750
+    second: WarriorDash_SS_9f_192x192_893
+  - first:
+      213: 6452774643863646916
+    second: WarriorDash_SS_9f_192x192_894
+  - first:
+      213: -8263587399790484118
+    second: WarriorDash_SS_9f_192x192_895
+  - first:
+      213: -6646420016342047176
+    second: WarriorDash_SS_9f_192x192_896
+  - first:
+      213: -5616771378268218852
+    second: WarriorDash_SS_9f_192x192_897
+  - first:
+      213: 5292149944547316818
+    second: WarriorDash_SS_9f_192x192_898
+  - first:
+      213: 8569284016603556082
+    second: WarriorDash_SS_9f_192x192_899
+  - first:
+      213: -8882550901310247443
+    second: WarriorDash_SS_9f_192x192_900
+  - first:
+      213: -5470789940706836118
+    second: WarriorDash_SS_9f_192x192_901
+  - first:
+      213: 7823806098066408449
+    second: WarriorDash_SS_9f_192x192_902
+  - first:
+      213: -8515974662319379254
+    second: WarriorDash_SS_9f_192x192_903
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 192
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da03d552de3f853d0800000000000000
+      internalID: -3217553733896556371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b9ce3a54561ae20800000000000000
+      internalID: 3360078146772441870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea9f15947cfa7f80800000000000000
+      internalID: -8107890601478874398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc34fed5ebf233350800000000000000
+      internalID: 5995188023626515407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19eb51c12968e0680800000000000000
+      internalID: -8786937860858724719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f814d0a737ff2d0800000000000000
+      internalID: -3242746238637863126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ddb914abdc6d6a70800000000000000
+      internalID: 8821826935695457751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec1ed75fbfd51fa0800000000000000
+      internalID: -5830508129655317276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bd31c522e8d1320800000000000000
+      internalID: 2530334843876924171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f90a28a8b5f8d3c0800000000000000
+      internalID: -4334444467899987472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c35ec60601a7b20800000000000000
+      internalID: 3132834497119468551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22cb216ff492b2070800000000000000
+      internalID: 8082599379654065186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 971a74b192c6b6a90800000000000000
+      internalID: -7319637845553471111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b29670dd6212e50800000000000000
+      internalID: 6782745244550638418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ea55eb8cf80dd70800000000000000
+      internalID: 9065904142246325851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272ad0c5348611550800000000000000
+      internalID: 6129795206344450674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a036ae56b4bafd8f0800000000000000
+      internalID: -513503492176190710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da739eef5a57b2c90800000000000000
+      internalID: -7193526623987484755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a9a5fc880a49340800000000000000
+      internalID: 4869693606549166727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46de904accae1dd40800000000000000
+      internalID: 5607521175699320164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a68d9de796efd580800000000000000
+      internalID: -8800061606657685855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8bad2c78fcbf04c0800000000000000
+      internalID: -4319025742203737205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6659ad31686e5fb0800000000000000
+      internalID: -4657170197798889873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa03a34e1bd251a0800000000000000
+      internalID: -6822149562482619655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6636519997cda8e60800000000000000
+      internalID: 7965421305775612774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9821d514a2528070800000000000000
+      internalID: 8107133143914457244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d589eefa786073800800000000000000
+      internalID: 591949055864510557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b830d8b8c197400800000000000000
+      internalID: 322320234025552695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f46864e6cb0357f0800000000000000
+      internalID: -625142974410889991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c1ab3b9ca1bd390800000000000000
+      internalID: -7792605276628444147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d3c471058009fd0800000000000000
+      internalID: -2337359066524009167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4532c8c433a45cac0800000000000000
+      internalID: -3835577923448069292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf784862c7fa95a0800000000000000
+      internalID: -6513621496692703292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad364924db9f9f210800000000000000
+      internalID: 1367398553144812506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88d7641d44410d60800000000000000
+      internalID: 7854634322956376203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9890017c281b696b0800000000000000
+      internalID: -5289845537056487031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde2bd16640993740800000000000000
+      internalID: 5132291882329255643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43368af1d094004a0800000000000000
+      internalID: -6629218330774838476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e7bd1768ed25a80800000000000000
+      internalID: -8479470479368028601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8f520ebc92e8250800000000000000
+      internalID: 5948738113418688741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd07e7535b4604b0800000000000000
+      internalID: -5474605475693130316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05bfe7723b68f37b0800000000000000
+      internalID: -5242323337216066736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2331e0ec4201680800000000000000
+      internalID: -8786482405581835585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce88744daad0e080800000000000000
+      internalID: -9160081204358639932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5df68aa347450130800000000000000
+      internalID: 3532307838691376475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a2982b6ac53c3d10800000000000000
+      internalID: 2106617869200036515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291a1b71818906d40800000000000000
+      internalID: 5575623567928828306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 683e8e47dc9ba76e0800000000000000
+      internalID: -1838953205746572410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ced094fb8411c10800000000000000
+      internalID: 2022477694067666027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01289441956acae80800000000000000
+      internalID: -8165969122806889968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08504ab411eca5050800000000000000
+      internalID: 5790166844617000320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58e2b38524090d00800000000000000
+      internalID: 939286556453300319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f560b37867be90440800000000000000
+      internalID: 4902708563676956255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c5d853c46a11fbc0800000000000000
+      internalID: -3751187994546481723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05956c5dabef94290800000000000000
+      internalID: -7905507592468276912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64221af8cba683e80800000000000000
+      internalID: -8198685763531890106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_56
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d05d31f16c2e0630800000000000000
+      internalID: 3895099526892835027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_57
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f30c5eea2fc6790800000000000000
+      internalID: -7535381243504869479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_58
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d6021c5c7c3a2f0800000000000000
+      internalID: -962706243164541645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_59
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc50d69cbbcd4a6a0800000000000000
+      internalID: -6438778868136606259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_60
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b86e025b130797b0800000000000000
+      internalID: -5217698227409753930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_61
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1f992b6b2a494e0800000000000000
+      internalID: -1975775430944624129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d04078f9446873350800000000000000
+      internalID: 5996409058159428621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc72e50d79553220800000000000000
+      internalID: 2464974764559727792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_64
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31f7ae56ead15d7a0800000000000000
+      internalID: -6353139064464834797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_65
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60da9ba4771475fe0800000000000000
+      internalID: -1200418795060351738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_66
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ccc8865d0e0b3a0800000000000000
+      internalID: -6651569442439508842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_67
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 575ef450d88668290800000000000000
+      internalID: -7888502742404045451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_68
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21cf786f4e610270800000000000000
+      internalID: 8214968482635170093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_69
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8307c84a6cf1e3d20800000000000000
+      internalID: 3260078118287470648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_70
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c2cdcaf629c2570800000000000000
+      internalID: 8443284409751973015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WarriorDash_SS_9f_192x192_71
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b7eedb67f43f820800000000000000
+      internalID: 2950789552269065011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7d0b8e5543ae6574999191ac3eea7e6a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      WarriorDash_SS_9f_192x192_0: -3217553733896556371
+      WarriorDash_SS_9f_192x192_1: 3360078146772441870
+      WarriorDash_SS_9f_192x192_10: 3132834497119468551
+      WarriorDash_SS_9f_192x192_11: 8082599379654065186
+      WarriorDash_SS_9f_192x192_12: -7319637845553471111
+      WarriorDash_SS_9f_192x192_13: 6782745244550638418
+      WarriorDash_SS_9f_192x192_14: 9065904142246325851
+      WarriorDash_SS_9f_192x192_15: 6129795206344450674
+      WarriorDash_SS_9f_192x192_16: -513503492176190710
+      WarriorDash_SS_9f_192x192_17: -7193526623987484755
+      WarriorDash_SS_9f_192x192_18: 4869693606549166727
+      WarriorDash_SS_9f_192x192_19: 5607521175699320164
+      WarriorDash_SS_9f_192x192_2: -8107890601478874398
+      WarriorDash_SS_9f_192x192_20: -8800061606657685855
+      WarriorDash_SS_9f_192x192_21: -4319025742203737205
+      WarriorDash_SS_9f_192x192_22: -4657170197798889873
+      WarriorDash_SS_9f_192x192_23: -6822149562482619655
+      WarriorDash_SS_9f_192x192_24: 7965421305775612774
+      WarriorDash_SS_9f_192x192_25: 8107133143914457244
+      WarriorDash_SS_9f_192x192_26: 591949055864510557
+      WarriorDash_SS_9f_192x192_27: 322320234025552695
+      WarriorDash_SS_9f_192x192_28: -625142974410889991
+      WarriorDash_SS_9f_192x192_29: -7792605276628444147
+      WarriorDash_SS_9f_192x192_3: 5995188023626515407
+      WarriorDash_SS_9f_192x192_30: -2337359066524009167
+      WarriorDash_SS_9f_192x192_31: -3835577923448069292
+      WarriorDash_SS_9f_192x192_32: -6513621496692703292
+      WarriorDash_SS_9f_192x192_33: 1367398553144812506
+      WarriorDash_SS_9f_192x192_34: 7854634322956376203
+      WarriorDash_SS_9f_192x192_35: -5289845537056487031
+      WarriorDash_SS_9f_192x192_36: 5132291882329255643
+      WarriorDash_SS_9f_192x192_37: -6629218330774838476
+      WarriorDash_SS_9f_192x192_38: -8479470479368028601
+      WarriorDash_SS_9f_192x192_39: 5948738113418688741
+      WarriorDash_SS_9f_192x192_4: -8786937860858724719
+      WarriorDash_SS_9f_192x192_40: -5474605475693130316
+      WarriorDash_SS_9f_192x192_41: -5242323337216066736
+      WarriorDash_SS_9f_192x192_42: -8786482405581835585
+      WarriorDash_SS_9f_192x192_43: -9160081204358639932
+      WarriorDash_SS_9f_192x192_44: 3532307838691376475
+      WarriorDash_SS_9f_192x192_45: 2106617869200036515
+      WarriorDash_SS_9f_192x192_46: 5575623567928828306
+      WarriorDash_SS_9f_192x192_47: -1838953205746572410
+      WarriorDash_SS_9f_192x192_48: 2022477694067666027
+      WarriorDash_SS_9f_192x192_49: -8165969122806889968
+      WarriorDash_SS_9f_192x192_5: -3242746238637863126
+      WarriorDash_SS_9f_192x192_50: 5790166844617000320
+      WarriorDash_SS_9f_192x192_51: 939286556453300319
+      WarriorDash_SS_9f_192x192_52: 4902708563676956255
+      WarriorDash_SS_9f_192x192_53: -3751187994546481723
+      WarriorDash_SS_9f_192x192_54: -7905507592468276912
+      WarriorDash_SS_9f_192x192_55: -8198685763531890106
+      WarriorDash_SS_9f_192x192_56: 3895099526892835027
+      WarriorDash_SS_9f_192x192_57: -7535381243504869479
+      WarriorDash_SS_9f_192x192_58: -962706243164541645
+      WarriorDash_SS_9f_192x192_59: -6438778868136606259
+      WarriorDash_SS_9f_192x192_6: 8821826935695457751
+      WarriorDash_SS_9f_192x192_60: -5217698227409753930
+      WarriorDash_SS_9f_192x192_61: -1975775430944624129
+      WarriorDash_SS_9f_192x192_62: 5996409058159428621
+      WarriorDash_SS_9f_192x192_63: 2464974764559727792
+      WarriorDash_SS_9f_192x192_64: -6353139064464834797
+      WarriorDash_SS_9f_192x192_65: -1200418795060351738
+      WarriorDash_SS_9f_192x192_66: -6651569442439508842
+      WarriorDash_SS_9f_192x192_67: -7888502742404045451
+      WarriorDash_SS_9f_192x192_68: 8214968482635170093
+      WarriorDash_SS_9f_192x192_69: 3260078118287470648
+      WarriorDash_SS_9f_192x192_7: -5830508129655317276
+      WarriorDash_SS_9f_192x192_70: 8443284409751973015
+      WarriorDash_SS_9f_192x192_71: 2950789552269065011
+      WarriorDash_SS_9f_192x192_8: 2530334843876924171
+      WarriorDash_SS_9f_192x192_9: -4334444467899987472
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

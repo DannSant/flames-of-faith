@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1367501871713741015}
   - component: {fileID: 1215842447782199173}
+  - component: {fileID: 8675830050592105845}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -49,3 +50,15 @@ MonoBehaviour:
   waveDatabase: {fileID: 11400000, guid: 4fefed48534ce34498086625d91440fe, type: 2}
   graceRemovedPerWave: 1
   testMode: 0
+--- !u!114 &8675830050592105845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758871297285469281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc08e749cd48d6441871387c705d0408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Waves.WaveEventManager

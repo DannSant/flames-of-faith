@@ -86,9 +86,7 @@ namespace Game.Effects
         public void LoadState(MetaState state)
         {
             //Initialize state from meta progression. This will be null if no progression has been made yet.
-            unlockedEffects = state.unlockedEffects;
-
-            Debug.Log("Loaded effects: " + unlockedEffects);
+            unlockedEffects = state.unlockedEffects;          
         }
 
         public void SaveState()

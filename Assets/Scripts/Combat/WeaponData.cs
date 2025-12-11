@@ -3,6 +3,7 @@ using Game.Combat.Projectiles;
 using UnityEngine;
 
 namespace Game.Combat {
+
     [CreateAssetMenu(fileName = "NewWeapon", menuName = "Weapons/Weapon Data")]
     public class WeaponData : ScriptableObject
     {

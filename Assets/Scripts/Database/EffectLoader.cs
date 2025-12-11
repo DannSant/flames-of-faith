@@ -62,7 +62,7 @@ namespace Game.Database
 
             foreach (var data in allEffects)
             {
-                string path = $"{saveFolder}/{data.effectID}.asset";
+                string path = $"{saveFolder}/{data.name}.asset";
                 Effect effect = AssetDatabase.LoadAssetAtPath<Effect>(path);
 
                 if (effect == null)

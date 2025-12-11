@@ -115,5 +115,20 @@ namespace Game.AI.Behaviors
             return context;
         }
 
+        public void SetContextSpeedMultiplier(float multiplier)
+        {
+            if (context != null)
+            {
+                context.speedMultiplier = multiplier;
+            }
+        }
+        public void ResetContextSpeedMultiplier()
+        {
+            if (context != null)
+            {
+                context.speedMultiplier = 1.0f;
+            }
+        }
+
     }
 }

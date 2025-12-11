@@ -134,7 +134,7 @@ MonoBehaviour:
   attackScale: 5
   effectID: 
   layerMaskName: Enemy
-  originType: 0
+  originType: 1
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1

@@ -26,9 +26,10 @@ namespace Game.Combat
 
         private float maxHealth;
         private float currentHealth;
-        private Flash flash;     
-        
-     
+        private Flash flash;    
+        private float extraDamageTakenPercentage = 0f;
+
+
         private void Start()
         {
             currentHealth = maxHealth;
@@ -44,9 +45,9 @@ namespace Game.Combat
 
         public void TakeDamage(float damage)
         {
-            if(damagedSFX!=null)
+            if (damagedSFX != null)
             {
-                AudioManager.Instance.PlayLowVolumeSFX(damagedSFX,true);
+                AudioManager.Instance.PlayLowVolumeSFX(damagedSFX, true);
             }
             currentHealth -= damage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -56,7 +57,38 @@ namespace Game.Combat
             {
                 healthbar.Hide();
                 DetectDeath();
+                return;
             }
+
+            if (extraDamageTakenPercentage > 0f)
+            {
+                InflictExtraDamage(damage);
+            }
+
+        }
+
+        private void InflictExtraDamage(float damage)
+        {
+            float extraDamage = damage * (extraDamageTakenPercentage);
+            currentHealth -= damage;
+            onHealthChanged?.Invoke(currentHealth, maxHealth);
+            healthbar.SetHealth(currentHealth, maxHealth);
+            DamageNumberSpawner.Instance.SpawnFrostDebuffDamageNumber(transform.position,extraDamage);
+            if (currentHealth <= 0)
+            {
+                healthbar.Hide();
+                DetectDeath();
+            }
+        }
+
+        public void SetExtraDamageTakenPercentage(float percentage)
+        {
+            extraDamageTakenPercentage = percentage;
+        }
+
+        public void ResetExtraDamageTakenPercentage()
+        {
+            extraDamageTakenPercentage = 0f;
         }
 
         private void DetectDeath()

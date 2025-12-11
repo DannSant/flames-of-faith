@@ -15,6 +15,7 @@ namespace Game.AI.Behaviors
         public bool isMoving;
         public Vector2 moveDirection;
         public bool isShooting;
+        public float speedMultiplier = 1f;
 
         //public Dictionary<ScriptableObject, float> cooldownTracker = new();
 

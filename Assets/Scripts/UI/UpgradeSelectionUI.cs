@@ -75,6 +75,7 @@ namespace Game.UI
 
         private void ShowUpgradeChoices(List<List<StatValuePair>> choices)
         {
+          
             upgradeChoiceGroups = choices;
             currentChoiceIndex = 0;
             TogglePanel(true);
@@ -131,10 +132,10 @@ namespace Game.UI
 
         private void UpdateCoinsGainedText(int coinsGained)
         {
-            if (!mainPanel.activeInHierarchy)
+            /*if (!mainPanel.activeInHierarchy)
             {
                 TogglePanel(true);
-            }
+            }*/
             coinsGainedText.text = $"Coins Gained: {coinsGained}";
         }
     }

@@ -17,5 +17,5 @@ MonoBehaviour:
   durationStatScale: 0.25
   baseStrength: 3
   strengthStatScale: 1
-  chanceToApply: 1
+  chanceToApply: 0.5
   vfx: {fileID: 508358228207870394, guid: 9771c85cc49cb534b8ef6e04860875bd, type: 3}
