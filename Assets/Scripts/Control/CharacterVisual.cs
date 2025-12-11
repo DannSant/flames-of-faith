@@ -52,13 +52,15 @@ namespace Game.Control
             }
         }
 
-        public void SetFacingDirection(bool facingLeft)
+        public void SetFacingDirection(Vector2 facingDirection)
         {
-            spriteRenderer.flipX = facingLeft;
+            animator.SetFloat("DirectionX", facingDirection.x);
+            animator.SetFloat("DirectionY", facingDirection.y);
+            /*spriteRenderer.flipX = facingLeft;
             if (attackEffect != null)
             {
                 attackEffect.flipX = facingLeft;
-            }
+            }*/
         }
 
         public void TriggerFlash()

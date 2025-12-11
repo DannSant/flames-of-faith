@@ -148,23 +148,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3207512564547789242, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Size.x
-      value: 0.2928936
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3207512564547789242, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Size.y
-      value: 0.5658667
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3207512564547789242, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Offset.x
-      value: 0.037743386
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3207512564547789242, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Offset.y
-      value: -0.18293339
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3207512564547789242, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Direction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: startingEffects.Array.size
@@ -185,14 +185,26 @@ PrefabInstance:
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1284694632403127577, guid: f1f9407b6d3286e4f843d6f5d46a89f3, type: 3}
+      objectReference: {fileID: -5458434939627935175, guid: 2b57d34fc681ec943955cd8349cf918a, type: 3}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6055726788964509217, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1275e69f9dfe584bb3034b339b412a3, type: 2}
     - target: {fileID: 6543883001522524048, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Name
       value: PlayerWarrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567618295629468597, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567618295629468597, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_LocalPosition.x

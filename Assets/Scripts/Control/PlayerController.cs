@@ -168,9 +168,9 @@ namespace Game.Control
                 EnemyHealth target = weaponManager.GetCurrentTarget();
                 if (target != null)
                 {
-                    Vector3 targetPosition = target.transform.position;
-                    FacingLeft = (targetPosition.x < transform.position.x);
-                    characterVisual?.SetFacingDirection(FacingLeft);
+                    Vector3 attackLookAtPosition = target.transform.position - transform.position;
+                   
+                    characterVisual?.SetFacingDirection(attackLookAtPosition.normalized);
                     return;
                 }
             }
@@ -181,9 +181,8 @@ namespace Game.Control
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             worldMousePosition.z = 0;
-
-            FacingLeft = (worldMousePosition.x < transform.position.x);
-            characterVisual?.SetFacingDirection(FacingLeft);
+            Vector3 targetPosition = worldMousePosition - transform.position;           
+            characterVisual?.SetFacingDirection(targetPosition.normalized);
         }
 
         private float CalculateMoveSpeed()
