@@ -144,6 +144,7 @@ namespace Game.Control
 
         private void StartSpecialAttack()
         {
+            if (!CanAttack()) return;
             weaponManager.SpecialAttack();
         }
 

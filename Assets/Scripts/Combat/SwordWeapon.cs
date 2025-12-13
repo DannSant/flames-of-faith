@@ -91,7 +91,7 @@ namespace Game.Combat
         }
 
         protected override void OnSpecialAttackAnimationPlayed()
-        {
+        {           
             specialAttackCollider.SetActive(false);
         }
 
