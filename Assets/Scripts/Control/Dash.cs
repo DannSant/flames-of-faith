@@ -22,7 +22,7 @@ namespace Game.Control
         private CharacterVisual characterVisual;
         private Collider2D characterCollider;
 
-        private float dashDuration = .1f;
+        private float dashDuration = .2f;
         private float dashCooldownBase = 2f;
         
         private UpdateTimer dashUpdateTimer;
@@ -64,6 +64,9 @@ namespace Game.Control
             ManageDashTimerEvent();
             //TODO review this later, it should disable collider for invincibility frames but still collide with obstacles
             //CheckAndToggleColliderOnInvincibility();
+
+            // Check if dashing so we set direction in dash direction
+            CheckDashDirection();
         }
 
         private void Dash_onStatUpdatedEvent(StatType statType, int value)
@@ -87,8 +90,7 @@ namespace Game.Control
 
         private void StartDashing()
         {
-            characterVisual.PlayDashAnimation();
-            //PlayerController.Instance.ChangeDashMultiplier(dashSpeed);
+            characterVisual.PlayDashAnimation();          
             playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
         }
@@ -117,6 +119,13 @@ namespace Game.Control
             }
         }
 
+        private void CheckDashDirection()
+        {
+            if (dashUpdateTimer.GetIsEventActive()) { 
+                characterVisual.SetFacingDirection(inputHandler.Player.Move.ReadValue<Vector2>());
+            }
+        }
+
         private void CheckAndToggleColliderOnInvincibility()
         {
             if (dashUpdateTimer.GetIsEventActive())
@@ -127,6 +136,11 @@ namespace Game.Control
             {
                 characterCollider.enabled = true; // Enable collider when not invincible
             }
+        }
+
+        public bool isDashActive()
+        {
+            return dashUpdateTimer.GetIsEventActive();
         }
 
         public void LoadState()

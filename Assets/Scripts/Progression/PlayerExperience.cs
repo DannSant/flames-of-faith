@@ -66,9 +66,9 @@ namespace Game.Progression
             {
                 currentXP -= xpToLevelUp;
                 currentLevel++;
-                onLevelUp?.Invoke(currentLevel, GetXPRequired(currentLevel));
-                //PlayerProgression.Instance.GetStatTotal(StatType.ExperienceToLevelUpReduction);
-                
+                int newXpToLevelUp = GetXPRequired(currentLevel);               
+                onLevelUp?.Invoke(currentLevel, newXpToLevelUp);
+                OnPlayerExperienceGainEvent?.Invoke(currentXP, xpToLevelUp);
             }
         }
 

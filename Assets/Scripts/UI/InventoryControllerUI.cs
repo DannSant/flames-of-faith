@@ -26,10 +26,13 @@ namespace Game.UI
         [Header("Prefab Settings")]
         [SerializeField] private EffectIconUI effectIconPrefab;
 
+        private EffectStore effectStore;
+        private CurrencyWallet currencyWallet;
+
         private void Start()
         {
             TogglePanel(false);
-            
+
         }
 
         private void OnEnable()
@@ -39,6 +42,18 @@ namespace Game.UI
             {
                 mainSceneController.OnGameplayUISetupRequested += SetupEvents;
             }
+
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            if (effectStore != null)
+            {
+                effectStore.OnEffectAdded += OnEffectAdded;
+                
+            }
+            currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
+            if (currencyWallet != null)
+            {
+                currencyWallet.OnCurrencyChanged += OnUpdatedCurrency;
+            }
         }
 
         private void OnDisable()
@@ -47,6 +62,18 @@ namespace Game.UI
             if (mainSceneController != null)
             {
                 mainSceneController.OnGameplayUISetupRequested -= SetupEvents;
+            }
+
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            if (effectStore != null)
+            {
+                effectStore.OnEffectAdded -= OnEffectAdded;
+
+            }
+            currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
+            if (currencyWallet != null)
+            {
+                currencyWallet.OnCurrencyChanged -= OnUpdatedCurrency;
             }
         }
 
@@ -65,6 +92,7 @@ namespace Game.UI
                 shopKeeper.onShopWindowOpened += ShowInventoryWindow;
                 shopKeeper.onInventoryWindowRefresh += RefreshInventoryWindow;
             }
+
         }
 
         private void OnDestroy()
@@ -82,6 +110,17 @@ namespace Game.UI
                 shopKeeper.onShopWindowOpened -= ShowInventoryWindow;
                 shopKeeper.onInventoryWindowRefresh -= RefreshInventoryWindow;
             }
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            if (effectStore != null)
+            {
+                effectStore.OnEffectAdded -= OnEffectAdded;
+
+            }
+            currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
+            if (currencyWallet != null)
+            {
+                currencyWallet.OnCurrencyChanged -= OnUpdatedCurrency;
+            }
         }
 
         private void TogglePanel(bool value)
@@ -95,9 +134,16 @@ namespace Game.UI
         {
             // Show the inventory panel
             TogglePanel(true);
-
             RefreshInventoryWindow();
+        }
 
+        private void OnEffectAdded(Effect effect)
+        {
+            RefreshInventoryWindow();
+        }
+        private void OnUpdatedCurrency(int newAmount)
+        {
+            UpdateCurrencyText();
         }
 
         private void RefreshInventoryWindow()

@@ -16,8 +16,12 @@ namespace Game.Control
         private Color originalColor;
         private bool isFlashing;
         private float flashTimer;
+        private bool isAttackAnimationPlaying = false;
+        private bool isSpecialAttackAnimationPlaying = false;
 
         public CharacterClassData CharacterData => characterData;
+        public bool IsAttackAnimationPlaying { get { return isAttackAnimationPlaying; } set { isAttackAnimationPlaying = value; } }
+        public bool IsSpecialAttackAnimationPlaying { get { return isSpecialAttackAnimationPlaying; } set { isSpecialAttackAnimationPlaying = value; } }
 
         public event Action OnAttackStartAnimEvent;
         public event Action OnAttackEndAnimEvent;
@@ -56,11 +60,6 @@ namespace Game.Control
         {
             animator.SetFloat("DirectionX", facingDirection.x);
             animator.SetFloat("DirectionY", facingDirection.y);
-            /*spriteRenderer.flipX = facingLeft;
-            if (attackEffect != null)
-            {
-                attackEffect.flipX = facingLeft;
-            }*/
         }
 
         public void TriggerFlash()
@@ -97,6 +96,7 @@ namespace Game.Control
 
         public void PlayAttackAnimation()
         {
+            IsAttackAnimationPlaying = true;
             animator.SetTrigger("Attack");
         }
 
@@ -108,6 +108,7 @@ namespace Game.Control
 
         public void AttackEndAnimEvent() 
         {
+            IsAttackAnimationPlaying = false;
             OnAttackEndAnimEvent?.Invoke();
         }
 
@@ -118,11 +119,13 @@ namespace Game.Control
 
         public void SpecialAttackEndAnimEvent()
         {
+            IsSpecialAttackAnimationPlaying = false;
             OnSpecialAttackEndAnimEvent?.Invoke();
         }
 
         public void PlayAttackSpecialAnimation()
         {
+            IsSpecialAttackAnimationPlaying = true;
             animator.SetTrigger("SpecialAttack");
         }
 

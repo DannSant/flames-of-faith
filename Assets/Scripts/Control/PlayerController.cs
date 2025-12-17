@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Scene;
 using Game.Combat;
+using Game.Saving;
 namespace Game.Control
 {
     public class PlayerController : MonoBehaviour, IDependentStateLoader
@@ -15,6 +16,7 @@ namespace Game.Control
 
         private float moveSpeed = 1f;
 
+        private Dash playerDash;
         private CharacterVisual characterVisual;
         private PlayerProgression playerProgression;
         private PlayerInputHandler inputHandler;
@@ -40,6 +42,7 @@ namespace Game.Control
             knockback = GetComponent<Knockback>();
             playerHealth = GetComponent<PlayerHealth>();
             characterVisual = GetComponentInChildren<CharacterVisual>();
+            playerDash = GetComponent<Dash>();
             DashMultiplier = 1;
             //defaultPosition = transform.position;
 
@@ -144,7 +147,10 @@ namespace Game.Control
 
         private void StartSpecialAttack()
         {
-            if (!CanAttack()) return;
+            if (characterVisual.IsAttackAnimationPlaying)
+            {
+                return; // Prevent special attack if normal attack animation is playing
+            }
             weaponManager.SpecialAttack();
         }
 
@@ -164,6 +170,7 @@ namespace Game.Control
 
         private void AdjustPlayerFacingDirection()
         {
+            if (playerDash.isDashActive()) return;
             if (weaponManager != null && weaponManager.IsAutoAttackEnabled)
             {
                 EnemyHealth target = weaponManager.GetCurrentTarget();
@@ -178,6 +185,7 @@ namespace Game.Control
 
             // Default to mouse-based facing
             if (Camera.main == null) return;
+            if (playerDash.isDashActive()) return;
 
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);

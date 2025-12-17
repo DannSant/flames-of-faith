@@ -21,6 +21,16 @@ public class DeveloperCheats
         WaveSpawner.Instance.GoToNextLevel();
     }
 
+    [MenuItem("DevTools/Progression/Give 5 XP")]
+    public static void IncreaseGive5XP()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+        if (playerProgression != null)
+        {
+            playerProgression.AddExperience(5);
+        }
+    }
+
     [MenuItem("DevTools/Progression/Give 20 XP")]
     public static void IncreaseGive20XP()
     {
@@ -159,6 +169,18 @@ public class DeveloperCheats
         if (effectStore != null)
         {
             string effectId = "f91c7609-c550-47cb-acf4-7c44a4ce5528";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
+    [MenuItem("DevTools/Items/Sacred Writtings")]
+    public static void GiveSacredWrittings()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "8064e3c0-a56e-4051-bcc4-53ff6e120290";
             effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
         }
 

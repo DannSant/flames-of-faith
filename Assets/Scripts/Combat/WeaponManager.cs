@@ -9,8 +9,10 @@ namespace Game.Combat
     {
         [SerializeField] private WeaponBase startingWeapon;
         [SerializeField] private bool autoAttackEnabled = false;
+        [SerializeField] private CharacterVisual characterVisual;
         private WeaponBase currentWeapon;
         private PlayerProgression playerProgression;
+       
 
         public event Action<float, float> OnAttackTimerUpdated;
         public event Action<float, float> OnSpecialAttackTimerUpdated;
@@ -41,7 +43,11 @@ namespace Game.Combat
         }
 
         private void ManageAutoAttack()
-        {           
+        {
+            if (characterVisual.IsSpecialAttackAnimationPlaying)
+            {
+                return;
+            }   
             if (autoAttackEnabled && currentWeapon != null && !currentWeapon.IsAttackTimerActive())
             {               
                 var target = FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange());

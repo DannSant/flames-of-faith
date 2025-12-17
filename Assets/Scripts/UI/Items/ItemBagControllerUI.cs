@@ -1,5 +1,7 @@
+using Game.Audio;
 using Game.Currency;
 using Game.Effects;
+using Game.GameSettings;
 using Game.Items;
 using Game.Scene;
 using Game.Waves;
@@ -45,13 +47,38 @@ namespace Game.UI.Items
 
         private void HandleItemBagAvailable()
         {
-            var items = itemBag.PickedUpItems;
+            //Pause the game and Lower music volume
+            PauseManager.Instance.SetPause(true); 
+            AudioManager.Instance.SetMusicVolume(0.2f);  
 
             // Clear existing UI
             ClearUI();
 
             // Populate UI with current items
-            foreach (var item in items) {
+            RefreshItems();
+
+            ShowPanel();
+            SelectFirstItem();
+        }
+
+        private void SelectFirstItem()
+        {
+            if (itemBag.PickedUpItems.Count > 0)
+            {
+                SelectIcon(0);
+            }else
+            {
+                ClearUI();
+                HidePanel();
+                WaveEventManager.Instance.HandleWaveComplete();
+            }
+        }
+
+        private void RefreshItems()
+        {
+            var items = itemBag.PickedUpItems;
+            foreach (var item in items)
+            {
                 var buttonItem = Instantiate(itemIconPrefab, itemIconsContainer);
                 buttonItem.GetComponent<ItemBagIconUI>().Initialize(item);
                 var button = buttonItem.GetComponent<Button>();
@@ -60,14 +87,14 @@ namespace Game.UI.Items
                     SelectIcon(items.IndexOf(item));
                 });
             }
-
-            ShowPanel();
-            SelectIcon(0);
         }
 
 
         private void SelectIcon(int index)
         {
+            takeButton.onClick.RemoveAllListeners();
+            sellButton.onClick.RemoveAllListeners();
+
             selectedItemIndex = index;
             var item = itemBag.PickedUpItems[index];
             itemNameText.text = item.EffectName;
@@ -77,16 +104,14 @@ namespace Game.UI.Items
             takeButton.onClick.AddListener(() =>
             {
                 itemBag.RemoveEffectItem(item);
-                effectStore.AddEffect(item);
-                ClearUI();
+                effectStore.AddEffect(item);                
                 CheckIfItemsLeft();
             });
 
             sellButton.onClick.AddListener(() =>
             {
                 itemBag.RemoveEffectItem(item);
-                currencyWallet.AddCurrency(item.SellPrice);
-                ClearUI();
+                currencyWallet.AddCurrency(item.SellPrice);               
                 CheckIfItemsLeft();
             });
 
@@ -94,11 +119,17 @@ namespace Game.UI.Items
         }
 
         private void CheckIfItemsLeft()
-        {
+        {          
             if (itemBag.IsBagEmpty())
             {
+                ClearUI();
                 HidePanel();
                 WaveEventManager.Instance.HandleWaveComplete();
+            }else
+            {
+                ClearUI();
+                RefreshItems();
+                SelectFirstItem();
             }
         }
 

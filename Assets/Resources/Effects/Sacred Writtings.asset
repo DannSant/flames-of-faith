@@ -28,20 +28,20 @@ MonoBehaviour:
 
     +3 Health Regen
 
-    -10 XP needed to level up
+    -3 XP needed to level up
 
 '
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers:
   - stat: 0
-    value: 10
+    value: 0.1
     type: 1
   - stat: 5
     value: 10
     type: 0
   - stat: 7
-    value: 10
+    value: 3
     type: 0
   - stat: 14
     value: 3
