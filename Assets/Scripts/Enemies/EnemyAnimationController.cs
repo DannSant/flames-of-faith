@@ -34,6 +34,7 @@ namespace Game.Enemies
             animator.SetFloat("DirectionX", dir.x);
             animator.SetFloat("DirectionY", dir.y);
             animator.SetTrigger("Shoot");
+
         }
         public void PlayAttack() => animator.SetTrigger("Attack");
 

@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Enemies;
 using Game.Scene;
 using UnityEngine;
 
@@ -24,21 +25,22 @@ namespace Game.AI.Behaviors
             if (context.enemyTransform == null || context.playerTransform == null) return;
 
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
-            var animator = context.enemyTransform.GetComponent<Animator>();
+            
             var firePoint = context.enemyTransform.Find(firePointName);
 
-            if (rb == null || animator == null || firePoint == null) return;
+            if (rb == null  || firePoint == null) return;
 
             float distance = Vector2.Distance(rb.position, context.playerTransform.position);
 
             var state = context.GetState<ShooterBehaviorState>(this);
 
-            if (state.isShooting) return;
+            //if (state.isShooting) return;
 
             if (distance <= maxRange)
             {
                 if (state.shootTimer <= 0f)
                 {
+                    var animator = context.enemyAnimController;
                     Shoot(animator, state);
                 }
                 else
@@ -47,13 +49,15 @@ namespace Game.AI.Behaviors
                 }
             }
         }
-        private void Shoot(Animator animator, ShooterBehaviorState state)
+        private void Shoot(EnemyAnimationController animator, ShooterBehaviorState state)
         {
-            state.isShooting = true;
+            //state.isShooting = true;
             state.shootTimer = shootCooldown;
-
-            if (animator != null)
-                animator.SetTrigger("Shoot");
+           
+            if (animator != null) { 
+                animator.PlayShoot();
+            }
+                
         }
         // Call this from animation event
         public void OnAnimationEventStart(BehaviorContext context, string eventName)
@@ -83,8 +87,8 @@ namespace Game.AI.Behaviors
         // Call this from animation event
         public void OnAnimationEventEnd(BehaviorContext context, string eventName)
         {
-            var state = context.GetState<ShooterBehaviorState>(this);
-            state.isShooting = false;
+            //var state = context.GetState<ShooterBehaviorState>(this);
+            //state.isShooting = false;
         }
 
         

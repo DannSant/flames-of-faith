@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 876196344214665086, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.477
+      value: 0.723
       objectReference: {fileID: 0}
     - target: {fileID: 1917486536579394036, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Name
@@ -95,6 +95,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3015610526306121379, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015610526306121379, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3825661218281620947, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Controller
       value: 
@@ -131,6 +139,10 @@ PrefabInstance:
       propertyPath: 'collisionBehaviors.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 5df4dff9f9887b446879a1938a89a7ed, type: 2}
+    - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathSFX
       value: 
@@ -146,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1661653256, guid: 587e5f291dfa81c48ac02412cbc5c3d5, type: 3}
+      objectReference: {fileID: 6564299472238464765, guid: e466012beb5fbf841a900b94a87f55c7, type: 3}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -157,10 +169,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2715067817682413358, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1437569133875017345}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1917486536579394036, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1415080561701271315}
   m_SourcePrefab: {fileID: 100100000, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
 --- !u!4 &326370156797080080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2715067817682413358, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
   m_PrefabInstance: {fileID: 2389903035978716478}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4302877176766348490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1917486536579394036, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+  m_PrefabInstance: {fileID: 2389903035978716478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1415080561701271315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302877176766348490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1ec2f45dec20c4294cd76a0aabeb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Enemies.EnemyAnimationController

@@ -186,6 +186,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Frost Arrows")]
+    public static void GiveFrostArrows()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "fea26ff8-e38c-4869-8d81-faba2e6fa69e";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Map/Generate Map")]
     public static void TestgenerateMap()
     {

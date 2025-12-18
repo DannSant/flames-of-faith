@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'updateBehaviors.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1d92ce11b5358144384ac0e927ab3170, type: 2}
+      objectReference: {fileID: 11400000, guid: 81c9e25c30925f647be573cb96a1f7c5, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'collisionBehaviors.Array.data[0]'
       value: 
@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: flashMaterial
       value: 
       objectReference: {fileID: 2100000, guid: b706e5d85a83b4d409b345ce6c45aace, type: 2}
+    - target: {fileID: 8794639440015571649, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

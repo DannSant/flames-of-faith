@@ -54,6 +54,7 @@ namespace Game.Database
         }
         public static void GenerateAndSaveAllEffects(string saveFolder)
         {
+#if UNITY_EDITOR
             EffectDatabase.Initialize(DBEditorHelper.DbPath);
             var allEffects = EffectDatabase.GetAllEffects();
 
@@ -78,6 +79,7 @@ namespace Game.Database
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+#endif
         }
     }
 
