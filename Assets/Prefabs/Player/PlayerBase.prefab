@@ -438,7 +438,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_SortAtRoot: 0
 --- !u!50 &4064812068536501196
 Rigidbody2D:
@@ -748,6 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 8554701016788818627}
   autoAttackEnabled: 1
+  characterVisual: {fileID: 0}
 --- !u!114 &3511806836168854284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,7 +924,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: -8526924235537896037, guid: 7f05f6c93d2c7ff40ab45c32342ca357, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

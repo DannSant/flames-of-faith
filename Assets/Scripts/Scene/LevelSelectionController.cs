@@ -26,8 +26,8 @@ namespace Game.Scene
         //state
         private int currentAct = 1;
         private int currentLayer = 0;             
-        private MapNode lastVisitedNode = null;
-        private int currentLevelNodeIndex = 0;
+        //private MapNode lastVisitedNode = null;
+        //private int currentLevelNodeIndex = 0;
         private int lastActLoaded = 0;
         private Dictionary<int, int> combatPoolIndexByAct = new();
         private Dictionary<int, int> extraPoolIndexByAct = new();
@@ -41,13 +41,13 @@ namespace Game.Scene
         /// Initial setup and reset of the state. Called from GameSession when starting a new run.
         /// </summary>
         public void InitialSetup()
-        {
-            lastVisitedNode = null;
+        {           
             currentAct = 1;
-            currentLayer = 0;          
-            currentLevelNodeIndex = 0;
-            GenerateMapLevelByAct();          
-           
+            currentLayer = 0;
+            lastActLoaded = 0;
+            GenerateMapLevelByAct();
+            combatPoolIndexByAct = new();
+            extraPoolIndexByAct = new();
         }
 
         /// <summary>
@@ -188,14 +188,9 @@ namespace Game.Scene
             {
                 combatPoolIndexByAct[currentAct] = combatPoolIndexByAct[currentAct]+1;
             }
-            SetLastVisitedNode(node);
+          
             MainSceneController.Instance.LoadGameplay(node.levelData);
-        }
-
-        private void SetLastVisitedNode(MapNode node)
-        {
-            lastVisitedNode = node;
-        }
+        }        
 
         private void AssignLevelDataToNode(MapNode node, ActConfig actConfig, ref int combatIndex, ref int extraIndex, bool isFirstLayer)
         {

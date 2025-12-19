@@ -18,9 +18,9 @@ namespace Game.Progression {
         MagicDamage,
         Cleave,
         HealthRegen,
-        LifeSteal, //TODO
+        LifeSteal, 
         SkillDuration,
-        HealingReceived,
+        HealingReceived,//TODO
         PickupRange,
         MastowAffinity, 
     }

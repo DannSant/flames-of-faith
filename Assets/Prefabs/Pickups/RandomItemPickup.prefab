@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.MagnetToPlayer
   moveSpeed: 5
   baseRange: 2
+  statScale: 0.1
 --- !u!114 &2148069401913672984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +207,7 @@ MonoBehaviour:
     weight: 12
   - itemEffect: {fileID: 11400000, guid: 1d4dc93e683c18d4e96aa1201f00d504, type: 2}
     weight: 2
+  - itemEffect: {fileID: 11400000, guid: dc50b2fd734790a4697fdafade22f129, type: 2}
+    weight: 20
+  - itemEffect: {fileID: 11400000, guid: 980d367531a4d4e4eb82b072154c8839, type: 2}
+    weight: 20

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Steeldawn Shard
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 2169c272-a6a0-47a8-944b-57113f343904
+  icon: {fileID: 21300000, guid: 702803f03aecfc040842d8bf5dc97cef, type: 3}
+  effectName: Steeldawn Shard
+  scalingValue: 1
+  description: 'Special and blessed material that increases your Max Grace
+
+    +1
+    Max Grace'
+  buyPrice: 0
+  sellPrice: 0
+  effectStatModifiers:
+  - stat: 5
+    value: 1
+    type: 0
+  behaviors: []
+  unlockedByDefault: 0

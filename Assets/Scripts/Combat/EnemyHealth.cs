@@ -29,11 +29,15 @@ namespace Game.Combat
         private Flash flash;    
         private float extraDamageTakenPercentage = 0f;
 
+        //References
+        private PlayerHealth playerHealth;
+
 
         private void Start()
         {
             currentHealth = maxHealth;
             flash = GetComponent<Flash>();
+            playerHealth = Scene.PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
         }
 
         public void SetMaxHealth(int amount)
@@ -63,6 +67,11 @@ namespace Game.Combat
             if (extraDamageTakenPercentage > 0f)
             {
                 InflictExtraDamage(damage);
+            }
+
+            if(playerHealth != null)
+            {
+                playerHealth.Lifesteal(damage);
             }
 
         }

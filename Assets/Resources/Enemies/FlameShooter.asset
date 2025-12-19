@@ -24,3 +24,5 @@ MonoBehaviour:
   xpPerLevel: 1
   projectileDamageBase: 2
   projectileDamagePerWave: 2
+  healthPerWave: 20
+  healthPerLevel: 25

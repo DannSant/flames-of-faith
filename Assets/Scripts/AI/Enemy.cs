@@ -11,8 +11,8 @@ namespace Game.AI {
         [SerializeField]
         private EnemyType enemyType;
 
-        [SerializeField] private int healthPerWave = 2; // Base health increase per wave
-        [SerializeField] private int healthPerLevel = 3; // Health increase per level
+        //[SerializeField] private int healthPerWave = 2; // Base health increase per wave
+        //[SerializeField] private int healthPerLevel = 3; // Health increase per level
 
         private EnemyHealth health;
        
@@ -51,8 +51,8 @@ namespace Game.AI {
             }
 
             int baseHealth = enemyData.healthBase;
-            int levelHealthBonus = GameSession.Instance.LevelsBeaten * healthPerLevel; // Health bonus based on levels beaten
-            int waveHealthBonus = (waveNumber - 1) * healthPerWave;
+            int levelHealthBonus = GameSession.Instance.LevelsBeaten * enemyData.healthPerLevel; // Health bonus based on levels beaten
+            int waveHealthBonus = (waveNumber - 1) * enemyData.healthPerWave;
             int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
             var enemyAnimController = GetComponent<EnemyAnimationController>();
 

@@ -18,6 +18,8 @@ namespace Game.Enemies
         public int xpPerLevel = 1;
         public int projectileDamageBase;
         public int projectileDamagePerWave;
+        public int healthPerWave = 30; // Base health increase per wave
+        public int healthPerLevel = 40; // Health increase per level
     }
 
 }

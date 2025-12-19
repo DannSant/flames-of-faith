@@ -153,6 +153,37 @@ namespace Game.Combat {
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
+        public void Lifesteal(float damage)
+        {
+            if (currentHealth <= 0) return;
+            if (damage <= 0) return;
+
+            float lifesteal = playerProgression.GetStatTotal(StatType.LifeSteal);
+
+            if (lifesteal<=0)
+            {
+                return;
+            }
+
+            float minLifestealDamageThreshold = 1f;
+            float maxLifestealDamageThreshold = 20f;
+            float lifestealChanceBase = 0.20f;
+            float lifestealChancePerStat = 0.01f;            
+            float lifestealAmountPerStat = 0.1f;
+           
+           
+            float chance = lifestealChanceBase + (lifestealChancePerStat * lifesteal);
+            if (Random.value <= chance)
+            {                
+                float healAmount = Mathf.Clamp(lifesteal * lifestealAmountPerStat, minLifestealDamageThreshold, maxLifestealDamageThreshold);
+                Heal(healAmount);
+                Debug.Log($"[PlayerHealth] Lifesteal activated! Healed for {healAmount} health.");
+            }else
+            {
+                Debug.Log($"[PlayerHealth] Lifesteal did not activate. Current Chance: {chance}");
+            }
+        }
+
         public void RestoreHealth()
         {
             currentHealth = maxHealth;

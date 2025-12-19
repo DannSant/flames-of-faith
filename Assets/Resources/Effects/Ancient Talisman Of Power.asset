@@ -16,7 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d889a892cae9a4545aa8d28fbc90ef16, type: 3}
   effectName: Ancient Talisman Of Power
   scalingValue: 1
-  description: Increases Melee, Ranged and Magic Damage by 2
+  description: "Ancient talisman with unknown power\n+2 Melee Damage\n+2 Ranged Damage
+    \n+2 Magic Damage"
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:

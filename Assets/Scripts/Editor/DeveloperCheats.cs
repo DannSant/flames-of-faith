@@ -81,6 +81,16 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Stats/Increase Lifesteal")]
+    public static void IncreaseSkillLifesteal()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.LifeSteal, 1);
+        }
+    }
+
     [MenuItem("DevTools/Items/Give Concecrate")]
     public static void GiveholyCross()
     {
