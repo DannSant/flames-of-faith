@@ -45,7 +45,7 @@ namespace Game.Control
 
         public void InitializeAnimationParams()
         {
-            Debug.Log("CharacterVisual: Initializing animation params based on level data.");
+           
 
             var levelSettings = FindAnyObjectByType<LevelSettings>();
             if (levelSettings != null)

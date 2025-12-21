@@ -47,7 +47,7 @@ namespace Game.Combat
 
         protected override void OnAttackAnimationPlayed()
         {
-            Debug.Log("BowWeapon: OnAttackAnimationPlayed");
+          
             //if (currentTarget == null) return;
             Vector2 spawnPos = transform.position;
             Vector2 targetPos = targetPosition;//currentTarget.transform.position;

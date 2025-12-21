@@ -221,7 +221,7 @@ namespace Game.Combat {
 
         public void LoadState()
         {
-            Debug.Log("[PlayerHealth] Loading saved health state...");
+           
             maxHealth = GameSession.Instance.PlayerData.savedStats[StatType.MaxHealth];           
             currentHealth = maxHealth;
             armor = GameSession.Instance.PlayerData.savedStats[StatType.Armor];

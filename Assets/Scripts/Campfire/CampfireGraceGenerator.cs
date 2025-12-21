@@ -15,7 +15,7 @@ namespace Game.Campfire
         {
             if (!isActive) return;
             var playerGrace = collision.GetComponent<PlayerGrace>();
-            Debug.Log("Player entered campfire grace generator.");
+           
             if (playerGrace == null) { 
                 Debug.LogWarning("PlayerGrace component not found on player.");
                 return;
