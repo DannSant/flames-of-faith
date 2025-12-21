@@ -19,7 +19,9 @@ MonoBehaviour:
   weaponClass: 2
   rangeBase: 5
   projectilePrefab: {fileID: 1399671665664677946, guid: 48af545d34ba78046be1637164035508, type: 3}
-  pierceAmount: 1
+  pierceAmount: 5
   knockbackForce: 2
   shouldApplyKnockback: 1
   graceGenerated: 1
+  elementalDebuffData: {fileID: 0}
+  projectileAmount: 16

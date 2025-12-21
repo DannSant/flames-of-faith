@@ -65,6 +65,7 @@ namespace Game.UI
 
             foreach (var kvp in allStats)
             {
+              
                 string statName = StatDisplayNameHelper.GetDisplayName(kvp.Key);
                 int statValue = kvp.Value;
                 Color color = getTextColor(statValue); // Default color for now

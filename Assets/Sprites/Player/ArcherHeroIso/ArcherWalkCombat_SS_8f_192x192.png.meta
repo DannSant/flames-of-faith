@@ -1,0 +1,4039 @@
+fileFormatVersion: 2
+guid: 6f8e8ec4974782241b42ee29d46b7c3f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8000185219418615464
+    second: ArcherWalkCombat_SS_8f_192x192_0
+  - first:
+      213: -8650297141668020119
+    second: ArcherWalkCombat_SS_8f_192x192_1
+  - first:
+      213: 8291140445002431097
+    second: ArcherWalkCombat_SS_8f_192x192_2
+  - first:
+      213: 5306486170122103337
+    second: ArcherWalkCombat_SS_8f_192x192_3
+  - first:
+      213: -3425105748851564615
+    second: ArcherWalkCombat_SS_8f_192x192_4
+  - first:
+      213: -3567411241298418961
+    second: ArcherWalkCombat_SS_8f_192x192_5
+  - first:
+      213: 747545626816774842
+    second: ArcherWalkCombat_SS_8f_192x192_6
+  - first:
+      213: -2360077248627622862
+    second: ArcherWalkCombat_SS_8f_192x192_7
+  - first:
+      213: -5552602304528819738
+    second: ArcherWalkCombat_SS_8f_192x192_8
+  - first:
+      213: 385348542967066543
+    second: ArcherWalkCombat_SS_8f_192x192_9
+  - first:
+      213: 859952360920644396
+    second: ArcherWalkCombat_SS_8f_192x192_10
+  - first:
+      213: -6549539436711294422
+    second: ArcherWalkCombat_SS_8f_192x192_11
+  - first:
+      213: -5367465412260352717
+    second: ArcherWalkCombat_SS_8f_192x192_12
+  - first:
+      213: 862025982036963899
+    second: ArcherWalkCombat_SS_8f_192x192_13
+  - first:
+      213: 4174054600490485953
+    second: ArcherWalkCombat_SS_8f_192x192_14
+  - first:
+      213: -1075007655347170774
+    second: ArcherWalkCombat_SS_8f_192x192_15
+  - first:
+      213: -8498727374132211510
+    second: ArcherWalkCombat_SS_8f_192x192_16
+  - first:
+      213: 6697417386306683379
+    second: ArcherWalkCombat_SS_8f_192x192_17
+  - first:
+      213: 2360813449494409742
+    second: ArcherWalkCombat_SS_8f_192x192_18
+  - first:
+      213: -4520618644877597156
+    second: ArcherWalkCombat_SS_8f_192x192_19
+  - first:
+      213: -7326241944703532088
+    second: ArcherWalkCombat_SS_8f_192x192_20
+  - first:
+      213: -4816268658922956045
+    second: ArcherWalkCombat_SS_8f_192x192_21
+  - first:
+      213: 7528449015384147852
+    second: ArcherWalkCombat_SS_8f_192x192_22
+  - first:
+      213: -4893973429943814866
+    second: ArcherWalkCombat_SS_8f_192x192_23
+  - first:
+      213: -6902817813856511750
+    second: ArcherWalkCombat_SS_8f_192x192_24
+  - first:
+      213: -396465949609285412
+    second: ArcherWalkCombat_SS_8f_192x192_25
+  - first:
+      213: 1338582068742199533
+    second: ArcherWalkCombat_SS_8f_192x192_26
+  - first:
+      213: -8386360754104642572
+    second: ArcherWalkCombat_SS_8f_192x192_27
+  - first:
+      213: 1123400930589354703
+    second: ArcherWalkCombat_SS_8f_192x192_28
+  - first:
+      213: -4611776414610333254
+    second: ArcherWalkCombat_SS_8f_192x192_29
+  - first:
+      213: -5571117337629644669
+    second: ArcherWalkCombat_SS_8f_192x192_30
+  - first:
+      213: -521424569670004413
+    second: ArcherWalkCombat_SS_8f_192x192_31
+  - first:
+      213: -9144179913916104240
+    second: ArcherWalkCombat_SS_8f_192x192_32
+  - first:
+      213: -6292569571320235565
+    second: ArcherWalkCombat_SS_8f_192x192_33
+  - first:
+      213: -7606087337917001568
+    second: ArcherWalkCombat_SS_8f_192x192_34
+  - first:
+      213: 4753028488132597811
+    second: ArcherWalkCombat_SS_8f_192x192_35
+  - first:
+      213: 2436878211931523345
+    second: ArcherWalkCombat_SS_8f_192x192_36
+  - first:
+      213: -1598847112434907153
+    second: ArcherWalkCombat_SS_8f_192x192_37
+  - first:
+      213: 3755003731661003338
+    second: ArcherWalkCombat_SS_8f_192x192_38
+  - first:
+      213: 5947386557327657161
+    second: ArcherWalkCombat_SS_8f_192x192_39
+  - first:
+      213: -559148741232911248
+    second: ArcherWalkCombat_SS_8f_192x192_40
+  - first:
+      213: -7986299766967718473
+    second: ArcherWalkCombat_SS_8f_192x192_41
+  - first:
+      213: -9032554009583586731
+    second: ArcherWalkCombat_SS_8f_192x192_42
+  - first:
+      213: 8957329369664824287
+    second: ArcherWalkCombat_SS_8f_192x192_43
+  - first:
+      213: -6720123737683045192
+    second: ArcherWalkCombat_SS_8f_192x192_44
+  - first:
+      213: -5031279014510450631
+    second: ArcherWalkCombat_SS_8f_192x192_45
+  - first:
+      213: -1204769955893630179
+    second: ArcherWalkCombat_SS_8f_192x192_46
+  - first:
+      213: 1500266396461786704
+    second: ArcherWalkCombat_SS_8f_192x192_47
+  - first:
+      213: -2513064128930883835
+    second: ArcherWalkCombat_SS_8f_192x192_48
+  - first:
+      213: 3004075616593091535
+    second: ArcherWalkCombat_SS_8f_192x192_49
+  - first:
+      213: -226109267553715246
+    second: ArcherWalkCombat_SS_8f_192x192_50
+  - first:
+      213: 5136124744581580577
+    second: ArcherWalkCombat_SS_8f_192x192_51
+  - first:
+      213: -3428928859188887253
+    second: ArcherWalkCombat_SS_8f_192x192_52
+  - first:
+      213: -1060546427792138435
+    second: ArcherWalkCombat_SS_8f_192x192_53
+  - first:
+      213: -5265812824109524621
+    second: ArcherWalkCombat_SS_8f_192x192_54
+  - first:
+      213: 740405796285580677
+    second: ArcherWalkCombat_SS_8f_192x192_55
+  - first:
+      213: 7792738611295991998
+    second: ArcherWalkCombat_SS_8f_192x192_56
+  - first:
+      213: 2461461389912297649
+    second: ArcherWalkCombat_SS_8f_192x192_57
+  - first:
+      213: 4083559889112987429
+    second: ArcherWalkCombat_SS_8f_192x192_58
+  - first:
+      213: 1652408785677699890
+    second: ArcherWalkCombat_SS_8f_192x192_59
+  - first:
+      213: 4069413165158517922
+    second: ArcherWalkCombat_SS_8f_192x192_60
+  - first:
+      213: 4124872081553557468
+    second: ArcherWalkCombat_SS_8f_192x192_61
+  - first:
+      213: -6183812520733396125
+    second: ArcherWalkCombat_SS_8f_192x192_62
+  - first:
+      213: 2928361299691127686
+    second: ArcherWalkCombat_SS_8f_192x192_63
+  - first:
+      213: -2947176467848667196
+    second: ArcherWalkCombat_SS_8f_192x192_64
+  - first:
+      213: 1616855257110397997
+    second: ArcherWalkCombat_SS_8f_192x192_65
+  - first:
+      213: 5554181294214810347
+    second: ArcherWalkCombat_SS_8f_192x192_66
+  - first:
+      213: -5807366583582865135
+    second: ArcherWalkCombat_SS_8f_192x192_67
+  - first:
+      213: 2201459059653295860
+    second: ArcherWalkCombat_SS_8f_192x192_68
+  - first:
+      213: 2768652716861693688
+    second: ArcherWalkCombat_SS_8f_192x192_69
+  - first:
+      213: 5575680007292137494
+    second: ArcherWalkCombat_SS_8f_192x192_70
+  - first:
+      213: -7652793329751672607
+    second: ArcherWalkCombat_SS_8f_192x192_71
+  - first:
+      213: 5185363973261384900
+    second: ArcherWalkCombat_SS_8f_192x192_72
+  - first:
+      213: 4925173735674654344
+    second: ArcherWalkCombat_SS_8f_192x192_73
+  - first:
+      213: -7364668359310312011
+    second: ArcherWalkCombat_SS_8f_192x192_74
+  - first:
+      213: 6649470872162610312
+    second: ArcherWalkCombat_SS_8f_192x192_75
+  - first:
+      213: 9161068727426905574
+    second: ArcherWalkCombat_SS_8f_192x192_76
+  - first:
+      213: 1705216505910317773
+    second: ArcherWalkCombat_SS_8f_192x192_77
+  - first:
+      213: -7442428261080588757
+    second: ArcherWalkCombat_SS_8f_192x192_78
+  - first:
+      213: 5627040143674107111
+    second: ArcherWalkCombat_SS_8f_192x192_79
+  - first:
+      213: 3614824343540217088
+    second: ArcherWalkCombat_SS_8f_192x192_80
+  - first:
+      213: 5076727257378025273
+    second: ArcherWalkCombat_SS_8f_192x192_81
+  - first:
+      213: 6925841922191795980
+    second: ArcherWalkCombat_SS_8f_192x192_82
+  - first:
+      213: 8214095316271697474
+    second: ArcherWalkCombat_SS_8f_192x192_83
+  - first:
+      213: -6316559131258481423
+    second: ArcherWalkCombat_SS_8f_192x192_84
+  - first:
+      213: -1271845765681578878
+    second: ArcherWalkCombat_SS_8f_192x192_85
+  - first:
+      213: 2189436394548778253
+    second: ArcherWalkCombat_SS_8f_192x192_86
+  - first:
+      213: -4962048717362203092
+    second: ArcherWalkCombat_SS_8f_192x192_87
+  - first:
+      213: 7329564356885038515
+    second: ArcherWalkCombat_SS_8f_192x192_88
+  - first:
+      213: -4352201074900548894
+    second: ArcherWalkCombat_SS_8f_192x192_89
+  - first:
+      213: 6181840199485575007
+    second: ArcherWalkCombat_SS_8f_192x192_90
+  - first:
+      213: -9013789104524953751
+    second: ArcherWalkCombat_SS_8f_192x192_91
+  - first:
+      213: -4585091394373114203
+    second: ArcherWalkCombat_SS_8f_192x192_92
+  - first:
+      213: 2457366740230663743
+    second: ArcherWalkCombat_SS_8f_192x192_93
+  - first:
+      213: 117323166808122402
+    second: ArcherWalkCombat_SS_8f_192x192_94
+  - first:
+      213: 6956690171538520753
+    second: ArcherWalkCombat_SS_8f_192x192_95
+  - first:
+      213: 7481986707370736939
+    second: ArcherWalkCombat_SS_8f_192x192_96
+  - first:
+      213: 1389386153539850696
+    second: ArcherWalkCombat_SS_8f_192x192_97
+  - first:
+      213: -1490809232384245325
+    second: ArcherWalkCombat_SS_8f_192x192_98
+  - first:
+      213: 8681922446527171545
+    second: ArcherWalkCombat_SS_8f_192x192_99
+  - first:
+      213: -4321994181864205186
+    second: ArcherWalkCombat_SS_8f_192x192_100
+  - first:
+      213: 8472141943769797763
+    second: ArcherWalkCombat_SS_8f_192x192_101
+  - first:
+      213: -7899593406826833532
+    second: ArcherWalkCombat_SS_8f_192x192_102
+  - first:
+      213: 7164528462349834604
+    second: ArcherWalkCombat_SS_8f_192x192_103
+  - first:
+      213: -3051537697826096057
+    second: ArcherWalkCombat_SS_8f_192x192_104
+  - first:
+      213: 6221989910279700943
+    second: ArcherWalkCombat_SS_8f_192x192_105
+  - first:
+      213: 828112326195099872
+    second: ArcherWalkCombat_SS_8f_192x192_106
+  - first:
+      213: -5904729117910368553
+    second: ArcherWalkCombat_SS_8f_192x192_107
+  - first:
+      213: -3670663082884234844
+    second: ArcherWalkCombat_SS_8f_192x192_108
+  - first:
+      213: 2115540440968363988
+    second: ArcherWalkCombat_SS_8f_192x192_109
+  - first:
+      213: 802454107972293309
+    second: ArcherWalkCombat_SS_8f_192x192_110
+  - first:
+      213: -2797309102937439477
+    second: ArcherWalkCombat_SS_8f_192x192_111
+  - first:
+      213: -7769597845947089413
+    second: ArcherWalkCombat_SS_8f_192x192_112
+  - first:
+      213: 8925614657895290028
+    second: ArcherWalkCombat_SS_8f_192x192_113
+  - first:
+      213: -2831986484908762262
+    second: ArcherWalkCombat_SS_8f_192x192_114
+  - first:
+      213: -8890031140973071482
+    second: ArcherWalkCombat_SS_8f_192x192_115
+  - first:
+      213: 870878751167456418
+    second: ArcherWalkCombat_SS_8f_192x192_116
+  - first:
+      213: -8392999707492406706
+    second: ArcherWalkCombat_SS_8f_192x192_117
+  - first:
+      213: 1054365942533589014
+    second: ArcherWalkCombat_SS_8f_192x192_118
+  - first:
+      213: 5616165632296615363
+    second: ArcherWalkCombat_SS_8f_192x192_119
+  - first:
+      213: -5236960233652619725
+    second: ArcherWalkCombat_SS_8f_192x192_120
+  - first:
+      213: -8377564624167498832
+    second: ArcherWalkCombat_SS_8f_192x192_121
+  - first:
+      213: -3834565541043307586
+    second: ArcherWalkCombat_SS_8f_192x192_122
+  - first:
+      213: 3069224342803210013
+    second: ArcherWalkCombat_SS_8f_192x192_123
+  - first:
+      213: 5391384852163542867
+    second: ArcherWalkCombat_SS_8f_192x192_124
+  - first:
+      213: 2695883441593501948
+    second: ArcherWalkCombat_SS_8f_192x192_125
+  - first:
+      213: 2580093932689933004
+    second: ArcherWalkCombat_SS_8f_192x192_126
+  - first:
+      213: -989977601609150357
+    second: ArcherWalkCombat_SS_8f_192x192_127
+  - first:
+      213: 8143722892399119594
+    second: ArcherWalkCombat_SS_8f_192x192_128
+  - first:
+      213: 8621636302861934337
+    second: ArcherWalkCombat_SS_8f_192x192_129
+  - first:
+      213: 5075338387972855285
+    second: ArcherWalkCombat_SS_8f_192x192_130
+  - first:
+      213: 4731830523702310112
+    second: ArcherWalkCombat_SS_8f_192x192_131
+  - first:
+      213: -91920842329230603
+    second: ArcherWalkCombat_SS_8f_192x192_132
+  - first:
+      213: 6124263664912020636
+    second: ArcherWalkCombat_SS_8f_192x192_133
+  - first:
+      213: -1322505747768779273
+    second: ArcherWalkCombat_SS_8f_192x192_134
+  - first:
+      213: 6748472345602355702
+    second: ArcherWalkCombat_SS_8f_192x192_135
+  - first:
+      213: -5508630666090687103
+    second: ArcherWalkCombat_SS_8f_192x192_136
+  - first:
+      213: -5018267170720550632
+    second: ArcherWalkCombat_SS_8f_192x192_137
+  - first:
+      213: -8334857387135305689
+    second: ArcherWalkCombat_SS_8f_192x192_138
+  - first:
+      213: -6756631154581472085
+    second: ArcherWalkCombat_SS_8f_192x192_139
+  - first:
+      213: -1908416240789722378
+    second: ArcherWalkCombat_SS_8f_192x192_140
+  - first:
+      213: -517268091780071128
+    second: ArcherWalkCombat_SS_8f_192x192_141
+  - first:
+      213: 1211544245892089601
+    second: ArcherWalkCombat_SS_8f_192x192_142
+  - first:
+      213: -3389009871543080080
+    second: ArcherWalkCombat_SS_8f_192x192_143
+  - first:
+      213: 8787914883673486508
+    second: ArcherWalkCombat_SS_8f_192x192_144
+  - first:
+      213: 3077421934558431045
+    second: ArcherWalkCombat_SS_8f_192x192_145
+  - first:
+      213: -5044497826428263240
+    second: ArcherWalkCombat_SS_8f_192x192_146
+  - first:
+      213: 4930102115138554726
+    second: ArcherWalkCombat_SS_8f_192x192_147
+  - first:
+      213: 2671212927989926243
+    second: ArcherWalkCombat_SS_8f_192x192_148
+  - first:
+      213: -543133779992034607
+    second: ArcherWalkCombat_SS_8f_192x192_149
+  - first:
+      213: -5283372551274108652
+    second: ArcherWalkCombat_SS_8f_192x192_150
+  - first:
+      213: -3893059136355104562
+    second: ArcherWalkCombat_SS_8f_192x192_151
+  - first:
+      213: -52196255700485121
+    second: ArcherWalkCombat_SS_8f_192x192_152
+  - first:
+      213: 6315414588138023284
+    second: ArcherWalkCombat_SS_8f_192x192_153
+  - first:
+      213: 5295860411669971063
+    second: ArcherWalkCombat_SS_8f_192x192_154
+  - first:
+      213: 1994762402461554673
+    second: ArcherWalkCombat_SS_8f_192x192_155
+  - first:
+      213: -4967683817395899769
+    second: ArcherWalkCombat_SS_8f_192x192_156
+  - first:
+      213: -5466662302231879615
+    second: ArcherWalkCombat_SS_8f_192x192_157
+  - first:
+      213: -3687394089257713412
+    second: ArcherWalkCombat_SS_8f_192x192_158
+  - first:
+      213: 7188527509852740545
+    second: ArcherWalkCombat_SS_8f_192x192_159
+  - first:
+      213: 8269362532254973748
+    second: ArcherWalkCombat_SS_8f_192x192_160
+  - first:
+      213: -1679488655995309311
+    second: ArcherWalkCombat_SS_8f_192x192_161
+  - first:
+      213: 3475244904764996450
+    second: ArcherWalkCombat_SS_8f_192x192_162
+  - first:
+      213: 5339255736215324294
+    second: ArcherWalkCombat_SS_8f_192x192_163
+  - first:
+      213: 1950381411218278547
+    second: ArcherWalkCombat_SS_8f_192x192_164
+  - first:
+      213: -1967722212532449212
+    second: ArcherWalkCombat_SS_8f_192x192_165
+  - first:
+      213: -4795863304509605062
+    second: ArcherWalkCombat_SS_8f_192x192_166
+  - first:
+      213: 7148952710722118752
+    second: ArcherWalkCombat_SS_8f_192x192_167
+  - first:
+      213: -6636578158118456569
+    second: ArcherWalkCombat_SS_8f_192x192_168
+  - first:
+      213: 4286296293211937464
+    second: ArcherWalkCombat_SS_8f_192x192_169
+  - first:
+      213: 4657228508707604858
+    second: ArcherWalkCombat_SS_8f_192x192_170
+  - first:
+      213: -7876046026117850129
+    second: ArcherWalkCombat_SS_8f_192x192_171
+  - first:
+      213: -2945689565642897474
+    second: ArcherWalkCombat_SS_8f_192x192_172
+  - first:
+      213: -7739363457629699648
+    second: ArcherWalkCombat_SS_8f_192x192_173
+  - first:
+      213: 7045858467817649898
+    second: ArcherWalkCombat_SS_8f_192x192_174
+  - first:
+      213: -6698531146359563064
+    second: ArcherWalkCombat_SS_8f_192x192_175
+  - first:
+      213: -4930991624027880316
+    second: ArcherWalkCombat_SS_8f_192x192_176
+  - first:
+      213: -6926157337692182723
+    second: ArcherWalkCombat_SS_8f_192x192_177
+  - first:
+      213: 3723580449223209692
+    second: ArcherWalkCombat_SS_8f_192x192_178
+  - first:
+      213: 1804711952660809429
+    second: ArcherWalkCombat_SS_8f_192x192_179
+  - first:
+      213: 8004938895192579163
+    second: ArcherWalkCombat_SS_8f_192x192_180
+  - first:
+      213: 499044325648338601
+    second: ArcherWalkCombat_SS_8f_192x192_181
+  - first:
+      213: 6107810089892145591
+    second: ArcherWalkCombat_SS_8f_192x192_182
+  - first:
+      213: -4918782641479858468
+    second: ArcherWalkCombat_SS_8f_192x192_183
+  - first:
+      213: 25813876957056849
+    second: ArcherWalkCombat_SS_8f_192x192_184
+  - first:
+      213: -9010805484898424475
+    second: ArcherWalkCombat_SS_8f_192x192_185
+  - first:
+      213: -6199289938506323507
+    second: ArcherWalkCombat_SS_8f_192x192_186
+  - first:
+      213: 5939276168502714975
+    second: ArcherWalkCombat_SS_8f_192x192_187
+  - first:
+      213: -3613672610787157900
+    second: ArcherWalkCombat_SS_8f_192x192_188
+  - first:
+      213: 6231267331108399995
+    second: ArcherWalkCombat_SS_8f_192x192_189
+  - first:
+      213: -8144552838759194652
+    second: ArcherWalkCombat_SS_8f_192x192_190
+  - first:
+      213: -4191049279826588339
+    second: ArcherWalkCombat_SS_8f_192x192_191
+  - first:
+      213: 4807117521836399231
+    second: ArcherWalkCombat_SS_8f_192x192_192
+  - first:
+      213: -1234739051317950932
+    second: ArcherWalkCombat_SS_8f_192x192_193
+  - first:
+      213: -3747984577516853997
+    second: ArcherWalkCombat_SS_8f_192x192_194
+  - first:
+      213: 5900846937406482773
+    second: ArcherWalkCombat_SS_8f_192x192_195
+  - first:
+      213: -3856542670932285039
+    second: ArcherWalkCombat_SS_8f_192x192_196
+  - first:
+      213: -8552962259005284446
+    second: ArcherWalkCombat_SS_8f_192x192_197
+  - first:
+      213: 5420913097299325703
+    second: ArcherWalkCombat_SS_8f_192x192_198
+  - first:
+      213: 8578120873456008785
+    second: ArcherWalkCombat_SS_8f_192x192_199
+  - first:
+      213: -5023513601890471014
+    second: ArcherWalkCombat_SS_8f_192x192_200
+  - first:
+      213: -3864365030564226522
+    second: ArcherWalkCombat_SS_8f_192x192_201
+  - first:
+      213: -7745136169619624944
+    second: ArcherWalkCombat_SS_8f_192x192_202
+  - first:
+      213: -2095450733846257768
+    second: ArcherWalkCombat_SS_8f_192x192_203
+  - first:
+      213: -5832058736130575536
+    second: ArcherWalkCombat_SS_8f_192x192_204
+  - first:
+      213: -1140583225076319794
+    second: ArcherWalkCombat_SS_8f_192x192_205
+  - first:
+      213: -3205300332350471565
+    second: ArcherWalkCombat_SS_8f_192x192_206
+  - first:
+      213: -1461788274600266116
+    second: ArcherWalkCombat_SS_8f_192x192_207
+  - first:
+      213: 6017806729221425781
+    second: ArcherWalkCombat_SS_8f_192x192_208
+  - first:
+      213: -5694839497919561417
+    second: ArcherWalkCombat_SS_8f_192x192_209
+  - first:
+      213: -2079985381099551215
+    second: ArcherWalkCombat_SS_8f_192x192_210
+  - first:
+      213: 3810163664628085771
+    second: ArcherWalkCombat_SS_8f_192x192_211
+  - first:
+      213: -352906387835963941
+    second: ArcherWalkCombat_SS_8f_192x192_212
+  - first:
+      213: -7405891967688429589
+    second: ArcherWalkCombat_SS_8f_192x192_213
+  - first:
+      213: 4615805232975618373
+    second: ArcherWalkCombat_SS_8f_192x192_214
+  - first:
+      213: 1236189348449973494
+    second: ArcherWalkCombat_SS_8f_192x192_215
+  - first:
+      213: -4687253420635236395
+    second: ArcherWalkCombat_SS_8f_192x192_216
+  - first:
+      213: -4699390934538555999
+    second: ArcherWalkCombat_SS_8f_192x192_217
+  - first:
+      213: -2509952954396865350
+    second: ArcherWalkCombat_SS_8f_192x192_218
+  - first:
+      213: -9009861589091498138
+    second: ArcherWalkCombat_SS_8f_192x192_219
+  - first:
+      213: 1331991118391995783
+    second: ArcherWalkCombat_SS_8f_192x192_220
+  - first:
+      213: -2124034396156255325
+    second: ArcherWalkCombat_SS_8f_192x192_221
+  - first:
+      213: 5767615645091116698
+    second: ArcherWalkCombat_SS_8f_192x192_222
+  - first:
+      213: 4833573805853580586
+    second: ArcherWalkCombat_SS_8f_192x192_223
+  - first:
+      213: 6887910068264489634
+    second: ArcherWalkCombat_SS_8f_192x192_224
+  - first:
+      213: 556673644022013434
+    second: ArcherWalkCombat_SS_8f_192x192_225
+  - first:
+      213: 2253551285261500876
+    second: ArcherWalkCombat_SS_8f_192x192_226
+  - first:
+      213: 4466126061171446519
+    second: ArcherWalkCombat_SS_8f_192x192_227
+  - first:
+      213: 3223359205596442079
+    second: ArcherWalkCombat_SS_8f_192x192_228
+  - first:
+      213: 4213607950189742166
+    second: ArcherWalkCombat_SS_8f_192x192_229
+  - first:
+      213: 5470927893604628135
+    second: ArcherWalkCombat_SS_8f_192x192_230
+  - first:
+      213: -1848694755309911478
+    second: ArcherWalkCombat_SS_8f_192x192_231
+  - first:
+      213: -3147400100775694950
+    second: ArcherWalkCombat_SS_8f_192x192_232
+  - first:
+      213: -939063454268327807
+    second: ArcherWalkCombat_SS_8f_192x192_233
+  - first:
+      213: -3671853931293562886
+    second: ArcherWalkCombat_SS_8f_192x192_234
+  - first:
+      213: 8127452319715027081
+    second: ArcherWalkCombat_SS_8f_192x192_235
+  - first:
+      213: -1071816107380403101
+    second: ArcherWalkCombat_SS_8f_192x192_236
+  - first:
+      213: 3077265543744538184
+    second: ArcherWalkCombat_SS_8f_192x192_237
+  - first:
+      213: -4909747798405692921
+    second: ArcherWalkCombat_SS_8f_192x192_238
+  - first:
+      213: 7697490583770019548
+    second: ArcherWalkCombat_SS_8f_192x192_239
+  - first:
+      213: 6494086562017110575
+    second: ArcherWalkCombat_SS_8f_192x192_240
+  - first:
+      213: 3828893712599391513
+    second: ArcherWalkCombat_SS_8f_192x192_241
+  - first:
+      213: 5579923512195103990
+    second: ArcherWalkCombat_SS_8f_192x192_242
+  - first:
+      213: -5070830076682484546
+    second: ArcherWalkCombat_SS_8f_192x192_243
+  - first:
+      213: -1369610303749354870
+    second: ArcherWalkCombat_SS_8f_192x192_244
+  - first:
+      213: 4540519280801449195
+    second: ArcherWalkCombat_SS_8f_192x192_245
+  - first:
+      213: -4064157405359471806
+    second: ArcherWalkCombat_SS_8f_192x192_246
+  - first:
+      213: 2378973892044931980
+    second: ArcherWalkCombat_SS_8f_192x192_247
+  - first:
+      213: 6887521419126158298
+    second: ArcherWalkCombat_SS_8f_192x192_248
+  - first:
+      213: 1102070001664867523
+    second: ArcherWalkCombat_SS_8f_192x192_249
+  - first:
+      213: -7183810206315319769
+    second: ArcherWalkCombat_SS_8f_192x192_250
+  - first:
+      213: -345485947521798426
+    second: ArcherWalkCombat_SS_8f_192x192_251
+  - first:
+      213: -1414324890278108745
+    second: ArcherWalkCombat_SS_8f_192x192_252
+  - first:
+      213: 6671406592542103586
+    second: ArcherWalkCombat_SS_8f_192x192_253
+  - first:
+      213: 2903104400785142326
+    second: ArcherWalkCombat_SS_8f_192x192_254
+  - first:
+      213: -8054490446599585284
+    second: ArcherWalkCombat_SS_8f_192x192_255
+  - first:
+      213: -3415642011173364854
+    second: ArcherWalkCombat_SS_8f_192x192_256
+  - first:
+      213: -5891590271991253153
+    second: ArcherWalkCombat_SS_8f_192x192_257
+  - first:
+      213: -3525703091934133139
+    second: ArcherWalkCombat_SS_8f_192x192_258
+  - first:
+      213: -4710211223833661541
+    second: ArcherWalkCombat_SS_8f_192x192_259
+  - first:
+      213: -7476193745747319232
+    second: ArcherWalkCombat_SS_8f_192x192_260
+  - first:
+      213: 4612064508762811452
+    second: ArcherWalkCombat_SS_8f_192x192_261
+  - first:
+      213: 7403885951604754458
+    second: ArcherWalkCombat_SS_8f_192x192_262
+  - first:
+      213: 3232697470135336418
+    second: ArcherWalkCombat_SS_8f_192x192_263
+  - first:
+      213: 8108356691319375436
+    second: ArcherWalkCombat_SS_8f_192x192_264
+  - first:
+      213: 8148500617021864133
+    second: ArcherWalkCombat_SS_8f_192x192_265
+  - first:
+      213: 9096723255644554615
+    second: ArcherWalkCombat_SS_8f_192x192_266
+  - first:
+      213: 3650911991920335691
+    second: ArcherWalkCombat_SS_8f_192x192_267
+  - first:
+      213: 8425657045243808027
+    second: ArcherWalkCombat_SS_8f_192x192_268
+  - first:
+      213: 4388360862995986690
+    second: ArcherWalkCombat_SS_8f_192x192_269
+  - first:
+      213: 2929347916589976215
+    second: ArcherWalkCombat_SS_8f_192x192_270
+  - first:
+      213: -5846031510421431793
+    second: ArcherWalkCombat_SS_8f_192x192_271
+  - first:
+      213: 6283699224256100975
+    second: ArcherWalkCombat_SS_8f_192x192_272
+  - first:
+      213: -9221421611593928449
+    second: ArcherWalkCombat_SS_8f_192x192_273
+  - first:
+      213: 5899659535851810146
+    second: ArcherWalkCombat_SS_8f_192x192_274
+  - first:
+      213: 7848996572933275975
+    second: ArcherWalkCombat_SS_8f_192x192_275
+  - first:
+      213: 6291693156285725857
+    second: ArcherWalkCombat_SS_8f_192x192_276
+  - first:
+      213: -8855909711854444765
+    second: ArcherWalkCombat_SS_8f_192x192_277
+  - first:
+      213: 2838084530589259357
+    second: ArcherWalkCombat_SS_8f_192x192_278
+  - first:
+      213: 8336172477491445583
+    second: ArcherWalkCombat_SS_8f_192x192_279
+  - first:
+      213: -2419779874445533612
+    second: ArcherWalkCombat_SS_8f_192x192_280
+  - first:
+      213: 1656156565824047034
+    second: ArcherWalkCombat_SS_8f_192x192_281
+  - first:
+      213: -6429673245781230743
+    second: ArcherWalkCombat_SS_8f_192x192_282
+  - first:
+      213: -10583428350308610
+    second: ArcherWalkCombat_SS_8f_192x192_283
+  - first:
+      213: -113973014906805001
+    second: ArcherWalkCombat_SS_8f_192x192_284
+  - first:
+      213: 63248329863465388
+    second: ArcherWalkCombat_SS_8f_192x192_285
+  - first:
+      213: 6337384305064935535
+    second: ArcherWalkCombat_SS_8f_192x192_286
+  - first:
+      213: 4222468292484329382
+    second: ArcherWalkCombat_SS_8f_192x192_287
+  - first:
+      213: -7944305907293720604
+    second: ArcherWalkCombat_SS_8f_192x192_288
+  - first:
+      213: 4639824249899021249
+    second: ArcherWalkCombat_SS_8f_192x192_289
+  - first:
+      213: -5282422891822098651
+    second: ArcherWalkCombat_SS_8f_192x192_290
+  - first:
+      213: 9203025611931060206
+    second: ArcherWalkCombat_SS_8f_192x192_291
+  - first:
+      213: -8780142370433594141
+    second: ArcherWalkCombat_SS_8f_192x192_292
+  - first:
+      213: 461307823509110885
+    second: ArcherWalkCombat_SS_8f_192x192_293
+  - first:
+      213: 3571893509728493088
+    second: ArcherWalkCombat_SS_8f_192x192_294
+  - first:
+      213: -6540215210468397453
+    second: ArcherWalkCombat_SS_8f_192x192_295
+  - first:
+      213: 3824127895745194048
+    second: ArcherWalkCombat_SS_8f_192x192_296
+  - first:
+      213: -5272844719026667736
+    second: ArcherWalkCombat_SS_8f_192x192_297
+  - first:
+      213: -6808566777626010156
+    second: ArcherWalkCombat_SS_8f_192x192_298
+  - first:
+      213: 1741542326497048163
+    second: ArcherWalkCombat_SS_8f_192x192_299
+  - first:
+      213: 1475152489874804496
+    second: ArcherWalkCombat_SS_8f_192x192_300
+  - first:
+      213: 424847304349089203
+    second: ArcherWalkCombat_SS_8f_192x192_301
+  - first:
+      213: -890325880105381222
+    second: ArcherWalkCombat_SS_8f_192x192_302
+  - first:
+      213: 6585881727585762863
+    second: ArcherWalkCombat_SS_8f_192x192_303
+  - first:
+      213: 649825224313682379
+    second: ArcherWalkCombat_SS_8f_192x192_304
+  - first:
+      213: -6226588940858827608
+    second: ArcherWalkCombat_SS_8f_192x192_305
+  - first:
+      213: 7216089795809302476
+    second: ArcherWalkCombat_SS_8f_192x192_306
+  - first:
+      213: 3459472032566043306
+    second: ArcherWalkCombat_SS_8f_192x192_307
+  - first:
+      213: -2380588651395331989
+    second: ArcherWalkCombat_SS_8f_192x192_308
+  - first:
+      213: -698741163754915102
+    second: ArcherWalkCombat_SS_8f_192x192_309
+  - first:
+      213: -8747601099274873476
+    second: ArcherWalkCombat_SS_8f_192x192_310
+  - first:
+      213: -4110475908253314115
+    second: ArcherWalkCombat_SS_8f_192x192_311
+  - first:
+      213: -7238213771190722999
+    second: ArcherWalkCombat_SS_8f_192x192_312
+  - first:
+      213: 1313707691994422499
+    second: ArcherWalkCombat_SS_8f_192x192_313
+  - first:
+      213: -3684244024829311461
+    second: ArcherWalkCombat_SS_8f_192x192_314
+  - first:
+      213: 2993991446446000416
+    second: ArcherWalkCombat_SS_8f_192x192_315
+  - first:
+      213: -6180541191288753454
+    second: ArcherWalkCombat_SS_8f_192x192_316
+  - first:
+      213: -5041466116367860157
+    second: ArcherWalkCombat_SS_8f_192x192_317
+  - first:
+      213: 1743751158787427243
+    second: ArcherWalkCombat_SS_8f_192x192_318
+  - first:
+      213: 6831582203941022159
+    second: ArcherWalkCombat_SS_8f_192x192_319
+  - first:
+      213: 2088717781823457614
+    second: ArcherWalkCombat_SS_8f_192x192_320
+  - first:
+      213: 4879067178724686864
+    second: ArcherWalkCombat_SS_8f_192x192_321
+  - first:
+      213: -5721255675449663952
+    second: ArcherWalkCombat_SS_8f_192x192_322
+  - first:
+      213: 9177408696280361300
+    second: ArcherWalkCombat_SS_8f_192x192_323
+  - first:
+      213: -4179615996493606882
+    second: ArcherWalkCombat_SS_8f_192x192_324
+  - first:
+      213: 684653101117702367
+    second: ArcherWalkCombat_SS_8f_192x192_325
+  - first:
+      213: -8247030653745956511
+    second: ArcherWalkCombat_SS_8f_192x192_326
+  - first:
+      213: -5294494528759190009
+    second: ArcherWalkCombat_SS_8f_192x192_327
+  - first:
+      213: 573607402882848060
+    second: ArcherWalkCombat_SS_8f_192x192_328
+  - first:
+      213: 7163327243752076768
+    second: ArcherWalkCombat_SS_8f_192x192_329
+  - first:
+      213: -8484310175116811168
+    second: ArcherWalkCombat_SS_8f_192x192_330
+  - first:
+      213: -3282434321251883971
+    second: ArcherWalkCombat_SS_8f_192x192_331
+  - first:
+      213: -8248638651327173003
+    second: ArcherWalkCombat_SS_8f_192x192_332
+  - first:
+      213: 1373386604435306502
+    second: ArcherWalkCombat_SS_8f_192x192_333
+  - first:
+      213: 3103221237287122376
+    second: ArcherWalkCombat_SS_8f_192x192_334
+  - first:
+      213: -5604108020693005781
+    second: ArcherWalkCombat_SS_8f_192x192_335
+  - first:
+      213: 8772991837700974038
+    second: ArcherWalkCombat_SS_8f_192x192_336
+  - first:
+      213: -524297236229799258
+    second: ArcherWalkCombat_SS_8f_192x192_337
+  - first:
+      213: -5111507714421395473
+    second: ArcherWalkCombat_SS_8f_192x192_338
+  - first:
+      213: 2039330180369593959
+    second: ArcherWalkCombat_SS_8f_192x192_339
+  - first:
+      213: 8655679480754822678
+    second: ArcherWalkCombat_SS_8f_192x192_340
+  - first:
+      213: 3847495087152252038
+    second: ArcherWalkCombat_SS_8f_192x192_341
+  - first:
+      213: 4888536692346278687
+    second: ArcherWalkCombat_SS_8f_192x192_342
+  - first:
+      213: 8229629949539688599
+    second: ArcherWalkCombat_SS_8f_192x192_343
+  - first:
+      213: 2452487315605473449
+    second: ArcherWalkCombat_SS_8f_192x192_344
+  - first:
+      213: 6095047785328596832
+    second: ArcherWalkCombat_SS_8f_192x192_345
+  - first:
+      213: -6147218074684633879
+    second: ArcherWalkCombat_SS_8f_192x192_346
+  - first:
+      213: -4521964975243557206
+    second: ArcherWalkCombat_SS_8f_192x192_347
+  - first:
+      213: -3827292045132943671
+    second: ArcherWalkCombat_SS_8f_192x192_348
+  - first:
+      213: -6356073213679315070
+    second: ArcherWalkCombat_SS_8f_192x192_349
+  - first:
+      213: 7046131334173910646
+    second: ArcherWalkCombat_SS_8f_192x192_350
+  - first:
+      213: 6205446647096636273
+    second: ArcherWalkCombat_SS_8f_192x192_351
+  - first:
+      213: -5480813714627486728
+    second: ArcherWalkCombat_SS_8f_192x192_352
+  - first:
+      213: 7458286521976610975
+    second: ArcherWalkCombat_SS_8f_192x192_353
+  - first:
+      213: -5589519343631273226
+    second: ArcherWalkCombat_SS_8f_192x192_354
+  - first:
+      213: 4648486187557413912
+    second: ArcherWalkCombat_SS_8f_192x192_355
+  - first:
+      213: 6589497115405646739
+    second: ArcherWalkCombat_SS_8f_192x192_356
+  - first:
+      213: -1748988116338491406
+    second: ArcherWalkCombat_SS_8f_192x192_357
+  - first:
+      213: -3594882814695034566
+    second: ArcherWalkCombat_SS_8f_192x192_358
+  - first:
+      213: -3405207769871172552
+    second: ArcherWalkCombat_SS_8f_192x192_359
+  - first:
+      213: 6761373247434320873
+    second: ArcherWalkCombat_SS_8f_192x192_360
+  - first:
+      213: -5554291549578214930
+    second: ArcherWalkCombat_SS_8f_192x192_361
+  - first:
+      213: 3987137010497227443
+    second: ArcherWalkCombat_SS_8f_192x192_362
+  - first:
+      213: -2791587635424918393
+    second: ArcherWalkCombat_SS_8f_192x192_363
+  - first:
+      213: 9184621777045642092
+    second: ArcherWalkCombat_SS_8f_192x192_364
+  - first:
+      213: 1245917173968078327
+    second: ArcherWalkCombat_SS_8f_192x192_365
+  - first:
+      213: 1330158177913560587
+    second: ArcherWalkCombat_SS_8f_192x192_366
+  - first:
+      213: 2005902152744515490
+    second: ArcherWalkCombat_SS_8f_192x192_367
+  - first:
+      213: -8104361132505878371
+    second: ArcherWalkCombat_SS_8f_192x192_368
+  - first:
+      213: -686441036401601400
+    second: ArcherWalkCombat_SS_8f_192x192_369
+  - first:
+      213: -71875559124790527
+    second: ArcherWalkCombat_SS_8f_192x192_370
+  - first:
+      213: 5577428062893356299
+    second: ArcherWalkCombat_SS_8f_192x192_371
+  - first:
+      213: -7712298359675023032
+    second: ArcherWalkCombat_SS_8f_192x192_372
+  - first:
+      213: -2847320032114580760
+    second: ArcherWalkCombat_SS_8f_192x192_373
+  - first:
+      213: -5814901878224709581
+    second: ArcherWalkCombat_SS_8f_192x192_374
+  - first:
+      213: 3653529366096088019
+    second: ArcherWalkCombat_SS_8f_192x192_375
+  - first:
+      213: 7166473097661546037
+    second: ArcherWalkCombat_SS_8f_192x192_376
+  - first:
+      213: -3577637733635401471
+    second: ArcherWalkCombat_SS_8f_192x192_377
+  - first:
+      213: -378358290535389524
+    second: ArcherWalkCombat_SS_8f_192x192_378
+  - first:
+      213: 8871294507422721958
+    second: ArcherWalkCombat_SS_8f_192x192_379
+  - first:
+      213: 1199085548947223630
+    second: ArcherWalkCombat_SS_8f_192x192_380
+  - first:
+      213: 3520490012013916524
+    second: ArcherWalkCombat_SS_8f_192x192_381
+  - first:
+      213: 8605923082045525345
+    second: ArcherWalkCombat_SS_8f_192x192_382
+  - first:
+      213: -8610264063958333255
+    second: ArcherWalkCombat_SS_8f_192x192_383
+  - first:
+      213: 595017469349813123
+    second: ArcherWalkCombat_SS_8f_192x192_384
+  - first:
+      213: 7708176609004074927
+    second: ArcherWalkCombat_SS_8f_192x192_385
+  - first:
+      213: -2519154531573263911
+    second: ArcherWalkCombat_SS_8f_192x192_386
+  - first:
+      213: 7311305160227686626
+    second: ArcherWalkCombat_SS_8f_192x192_387
+  - first:
+      213: -4542628583781459602
+    second: ArcherWalkCombat_SS_8f_192x192_388
+  - first:
+      213: -764532425356690089
+    second: ArcherWalkCombat_SS_8f_192x192_389
+  - first:
+      213: 7862098149115617195
+    second: ArcherWalkCombat_SS_8f_192x192_390
+  - first:
+      213: 2090664058371781793
+    second: ArcherWalkCombat_SS_8f_192x192_391
+  - first:
+      213: -3949832626349030376
+    second: ArcherWalkCombat_SS_8f_192x192_392
+  - first:
+      213: 4295976558302172663
+    second: ArcherWalkCombat_SS_8f_192x192_393
+  - first:
+      213: 1950509922207230796
+    second: ArcherWalkCombat_SS_8f_192x192_394
+  - first:
+      213: 4803081337558363441
+    second: ArcherWalkCombat_SS_8f_192x192_395
+  - first:
+      213: 4452869699476130392
+    second: ArcherWalkCombat_SS_8f_192x192_396
+  - first:
+      213: -8987219452965975363
+    second: ArcherWalkCombat_SS_8f_192x192_397
+  - first:
+      213: -7883032249381945086
+    second: ArcherWalkCombat_SS_8f_192x192_398
+  - first:
+      213: 5180230707509460337
+    second: ArcherWalkCombat_SS_8f_192x192_399
+  - first:
+      213: -7977779229432719431
+    second: ArcherWalkCombat_SS_8f_192x192_400
+  - first:
+      213: 4620729876443607095
+    second: ArcherWalkCombat_SS_8f_192x192_401
+  - first:
+      213: -2180557997523827706
+    second: ArcherWalkCombat_SS_8f_192x192_402
+  - first:
+      213: -5388893843862138014
+    second: ArcherWalkCombat_SS_8f_192x192_403
+  - first:
+      213: -6617117465763855212
+    second: ArcherWalkCombat_SS_8f_192x192_404
+  - first:
+      213: -7326422234368635581
+    second: ArcherWalkCombat_SS_8f_192x192_405
+  - first:
+      213: -801423111775677037
+    second: ArcherWalkCombat_SS_8f_192x192_406
+  - first:
+      213: -3498491806325938858
+    second: ArcherWalkCombat_SS_8f_192x192_407
+  - first:
+      213: -5280092951360620913
+    second: ArcherWalkCombat_SS_8f_192x192_408
+  - first:
+      213: 3367558095583719534
+    second: ArcherWalkCombat_SS_8f_192x192_409
+  - first:
+      213: -8855662933093498015
+    second: ArcherWalkCombat_SS_8f_192x192_410
+  - first:
+      213: -8133918036915380454
+    second: ArcherWalkCombat_SS_8f_192x192_411
+  - first:
+      213: -7298827995216550511
+    second: ArcherWalkCombat_SS_8f_192x192_412
+  - first:
+      213: 2559501304597580269
+    second: ArcherWalkCombat_SS_8f_192x192_413
+  - first:
+      213: 3865233223581567153
+    second: ArcherWalkCombat_SS_8f_192x192_414
+  - first:
+      213: 607309356000449483
+    second: ArcherWalkCombat_SS_8f_192x192_415
+  - first:
+      213: 3762703497689787082
+    second: ArcherWalkCombat_SS_8f_192x192_416
+  - first:
+      213: 5823704913238254668
+    second: ArcherWalkCombat_SS_8f_192x192_417
+  - first:
+      213: 2613301402364803279
+    second: ArcherWalkCombat_SS_8f_192x192_418
+  - first:
+      213: 2331316580872962864
+    second: ArcherWalkCombat_SS_8f_192x192_419
+  - first:
+      213: 5574680852334535773
+    second: ArcherWalkCombat_SS_8f_192x192_420
+  - first:
+      213: 8193120879671003359
+    second: ArcherWalkCombat_SS_8f_192x192_421
+  - first:
+      213: -1989068380369144662
+    second: ArcherWalkCombat_SS_8f_192x192_422
+  - first:
+      213: 2594334603227453649
+    second: ArcherWalkCombat_SS_8f_192x192_423
+  - first:
+      213: -5445662751846981619
+    second: ArcherWalkCombat_SS_8f_192x192_424
+  - first:
+      213: -9015577346528714874
+    second: ArcherWalkCombat_SS_8f_192x192_425
+  - first:
+      213: 5000421824198063640
+    second: ArcherWalkCombat_SS_8f_192x192_426
+  - first:
+      213: -3009414040427006071
+    second: ArcherWalkCombat_SS_8f_192x192_427
+  - first:
+      213: 2800841506220168861
+    second: ArcherWalkCombat_SS_8f_192x192_428
+  - first:
+      213: -7091043229394071475
+    second: ArcherWalkCombat_SS_8f_192x192_429
+  - first:
+      213: 1397555000691910480
+    second: ArcherWalkCombat_SS_8f_192x192_430
+  - first:
+      213: 3126453896183755183
+    second: ArcherWalkCombat_SS_8f_192x192_431
+  - first:
+      213: -1086104139090548599
+    second: ArcherWalkCombat_SS_8f_192x192_432
+  - first:
+      213: 962467769084394889
+    second: ArcherWalkCombat_SS_8f_192x192_433
+  - first:
+      213: 2305603040801349499
+    second: ArcherWalkCombat_SS_8f_192x192_434
+  - first:
+      213: -3096943815725684784
+    second: ArcherWalkCombat_SS_8f_192x192_435
+  - first:
+      213: -1420587456999523774
+    second: ArcherWalkCombat_SS_8f_192x192_436
+  - first:
+      213: -2553278202473076820
+    second: ArcherWalkCombat_SS_8f_192x192_437
+  - first:
+      213: -7561488660832762209
+    second: ArcherWalkCombat_SS_8f_192x192_438
+  - first:
+      213: 3971624181742830887
+    second: ArcherWalkCombat_SS_8f_192x192_439
+  - first:
+      213: -4558841880741194004
+    second: ArcherWalkCombat_SS_8f_192x192_440
+  - first:
+      213: 5125594187295997289
+    second: ArcherWalkCombat_SS_8f_192x192_441
+  - first:
+      213: 1628653121848326485
+    second: ArcherWalkCombat_SS_8f_192x192_442
+  - first:
+      213: -3662767823084062054
+    second: ArcherWalkCombat_SS_8f_192x192_443
+  - first:
+      213: -4704639304861257563
+    second: ArcherWalkCombat_SS_8f_192x192_444
+  - first:
+      213: -5418549376015144996
+    second: ArcherWalkCombat_SS_8f_192x192_445
+  - first:
+      213: -1858018255135442679
+    second: ArcherWalkCombat_SS_8f_192x192_446
+  - first:
+      213: -8060485301232503945
+    second: ArcherWalkCombat_SS_8f_192x192_447
+  - first:
+      213: 1928363424169674783
+    second: ArcherWalkCombat_SS_8f_192x192_448
+  - first:
+      213: -5908497426114572692
+    second: ArcherWalkCombat_SS_8f_192x192_449
+  - first:
+      213: -7140001981549696186
+    second: ArcherWalkCombat_SS_8f_192x192_450
+  - first:
+      213: -5628930939006020079
+    second: ArcherWalkCombat_SS_8f_192x192_451
+  - first:
+      213: 4251258433328866295
+    second: ArcherWalkCombat_SS_8f_192x192_452
+  - first:
+      213: 9167805991974859233
+    second: ArcherWalkCombat_SS_8f_192x192_453
+  - first:
+      213: -2792595685486720248
+    second: ArcherWalkCombat_SS_8f_192x192_454
+  - first:
+      213: 2689620818091418735
+    second: ArcherWalkCombat_SS_8f_192x192_455
+  - first:
+      213: 3822451727523288856
+    second: ArcherWalkCombat_SS_8f_192x192_456
+  - first:
+      213: 65496700645871758
+    second: ArcherWalkCombat_SS_8f_192x192_457
+  - first:
+      213: 3908177845302114038
+    second: ArcherWalkCombat_SS_8f_192x192_458
+  - first:
+      213: 37997641308235624
+    second: ArcherWalkCombat_SS_8f_192x192_459
+  - first:
+      213: 1554725590238940954
+    second: ArcherWalkCombat_SS_8f_192x192_460
+  - first:
+      213: 6342015790864705391
+    second: ArcherWalkCombat_SS_8f_192x192_461
+  - first:
+      213: 3126865487366563124
+    second: ArcherWalkCombat_SS_8f_192x192_462
+  - first:
+      213: -9089780949223202852
+    second: ArcherWalkCombat_SS_8f_192x192_463
+  - first:
+      213: -6073190752023470907
+    second: ArcherWalkCombat_SS_8f_192x192_464
+  - first:
+      213: 5366377258935201237
+    second: ArcherWalkCombat_SS_8f_192x192_465
+  - first:
+      213: 1560666432351304998
+    second: ArcherWalkCombat_SS_8f_192x192_466
+  - first:
+      213: 7897878862910649323
+    second: ArcherWalkCombat_SS_8f_192x192_467
+  - first:
+      213: 2676299405453010386
+    second: ArcherWalkCombat_SS_8f_192x192_468
+  - first:
+      213: 3536260892896447850
+    second: ArcherWalkCombat_SS_8f_192x192_469
+  - first:
+      213: -5155935164444287767
+    second: ArcherWalkCombat_SS_8f_192x192_470
+  - first:
+      213: -6277525384428792594
+    second: ArcherWalkCombat_SS_8f_192x192_471
+  - first:
+      213: -3708800803767326729
+    second: ArcherWalkCombat_SS_8f_192x192_472
+  - first:
+      213: 7237556635303456436
+    second: ArcherWalkCombat_SS_8f_192x192_473
+  - first:
+      213: -7300096564189350443
+    second: ArcherWalkCombat_SS_8f_192x192_474
+  - first:
+      213: 4956831677137877604
+    second: ArcherWalkCombat_SS_8f_192x192_475
+  - first:
+      213: -892190918775001917
+    second: ArcherWalkCombat_SS_8f_192x192_476
+  - first:
+      213: -4552117369235471030
+    second: ArcherWalkCombat_SS_8f_192x192_477
+  - first:
+      213: 3102601011771881033
+    second: ArcherWalkCombat_SS_8f_192x192_478
+  - first:
+      213: -516196609573697835
+    second: ArcherWalkCombat_SS_8f_192x192_479
+  - first:
+      213: 3612596511132785403
+    second: ArcherWalkCombat_SS_8f_192x192_480
+  - first:
+      213: -6783007866680562092
+    second: ArcherWalkCombat_SS_8f_192x192_481
+  - first:
+      213: 4969696579694718743
+    second: ArcherWalkCombat_SS_8f_192x192_482
+  - first:
+      213: -7718168588998966198
+    second: ArcherWalkCombat_SS_8f_192x192_483
+  - first:
+      213: -3430985459677078871
+    second: ArcherWalkCombat_SS_8f_192x192_484
+  - first:
+      213: 6178311317122052772
+    second: ArcherWalkCombat_SS_8f_192x192_485
+  - first:
+      213: 3294073510849739538
+    second: ArcherWalkCombat_SS_8f_192x192_486
+  - first:
+      213: -1409449410775967820
+    second: ArcherWalkCombat_SS_8f_192x192_487
+  - first:
+      213: -7692844266894376403
+    second: ArcherWalkCombat_SS_8f_192x192_488
+  - first:
+      213: 5329709531631978335
+    second: ArcherWalkCombat_SS_8f_192x192_489
+  - first:
+      213: -4897872211717012386
+    second: ArcherWalkCombat_SS_8f_192x192_490
+  - first:
+      213: 2094326065179980311
+    second: ArcherWalkCombat_SS_8f_192x192_491
+  - first:
+      213: 368760709252599273
+    second: ArcherWalkCombat_SS_8f_192x192_492
+  - first:
+      213: -4954969585939623666
+    second: ArcherWalkCombat_SS_8f_192x192_493
+  - first:
+      213: 2736821808068029345
+    second: ArcherWalkCombat_SS_8f_192x192_494
+  - first:
+      213: 8781811979792308191
+    second: ArcherWalkCombat_SS_8f_192x192_495
+  - first:
+      213: -4331950717375720737
+    second: ArcherWalkCombat_SS_8f_192x192_496
+  - first:
+      213: -2465188098737147894
+    second: ArcherWalkCombat_SS_8f_192x192_497
+  - first:
+      213: 8709296126342284689
+    second: ArcherWalkCombat_SS_8f_192x192_498
+  - first:
+      213: -2268615702976669294
+    second: ArcherWalkCombat_SS_8f_192x192_499
+  - first:
+      213: 870806423862904538
+    second: ArcherWalkCombat_SS_8f_192x192_500
+  - first:
+      213: 3147620634720707451
+    second: ArcherWalkCombat_SS_8f_192x192_501
+  - first:
+      213: -507887448609346424
+    second: ArcherWalkCombat_SS_8f_192x192_502
+  - first:
+      213: -9023317871751422896
+    second: ArcherWalkCombat_SS_8f_192x192_503
+  - first:
+      213: -3200633856399364243
+    second: ArcherWalkCombat_SS_8f_192x192_504
+  - first:
+      213: 2428131327424321742
+    second: ArcherWalkCombat_SS_8f_192x192_505
+  - first:
+      213: -9217329728079696701
+    second: ArcherWalkCombat_SS_8f_192x192_506
+  - first:
+      213: -8817385777650205635
+    second: ArcherWalkCombat_SS_8f_192x192_507
+  - first:
+      213: 2301193850390379952
+    second: ArcherWalkCombat_SS_8f_192x192_508
+  - first:
+      213: -5999817734494274670
+    second: ArcherWalkCombat_SS_8f_192x192_509
+  - first:
+      213: -6671635036465133135
+    second: ArcherWalkCombat_SS_8f_192x192_510
+  - first:
+      213: -2840079076819308904
+    second: ArcherWalkCombat_SS_8f_192x192_511
+  - first:
+      213: -1636520116031668491
+    second: ArcherWalkCombat_SS_8f_192x192_512
+  - first:
+      213: 2055045359956363796
+    second: ArcherWalkCombat_SS_8f_192x192_513
+  - first:
+      213: -7823119774318996733
+    second: ArcherWalkCombat_SS_8f_192x192_514
+  - first:
+      213: -7615221149488548619
+    second: ArcherWalkCombat_SS_8f_192x192_515
+  - first:
+      213: 4100891901679904102
+    second: ArcherWalkCombat_SS_8f_192x192_516
+  - first:
+      213: -4744939727189818178
+    second: ArcherWalkCombat_SS_8f_192x192_517
+  - first:
+      213: -8970583110131744508
+    second: ArcherWalkCombat_SS_8f_192x192_518
+  - first:
+      213: 8081902692216924495
+    second: ArcherWalkCombat_SS_8f_192x192_519
+  - first:
+      213: -7568660759299888020
+    second: ArcherWalkCombat_SS_8f_192x192_520
+  - first:
+      213: 6826517111759218627
+    second: ArcherWalkCombat_SS_8f_192x192_521
+  - first:
+      213: -3840261482668548283
+    second: ArcherWalkCombat_SS_8f_192x192_522
+  - first:
+      213: -4025762615967211829
+    second: ArcherWalkCombat_SS_8f_192x192_523
+  - first:
+      213: 559649457081780294
+    second: ArcherWalkCombat_SS_8f_192x192_524
+  - first:
+      213: 2526104135580414687
+    second: ArcherWalkCombat_SS_8f_192x192_525
+  - first:
+      213: 2630501349922593665
+    second: ArcherWalkCombat_SS_8f_192x192_526
+  - first:
+      213: 7317976289567277545
+    second: ArcherWalkCombat_SS_8f_192x192_527
+  - first:
+      213: 7353192927534014883
+    second: ArcherWalkCombat_SS_8f_192x192_528
+  - first:
+      213: 1956918829751841891
+    second: ArcherWalkCombat_SS_8f_192x192_529
+  - first:
+      213: 2759254953987117586
+    second: ArcherWalkCombat_SS_8f_192x192_530
+  - first:
+      213: -8465839208985071541
+    second: ArcherWalkCombat_SS_8f_192x192_531
+  - first:
+      213: -5657902731486516673
+    second: ArcherWalkCombat_SS_8f_192x192_532
+  - first:
+      213: -8233113281632735897
+    second: ArcherWalkCombat_SS_8f_192x192_533
+  - first:
+      213: 5170005825685249151
+    second: ArcherWalkCombat_SS_8f_192x192_534
+  - first:
+      213: 5765131511488095925
+    second: ArcherWalkCombat_SS_8f_192x192_535
+  - first:
+      213: 8509011018764305837
+    second: ArcherWalkCombat_SS_8f_192x192_536
+  - first:
+      213: 102710709865015044
+    second: ArcherWalkCombat_SS_8f_192x192_537
+  - first:
+      213: -8043668797127259248
+    second: ArcherWalkCombat_SS_8f_192x192_538
+  - first:
+      213: -73398519186312524
+    second: ArcherWalkCombat_SS_8f_192x192_539
+  - first:
+      213: 8385223493492123615
+    second: ArcherWalkCombat_SS_8f_192x192_540
+  - first:
+      213: -1275491749533718373
+    second: ArcherWalkCombat_SS_8f_192x192_541
+  - first:
+      213: -2533308026544122582
+    second: ArcherWalkCombat_SS_8f_192x192_542
+  - first:
+      213: 3419049720045947232
+    second: ArcherWalkCombat_SS_8f_192x192_543
+  - first:
+      213: 8404489042303889505
+    second: ArcherWalkCombat_SS_8f_192x192_544
+  - first:
+      213: -6455624540046104623
+    second: ArcherWalkCombat_SS_8f_192x192_545
+  - first:
+      213: -9078842845276512766
+    second: ArcherWalkCombat_SS_8f_192x192_546
+  - first:
+      213: 4379871702764338080
+    second: ArcherWalkCombat_SS_8f_192x192_547
+  - first:
+      213: 6647890725804667778
+    second: ArcherWalkCombat_SS_8f_192x192_548
+  - first:
+      213: -2965681634496883486
+    second: ArcherWalkCombat_SS_8f_192x192_549
+  - first:
+      213: 7555443975829763696
+    second: ArcherWalkCombat_SS_8f_192x192_550
+  - first:
+      213: -7421632635281132623
+    second: ArcherWalkCombat_SS_8f_192x192_551
+  - first:
+      213: 3730080817957703436
+    second: ArcherWalkCombat_SS_8f_192x192_552
+  - first:
+      213: 6449915017465122160
+    second: ArcherWalkCombat_SS_8f_192x192_553
+  - first:
+      213: 1152081902931915784
+    second: ArcherWalkCombat_SS_8f_192x192_554
+  - first:
+      213: 3795689917821943920
+    second: ArcherWalkCombat_SS_8f_192x192_555
+  - first:
+      213: -6748291433026297336
+    second: ArcherWalkCombat_SS_8f_192x192_556
+  - first:
+      213: -7798539018992955890
+    second: ArcherWalkCombat_SS_8f_192x192_557
+  - first:
+      213: 6813680970215179741
+    second: ArcherWalkCombat_SS_8f_192x192_558
+  - first:
+      213: -7120385366343386182
+    second: ArcherWalkCombat_SS_8f_192x192_559
+  - first:
+      213: -6690778507641662197
+    second: ArcherWalkCombat_SS_8f_192x192_560
+  - first:
+      213: -3821288812110510116
+    second: ArcherWalkCombat_SS_8f_192x192_561
+  - first:
+      213: -6212042620601197951
+    second: ArcherWalkCombat_SS_8f_192x192_562
+  - first:
+      213: -1472237768997020803
+    second: ArcherWalkCombat_SS_8f_192x192_563
+  - first:
+      213: 6101944551634392333
+    second: ArcherWalkCombat_SS_8f_192x192_564
+  - first:
+      213: -422567250189901433
+    second: ArcherWalkCombat_SS_8f_192x192_565
+  - first:
+      213: -5290738162110323213
+    second: ArcherWalkCombat_SS_8f_192x192_566
+  - first:
+      213: -6637498787602161204
+    second: ArcherWalkCombat_SS_8f_192x192_567
+  - first:
+      213: -4517608353677258065
+    second: ArcherWalkCombat_SS_8f_192x192_568
+  - first:
+      213: 9046651183597892
+    second: ArcherWalkCombat_SS_8f_192x192_569
+  - first:
+      213: 3704415514579134137
+    second: ArcherWalkCombat_SS_8f_192x192_570
+  - first:
+      213: 2638302889674488341
+    second: ArcherWalkCombat_SS_8f_192x192_571
+  - first:
+      213: 5864054833134542819
+    second: ArcherWalkCombat_SS_8f_192x192_572
+  - first:
+      213: -2395809065442227504
+    second: ArcherWalkCombat_SS_8f_192x192_573
+  - first:
+      213: 2139432252257021220
+    second: ArcherWalkCombat_SS_8f_192x192_574
+  - first:
+      213: -1861623132155802388
+    second: ArcherWalkCombat_SS_8f_192x192_575
+  - first:
+      213: -2445029603225651231
+    second: ArcherWalkCombat_SS_8f_192x192_576
+  - first:
+      213: 3295573595792758197
+    second: ArcherWalkCombat_SS_8f_192x192_577
+  - first:
+      213: 1941631194965289499
+    second: ArcherWalkCombat_SS_8f_192x192_578
+  - first:
+      213: -2556132115655611389
+    second: ArcherWalkCombat_SS_8f_192x192_579
+  - first:
+      213: -4740870696844987129
+    second: ArcherWalkCombat_SS_8f_192x192_580
+  - first:
+      213: -1064261678324242814
+    second: ArcherWalkCombat_SS_8f_192x192_581
+  - first:
+      213: 6441423185929115319
+    second: ArcherWalkCombat_SS_8f_192x192_582
+  - first:
+      213: -1974220679768867441
+    second: ArcherWalkCombat_SS_8f_192x192_583
+  - first:
+      213: 8536824079092456014
+    second: ArcherWalkCombat_SS_8f_192x192_584
+  - first:
+      213: 3662782452048399588
+    second: ArcherWalkCombat_SS_8f_192x192_585
+  - first:
+      213: 2580112815338747310
+    second: ArcherWalkCombat_SS_8f_192x192_586
+  - first:
+      213: -7538854114098532564
+    second: ArcherWalkCombat_SS_8f_192x192_587
+  - first:
+      213: -307388745375468866
+    second: ArcherWalkCombat_SS_8f_192x192_588
+  - first:
+      213: -838491701756589353
+    second: ArcherWalkCombat_SS_8f_192x192_589
+  - first:
+      213: 7559429019203801687
+    second: ArcherWalkCombat_SS_8f_192x192_590
+  - first:
+      213: -2087679456144616579
+    second: ArcherWalkCombat_SS_8f_192x192_591
+  - first:
+      213: 799613259290764252
+    second: ArcherWalkCombat_SS_8f_192x192_592
+  - first:
+      213: -4329602985942531589
+    second: ArcherWalkCombat_SS_8f_192x192_593
+  - first:
+      213: -5379357346803148972
+    second: ArcherWalkCombat_SS_8f_192x192_594
+  - first:
+      213: 4663101801197161155
+    second: ArcherWalkCombat_SS_8f_192x192_595
+  - first:
+      213: -8430187407442146167
+    second: ArcherWalkCombat_SS_8f_192x192_596
+  - first:
+      213: -2197458504302057294
+    second: ArcherWalkCombat_SS_8f_192x192_597
+  - first:
+      213: 8198344855296525633
+    second: ArcherWalkCombat_SS_8f_192x192_598
+  - first:
+      213: 8516929088399722679
+    second: ArcherWalkCombat_SS_8f_192x192_599
+  - first:
+      213: 1960144548345212514
+    second: ArcherWalkCombat_SS_8f_192x192_600
+  - first:
+      213: -5474446773537287600
+    second: ArcherWalkCombat_SS_8f_192x192_601
+  - first:
+      213: 1161712249287942031
+    second: ArcherWalkCombat_SS_8f_192x192_602
+  - first:
+      213: 5595343909025383580
+    second: ArcherWalkCombat_SS_8f_192x192_603
+  - first:
+      213: -5435846162529298245
+    second: ArcherWalkCombat_SS_8f_192x192_604
+  - first:
+      213: 4206145227996764299
+    second: ArcherWalkCombat_SS_8f_192x192_605
+  - first:
+      213: -4142502172895184077
+    second: ArcherWalkCombat_SS_8f_192x192_606
+  - first:
+      213: 6363709450189797678
+    second: ArcherWalkCombat_SS_8f_192x192_607
+  - first:
+      213: 3902995490141837847
+    second: ArcherWalkCombat_SS_8f_192x192_608
+  - first:
+      213: 4702196874027659218
+    second: ArcherWalkCombat_SS_8f_192x192_609
+  - first:
+      213: -1129414825079896637
+    second: ArcherWalkCombat_SS_8f_192x192_610
+  - first:
+      213: -9141346093979781409
+    second: ArcherWalkCombat_SS_8f_192x192_611
+  - first:
+      213: 3387031534744326354
+    second: ArcherWalkCombat_SS_8f_192x192_612
+  - first:
+      213: 7722486940300217089
+    second: ArcherWalkCombat_SS_8f_192x192_613
+  - first:
+      213: 781286856194142761
+    second: ArcherWalkCombat_SS_8f_192x192_614
+  - first:
+      213: 7933588580783549395
+    second: ArcherWalkCombat_SS_8f_192x192_615
+  - first:
+      213: 4812733561322070642
+    second: ArcherWalkCombat_SS_8f_192x192_616
+  - first:
+      213: -856493143724772196
+    second: ArcherWalkCombat_SS_8f_192x192_617
+  - first:
+      213: 7293620753460329229
+    second: ArcherWalkCombat_SS_8f_192x192_618
+  - first:
+      213: 5175899150638568112
+    second: ArcherWalkCombat_SS_8f_192x192_619
+  - first:
+      213: -8690230992967817351
+    second: ArcherWalkCombat_SS_8f_192x192_620
+  - first:
+      213: -1133075487029436412
+    second: ArcherWalkCombat_SS_8f_192x192_621
+  - first:
+      213: 4059714463481065759
+    second: ArcherWalkCombat_SS_8f_192x192_622
+  - first:
+      213: 2913515895790450043
+    second: ArcherWalkCombat_SS_8f_192x192_623
+  - first:
+      213: -938123625389678680
+    second: ArcherWalkCombat_SS_8f_192x192_624
+  - first:
+      213: -3915493575279603781
+    second: ArcherWalkCombat_SS_8f_192x192_625
+  - first:
+      213: -6991001567954523516
+    second: ArcherWalkCombat_SS_8f_192x192_626
+  - first:
+      213: -4268252932948971294
+    second: ArcherWalkCombat_SS_8f_192x192_627
+  - first:
+      213: 768661592791790335
+    second: ArcherWalkCombat_SS_8f_192x192_628
+  - first:
+      213: -680153049019891759
+    second: ArcherWalkCombat_SS_8f_192x192_629
+  - first:
+      213: -1076660894795285660
+    second: ArcherWalkCombat_SS_8f_192x192_630
+  - first:
+      213: 8234779033785571101
+    second: ArcherWalkCombat_SS_8f_192x192_631
+  - first:
+      213: -4484316972203821365
+    second: ArcherWalkCombat_SS_8f_192x192_632
+  - first:
+      213: -6343265989263612458
+    second: ArcherWalkCombat_SS_8f_192x192_633
+  - first:
+      213: 642621119027129668
+    second: ArcherWalkCombat_SS_8f_192x192_634
+  - first:
+      213: 581331017377209005
+    second: ArcherWalkCombat_SS_8f_192x192_635
+  - first:
+      213: 7474650526405031139
+    second: ArcherWalkCombat_SS_8f_192x192_636
+  - first:
+      213: -1949891908024663897
+    second: ArcherWalkCombat_SS_8f_192x192_637
+  - first:
+      213: 8241552881448899167
+    second: ArcherWalkCombat_SS_8f_192x192_638
+  - first:
+      213: -4471627329666363400
+    second: ArcherWalkCombat_SS_8f_192x192_639
+  - first:
+      213: -5817733454027953687
+    second: ArcherWalkCombat_SS_8f_192x192_640
+  - first:
+      213: -1964031218986841058
+    second: ArcherWalkCombat_SS_8f_192x192_641
+  - first:
+      213: 737332083767965412
+    second: ArcherWalkCombat_SS_8f_192x192_642
+  - first:
+      213: -6702460500505383979
+    second: ArcherWalkCombat_SS_8f_192x192_643
+  - first:
+      213: 8669745925802449669
+    second: ArcherWalkCombat_SS_8f_192x192_644
+  - first:
+      213: -4371674613723182193
+    second: ArcherWalkCombat_SS_8f_192x192_645
+  - first:
+      213: 2771314152511265996
+    second: ArcherWalkCombat_SS_8f_192x192_646
+  - first:
+      213: 7422400285020421289
+    second: ArcherWalkCombat_SS_8f_192x192_647
+  - first:
+      213: -8197012939856259630
+    second: ArcherWalkCombat_SS_8f_192x192_648
+  - first:
+      213: -6895514901644832278
+    second: ArcherWalkCombat_SS_8f_192x192_649
+  - first:
+      213: -3458851017010157860
+    second: ArcherWalkCombat_SS_8f_192x192_650
+  - first:
+      213: 5356262090271921387
+    second: ArcherWalkCombat_SS_8f_192x192_651
+  - first:
+      213: 4354666502484332945
+    second: ArcherWalkCombat_SS_8f_192x192_652
+  - first:
+      213: -9049519380809950996
+    second: ArcherWalkCombat_SS_8f_192x192_653
+  - first:
+      213: -637069720586166314
+    second: ArcherWalkCombat_SS_8f_192x192_654
+  - first:
+      213: 2074896492485681239
+    second: ArcherWalkCombat_SS_8f_192x192_655
+  - first:
+      213: 5277494008472352263
+    second: ArcherWalkCombat_SS_8f_192x192_656
+  - first:
+      213: -1578492747378806153
+    second: ArcherWalkCombat_SS_8f_192x192_657
+  - first:
+      213: -3492273693383357043
+    second: ArcherWalkCombat_SS_8f_192x192_658
+  - first:
+      213: 8161224412359859282
+    second: ArcherWalkCombat_SS_8f_192x192_659
+  - first:
+      213: -7822868884551545085
+    second: ArcherWalkCombat_SS_8f_192x192_660
+  - first:
+      213: 5713638899586119339
+    second: ArcherWalkCombat_SS_8f_192x192_661
+  - first:
+      213: 724787257272582650
+    second: ArcherWalkCombat_SS_8f_192x192_662
+  - first:
+      213: 7891526524062908434
+    second: ArcherWalkCombat_SS_8f_192x192_663
+  - first:
+      213: -7605576953807338959
+    second: ArcherWalkCombat_SS_8f_192x192_664
+  - first:
+      213: -6989762177576595796
+    second: ArcherWalkCombat_SS_8f_192x192_665
+  - first:
+      213: -6004546345783946073
+    second: ArcherWalkCombat_SS_8f_192x192_666
+  - first:
+      213: -2591676504643886394
+    second: ArcherWalkCombat_SS_8f_192x192_667
+  - first:
+      213: -5569330066717888648
+    second: ArcherWalkCombat_SS_8f_192x192_668
+  - first:
+      213: 1044056218407128057
+    second: ArcherWalkCombat_SS_8f_192x192_669
+  - first:
+      213: -6695134915248111733
+    second: ArcherWalkCombat_SS_8f_192x192_670
+  - first:
+      213: 4474308455124817359
+    second: ArcherWalkCombat_SS_8f_192x192_671
+  - first:
+      213: 1150477092889318791
+    second: ArcherWalkCombat_SS_8f_192x192_672
+  - first:
+      213: 4435453174697453661
+    second: ArcherWalkCombat_SS_8f_192x192_673
+  - first:
+      213: -3388826943393678692
+    second: ArcherWalkCombat_SS_8f_192x192_674
+  - first:
+      213: -7407842100844743211
+    second: ArcherWalkCombat_SS_8f_192x192_675
+  - first:
+      213: 8719770255245801527
+    second: ArcherWalkCombat_SS_8f_192x192_676
+  - first:
+      213: 1920576353636538606
+    second: ArcherWalkCombat_SS_8f_192x192_677
+  - first:
+      213: -1368063330926066838
+    second: ArcherWalkCombat_SS_8f_192x192_678
+  - first:
+      213: 1828556400974376389
+    second: ArcherWalkCombat_SS_8f_192x192_679
+  - first:
+      213: 4061191089218964362
+    second: ArcherWalkCombat_SS_8f_192x192_680
+  - first:
+      213: 5618805526883938677
+    second: ArcherWalkCombat_SS_8f_192x192_681
+  - first:
+      213: -7663479767886142106
+    second: ArcherWalkCombat_SS_8f_192x192_682
+  - first:
+      213: 7278331391366576861
+    second: ArcherWalkCombat_SS_8f_192x192_683
+  - first:
+      213: -8905679653548356958
+    second: ArcherWalkCombat_SS_8f_192x192_684
+  - first:
+      213: -8955835857792022444
+    second: ArcherWalkCombat_SS_8f_192x192_685
+  - first:
+      213: -7860768807961745954
+    second: ArcherWalkCombat_SS_8f_192x192_686
+  - first:
+      213: -1248228104241780986
+    second: ArcherWalkCombat_SS_8f_192x192_687
+  - first:
+      213: 7247801674295526026
+    second: ArcherWalkCombat_SS_8f_192x192_688
+  - first:
+      213: -8606851258437148335
+    second: ArcherWalkCombat_SS_8f_192x192_689
+  - first:
+      213: 3882340829699717186
+    second: ArcherWalkCombat_SS_8f_192x192_690
+  - first:
+      213: -3901972549250334123
+    second: ArcherWalkCombat_SS_8f_192x192_691
+  - first:
+      213: -3034512554677762804
+    second: ArcherWalkCombat_SS_8f_192x192_692
+  - first:
+      213: -6651697251738666176
+    second: ArcherWalkCombat_SS_8f_192x192_693
+  - first:
+      213: 6042880373771770112
+    second: ArcherWalkCombat_SS_8f_192x192_694
+  - first:
+      213: -3934990989047363206
+    second: ArcherWalkCombat_SS_8f_192x192_695
+  - first:
+      213: 6546143221401176346
+    second: ArcherWalkCombat_SS_8f_192x192_696
+  - first:
+      213: -8034796409741129900
+    second: ArcherWalkCombat_SS_8f_192x192_697
+  - first:
+      213: 6807755761603812425
+    second: ArcherWalkCombat_SS_8f_192x192_698
+  - first:
+      213: -3164322176784787746
+    second: ArcherWalkCombat_SS_8f_192x192_699
+  - first:
+      213: 7703933313207111396
+    second: ArcherWalkCombat_SS_8f_192x192_700
+  - first:
+      213: 2712572602190462419
+    second: ArcherWalkCombat_SS_8f_192x192_701
+  - first:
+      213: -6155318796306084910
+    second: ArcherWalkCombat_SS_8f_192x192_702
+  - first:
+      213: 6557839740212829906
+    second: ArcherWalkCombat_SS_8f_192x192_703
+  - first:
+      213: 1719888256983473182
+    second: ArcherWalkCombat_SS_8f_192x192_704
+  - first:
+      213: 4412981183439942115
+    second: ArcherWalkCombat_SS_8f_192x192_705
+  - first:
+      213: -417203235431567866
+    second: ArcherWalkCombat_SS_8f_192x192_706
+  - first:
+      213: 7358504225810981889
+    second: ArcherWalkCombat_SS_8f_192x192_707
+  - first:
+      213: 3266689184847352124
+    second: ArcherWalkCombat_SS_8f_192x192_708
+  - first:
+      213: -5121878453319504959
+    second: ArcherWalkCombat_SS_8f_192x192_709
+  - first:
+      213: 1717058269139765628
+    second: ArcherWalkCombat_SS_8f_192x192_710
+  - first:
+      213: 923339723155925014
+    second: ArcherWalkCombat_SS_8f_192x192_711
+  - first:
+      213: -3829473976623678534
+    second: ArcherWalkCombat_SS_8f_192x192_712
+  - first:
+      213: -5739318134385938136
+    second: ArcherWalkCombat_SS_8f_192x192_713
+  - first:
+      213: 1033141287960189663
+    second: ArcherWalkCombat_SS_8f_192x192_714
+  - first:
+      213: 2820061167650281376
+    second: ArcherWalkCombat_SS_8f_192x192_715
+  - first:
+      213: -1003161826716992297
+    second: ArcherWalkCombat_SS_8f_192x192_716
+  - first:
+      213: -3304098590290081710
+    second: ArcherWalkCombat_SS_8f_192x192_717
+  - first:
+      213: 5592056557024331051
+    second: ArcherWalkCombat_SS_8f_192x192_718
+  - first:
+      213: -452403252037670740
+    second: ArcherWalkCombat_SS_8f_192x192_719
+  - first:
+      213: 915206543752129689
+    second: ArcherWalkCombat_SS_8f_192x192_720
+  - first:
+      213: 7516750596731906764
+    second: ArcherWalkCombat_SS_8f_192x192_721
+  - first:
+      213: -7582539794845304640
+    second: ArcherWalkCombat_SS_8f_192x192_722
+  - first:
+      213: 5226944513546226887
+    second: ArcherWalkCombat_SS_8f_192x192_723
+  - first:
+      213: 4121869715825188109
+    second: ArcherWalkCombat_SS_8f_192x192_724
+  - first:
+      213: -3558655572498012092
+    second: ArcherWalkCombat_SS_8f_192x192_725
+  - first:
+      213: 615958625192699603
+    second: ArcherWalkCombat_SS_8f_192x192_726
+  - first:
+      213: -7930144512340664949
+    second: ArcherWalkCombat_SS_8f_192x192_727
+  - first:
+      213: 6626423661383490603
+    second: ArcherWalkCombat_SS_8f_192x192_728
+  - first:
+      213: -1926192107500649097
+    second: ArcherWalkCombat_SS_8f_192x192_729
+  - first:
+      213: -3547647278381881168
+    second: ArcherWalkCombat_SS_8f_192x192_730
+  - first:
+      213: 3669352049401129921
+    second: ArcherWalkCombat_SS_8f_192x192_731
+  - first:
+      213: 936062557821739102
+    second: ArcherWalkCombat_SS_8f_192x192_732
+  - first:
+      213: -4566681627667198429
+    second: ArcherWalkCombat_SS_8f_192x192_733
+  - first:
+      213: 1551454265842913141
+    second: ArcherWalkCombat_SS_8f_192x192_734
+  - first:
+      213: 1333618868963067752
+    second: ArcherWalkCombat_SS_8f_192x192_735
+  - first:
+      213: 1814334275740574974
+    second: ArcherWalkCombat_SS_8f_192x192_736
+  - first:
+      213: 2436056464021683116
+    second: ArcherWalkCombat_SS_8f_192x192_737
+  - first:
+      213: -673097793664003468
+    second: ArcherWalkCombat_SS_8f_192x192_738
+  - first:
+      213: -4036102271104271484
+    second: ArcherWalkCombat_SS_8f_192x192_739
+  - first:
+      213: 3969820178316338018
+    second: ArcherWalkCombat_SS_8f_192x192_740
+  - first:
+      213: 5704261230914608741
+    second: ArcherWalkCombat_SS_8f_192x192_741
+  - first:
+      213: 8541109078988670945
+    second: ArcherWalkCombat_SS_8f_192x192_742
+  - first:
+      213: -239344817028265117
+    second: ArcherWalkCombat_SS_8f_192x192_743
+  - first:
+      213: -2754829036924025933
+    second: ArcherWalkCombat_SS_8f_192x192_744
+  - first:
+      213: -1120040874533643857
+    second: ArcherWalkCombat_SS_8f_192x192_745
+  - first:
+      213: 4019389054101205736
+    second: ArcherWalkCombat_SS_8f_192x192_746
+  - first:
+      213: -2567532846485178001
+    second: ArcherWalkCombat_SS_8f_192x192_747
+  - first:
+      213: -6065332963274306165
+    second: ArcherWalkCombat_SS_8f_192x192_748
+  - first:
+      213: 1087841270102937791
+    second: ArcherWalkCombat_SS_8f_192x192_749
+  - first:
+      213: -6999547443275673009
+    second: ArcherWalkCombat_SS_8f_192x192_750
+  - first:
+      213: -3451748604002716379
+    second: ArcherWalkCombat_SS_8f_192x192_751
+  - first:
+      213: 8482500903648410111
+    second: ArcherWalkCombat_SS_8f_192x192_752
+  - first:
+      213: -7625150296340887874
+    second: ArcherWalkCombat_SS_8f_192x192_753
+  - first:
+      213: -6400674826021700375
+    second: ArcherWalkCombat_SS_8f_192x192_754
+  - first:
+      213: -1488676547215627188
+    second: ArcherWalkCombat_SS_8f_192x192_755
+  - first:
+      213: -880186276976323618
+    second: ArcherWalkCombat_SS_8f_192x192_756
+  - first:
+      213: -199112060499239296
+    second: ArcherWalkCombat_SS_8f_192x192_757
+  - first:
+      213: -3827411782480465156
+    second: ArcherWalkCombat_SS_8f_192x192_758
+  - first:
+      213: -7690090937387913055
+    second: ArcherWalkCombat_SS_8f_192x192_759
+  - first:
+      213: 3505641548658155353
+    second: ArcherWalkCombat_SS_8f_192x192_760
+  - first:
+      213: 8689667271548150192
+    second: ArcherWalkCombat_SS_8f_192x192_761
+  - first:
+      213: -77818197686246343
+    second: ArcherWalkCombat_SS_8f_192x192_762
+  - first:
+      213: 8990922429205319768
+    second: ArcherWalkCombat_SS_8f_192x192_763
+  - first:
+      213: 2546616366144916320
+    second: ArcherWalkCombat_SS_8f_192x192_764
+  - first:
+      213: 3756523288499642691
+    second: ArcherWalkCombat_SS_8f_192x192_765
+  - first:
+      213: 8270829738864968801
+    second: ArcherWalkCombat_SS_8f_192x192_766
+  - first:
+      213: 5780791682283285507
+    second: ArcherWalkCombat_SS_8f_192x192_767
+  - first:
+      213: 34995389242241424
+    second: ArcherWalkCombat_SS_8f_192x192_768
+  - first:
+      213: -3792782263160283378
+    second: ArcherWalkCombat_SS_8f_192x192_769
+  - first:
+      213: -3050696596121495250
+    second: ArcherWalkCombat_SS_8f_192x192_770
+  - first:
+      213: -29842935088051240
+    second: ArcherWalkCombat_SS_8f_192x192_771
+  - first:
+      213: -4235270235714160205
+    second: ArcherWalkCombat_SS_8f_192x192_772
+  - first:
+      213: -6585910794262555013
+    second: ArcherWalkCombat_SS_8f_192x192_773
+  - first:
+      213: -6816617932570234752
+    second: ArcherWalkCombat_SS_8f_192x192_774
+  - first:
+      213: -2598814796660581554
+    second: ArcherWalkCombat_SS_8f_192x192_775
+  - first:
+      213: 578053758979191701
+    second: ArcherWalkCombat_SS_8f_192x192_776
+  - first:
+      213: 2613346263427577061
+    second: ArcherWalkCombat_SS_8f_192x192_777
+  - first:
+      213: 5579529139503858341
+    second: ArcherWalkCombat_SS_8f_192x192_778
+  - first:
+      213: -6930062459598488811
+    second: ArcherWalkCombat_SS_8f_192x192_779
+  - first:
+      213: 7762301804015527557
+    second: ArcherWalkCombat_SS_8f_192x192_780
+  - first:
+      213: 8127403724144149370
+    second: ArcherWalkCombat_SS_8f_192x192_781
+  - first:
+      213: 3662865326324483302
+    second: ArcherWalkCombat_SS_8f_192x192_782
+  - first:
+      213: 1440187135721252114
+    second: ArcherWalkCombat_SS_8f_192x192_783
+  - first:
+      213: -8546496858410271579
+    second: ArcherWalkCombat_SS_8f_192x192_784
+  - first:
+      213: -7119108335699806162
+    second: ArcherWalkCombat_SS_8f_192x192_785
+  - first:
+      213: 6176987793105497748
+    second: ArcherWalkCombat_SS_8f_192x192_786
+  - first:
+      213: -8101582135961609519
+    second: ArcherWalkCombat_SS_8f_192x192_787
+  - first:
+      213: 8304592146334601396
+    second: ArcherWalkCombat_SS_8f_192x192_788
+  - first:
+      213: 5184968795569447004
+    second: ArcherWalkCombat_SS_8f_192x192_789
+  - first:
+      213: -42789439907312222
+    second: ArcherWalkCombat_SS_8f_192x192_790
+  - first:
+      213: 5209414062768109414
+    second: ArcherWalkCombat_SS_8f_192x192_791
+  - first:
+      213: -5331567437283832921
+    second: ArcherWalkCombat_SS_8f_192x192_792
+  - first:
+      213: -899177373368091156
+    second: ArcherWalkCombat_SS_8f_192x192_793
+  - first:
+      213: 1594887727461256282
+    second: ArcherWalkCombat_SS_8f_192x192_794
+  - first:
+      213: 728679949417726662
+    second: ArcherWalkCombat_SS_8f_192x192_795
+  - first:
+      213: 1852961091359863059
+    second: ArcherWalkCombat_SS_8f_192x192_796
+  - first:
+      213: 2893156696257184507
+    second: ArcherWalkCombat_SS_8f_192x192_797
+  - first:
+      213: 7890512598077503725
+    second: ArcherWalkCombat_SS_8f_192x192_798
+  - first:
+      213: -7923461820101389361
+    second: ArcherWalkCombat_SS_8f_192x192_799
+  - first:
+      213: 5462813249061719878
+    second: ArcherWalkCombat_SS_8f_192x192_800
+  - first:
+      213: -7160716469139549299
+    second: ArcherWalkCombat_SS_8f_192x192_801
+  - first:
+      213: -6658412429858035971
+    second: ArcherWalkCombat_SS_8f_192x192_802
+  - first:
+      213: -6208677901590278412
+    second: ArcherWalkCombat_SS_8f_192x192_803
+  - first:
+      213: 5503298137267473671
+    second: ArcherWalkCombat_SS_8f_192x192_804
+  - first:
+      213: -5077255727081063599
+    second: ArcherWalkCombat_SS_8f_192x192_805
+  - first:
+      213: 1432055107641537982
+    second: ArcherWalkCombat_SS_8f_192x192_806
+  - first:
+      213: 3042235827025709361
+    second: ArcherWalkCombat_SS_8f_192x192_807
+  - first:
+      213: -5364601138291573475
+    second: ArcherWalkCombat_SS_8f_192x192_808
+  - first:
+      213: -420293022583395664
+    second: ArcherWalkCombat_SS_8f_192x192_809
+  - first:
+      213: -7049379693453760248
+    second: ArcherWalkCombat_SS_8f_192x192_810
+  - first:
+      213: -2813980612416418376
+    second: ArcherWalkCombat_SS_8f_192x192_811
+  - first:
+      213: -4029021306316963220
+    second: ArcherWalkCombat_SS_8f_192x192_812
+  - first:
+      213: 3290108999406023857
+    second: ArcherWalkCombat_SS_8f_192x192_813
+  - first:
+      213: 7413658223880724530
+    second: ArcherWalkCombat_SS_8f_192x192_814
+  - first:
+      213: -4208684337306429258
+    second: ArcherWalkCombat_SS_8f_192x192_815
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aee6ccf11e560f60800000000000000
+      internalID: 8000185219418615464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9600d45b498f3f780800000000000000
+      internalID: -8650297141668020119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a7e3f6e4c001370800000000000000
+      internalID: 8291140445002431097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92aa6a78e0d64a940800000000000000
+      internalID: 5306486170122103337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bfdd89e7749770d0800000000000000
+      internalID: -3425105748851564615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe22ca280620e7ec0800000000000000
+      internalID: -3567411241298418961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab28fc379c0df5a00800000000000000
+      internalID: 747545626816774842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23cb1112f325f3fd0800000000000000
+      internalID: -2360077248627622862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e95b8b7f9131f2b0800000000000000
+      internalID: -5552602304528819738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf244a4578095500800000000000000
+      internalID: 385348542967066543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bfe64bd1a2feb00800000000000000
+      internalID: 859952360920644396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a4960559c5b15a0800000000000000
+      internalID: -6549539436711294422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33da60645aee285b0800000000000000
+      internalID: -5367465412260352717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32787e301886fb00800000000000000
+      internalID: 862025982036963899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c802574b883de930800000000000000
+      internalID: 4174054600490485953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a22d43cab3ec411f0800000000000000
+      internalID: -1075007655347170774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac016fd3b747e0a80800000000000000
+      internalID: -8498727374132211510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1c55fd0a102fc50800000000000000
+      internalID: 6697417386306683379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02341ef25b43c020800000000000000
+      internalID: 2360813449494409742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1620133b498341c0800000000000000
+      internalID: -4520618644877597156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3016374c5f35a90800000000000000
+      internalID: -7326241944703532088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fadc022c2d292db0800000000000000
+      internalID: -4816268658922956045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c878c97fd7c6a7860800000000000000
+      internalID: 7528449015384147852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e25bff7481d151cb0800000000000000
+      internalID: -4893973429943814866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af818df55c34430a0800000000000000
+      internalID: -6902817813856511750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd82004c1587f7af0800000000000000
+      internalID: -396465949609285412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de81616ac49939210800000000000000
+      internalID: 1338582068742199533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f3d055b359ad9b80800000000000000
+      internalID: -8386360754104642572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca2f10c13f179f00800000000000000
+      internalID: 1123400930589354703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab160aff8cdafffb0800000000000000
+      internalID: -4611776414610333254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388a0986c4a6fa2b0800000000000000
+      internalID: -5571117337629644669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34198a3dd1783c8f0800000000000000
+      internalID: -521424569670004413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1c4c4f0d8591180800000000000000
+      internalID: -9144179913916104240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d97609705d4ca8a0800000000000000
+      internalID: -6292569571320235565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a05cdc6ddfb17690800000000000000
+      internalID: -7606087337917001568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33894723a3626f140800000000000000
+      internalID: 4753028488132597811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119411792d781d120800000000000000
+      internalID: 2436878211931523345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe78825b501cfc9e0800000000000000
+      internalID: -1598847112434907153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a9be3cff37c1430800000000000000
+      internalID: 3755003731661003338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c8c273309c598250800000000000000
+      internalID: 5947386557327657161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c943eae218d38f0800000000000000
+      internalID: -559148741232911248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bdaa18dca6fa2190800000000000000
+      internalID: -7986299766967718473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5527d3c1cfbe5a280800000000000000
+      internalID: -9032554009583586731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3ab0f8a93de4c70800000000000000
+      internalID: 8957329369664824287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b45bb8b0135db2a0800000000000000
+      internalID: -6720123737683045192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9382a36a46e4d2ab0800000000000000
+      internalID: -5031279014510450631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ba5e6bb1cc74fe0800000000000000
+      internalID: -1204769955893630179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0566f8db65402d410800000000000000
+      internalID: 1500266396461786704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5075c415d7dcf1dd0800000000000000
+      internalID: -2513064128930883835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb91756bde90b920800000000000000
+      internalID: 3004075616593091535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db7903b1d2bcdcf0800000000000000
+      internalID: -226109267553715246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12701ea2e3e274740800000000000000
+      internalID: 5136124744581580577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2106fbae5ff960d0800000000000000
+      internalID: -3428928859188887253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3fd3a794ae2841f0800000000000000
+      internalID: -1060546427792138435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379514dc2231ce6b0800000000000000
+      internalID: -5265812824109524621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5850e3d1623764a00800000000000000
+      internalID: 740405796285580677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb8b4c1ba7e552c60800000000000000
+      internalID: 7792738611295991998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0df0eb71ed82220800000000000000
+      internalID: 2461461389912297649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_58
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527fc916518bba830800000000000000
+      internalID: 4083559889112987429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_59
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bcd0629098ee610800000000000000
+      internalID: 1652408785677699890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac429986b5797830800000000000000
+      internalID: 4069413165158517922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_61
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd70decbd4d7e3930800000000000000
+      internalID: 4124872081553557468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_62
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363b210964fae2aa0800000000000000
+      internalID: -6183812520733396125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherWalkCombat_SS_8f_192x192_63
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68347124611a3a820800000000000000
+      internalID: 2928361299691127686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: efcca2cfa2c57384ea7109c2bbf4dd3b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      ArcherWalkCombat_SS_8f_192x192_0: 8000185219418615464
+      ArcherWalkCombat_SS_8f_192x192_1: -8650297141668020119
+      ArcherWalkCombat_SS_8f_192x192_10: 859952360920644396
+      ArcherWalkCombat_SS_8f_192x192_11: -6549539436711294422
+      ArcherWalkCombat_SS_8f_192x192_12: -5367465412260352717
+      ArcherWalkCombat_SS_8f_192x192_13: 862025982036963899
+      ArcherWalkCombat_SS_8f_192x192_14: 4174054600490485953
+      ArcherWalkCombat_SS_8f_192x192_15: -1075007655347170774
+      ArcherWalkCombat_SS_8f_192x192_16: -8498727374132211510
+      ArcherWalkCombat_SS_8f_192x192_17: 6697417386306683379
+      ArcherWalkCombat_SS_8f_192x192_18: 2360813449494409742
+      ArcherWalkCombat_SS_8f_192x192_19: -4520618644877597156
+      ArcherWalkCombat_SS_8f_192x192_2: 8291140445002431097
+      ArcherWalkCombat_SS_8f_192x192_20: -7326241944703532088
+      ArcherWalkCombat_SS_8f_192x192_21: -4816268658922956045
+      ArcherWalkCombat_SS_8f_192x192_22: 7528449015384147852
+      ArcherWalkCombat_SS_8f_192x192_23: -4893973429943814866
+      ArcherWalkCombat_SS_8f_192x192_24: -6902817813856511750
+      ArcherWalkCombat_SS_8f_192x192_25: -396465949609285412
+      ArcherWalkCombat_SS_8f_192x192_26: 1338582068742199533
+      ArcherWalkCombat_SS_8f_192x192_27: -8386360754104642572
+      ArcherWalkCombat_SS_8f_192x192_28: 1123400930589354703
+      ArcherWalkCombat_SS_8f_192x192_29: -4611776414610333254
+      ArcherWalkCombat_SS_8f_192x192_3: 5306486170122103337
+      ArcherWalkCombat_SS_8f_192x192_30: -5571117337629644669
+      ArcherWalkCombat_SS_8f_192x192_31: -521424569670004413
+      ArcherWalkCombat_SS_8f_192x192_32: -9144179913916104240
+      ArcherWalkCombat_SS_8f_192x192_33: -6292569571320235565
+      ArcherWalkCombat_SS_8f_192x192_34: -7606087337917001568
+      ArcherWalkCombat_SS_8f_192x192_35: 4753028488132597811
+      ArcherWalkCombat_SS_8f_192x192_36: 2436878211931523345
+      ArcherWalkCombat_SS_8f_192x192_37: -1598847112434907153
+      ArcherWalkCombat_SS_8f_192x192_38: 3755003731661003338
+      ArcherWalkCombat_SS_8f_192x192_39: 5947386557327657161
+      ArcherWalkCombat_SS_8f_192x192_4: -3425105748851564615
+      ArcherWalkCombat_SS_8f_192x192_40: -559148741232911248
+      ArcherWalkCombat_SS_8f_192x192_41: -7986299766967718473
+      ArcherWalkCombat_SS_8f_192x192_42: -9032554009583586731
+      ArcherWalkCombat_SS_8f_192x192_43: 8957329369664824287
+      ArcherWalkCombat_SS_8f_192x192_44: -6720123737683045192
+      ArcherWalkCombat_SS_8f_192x192_45: -5031279014510450631
+      ArcherWalkCombat_SS_8f_192x192_46: -1204769955893630179
+      ArcherWalkCombat_SS_8f_192x192_47: 1500266396461786704
+      ArcherWalkCombat_SS_8f_192x192_48: -2513064128930883835
+      ArcherWalkCombat_SS_8f_192x192_49: 3004075616593091535
+      ArcherWalkCombat_SS_8f_192x192_5: -3567411241298418961
+      ArcherWalkCombat_SS_8f_192x192_50: -226109267553715246
+      ArcherWalkCombat_SS_8f_192x192_51: 5136124744581580577
+      ArcherWalkCombat_SS_8f_192x192_52: -3428928859188887253
+      ArcherWalkCombat_SS_8f_192x192_53: -1060546427792138435
+      ArcherWalkCombat_SS_8f_192x192_54: -5265812824109524621
+      ArcherWalkCombat_SS_8f_192x192_55: 740405796285580677
+      ArcherWalkCombat_SS_8f_192x192_56: 7792738611295991998
+      ArcherWalkCombat_SS_8f_192x192_57: 2461461389912297649
+      ArcherWalkCombat_SS_8f_192x192_58: 4083559889112987429
+      ArcherWalkCombat_SS_8f_192x192_59: 1652408785677699890
+      ArcherWalkCombat_SS_8f_192x192_6: 747545626816774842
+      ArcherWalkCombat_SS_8f_192x192_60: 4069413165158517922
+      ArcherWalkCombat_SS_8f_192x192_61: 4124872081553557468
+      ArcherWalkCombat_SS_8f_192x192_62: -6183812520733396125
+      ArcherWalkCombat_SS_8f_192x192_63: 2928361299691127686
+      ArcherWalkCombat_SS_8f_192x192_7: -2360077248627622862
+      ArcherWalkCombat_SS_8f_192x192_8: -5552602304528819738
+      ArcherWalkCombat_SS_8f_192x192_9: 385348542967066543
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

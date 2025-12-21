@@ -15,7 +15,7 @@ namespace Game.Combat
     public class BowWeapon : WeaponBase
     {
         [Header("Sound Effects")]
-        [SerializeField] private List<AudioClip> bowAttackSounds = new();
+        [SerializeField] private List<AudioClip> bowAttackSounds = new();        
 
         public event System.Action<DamageSourceBase> onBowAttackLaunched;
         public event System.Action<DamageSourceBase> onBowSpecialAttackLaunched;
@@ -47,6 +47,7 @@ namespace Game.Combat
 
         protected override void OnAttackAnimationPlayed()
         {
+            Debug.Log("BowWeapon: OnAttackAnimationPlayed");
             //if (currentTarget == null) return;
             Vector2 spawnPos = transform.position;
             Vector2 targetPos = targetPosition;//currentTarget.transform.position;
@@ -73,7 +74,8 @@ namespace Game.Combat
 
         protected override void OnSpecialAttackAnimationPlayed()
         {
-            int numProjectiles = Random.Range(6, 11);
+            int numProjectiles = specialWeaponData.projectileAmount;
+            //int numProjectiles = Random.Range(6, 11);
             float angleStep = 360f / numProjectiles;
             float randomOffset = Random.Range(0f, 360f);
             Vector2 spawnPos = transform.position;

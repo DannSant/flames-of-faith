@@ -43,6 +43,9 @@ namespace Game.Combat {
         [Tooltip("Inflict an elemental type debuff")]
         public ElementalDebuffData elementalDebuffData;
 
+        [Tooltip("Amount of projectiles to launch in special attack (if applicable)")]
+        public int projectileAmount = 16;
+
     }
 
     public enum WeaponClass { 

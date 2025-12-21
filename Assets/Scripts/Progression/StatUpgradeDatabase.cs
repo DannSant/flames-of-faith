@@ -71,6 +71,8 @@ namespace Game.Progression
             Debug.LogWarning($"No description found for stat {statType}");
             return string.Empty; // fallback
         }
+
+       
     }
 
 }

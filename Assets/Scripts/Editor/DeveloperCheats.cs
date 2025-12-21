@@ -103,6 +103,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Holy Orb")]
+    public static void GiveHolyOrb()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string holyCrossEffectId = "e79ea8a3-ed55-499e-b87e-ed5edab1e9d3";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(holyCrossEffectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Items/Give Blessed arrows")]
     public static void GiveBlessedArrows()
     {

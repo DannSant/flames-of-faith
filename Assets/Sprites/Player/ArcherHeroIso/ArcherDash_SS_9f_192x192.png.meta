@@ -1,0 +1,4529 @@
+fileFormatVersion: 2
+guid: 461a4fe1f79986744a16a9ab7e6df383
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5451582344468707484
+    second: ArcherDash_SS_9f_192x192_0
+  - first:
+      213: -7711070084978332745
+    second: ArcherDash_SS_9f_192x192_1
+  - first:
+      213: -6617857085948175546
+    second: ArcherDash_SS_9f_192x192_2
+  - first:
+      213: 8017920254908966965
+    second: ArcherDash_SS_9f_192x192_3
+  - first:
+      213: 1099159311526088938
+    second: ArcherDash_SS_9f_192x192_4
+  - first:
+      213: -6059917838502466197
+    second: ArcherDash_SS_9f_192x192_5
+  - first:
+      213: 6917280445342759180
+    second: ArcherDash_SS_9f_192x192_6
+  - first:
+      213: 3032014629607713747
+    second: ArcherDash_SS_9f_192x192_7
+  - first:
+      213: 8445047118552057017
+    second: ArcherDash_SS_9f_192x192_8
+  - first:
+      213: 269417238713290889
+    second: ArcherDash_SS_9f_192x192_9
+  - first:
+      213: 7493168950606914993
+    second: ArcherDash_SS_9f_192x192_10
+  - first:
+      213: -6861373915680472980
+    second: ArcherDash_SS_9f_192x192_11
+  - first:
+      213: 4205115589761392531
+    second: ArcherDash_SS_9f_192x192_12
+  - first:
+      213: -4409460762315149218
+    second: ArcherDash_SS_9f_192x192_13
+  - first:
+      213: -492873366300200558
+    second: ArcherDash_SS_9f_192x192_14
+  - first:
+      213: -8938847561177615876
+    second: ArcherDash_SS_9f_192x192_15
+  - first:
+      213: -4123419109755299313
+    second: ArcherDash_SS_9f_192x192_16
+  - first:
+      213: 6911478747682975233
+    second: ArcherDash_SS_9f_192x192_17
+  - first:
+      213: -6618591354554208462
+    second: ArcherDash_SS_9f_192x192_18
+  - first:
+      213: 38475263031848005
+    second: ArcherDash_SS_9f_192x192_19
+  - first:
+      213: 7025220596233786926
+    second: ArcherDash_SS_9f_192x192_20
+  - first:
+      213: 539832299973496950
+    second: ArcherDash_SS_9f_192x192_21
+  - first:
+      213: 5646623579299023098
+    second: ArcherDash_SS_9f_192x192_22
+  - first:
+      213: -644087831730065866
+    second: ArcherDash_SS_9f_192x192_23
+  - first:
+      213: -1998471294570121063
+    second: ArcherDash_SS_9f_192x192_24
+  - first:
+      213: -5454246555868058671
+    second: ArcherDash_SS_9f_192x192_25
+  - first:
+      213: -887453320009457767
+    second: ArcherDash_SS_9f_192x192_26
+  - first:
+      213: 2367891409678322182
+    second: ArcherDash_SS_9f_192x192_27
+  - first:
+      213: 1607469805156259152
+    second: ArcherDash_SS_9f_192x192_28
+  - first:
+      213: -3853846146593670867
+    second: ArcherDash_SS_9f_192x192_29
+  - first:
+      213: -6211925416538124340
+    second: ArcherDash_SS_9f_192x192_30
+  - first:
+      213: -4266400882818665612
+    second: ArcherDash_SS_9f_192x192_31
+  - first:
+      213: 1786416129672653239
+    second: ArcherDash_SS_9f_192x192_32
+  - first:
+      213: 1062906873638107102
+    second: ArcherDash_SS_9f_192x192_33
+  - first:
+      213: 4084392569444840647
+    second: ArcherDash_SS_9f_192x192_34
+  - first:
+      213: 3036995355183633395
+    second: ArcherDash_SS_9f_192x192_35
+  - first:
+      213: -7475649831439652805
+    second: ArcherDash_SS_9f_192x192_36
+  - first:
+      213: 4848544219954401934
+    second: ArcherDash_SS_9f_192x192_37
+  - first:
+      213: -7330026793765439471
+    second: ArcherDash_SS_9f_192x192_38
+  - first:
+      213: -5316766568960826174
+    second: ArcherDash_SS_9f_192x192_39
+  - first:
+      213: -2786740898056931819
+    second: ArcherDash_SS_9f_192x192_40
+  - first:
+      213: -5475572225739102097
+    second: ArcherDash_SS_9f_192x192_41
+  - first:
+      213: -5328711021108530297
+    second: ArcherDash_SS_9f_192x192_42
+  - first:
+      213: 6311794119523135501
+    second: ArcherDash_SS_9f_192x192_43
+  - first:
+      213: 1557992620806771652
+    second: ArcherDash_SS_9f_192x192_44
+  - first:
+      213: 1189370406914900847
+    second: ArcherDash_SS_9f_192x192_45
+  - first:
+      213: -4724955920753309758
+    second: ArcherDash_SS_9f_192x192_46
+  - first:
+      213: -6697683213929758275
+    second: ArcherDash_SS_9f_192x192_47
+  - first:
+      213: -1041103843312891834
+    second: ArcherDash_SS_9f_192x192_48
+  - first:
+      213: -3874023756690819792
+    second: ArcherDash_SS_9f_192x192_49
+  - first:
+      213: 4845160885386073920
+    second: ArcherDash_SS_9f_192x192_50
+  - first:
+      213: -8942685164766364114
+    second: ArcherDash_SS_9f_192x192_51
+  - first:
+      213: 6847577606697966062
+    second: ArcherDash_SS_9f_192x192_52
+  - first:
+      213: 5529941465135135082
+    second: ArcherDash_SS_9f_192x192_53
+  - first:
+      213: -4609442436746434939
+    second: ArcherDash_SS_9f_192x192_54
+  - first:
+      213: 2983153612860427587
+    second: ArcherDash_SS_9f_192x192_55
+  - first:
+      213: 3490777183543452509
+    second: ArcherDash_SS_9f_192x192_56
+  - first:
+      213: -5474897222062497817
+    second: ArcherDash_SS_9f_192x192_57
+  - first:
+      213: -639701498166669309
+    second: ArcherDash_SS_9f_192x192_58
+  - first:
+      213: -5715419337629398841
+    second: ArcherDash_SS_9f_192x192_59
+  - first:
+      213: -5809133043354851050
+    second: ArcherDash_SS_9f_192x192_60
+  - first:
+      213: -8442843073818575241
+    second: ArcherDash_SS_9f_192x192_61
+  - first:
+      213: 7726818040500151910
+    second: ArcherDash_SS_9f_192x192_62
+  - first:
+      213: -2623183551371293125
+    second: ArcherDash_SS_9f_192x192_63
+  - first:
+      213: -8753053851302068575
+    second: ArcherDash_SS_9f_192x192_64
+  - first:
+      213: -3955378891949696054
+    second: ArcherDash_SS_9f_192x192_65
+  - first:
+      213: -4811004590995027966
+    second: ArcherDash_SS_9f_192x192_66
+  - first:
+      213: 3555373399284669801
+    second: ArcherDash_SS_9f_192x192_67
+  - first:
+      213: 6282052962355892888
+    second: ArcherDash_SS_9f_192x192_68
+  - first:
+      213: -1424617189487288938
+    second: ArcherDash_SS_9f_192x192_69
+  - first:
+      213: -400469543642359021
+    second: ArcherDash_SS_9f_192x192_70
+  - first:
+      213: 804254952701492844
+    second: ArcherDash_SS_9f_192x192_71
+  - first:
+      213: -3929505233589644817
+    second: ArcherDash_SS_9f_192x192_72
+  - first:
+      213: 4242778315130374921
+    second: ArcherDash_SS_9f_192x192_73
+  - first:
+      213: -685292964297918495
+    second: ArcherDash_SS_9f_192x192_74
+  - first:
+      213: -7294344479486879753
+    second: ArcherDash_SS_9f_192x192_75
+  - first:
+      213: -3475550215197525962
+    second: ArcherDash_SS_9f_192x192_76
+  - first:
+      213: 4891330352102662447
+    second: ArcherDash_SS_9f_192x192_77
+  - first:
+      213: -3402718330782098273
+    second: ArcherDash_SS_9f_192x192_78
+  - first:
+      213: -1938605080832285716
+    second: ArcherDash_SS_9f_192x192_79
+  - first:
+      213: -3021735418865673583
+    second: ArcherDash_SS_9f_192x192_80
+  - first:
+      213: 1427953533792051452
+    second: ArcherDash_SS_9f_192x192_81
+  - first:
+      213: 5716536882143747036
+    second: ArcherDash_SS_9f_192x192_82
+  - first:
+      213: -3663904674369509080
+    second: ArcherDash_SS_9f_192x192_83
+  - first:
+      213: -6150828521373629100
+    second: ArcherDash_SS_9f_192x192_84
+  - first:
+      213: -964675132177582005
+    second: ArcherDash_SS_9f_192x192_85
+  - first:
+      213: 4222408188595141483
+    second: ArcherDash_SS_9f_192x192_86
+  - first:
+      213: -8728521086236278755
+    second: ArcherDash_SS_9f_192x192_87
+  - first:
+      213: 8379804445983292597
+    second: ArcherDash_SS_9f_192x192_88
+  - first:
+      213: 2121720767253319250
+    second: ArcherDash_SS_9f_192x192_89
+  - first:
+      213: -8898255157317401256
+    second: ArcherDash_SS_9f_192x192_90
+  - first:
+      213: -7743166546950189067
+    second: ArcherDash_SS_9f_192x192_91
+  - first:
+      213: 2433300248598929096
+    second: ArcherDash_SS_9f_192x192_92
+  - first:
+      213: -2205461631392555450
+    second: ArcherDash_SS_9f_192x192_93
+  - first:
+      213: 6325258651674550892
+    second: ArcherDash_SS_9f_192x192_94
+  - first:
+      213: 5501592382965602122
+    second: ArcherDash_SS_9f_192x192_95
+  - first:
+      213: 4823570670576948526
+    second: ArcherDash_SS_9f_192x192_96
+  - first:
+      213: 1448085124728137431
+    second: ArcherDash_SS_9f_192x192_97
+  - first:
+      213: 5950519365237738326
+    second: ArcherDash_SS_9f_192x192_98
+  - first:
+      213: -3474587152236086295
+    second: ArcherDash_SS_9f_192x192_99
+  - first:
+      213: -6763152744776794885
+    second: ArcherDash_SS_9f_192x192_100
+  - first:
+      213: 8249391030765520539
+    second: ArcherDash_SS_9f_192x192_101
+  - first:
+      213: -660084369813126015
+    second: ArcherDash_SS_9f_192x192_102
+  - first:
+      213: 7957863023861671874
+    second: ArcherDash_SS_9f_192x192_103
+  - first:
+      213: 4074938646067586443
+    second: ArcherDash_SS_9f_192x192_104
+  - first:
+      213: 1796023800111585189
+    second: ArcherDash_SS_9f_192x192_105
+  - first:
+      213: 3364536471892590092
+    second: ArcherDash_SS_9f_192x192_106
+  - first:
+      213: -4171736574379998346
+    second: ArcherDash_SS_9f_192x192_107
+  - first:
+      213: 6279882506784733159
+    second: ArcherDash_SS_9f_192x192_108
+  - first:
+      213: -5777608075001268740
+    second: ArcherDash_SS_9f_192x192_109
+  - first:
+      213: -7145539120202178046
+    second: ArcherDash_SS_9f_192x192_110
+  - first:
+      213: -8830072656042480524
+    second: ArcherDash_SS_9f_192x192_111
+  - first:
+      213: -1632441464977961017
+    second: ArcherDash_SS_9f_192x192_112
+  - first:
+      213: -7632995323200929760
+    second: ArcherDash_SS_9f_192x192_113
+  - first:
+      213: 2472491330987697741
+    second: ArcherDash_SS_9f_192x192_114
+  - first:
+      213: 2637863057205724597
+    second: ArcherDash_SS_9f_192x192_115
+  - first:
+      213: 4275360791155955381
+    second: ArcherDash_SS_9f_192x192_116
+  - first:
+      213: 494078918888822447
+    second: ArcherDash_SS_9f_192x192_117
+  - first:
+      213: 676303125212787423
+    second: ArcherDash_SS_9f_192x192_118
+  - first:
+      213: -8961170330194959685
+    second: ArcherDash_SS_9f_192x192_119
+  - first:
+      213: -4997380185297511655
+    second: ArcherDash_SS_9f_192x192_120
+  - first:
+      213: -2904010548852758118
+    second: ArcherDash_SS_9f_192x192_121
+  - first:
+      213: 1999015932214405524
+    second: ArcherDash_SS_9f_192x192_122
+  - first:
+      213: 8657788982606395456
+    second: ArcherDash_SS_9f_192x192_123
+  - first:
+      213: -2664626340382049533
+    second: ArcherDash_SS_9f_192x192_124
+  - first:
+      213: 1080560783124910601
+    second: ArcherDash_SS_9f_192x192_125
+  - first:
+      213: -6069224029738516827
+    second: ArcherDash_SS_9f_192x192_126
+  - first:
+      213: -726415819332890217
+    second: ArcherDash_SS_9f_192x192_127
+  - first:
+      213: 1390089502679047306
+    second: ArcherDash_SS_9f_192x192_128
+  - first:
+      213: 130867758097254
+    second: ArcherDash_SS_9f_192x192_129
+  - first:
+      213: 630192101900979997
+    second: ArcherDash_SS_9f_192x192_130
+  - first:
+      213: 76826326381432449
+    second: ArcherDash_SS_9f_192x192_131
+  - first:
+      213: -3548625604861894577
+    second: ArcherDash_SS_9f_192x192_132
+  - first:
+      213: 5544792278149593586
+    second: ArcherDash_SS_9f_192x192_133
+  - first:
+      213: 6967689489662180256
+    second: ArcherDash_SS_9f_192x192_134
+  - first:
+      213: -8520421708217760520
+    second: ArcherDash_SS_9f_192x192_135
+  - first:
+      213: -6951758740627622107
+    second: ArcherDash_SS_9f_192x192_136
+  - first:
+      213: -1898730089575831177
+    second: ArcherDash_SS_9f_192x192_137
+  - first:
+      213: 6607587686384792873
+    second: ArcherDash_SS_9f_192x192_138
+  - first:
+      213: 1338465706877724419
+    second: ArcherDash_SS_9f_192x192_139
+  - first:
+      213: -7358091816994607724
+    second: ArcherDash_SS_9f_192x192_140
+  - first:
+      213: 8359478712839400275
+    second: ArcherDash_SS_9f_192x192_141
+  - first:
+      213: -6147098323023264862
+    second: ArcherDash_SS_9f_192x192_142
+  - first:
+      213: -8973708572394803295
+    second: ArcherDash_SS_9f_192x192_143
+  - first:
+      213: -4549180223136958708
+    second: ArcherDash_SS_9f_192x192_144
+  - first:
+      213: 5419769296669678631
+    second: ArcherDash_SS_9f_192x192_145
+  - first:
+      213: 8413077476292906526
+    second: ArcherDash_SS_9f_192x192_146
+  - first:
+      213: -8498859817978000306
+    second: ArcherDash_SS_9f_192x192_147
+  - first:
+      213: 4115562536498087334
+    second: ArcherDash_SS_9f_192x192_148
+  - first:
+      213: 600502147436916938
+    second: ArcherDash_SS_9f_192x192_149
+  - first:
+      213: -6765779915961323639
+    second: ArcherDash_SS_9f_192x192_150
+  - first:
+      213: 7004141411088077313
+    second: ArcherDash_SS_9f_192x192_151
+  - first:
+      213: -8612886669940101772
+    second: ArcherDash_SS_9f_192x192_152
+  - first:
+      213: 5562584528772591967
+    second: ArcherDash_SS_9f_192x192_153
+  - first:
+      213: -5967070525777341051
+    second: ArcherDash_SS_9f_192x192_154
+  - first:
+      213: 788959581627286842
+    second: ArcherDash_SS_9f_192x192_155
+  - first:
+      213: -7207344752492000714
+    second: ArcherDash_SS_9f_192x192_156
+  - first:
+      213: 2756316740301371477
+    second: ArcherDash_SS_9f_192x192_157
+  - first:
+      213: -1832971543576041818
+    second: ArcherDash_SS_9f_192x192_158
+  - first:
+      213: 8673719537710643200
+    second: ArcherDash_SS_9f_192x192_159
+  - first:
+      213: 1495760233996696329
+    second: ArcherDash_SS_9f_192x192_160
+  - first:
+      213: 4570289651937670526
+    second: ArcherDash_SS_9f_192x192_161
+  - first:
+      213: -5724221338868130058
+    second: ArcherDash_SS_9f_192x192_162
+  - first:
+      213: 6300894531260225253
+    second: ArcherDash_SS_9f_192x192_163
+  - first:
+      213: -6709690740249164357
+    second: ArcherDash_SS_9f_192x192_164
+  - first:
+      213: 3352522468922437810
+    second: ArcherDash_SS_9f_192x192_165
+  - first:
+      213: 7540281010723019994
+    second: ArcherDash_SS_9f_192x192_166
+  - first:
+      213: -7509024097333248679
+    second: ArcherDash_SS_9f_192x192_167
+  - first:
+      213: 2225405994481585650
+    second: ArcherDash_SS_9f_192x192_168
+  - first:
+      213: 5336935831917338165
+    second: ArcherDash_SS_9f_192x192_169
+  - first:
+      213: 2638785455675528720
+    second: ArcherDash_SS_9f_192x192_170
+  - first:
+      213: -8079589561206975301
+    second: ArcherDash_SS_9f_192x192_171
+  - first:
+      213: -4988069808390307796
+    second: ArcherDash_SS_9f_192x192_172
+  - first:
+      213: -2987427988290535229
+    second: ArcherDash_SS_9f_192x192_173
+  - first:
+      213: -2045856591734841661
+    second: ArcherDash_SS_9f_192x192_174
+  - first:
+      213: -9091193109776101908
+    second: ArcherDash_SS_9f_192x192_175
+  - first:
+      213: 6807811008530605213
+    second: ArcherDash_SS_9f_192x192_176
+  - first:
+      213: 6986229638835299427
+    second: ArcherDash_SS_9f_192x192_177
+  - first:
+      213: 6118858141729692757
+    second: ArcherDash_SS_9f_192x192_178
+  - first:
+      213: 4653500250303640904
+    second: ArcherDash_SS_9f_192x192_179
+  - first:
+      213: -8697601463394465648
+    second: ArcherDash_SS_9f_192x192_180
+  - first:
+      213: 236818291130044506
+    second: ArcherDash_SS_9f_192x192_181
+  - first:
+      213: -7586345798111746634
+    second: ArcherDash_SS_9f_192x192_182
+  - first:
+      213: -3322728557888125537
+    second: ArcherDash_SS_9f_192x192_183
+  - first:
+      213: 7533217749599829557
+    second: ArcherDash_SS_9f_192x192_184
+  - first:
+      213: 8902198772449974887
+    second: ArcherDash_SS_9f_192x192_185
+  - first:
+      213: 1799751314089613928
+    second: ArcherDash_SS_9f_192x192_186
+  - first:
+      213: -8248075846951662560
+    second: ArcherDash_SS_9f_192x192_187
+  - first:
+      213: 7046033052123550605
+    second: ArcherDash_SS_9f_192x192_188
+  - first:
+      213: -6781426201947464230
+    second: ArcherDash_SS_9f_192x192_189
+  - first:
+      213: -5559489347578648960
+    second: ArcherDash_SS_9f_192x192_190
+  - first:
+      213: 2926436554765886934
+    second: ArcherDash_SS_9f_192x192_191
+  - first:
+      213: -7274671109253117430
+    second: ArcherDash_SS_9f_192x192_192
+  - first:
+      213: -1936434446012782274
+    second: ArcherDash_SS_9f_192x192_193
+  - first:
+      213: -8647054063151782828
+    second: ArcherDash_SS_9f_192x192_194
+  - first:
+      213: -4787403039504229396
+    second: ArcherDash_SS_9f_192x192_195
+  - first:
+      213: 7902583210713007019
+    second: ArcherDash_SS_9f_192x192_196
+  - first:
+      213: -8459215570722006323
+    second: ArcherDash_SS_9f_192x192_197
+  - first:
+      213: -7540092119082264525
+    second: ArcherDash_SS_9f_192x192_198
+  - first:
+      213: -6465892368418123578
+    second: ArcherDash_SS_9f_192x192_199
+  - first:
+      213: 4529400178355776956
+    second: ArcherDash_SS_9f_192x192_200
+  - first:
+      213: -3174995499803830089
+    second: ArcherDash_SS_9f_192x192_201
+  - first:
+      213: -7354544863601332325
+    second: ArcherDash_SS_9f_192x192_202
+  - first:
+      213: -9004302755313659700
+    second: ArcherDash_SS_9f_192x192_203
+  - first:
+      213: -4232621997456316346
+    second: ArcherDash_SS_9f_192x192_204
+  - first:
+      213: 4829269968853963441
+    second: ArcherDash_SS_9f_192x192_205
+  - first:
+      213: 2121635132127025189
+    second: ArcherDash_SS_9f_192x192_206
+  - first:
+      213: 8175659141691179519
+    second: ArcherDash_SS_9f_192x192_207
+  - first:
+      213: -3002029225991822946
+    second: ArcherDash_SS_9f_192x192_208
+  - first:
+      213: -8522681586272326144
+    second: ArcherDash_SS_9f_192x192_209
+  - first:
+      213: -8706728434781344209
+    second: ArcherDash_SS_9f_192x192_210
+  - first:
+      213: -2691063462864941930
+    second: ArcherDash_SS_9f_192x192_211
+  - first:
+      213: -5440368620054970963
+    second: ArcherDash_SS_9f_192x192_212
+  - first:
+      213: -7129948539419535028
+    second: ArcherDash_SS_9f_192x192_213
+  - first:
+      213: 1282269710935199121
+    second: ArcherDash_SS_9f_192x192_214
+  - first:
+      213: 4466719610897222840
+    second: ArcherDash_SS_9f_192x192_215
+  - first:
+      213: -4290875974744518095
+    second: ArcherDash_SS_9f_192x192_216
+  - first:
+      213: -8847339925277325260
+    second: ArcherDash_SS_9f_192x192_217
+  - first:
+      213: -2749714009151523963
+    second: ArcherDash_SS_9f_192x192_218
+  - first:
+      213: -7473530000778003925
+    second: ArcherDash_SS_9f_192x192_219
+  - first:
+      213: -3371429669366203937
+    second: ArcherDash_SS_9f_192x192_220
+  - first:
+      213: -8250820723197352466
+    second: ArcherDash_SS_9f_192x192_221
+  - first:
+      213: 1852834921748606967
+    second: ArcherDash_SS_9f_192x192_222
+  - first:
+      213: -643698801828025617
+    second: ArcherDash_SS_9f_192x192_223
+  - first:
+      213: -5388967916835484648
+    second: ArcherDash_SS_9f_192x192_224
+  - first:
+      213: -611754528708679190
+    second: ArcherDash_SS_9f_192x192_225
+  - first:
+      213: -4351652069270603456
+    second: ArcherDash_SS_9f_192x192_226
+  - first:
+      213: 1096963785010393326
+    second: ArcherDash_SS_9f_192x192_227
+  - first:
+      213: -5625290140505347382
+    second: ArcherDash_SS_9f_192x192_228
+  - first:
+      213: 2372440817692052339
+    second: ArcherDash_SS_9f_192x192_229
+  - first:
+      213: 2531204023124352683
+    second: ArcherDash_SS_9f_192x192_230
+  - first:
+      213: 6121296788699513597
+    second: ArcherDash_SS_9f_192x192_231
+  - first:
+      213: -6432700583539729502
+    second: ArcherDash_SS_9f_192x192_232
+  - first:
+      213: 2062895335343777778
+    second: ArcherDash_SS_9f_192x192_233
+  - first:
+      213: -4598839999716066296
+    second: ArcherDash_SS_9f_192x192_234
+  - first:
+      213: -2784826821018980108
+    second: ArcherDash_SS_9f_192x192_235
+  - first:
+      213: 8862462276858011241
+    second: ArcherDash_SS_9f_192x192_236
+  - first:
+      213: -5028450551804010459
+    second: ArcherDash_SS_9f_192x192_237
+  - first:
+      213: 6883950090756881767
+    second: ArcherDash_SS_9f_192x192_238
+  - first:
+      213: -5514131872078232824
+    second: ArcherDash_SS_9f_192x192_239
+  - first:
+      213: -4279796252893345030
+    second: ArcherDash_SS_9f_192x192_240
+  - first:
+      213: -2950167254827015355
+    second: ArcherDash_SS_9f_192x192_241
+  - first:
+      213: 2579661428960219366
+    second: ArcherDash_SS_9f_192x192_242
+  - first:
+      213: -2006322903651806040
+    second: ArcherDash_SS_9f_192x192_243
+  - first:
+      213: -4023327031902005119
+    second: ArcherDash_SS_9f_192x192_244
+  - first:
+      213: -2983825872318961541
+    second: ArcherDash_SS_9f_192x192_245
+  - first:
+      213: -926895522900425660
+    second: ArcherDash_SS_9f_192x192_246
+  - first:
+      213: -6368565776867191048
+    second: ArcherDash_SS_9f_192x192_247
+  - first:
+      213: 8561285132635294987
+    second: ArcherDash_SS_9f_192x192_248
+  - first:
+      213: 2796145331933750679
+    second: ArcherDash_SS_9f_192x192_249
+  - first:
+      213: -9196484832784566172
+    second: ArcherDash_SS_9f_192x192_250
+  - first:
+      213: -3384018379006852939
+    second: ArcherDash_SS_9f_192x192_251
+  - first:
+      213: -4088168602505986218
+    second: ArcherDash_SS_9f_192x192_252
+  - first:
+      213: 1534704352669654068
+    second: ArcherDash_SS_9f_192x192_253
+  - first:
+      213: 5576765046315116440
+    second: ArcherDash_SS_9f_192x192_254
+  - first:
+      213: -5823941167719245424
+    second: ArcherDash_SS_9f_192x192_255
+  - first:
+      213: 3867180704799974959
+    second: ArcherDash_SS_9f_192x192_256
+  - first:
+      213: 3344048802254296469
+    second: ArcherDash_SS_9f_192x192_257
+  - first:
+      213: 4971471372321762302
+    second: ArcherDash_SS_9f_192x192_258
+  - first:
+      213: -4395444670178062335
+    second: ArcherDash_SS_9f_192x192_259
+  - first:
+      213: 3983458146351513025
+    second: ArcherDash_SS_9f_192x192_260
+  - first:
+      213: -3839528855449824377
+    second: ArcherDash_SS_9f_192x192_261
+  - first:
+      213: -7608646216453963899
+    second: ArcherDash_SS_9f_192x192_262
+  - first:
+      213: 5962121420794912332
+    second: ArcherDash_SS_9f_192x192_263
+  - first:
+      213: 1096794032644945109
+    second: ArcherDash_SS_9f_192x192_264
+  - first:
+      213: -7580831346612543062
+    second: ArcherDash_SS_9f_192x192_265
+  - first:
+      213: -2759547079594121796
+    second: ArcherDash_SS_9f_192x192_266
+  - first:
+      213: 2840067094173281836
+    second: ArcherDash_SS_9f_192x192_267
+  - first:
+      213: 1070649216908525448
+    second: ArcherDash_SS_9f_192x192_268
+  - first:
+      213: -7530449916960783382
+    second: ArcherDash_SS_9f_192x192_269
+  - first:
+      213: 5253242052948025004
+    second: ArcherDash_SS_9f_192x192_270
+  - first:
+      213: 8739854003264679616
+    second: ArcherDash_SS_9f_192x192_271
+  - first:
+      213: -4392851003921208969
+    second: ArcherDash_SS_9f_192x192_272
+  - first:
+      213: 8127602905782049665
+    second: ArcherDash_SS_9f_192x192_273
+  - first:
+      213: -4597507817537596721
+    second: ArcherDash_SS_9f_192x192_274
+  - first:
+      213: -895516544710476089
+    second: ArcherDash_SS_9f_192x192_275
+  - first:
+      213: -5653199146519955964
+    second: ArcherDash_SS_9f_192x192_276
+  - first:
+      213: 5336265319835308388
+    second: ArcherDash_SS_9f_192x192_277
+  - first:
+      213: -5266283233108977431
+    second: ArcherDash_SS_9f_192x192_278
+  - first:
+      213: 5727020367432517850
+    second: ArcherDash_SS_9f_192x192_279
+  - first:
+      213: 6760985943752429121
+    second: ArcherDash_SS_9f_192x192_280
+  - first:
+      213: -7383446416459678301
+    second: ArcherDash_SS_9f_192x192_281
+  - first:
+      213: 5526304517340950617
+    second: ArcherDash_SS_9f_192x192_282
+  - first:
+      213: -7867987816029103822
+    second: ArcherDash_SS_9f_192x192_283
+  - first:
+      213: 3318384704718664111
+    second: ArcherDash_SS_9f_192x192_284
+  - first:
+      213: 9161821946288979154
+    second: ArcherDash_SS_9f_192x192_285
+  - first:
+      213: 8830623161811303663
+    second: ArcherDash_SS_9f_192x192_286
+  - first:
+      213: -3849929176523896523
+    second: ArcherDash_SS_9f_192x192_287
+  - first:
+      213: -6654266428729346288
+    second: ArcherDash_SS_9f_192x192_288
+  - first:
+      213: -1373863323779915593
+    second: ArcherDash_SS_9f_192x192_289
+  - first:
+      213: -5944941246854275804
+    second: ArcherDash_SS_9f_192x192_290
+  - first:
+      213: -5452008962934182594
+    second: ArcherDash_SS_9f_192x192_291
+  - first:
+      213: 7242170138405176979
+    second: ArcherDash_SS_9f_192x192_292
+  - first:
+      213: -1563006666986000761
+    second: ArcherDash_SS_9f_192x192_293
+  - first:
+      213: -5883588427221773570
+    second: ArcherDash_SS_9f_192x192_294
+  - first:
+      213: -8058644478972788648
+    second: ArcherDash_SS_9f_192x192_295
+  - first:
+      213: -4005334749774617965
+    second: ArcherDash_SS_9f_192x192_296
+  - first:
+      213: 6445785381512818715
+    second: ArcherDash_SS_9f_192x192_297
+  - first:
+      213: 68563051007533067
+    second: ArcherDash_SS_9f_192x192_298
+  - first:
+      213: 9144153605413522097
+    second: ArcherDash_SS_9f_192x192_299
+  - first:
+      213: -6071984760836605229
+    second: ArcherDash_SS_9f_192x192_300
+  - first:
+      213: 8644044938392903528
+    second: ArcherDash_SS_9f_192x192_301
+  - first:
+      213: -5226420533426565803
+    second: ArcherDash_SS_9f_192x192_302
+  - first:
+      213: 8263304947811927749
+    second: ArcherDash_SS_9f_192x192_303
+  - first:
+      213: 4182659325853237786
+    second: ArcherDash_SS_9f_192x192_304
+  - first:
+      213: 6084130625338240679
+    second: ArcherDash_SS_9f_192x192_305
+  - first:
+      213: -8191443216543373829
+    second: ArcherDash_SS_9f_192x192_306
+  - first:
+      213: -6576987714617775720
+    second: ArcherDash_SS_9f_192x192_307
+  - first:
+      213: 2462544804391128510
+    second: ArcherDash_SS_9f_192x192_308
+  - first:
+      213: -8738123214446434914
+    second: ArcherDash_SS_9f_192x192_309
+  - first:
+      213: -9214889802229884806
+    second: ArcherDash_SS_9f_192x192_310
+  - first:
+      213: 2837534578096425747
+    second: ArcherDash_SS_9f_192x192_311
+  - first:
+      213: 8052653397823238540
+    second: ArcherDash_SS_9f_192x192_312
+  - first:
+      213: 2979219941562526342
+    second: ArcherDash_SS_9f_192x192_313
+  - first:
+      213: -6471732687066754198
+    second: ArcherDash_SS_9f_192x192_314
+  - first:
+      213: -8380734487949097662
+    second: ArcherDash_SS_9f_192x192_315
+  - first:
+      213: -4999741164177919313
+    second: ArcherDash_SS_9f_192x192_316
+  - first:
+      213: 8441171674604503048
+    second: ArcherDash_SS_9f_192x192_317
+  - first:
+      213: 4085963911052592097
+    second: ArcherDash_SS_9f_192x192_318
+  - first:
+      213: -2283120801409101060
+    second: ArcherDash_SS_9f_192x192_319
+  - first:
+      213: -5223439060603626524
+    second: ArcherDash_SS_9f_192x192_320
+  - first:
+      213: -8831252687168148539
+    second: ArcherDash_SS_9f_192x192_321
+  - first:
+      213: -8930071170048422028
+    second: ArcherDash_SS_9f_192x192_322
+  - first:
+      213: 290419848808618153
+    second: ArcherDash_SS_9f_192x192_323
+  - first:
+      213: -8442494377299976425
+    second: ArcherDash_SS_9f_192x192_324
+  - first:
+      213: 1416900493401274734
+    second: ArcherDash_SS_9f_192x192_325
+  - first:
+      213: 872871684910107863
+    second: ArcherDash_SS_9f_192x192_326
+  - first:
+      213: -4229006377641523363
+    second: ArcherDash_SS_9f_192x192_327
+  - first:
+      213: 5921012727203114947
+    second: ArcherDash_SS_9f_192x192_328
+  - first:
+      213: -8702363158698854050
+    second: ArcherDash_SS_9f_192x192_329
+  - first:
+      213: -1708690547472463425
+    second: ArcherDash_SS_9f_192x192_330
+  - first:
+      213: -7668862690099987034
+    second: ArcherDash_SS_9f_192x192_331
+  - first:
+      213: -2659735577649881142
+    second: ArcherDash_SS_9f_192x192_332
+  - first:
+      213: 5962317751235969554
+    second: ArcherDash_SS_9f_192x192_333
+  - first:
+      213: -6705028016871806755
+    second: ArcherDash_SS_9f_192x192_334
+  - first:
+      213: 6436128880168378009
+    second: ArcherDash_SS_9f_192x192_335
+  - first:
+      213: -7718876660725545975
+    second: ArcherDash_SS_9f_192x192_336
+  - first:
+      213: 5307597471415483051
+    second: ArcherDash_SS_9f_192x192_337
+  - first:
+      213: -5020253892281670591
+    second: ArcherDash_SS_9f_192x192_338
+  - first:
+      213: -3948067047334493744
+    second: ArcherDash_SS_9f_192x192_339
+  - first:
+      213: 8768986378270842367
+    second: ArcherDash_SS_9f_192x192_340
+  - first:
+      213: 6999335708734833834
+    second: ArcherDash_SS_9f_192x192_341
+  - first:
+      213: 4313090199146294080
+    second: ArcherDash_SS_9f_192x192_342
+  - first:
+      213: 6619738161912707923
+    second: ArcherDash_SS_9f_192x192_343
+  - first:
+      213: -6697583411074450284
+    second: ArcherDash_SS_9f_192x192_344
+  - first:
+      213: 8629239483081803769
+    second: ArcherDash_SS_9f_192x192_345
+  - first:
+      213: 775763932160518196
+    second: ArcherDash_SS_9f_192x192_346
+  - first:
+      213: 910930251877287927
+    second: ArcherDash_SS_9f_192x192_347
+  - first:
+      213: 4876545533292409267
+    second: ArcherDash_SS_9f_192x192_348
+  - first:
+      213: 3150320801989817333
+    second: ArcherDash_SS_9f_192x192_349
+  - first:
+      213: 1512062945901189865
+    second: ArcherDash_SS_9f_192x192_350
+  - first:
+      213: -3190887736659234706
+    second: ArcherDash_SS_9f_192x192_351
+  - first:
+      213: -3018258832157326278
+    second: ArcherDash_SS_9f_192x192_352
+  - first:
+      213: -7337117584087166122
+    second: ArcherDash_SS_9f_192x192_353
+  - first:
+      213: -8621734014535286975
+    second: ArcherDash_SS_9f_192x192_354
+  - first:
+      213: 2358603159389950118
+    second: ArcherDash_SS_9f_192x192_355
+  - first:
+      213: -924032337223101111
+    second: ArcherDash_SS_9f_192x192_356
+  - first:
+      213: 7382406541932505656
+    second: ArcherDash_SS_9f_192x192_357
+  - first:
+      213: -7147791625979775200
+    second: ArcherDash_SS_9f_192x192_358
+  - first:
+      213: -3280035523722996223
+    second: ArcherDash_SS_9f_192x192_359
+  - first:
+      213: -108908426006862053
+    second: ArcherDash_SS_9f_192x192_360
+  - first:
+      213: -8061623916708679317
+    second: ArcherDash_SS_9f_192x192_361
+  - first:
+      213: -5350891140791822639
+    second: ArcherDash_SS_9f_192x192_362
+  - first:
+      213: -4802648192356509129
+    second: ArcherDash_SS_9f_192x192_363
+  - first:
+      213: -6268253578561221915
+    second: ArcherDash_SS_9f_192x192_364
+  - first:
+      213: -8271352738719814034
+    second: ArcherDash_SS_9f_192x192_365
+  - first:
+      213: 2635472364559857015
+    second: ArcherDash_SS_9f_192x192_366
+  - first:
+      213: 4670218826141597373
+    second: ArcherDash_SS_9f_192x192_367
+  - first:
+      213: 1116305025283421241
+    second: ArcherDash_SS_9f_192x192_368
+  - first:
+      213: 7582395329933027710
+    second: ArcherDash_SS_9f_192x192_369
+  - first:
+      213: 3088571117577904404
+    second: ArcherDash_SS_9f_192x192_370
+  - first:
+      213: 3116341372376272824
+    second: ArcherDash_SS_9f_192x192_371
+  - first:
+      213: -6655502241879212772
+    second: ArcherDash_SS_9f_192x192_372
+  - first:
+      213: -6231758682321548547
+    second: ArcherDash_SS_9f_192x192_373
+  - first:
+      213: -3116441429857005833
+    second: ArcherDash_SS_9f_192x192_374
+  - first:
+      213: 5082577239602284387
+    second: ArcherDash_SS_9f_192x192_375
+  - first:
+      213: 4861246991316510887
+    second: ArcherDash_SS_9f_192x192_376
+  - first:
+      213: 2120220264714002483
+    second: ArcherDash_SS_9f_192x192_377
+  - first:
+      213: 3425991173596323153
+    second: ArcherDash_SS_9f_192x192_378
+  - first:
+      213: 8441079855882312408
+    second: ArcherDash_SS_9f_192x192_379
+  - first:
+      213: -5808225789379841116
+    second: ArcherDash_SS_9f_192x192_380
+  - first:
+      213: -117539315434755559
+    second: ArcherDash_SS_9f_192x192_381
+  - first:
+      213: 8326888948962019664
+    second: ArcherDash_SS_9f_192x192_382
+  - first:
+      213: -1714851269330430772
+    second: ArcherDash_SS_9f_192x192_383
+  - first:
+      213: 6548761974558778889
+    second: ArcherDash_SS_9f_192x192_384
+  - first:
+      213: 3084998175469988698
+    second: ArcherDash_SS_9f_192x192_385
+  - first:
+      213: -2156339919089731617
+    second: ArcherDash_SS_9f_192x192_386
+  - first:
+      213: 8788981644405049010
+    second: ArcherDash_SS_9f_192x192_387
+  - first:
+      213: 8781819485513754172
+    second: ArcherDash_SS_9f_192x192_388
+  - first:
+      213: -6661889715050478838
+    second: ArcherDash_SS_9f_192x192_389
+  - first:
+      213: 8772634852668209013
+    second: ArcherDash_SS_9f_192x192_390
+  - first:
+      213: 9006328212442393737
+    second: ArcherDash_SS_9f_192x192_391
+  - first:
+      213: -5678900081758938878
+    second: ArcherDash_SS_9f_192x192_392
+  - first:
+      213: -5067169193147521281
+    second: ArcherDash_SS_9f_192x192_393
+  - first:
+      213: 1133969544941628317
+    second: ArcherDash_SS_9f_192x192_394
+  - first:
+      213: -1078592614547730851
+    second: ArcherDash_SS_9f_192x192_395
+  - first:
+      213: -6516331704149975652
+    second: ArcherDash_SS_9f_192x192_396
+  - first:
+      213: -5628831190916508825
+    second: ArcherDash_SS_9f_192x192_397
+  - first:
+      213: 8123182104667410956
+    second: ArcherDash_SS_9f_192x192_398
+  - first:
+      213: 6736256545098562277
+    second: ArcherDash_SS_9f_192x192_399
+  - first:
+      213: 4767904914013830759
+    second: ArcherDash_SS_9f_192x192_400
+  - first:
+      213: 382794071192078179
+    second: ArcherDash_SS_9f_192x192_401
+  - first:
+      213: 809303565925644843
+    second: ArcherDash_SS_9f_192x192_402
+  - first:
+      213: -989245016769666725
+    second: ArcherDash_SS_9f_192x192_403
+  - first:
+      213: 3736097149593359719
+    second: ArcherDash_SS_9f_192x192_404
+  - first:
+      213: 2541455235441413294
+    second: ArcherDash_SS_9f_192x192_405
+  - first:
+      213: -8082921282221273142
+    second: ArcherDash_SS_9f_192x192_406
+  - first:
+      213: 8169367778727808561
+    second: ArcherDash_SS_9f_192x192_407
+  - first:
+      213: 3145443495316935908
+    second: ArcherDash_SS_9f_192x192_408
+  - first:
+      213: -7127531451422150376
+    second: ArcherDash_SS_9f_192x192_409
+  - first:
+      213: 2979522004143344408
+    second: ArcherDash_SS_9f_192x192_410
+  - first:
+      213: -7380371699609608129
+    second: ArcherDash_SS_9f_192x192_411
+  - first:
+      213: 2829246237844293178
+    second: ArcherDash_SS_9f_192x192_412
+  - first:
+      213: -8451396513372251381
+    second: ArcherDash_SS_9f_192x192_413
+  - first:
+      213: 4120759913900360124
+    second: ArcherDash_SS_9f_192x192_414
+  - first:
+      213: 6887793443759032902
+    second: ArcherDash_SS_9f_192x192_415
+  - first:
+      213: -1924871621913096854
+    second: ArcherDash_SS_9f_192x192_416
+  - first:
+      213: -895569565917362964
+    second: ArcherDash_SS_9f_192x192_417
+  - first:
+      213: 1563998109359948322
+    second: ArcherDash_SS_9f_192x192_418
+  - first:
+      213: -7011530593690427978
+    second: ArcherDash_SS_9f_192x192_419
+  - first:
+      213: -1179321735048140775
+    second: ArcherDash_SS_9f_192x192_420
+  - first:
+      213: 7839102022495087838
+    second: ArcherDash_SS_9f_192x192_421
+  - first:
+      213: -3363614201568577050
+    second: ArcherDash_SS_9f_192x192_422
+  - first:
+      213: -3219389581959234977
+    second: ArcherDash_SS_9f_192x192_423
+  - first:
+      213: -5961617712669091837
+    second: ArcherDash_SS_9f_192x192_424
+  - first:
+      213: 8199355005322381447
+    second: ArcherDash_SS_9f_192x192_425
+  - first:
+      213: 6418680395582168635
+    second: ArcherDash_SS_9f_192x192_426
+  - first:
+      213: -5472429044240011425
+    second: ArcherDash_SS_9f_192x192_427
+  - first:
+      213: 1549605167150311726
+    second: ArcherDash_SS_9f_192x192_428
+  - first:
+      213: 9122066786018665316
+    second: ArcherDash_SS_9f_192x192_429
+  - first:
+      213: 6446640515460654085
+    second: ArcherDash_SS_9f_192x192_430
+  - first:
+      213: 637499106902310038
+    second: ArcherDash_SS_9f_192x192_431
+  - first:
+      213: 336410124766568571
+    second: ArcherDash_SS_9f_192x192_432
+  - first:
+      213: 6027661057510788090
+    second: ArcherDash_SS_9f_192x192_433
+  - first:
+      213: -5651482710210109351
+    second: ArcherDash_SS_9f_192x192_434
+  - first:
+      213: 7799656732622798745
+    second: ArcherDash_SS_9f_192x192_435
+  - first:
+      213: -2788760795113257237
+    second: ArcherDash_SS_9f_192x192_436
+  - first:
+      213: 682241299831485685
+    second: ArcherDash_SS_9f_192x192_437
+  - first:
+      213: -1638554200181975948
+    second: ArcherDash_SS_9f_192x192_438
+  - first:
+      213: -6080647429410040594
+    second: ArcherDash_SS_9f_192x192_439
+  - first:
+      213: 7338116157435155813
+    second: ArcherDash_SS_9f_192x192_440
+  - first:
+      213: -1141695699887552682
+    second: ArcherDash_SS_9f_192x192_441
+  - first:
+      213: 2067700391324761284
+    second: ArcherDash_SS_9f_192x192_442
+  - first:
+      213: 5124095126591862141
+    second: ArcherDash_SS_9f_192x192_443
+  - first:
+      213: -7508640548118920485
+    second: ArcherDash_SS_9f_192x192_444
+  - first:
+      213: 1255887460619013276
+    second: ArcherDash_SS_9f_192x192_445
+  - first:
+      213: 2929919513220551491
+    second: ArcherDash_SS_9f_192x192_446
+  - first:
+      213: -8517489292196621359
+    second: ArcherDash_SS_9f_192x192_447
+  - first:
+      213: -2173352582630252570
+    second: ArcherDash_SS_9f_192x192_448
+  - first:
+      213: 8743760617385284044
+    second: ArcherDash_SS_9f_192x192_449
+  - first:
+      213: -3370447389564727420
+    second: ArcherDash_SS_9f_192x192_450
+  - first:
+      213: 5634895329907897849
+    second: ArcherDash_SS_9f_192x192_451
+  - first:
+      213: 4228317993066558104
+    second: ArcherDash_SS_9f_192x192_452
+  - first:
+      213: 2716574467082385981
+    second: ArcherDash_SS_9f_192x192_453
+  - first:
+      213: -516002233503315802
+    second: ArcherDash_SS_9f_192x192_454
+  - first:
+      213: -8240201235117196816
+    second: ArcherDash_SS_9f_192x192_455
+  - first:
+      213: -7501871385504789607
+    second: ArcherDash_SS_9f_192x192_456
+  - first:
+      213: -715559323105783657
+    second: ArcherDash_SS_9f_192x192_457
+  - first:
+      213: -8939264820742854934
+    second: ArcherDash_SS_9f_192x192_458
+  - first:
+      213: 6399149644525334843
+    second: ArcherDash_SS_9f_192x192_459
+  - first:
+      213: -3447647620926236838
+    second: ArcherDash_SS_9f_192x192_460
+  - first:
+      213: 2873486841348531724
+    second: ArcherDash_SS_9f_192x192_461
+  - first:
+      213: 1464307655572104109
+    second: ArcherDash_SS_9f_192x192_462
+  - first:
+      213: -1244344401002518900
+    second: ArcherDash_SS_9f_192x192_463
+  - first:
+      213: -853608109981536936
+    second: ArcherDash_SS_9f_192x192_464
+  - first:
+      213: 6904427320410223269
+    second: ArcherDash_SS_9f_192x192_465
+  - first:
+      213: 590050851429270292
+    second: ArcherDash_SS_9f_192x192_466
+  - first:
+      213: -1267142325437678515
+    second: ArcherDash_SS_9f_192x192_467
+  - first:
+      213: 2995730342666888078
+    second: ArcherDash_SS_9f_192x192_468
+  - first:
+      213: 2176864589323637826
+    second: ArcherDash_SS_9f_192x192_469
+  - first:
+      213: 8497721788969069135
+    second: ArcherDash_SS_9f_192x192_470
+  - first:
+      213: -8275045628977809599
+    second: ArcherDash_SS_9f_192x192_471
+  - first:
+      213: 2719053081606177275
+    second: ArcherDash_SS_9f_192x192_472
+  - first:
+      213: 2003139961462579357
+    second: ArcherDash_SS_9f_192x192_473
+  - first:
+      213: -6451969037517847441
+    second: ArcherDash_SS_9f_192x192_474
+  - first:
+      213: 5856170052830656723
+    second: ArcherDash_SS_9f_192x192_475
+  - first:
+      213: -4858333730216334772
+    second: ArcherDash_SS_9f_192x192_476
+  - first:
+      213: 8176111703053831510
+    second: ArcherDash_SS_9f_192x192_477
+  - first:
+      213: -4523726668082349081
+    second: ArcherDash_SS_9f_192x192_478
+  - first:
+      213: 442564190061594110
+    second: ArcherDash_SS_9f_192x192_479
+  - first:
+      213: 2613525957399815945
+    second: ArcherDash_SS_9f_192x192_480
+  - first:
+      213: -4916931481978031331
+    second: ArcherDash_SS_9f_192x192_481
+  - first:
+      213: -3241788831393543259
+    second: ArcherDash_SS_9f_192x192_482
+  - first:
+      213: 4734168892812089027
+    second: ArcherDash_SS_9f_192x192_483
+  - first:
+      213: -4797110999464193598
+    second: ArcherDash_SS_9f_192x192_484
+  - first:
+      213: 8207012422787510720
+    second: ArcherDash_SS_9f_192x192_485
+  - first:
+      213: 1653158920871993819
+    second: ArcherDash_SS_9f_192x192_486
+  - first:
+      213: -6972672491008696851
+    second: ArcherDash_SS_9f_192x192_487
+  - first:
+      213: 236660082549967592
+    second: ArcherDash_SS_9f_192x192_488
+  - first:
+      213: -5460305844855479079
+    second: ArcherDash_SS_9f_192x192_489
+  - first:
+      213: -7055466769801763661
+    second: ArcherDash_SS_9f_192x192_490
+  - first:
+      213: -2528960994684358676
+    second: ArcherDash_SS_9f_192x192_491
+  - first:
+      213: 7449692653401189888
+    second: ArcherDash_SS_9f_192x192_492
+  - first:
+      213: -7544038578422901294
+    second: ArcherDash_SS_9f_192x192_493
+  - first:
+      213: -5511313102264141262
+    second: ArcherDash_SS_9f_192x192_494
+  - first:
+      213: -5556484466450680713
+    second: ArcherDash_SS_9f_192x192_495
+  - first:
+      213: -2644411323077222780
+    second: ArcherDash_SS_9f_192x192_496
+  - first:
+      213: 578640316668269547
+    second: ArcherDash_SS_9f_192x192_497
+  - first:
+      213: -7073386657581724712
+    second: ArcherDash_SS_9f_192x192_498
+  - first:
+      213: -3713495758538034877
+    second: ArcherDash_SS_9f_192x192_499
+  - first:
+      213: 7783107322391931237
+    second: ArcherDash_SS_9f_192x192_500
+  - first:
+      213: -7327628525119206826
+    second: ArcherDash_SS_9f_192x192_501
+  - first:
+      213: -6286291388157136429
+    second: ArcherDash_SS_9f_192x192_502
+  - first:
+      213: -3973839839649732329
+    second: ArcherDash_SS_9f_192x192_503
+  - first:
+      213: 170691712879821649
+    second: ArcherDash_SS_9f_192x192_504
+  - first:
+      213: -8281058070448230560
+    second: ArcherDash_SS_9f_192x192_505
+  - first:
+      213: -5100788312280799966
+    second: ArcherDash_SS_9f_192x192_506
+  - first:
+      213: -6329676783656213480
+    second: ArcherDash_SS_9f_192x192_507
+  - first:
+      213: -2179391577811125713
+    second: ArcherDash_SS_9f_192x192_508
+  - first:
+      213: 5795779229540683124
+    second: ArcherDash_SS_9f_192x192_509
+  - first:
+      213: 8445673896600769508
+    second: ArcherDash_SS_9f_192x192_510
+  - first:
+      213: 230431342792560063
+    second: ArcherDash_SS_9f_192x192_511
+  - first:
+      213: -8012805645404124248
+    second: ArcherDash_SS_9f_192x192_512
+  - first:
+      213: -6331004439711263994
+    second: ArcherDash_SS_9f_192x192_513
+  - first:
+      213: 6928547331108806005
+    second: ArcherDash_SS_9f_192x192_514
+  - first:
+      213: -8727526028889036862
+    second: ArcherDash_SS_9f_192x192_515
+  - first:
+      213: -4574815832176126685
+    second: ArcherDash_SS_9f_192x192_516
+  - first:
+      213: -5878245862610273558
+    second: ArcherDash_SS_9f_192x192_517
+  - first:
+      213: 1319693842339227566
+    second: ArcherDash_SS_9f_192x192_518
+  - first:
+      213: 442674554784461017
+    second: ArcherDash_SS_9f_192x192_519
+  - first:
+      213: 6239945693572574957
+    second: ArcherDash_SS_9f_192x192_520
+  - first:
+      213: 695585079780167043
+    second: ArcherDash_SS_9f_192x192_521
+  - first:
+      213: -1249980141695401743
+    second: ArcherDash_SS_9f_192x192_522
+  - first:
+      213: -3582364027498036568
+    second: ArcherDash_SS_9f_192x192_523
+  - first:
+      213: 7874801693428855865
+    second: ArcherDash_SS_9f_192x192_524
+  - first:
+      213: -8994811521562856897
+    second: ArcherDash_SS_9f_192x192_525
+  - first:
+      213: 4404151541732958061
+    second: ArcherDash_SS_9f_192x192_526
+  - first:
+      213: -9156260345134614399
+    second: ArcherDash_SS_9f_192x192_527
+  - first:
+      213: -8396069216837139861
+    second: ArcherDash_SS_9f_192x192_528
+  - first:
+      213: 4756348385368705237
+    second: ArcherDash_SS_9f_192x192_529
+  - first:
+      213: -8802468430462550952
+    second: ArcherDash_SS_9f_192x192_530
+  - first:
+      213: -1698595992752297287
+    second: ArcherDash_SS_9f_192x192_531
+  - first:
+      213: -3141579153132112734
+    second: ArcherDash_SS_9f_192x192_532
+  - first:
+      213: -4133406487254765066
+    second: ArcherDash_SS_9f_192x192_533
+  - first:
+      213: -3264577440939872679
+    second: ArcherDash_SS_9f_192x192_534
+  - first:
+      213: -3455267144885570564
+    second: ArcherDash_SS_9f_192x192_535
+  - first:
+      213: 2072678077674562950
+    second: ArcherDash_SS_9f_192x192_536
+  - first:
+      213: -1905910507542811136
+    second: ArcherDash_SS_9f_192x192_537
+  - first:
+      213: -782183595972952717
+    second: ArcherDash_SS_9f_192x192_538
+  - first:
+      213: 4730130460774991536
+    second: ArcherDash_SS_9f_192x192_539
+  - first:
+      213: -7783651743219520741
+    second: ArcherDash_SS_9f_192x192_540
+  - first:
+      213: 9137829528631250490
+    second: ArcherDash_SS_9f_192x192_541
+  - first:
+      213: 3156593198019661520
+    second: ArcherDash_SS_9f_192x192_542
+  - first:
+      213: -4874161453790044286
+    second: ArcherDash_SS_9f_192x192_543
+  - first:
+      213: 2082019287586274749
+    second: ArcherDash_SS_9f_192x192_544
+  - first:
+      213: -4998140746556806554
+    second: ArcherDash_SS_9f_192x192_545
+  - first:
+      213: -6186558635359078172
+    second: ArcherDash_SS_9f_192x192_546
+  - first:
+      213: 8544931039602071501
+    second: ArcherDash_SS_9f_192x192_547
+  - first:
+      213: -1862516058819481605
+    second: ArcherDash_SS_9f_192x192_548
+  - first:
+      213: 9005444387066896537
+    second: ArcherDash_SS_9f_192x192_549
+  - first:
+      213: 3361049982556595655
+    second: ArcherDash_SS_9f_192x192_550
+  - first:
+      213: 640275770292667935
+    second: ArcherDash_SS_9f_192x192_551
+  - first:
+      213: 2947981214204717903
+    second: ArcherDash_SS_9f_192x192_552
+  - first:
+      213: -4639712184917768182
+    second: ArcherDash_SS_9f_192x192_553
+  - first:
+      213: -274818484436390627
+    second: ArcherDash_SS_9f_192x192_554
+  - first:
+      213: -9102329651534493375
+    second: ArcherDash_SS_9f_192x192_555
+  - first:
+      213: -7211925216730256696
+    second: ArcherDash_SS_9f_192x192_556
+  - first:
+      213: 5912908231783014759
+    second: ArcherDash_SS_9f_192x192_557
+  - first:
+      213: -2560629465358270225
+    second: ArcherDash_SS_9f_192x192_558
+  - first:
+      213: -8015054859210999951
+    second: ArcherDash_SS_9f_192x192_559
+  - first:
+      213: -7797584837200911450
+    second: ArcherDash_SS_9f_192x192_560
+  - first:
+      213: 255794022496694967
+    second: ArcherDash_SS_9f_192x192_561
+  - first:
+      213: 3549498741504381540
+    second: ArcherDash_SS_9f_192x192_562
+  - first:
+      213: -8064099214449458276
+    second: ArcherDash_SS_9f_192x192_563
+  - first:
+      213: 7927444590274620595
+    second: ArcherDash_SS_9f_192x192_564
+  - first:
+      213: 6188094105513414979
+    second: ArcherDash_SS_9f_192x192_565
+  - first:
+      213: 1856065982937265696
+    second: ArcherDash_SS_9f_192x192_566
+  - first:
+      213: 443338867445806290
+    second: ArcherDash_SS_9f_192x192_567
+  - first:
+      213: 4893349211309845915
+    second: ArcherDash_SS_9f_192x192_568
+  - first:
+      213: 8951028093907433275
+    second: ArcherDash_SS_9f_192x192_569
+  - first:
+      213: 1922010917779237598
+    second: ArcherDash_SS_9f_192x192_570
+  - first:
+      213: 5695393450557420611
+    second: ArcherDash_SS_9f_192x192_571
+  - first:
+      213: 7165531925359145249
+    second: ArcherDash_SS_9f_192x192_572
+  - first:
+      213: 5668922503168637401
+    second: ArcherDash_SS_9f_192x192_573
+  - first:
+      213: 939665667908578762
+    second: ArcherDash_SS_9f_192x192_574
+  - first:
+      213: -7902089759843689106
+    second: ArcherDash_SS_9f_192x192_575
+  - first:
+      213: 7622764825962817963
+    second: ArcherDash_SS_9f_192x192_576
+  - first:
+      213: -8702415795826748007
+    second: ArcherDash_SS_9f_192x192_577
+  - first:
+      213: -4424927097897036371
+    second: ArcherDash_SS_9f_192x192_578
+  - first:
+      213: 6453827016067337263
+    second: ArcherDash_SS_9f_192x192_579
+  - first:
+      213: 718222569115356729
+    second: ArcherDash_SS_9f_192x192_580
+  - first:
+      213: 2496232189633280683
+    second: ArcherDash_SS_9f_192x192_581
+  - first:
+      213: 8347695938930336037
+    second: ArcherDash_SS_9f_192x192_582
+  - first:
+      213: 8022710832368690720
+    second: ArcherDash_SS_9f_192x192_583
+  - first:
+      213: 5330455320505144383
+    second: ArcherDash_SS_9f_192x192_584
+  - first:
+      213: -8515813990698702560
+    second: ArcherDash_SS_9f_192x192_585
+  - first:
+      213: 2625227645111193697
+    second: ArcherDash_SS_9f_192x192_586
+  - first:
+      213: -4137706871497398458
+    second: ArcherDash_SS_9f_192x192_587
+  - first:
+      213: -5637811447108035186
+    second: ArcherDash_SS_9f_192x192_588
+  - first:
+      213: -2370879717262753393
+    second: ArcherDash_SS_9f_192x192_589
+  - first:
+      213: -1758405168702560054
+    second: ArcherDash_SS_9f_192x192_590
+  - first:
+      213: -4640939249954277218
+    second: ArcherDash_SS_9f_192x192_591
+  - first:
+      213: 4462174038547572774
+    second: ArcherDash_SS_9f_192x192_592
+  - first:
+      213: -8757237057899282972
+    second: ArcherDash_SS_9f_192x192_593
+  - first:
+      213: 74686514655356545
+    second: ArcherDash_SS_9f_192x192_594
+  - first:
+      213: 182775327207768570
+    second: ArcherDash_SS_9f_192x192_595
+  - first:
+      213: -5511876975264578346
+    second: ArcherDash_SS_9f_192x192_596
+  - first:
+      213: -412871818075867579
+    second: ArcherDash_SS_9f_192x192_597
+  - first:
+      213: 461302835928601848
+    second: ArcherDash_SS_9f_192x192_598
+  - first:
+      213: 5251823569975737233
+    second: ArcherDash_SS_9f_192x192_599
+  - first:
+      213: -7745806443156498446
+    second: ArcherDash_SS_9f_192x192_600
+  - first:
+      213: -3724458646298985890
+    second: ArcherDash_SS_9f_192x192_601
+  - first:
+      213: 8532551478087938934
+    second: ArcherDash_SS_9f_192x192_602
+  - first:
+      213: 458701431125531898
+    second: ArcherDash_SS_9f_192x192_603
+  - first:
+      213: 8695925246420272283
+    second: ArcherDash_SS_9f_192x192_604
+  - first:
+      213: 1843324065189740249
+    second: ArcherDash_SS_9f_192x192_605
+  - first:
+      213: 88907669474340071
+    second: ArcherDash_SS_9f_192x192_606
+  - first:
+      213: -5195639907232926870
+    second: ArcherDash_SS_9f_192x192_607
+  - first:
+      213: -2164391547666747709
+    second: ArcherDash_SS_9f_192x192_608
+  - first:
+      213: -244589100334321822
+    second: ArcherDash_SS_9f_192x192_609
+  - first:
+      213: -8623257311767538649
+    second: ArcherDash_SS_9f_192x192_610
+  - first:
+      213: 8304602765753183295
+    second: ArcherDash_SS_9f_192x192_611
+  - first:
+      213: -2303286103358481339
+    second: ArcherDash_SS_9f_192x192_612
+  - first:
+      213: -1650558246283170968
+    second: ArcherDash_SS_9f_192x192_613
+  - first:
+      213: -9175843992094864627
+    second: ArcherDash_SS_9f_192x192_614
+  - first:
+      213: 3225857155992727071
+    second: ArcherDash_SS_9f_192x192_615
+  - first:
+      213: 6649081131483263143
+    second: ArcherDash_SS_9f_192x192_616
+  - first:
+      213: -6535939254390099588
+    second: ArcherDash_SS_9f_192x192_617
+  - first:
+      213: -8913293748135745186
+    second: ArcherDash_SS_9f_192x192_618
+  - first:
+      213: 2577328219259552966
+    second: ArcherDash_SS_9f_192x192_619
+  - first:
+      213: 4738857472686906907
+    second: ArcherDash_SS_9f_192x192_620
+  - first:
+      213: -2438457318274565739
+    second: ArcherDash_SS_9f_192x192_621
+  - first:
+      213: 5772537929704495759
+    second: ArcherDash_SS_9f_192x192_622
+  - first:
+      213: 5560254191920475794
+    second: ArcherDash_SS_9f_192x192_623
+  - first:
+      213: 7399592051807321089
+    second: ArcherDash_SS_9f_192x192_624
+  - first:
+      213: -4153452582332630372
+    second: ArcherDash_SS_9f_192x192_625
+  - first:
+      213: 231655924922454747
+    second: ArcherDash_SS_9f_192x192_626
+  - first:
+      213: -7626072305773283397
+    second: ArcherDash_SS_9f_192x192_627
+  - first:
+      213: -7310507855704081666
+    second: ArcherDash_SS_9f_192x192_628
+  - first:
+      213: 3430882575511773615
+    second: ArcherDash_SS_9f_192x192_629
+  - first:
+      213: 3821492555551331178
+    second: ArcherDash_SS_9f_192x192_630
+  - first:
+      213: 8083564183366664154
+    second: ArcherDash_SS_9f_192x192_631
+  - first:
+      213: 5245356997428632901
+    second: ArcherDash_SS_9f_192x192_632
+  - first:
+      213: 298675249187453412
+    second: ArcherDash_SS_9f_192x192_633
+  - first:
+      213: -7313241242595168002
+    second: ArcherDash_SS_9f_192x192_634
+  - first:
+      213: 919455680124773546
+    second: ArcherDash_SS_9f_192x192_635
+  - first:
+      213: -3056208221009954363
+    second: ArcherDash_SS_9f_192x192_636
+  - first:
+      213: 7693637692418835614
+    second: ArcherDash_SS_9f_192x192_637
+  - first:
+      213: -4974998698310195520
+    second: ArcherDash_SS_9f_192x192_638
+  - first:
+      213: 2571622291144001075
+    second: ArcherDash_SS_9f_192x192_639
+  - first:
+      213: -5780203234076150644
+    second: ArcherDash_SS_9f_192x192_640
+  - first:
+      213: 1286547016162538320
+    second: ArcherDash_SS_9f_192x192_641
+  - first:
+      213: -8098492379871029355
+    second: ArcherDash_SS_9f_192x192_642
+  - first:
+      213: -7356701775876454432
+    second: ArcherDash_SS_9f_192x192_643
+  - first:
+      213: 2868529689226308214
+    second: ArcherDash_SS_9f_192x192_644
+  - first:
+      213: 6227801855552123888
+    second: ArcherDash_SS_9f_192x192_645
+  - first:
+      213: 1730081236495782939
+    second: ArcherDash_SS_9f_192x192_646
+  - first:
+      213: 4316047040583637438
+    second: ArcherDash_SS_9f_192x192_647
+  - first:
+      213: -6752404507240069908
+    second: ArcherDash_SS_9f_192x192_648
+  - first:
+      213: -4682463097194369687
+    second: ArcherDash_SS_9f_192x192_649
+  - first:
+      213: -8862708155042944830
+    second: ArcherDash_SS_9f_192x192_650
+  - first:
+      213: -4365293303565313114
+    second: ArcherDash_SS_9f_192x192_651
+  - first:
+      213: -6946311305725714369
+    second: ArcherDash_SS_9f_192x192_652
+  - first:
+      213: -8209578849178313942
+    second: ArcherDash_SS_9f_192x192_653
+  - first:
+      213: -1341433913254427925
+    second: ArcherDash_SS_9f_192x192_654
+  - first:
+      213: -8290555908682509577
+    second: ArcherDash_SS_9f_192x192_655
+  - first:
+      213: -2384633504062101307
+    second: ArcherDash_SS_9f_192x192_656
+  - first:
+      213: 1621125191464782184
+    second: ArcherDash_SS_9f_192x192_657
+  - first:
+      213: -4103293529955311985
+    second: ArcherDash_SS_9f_192x192_658
+  - first:
+      213: 5160864163034983048
+    second: ArcherDash_SS_9f_192x192_659
+  - first:
+      213: 6010580621988419668
+    second: ArcherDash_SS_9f_192x192_660
+  - first:
+      213: -787518733658008998
+    second: ArcherDash_SS_9f_192x192_661
+  - first:
+      213: -8038374433626486575
+    second: ArcherDash_SS_9f_192x192_662
+  - first:
+      213: 6441539749671694807
+    second: ArcherDash_SS_9f_192x192_663
+  - first:
+      213: -2030180979932670674
+    second: ArcherDash_SS_9f_192x192_664
+  - first:
+      213: -2379015700815937771
+    second: ArcherDash_SS_9f_192x192_665
+  - first:
+      213: -1702790259544381615
+    second: ArcherDash_SS_9f_192x192_666
+  - first:
+      213: -4560669357111794247
+    second: ArcherDash_SS_9f_192x192_667
+  - first:
+      213: 5507758675058273082
+    second: ArcherDash_SS_9f_192x192_668
+  - first:
+      213: 4359503056696019956
+    second: ArcherDash_SS_9f_192x192_669
+  - first:
+      213: -1241529621023516948
+    second: ArcherDash_SS_9f_192x192_670
+  - first:
+      213: -2032141736985361653
+    second: ArcherDash_SS_9f_192x192_671
+  - first:
+      213: -40270783599874417
+    second: ArcherDash_SS_9f_192x192_672
+  - first:
+      213: -1569745892523238568
+    second: ArcherDash_SS_9f_192x192_673
+  - first:
+      213: -314572204373036605
+    second: ArcherDash_SS_9f_192x192_674
+  - first:
+      213: 2864408096833692486
+    second: ArcherDash_SS_9f_192x192_675
+  - first:
+      213: -5794838591448681330
+    second: ArcherDash_SS_9f_192x192_676
+  - first:
+      213: 5695251037167092197
+    second: ArcherDash_SS_9f_192x192_677
+  - first:
+      213: 5840113679429658752
+    second: ArcherDash_SS_9f_192x192_678
+  - first:
+      213: -8585615929793060395
+    second: ArcherDash_SS_9f_192x192_679
+  - first:
+      213: 2756898357612025775
+    second: ArcherDash_SS_9f_192x192_680
+  - first:
+      213: -4123060302815773059
+    second: ArcherDash_SS_9f_192x192_681
+  - first:
+      213: 2534095712382902778
+    second: ArcherDash_SS_9f_192x192_682
+  - first:
+      213: 6422316077277082323
+    second: ArcherDash_SS_9f_192x192_683
+  - first:
+      213: 9141139757458748924
+    second: ArcherDash_SS_9f_192x192_684
+  - first:
+      213: -8292004630563509666
+    second: ArcherDash_SS_9f_192x192_685
+  - first:
+      213: 6421745790643863246
+    second: ArcherDash_SS_9f_192x192_686
+  - first:
+      213: 143770279755780338
+    second: ArcherDash_SS_9f_192x192_687
+  - first:
+      213: -2656195745420109148
+    second: ArcherDash_SS_9f_192x192_688
+  - first:
+      213: 4643731339448790691
+    second: ArcherDash_SS_9f_192x192_689
+  - first:
+      213: 6044203574187866306
+    second: ArcherDash_SS_9f_192x192_690
+  - first:
+      213: -1476228166092184187
+    second: ArcherDash_SS_9f_192x192_691
+  - first:
+      213: -5379116164489313957
+    second: ArcherDash_SS_9f_192x192_692
+  - first:
+      213: 8379581478540456181
+    second: ArcherDash_SS_9f_192x192_693
+  - first:
+      213: 7889006724510532825
+    second: ArcherDash_SS_9f_192x192_694
+  - first:
+      213: -8907458846390314181
+    second: ArcherDash_SS_9f_192x192_695
+  - first:
+      213: 20249920392165958
+    second: ArcherDash_SS_9f_192x192_696
+  - first:
+      213: -7053580037196871064
+    second: ArcherDash_SS_9f_192x192_697
+  - first:
+      213: 4255568709263478250
+    second: ArcherDash_SS_9f_192x192_698
+  - first:
+      213: -4463344193179545089
+    second: ArcherDash_SS_9f_192x192_699
+  - first:
+      213: 4689575004981533072
+    second: ArcherDash_SS_9f_192x192_700
+  - first:
+      213: -2270950560158679489
+    second: ArcherDash_SS_9f_192x192_701
+  - first:
+      213: 5429887537315297421
+    second: ArcherDash_SS_9f_192x192_702
+  - first:
+      213: 492643748079694035
+    second: ArcherDash_SS_9f_192x192_703
+  - first:
+      213: 2233916693115457414
+    second: ArcherDash_SS_9f_192x192_704
+  - first:
+      213: 769642678442578690
+    second: ArcherDash_SS_9f_192x192_705
+  - first:
+      213: -8598404328898892697
+    second: ArcherDash_SS_9f_192x192_706
+  - first:
+      213: -68420531039453592
+    second: ArcherDash_SS_9f_192x192_707
+  - first:
+      213: 7270341636999759459
+    second: ArcherDash_SS_9f_192x192_708
+  - first:
+      213: 6368678052887810760
+    second: ArcherDash_SS_9f_192x192_709
+  - first:
+      213: -583034528236239784
+    second: ArcherDash_SS_9f_192x192_710
+  - first:
+      213: 2324915207030025556
+    second: ArcherDash_SS_9f_192x192_711
+  - first:
+      213: 7365550470848208266
+    second: ArcherDash_SS_9f_192x192_712
+  - first:
+      213: 7257381586670758059
+    second: ArcherDash_SS_9f_192x192_713
+  - first:
+      213: -7050095795407113711
+    second: ArcherDash_SS_9f_192x192_714
+  - first:
+      213: -2147907309233644552
+    second: ArcherDash_SS_9f_192x192_715
+  - first:
+      213: -991215515345977580
+    second: ArcherDash_SS_9f_192x192_716
+  - first:
+      213: 8706615441354408237
+    second: ArcherDash_SS_9f_192x192_717
+  - first:
+      213: -113443089463504613
+    second: ArcherDash_SS_9f_192x192_718
+  - first:
+      213: 6011339937155803898
+    second: ArcherDash_SS_9f_192x192_719
+  - first:
+      213: -8453923603705620468
+    second: ArcherDash_SS_9f_192x192_720
+  - first:
+      213: 911883888084666806
+    second: ArcherDash_SS_9f_192x192_721
+  - first:
+      213: -1968444200421790254
+    second: ArcherDash_SS_9f_192x192_722
+  - first:
+      213: 1360804738011648709
+    second: ArcherDash_SS_9f_192x192_723
+  - first:
+      213: -5315029410256250235
+    second: ArcherDash_SS_9f_192x192_724
+  - first:
+      213: -1170188561754883389
+    second: ArcherDash_SS_9f_192x192_725
+  - first:
+      213: 4464218820208288813
+    second: ArcherDash_SS_9f_192x192_726
+  - first:
+      213: -5209769887445161933
+    second: ArcherDash_SS_9f_192x192_727
+  - first:
+      213: -6799926594323234298
+    second: ArcherDash_SS_9f_192x192_728
+  - first:
+      213: 7984964577840626736
+    second: ArcherDash_SS_9f_192x192_729
+  - first:
+      213: -7281199297314778327
+    second: ArcherDash_SS_9f_192x192_730
+  - first:
+      213: -1739657010187842900
+    second: ArcherDash_SS_9f_192x192_731
+  - first:
+      213: -7395948122174962844
+    second: ArcherDash_SS_9f_192x192_732
+  - first:
+      213: 5144907543876895395
+    second: ArcherDash_SS_9f_192x192_733
+  - first:
+      213: -569132328620961454
+    second: ArcherDash_SS_9f_192x192_734
+  - first:
+      213: -2311553857388797441
+    second: ArcherDash_SS_9f_192x192_735
+  - first:
+      213: 205355962080397658
+    second: ArcherDash_SS_9f_192x192_736
+  - first:
+      213: -4165329877236573318
+    second: ArcherDash_SS_9f_192x192_737
+  - first:
+      213: -3404931984270460084
+    second: ArcherDash_SS_9f_192x192_738
+  - first:
+      213: 4808397121584527737
+    second: ArcherDash_SS_9f_192x192_739
+  - first:
+      213: 5467893500256392176
+    second: ArcherDash_SS_9f_192x192_740
+  - first:
+      213: 687860604615614070
+    second: ArcherDash_SS_9f_192x192_741
+  - first:
+      213: 8848729516436021701
+    second: ArcherDash_SS_9f_192x192_742
+  - first:
+      213: 3863165360725732202
+    second: ArcherDash_SS_9f_192x192_743
+  - first:
+      213: -5649704994053053694
+    second: ArcherDash_SS_9f_192x192_744
+  - first:
+      213: -8422680397648672980
+    second: ArcherDash_SS_9f_192x192_745
+  - first:
+      213: 844144922181764602
+    second: ArcherDash_SS_9f_192x192_746
+  - first:
+      213: -1523937409132242957
+    second: ArcherDash_SS_9f_192x192_747
+  - first:
+      213: -3539128360527865013
+    second: ArcherDash_SS_9f_192x192_748
+  - first:
+      213: 2489254926070427220
+    second: ArcherDash_SS_9f_192x192_749
+  - first:
+      213: -5338449496267636571
+    second: ArcherDash_SS_9f_192x192_750
+  - first:
+      213: 7263049604919229653
+    second: ArcherDash_SS_9f_192x192_751
+  - first:
+      213: 3082712854784765878
+    second: ArcherDash_SS_9f_192x192_752
+  - first:
+      213: 1478579240395421704
+    second: ArcherDash_SS_9f_192x192_753
+  - first:
+      213: -8433333935013754675
+    second: ArcherDash_SS_9f_192x192_754
+  - first:
+      213: 5069729572243774129
+    second: ArcherDash_SS_9f_192x192_755
+  - first:
+      213: -3533009268386654631
+    second: ArcherDash_SS_9f_192x192_756
+  - first:
+      213: -1249947082327230745
+    second: ArcherDash_SS_9f_192x192_757
+  - first:
+      213: 4172846710310605599
+    second: ArcherDash_SS_9f_192x192_758
+  - first:
+      213: -4278532948597051141
+    second: ArcherDash_SS_9f_192x192_759
+  - first:
+      213: 9192345108856410502
+    second: ArcherDash_SS_9f_192x192_760
+  - first:
+      213: -3740822607299682320
+    second: ArcherDash_SS_9f_192x192_761
+  - first:
+      213: 1403306052095181838
+    second: ArcherDash_SS_9f_192x192_762
+  - first:
+      213: -9014414356439213742
+    second: ArcherDash_SS_9f_192x192_763
+  - first:
+      213: -7485787586260808681
+    second: ArcherDash_SS_9f_192x192_764
+  - first:
+      213: 3391703458346850699
+    second: ArcherDash_SS_9f_192x192_765
+  - first:
+      213: -2119292310116835719
+    second: ArcherDash_SS_9f_192x192_766
+  - first:
+      213: -984081867275820980
+    second: ArcherDash_SS_9f_192x192_767
+  - first:
+      213: -1554807948981362666
+    second: ArcherDash_SS_9f_192x192_768
+  - first:
+      213: 4571776038249992232
+    second: ArcherDash_SS_9f_192x192_769
+  - first:
+      213: 316659575412651131
+    second: ArcherDash_SS_9f_192x192_770
+  - first:
+      213: 2282358458192130368
+    second: ArcherDash_SS_9f_192x192_771
+  - first:
+      213: -6898542732516554343
+    second: ArcherDash_SS_9f_192x192_772
+  - first:
+      213: 419701675830747988
+    second: ArcherDash_SS_9f_192x192_773
+  - first:
+      213: -4531174523801260559
+    second: ArcherDash_SS_9f_192x192_774
+  - first:
+      213: 4567200484887459977
+    second: ArcherDash_SS_9f_192x192_775
+  - first:
+      213: 4114183734317485473
+    second: ArcherDash_SS_9f_192x192_776
+  - first:
+      213: -2652906130111033336
+    second: ArcherDash_SS_9f_192x192_777
+  - first:
+      213: 7133381480000075434
+    second: ArcherDash_SS_9f_192x192_778
+  - first:
+      213: -1635308721624144500
+    second: ArcherDash_SS_9f_192x192_779
+  - first:
+      213: -6983227315077805926
+    second: ArcherDash_SS_9f_192x192_780
+  - first:
+      213: -3063059798009830187
+    second: ArcherDash_SS_9f_192x192_781
+  - first:
+      213: -4392264775052344960
+    second: ArcherDash_SS_9f_192x192_782
+  - first:
+      213: 74334985870456506
+    second: ArcherDash_SS_9f_192x192_783
+  - first:
+      213: 7407563858961424454
+    second: ArcherDash_SS_9f_192x192_784
+  - first:
+      213: -8093037363625711562
+    second: ArcherDash_SS_9f_192x192_785
+  - first:
+      213: 4328085240635720503
+    second: ArcherDash_SS_9f_192x192_786
+  - first:
+      213: -1904230847652936401
+    second: ArcherDash_SS_9f_192x192_787
+  - first:
+      213: 3909732260455354976
+    second: ArcherDash_SS_9f_192x192_788
+  - first:
+      213: -7143637679437867859
+    second: ArcherDash_SS_9f_192x192_789
+  - first:
+      213: -1436597640399446976
+    second: ArcherDash_SS_9f_192x192_790
+  - first:
+      213: -4390760769195902366
+    second: ArcherDash_SS_9f_192x192_791
+  - first:
+      213: 9011772408469955342
+    second: ArcherDash_SS_9f_192x192_792
+  - first:
+      213: -3870369023697338269
+    second: ArcherDash_SS_9f_192x192_793
+  - first:
+      213: 5344285702711811476
+    second: ArcherDash_SS_9f_192x192_794
+  - first:
+      213: 4080052975949353328
+    second: ArcherDash_SS_9f_192x192_795
+  - first:
+      213: -7203502951000945486
+    second: ArcherDash_SS_9f_192x192_796
+  - first:
+      213: 9073507194520645860
+    second: ArcherDash_SS_9f_192x192_797
+  - first:
+      213: -3974241359048882058
+    second: ArcherDash_SS_9f_192x192_798
+  - first:
+      213: 860783972146540216
+    second: ArcherDash_SS_9f_192x192_799
+  - first:
+      213: -6102765045583547987
+    second: ArcherDash_SS_9f_192x192_800
+  - first:
+      213: -101613913136040308
+    second: ArcherDash_SS_9f_192x192_801
+  - first:
+      213: -5259546586269170109
+    second: ArcherDash_SS_9f_192x192_802
+  - first:
+      213: -8119563801227296370
+    second: ArcherDash_SS_9f_192x192_803
+  - first:
+      213: 6181670370920579659
+    second: ArcherDash_SS_9f_192x192_804
+  - first:
+      213: 7896674859524292898
+    second: ArcherDash_SS_9f_192x192_805
+  - first:
+      213: -1090919817601741220
+    second: ArcherDash_SS_9f_192x192_806
+  - first:
+      213: -2488145930191653866
+    second: ArcherDash_SS_9f_192x192_807
+  - first:
+      213: 3007013229936199026
+    second: ArcherDash_SS_9f_192x192_808
+  - first:
+      213: -8389408933592921246
+    second: ArcherDash_SS_9f_192x192_809
+  - first:
+      213: 7341602084719784947
+    second: ArcherDash_SS_9f_192x192_810
+  - first:
+      213: 2262074575009194389
+    second: ArcherDash_SS_9f_192x192_811
+  - first:
+      213: 5382466734901317283
+    second: ArcherDash_SS_9f_192x192_812
+  - first:
+      213: 5673550216058913156
+    second: ArcherDash_SS_9f_192x192_813
+  - first:
+      213: 6483389463658547464
+    second: ArcherDash_SS_9f_192x192_814
+  - first:
+      213: -6587622463102695336
+    second: ArcherDash_SS_9f_192x192_815
+  - first:
+      213: 1312615872549149873
+    second: ArcherDash_SS_9f_192x192_816
+  - first:
+      213: -6162690110622795661
+    second: ArcherDash_SS_9f_192x192_817
+  - first:
+      213: -4803404174564764733
+    second: ArcherDash_SS_9f_192x192_818
+  - first:
+      213: -8330405494048403237
+    second: ArcherDash_SS_9f_192x192_819
+  - first:
+      213: -953797706904344616
+    second: ArcherDash_SS_9f_192x192_820
+  - first:
+      213: -2187254673574629012
+    second: ArcherDash_SS_9f_192x192_821
+  - first:
+      213: -2126660803521289645
+    second: ArcherDash_SS_9f_192x192_822
+  - first:
+      213: 672499003610249397
+    second: ArcherDash_SS_9f_192x192_823
+  - first:
+      213: -2916011354159155767
+    second: ArcherDash_SS_9f_192x192_824
+  - first:
+      213: 8091499015308174378
+    second: ArcherDash_SS_9f_192x192_825
+  - first:
+      213: -1273436684580880156
+    second: ArcherDash_SS_9f_192x192_826
+  - first:
+      213: -8229886487837577738
+    second: ArcherDash_SS_9f_192x192_827
+  - first:
+      213: -2308249991726891090
+    second: ArcherDash_SS_9f_192x192_828
+  - first:
+      213: 4197912698531307787
+    second: ArcherDash_SS_9f_192x192_829
+  - first:
+      213: -432311453533034875
+    second: ArcherDash_SS_9f_192x192_830
+  - first:
+      213: -5072039768358107221
+    second: ArcherDash_SS_9f_192x192_831
+  - first:
+      213: -920681826355502086
+    second: ArcherDash_SS_9f_192x192_832
+  - first:
+      213: 1705485563633616694
+    second: ArcherDash_SS_9f_192x192_833
+  - first:
+      213: 3827040594390882476
+    second: ArcherDash_SS_9f_192x192_834
+  - first:
+      213: 2333903772142403162
+    second: ArcherDash_SS_9f_192x192_835
+  - first:
+      213: 5449459830432129994
+    second: ArcherDash_SS_9f_192x192_836
+  - first:
+      213: 5518662382829455507
+    second: ArcherDash_SS_9f_192x192_837
+  - first:
+      213: 4270427926221142882
+    second: ArcherDash_SS_9f_192x192_838
+  - first:
+      213: 1231138596857123167
+    second: ArcherDash_SS_9f_192x192_839
+  - first:
+      213: -3672878291945372120
+    second: ArcherDash_SS_9f_192x192_840
+  - first:
+      213: -8517558825011508182
+    second: ArcherDash_SS_9f_192x192_841
+  - first:
+      213: 140142667426569347
+    second: ArcherDash_SS_9f_192x192_842
+  - first:
+      213: -8761274287427359832
+    second: ArcherDash_SS_9f_192x192_843
+  - first:
+      213: 5817766103898275770
+    second: ArcherDash_SS_9f_192x192_844
+  - first:
+      213: 7138746081330996470
+    second: ArcherDash_SS_9f_192x192_845
+  - first:
+      213: -2620100561076066565
+    second: ArcherDash_SS_9f_192x192_846
+  - first:
+      213: -5826780302619069715
+    second: ArcherDash_SS_9f_192x192_847
+  - first:
+      213: -8513605498406751672
+    second: ArcherDash_SS_9f_192x192_848
+  - first:
+      213: 7333188543520994843
+    second: ArcherDash_SS_9f_192x192_849
+  - first:
+      213: -5463805334861533968
+    second: ArcherDash_SS_9f_192x192_850
+  - first:
+      213: -2935470857894483449
+    second: ArcherDash_SS_9f_192x192_851
+  - first:
+      213: 8773089161599989340
+    second: ArcherDash_SS_9f_192x192_852
+  - first:
+      213: 6496663522174299513
+    second: ArcherDash_SS_9f_192x192_853
+  - first:
+      213: 9131774594740586448
+    second: ArcherDash_SS_9f_192x192_854
+  - first:
+      213: -8564527652210728623
+    second: ArcherDash_SS_9f_192x192_855
+  - first:
+      213: -2671716735084057656
+    second: ArcherDash_SS_9f_192x192_856
+  - first:
+      213: 6968394635914586166
+    second: ArcherDash_SS_9f_192x192_857
+  - first:
+      213: 5436187080521532825
+    second: ArcherDash_SS_9f_192x192_858
+  - first:
+      213: 3503588323399183347
+    second: ArcherDash_SS_9f_192x192_859
+  - first:
+      213: -775244826817990968
+    second: ArcherDash_SS_9f_192x192_860
+  - first:
+      213: 4222998652851088404
+    second: ArcherDash_SS_9f_192x192_861
+  - first:
+      213: 7777892314469810060
+    second: ArcherDash_SS_9f_192x192_862
+  - first:
+      213: 356657630398124162
+    second: ArcherDash_SS_9f_192x192_863
+  - first:
+      213: -1491099990386177660
+    second: ArcherDash_SS_9f_192x192_864
+  - first:
+      213: -4719361800948481125
+    second: ArcherDash_SS_9f_192x192_865
+  - first:
+      213: 184587708774356539
+    second: ArcherDash_SS_9f_192x192_866
+  - first:
+      213: 2047577421419548685
+    second: ArcherDash_SS_9f_192x192_867
+  - first:
+      213: 7389885724213458571
+    second: ArcherDash_SS_9f_192x192_868
+  - first:
+      213: 6739090859717782273
+    second: ArcherDash_SS_9f_192x192_869
+  - first:
+      213: 417382949748525798
+    second: ArcherDash_SS_9f_192x192_870
+  - first:
+      213: 7322560622495195813
+    second: ArcherDash_SS_9f_192x192_871
+  - first:
+      213: 1308790704172662357
+    second: ArcherDash_SS_9f_192x192_872
+  - first:
+      213: -7321921301616535409
+    second: ArcherDash_SS_9f_192x192_873
+  - first:
+      213: -7227394267070507457
+    second: ArcherDash_SS_9f_192x192_874
+  - first:
+      213: 2488895719125997403
+    second: ArcherDash_SS_9f_192x192_875
+  - first:
+      213: -3372984648137683386
+    second: ArcherDash_SS_9f_192x192_876
+  - first:
+      213: 5061192746107607631
+    second: ArcherDash_SS_9f_192x192_877
+  - first:
+      213: -3818099946008820433
+    second: ArcherDash_SS_9f_192x192_878
+  - first:
+      213: 9209163373978137036
+    second: ArcherDash_SS_9f_192x192_879
+  - first:
+      213: 821438368314085668
+    second: ArcherDash_SS_9f_192x192_880
+  - first:
+      213: -2736853581035056710
+    second: ArcherDash_SS_9f_192x192_881
+  - first:
+      213: 503496422897126320
+    second: ArcherDash_SS_9f_192x192_882
+  - first:
+      213: -1589133767803883494
+    second: ArcherDash_SS_9f_192x192_883
+  - first:
+      213: 86842178308643225
+    second: ArcherDash_SS_9f_192x192_884
+  - first:
+      213: 7182041489362259889
+    second: ArcherDash_SS_9f_192x192_885
+  - first:
+      213: -2046581988055499828
+    second: ArcherDash_SS_9f_192x192_886
+  - first:
+      213: -8474148078485716766
+    second: ArcherDash_SS_9f_192x192_887
+  - first:
+      213: 7234975846056831709
+    second: ArcherDash_SS_9f_192x192_888
+  - first:
+      213: -1889016381201779192
+    second: ArcherDash_SS_9f_192x192_889
+  - first:
+      213: 7616274739566057199
+    second: ArcherDash_SS_9f_192x192_890
+  - first:
+      213: 509323895378362208
+    second: ArcherDash_SS_9f_192x192_891
+  - first:
+      213: 7088042324159988010
+    second: ArcherDash_SS_9f_192x192_892
+  - first:
+      213: 6727031448686940568
+    second: ArcherDash_SS_9f_192x192_893
+  - first:
+      213: 5686335112194680788
+    second: ArcherDash_SS_9f_192x192_894
+  - first:
+      213: -3287660947154328786
+    second: ArcherDash_SS_9f_192x192_895
+  - first:
+      213: -1385821480231633424
+    second: ArcherDash_SS_9f_192x192_896
+  - first:
+      213: -204090198594451974
+    second: ArcherDash_SS_9f_192x192_897
+  - first:
+      213: -6946579906658185202
+    second: ArcherDash_SS_9f_192x192_898
+  - first:
+      213: 6111619458030704952
+    second: ArcherDash_SS_9f_192x192_899
+  - first:
+      213: 2156443667662185656
+    second: ArcherDash_SS_9f_192x192_900
+  - first:
+      213: 4414768404809216963
+    second: ArcherDash_SS_9f_192x192_901
+  - first:
+      213: -8766530782363812172
+    second: ArcherDash_SS_9f_192x192_902
+  - first:
+      213: 8748693591495189699
+    second: ArcherDash_SS_9f_192x192_903
+  - first:
+      213: -7250382943350202832
+    second: ArcherDash_SS_9f_192x192_904
+  - first:
+      213: -4595304144275260043
+    second: ArcherDash_SS_9f_192x192_905
+  - first:
+      213: 8811336234984218395
+    second: ArcherDash_SS_9f_192x192_906
+  - first:
+      213: 8432805705088228503
+    second: ArcherDash_SS_9f_192x192_907
+  - first:
+      213: 2167134455927244797
+    second: ArcherDash_SS_9f_192x192_908
+  - first:
+      213: 1040110782571857322
+    second: ArcherDash_SS_9f_192x192_909
+  - first:
+      213: -6065548408660134029
+    second: ArcherDash_SS_9f_192x192_910
+  - first:
+      213: 2871890648334320282
+    second: ArcherDash_SS_9f_192x192_911
+  - first:
+      213: -1637669554267247276
+    second: ArcherDash_SS_9f_192x192_912
+  - first:
+      213: 5032919110658193159
+    second: ArcherDash_SS_9f_192x192_913
+  - first:
+      213: 8101158502999607371
+    second: ArcherDash_SS_9f_192x192_914
+  - first:
+      213: 5323353510710317369
+    second: ArcherDash_SS_9f_192x192_915
+  - first:
+      213: -6166541904969488434
+    second: ArcherDash_SS_9f_192x192_916
+  - first:
+      213: -4698291264850557057
+    second: ArcherDash_SS_9f_192x192_917
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9839d13249e7ab40800000000000000
+      internalID: 5451582344468707484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bba9badc96ccf490800000000000000
+      internalID: -7711070084978332745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64bd1c11b06a824a0800000000000000
+      internalID: -6617857085948175546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5382247bdff554f60800000000000000
+      internalID: 8017920254908966965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0531bf19ff04f00800000000000000
+      internalID: 1099159311526088938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6de10c25d8d6eba0800000000000000
+      internalID: -6059917838502466197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09396c6aed1fff50800000000000000
+      internalID: 6917280445342759180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3db2e87cd31e31a20800000000000000
+      internalID: 3032014629607713747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b44bbc4c95d23570800000000000000
+      internalID: 8445047118552057017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9805fd91d892db300800000000000000
+      internalID: 269417238713290889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b569e6c5751df760800000000000000
+      internalID: 7493168950606914993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c600cbcd6c087c0a0800000000000000
+      internalID: -6861373915680472980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f5f2769529b5a30800000000000000
+      internalID: 4205115589761392531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50be2b8cc27ec2c0800000000000000
+      internalID: -4409460762315149218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291fc62e846f829f0800000000000000
+      internalID: -492873366300200558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf134aec085d2f380800000000000000
+      internalID: -8938847561177615876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a5afe9a2ca6c6c0800000000000000
+      internalID: -4123419109755299313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e2e4c6d418aef50800000000000000
+      internalID: 6911478747682975233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f2356da3a0624a0800000000000000
+      internalID: -6618591354554208462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c27a14c01b88000800000000000000
+      internalID: 38475263031848005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26d54b39e89e7160800000000000000
+      internalID: 7025220596233786926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 670d33edd9edd7700800000000000000
+      internalID: 539832299973496950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af886707a36dc5e40800000000000000
+      internalID: 5646623579299023098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ee391978dbf07f0800000000000000
+      internalID: -644087831730065866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998355922f00444e0800000000000000
+      internalID: -1998471294570121063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db2610c7af9e44b0800000000000000
+      internalID: -5454246555868058671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f581a48e12fa3f0800000000000000
+      internalID: -887453320009457767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a439401b07cd020800000000000000
+      internalID: 2367891409678322182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05551836541ee4610800000000000000
+      internalID: 1607469805156259152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29b6452953648ac0800000000000000
+      internalID: -3853846146593670867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf4600febecac9a0800000000000000
+      internalID: -6211925416538124340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4733e2e5003bac4c0800000000000000
+      internalID: -4266400882818665612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9aa2e4100aac810800000000000000
+      internalID: 1786416129672653239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed735888b2430ce00800000000000000
+      internalID: 1062906873638107102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c43101e66daea830800000000000000
+      internalID: 4084392569444840647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f35b325f23952a20800000000000000
+      internalID: 3036995355183633395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38a4d30618214890800000000000000
+      internalID: -7475649831439652805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82d724874d794340800000000000000
+      internalID: 4848544219954401934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118f38b9773864a90800000000000000
+      internalID: -7330026793765439471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4ea6799fc0736b0800000000000000
+      internalID: -5316766568960826174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51673420be18359d0800000000000000
+      internalID: -2786740898056931819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6863de421cd204b0800000000000000
+      internalID: -5475572225739102097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783fd1c1f8d9c06b0800000000000000
+      internalID: -5328711021108530297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0073957f4ff79750800000000000000
+      internalID: 6311794119523135501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c31ed5b80a1f9510800000000000000
+      internalID: 1557992620806771652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f634682651e718010800000000000000
+      internalID: 1189370406914900847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7ce1cbf959d6eb0800000000000000
+      internalID: -4724955920753309758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1ce9f4a9c0d03a0800000000000000
+      internalID: -6697683213929758275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6488a0d02914d81f0800000000000000
+      internalID: -1041103843312891834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035f4033be3bc3ac0800000000000000
+      internalID: -3874023756690819792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047dd0d87287d3340800000000000000
+      internalID: 4845160885386073920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ef1f7193335e380800000000000000
+      internalID: -8942685164766364114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9d623ad8b770f50800000000000000
+      internalID: 6847577606697966062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a693512b67c4ebc40800000000000000
+      internalID: 5529941465135135082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5862e119688f700c0800000000000000
+      internalID: -4609442436746434939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d08fcc76a466920800000000000000
+      internalID: 2983153612860427587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_56
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53652f7a5bb17030800000000000000
+      internalID: 3490777183543452509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_57
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef1139dbf14504b0800000000000000
+      internalID: -5474897222062497817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_58
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3009d7f60e25f17f0800000000000000
+      internalID: -639701498166669309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_59
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8833ed460cea0b0800000000000000
+      internalID: -5715419337629398841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_60
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 619a9d17640d16fa0800000000000000
+      internalID: -5809133043354851050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_61
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e3daad4fef4da80800000000000000
+      internalID: -8442843073818575241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6666714c11c2b3b60800000000000000
+      internalID: 7726818040500151910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ecddf4574989bd0800000000000000
+      internalID: -2623183551371293125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_64
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae764dd5e7e68680800000000000000
+      internalID: -8753053851302068575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_65
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb9241badbab19c0800000000000000
+      internalID: -3955378891949696054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_66
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 208c7f470d0eb3db0800000000000000
+      internalID: -4811004590995027966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_67
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d5c3cf449375130800000000000000
+      internalID: 3555373399284669801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_68
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 892d961b2e55e2750800000000000000
+      internalID: 6282052962355892888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_69
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69dd1bfc63eba3ce0800000000000000
+      internalID: -1424617189487288938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_70
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b95d3621f317af0800000000000000
+      internalID: -400469543642359021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArcherDash_SS_9f_192x192_71
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6efe9c4e99492b00800000000000000
+      internalID: 804254952701492844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3ef81a0d05f65c341874e3eb73ea1417
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      ArcherDash_SS_9f_192x192_0: 5451582344468707484
+      ArcherDash_SS_9f_192x192_1: -7711070084978332745
+      ArcherDash_SS_9f_192x192_10: 7493168950606914993
+      ArcherDash_SS_9f_192x192_11: -6861373915680472980
+      ArcherDash_SS_9f_192x192_12: 4205115589761392531
+      ArcherDash_SS_9f_192x192_13: -4409460762315149218
+      ArcherDash_SS_9f_192x192_14: -492873366300200558
+      ArcherDash_SS_9f_192x192_15: -8938847561177615876
+      ArcherDash_SS_9f_192x192_16: -4123419109755299313
+      ArcherDash_SS_9f_192x192_17: 6911478747682975233
+      ArcherDash_SS_9f_192x192_18: -6618591354554208462
+      ArcherDash_SS_9f_192x192_19: 38475263031848005
+      ArcherDash_SS_9f_192x192_2: -6617857085948175546
+      ArcherDash_SS_9f_192x192_20: 7025220596233786926
+      ArcherDash_SS_9f_192x192_21: 539832299973496950
+      ArcherDash_SS_9f_192x192_22: 5646623579299023098
+      ArcherDash_SS_9f_192x192_23: -644087831730065866
+      ArcherDash_SS_9f_192x192_24: -1998471294570121063
+      ArcherDash_SS_9f_192x192_25: -5454246555868058671
+      ArcherDash_SS_9f_192x192_26: -887453320009457767
+      ArcherDash_SS_9f_192x192_27: 2367891409678322182
+      ArcherDash_SS_9f_192x192_28: 1607469805156259152
+      ArcherDash_SS_9f_192x192_29: -3853846146593670867
+      ArcherDash_SS_9f_192x192_3: 8017920254908966965
+      ArcherDash_SS_9f_192x192_30: -6211925416538124340
+      ArcherDash_SS_9f_192x192_31: -4266400882818665612
+      ArcherDash_SS_9f_192x192_32: 1786416129672653239
+      ArcherDash_SS_9f_192x192_33: 1062906873638107102
+      ArcherDash_SS_9f_192x192_34: 4084392569444840647
+      ArcherDash_SS_9f_192x192_35: 3036995355183633395
+      ArcherDash_SS_9f_192x192_36: -7475649831439652805
+      ArcherDash_SS_9f_192x192_37: 4848544219954401934
+      ArcherDash_SS_9f_192x192_38: -7330026793765439471
+      ArcherDash_SS_9f_192x192_39: -5316766568960826174
+      ArcherDash_SS_9f_192x192_4: 1099159311526088938
+      ArcherDash_SS_9f_192x192_40: -2786740898056931819
+      ArcherDash_SS_9f_192x192_41: -5475572225739102097
+      ArcherDash_SS_9f_192x192_42: -5328711021108530297
+      ArcherDash_SS_9f_192x192_43: 6311794119523135501
+      ArcherDash_SS_9f_192x192_44: 1557992620806771652
+      ArcherDash_SS_9f_192x192_45: 1189370406914900847
+      ArcherDash_SS_9f_192x192_46: -4724955920753309758
+      ArcherDash_SS_9f_192x192_47: -6697683213929758275
+      ArcherDash_SS_9f_192x192_48: -1041103843312891834
+      ArcherDash_SS_9f_192x192_49: -3874023756690819792
+      ArcherDash_SS_9f_192x192_5: -6059917838502466197
+      ArcherDash_SS_9f_192x192_50: 4845160885386073920
+      ArcherDash_SS_9f_192x192_51: -8942685164766364114
+      ArcherDash_SS_9f_192x192_52: 6847577606697966062
+      ArcherDash_SS_9f_192x192_53: 5529941465135135082
+      ArcherDash_SS_9f_192x192_54: -4609442436746434939
+      ArcherDash_SS_9f_192x192_55: 2983153612860427587
+      ArcherDash_SS_9f_192x192_56: 3490777183543452509
+      ArcherDash_SS_9f_192x192_57: -5474897222062497817
+      ArcherDash_SS_9f_192x192_58: -639701498166669309
+      ArcherDash_SS_9f_192x192_59: -5715419337629398841
+      ArcherDash_SS_9f_192x192_6: 6917280445342759180
+      ArcherDash_SS_9f_192x192_60: -5809133043354851050
+      ArcherDash_SS_9f_192x192_61: -8442843073818575241
+      ArcherDash_SS_9f_192x192_62: 7726818040500151910
+      ArcherDash_SS_9f_192x192_63: -2623183551371293125
+      ArcherDash_SS_9f_192x192_64: -8753053851302068575
+      ArcherDash_SS_9f_192x192_65: -3955378891949696054
+      ArcherDash_SS_9f_192x192_66: -4811004590995027966
+      ArcherDash_SS_9f_192x192_67: 3555373399284669801
+      ArcherDash_SS_9f_192x192_68: 6282052962355892888
+      ArcherDash_SS_9f_192x192_69: -1424617189487288938
+      ArcherDash_SS_9f_192x192_7: 3032014629607713747
+      ArcherDash_SS_9f_192x192_70: -400469543642359021
+      ArcherDash_SS_9f_192x192_71: 804254952701492844
+      ArcherDash_SS_9f_192x192_8: 8445047118552057017
+      ArcherDash_SS_9f_192x192_9: 269417238713290889
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -93,6 +93,7 @@ namespace Game.Scene
 
             yield return SceneManager.LoadSceneAsync(SceneNames.MainMenu, LoadSceneMode.Additive);
             yield return new WaitForSeconds(0.1f);
+            GameSession.Instance.SetIsNewRun(true);           
             GameSession.Instance.Initialize();
 
             yield return StartCoroutine(FadeOut());

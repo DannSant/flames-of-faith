@@ -83,10 +83,11 @@ namespace Game.Progression {
         {
             currentStats.Clear();            
             foreach (var statData in StatUpgradeDatabase.Instance.GetStatsConfig())
-            {
+            {               
                 currentStats.Add(statData.StatType, statData.InitialValue);
                 onStatUpdated?.Invoke(statData.StatType, statData.InitialValue);
             }
+            statsDirty = true;
         }
 
         // Method to update the player's stat
@@ -111,8 +112,7 @@ namespace Game.Progression {
         {
             Dictionary<StatType, int> result = new Dictionary<StatType, int>();
             foreach (var stat in currentStats)
-            {
-                //Debug.Log($"Stat: {stat.Key}, Value: {stat.Value}");
+            {               
                 result.Add(stat.Key, GetStatTotal(stat.Key));
             }
             return result;

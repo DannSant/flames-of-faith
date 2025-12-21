@@ -162,7 +162,7 @@ MonoBehaviour:
   tickInterval: 1
   shouldStackDamage: 1
   enablePierce: 1
-  pierceCount: 1
+  pierceCount: 5
   applyKnockback: 0
   knockbackForce: 5
 --- !u!114 &-9035687851212520077

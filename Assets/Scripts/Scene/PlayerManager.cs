@@ -86,6 +86,7 @@ namespace Game.Scene
             }
         }
 
+        // TODO: Unbind on scene unload
         public void UnbindWaveEventsIfReady()
         {
             if (WaveSpawner.Instance != null)

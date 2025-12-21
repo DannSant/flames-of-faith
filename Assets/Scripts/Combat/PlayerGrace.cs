@@ -97,7 +97,13 @@ namespace Game.Combat
 
         public void LoadState()
         {
-            maxGrace = GameSession.Instance.PlayerData.savedStats[StatType.MaxGrace];
+            var savedStats = GameSession.Instance.PlayerData.savedStats;
+            int savedMaxGrace;
+            if (savedStats != null && savedStats.TryGetValue(StatType.MaxGrace, out savedMaxGrace)) 
+            {
+                maxGrace = savedMaxGrace;
+            }
+          
             currentGrace = GameSession.Instance.LoadCurrentGrace();
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }

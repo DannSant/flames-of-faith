@@ -92,7 +92,7 @@ MonoBehaviour:
   - statType: 5
     initialValue: 10
     allowLevelUpgrades: 1
-    tierValues: 02000000040000000600000008000000
+    tierValues: 01000000020000000300000004000000
     category: 0
     description: Grace increases damage done by 10% per point. You lose it whenever
       you clear a wave and you gain some when you rest on Camp Sites. Cannot go below
