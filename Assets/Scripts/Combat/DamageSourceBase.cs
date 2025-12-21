@@ -214,6 +214,28 @@ namespace Game.Combat
             pierceCount = count;
         }
 
+        public bool FindCurrentEffectInstance(out EffectInstance? result)
+        {
+            if(effectID == null || effectStore == null)
+            {
+                result = new EffectInstance(null);
+                return false;
+            }
+
+            var effectInstance = effectStore.GetEffectInstanceByID(effectID);
+
+            if (effectInstance != null)
+            {
+                result = effectInstance;
+                return true;
+            }
+            else
+            {
+                result = new EffectInstance(null);
+                return false;
+            }
+        }
+
         
     }
 

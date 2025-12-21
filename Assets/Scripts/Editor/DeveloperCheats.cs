@@ -115,6 +115,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Holy Missiles")]
+    public static void GiveHolyMissiles()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string holyCrossEffectId = "2bf80c37-2cb1-4792-b7b1-39ff7ac47490";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(holyCrossEffectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Items/Give Blessed arrows")]
     public static void GiveBlessedArrows()
     {

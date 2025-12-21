@@ -1,9 +1,11 @@
+using Game.Scene;
+using Game.Utils;
 using System;
 using UnityEngine;
 
 namespace Game.Control
 {
-    public class CharacterVisual : MonoBehaviour
+    public class CharacterVisual : MonoBehaviour, ILateInitializable
     {
         [SerializeField] private float flashDuration = 0.1f;
         [SerializeField] private Color flashColor = Color.white;
@@ -28,17 +30,47 @@ namespace Game.Control
         public event Action OnSpecialAttackStartAnimEvent;
         public event Action OnSpecialAttackEndAnimEvent;
 
+        private LevelData currentLevelData = null;
+
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
 
-            originalColor = spriteRenderer.color;
+            originalColor = spriteRenderer.color;            
 
-            /*if (characterData != null)
+            
+        }
+
+
+        public void InitializeAnimationParams()
+        {
+            Debug.Log("CharacterVisual: Initializing animation params based on level data.");
+
+            var levelSettings = FindAnyObjectByType<LevelSettings>();
+            if (levelSettings != null)
+            {               
+                currentLevelData = levelSettings.LevelData;
+            }
+            
+
+
+            if (currentLevelData != null)
+            { 
+               
+                if (currentLevelData.type == Map.LevelType.Combat || currentLevelData.type == Map.LevelType.Boss)
+                {
+                    animator.SetBool("InCombat", true);
+                }
+                else
+                {
+                    animator.SetBool("InCombat", false);
+                }
+            }
+            else
             {
-                Initialize(characterData);
-            }*/
+                animator.SetBool("InCombat", true);
+            }
         }
 
         public void Initialize(CharacterClassData data)
@@ -54,6 +86,8 @@ namespace Game.Control
             {
                 spriteRenderer.sprite = characterData.defaultSprite;
             }
+
+            
         }
 
         public void SetFacingDirection(Vector2 facingDirection)
@@ -137,6 +171,11 @@ namespace Game.Control
         public void Show()
         {
             gameObject.SetActive(true);
+        }
+
+        public void LateInitialize()
+        {
+            InitializeAnimationParams();
         }
     }
 }

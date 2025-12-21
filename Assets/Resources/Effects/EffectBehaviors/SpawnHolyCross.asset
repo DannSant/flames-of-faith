@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: SpawnHolyCross
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehavior_SpawnOnDamage
   behaviorId: SpawnHolyCross
+  stackBehavior: 0
   prefabToSpawn: {fileID: 3515589407162799255, guid: dbf35cf2ab47872429062223bb731c6f, type: 3}
   spawnCount: 1
-  spawnOffset: {x: 0, y: 0}
+  spawnOffset: {x: 0.3, y: 0.3}
   randomRotation: 0
+  randomPositionOffset: 1
   chanceToSpawn: 0.5

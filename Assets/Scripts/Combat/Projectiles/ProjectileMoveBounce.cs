@@ -1,13 +1,15 @@
+using Game.Effects;
 using UnityEngine;
 
 namespace Game.Combat.Projectiles
 {
-    public class ProjectileMoveBounce : ProjectileMovementBase
+    public class ProjectileMoveBounce : ProjectileMovementBase, IEffectStackModifier
     {
         [SerializeField] private float speed = 5f;
         [SerializeField] private int maxBounces = 3;
 
         private int bounceCount = 0;
+        private int additionalBounces = 0;
 
         protected override void Move()
         {
@@ -31,7 +33,8 @@ namespace Game.Combat.Projectiles
 
         private void Bounce(Vector2 normal)
         {
-            if (bounceCount >= maxBounces)
+            int totalBounces = maxBounces + additionalBounces;
+            if (bounceCount >= totalBounces)
             {
                 Destroy(gameObject);
                 return;
@@ -54,6 +57,17 @@ namespace Game.Combat.Projectiles
                 normal = -direction;
 
             return normal;
+        }
+
+        public void ModifyEffect(int stackCount, EffectStackBehavior effectStackBehavior)
+        {
+            if (effectStackBehavior != EffectStackBehavior.AddBounces)
+            { 
+                return; 
+            }
+
+            additionalBounces = stackCount;
+            
         }
     }
 

@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5e214306095e54ea597122e9ca783f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.RandomDirectionInitializer
-  minAngle: 20
-  maxAngle: 170
+  minAngle: 0
+  maxAngle: 360
   initialSpeedOverride: 0
 --- !u!114 &-1050899872690486881
 MonoBehaviour:

@@ -19,7 +19,8 @@ MonoBehaviour:
   description: 'Increases Range +2
 
     50% chance to inflict Frost in the target
-    which makes them move slower and take more damage. Scales with Mastow Affinity'
+    which makes them move slower and take more damage. Scales with Mastow Affinity(damage
+    and duration)'
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers:

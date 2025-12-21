@@ -253,6 +253,14 @@ namespace Game.Effects
             ResetEffects();
             OnEffectsChanged?.Invoke();
         }
+
+        public EffectInstance? GetEffectInstanceByID(string effectID)
+        {
+            var instance = activeEffects.FirstOrDefault(ei => ei.effect.EffectID == effectID);
+            if (instance.effect != null)
+                return instance;
+            return null;
+        }
     }
 
 }

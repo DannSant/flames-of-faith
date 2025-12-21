@@ -16,8 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6fededa5e665fc44596e941b47698842, type: 3}
   effectName: Holy Orb
   scalingValue: 1
-  description: When you execute an special sttack (right click) spawns 4 holy orbs
-    in a random direction. Scales with Magic Damage
+  description: "When you execute an special sttack (right click) spawns 4 holy orbs
+    in a random direction and bounce against enemies. Scales with Magic Damage. \nEach
+    stack adds an additional bounce"
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers: []

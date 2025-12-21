@@ -17,9 +17,16 @@ namespace Game.Effects
         OnSpecialAttack, // e.g., a special ability
         OnStack // when the effect is stacked/increased
     }
+    public enum EffectStackBehavior { 
+        None,
+        AddBounces,
+        AddDamage,
+        AddSpawnCount
+    }
     public abstract class EffectBehavior : ScriptableObject
     {
         [SerializeField] protected string behaviorId;
+        [SerializeField] protected EffectStackBehavior stackBehavior = EffectStackBehavior.None;
         // References
         protected GameObject ownerObject;
         protected EffectStore storeOwner;

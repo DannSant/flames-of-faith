@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpawnHolyOrbOnSpecialAttack
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.SpawnObjectOnSpecialAttack
   behaviorId: SpawnHolyOrbOnSpecialAttack
+  stackBehavior: 1
   prefabToSpawn: {fileID: 5262266157608048503, guid: 5fefa8b668269544c849b83935db5c12, type: 3}
   spawnCount: 4
   spawnOffset: {x: 0, y: 0}

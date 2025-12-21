@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'Ranged Damage +2
 
     50% chance to inflict Fire, which cause damage
-    over time. This scales with Mastow Afinity'
+    over time. This scales with Mastow Afinity (damage and duration)'
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers:

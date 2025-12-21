@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Combat.Projectiles;
 using UnityEngine;
 
 namespace Game.Effects.EffectBehaviors
@@ -17,6 +18,8 @@ namespace Game.Effects.EffectBehaviors
 
         [Range(0f, 1f)]
         [SerializeField] private float chanceToSpawn = 1f;
+
+        
 
         public override void OnTrigger(EffectTrigger trigger)
         {
@@ -37,6 +40,10 @@ namespace Game.Effects.EffectBehaviors
 
                     var effectDamage = spawned.GetComponent<DamageSourceBase>();
                     effectDamage.SetEffectID(parentEffect.EffectID);
+
+                    var effectCount = storeOwner.GetEffectMultiplierConfig(parentEffect.EffectID).count;
+                    var effectStackModifier = spawned.GetComponent<IEffectStackModifier>();
+                    effectStackModifier?.ModifyEffect(effectCount, stackBehavior);
                 }
             }
         }

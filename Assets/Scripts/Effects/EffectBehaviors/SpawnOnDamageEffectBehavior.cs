@@ -17,6 +17,7 @@ namespace Game.Effects.EffectBehaviors
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
 
         [SerializeField] private bool randomRotation = true;
+        [SerializeField] private bool randomPositionOffset = false;
 
         [Range(0f, 1f)]
         [SerializeField] private float chanceToSpawn = 1f;
@@ -95,7 +96,7 @@ namespace Game.Effects.EffectBehaviors
             float roll = Random.Range(0f, 1f);
             if (roll > chanceToSpawn)
                 return;
-
+            //TODO: Use the EffectStackBehavior to modify spawn count 
             // Number of instances depends on effect stack count
             int finalCount = spawnCount * storeOwner.GetEffectMultiplierConfig(parentEffect.EffectID).count;
 
@@ -106,6 +107,14 @@ namespace Game.Effects.EffectBehaviors
                     : Quaternion.identity;
 
                 Vector2 spawnPos = (Vector2)target.transform.position + spawnOffset;
+                if (randomPositionOffset)
+                {
+                    Vector2 randomOffsetVec = new Vector2(
+                        Random.Range(-spawnOffset.x, spawnOffset.x),
+                        Random.Range(-spawnOffset.y, spawnOffset.y)
+                    );
+                    spawnPos += randomOffsetVec;
+                }
 
                 GameObject instance = Instantiate(prefabToSpawn, spawnPos, rot);
 
