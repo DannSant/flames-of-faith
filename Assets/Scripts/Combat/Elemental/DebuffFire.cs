@@ -29,12 +29,9 @@ namespace Game.Combat.Elemental
             float finalDamage = strength;
 
             // spawn damage numbers
-            DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(
-                enemyHealth.transform.position,
-                finalDamage
-            );
+            DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(enemyHealth.transform.position,finalDamage );
 
-            enemyHealth.TakeDamage(finalDamage);
+            enemyHealth.TakeDamage(finalDamage, WeaponClass.Magic);
         }
 
         public override void Initialize(float duration, float strength)

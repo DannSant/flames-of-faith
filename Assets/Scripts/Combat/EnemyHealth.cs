@@ -20,6 +20,7 @@ namespace Game.Combat
         [SerializeField] private GameObject deathVfxPrefab;
         [SerializeField] private AudioClip damagedSFX;
         [SerializeField] private AudioClip deathSFX;
+        [SerializeField] private bool shouldSpawnDamageNumbers = true;
 
         public event OnHealthChanged onHealthChanged;
         public event OnDeath onDeath;
@@ -47,7 +48,7 @@ namespace Game.Combat
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, WeaponClass weaponClass)
         {
             if (damagedSFX != null)
             {
@@ -117,6 +118,11 @@ namespace Game.Combat
             onDeath?.Invoke();
             GameObject.Destroy(instancedVfx, 2f); 
 
+        }
+
+        public bool ShouldSpawnDamageNumber()
+        {
+            return shouldSpawnDamageNumbers;
         }
     }
 }

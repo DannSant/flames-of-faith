@@ -37,7 +37,7 @@ namespace Game.Combat
             {
                 float totalDamage = CalculateTotalDamage();
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage);
-                damageableObject.TakeDamage(totalDamage);
+                //damageableObject.TakeDamage(totalDamage);
             }
 
             Knockback knockback = collision.GetComponent<Knockback>();

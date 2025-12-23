@@ -40,6 +40,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: enemyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: healthPerWave
       value: 10
       objectReference: {fileID: 0}
@@ -132,6 +136,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a00360cee348cdb43a231bc7dd7c5eea, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: fixedUpdateBehaviors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'collisionBehaviors.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 0e7173597e7699947b8aa2f62d515cab, type: 2}
@@ -139,6 +147,10 @@ PrefabInstance:
       propertyPath: 'collisionBehaviors.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 5df4dff9f9887b446879a1938a89a7ed, type: 2}
+    - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: 'fixedUpdateBehaviors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8449283f078e6ab4b8590c52239b9af1, type: 2}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.y
       value: -0.04

@@ -14,6 +14,8 @@ namespace Game.Combat
     {
         [Header("Colliders")]
         [SerializeField] private GameObject weaponColliderObject;
+        [SerializeField] private Transform pivotPoint;
+        [SerializeField] private float orbitRadius = 0.5f;
         [SerializeField] private GameObject specialAttackCollider;
         [SerializeField] private WeaponDamageSource mainDamageSource;
         [SerializeField] private WeaponDamageSource specialDamageSource;
@@ -49,7 +51,7 @@ namespace Game.Combat
         {
             base.Update();
 
-            if (weaponManager.IsAutoAttackEnabled)
+            if (weaponManager.GetCurrentTarget()!=null)
             {
                 LookAtTarget();
             }
@@ -96,7 +98,8 @@ namespace Game.Combat
         }
 
         private void OnDamageDealt(float damage, GameObject target)
-        {          
+        {
+            Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
             //GrantGrace(graceGenerated);
         }
 
@@ -112,17 +115,35 @@ namespace Game.Combat
         private void LookAtTarget()
         {
             if (currentTarget == null) return;
+            if (weaponColliderObject == null) return;
+           
             Vector2 direction = (currentTarget.transform.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);
+            OrbitCollider(direction);
+
+
         }
 
         private void LookAtMouse()
         {
+            if(playerController == null) return;
+            if(weaponColliderObject == null) return;
+          
             Vector2 mousePosition = playerController.GetMouseWorldPosition();
             Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            //weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);
+            OrbitCollider(direction);
+
+        }
+
+        private void OrbitCollider(Vector2 direction)
+        {
+           
+            float currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float angleRad = currentAngle * Mathf.Deg2Rad;
+            Vector2 offset = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)) * orbitRadius;
+            weaponColliderObject.transform.position = pivotPoint.position + (Vector3)offset;
         }
 
         public override float GetWeaponRange()
@@ -139,7 +160,7 @@ namespace Game.Combat
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                 if (cleaveDamage > 0 && enemy != null) 
                 { 
-                    enemy.TakeDamage(cleaveDamage);
+                    enemy.TakeDamage(cleaveDamage, weaponData.weaponClass);
                 }
                 Knockback knockback = hit.GetComponent<Knockback>();
                 if (cleaveDamage> 0 && knockback != null)

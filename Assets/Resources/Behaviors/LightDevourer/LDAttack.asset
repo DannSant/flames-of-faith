@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a7abe659cc7164d9795ad43735574d, type: 3}
   m_Name: LDAttack
   m_EditorClassIdentifier: 
-  maxRange: 1.5
+  maxRange: 2
   attackCooldown: 2
   colliderObjectName: MeleeCollider

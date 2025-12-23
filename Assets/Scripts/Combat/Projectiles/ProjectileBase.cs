@@ -112,7 +112,7 @@ namespace Game.Combat.Projectiles
 
                 float totalDamage = CalculateTotalDamage();
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(enemyHealth.transform.position, totalDamage);
-                enemyHealth.TakeDamage(totalDamage);
+              
                 pierceCount--;
                 if (pierceCount <= 0)
                 {

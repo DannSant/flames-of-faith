@@ -14,6 +14,7 @@ namespace Game.AI.Behaviors
     public class BehaviorController : MonoBehaviour
     {
         public List<AIUpdateBehavior> updateBehaviors;
+        public List<AIFixedUpdateBehavior> fixedUpdateBehaviors;
         public List<AICollisionBehavior> collisionBehaviors;
         public List<AITriggerBehavior> triggerBehaviors;
         public List<AIDeathBehavior> deathBehaviors;
@@ -54,6 +55,12 @@ namespace Game.AI.Behaviors
                 behavior.Tick(context);
         }
 
+        void FixedUpdate()
+        {
+            foreach (var behavior in fixedUpdateBehaviors)
+                behavior.FixedTick(context);
+        }
+
         void OnCollisionEnter2D(Collision2D collision)
         {
             foreach (var behavior in collisionBehaviors)
@@ -76,13 +83,6 @@ namespace Game.AI.Behaviors
             Destroy(gameObject);
         }
 
-        /*private void OnDestroy()
-        {
-            foreach (var behavior in deathBehaviors)
-            {
-                behavior.OnDeath(context);
-            }
-        }*/
         private IEnumerable<AIBehavior> GetAllBehaviors()
         {
             return updateBehaviors.Cast<AIBehavior>()

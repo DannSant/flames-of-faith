@@ -198,9 +198,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 35c2e775f341b264cb217b2bd3efe2a1, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: fixedUpdateBehaviors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'collisionBehaviors.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 9f32db3e6d64de14293a66519bc74b81, type: 2}
+    - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: 'fixedUpdateBehaviors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 894fd95ddcdc91f4e8ac04c8f9dd61c2, type: 2}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.x
       value: 0.65098417

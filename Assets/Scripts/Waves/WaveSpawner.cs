@@ -94,7 +94,7 @@ namespace Game.Waves {
 
         private void SpawnTestEnemies()
         {            
-           SpawnEnemy(EnemyType.SlimeChaser);
+          
            
 
         }
@@ -240,7 +240,7 @@ namespace Game.Waves {
             }
         }
 
-        private void SpawnEnemy(EnemyType type)
+        public void SpawnEnemy(EnemyType type)
         {
             if (!enemyPrefabs.TryGetValue(type, out var prefab))
             {

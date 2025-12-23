@@ -29,6 +29,11 @@ namespace Game.AI.Behaviors
         public abstract void Tick(BehaviorContext context);
     }
 
+    public abstract class AIFixedUpdateBehavior : AIBehavior
+    {
+        public abstract void FixedTick(BehaviorContext context);
+    }
+
     public abstract class AICollisionBehavior : AIBehavior
     {
         public abstract void HandleCollision(Collision2D collision, BehaviorContext context);

@@ -111,12 +111,14 @@ namespace Game.Combat
             if (damageable != null)
             {
                 float totalDamage = CalculateTotalDamage();
-                damageable.TakeDamage(totalDamage);
+                damageable.TakeDamage(totalDamage, weaponData.weaponClass);
 
-                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(
-                    collision.transform.position,
-                    totalDamage
-                );
+                if (damageable.ShouldSpawnDamageNumber())
+                {
+                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage    );
+                }
+
+                
               
                 OnDamageDealtEvent?.Invoke(totalDamage, collision.gameObject);
 

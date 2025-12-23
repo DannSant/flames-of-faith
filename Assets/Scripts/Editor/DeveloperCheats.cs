@@ -1,5 +1,6 @@
 
 using Codice.Client.BaseCommands;
+using Game.AI;
 using Game.Effects;
 using Game.GameSettings;
 using Game.Map;
@@ -246,6 +247,48 @@ public class DeveloperCheats
         Debug.Log("Generated map with " + map.Count + " layers.");
         Debug.Log(MapDebugUtils.MapToString(map));
         mapToTest = map;
+    }
+
+    [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]
+    public static void SpawnFlameShooter()
+    {
+        var waveSpawner = WaveSpawner.Instance;
+        if (waveSpawner != null)
+        {
+            waveSpawner.SpawnEnemy(EnemyType.FlameShooter);
+        }
+        else 
+        {
+            Debug.LogError("WaveSpawner instance not found.");
+        }
+    }
+
+    [MenuItem("DevTools/Spawn Enemies/Dreko Eye")]
+    public static void SpawnDrekoEye()
+    {
+        var waveSpawner = WaveSpawner.Instance;
+        if (waveSpawner != null)
+        {
+            waveSpawner.SpawnEnemy(EnemyType.DrekoEye);
+        }
+        else
+        {
+            Debug.LogError("WaveSpawner instance not found.");
+        }
+    }
+
+    [MenuItem("DevTools/Spawn Enemies/Light Devourer")]
+    public static void SpawnLightDevourer()
+    {
+        var waveSpawner = WaveSpawner.Instance;
+        if (waveSpawner != null)
+        {
+            waveSpawner.SpawnEnemy(EnemyType.LightDevourerAttacker);
+        }
+        else
+        {
+            Debug.LogError("WaveSpawner instance not found.");
+        }
     }
 
 }
