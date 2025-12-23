@@ -10,6 +10,7 @@ namespace Game.Shop
 {
     public class ShopKeeper : MonoBehaviour
     {
+        [SerializeField] private int itemCount = 10;
         public List<Effect> items;
 
         public event System.Action<bool, List<Effect>> onShopWindowToggle;
@@ -33,7 +34,7 @@ namespace Game.Shop
         private void BuildItemList()
         {
             var availableEffects = EffectsDatabaseProvider.Instance.GetAvailableEffects();
-            items = availableEffects.OrderBy(x => Random.value).Take(5).ToList();
+            items = availableEffects.OrderBy(x => Random.value).Take(itemCount).ToList();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

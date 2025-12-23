@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afcb5faceb293b44a8d8d6d718c11d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minCurrencyAmount: 15
-  maxCurrencyAmount: 25
+  minCurrencyAmount: 25
+  maxCurrencyAmount: 35
   currencyPerWave: 2

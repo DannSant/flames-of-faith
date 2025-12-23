@@ -24,6 +24,8 @@ MonoBehaviour:
     weight: 3
   - type: 1
     weight: 2
+  - type: 5
+    weight: 2
   longCooldown: 3
   amountOfEnemiesWithLongCooldown: 10
   regularCooldown: 2

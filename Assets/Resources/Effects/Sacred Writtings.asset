@@ -35,7 +35,7 @@ MonoBehaviour:
   sellPrice: 15
   effectStatModifiers:
   - stat: 0
-    value: 10
+    value: 0.1
     type: 1
   - stat: 5
     value: 10

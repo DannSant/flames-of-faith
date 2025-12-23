@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\misc\\destructable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\misc\\destructable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\damagesourcebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\damagesourcebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\enemyexplotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\enemyexplotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -90,7 +102,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,7 +110,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UpgradeManager.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAuwLsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T05:01:47.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Destructable.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Misc\\Destructable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Misc\\Destructable.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Misc\\Destructable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Misc\\Destructable.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowCcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T04:56:11.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DamageSourceBase.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\DamageSourceBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\DamageSourceBase.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\DamageSourceBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\DamageSourceBase.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAHEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T04:41:16.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "BowWeapon.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\BowWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\BowWeapon.cs",
@@ -111,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EnemyExplotion.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\EnemyExplotion.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\EnemyExplotion.cs",
@@ -124,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "AIBehaviorSpawnExplotionOnDeath.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorSpawnExplotionOnDeath.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorSpawnExplotionOnDeath.cs",
@@ -137,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "EnemyHealth.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\EnemyHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\EnemyHealth.cs",
@@ -150,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "AIBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehavior.cs",
@@ -163,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "RoamerBounceBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\RoamerBounceBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\RoamerBounceBehavior.cs",
@@ -175,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "RoamerBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\RoamerBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\RoamerBehavior.cs",
@@ -187,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "KnockbackBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\KnockbackBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\KnockbackBehavior.cs",
@@ -199,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "FlipTowardPlayerBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\FlipTowardPlayerBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\FlipTowardPlayerBehavior.cs",
@@ -211,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "DropExperienceOnDeathBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\DropExperienceOnDeathBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\DropExperienceOnDeathBehavior.cs",
@@ -224,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "DamageOnCollisionBehavior.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\DamageOnCollisionBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\DamageOnCollisionBehavior.cs",
@@ -236,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "AIBehaviorShootBurst.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShootBurst.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShootBurst.cs",
@@ -248,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "AIBehaviorRoamOnAnimIntervals.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorRoamOnAnimIntervals.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorRoamOnAnimIntervals.cs",
@@ -260,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "AIBehaviorMoveToSnapshot.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorMoveToSnapshot.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorMoveToSnapshot.cs",
@@ -272,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "AIBehaviorChaseOnAnimIntervals.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaseOnAnimIntervals.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaseOnAnimIntervals.cs",
@@ -284,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AIBehaviorShooter.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
@@ -297,7 +348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "AIMeleeAttacker.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIMeleeAttacker.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIMeleeAttacker.cs",
@@ -309,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "AIBehaviorChaserMovement.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaserMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaserMovement.cs",
@@ -321,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "AIBehaviorChaserLogic.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaserLogic.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaserLogic.cs",
@@ -333,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "DeveloperCheats.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",

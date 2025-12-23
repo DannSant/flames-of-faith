@@ -111,7 +111,7 @@ namespace Game.Combat
             if (damageable != null)
             {
                 float totalDamage = CalculateTotalDamage();
-                damageable.TakeDamage(totalDamage, weaponData.weaponClass);
+                damageable.TakeDamage(totalDamage, weaponClass);
 
                 if (damageable.ShouldSpawnDamageNumber())
                 {

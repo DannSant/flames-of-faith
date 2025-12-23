@@ -126,5 +126,10 @@ namespace Game.Combat
         {
             return shouldSpawnDamageNumbers;
         }
+
+        public bool ShouldSpawnEffectObject()
+        {
+            return true;
+        }
     }
 }

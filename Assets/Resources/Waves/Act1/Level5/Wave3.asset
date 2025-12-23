@@ -16,12 +16,12 @@ MonoBehaviour:
   cooldownDuration: 20
   enemies: []
   enemyPool:
-  - type: 0
+  - type: 5
     weight: 8
   - type: 2
     weight: 1
-  - type: 1
+  - type: 0
     weight: 1
-  longCooldown: 1
+  longCooldown: 3
   amountOfEnemiesWithLongCooldown: 5
-  regularCooldown: 0.75
+  regularCooldown: 1

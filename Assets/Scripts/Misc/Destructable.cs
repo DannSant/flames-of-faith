@@ -18,7 +18,7 @@ namespace Game.Misc
 
         public void TakeDamage(float damage, WeaponClass weaponClass)
         {
-            Debug.Log($"Destructable took {damage} damage of type {weaponClass}");
+            
             if (immuneDamageTypes.Contains(weaponClass))
             {
                 return;
@@ -26,7 +26,7 @@ namespace Game.Misc
 
             currentHealth -= damage;
 
-            Debug.Log($"currentHealth {weaponClass}");
+          
 
             if (currentHealth>0)
             {
@@ -37,11 +37,16 @@ namespace Game.Misc
             {
                 Instantiate(destroyVFX, transform.position, Quaternion.identity);
             }
-            Debug.Log($"destroy");
+        
             Destroy(gameObject);
         }
 
         public bool ShouldSpawnDamageNumber()
+        {
+            return false;
+        }
+
+        public bool ShouldSpawnEffectObject()
         {
             return false;
         }

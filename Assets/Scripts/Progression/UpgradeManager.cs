@@ -185,7 +185,7 @@ namespace Game.Progression
 
             for (int i = 0; i < levelsGainedThisWave; i++)
             {
-                List<StatType> selectedStats = GetRandomStats(3); // Or adjust # of choices here
+                List<StatType> selectedStats = GetRandomStats(4); // Or adjust # of choices here
                 List<StatValuePair> upgradeOptions = new();
 
                 foreach (var stat in selectedStats)

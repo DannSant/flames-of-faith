@@ -92,6 +92,13 @@ namespace Game.Effects.EffectBehaviors
 
         private void HandleDamageDealt(float damage, GameObject target)
         {
+            var damageable = target.GetComponent<IDamageable>();
+
+            if (damageable == null) { return; }
+
+            if (!damageable.ShouldSpawnEffectObject()) { return; }
+               
+
             // Roll chance
             float roll = Random.Range(0f, 1f);
             if (roll > chanceToSpawn)

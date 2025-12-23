@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23460fd5d75447f4caa495656b066c3c, type: 3}
   m_Name: SlimeExplosiveExpDrop
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.DropExperienceOnDeathBehavior
-  experienceTokenPrefab: {fileID: 0}
+  experienceTokenPrefab: {fileID: 776527580442547698, guid: a993aa2d209602d49860f5c468285013, type: 3}
   dropChance: 0.8
