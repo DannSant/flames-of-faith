@@ -11,7 +11,7 @@ namespace Game.AI.Behaviors
         {
             var explotionObj = Instantiate(explosionPrefab, context.enemyGameObject.transform.position, Quaternion.identity);
 
-            explotionObj.Initialize(GetDamageAmount(context));
+            explotionObj.Initialize(GetRangedDamageAmount(context));
         }
     }
 }

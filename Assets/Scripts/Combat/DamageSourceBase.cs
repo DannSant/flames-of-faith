@@ -41,6 +41,9 @@ namespace Game.Combat
         [SerializeField] private bool applyKnockback = false;
         [SerializeField] private float knockbackForce = 5f;
 
+        [Header("Lifesteal")]
+        [SerializeField] private bool canTriggerLifesteal = true;
+
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
         private float stayTimer = 0f;
@@ -111,7 +114,7 @@ namespace Game.Combat
             if (damageable != null)
             {
                 float totalDamage = CalculateTotalDamage();
-                damageable.TakeDamage(totalDamage, weaponClass);
+                damageable.TakeDamage(new DamageRequest(totalDamage,weaponClass, canTriggerLifesteal));
 
                 if (damageable.ShouldSpawnDamageNumber())
                 {
@@ -184,7 +187,7 @@ namespace Game.Combat
             }
            
             return DamageCalculator.CalculateTotalDamage(
-                new DamageRequest(
+                new DamageCalculationRequest(
                     baseDamage,
                     effectStore,
                     effectID,

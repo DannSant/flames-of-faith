@@ -176,11 +176,7 @@ namespace Game.Combat {
             if (Random.value <= chance)
             {                
                 float healAmount = Mathf.Clamp(lifesteal * lifestealAmountPerStat, minLifestealDamageThreshold, maxLifestealDamageThreshold);
-                Heal(healAmount);
-                Debug.Log($"[PlayerHealth] Lifesteal activated! Healed for {healAmount} health.");
-            }else
-            {
-                Debug.Log($"[PlayerHealth] Lifesteal did not activate. Current Chance: {chance}");
+                Heal(healAmount);               
             }
         }
 

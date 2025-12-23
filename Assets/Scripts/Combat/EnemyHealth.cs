@@ -48,8 +48,15 @@ namespace Game.Combat
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
-        public void TakeDamage(float damage, WeaponClass weaponClass)
+        public void TakeDamage(DamageRequest damageRequest)
         {
+            if(damageRequest == null)
+            {
+                Debug.LogWarning("DamageRequest is null!");
+                return;
+            }
+            float damage = damageRequest.baseDamage;
+
             if (damagedSFX != null)
             {
                 AudioManager.Instance.PlayLowVolumeSFX(damagedSFX, true);
@@ -70,7 +77,8 @@ namespace Game.Combat
                 InflictExtraDamage(damage);
             }
 
-            if(playerHealth != null)
+            bool canTriggerLifesteal = damageRequest.canTriggerLifeSteal;
+            if (playerHealth != null && canTriggerLifesteal)
             {
                 playerHealth.Lifesteal(damage);
             }

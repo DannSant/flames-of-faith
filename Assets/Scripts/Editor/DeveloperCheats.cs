@@ -233,6 +233,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Fire Arrows")]
+    public static void GiveFireArrows()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "222676b1-9b64-480a-83c6-885b121930c2";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Map/Generate Map")]
     public static void TestgenerateMap()
     {

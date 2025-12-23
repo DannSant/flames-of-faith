@@ -160,7 +160,7 @@ namespace Game.Combat
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
                 if (cleaveDamage > 0 && enemy != null) 
                 { 
-                    enemy.TakeDamage(cleaveDamage, weaponData.weaponClass);
+                    enemy.TakeDamage(new DamageRequest(cleaveDamage, weaponData.weaponClass,false));
                 }
                 Knockback knockback = hit.GetComponent<Knockback>();
                 if (cleaveDamage> 0 && knockback != null)

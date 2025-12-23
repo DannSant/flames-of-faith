@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Combat
 {
-    public class DamageRequest
+    public class DamageCalculationRequest
     {
         private float damageAmount;
         private EffectStore effectStore;
@@ -13,7 +13,7 @@ namespace Game.Combat
         private WeaponClass weaponClass;
         private PlayerProgression playerProgression;
         private float weaponScaleDamage;
-        public DamageRequest(float damageAmount, EffectStore effectStore, string effectID, WeaponClass weaponClass, PlayerProgression playerProgression, float weaponScaleDamage)
+        public DamageCalculationRequest(float damageAmount, EffectStore effectStore, string effectID, WeaponClass weaponClass, PlayerProgression playerProgression, float weaponScaleDamage)
         {
             this.damageAmount = damageAmount;
             this.effectStore = effectStore;
@@ -41,7 +41,7 @@ namespace Game.Combat
 
         private static float graceDamageMultiplier = 0.1f;
 
-        public static float CalculateTotalDamage(DamageRequest damageRequest)
+        public static float CalculateTotalDamage(DamageCalculationRequest damageRequest)
         {
             if (playerGrace == null)
             {

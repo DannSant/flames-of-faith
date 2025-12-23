@@ -16,9 +16,17 @@ namespace Game.Misc
             currentHealth = health;
         }
 
-        public void TakeDamage(float damage, WeaponClass weaponClass)
+        public void TakeDamage(DamageRequest damageRequest)
         {
-            
+            if (damageRequest == null)
+            {
+                Debug.LogWarning("DamageRequest is null!");
+                return;
+            }
+
+            float damage = damageRequest.baseDamage;
+            WeaponClass weaponClass = damageRequest.originWeaponClass;
+
             if (immuneDamageTypes.Contains(weaponClass))
             {
                 return;

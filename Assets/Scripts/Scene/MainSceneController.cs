@@ -105,6 +105,7 @@ namespace Game.Scene
             yield return StartCoroutine(FadeIn());
 
             CleanupSceneObjects();
+            PlayerManager.Instance.UnbindWaveEventsIfReady();
 
             //Spawn player
             PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, GameSession.Instance.IsNewRun);

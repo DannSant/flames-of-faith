@@ -41,9 +41,9 @@ namespace Game.Combat
             {
 
                 //float damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;
-                var damageRequest = new DamageRequest(weaponData.baseDamage, null, "", WeaponClass.Melee, playerProgression, weaponData.attackScale);
+                var damageRequest = new DamageCalculationRequest(weaponData.baseDamage, null, "", WeaponClass.Melee, playerProgression, weaponData.attackScale);
                 float damageAmount = DamageCalculator.CalculateTotalDamage(damageRequest);
-                damageableObject.TakeDamage(damageAmount, weaponData.weaponClass);
+                damageableObject.TakeDamage(new DamageRequest(damageAmount, weaponData.weaponClass, true));
 
                 if (damageableObject.ShouldSpawnDamageNumber())
                 {

@@ -10,9 +10,6 @@ using Game.Items;
 
 namespace Game.Progression
 {
-    // TODO Wire up events.
-    // WaveEventManager should listen to WaveSpawner and call UpgradeManager to get upgrade options or ItemBag if we have items
-    // Refactor this component to handle calling UpgradeManager from WaveEventManager
     public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler
     {
         private List<StatType> eligibleUpgradeStats = new();       

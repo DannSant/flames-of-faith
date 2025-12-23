@@ -31,7 +31,7 @@ namespace Game.Combat.Elemental
             // spawn damage numbers
             DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(enemyHealth.transform.position,finalDamage );
 
-            enemyHealth.TakeDamage(finalDamage, WeaponClass.Magic);
+            enemyHealth.TakeDamage(new DamageRequest(finalDamage, WeaponClass.Magic, false));
         }
 
         public override void Initialize(float duration, float strength)

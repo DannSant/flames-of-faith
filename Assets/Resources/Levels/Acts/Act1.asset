@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
   - {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
   middleLayers:
-  - combatCount: 1
+  - combatCount: 0
     extraCount: 1
   - combatCount: 1
     extraCount: 0
@@ -48,4 +48,10 @@ MonoBehaviour:
     extraCount: 0
   - combatCount: 1
     extraCount: 0
+  - combatCount: 1
+    extraCount: 1
+  - combatCount: 1
+    extraCount: 0
+  - combatCount: 0
+    extraCount: 1
   possibleExtraLevels: 0100000002000000

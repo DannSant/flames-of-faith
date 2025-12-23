@@ -65,7 +65,7 @@ namespace Game.Combat
         private float CalculateTotalDamage()
         {
             return DamageCalculator.CalculateTotalDamage(
-                new DamageRequest(
+                new DamageCalculationRequest(
                     baseDamage,
                     effectStore,
                     effectID,

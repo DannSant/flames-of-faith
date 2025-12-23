@@ -56,7 +56,7 @@ namespace Game.AI
                 Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
                 GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
               
-                var projectileDamage = projectile.GetComponent<EnemyDamage>();
+                var projectileDamage = projectile.GetComponent<EnemyTriggerDamage>();
                 if (projectileDamage != null)
                 {
                     projectileDamage.SetDamageAmount(Mathf.CeilToInt(damage));
