@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/RoamerBounce")]
+    [CreateAssetMenu(menuName = "Behaviors/On Collision/RoamerBounce")]
     public class RoamerBounceBehavior : AICollisionBehavior
     {
         public override void HandleCollision(Collision2D collision, BehaviorContext context)

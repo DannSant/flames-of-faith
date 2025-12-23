@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60ef7291fd12ed44a3a9eb2fed7e817, type: 3}
+  m_Name: SlimeExplosiveExplode
+  m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorSpawnExplotionOnDeath
+  explosionPrefab: {fileID: 6751875486150776858, guid: eef18743c083d114a8c63fcf517cc101, type: 3}

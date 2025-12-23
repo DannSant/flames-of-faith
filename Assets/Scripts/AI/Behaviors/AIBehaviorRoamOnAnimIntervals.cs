@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/Interval Roamer")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/Interval Roamer")]
     public class AIBehaviorRoamOnAnimIntervals : AIUpdateBehavior, IAnimationEventReceiver
     {
         public void OnAnimationEventEnd(BehaviorContext context, string eventName)

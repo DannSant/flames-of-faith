@@ -9,7 +9,7 @@ namespace Game.AI.Behaviors
         public bool isChasing = true;
        
     }
-    [CreateAssetMenu(menuName = "Behaviors/ChaserLogic")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/ChaserLogic")]
     public class AIBehaviorChaserLogic : AIUpdateBehavior
     {
         [SerializeField] private float minRange = 0f;

@@ -291,4 +291,18 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Spawn Enemies/Explosive Slime")]
+    public static void SpawnExplosiveSlime()
+    {
+        var waveSpawner = WaveSpawner.Instance;
+        if (waveSpawner != null)
+        {
+            waveSpawner.SpawnEnemy(EnemyType.SlimeExplosive);
+        }
+        else
+        {
+            Debug.LogError("WaveSpawner instance not found.");
+        }
+    }
+
 }

@@ -7,10 +7,9 @@ namespace Game.AI.Behaviors
     {
         public float chaseTimer = 0f;
     }
-    [CreateAssetMenu(menuName = "Behaviors/Interval Chaser")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/Interval Chaser")]
     public class AIBehaviorChaseOnAnimIntervals : AIUpdateBehavior, IAnimationEventReceiver
-    {
-        [SerializeField] private float chaseCooldown = 0.667f;
+    {       
 
         public void OnAnimationEventEnd(BehaviorContext context, string eventName)
         {

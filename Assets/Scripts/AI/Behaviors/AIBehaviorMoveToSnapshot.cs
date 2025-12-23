@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/MoveToSnapshot")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/MoveToSnapshot")]
     public class AIBehaviorMoveToSnapshot : AIUpdateBehavior
     {
         [SerializeField] private float speed = 2f;

@@ -5,7 +5,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/Knockback On Collision")]
+    [CreateAssetMenu(menuName = "Behaviors/On Collision/Knockback On Collision")]
     public class KnockbackBehavior : AICollisionBehavior
     {
         [SerializeField] private float force = 5f;

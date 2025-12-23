@@ -11,7 +11,7 @@ namespace Game.AI.Behaviors
         public bool isAttacking = false;
         public Collider2D meleeCollider;
     }
-    [CreateAssetMenu(menuName = "Behaviors/MeleeAttacker")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/MeleeAttacker")]
     public class AIMeleeAttacker : AIUpdateBehavior, IAnimationEventReceiver
     {
         [SerializeField] private float maxRange = 7f;

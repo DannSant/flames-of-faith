@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/Flip Toward Player")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/Flip Toward Player")]
     public class FlipTowardPlayerBehavior : AIUpdateBehavior
     {
         [Tooltip("If true, flip opposite (useful for weird pivots)")]

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Game.AI.Behaviors
 {
 
-    [CreateAssetMenu(menuName = "Behaviors/Drop Exp On Death")]
+    [CreateAssetMenu(menuName = "Behaviors/On Death/Drop Exp On Death")]
     public class DropExperienceOnDeathBehavior : AIDeathBehavior
     {
         [SerializeField] private GameObject experienceTokenPrefab;

@@ -113,11 +113,13 @@ namespace Game.Combat
         private IEnumerator DeathRoutine()
         {
             yield return new WaitForSeconds(deathDelay);
-            var instancedVfx = Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
+            if (deathVfxPrefab != null)
+            {
+                var instancedVfx = Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
+                GameObject.Destroy(instancedVfx, 2f);
+            }           
             //GameObject.Destroy(gameObject);
             onDeath?.Invoke();
-            GameObject.Destroy(instancedVfx, 2f); 
-
         }
 
         public bool ShouldSpawnDamageNumber()

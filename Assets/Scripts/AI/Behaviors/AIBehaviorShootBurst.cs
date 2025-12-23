@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/ShootBurst")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/ShootBurst")]
     public class AIBehaviorShootBurst : AIUpdateBehavior, IAnimationEventReceiver
     {
         [SerializeField] private int shootTimes = 3;

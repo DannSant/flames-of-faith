@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: enemyType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5925409789601643326, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: healthPerWave
       value: 15
       objectReference: {fileID: 0}
@@ -76,9 +80,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3825661218281620947, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2fa3e0fb92416bc4fa8ae8bf0093602c, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathBehaviors.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: updateBehaviors.Array.size
@@ -87,7 +95,11 @@ PrefabInstance:
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'deathBehaviors.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 8cbea71d29fb1914883a3b0899ffed2f, type: 2}
+      objectReference: {fileID: 11400000, guid: d04d955b12e15134d973370036bf44bc, type: 2}
+    - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: 'deathBehaviors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1cdf2fd4794727b44ba773ed034c19e7, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: collisionBehaviors.Array.size
       value: 1
@@ -95,11 +107,11 @@ PrefabInstance:
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'updateBehaviors.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 81c9e25c30925f647be573cb96a1f7c5, type: 2}
+      objectReference: {fileID: 11400000, guid: 3759c22368369824cad214678f3d5bae, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'collisionBehaviors.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07d8a2d4afde7f5479e80752009bae19, type: 2}
+      objectReference: {fileID: 11400000, guid: d4a07ecf555d8c9458e1e3d4206909ce, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'collisionBehaviors.Array.data[1]'
       value: 
@@ -128,6 +140,10 @@ PrefabInstance:
       propertyPath: damagedSFX
       value: 
       objectReference: {fileID: 8300000, guid: a1d6b078dc21a3440a80f0672621638a, type: 3}
+    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: deathVfxPrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Sprite
       value: 

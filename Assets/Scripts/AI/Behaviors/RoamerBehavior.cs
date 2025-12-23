@@ -9,7 +9,7 @@ namespace Game.AI.Behaviors
         public Vector2 moveDirection = Vector2.zero;
     }
 
-    [CreateAssetMenu(menuName = "Behaviors/Roamer")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/Roamer")]
     public class RoamerBehavior : AIUpdateBehavior
     {
         [SerializeField] private float directionChangeInterval = 2f;

@@ -11,7 +11,7 @@ namespace Game.AI.Behaviors
         public bool isShooting = false;
     }
 
-    [CreateAssetMenu(menuName = "Behaviors/Shooter")]
+    [CreateAssetMenu(menuName = "Behaviors/On Update/Shooter")]
     public class AIBehaviorShooter : AIUpdateBehavior, IAnimationEventReceiver
     {
         [SerializeField] private float minRange = 5f;

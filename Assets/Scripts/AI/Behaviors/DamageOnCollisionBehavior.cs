@@ -11,7 +11,7 @@ namespace Game.AI.Behaviors
         public float lastDamageTime = 0;        
     }
 
-    [CreateAssetMenu(menuName = "Behaviors/Damage On Collision")]
+    [CreateAssetMenu(menuName = "Behaviors/On Collision/Damage On Collision")]
     public class DamageOnCollisionBehavior : AICollisionBehavior
     {
         [SerializeField] private float cooldownDuration = 1f;      

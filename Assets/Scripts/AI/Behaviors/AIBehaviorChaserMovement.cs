@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.AI.Behaviors
 {
-    [CreateAssetMenu(menuName = "Behaviors/ChaserMovement")]
+    [CreateAssetMenu(menuName = "Behaviors/On Fixed Update/ChaserMovement")]
     public class AIBehaviorChaserMovement : AIFixedUpdateBehavior
     {
         public override void FixedTick(BehaviorContext context)

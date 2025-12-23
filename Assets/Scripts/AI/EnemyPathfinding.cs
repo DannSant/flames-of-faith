@@ -1,8 +1,10 @@
 using Game.Misc;
+using System;
 using UnityEngine;
 
 namespace Game.AI
 {
+    [Obsolete("use behaviors instead")]
     public class EnemyPathfinding : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 5f;
