@@ -22,6 +22,13 @@ public class DeveloperCheats
         WaveSpawner.Instance.GoToNextLevel();
     }
 
+    [MenuItem("DevTools/Level/Skip wave")]
+    public static void SkipWave()
+    {
+        PauseManager.Instance.SetPause(false);
+        WaveSpawner.Instance.ReduceWaveTimer();
+    }
+
     [MenuItem("DevTools/Progression/Give 5 XP")]
     public static void IncreaseGive5XP()
     {

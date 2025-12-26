@@ -168,6 +168,14 @@ namespace Game.Waves {
             }
         }
 
+        public void ReduceWaveTimer()
+        {
+            if (waveInProgress)
+            {
+                waveTimer = 1f;
+            }
+        }
+
         private void StartNextWave()
         {
             if (testMode) return;

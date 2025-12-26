@@ -3,40 +3,28 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\upgrademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\combat\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\enemytriggerdamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\enemytriggerdamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\enemyexplotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\enemyexplotion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ai\\behaviors\\aibehaviorspawnexplotionondeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aibehaviorspawnexplotionondeath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ai\\behaviors\\aibehaviorshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aibehaviorshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ai\\behaviors\\aibehaviorshootburst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aibehaviorshootburst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\objectcounttracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\objectcounttracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,99 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpgradeManager.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\UpgradeManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:57:04.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerManager.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAkwFgAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:55:29.863Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EnemyTriggerDamage.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\EnemyTriggerDamage.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\EnemyTriggerDamage.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\EnemyTriggerDamage.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Combat\\EnemyTriggerDamage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:53:36.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "EnemyExplotion.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\EnemyExplotion.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\EnemyExplotion.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\EnemyExplotion.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AI\\EnemyExplotion.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAwwDoAAABRAAAAAAAAAA==",
+              "Title": "ObjectCountTracker.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\ObjectCountTracker.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\ObjectCountTracker.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\ObjectCountTracker.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scene\\ObjectCountTracker.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAWwDoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:51:25.037Z",
+              "WhenOpened": "2025-12-26T02:20:45.769Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AIBehaviorSpawnExplotionOnDeath.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorSpawnExplotionOnDeath.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorSpawnExplotionOnDeath.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorSpawnExplotionOnDeath.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorSpawnExplotionOnDeath.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:50:59.844Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AIBehaviorShooter.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwE8AAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:48:23.075Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AIBehaviorShootBurst.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShootBurst.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShootBurst.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShootBurst.cs",
-              "RelativeToolTip": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShootBurst.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAcwG8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-23T18:48:22.133Z"
             },
             {
               "$type": "Document",
@@ -148,22 +61,61 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\MainSceneController.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scene\\MainSceneController.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGsAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-23T17:59:26.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
+              "Title": "WaveSpawner.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAYwKoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T18:52:10.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EnemyHealth.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\EnemyHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\EnemyHealth.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\EnemyHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\EnemyHealth.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAQwF4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:50:24.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scene\\PlayerManager.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAkwFgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T18:55:29.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DeveloperCheats.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAwwPEAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T01:47:22.327Z"
+              "WhenOpened": "2025-12-17T01:47:22.327Z",
+              "EditorCaption": ""
             }
           ]
         }

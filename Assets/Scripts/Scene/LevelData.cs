@@ -14,5 +14,7 @@ namespace Game.Scene
         public int actNumber = 1;
         public bool IsFirstLevel;
         public LevelType type;
+
+        public bool debugShouldPrintObjectCountReport = false;
     }
 }

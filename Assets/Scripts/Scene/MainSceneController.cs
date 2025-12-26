@@ -24,6 +24,8 @@ namespace Game.Scene
 
         [Header("Other")]
         [SerializeField] private GameObject startingCamera;
+        [Tooltip("If enabled it captures number of objects grouped by name when loading a level. If the level has this debug feature enabled it will print a report with the names and numbers to see which objects are overgrowing in count")]
+        [SerializeField] private bool debugObjectCountTracking = false;
 
         private readonly List<string> nonGameplaySceneNames = new List<string>
         {
@@ -148,6 +150,18 @@ namespace Game.Scene
             }
 
             OnGameplayInitialSetup?.Invoke();
+
+            //debug
+            if (debugObjectCountTracking)
+            {
+                ObjectCountTracker.Snapshot(levelData.SceneName);
+
+                if (levelData.debugShouldPrintObjectCountReport)
+                {
+                    ObjectCountTracker.PrintReport();
+                }
+            }
+            
 
             yield return StartCoroutine(FadeOut());
         }

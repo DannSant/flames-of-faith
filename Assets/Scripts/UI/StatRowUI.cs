@@ -51,5 +51,11 @@ namespace Game.UI
             string description = StatUpgradeDatabase.Instance.GetStatDescription(statType);
             generalTooltipPaneUI?.ShowTooltip(description, statName);
         }
+
+        public void UpdateValue(int statValue, Color color)
+        {
+            statValueText.text = statValue.ToString();
+            statValueText.color = color;
+        }
     }
 }

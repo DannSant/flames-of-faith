@@ -158,6 +158,7 @@ namespace Game.UI
             currencyText.text = currencyWallet != null ? currencyWallet.CurrencyAmount.ToString() : "0";
         }
 
+        //TODO: Optimize to only update changed effects and not destroy all UI elements
         private void UpdateEffectsDisplay()
         {
             //Clear previous effect display

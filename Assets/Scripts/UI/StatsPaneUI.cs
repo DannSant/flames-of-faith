@@ -14,6 +14,8 @@ namespace Game.UI
 
         private PlayerProgression playerProgression;
 
+        private readonly Dictionary<StatType, StatRowUI> rows = new();
+
         private void Start()
         {
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
@@ -50,7 +52,7 @@ namespace Game.UI
             }
         }
 
-        public void ShowStatsWindow(List<List<StatValuePair>> _) 
+        /*public void ShowStatsWindow(List<List<StatValuePair>> _) 
         {
             //Show panel
             contentPanel.SetActive(true);
@@ -73,11 +75,39 @@ namespace Game.UI
                 StatRowUI row = Instantiate(statRowPrefab, contentPanel.transform);
                 row.Initialize(statName, statValue, color, kvp.Key);
             }
+        }*/
+        public void ShowStatsWindow(List<List<StatValuePair>> _)
+        {
+            contentPanel.SetActive(true);
+            backgroundPanel.SetActive(true);
+
+            var allStats = playerProgression.GetAllCurrentStats();
+
+            foreach (var kvp in allStats)
+            {
+                if (rows.ContainsKey(kvp.Key))
+                    continue;
+
+                var row = Instantiate(statRowPrefab, contentPanel.transform);
+                row.Initialize(
+                    StatDisplayNameHelper.GetDisplayName(kvp.Key),
+                    kvp.Value,
+                    getTextColor(kvp.Value),
+                    kvp.Key
+                );
+
+                rows[kvp.Key] = row;
+            }
         }
+
 
         private void ShowUpdatedStats(StatType statType, int value)
         {
-            ShowStatsWindow(null);
+            //ShowStatsWindow(null);
+            if (!rows.TryGetValue(statType, out var row))
+                return;
+
+            row.UpdateValue(value, getTextColor(value));
         }
 
         

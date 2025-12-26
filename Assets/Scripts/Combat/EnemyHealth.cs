@@ -41,6 +41,11 @@ namespace Game.Combat
             playerHealth = Scene.PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
         }
 
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
+        }
+
         public void SetMaxHealth(int amount)
         {
             maxHealth = amount;
@@ -87,7 +92,7 @@ namespace Game.Combat
 
         private void InflictExtraDamage(float damage)
         {
-            float extraDamage = damage * (extraDamageTakenPercentage);
+            float extraDamage = Mathf.Max(damage * (extraDamageTakenPercentage),1f);
             currentHealth -= damage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
             healthbar.SetHealth(currentHealth, maxHealth);
@@ -125,8 +130,7 @@ namespace Game.Combat
             {
                 var instancedVfx = Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
                 GameObject.Destroy(instancedVfx, 2f);
-            }           
-            //GameObject.Destroy(gameObject);
+            }          
             onDeath?.Invoke();
         }
 
