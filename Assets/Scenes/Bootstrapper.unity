@@ -514,6 +514,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   mainMenuMusic: {fileID: 8300000, guid: 9bb8cba9b08dff64b849ef0d84f8a1ea, type: 3}
   startingCamera: {fileID: 362816607}
+  debugObjectCountTracking: 1
 --- !u!4 &845686362
 Transform:
   m_ObjectHideFlags: 0

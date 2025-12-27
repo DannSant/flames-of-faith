@@ -49,13 +49,23 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Progression/Give 200 XP")]
+    public static void IncreaseGive200XP()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+        if (playerProgression != null)
+        {
+            playerProgression.AddExperience(200);
+        }
+    }
+
     [MenuItem("DevTools/Stats/Increase Max Health")]
     public static void IncreaseMaxHealth()
     {
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression != null)
         {
-            playerProgression.UpdateStat(StatType.MaxHealth, 10);
+            playerProgression.UpdateStat(StatType.MaxHealth, 30);
         }
     }
 
@@ -65,7 +75,7 @@ public class DeveloperCheats
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression!=null)
         {
-            playerProgression.UpdateStat(StatType.HealthRegen, 1);
+            playerProgression.UpdateStat(StatType.HealthRegen, 10);
         }
     }
 
@@ -75,7 +85,17 @@ public class DeveloperCheats
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression != null)
         {
-            playerProgression.UpdateStat(StatType.MeleeDamage, 1);
+            playerProgression.UpdateStat(StatType.MeleeDamage, 10);
+        }
+    }
+
+    [MenuItem("DevTools/Stats/Increase Ranged Damage")]
+    public static void IncreaseRangedDamage()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.RangedDamage, 10);
         }
     }
 
@@ -85,7 +105,7 @@ public class DeveloperCheats
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression != null)
         {
-            playerProgression.UpdateStat(StatType.SkillDuration, 1);
+            playerProgression.UpdateStat(StatType.SkillDuration, 10);
         }
     }
 
@@ -95,7 +115,7 @@ public class DeveloperCheats
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression != null)
         {
-            playerProgression.UpdateStat(StatType.LifeSteal, 1);
+            playerProgression.UpdateStat(StatType.LifeSteal, 10);
         }
     }
 

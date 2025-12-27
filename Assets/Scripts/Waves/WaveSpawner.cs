@@ -23,6 +23,9 @@ namespace Game.Waves {
         [SerializeField] private WaveDatabase waveDatabase;
         [SerializeField] private float graceRemovedPerWave = 1f;
 
+        [Header("Spawn prefabs")]
+        [SerializeField] private EnemySpawnPortal spawnPortalPrefab;
+
         [Header("Testing Settings")]
         [SerializeField]
         private bool testMode = false;
@@ -288,12 +291,29 @@ namespace Game.Waves {
                 Debug.LogWarning("Could not find spawn point far enough from player.");
             }
 
-            GameObject enemyGO = Instantiate(prefab, spawnPos, Quaternion.identity);
-            enemyGO.transform.parent = transform; // Set parent to WaveSpawner
-            Enemy enemyComponent = enemyGO.GetComponent<Enemy>();
-            enemyComponent.Initialize(currentWaveIndex + 1);
+            // GameObject enemyGO = Instantiate(prefab, spawnPos, Quaternion.identity);
+            //enemyGO.transform.parent = transform; // Set parent to WaveSpawner
+            //Enemy enemyComponent = enemyGO.GetComponent<Enemy>();
+            //enemyComponent.Initialize(currentWaveIndex + 1);
+            //activeEnemies.Add(enemyGO);
 
-            activeEnemies.Add(enemyGO);
+            EnemySpawnPortal portal = Instantiate(spawnPortalPrefab, spawnPos, Quaternion.identity);
+            portal.Initialize(new SpawnInfo
+            {
+                EnemyToSpawn = prefab,
+                SpawnPosition = spawnPos,
+                SpawnRotation = Quaternion.identity,
+                WaveSpawnerTransform = this.transform,
+                WaveNumber = currentWaveIndex + 1
+            });
+            portal.onEnemySpawnedEvent += OnEnemySpawned;
+        }
+
+        private void OnEnemySpawned(EnemySpawnPortal portal,GameObject enemy)
+        {
+            activeEnemies.Add(enemy);
+
+            portal.onEnemySpawnedEvent -= OnEnemySpawned;
         }
 
         private EnemyType GetRandomEnemyFromPool(List<WaveEnemyPoolEntry> pool)

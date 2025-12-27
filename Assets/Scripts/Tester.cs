@@ -30,7 +30,7 @@ public class Tester : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            effectStore.AddEffect(effectToTest);
+            //effectStore.AddEffect(effectToTest);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

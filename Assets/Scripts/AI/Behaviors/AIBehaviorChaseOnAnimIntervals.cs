@@ -13,12 +13,20 @@ namespace Game.AI.Behaviors
 
         public void OnAnimationEventEnd(BehaviorContext context, string eventName)
         {
+            if (context == null || context.playerTransform == null || context.enemyTransform == null)
+            { 
+                return; 
+            }
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
             rb.linearVelocity = Vector2.zero;
         }
 
         public void OnAnimationEventStart(BehaviorContext context, string eventName)
         {
+            if (context == null || context.playerTransform == null || context.enemyTransform == null)
+            { 
+                return; 
+            }
             float speed = context.enemyData.speedBase * context.speedMultiplier;
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();           
             Vector2 direction = (context.playerTransform.position - context.enemyTransform.position).normalized;

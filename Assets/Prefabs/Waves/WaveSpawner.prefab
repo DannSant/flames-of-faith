@@ -49,6 +49,7 @@ MonoBehaviour:
   minSpawnDistanceFromPlayer: 7
   waveDatabase: {fileID: 11400000, guid: 4fefed48534ce34498086625d91440fe, type: 2}
   graceRemovedPerWave: 1
+  spawnPortalPrefab: {fileID: 7501336837062755665, guid: 7fb05fb2105487f4e83bc8a0612728a3, type: 3}
   testMode: 0
 --- !u!114 &8675830050592105845
 MonoBehaviour:

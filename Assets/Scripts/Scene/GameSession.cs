@@ -111,6 +111,7 @@ namespace Game.Scene
         }
         public float LoadCurrentGrace()
         {
+            Debug.Log($"Loaded Grace: {playerData.currentGrace}");
             return playerData.currentGrace;
         }
 
