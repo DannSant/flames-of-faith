@@ -559,6 +559,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5987711000833707507, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: noDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6055726788964509217, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -631,6 +635,10 @@ PrefabInstance:
       propertyPath: characterVisual
       value: 
       objectReference: {fileID: 4163972071592225956}
+    - target: {fileID: 7385873791281439729, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: autoAttackEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7404954247055075454, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.34

@@ -3,23 +3,59 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\behaviors\\aibehaviorchaseonanimintervals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aibehaviorchaseonanimintervals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\waves\\enemyspawnportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\enemyspawnportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\weaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\weaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ai\\behaviors\\aimeleeattacker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aimeleeattacker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\meleeanimationattackbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\meleeanimationattackbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\combat\\bowattackanimbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\bowattackanimbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ai\\animationattackbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\animationattackbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\control\\attackhitboxsmb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\control\\attackhitboxsmb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\enemies\\enemyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemies\\enemyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ai\\behaviors\\aibehaviorshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aibehaviorshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ai\\behaviors\\aibehaviorchaseonanimintervals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ai\\behaviors\\aibehaviorchaseonanimintervals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\waves\\enemyspawnportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\enemyspawnportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\effects\\effectstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\waves\\wavespawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -55,6 +91,120 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerHealth.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAuwHwAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T00:30:43.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeaponManager.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\WeaponManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\WeaponManager.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\WeaponManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\WeaponManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T00:28:51.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MeleeAnimationAttackBehavior.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\MeleeAnimationAttackBehavior.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\MeleeAnimationAttackBehavior.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\MeleeAnimationAttackBehavior.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AI\\MeleeAnimationAttackBehavior.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T22:03:39.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BowAttackAnimBehavior.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\BowAttackAnimBehavior.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\BowAttackAnimBehavior.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\BowAttackAnimBehavior.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\BowAttackAnimBehavior.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:59:43.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AnimationAttackBehavior.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\AnimationAttackBehavior.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\AnimationAttackBehavior.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\AnimationAttackBehavior.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AI\\AnimationAttackBehavior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:59:00.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AttackHitboxSMB.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Control\\AttackHitboxSMB.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Control\\AttackHitboxSMB.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Control\\AttackHitboxSMB.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Control\\AttackHitboxSMB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:57:41.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AIBehaviorShooter.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorShooter.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAewCoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:27:02.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EnemyAnimationController.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Enemies\\EnemyAnimationController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemies\\EnemyAnimationController.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Enemies\\EnemyAnimationController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemies\\EnemyAnimationController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:00:11.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AIMeleeAttacker.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIMeleeAttacker.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIMeleeAttacker.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIMeleeAttacker.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AI\\Behaviors\\AIMeleeAttacker.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwGkAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T20:21:44.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "AIBehaviorChaseOnAnimIntervals.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaseOnAnimIntervals.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaseOnAnimIntervals.cs",
@@ -62,12 +212,11 @@
               "RelativeToolTip": "Assets\\Scripts\\AI\\Behaviors\\AIBehaviorChaseOnAnimIntervals.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-27T03:56:34.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-27T03:56:34.294Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "EffectStore.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Effects\\EffectStore.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Effects\\EffectStore.cs",
@@ -75,12 +224,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Effects\\EffectStore.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAYwEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-27T03:42:09.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-27T03:42:09.713Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "EnemySpawnPortal.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\EnemySpawnPortal.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\EnemySpawnPortal.cs",
@@ -88,12 +236,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Waves\\EnemySpawnPortal.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-27T02:38:41.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-27T02:38:41.31Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "GameSession.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\GameSession.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\GameSession.cs",
@@ -101,12 +248,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Scene\\GameSession.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAYwHEAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-27T01:43:39.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-27T01:43:39.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "PlayerGrace.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerGrace.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerGrace.cs",
@@ -118,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "WaveSpawner.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
@@ -126,12 +272,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "ViewState": "AgIAAB8BAAAAAAAAAAAuwDoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-24T18:52:10.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T18:52:10.118Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "EnemyHealth.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\EnemyHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\EnemyHealth.cs",
@@ -143,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "PlayerManager.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\PlayerManager.cs",
@@ -155,13 +300,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "DeveloperCheats.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
               "RelativeToolTip": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAIwGEAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAADMBAAAAAAAAAAAAwGEAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-17T01:47:22.327Z",
               "EditorCaption": ""

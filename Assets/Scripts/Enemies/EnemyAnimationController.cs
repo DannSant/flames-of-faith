@@ -36,7 +36,16 @@ namespace Game.Enemies
             animator.SetTrigger("Shoot");
 
         }
-        public void PlayAttack() => animator.SetTrigger("Attack");
+        public void PlayAttack() 
+        {
+            var playerPosition = playerTransform.position;
+            var enemyPosition = transform.position;
+            var dir = (playerPosition - enemyPosition).normalized;
+
+            animator.SetFloat("DirectionX", dir.x);
+            animator.SetFloat("DirectionY", dir.y);
+            animator.SetTrigger("Attack"); 
+        }
 
         private void Update()
         {

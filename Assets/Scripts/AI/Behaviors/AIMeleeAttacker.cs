@@ -17,20 +17,20 @@ namespace Game.AI.Behaviors
         [SerializeField] private float maxRange = 7f;
         [SerializeField] private float attackCooldown = 2f;
         [SerializeField] private string colliderObjectName = "MeleeCollider";
+        [SerializeField] private float orbitRadius = 0.5f;
 
-       
 
         public override void Tick(BehaviorContext context)
         {
             if (context.enemyTransform == null || context.playerTransform == null) return;
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
-            var animator = context.enemyTransform.GetComponent<Animator>();
+            //var animator = context.enemyTransform.GetComponent<Animator>();
             var colliderTransform = context.enemyTransform.Find(colliderObjectName);
             if (colliderTransform == null) return;
 
             var colliderObj = colliderTransform.gameObject;
 
-            if (rb == null || animator == null || colliderObj == null) return;
+            if (rb == null || colliderObj == null) return;
 
             float distance = Vector2.Distance(rb.position, context.playerTransform.position);
 
@@ -58,6 +58,7 @@ namespace Game.AI.Behaviors
             {
                 if (state.attackTimer <= 0f)
                 {
+                    var animator = context.enemyAnimController;
                     Attack(animator, state);
                 }
                 else
@@ -67,7 +68,7 @@ namespace Game.AI.Behaviors
             }
         }
 
-        private void Attack(Animator animator, MeleeAttackerBehaviorState state )
+        private void Attack(EnemyAnimationController animator, MeleeAttackerBehaviorState state )
         {
             state.isAttacking = true;
             state.attackTimer = attackCooldown;
@@ -76,7 +77,7 @@ namespace Game.AI.Behaviors
             if (animator != null)
             {
                
-                animator.SetTrigger("Attack");
+                animator.PlayAttack();
 
             }
         }
@@ -102,11 +103,21 @@ namespace Game.AI.Behaviors
             if (state.meleeCollider != null)
             {
                 state.meleeCollider.enabled = true;
+                SetColliderPosition(state.meleeCollider.gameObject, context.moveDirection, context.enemyTransform);
             }
             else
             {
                 Debug.LogWarning("Melee collider is not set in AIMeleeAttacker behavior state.");
             }
+        }
+
+        private void SetColliderPosition(GameObject attackColliderTransform, Vector2 direction, Transform pivotPoint)
+        {
+
+            float currentAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float angleRad = currentAngle * Mathf.Deg2Rad;
+            Vector2 offset = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)) * orbitRadius;
+            attackColliderTransform.transform.position = pivotPoint.position + (Vector3)offset;
         }
     }
 

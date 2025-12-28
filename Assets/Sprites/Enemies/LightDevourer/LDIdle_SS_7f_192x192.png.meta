@@ -1,0 +1,2319 @@
+fileFormatVersion: 2
+guid: 5be16f39c20e97e438ddea0b1d283371
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5454222020674251157
+    second: LDIdle_SS_7f_192x192_0
+  - first:
+      213: 2288685559340556982
+    second: LDIdle_SS_7f_192x192_1
+  - first:
+      213: -632131942620121171
+    second: LDIdle_SS_7f_192x192_2
+  - first:
+      213: -6776680748745777262
+    second: LDIdle_SS_7f_192x192_3
+  - first:
+      213: 7605528367033096433
+    second: LDIdle_SS_7f_192x192_4
+  - first:
+      213: 1088703620743256131
+    second: LDIdle_SS_7f_192x192_5
+  - first:
+      213: 3445088191215698195
+    second: LDIdle_SS_7f_192x192_6
+  - first:
+      213: -6847555971266860639
+    second: LDIdle_SS_7f_192x192_7
+  - first:
+      213: -2659022852188071761
+    second: LDIdle_SS_7f_192x192_8
+  - first:
+      213: -3662039712807560003
+    second: LDIdle_SS_7f_192x192_9
+  - first:
+      213: 3535877643319718441
+    second: LDIdle_SS_7f_192x192_10
+  - first:
+      213: 866690989716780290
+    second: LDIdle_SS_7f_192x192_11
+  - first:
+      213: -6677371926528760213
+    second: LDIdle_SS_7f_192x192_12
+  - first:
+      213: 109353382245207064
+    second: LDIdle_SS_7f_192x192_13
+  - first:
+      213: 4752351094026378428
+    second: LDIdle_SS_7f_192x192_14
+  - first:
+      213: 8691595617152466614
+    second: LDIdle_SS_7f_192x192_15
+  - first:
+      213: -7760232444412388970
+    second: LDIdle_SS_7f_192x192_16
+  - first:
+      213: 4034682824559859706
+    second: LDIdle_SS_7f_192x192_17
+  - first:
+      213: -3078798989211957917
+    second: LDIdle_SS_7f_192x192_18
+  - first:
+      213: 3265219415632318988
+    second: LDIdle_SS_7f_192x192_19
+  - first:
+      213: 1356444286283958549
+    second: LDIdle_SS_7f_192x192_20
+  - first:
+      213: -7624699981099179594
+    second: LDIdle_SS_7f_192x192_21
+  - first:
+      213: 441049903707645690
+    second: LDIdle_SS_7f_192x192_22
+  - first:
+      213: -4531854422226816123
+    second: LDIdle_SS_7f_192x192_23
+  - first:
+      213: 6787478038985172800
+    second: LDIdle_SS_7f_192x192_24
+  - first:
+      213: -8569933667869434987
+    second: LDIdle_SS_7f_192x192_25
+  - first:
+      213: -3902496521625945598
+    second: LDIdle_SS_7f_192x192_26
+  - first:
+      213: -555933326660632278
+    second: LDIdle_SS_7f_192x192_27
+  - first:
+      213: 1621318757969867769
+    second: LDIdle_SS_7f_192x192_28
+  - first:
+      213: 798859635453683721
+    second: LDIdle_SS_7f_192x192_29
+  - first:
+      213: -7530453550467367036
+    second: LDIdle_SS_7f_192x192_30
+  - first:
+      213: 1509814836034926821
+    second: LDIdle_SS_7f_192x192_31
+  - first:
+      213: -2143994302984495687
+    second: LDIdle_SS_7f_192x192_32
+  - first:
+      213: -3217604862675014897
+    second: LDIdle_SS_7f_192x192_33
+  - first:
+      213: -5923651432854719448
+    second: LDIdle_SS_7f_192x192_34
+  - first:
+      213: -8255578106685642326
+    second: LDIdle_SS_7f_192x192_35
+  - first:
+      213: 4301090167887667906
+    second: LDIdle_SS_7f_192x192_36
+  - first:
+      213: 440076415730130997
+    second: LDIdle_SS_7f_192x192_37
+  - first:
+      213: 9076794781421735811
+    second: LDIdle_SS_7f_192x192_38
+  - first:
+      213: 2706883329011323035
+    second: LDIdle_SS_7f_192x192_39
+  - first:
+      213: 3477620912244738650
+    second: LDIdle_SS_7f_192x192_40
+  - first:
+      213: 6216916756013578604
+    second: LDIdle_SS_7f_192x192_41
+  - first:
+      213: 2650419464423725299
+    second: LDIdle_SS_7f_192x192_42
+  - first:
+      213: -5321572515257660425
+    second: LDIdle_SS_7f_192x192_43
+  - first:
+      213: -2587133997855974865
+    second: LDIdle_SS_7f_192x192_44
+  - first:
+      213: -7105894345816090164
+    second: LDIdle_SS_7f_192x192_45
+  - first:
+      213: 5359790018120548657
+    second: LDIdle_SS_7f_192x192_46
+  - first:
+      213: 7020783579581631876
+    second: LDIdle_SS_7f_192x192_47
+  - first:
+      213: -2983877810336679181
+    second: LDIdle_SS_7f_192x192_48
+  - first:
+      213: -3523098466036932753
+    second: LDIdle_SS_7f_192x192_49
+  - first:
+      213: 6995334666892035428
+    second: LDIdle_SS_7f_192x192_50
+  - first:
+      213: -1993190428516099102
+    second: LDIdle_SS_7f_192x192_51
+  - first:
+      213: 3664548983973435730
+    second: LDIdle_SS_7f_192x192_52
+  - first:
+      213: 7115679698202278668
+    second: LDIdle_SS_7f_192x192_53
+  - first:
+      213: -8035479457867955804
+    second: LDIdle_SS_7f_192x192_54
+  - first:
+      213: -4168199070808528267
+    second: LDIdle_SS_7f_192x192_55
+  - first:
+      213: -1822679371604407038
+    second: LDIdle_SS_7f_192x192_56
+  - first:
+      213: 3230130085511177903
+    second: LDIdle_SS_7f_192x192_57
+  - first:
+      213: -6157376929788396949
+    second: LDIdle_SS_7f_192x192_58
+  - first:
+      213: -4783901032039530571
+    second: LDIdle_SS_7f_192x192_59
+  - first:
+      213: 7136735633589656571
+    second: LDIdle_SS_7f_192x192_60
+  - first:
+      213: 9120946189674204112
+    second: LDIdle_SS_7f_192x192_61
+  - first:
+      213: 72614214565281724
+    second: LDIdle_SS_7f_192x192_62
+  - first:
+      213: 3267830437813236297
+    second: LDIdle_SS_7f_192x192_63
+  - first:
+      213: -4412115559938286408
+    second: LDIdle_SS_7f_192x192_64
+  - first:
+      213: -6891573767395415935
+    second: LDIdle_SS_7f_192x192_65
+  - first:
+      213: 5624465555956865538
+    second: LDIdle_SS_7f_192x192_66
+  - first:
+      213: 8988713751811899300
+    second: LDIdle_SS_7f_192x192_67
+  - first:
+      213: -8496640131252293394
+    second: LDIdle_SS_7f_192x192_68
+  - first:
+      213: -5089457200146548859
+    second: LDIdle_SS_7f_192x192_69
+  - first:
+      213: -411411847532041996
+    second: LDIdle_SS_7f_192x192_70
+  - first:
+      213: 8167432877089475928
+    second: LDIdle_SS_7f_192x192_71
+  - first:
+      213: 8604497223369300324
+    second: LDIdle_SS_7f_192x192_72
+  - first:
+      213: -321301882203065423
+    second: LDIdle_SS_7f_192x192_73
+  - first:
+      213: -3871523807378907436
+    second: LDIdle_SS_7f_192x192_74
+  - first:
+      213: -6222754678592117369
+    second: LDIdle_SS_7f_192x192_75
+  - first:
+      213: 2162735912648669362
+    second: LDIdle_SS_7f_192x192_76
+  - first:
+      213: -3588764479556860658
+    second: LDIdle_SS_7f_192x192_77
+  - first:
+      213: 602963841308897863
+    second: LDIdle_SS_7f_192x192_78
+  - first:
+      213: 2262070459183998451
+    second: LDIdle_SS_7f_192x192_79
+  - first:
+      213: -1211480856201830575
+    second: LDIdle_SS_7f_192x192_80
+  - first:
+      213: -3392557239897463643
+    second: LDIdle_SS_7f_192x192_81
+  - first:
+      213: -4120525798074436007
+    second: LDIdle_SS_7f_192x192_82
+  - first:
+      213: -1401043050582695793
+    second: LDIdle_SS_7f_192x192_83
+  - first:
+      213: -352304267356430938
+    second: LDIdle_SS_7f_192x192_84
+  - first:
+      213: -4762967197033521826
+    second: LDIdle_SS_7f_192x192_85
+  - first:
+      213: 3523530149819756372
+    second: LDIdle_SS_7f_192x192_86
+  - first:
+      213: -8069326856698580918
+    second: LDIdle_SS_7f_192x192_87
+  - first:
+      213: 4136774571447107771
+    second: LDIdle_SS_7f_192x192_88
+  - first:
+      213: -3582801528431591478
+    second: LDIdle_SS_7f_192x192_89
+  - first:
+      213: -4568359335294615270
+    second: LDIdle_SS_7f_192x192_90
+  - first:
+      213: 2054940657893978850
+    second: LDIdle_SS_7f_192x192_91
+  - first:
+      213: -8967943923632831174
+    second: LDIdle_SS_7f_192x192_92
+  - first:
+      213: 5100111739793857338
+    second: LDIdle_SS_7f_192x192_93
+  - first:
+      213: -5827818950763419290
+    second: LDIdle_SS_7f_192x192_94
+  - first:
+      213: 3822017183617168439
+    second: LDIdle_SS_7f_192x192_95
+  - first:
+      213: -5296965815908406673
+    second: LDIdle_SS_7f_192x192_96
+  - first:
+      213: 5927491046113944681
+    second: LDIdle_SS_7f_192x192_97
+  - first:
+      213: -1932066274520753403
+    second: LDIdle_SS_7f_192x192_98
+  - first:
+      213: 538952133021045973
+    second: LDIdle_SS_7f_192x192_99
+  - first:
+      213: -5817085162053922764
+    second: LDIdle_SS_7f_192x192_100
+  - first:
+      213: 8975404684361266727
+    second: LDIdle_SS_7f_192x192_101
+  - first:
+      213: 615680428591572392
+    second: LDIdle_SS_7f_192x192_102
+  - first:
+      213: -8921816145334336986
+    second: LDIdle_SS_7f_192x192_103
+  - first:
+      213: 5084787996180706140
+    second: LDIdle_SS_7f_192x192_104
+  - first:
+      213: -2011136566556645249
+    second: LDIdle_SS_7f_192x192_105
+  - first:
+      213: 4025260268131328217
+    second: LDIdle_SS_7f_192x192_106
+  - first:
+      213: -6218501560347303881
+    second: LDIdle_SS_7f_192x192_107
+  - first:
+      213: 124635368171109467
+    second: LDIdle_SS_7f_192x192_108
+  - first:
+      213: 7829096944737741792
+    second: LDIdle_SS_7f_192x192_109
+  - first:
+      213: 840027660916241808
+    second: LDIdle_SS_7f_192x192_110
+  - first:
+      213: 7471127363742668300
+    second: LDIdle_SS_7f_192x192_111
+  - first:
+      213: -8392190304135498174
+    second: LDIdle_SS_7f_192x192_112
+  - first:
+      213: -2064002172325599255
+    second: LDIdle_SS_7f_192x192_113
+  - first:
+      213: 2046927923045250360
+    second: LDIdle_SS_7f_192x192_114
+  - first:
+      213: -6938237055182122543
+    second: LDIdle_SS_7f_192x192_115
+  - first:
+      213: 3694756857764745696
+    second: LDIdle_SS_7f_192x192_116
+  - first:
+      213: 8753758751908582362
+    second: LDIdle_SS_7f_192x192_117
+  - first:
+      213: 963825680726409194
+    second: LDIdle_SS_7f_192x192_118
+  - first:
+      213: 2880348490481072156
+    second: LDIdle_SS_7f_192x192_119
+  - first:
+      213: -3827598034500115965
+    second: LDIdle_SS_7f_192x192_120
+  - first:
+      213: -7998105448183264210
+    second: LDIdle_SS_7f_192x192_121
+  - first:
+      213: -3604993393186179914
+    second: LDIdle_SS_7f_192x192_122
+  - first:
+      213: -7472968497055107171
+    second: LDIdle_SS_7f_192x192_123
+  - first:
+      213: -908892644922361898
+    second: LDIdle_SS_7f_192x192_124
+  - first:
+      213: 6949206856732875889
+    second: LDIdle_SS_7f_192x192_125
+  - first:
+      213: 309318155558398577
+    second: LDIdle_SS_7f_192x192_126
+  - first:
+      213: -4625747912136074044
+    second: LDIdle_SS_7f_192x192_127
+  - first:
+      213: 543878765208326082
+    second: LDIdle_SS_7f_192x192_128
+  - first:
+      213: 4944615306216715739
+    second: LDIdle_SS_7f_192x192_129
+  - first:
+      213: 2943591993852247014
+    second: LDIdle_SS_7f_192x192_130
+  - first:
+      213: 5107455709158549287
+    second: LDIdle_SS_7f_192x192_131
+  - first:
+      213: 2060046392194970915
+    second: LDIdle_SS_7f_192x192_132
+  - first:
+      213: 3972483833918811189
+    second: LDIdle_SS_7f_192x192_133
+  - first:
+      213: 3679208856773252039
+    second: LDIdle_SS_7f_192x192_134
+  - first:
+      213: 2846907695938570225
+    second: LDIdle_SS_7f_192x192_135
+  - first:
+      213: 7514276337639979460
+    second: LDIdle_SS_7f_192x192_136
+  - first:
+      213: -7458626165049105124
+    second: LDIdle_SS_7f_192x192_137
+  - first:
+      213: -6976781197503977221
+    second: LDIdle_SS_7f_192x192_138
+  - first:
+      213: 4600393769234817669
+    second: LDIdle_SS_7f_192x192_139
+  - first:
+      213: -7124649981404738238
+    second: LDIdle_SS_7f_192x192_140
+  - first:
+      213: 1729713765932628332
+    second: LDIdle_SS_7f_192x192_141
+  - first:
+      213: -4072904606909116714
+    second: LDIdle_SS_7f_192x192_142
+  - first:
+      213: 3912946482057152383
+    second: LDIdle_SS_7f_192x192_143
+  - first:
+      213: -8661682500480132006
+    second: LDIdle_SS_7f_192x192_144
+  - first:
+      213: -8320199707221727014
+    second: LDIdle_SS_7f_192x192_145
+  - first:
+      213: 2034141129712517374
+    second: LDIdle_SS_7f_192x192_146
+  - first:
+      213: -2635473275719941335
+    second: LDIdle_SS_7f_192x192_147
+  - first:
+      213: 5859425779313364716
+    second: LDIdle_SS_7f_192x192_148
+  - first:
+      213: -6526808823644025852
+    second: LDIdle_SS_7f_192x192_149
+  - first:
+      213: -7836216776059718688
+    second: LDIdle_SS_7f_192x192_150
+  - first:
+      213: 3556459188585311744
+    second: LDIdle_SS_7f_192x192_151
+  - first:
+      213: -1103113584350933224
+    second: LDIdle_SS_7f_192x192_152
+  - first:
+      213: -36630978685498426
+    second: LDIdle_SS_7f_192x192_153
+  - first:
+      213: -4508340864064597478
+    second: LDIdle_SS_7f_192x192_154
+  - first:
+      213: -4234334511178021571
+    second: LDIdle_SS_7f_192x192_155
+  - first:
+      213: 1188518576092877820
+    second: LDIdle_SS_7f_192x192_156
+  - first:
+      213: -5485567999935112614
+    second: LDIdle_SS_7f_192x192_157
+  - first:
+      213: 2100798881270493124
+    second: LDIdle_SS_7f_192x192_158
+  - first:
+      213: 7285173582610391686
+    second: LDIdle_SS_7f_192x192_159
+  - first:
+      213: 7771749685844071635
+    second: LDIdle_SS_7f_192x192_160
+  - first:
+      213: 5338622502371020647
+    second: LDIdle_SS_7f_192x192_161
+  - first:
+      213: -8564445070162266160
+    second: LDIdle_SS_7f_192x192_162
+  - first:
+      213: 8015083616770606732
+    second: LDIdle_SS_7f_192x192_163
+  - first:
+      213: -2299130366043702283
+    second: LDIdle_SS_7f_192x192_164
+  - first:
+      213: -8053010689028970591
+    second: LDIdle_SS_7f_192x192_165
+  - first:
+      213: 4707142065131982529
+    second: LDIdle_SS_7f_192x192_166
+  - first:
+      213: -3304852634776711869
+    second: LDIdle_SS_7f_192x192_167
+  - first:
+      213: 595958814273258692
+    second: LDIdle_SS_7f_192x192_168
+  - first:
+      213: -4038691035799258434
+    second: LDIdle_SS_7f_192x192_169
+  - first:
+      213: -1112029460377088621
+    second: LDIdle_SS_7f_192x192_170
+  - first:
+      213: -7481881262043920063
+    second: LDIdle_SS_7f_192x192_171
+  - first:
+      213: -7154192257504467722
+    second: LDIdle_SS_7f_192x192_172
+  - first:
+      213: 8121003085744554279
+    second: LDIdle_SS_7f_192x192_173
+  - first:
+      213: 3252131853067677568
+    second: LDIdle_SS_7f_192x192_174
+  - first:
+      213: -7663693073793120844
+    second: LDIdle_SS_7f_192x192_175
+  - first:
+      213: 7149328151031764438
+    second: LDIdle_SS_7f_192x192_176
+  - first:
+      213: -180604486944234414
+    second: LDIdle_SS_7f_192x192_177
+  - first:
+      213: -5028607288287384068
+    second: LDIdle_SS_7f_192x192_178
+  - first:
+      213: -5321393401013100279
+    second: LDIdle_SS_7f_192x192_179
+  - first:
+      213: -151288978984241263
+    second: LDIdle_SS_7f_192x192_180
+  - first:
+      213: -3212284485162093454
+    second: LDIdle_SS_7f_192x192_181
+  - first:
+      213: 8904932952758620657
+    second: LDIdle_SS_7f_192x192_182
+  - first:
+      213: 3814408505036433833
+    second: LDIdle_SS_7f_192x192_183
+  - first:
+      213: 5877111257179715993
+    second: LDIdle_SS_7f_192x192_184
+  - first:
+      213: 3659196814778153610
+    second: LDIdle_SS_7f_192x192_185
+  - first:
+      213: -8733008852769961456
+    second: LDIdle_SS_7f_192x192_186
+  - first:
+      213: 6580424795231885585
+    second: LDIdle_SS_7f_192x192_187
+  - first:
+      213: -6798691730130077273
+    second: LDIdle_SS_7f_192x192_188
+  - first:
+      213: 6009482586000374134
+    second: LDIdle_SS_7f_192x192_189
+  - first:
+      213: 6902145997445985085
+    second: LDIdle_SS_7f_192x192_190
+  - first:
+      213: -3770493268692047220
+    second: LDIdle_SS_7f_192x192_191
+  - first:
+      213: 2401970709177014174
+    second: LDIdle_SS_7f_192x192_192
+  - first:
+      213: -1692192569218357003
+    second: LDIdle_SS_7f_192x192_193
+  - first:
+      213: 1381641351378050742
+    second: LDIdle_SS_7f_192x192_194
+  - first:
+      213: -1024288494411595234
+    second: LDIdle_SS_7f_192x192_195
+  - first:
+      213: -8738425560664771042
+    second: LDIdle_SS_7f_192x192_196
+  - first:
+      213: -1901940498459503464
+    second: LDIdle_SS_7f_192x192_197
+  - first:
+      213: 8655059267747618206
+    second: LDIdle_SS_7f_192x192_198
+  - first:
+      213: 1105949525708014506
+    second: LDIdle_SS_7f_192x192_199
+  - first:
+      213: -4498103360540371280
+    second: LDIdle_SS_7f_192x192_200
+  - first:
+      213: -280008866674349372
+    second: LDIdle_SS_7f_192x192_201
+  - first:
+      213: 8652052639810674133
+    second: LDIdle_SS_7f_192x192_202
+  - first:
+      213: -49622311127277642
+    second: LDIdle_SS_7f_192x192_203
+  - first:
+      213: -5631005784097624127
+    second: LDIdle_SS_7f_192x192_204
+  - first:
+      213: -1482885002167926659
+    second: LDIdle_SS_7f_192x192_205
+  - first:
+      213: -1602128158089409674
+    second: LDIdle_SS_7f_192x192_206
+  - first:
+      213: 7685574045519270672
+    second: LDIdle_SS_7f_192x192_207
+  - first:
+      213: 2673491028673256940
+    second: LDIdle_SS_7f_192x192_208
+  - first:
+      213: 5835014095093844853
+    second: LDIdle_SS_7f_192x192_209
+  - first:
+      213: -4798002811304056429
+    second: LDIdle_SS_7f_192x192_210
+  - first:
+      213: 4185787090868568626
+    second: LDIdle_SS_7f_192x192_211
+  - first:
+      213: -2184082739182451191
+    second: LDIdle_SS_7f_192x192_212
+  - first:
+      213: -8482221439605241120
+    second: LDIdle_SS_7f_192x192_213
+  - first:
+      213: 2053690936218180790
+    second: LDIdle_SS_7f_192x192_214
+  - first:
+      213: -7769776781082729028
+    second: LDIdle_SS_7f_192x192_215
+  - first:
+      213: -3598928074160351261
+    second: LDIdle_SS_7f_192x192_216
+  - first:
+      213: 5734761484456062479
+    second: LDIdle_SS_7f_192x192_217
+  - first:
+      213: 2912862743716873325
+    second: LDIdle_SS_7f_192x192_218
+  - first:
+      213: -1783732303528117395
+    second: LDIdle_SS_7f_192x192_219
+  - first:
+      213: -2791109357430418053
+    second: LDIdle_SS_7f_192x192_220
+  - first:
+      213: -1035947216561223946
+    second: LDIdle_SS_7f_192x192_221
+  - first:
+      213: -1557163831942244059
+    second: LDIdle_SS_7f_192x192_222
+  - first:
+      213: 8584626643612967080
+    second: LDIdle_SS_7f_192x192_223
+  - first:
+      213: 5301248168395331946
+    second: LDIdle_SS_7f_192x192_224
+  - first:
+      213: -4384969566482750702
+    second: LDIdle_SS_7f_192x192_225
+  - first:
+      213: 2533525068659729264
+    second: LDIdle_SS_7f_192x192_226
+  - first:
+      213: -4610941900268556426
+    second: LDIdle_SS_7f_192x192_227
+  - first:
+      213: 1527475449315327946
+    second: LDIdle_SS_7f_192x192_228
+  - first:
+      213: -4903732806967489553
+    second: LDIdle_SS_7f_192x192_229
+  - first:
+      213: -7831588311741000318
+    second: LDIdle_SS_7f_192x192_230
+  - first:
+      213: -5285015792788919659
+    second: LDIdle_SS_7f_192x192_231
+  - first:
+      213: 2640760593881863592
+    second: LDIdle_SS_7f_192x192_232
+  - first:
+      213: -502877406498554449
+    second: LDIdle_SS_7f_192x192_233
+  - first:
+      213: 7738403116090302448
+    second: LDIdle_SS_7f_192x192_234
+  - first:
+      213: -1091633776340829037
+    second: LDIdle_SS_7f_192x192_235
+  - first:
+      213: 3498227785298915221
+    second: LDIdle_SS_7f_192x192_236
+  - first:
+      213: 2996683665520187373
+    second: LDIdle_SS_7f_192x192_237
+  - first:
+      213: 7201017192396777178
+    second: LDIdle_SS_7f_192x192_238
+  - first:
+      213: -867261090493219527
+    second: LDIdle_SS_7f_192x192_239
+  - first:
+      213: 7115306074318357912
+    second: LDIdle_SS_7f_192x192_240
+  - first:
+      213: 3930788338525975214
+    second: LDIdle_SS_7f_192x192_241
+  - first:
+      213: -5543816826917644447
+    second: LDIdle_SS_7f_192x192_242
+  - first:
+      213: -4214325061169295846
+    second: LDIdle_SS_7f_192x192_243
+  - first:
+      213: 7490274907025673864
+    second: LDIdle_SS_7f_192x192_244
+  - first:
+      213: 235380732330674269
+    second: LDIdle_SS_7f_192x192_245
+  - first:
+      213: 2883284798500771433
+    second: LDIdle_SS_7f_192x192_246
+  - first:
+      213: 8849142175394673416
+    second: LDIdle_SS_7f_192x192_247
+  - first:
+      213: -2787492902095353125
+    second: LDIdle_SS_7f_192x192_248
+  - first:
+      213: -3856457712963135920
+    second: LDIdle_SS_7f_192x192_249
+  - first:
+      213: -2987838495229394087
+    second: LDIdle_SS_7f_192x192_250
+  - first:
+      213: -2663472645720223100
+    second: LDIdle_SS_7f_192x192_251
+  - first:
+      213: 5183725907651834339
+    second: LDIdle_SS_7f_192x192_252
+  - first:
+      213: -511694948644002305
+    second: LDIdle_SS_7f_192x192_253
+  - first:
+      213: -1618206450309753482
+    second: LDIdle_SS_7f_192x192_254
+  - first:
+      213: 7325971233039827346
+    second: LDIdle_SS_7f_192x192_255
+  - first:
+      213: 4065630996581170013
+    second: LDIdle_SS_7f_192x192_256
+  - first:
+      213: -2393476395415182774
+    second: LDIdle_SS_7f_192x192_257
+  - first:
+      213: -528364702457712897
+    second: LDIdle_SS_7f_192x192_258
+  - first:
+      213: 1068519525692430230
+    second: LDIdle_SS_7f_192x192_259
+  - first:
+      213: 6087585711468097094
+    second: LDIdle_SS_7f_192x192_260
+  - first:
+      213: -1206847659553250353
+    second: LDIdle_SS_7f_192x192_261
+  - first:
+      213: -4289235281033371227
+    second: LDIdle_SS_7f_192x192_262
+  - first:
+      213: 4289924430746445496
+    second: LDIdle_SS_7f_192x192_263
+  - first:
+      213: -4501744849945067031
+    second: LDIdle_SS_7f_192x192_264
+  - first:
+      213: -3045041437596904864
+    second: LDIdle_SS_7f_192x192_265
+  - first:
+      213: 1786369758474139178
+    second: LDIdle_SS_7f_192x192_266
+  - first:
+      213: -8875434350899908743
+    second: LDIdle_SS_7f_192x192_267
+  - first:
+      213: 8190471060057043792
+    second: LDIdle_SS_7f_192x192_268
+  - first:
+      213: 6863700489579980534
+    second: LDIdle_SS_7f_192x192_269
+  - first:
+      213: -5720894999127855936
+    second: LDIdle_SS_7f_192x192_270
+  - first:
+      213: 3559762633568393052
+    second: LDIdle_SS_7f_192x192_271
+  - first:
+      213: 7902837185470700218
+    second: LDIdle_SS_7f_192x192_272
+  - first:
+      213: 7941456238857904316
+    second: LDIdle_SS_7f_192x192_273
+  - first:
+      213: -7611213365945997592
+    second: LDIdle_SS_7f_192x192_274
+  - first:
+      213: 8316248115968042810
+    second: LDIdle_SS_7f_192x192_275
+  - first:
+      213: -604397312028757472
+    second: LDIdle_SS_7f_192x192_276
+  - first:
+      213: -8589082168771068975
+    second: LDIdle_SS_7f_192x192_277
+  - first:
+      213: -363502862448981010
+    second: LDIdle_SS_7f_192x192_278
+  - first:
+      213: -670303094416917425
+    second: LDIdle_SS_7f_192x192_279
+  - first:
+      213: -6186257609894312749
+    second: LDIdle_SS_7f_192x192_280
+  - first:
+      213: -6886590453629803303
+    second: LDIdle_SS_7f_192x192_281
+  - first:
+      213: 1855070534166503559
+    second: LDIdle_SS_7f_192x192_282
+  - first:
+      213: -3313558583049277769
+    second: LDIdle_SS_7f_192x192_283
+  - first:
+      213: 4464412424529336383
+    second: LDIdle_SS_7f_192x192_284
+  - first:
+      213: 2217034912416236837
+    second: LDIdle_SS_7f_192x192_285
+  - first:
+      213: -349600308854114926
+    second: LDIdle_SS_7f_192x192_286
+  - first:
+      213: -8236874646702870025
+    second: LDIdle_SS_7f_192x192_287
+  - first:
+      213: -8155611976058035162
+    second: LDIdle_SS_7f_192x192_288
+  - first:
+      213: 3888698509392652497
+    second: LDIdle_SS_7f_192x192_289
+  - first:
+      213: -1653207173584049475
+    second: LDIdle_SS_7f_192x192_290
+  - first:
+      213: 2618404717916014703
+    second: LDIdle_SS_7f_192x192_291
+  - first:
+      213: -4573015079795618423
+    second: LDIdle_SS_7f_192x192_292
+  - first:
+      213: -6197347631838336278
+    second: LDIdle_SS_7f_192x192_293
+  - first:
+      213: -1394926348898111653
+    second: LDIdle_SS_7f_192x192_294
+  - first:
+      213: -6785260320262944960
+    second: LDIdle_SS_7f_192x192_295
+  - first:
+      213: 6986548277533222909
+    second: LDIdle_SS_7f_192x192_296
+  - first:
+      213: -715704365372820045
+    second: LDIdle_SS_7f_192x192_297
+  - first:
+      213: -527177423067780406
+    second: LDIdle_SS_7f_192x192_298
+  - first:
+      213: 9096739585966327677
+    second: LDIdle_SS_7f_192x192_299
+  - first:
+      213: -4027117525199552429
+    second: LDIdle_SS_7f_192x192_300
+  - first:
+      213: 3359264798182348872
+    second: LDIdle_SS_7f_192x192_301
+  - first:
+      213: -4017918597657045035
+    second: LDIdle_SS_7f_192x192_302
+  - first:
+      213: -7777466815973274051
+    second: LDIdle_SS_7f_192x192_303
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66199b48f5be44b0800000000000000
+      internalID: -5454222020674251157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b26f07e36b03cf10800000000000000
+      internalID: 2288685559340556982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da733fce8573a37f0800000000000000
+      internalID: -632131942620121171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f97ce63c464f1a0800000000000000
+      internalID: -6776680748745777262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f81a2601c34c8960800000000000000
+      internalID: 7605528367033096433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3485514cc2adb1f00800000000000000
+      internalID: 1088703620743256131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3110e4105796fcf20800000000000000
+      internalID: 3445088191215698195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9a801cf1898f0a0800000000000000
+      internalID: -6847555971266860639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa81fa5ddc0491bd0800000000000000
+      internalID: -2659022852188071761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc5bb49842dd2dc0800000000000000
+      internalID: -3662039712807560003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92231539bf5f11130800000000000000
+      internalID: 3535877643319718441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205b91cfcda170c00800000000000000
+      internalID: 866690989716780290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66661e6c953553a0800000000000000
+      internalID: -6677371926528760213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81c86bf5250848100800000000000000
+      internalID: 109353382245207064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc9167142eb3f140800000000000000
+      internalID: 4752351094026378428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bef6bbe920ce9870800000000000000
+      internalID: 8691595617152466614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699965015bd1e4490800000000000000
+      internalID: -7760232444412388970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7924bf6a21ef730800000000000000
+      internalID: 4034682824559859706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3658039a1a8e545d0800000000000000
+      internalID: -3078798989211957917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02197632c3605d20800000000000000
+      internalID: 3265219415632318988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519409144ee03d210800000000000000
+      internalID: 1356444286283958549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1e7abb3cf9f2690800000000000000
+      internalID: -7624699981099179594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af6e6b6fc8cee1600800000000000000
+      internalID: 441049903707645690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583336de96e9b11c0800000000000000
+      internalID: -4531854422226816123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047e97a9057f13e50800000000000000
+      internalID: 6787478038985172800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b5bf90cba711980800000000000000
+      internalID: -8569933667869434987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ab943071c87d9c0800000000000000
+      internalID: -3902496521625945598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a218799b59de848f0800000000000000
+      internalID: -555933326660632278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3b87cf1d4108610800000000000000
+      internalID: 1621318757969867769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9086d9c1b9e161b00800000000000000
+      internalID: 798859635453683721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48f30d6d4647e7790800000000000000
+      internalID: -7530453550467367036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8f9721890f3f410800000000000000
+      internalID: 1509814836034926821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdd5227a800f32e0800000000000000
+      internalID: -2143994302984495687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0bafaccc65c853d0800000000000000
+      internalID: -3217604862675014897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 824f57b1866facda0800000000000000
+      internalID: -5923651432854719448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9a28fa37b4e6d80800000000000000
+      internalID: -8255578106685642326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2aed338ba80bb30800000000000000
+      internalID: 4301090167887667906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5302f912b277b1600800000000000000
+      internalID: 440076415730130997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f03c543c047fd70800000000000000
+      internalID: 9076794781421735811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90952acb08c09520800000000000000
+      internalID: 2706883329011323035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a41d16bcdf24030800000000000000
+      internalID: 3477620912244738650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69fc58d9dce64650800000000000000
+      internalID: 6216916756013578604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8d1cad57e28c420800000000000000
+      internalID: 2650419464423725299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fbc5950ef9f526b0800000000000000
+      internalID: -5321572515257660425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2a557f0657a81cd0800000000000000
+      internalID: -2587133997855974865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9dc2abdbac26d90800000000000000
+      internalID: -7105894345816090164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13182c4cf9cc16a40800000000000000
+      internalID: 5359790018120548657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48dcbd9c775de6160800000000000000
+      internalID: 7020783579581631876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa36b5d0f22796d0800000000000000
+      internalID: -2983877810336679181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f152f7c907b1fc0800000000000000
+      internalID: -3523098466036932753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 465431111db641160800000000000000
+      internalID: 6995334666892035428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebd69a9dd3c654e0800000000000000
+      internalID: -1993190428516099102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25951c3a2e71bd230800000000000000
+      internalID: 3664548983973435730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b3eca2cf8ffb260800000000000000
+      internalID: 7115679698202278668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a105d1c10e3c7090800000000000000
+      internalID: -8035479457867955804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_7f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a285777059726c0800000000000000
+      internalID: -4168199070808528267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 22fdc2a7f6e1c844fa34e58f976b05a0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      LDIdle_SS_7f_192x192_0: -5454222020674251157
+      LDIdle_SS_7f_192x192_1: 2288685559340556982
+      LDIdle_SS_7f_192x192_10: 3535877643319718441
+      LDIdle_SS_7f_192x192_11: 866690989716780290
+      LDIdle_SS_7f_192x192_12: -6677371926528760213
+      LDIdle_SS_7f_192x192_13: 109353382245207064
+      LDIdle_SS_7f_192x192_14: 4752351094026378428
+      LDIdle_SS_7f_192x192_15: 8691595617152466614
+      LDIdle_SS_7f_192x192_16: -7760232444412388970
+      LDIdle_SS_7f_192x192_17: 4034682824559859706
+      LDIdle_SS_7f_192x192_18: -3078798989211957917
+      LDIdle_SS_7f_192x192_19: 3265219415632318988
+      LDIdle_SS_7f_192x192_2: -632131942620121171
+      LDIdle_SS_7f_192x192_20: 1356444286283958549
+      LDIdle_SS_7f_192x192_21: -7624699981099179594
+      LDIdle_SS_7f_192x192_22: 441049903707645690
+      LDIdle_SS_7f_192x192_23: -4531854422226816123
+      LDIdle_SS_7f_192x192_24: 6787478038985172800
+      LDIdle_SS_7f_192x192_25: -8569933667869434987
+      LDIdle_SS_7f_192x192_26: -3902496521625945598
+      LDIdle_SS_7f_192x192_27: -555933326660632278
+      LDIdle_SS_7f_192x192_28: 1621318757969867769
+      LDIdle_SS_7f_192x192_29: 798859635453683721
+      LDIdle_SS_7f_192x192_3: -6776680748745777262
+      LDIdle_SS_7f_192x192_30: -7530453550467367036
+      LDIdle_SS_7f_192x192_31: 1509814836034926821
+      LDIdle_SS_7f_192x192_32: -2143994302984495687
+      LDIdle_SS_7f_192x192_33: -3217604862675014897
+      LDIdle_SS_7f_192x192_34: -5923651432854719448
+      LDIdle_SS_7f_192x192_35: -8255578106685642326
+      LDIdle_SS_7f_192x192_36: 4301090167887667906
+      LDIdle_SS_7f_192x192_37: 440076415730130997
+      LDIdle_SS_7f_192x192_38: 9076794781421735811
+      LDIdle_SS_7f_192x192_39: 2706883329011323035
+      LDIdle_SS_7f_192x192_4: 7605528367033096433
+      LDIdle_SS_7f_192x192_40: 3477620912244738650
+      LDIdle_SS_7f_192x192_41: 6216916756013578604
+      LDIdle_SS_7f_192x192_42: 2650419464423725299
+      LDIdle_SS_7f_192x192_43: -5321572515257660425
+      LDIdle_SS_7f_192x192_44: -2587133997855974865
+      LDIdle_SS_7f_192x192_45: -7105894345816090164
+      LDIdle_SS_7f_192x192_46: 5359790018120548657
+      LDIdle_SS_7f_192x192_47: 7020783579581631876
+      LDIdle_SS_7f_192x192_48: -2983877810336679181
+      LDIdle_SS_7f_192x192_49: -3523098466036932753
+      LDIdle_SS_7f_192x192_5: 1088703620743256131
+      LDIdle_SS_7f_192x192_50: 6995334666892035428
+      LDIdle_SS_7f_192x192_51: -1993190428516099102
+      LDIdle_SS_7f_192x192_52: 3664548983973435730
+      LDIdle_SS_7f_192x192_53: 7115679698202278668
+      LDIdle_SS_7f_192x192_54: -8035479457867955804
+      LDIdle_SS_7f_192x192_55: -4168199070808528267
+      LDIdle_SS_7f_192x192_6: 3445088191215698195
+      LDIdle_SS_7f_192x192_7: -6847555971266860639
+      LDIdle_SS_7f_192x192_8: -2659022852188071761
+      LDIdle_SS_7f_192x192_9: -3662039712807560003
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

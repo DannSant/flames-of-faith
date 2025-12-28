@@ -1,0 +1,2768 @@
+fileFormatVersion: 2
+guid: 5900acd68d9b83d4788a631cafa4fba6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3790566208710447008
+    second: LDAttack_SS_8f_192x192_0
+  - first:
+      213: 9206127786089425725
+    second: LDAttack_SS_8f_192x192_1
+  - first:
+      213: 5800989159385721221
+    second: LDAttack_SS_8f_192x192_2
+  - first:
+      213: 5538426381543710906
+    second: LDAttack_SS_8f_192x192_3
+  - first:
+      213: 8400966900114130263
+    second: LDAttack_SS_8f_192x192_4
+  - first:
+      213: 4313980698307843653
+    second: LDAttack_SS_8f_192x192_5
+  - first:
+      213: -501609310330299867
+    second: LDAttack_SS_8f_192x192_6
+  - first:
+      213: 1979889002010977952
+    second: LDAttack_SS_8f_192x192_7
+  - first:
+      213: 5273444259839316071
+    second: LDAttack_SS_8f_192x192_8
+  - first:
+      213: -1326653351542301918
+    second: LDAttack_SS_8f_192x192_9
+  - first:
+      213: -2859379118193358827
+    second: LDAttack_SS_8f_192x192_10
+  - first:
+      213: -3664937688825069580
+    second: LDAttack_SS_8f_192x192_11
+  - first:
+      213: -115768870568039819
+    second: LDAttack_SS_8f_192x192_12
+  - first:
+      213: -3554899711951427231
+    second: LDAttack_SS_8f_192x192_13
+  - first:
+      213: -3923287113718295887
+    second: LDAttack_SS_8f_192x192_14
+  - first:
+      213: 5918583819719642257
+    second: LDAttack_SS_8f_192x192_15
+  - first:
+      213: -3413916749569094973
+    second: LDAttack_SS_8f_192x192_16
+  - first:
+      213: -3769742238873303135
+    second: LDAttack_SS_8f_192x192_17
+  - first:
+      213: -4901512283244504714
+    second: LDAttack_SS_8f_192x192_18
+  - first:
+      213: -8980496255408466317
+    second: LDAttack_SS_8f_192x192_19
+  - first:
+      213: -9004001106609464198
+    second: LDAttack_SS_8f_192x192_20
+  - first:
+      213: -6953554078199391300
+    second: LDAttack_SS_8f_192x192_21
+  - first:
+      213: -8303428913365665168
+    second: LDAttack_SS_8f_192x192_22
+  - first:
+      213: -2966181776606703153
+    second: LDAttack_SS_8f_192x192_23
+  - first:
+      213: 2186722040485252319
+    second: LDAttack_SS_8f_192x192_24
+  - first:
+      213: 9170973809649068717
+    second: LDAttack_SS_8f_192x192_25
+  - first:
+      213: -3443791716132478482
+    second: LDAttack_SS_8f_192x192_26
+  - first:
+      213: -5264699868163262672
+    second: LDAttack_SS_8f_192x192_27
+  - first:
+      213: -5884063278777061690
+    second: LDAttack_SS_8f_192x192_28
+  - first:
+      213: 3891388191465928231
+    second: LDAttack_SS_8f_192x192_29
+  - first:
+      213: -2082945965624573537
+    second: LDAttack_SS_8f_192x192_30
+  - first:
+      213: 1618987193549587872
+    second: LDAttack_SS_8f_192x192_31
+  - first:
+      213: 6943805209816665095
+    second: LDAttack_SS_8f_192x192_32
+  - first:
+      213: -2637591845740594029
+    second: LDAttack_SS_8f_192x192_33
+  - first:
+      213: 5388352662509045317
+    second: LDAttack_SS_8f_192x192_34
+  - first:
+      213: -6354447281798860306
+    second: LDAttack_SS_8f_192x192_35
+  - first:
+      213: -6225645255783705513
+    second: LDAttack_SS_8f_192x192_36
+  - first:
+      213: -8092536015838133050
+    second: LDAttack_SS_8f_192x192_37
+  - first:
+      213: -2399002754328875386
+    second: LDAttack_SS_8f_192x192_38
+  - first:
+      213: 3315263721333783758
+    second: LDAttack_SS_8f_192x192_39
+  - first:
+      213: -9215270685913954400
+    second: LDAttack_SS_8f_192x192_40
+  - first:
+      213: -7892134635181324428
+    second: LDAttack_SS_8f_192x192_41
+  - first:
+      213: 6759683384408443422
+    second: LDAttack_SS_8f_192x192_42
+  - first:
+      213: 785037097443679115
+    second: LDAttack_SS_8f_192x192_43
+  - first:
+      213: -8451329227863542948
+    second: LDAttack_SS_8f_192x192_44
+  - first:
+      213: -4173363495967831989
+    second: LDAttack_SS_8f_192x192_45
+  - first:
+      213: 8122412623863589549
+    second: LDAttack_SS_8f_192x192_46
+  - first:
+      213: -2246080155512544259
+    second: LDAttack_SS_8f_192x192_47
+  - first:
+      213: 5666999280866951222
+    second: LDAttack_SS_8f_192x192_48
+  - first:
+      213: 6127136836085086077
+    second: LDAttack_SS_8f_192x192_49
+  - first:
+      213: -4715405777093495956
+    second: LDAttack_SS_8f_192x192_50
+  - first:
+      213: 8381216954553796157
+    second: LDAttack_SS_8f_192x192_51
+  - first:
+      213: -1379558540204478004
+    second: LDAttack_SS_8f_192x192_52
+  - first:
+      213: -3604533427184476651
+    second: LDAttack_SS_8f_192x192_53
+  - first:
+      213: -2164167985612320874
+    second: LDAttack_SS_8f_192x192_54
+  - first:
+      213: -8810858652873143599
+    second: LDAttack_SS_8f_192x192_55
+  - first:
+      213: -6690116567165513867
+    second: LDAttack_SS_8f_192x192_56
+  - first:
+      213: -8842557258720039612
+    second: LDAttack_SS_8f_192x192_57
+  - first:
+      213: -4118657597375523975
+    second: LDAttack_SS_8f_192x192_58
+  - first:
+      213: -1295377671112891219
+    second: LDAttack_SS_8f_192x192_59
+  - first:
+      213: 4307220671031531100
+    second: LDAttack_SS_8f_192x192_60
+  - first:
+      213: -2127159047088838232
+    second: LDAttack_SS_8f_192x192_61
+  - first:
+      213: -2866940567242972684
+    second: LDAttack_SS_8f_192x192_62
+  - first:
+      213: 7818424362821170036
+    second: LDAttack_SS_8f_192x192_63
+  - first:
+      213: -8491887543239919628
+    second: LDAttack_SS_8f_192x192_64
+  - first:
+      213: -8482833204026072055
+    second: LDAttack_SS_8f_192x192_65
+  - first:
+      213: -1990596529216175176
+    second: LDAttack_SS_8f_192x192_66
+  - first:
+      213: 1268594071826820726
+    second: LDAttack_SS_8f_192x192_67
+  - first:
+      213: -8524037209355404288
+    second: LDAttack_SS_8f_192x192_68
+  - first:
+      213: 2811486255265121792
+    second: LDAttack_SS_8f_192x192_69
+  - first:
+      213: -4070420417683721735
+    second: LDAttack_SS_8f_192x192_70
+  - first:
+      213: -1616144909893047695
+    second: LDAttack_SS_8f_192x192_71
+  - first:
+      213: -7862489374794731470
+    second: LDAttack_SS_8f_192x192_72
+  - first:
+      213: 5603435781462289870
+    second: LDAttack_SS_8f_192x192_73
+  - first:
+      213: -8279899385011311391
+    second: LDAttack_SS_8f_192x192_74
+  - first:
+      213: -13249579682212184
+    second: LDAttack_SS_8f_192x192_75
+  - first:
+      213: -7311107534861477590
+    second: LDAttack_SS_8f_192x192_76
+  - first:
+      213: -1587091991877744887
+    second: LDAttack_SS_8f_192x192_77
+  - first:
+      213: 4391037504038895922
+    second: LDAttack_SS_8f_192x192_78
+  - first:
+      213: 6199532836647773559
+    second: LDAttack_SS_8f_192x192_79
+  - first:
+      213: -2819631365313680986
+    second: LDAttack_SS_8f_192x192_80
+  - first:
+      213: 6359755634764967133
+    second: LDAttack_SS_8f_192x192_81
+  - first:
+      213: -8525922045413021960
+    second: LDAttack_SS_8f_192x192_82
+  - first:
+      213: 7555801655790071163
+    second: LDAttack_SS_8f_192x192_83
+  - first:
+      213: -2483710785997007316
+    second: LDAttack_SS_8f_192x192_84
+  - first:
+      213: -504128678284609096
+    second: LDAttack_SS_8f_192x192_85
+  - first:
+      213: -5627517957282209589
+    second: LDAttack_SS_8f_192x192_86
+  - first:
+      213: 4514183317085830996
+    second: LDAttack_SS_8f_192x192_87
+  - first:
+      213: 2365733217966209037
+    second: LDAttack_SS_8f_192x192_88
+  - first:
+      213: -2925762572439751304
+    second: LDAttack_SS_8f_192x192_89
+  - first:
+      213: 4829037422900451331
+    second: LDAttack_SS_8f_192x192_90
+  - first:
+      213: -3173061313074098981
+    second: LDAttack_SS_8f_192x192_91
+  - first:
+      213: 780225018714804194
+    second: LDAttack_SS_8f_192x192_92
+  - first:
+      213: -5991077078596524514
+    second: LDAttack_SS_8f_192x192_93
+  - first:
+      213: 3541714230691665647
+    second: LDAttack_SS_8f_192x192_94
+  - first:
+      213: 2260710429276974125
+    second: LDAttack_SS_8f_192x192_95
+  - first:
+      213: 7975812583471874962
+    second: LDAttack_SS_8f_192x192_96
+  - first:
+      213: 8625147520665039140
+    second: LDAttack_SS_8f_192x192_97
+  - first:
+      213: -1078723838018425498
+    second: LDAttack_SS_8f_192x192_98
+  - first:
+      213: 7732216311377652741
+    second: LDAttack_SS_8f_192x192_99
+  - first:
+      213: 1793384650329681974
+    second: LDAttack_SS_8f_192x192_100
+  - first:
+      213: -1131938323289826122
+    second: LDAttack_SS_8f_192x192_101
+  - first:
+      213: -3226382847306256239
+    second: LDAttack_SS_8f_192x192_102
+  - first:
+      213: 8612513031795707741
+    second: LDAttack_SS_8f_192x192_103
+  - first:
+      213: 5640225106966259900
+    second: LDAttack_SS_8f_192x192_104
+  - first:
+      213: -1442208806734500435
+    second: LDAttack_SS_8f_192x192_105
+  - first:
+      213: 9190427482226209580
+    second: LDAttack_SS_8f_192x192_106
+  - first:
+      213: 170325645415038068
+    second: LDAttack_SS_8f_192x192_107
+  - first:
+      213: -7199988219418938967
+    second: LDAttack_SS_8f_192x192_108
+  - first:
+      213: 3338036579853482915
+    second: LDAttack_SS_8f_192x192_109
+  - first:
+      213: 7516085538132568574
+    second: LDAttack_SS_8f_192x192_110
+  - first:
+      213: -3153576969014723502
+    second: LDAttack_SS_8f_192x192_111
+  - first:
+      213: 3857987260769040402
+    second: LDAttack_SS_8f_192x192_112
+  - first:
+      213: -2385898135448687630
+    second: LDAttack_SS_8f_192x192_113
+  - first:
+      213: -4648793574366514597
+    second: LDAttack_SS_8f_192x192_114
+  - first:
+      213: -409694345069383282
+    second: LDAttack_SS_8f_192x192_115
+  - first:
+      213: 2362431577641528794
+    second: LDAttack_SS_8f_192x192_116
+  - first:
+      213: -8960421739369664484
+    second: LDAttack_SS_8f_192x192_117
+  - first:
+      213: 8929190745239466967
+    second: LDAttack_SS_8f_192x192_118
+  - first:
+      213: -8058322902009547949
+    second: LDAttack_SS_8f_192x192_119
+  - first:
+      213: 6068366488995244907
+    second: LDAttack_SS_8f_192x192_120
+  - first:
+      213: -8843765371616928793
+    second: LDAttack_SS_8f_192x192_121
+  - first:
+      213: -5013897828564122021
+    second: LDAttack_SS_8f_192x192_122
+  - first:
+      213: 755442434729615735
+    second: LDAttack_SS_8f_192x192_123
+  - first:
+      213: -569672908831180027
+    second: LDAttack_SS_8f_192x192_124
+  - first:
+      213: 6639641027178063275
+    second: LDAttack_SS_8f_192x192_125
+  - first:
+      213: 5425106377168919417
+    second: LDAttack_SS_8f_192x192_126
+  - first:
+      213: -685098328692554659
+    second: LDAttack_SS_8f_192x192_127
+  - first:
+      213: -3691440911389076449
+    second: LDAttack_SS_8f_192x192_128
+  - first:
+      213: 5075604733908139259
+    second: LDAttack_SS_8f_192x192_129
+  - first:
+      213: 678866362009264336
+    second: LDAttack_SS_8f_192x192_130
+  - first:
+      213: 5596022986774197002
+    second: LDAttack_SS_8f_192x192_131
+  - first:
+      213: 8828470256859556130
+    second: LDAttack_SS_8f_192x192_132
+  - first:
+      213: 6289664986879036006
+    second: LDAttack_SS_8f_192x192_133
+  - first:
+      213: -2696638695547303706
+    second: LDAttack_SS_8f_192x192_134
+  - first:
+      213: -3867936191436526466
+    second: LDAttack_SS_8f_192x192_135
+  - first:
+      213: 3302617813646958004
+    second: LDAttack_SS_8f_192x192_136
+  - first:
+      213: 1052667790451804194
+    second: LDAttack_SS_8f_192x192_137
+  - first:
+      213: 8564110846305934136
+    second: LDAttack_SS_8f_192x192_138
+  - first:
+      213: -5555105061345865947
+    second: LDAttack_SS_8f_192x192_139
+  - first:
+      213: 7795877046792778111
+    second: LDAttack_SS_8f_192x192_140
+  - first:
+      213: -1059785140535024686
+    second: LDAttack_SS_8f_192x192_141
+  - first:
+      213: -691679411397700675
+    second: LDAttack_SS_8f_192x192_142
+  - first:
+      213: -9160886537009441304
+    second: LDAttack_SS_8f_192x192_143
+  - first:
+      213: -8041429971979405969
+    second: LDAttack_SS_8f_192x192_144
+  - first:
+      213: -6309154769632315330
+    second: LDAttack_SS_8f_192x192_145
+  - first:
+      213: 1805486478400418783
+    second: LDAttack_SS_8f_192x192_146
+  - first:
+      213: -2029909464950094190
+    second: LDAttack_SS_8f_192x192_147
+  - first:
+      213: -7377885068980582565
+    second: LDAttack_SS_8f_192x192_148
+  - first:
+      213: 5777625383728103444
+    second: LDAttack_SS_8f_192x192_149
+  - first:
+      213: 3012539386726655570
+    second: LDAttack_SS_8f_192x192_150
+  - first:
+      213: 4131794276095763582
+    second: LDAttack_SS_8f_192x192_151
+  - first:
+      213: -3846030472338043848
+    second: LDAttack_SS_8f_192x192_152
+  - first:
+      213: -72197261883206847
+    second: LDAttack_SS_8f_192x192_153
+  - first:
+      213: 7008252363166789944
+    second: LDAttack_SS_8f_192x192_154
+  - first:
+      213: 2553743973228199219
+    second: LDAttack_SS_8f_192x192_155
+  - first:
+      213: -2714441268134749099
+    second: LDAttack_SS_8f_192x192_156
+  - first:
+      213: -6991806027425287435
+    second: LDAttack_SS_8f_192x192_157
+  - first:
+      213: 5380795470407159909
+    second: LDAttack_SS_8f_192x192_158
+  - first:
+      213: -6199955719064916647
+    second: LDAttack_SS_8f_192x192_159
+  - first:
+      213: -4272698369133204939
+    second: LDAttack_SS_8f_192x192_160
+  - first:
+      213: -6230880646910624308
+    second: LDAttack_SS_8f_192x192_161
+  - first:
+      213: -456827927976417179
+    second: LDAttack_SS_8f_192x192_162
+  - first:
+      213: -2175853630491826178
+    second: LDAttack_SS_8f_192x192_163
+  - first:
+      213: 9174615720929888692
+    second: LDAttack_SS_8f_192x192_164
+  - first:
+      213: 8992670273346373706
+    second: LDAttack_SS_8f_192x192_165
+  - first:
+      213: 7459647392250613951
+    second: LDAttack_SS_8f_192x192_166
+  - first:
+      213: 5693612849573516201
+    second: LDAttack_SS_8f_192x192_167
+  - first:
+      213: 7618243543248454078
+    second: LDAttack_SS_8f_192x192_168
+  - first:
+      213: -6398845078009047399
+    second: LDAttack_SS_8f_192x192_169
+  - first:
+      213: 5448051334644642860
+    second: LDAttack_SS_8f_192x192_170
+  - first:
+      213: -8329727839851990381
+    second: LDAttack_SS_8f_192x192_171
+  - first:
+      213: -3317881940753237466
+    second: LDAttack_SS_8f_192x192_172
+  - first:
+      213: 4011148351969390242
+    second: LDAttack_SS_8f_192x192_173
+  - first:
+      213: -57023111809895155
+    second: LDAttack_SS_8f_192x192_174
+  - first:
+      213: 7124934764422127042
+    second: LDAttack_SS_8f_192x192_175
+  - first:
+      213: 6789245619861125821
+    second: LDAttack_SS_8f_192x192_176
+  - first:
+      213: 4578582396727278889
+    second: LDAttack_SS_8f_192x192_177
+  - first:
+      213: 2944056564961166914
+    second: LDAttack_SS_8f_192x192_178
+  - first:
+      213: 659897735998996807
+    second: LDAttack_SS_8f_192x192_179
+  - first:
+      213: 8701641319873035129
+    second: LDAttack_SS_8f_192x192_180
+  - first:
+      213: 5429468254739575958
+    second: LDAttack_SS_8f_192x192_181
+  - first:
+      213: 8964039143714694924
+    second: LDAttack_SS_8f_192x192_182
+  - first:
+      213: -9078427006692961073
+    second: LDAttack_SS_8f_192x192_183
+  - first:
+      213: -2098578039549532054
+    second: LDAttack_SS_8f_192x192_184
+  - first:
+      213: -29382084470287961
+    second: LDAttack_SS_8f_192x192_185
+  - first:
+      213: -1419454844237262591
+    second: LDAttack_SS_8f_192x192_186
+  - first:
+      213: -8053794507604721303
+    second: LDAttack_SS_8f_192x192_187
+  - first:
+      213: 4130900527295946289
+    second: LDAttack_SS_8f_192x192_188
+  - first:
+      213: 8426507959415236101
+    second: LDAttack_SS_8f_192x192_189
+  - first:
+      213: -5166717237534866451
+    second: LDAttack_SS_8f_192x192_190
+  - first:
+      213: 5549234886758214241
+    second: LDAttack_SS_8f_192x192_191
+  - first:
+      213: 4765731324416136190
+    second: LDAttack_SS_8f_192x192_192
+  - first:
+      213: 1676806062733509100
+    second: LDAttack_SS_8f_192x192_193
+  - first:
+      213: -652256320584291112
+    second: LDAttack_SS_8f_192x192_194
+  - first:
+      213: -539723122079787335
+    second: LDAttack_SS_8f_192x192_195
+  - first:
+      213: -201670802422437870
+    second: LDAttack_SS_8f_192x192_196
+  - first:
+      213: -2491590186879538263
+    second: LDAttack_SS_8f_192x192_197
+  - first:
+      213: -5352921809759843582
+    second: LDAttack_SS_8f_192x192_198
+  - first:
+      213: 8513509534624131041
+    second: LDAttack_SS_8f_192x192_199
+  - first:
+      213: -5935117347977075795
+    second: LDAttack_SS_8f_192x192_200
+  - first:
+      213: 1172519044565880662
+    second: LDAttack_SS_8f_192x192_201
+  - first:
+      213: 8975382715137113401
+    second: LDAttack_SS_8f_192x192_202
+  - first:
+      213: -1693488770037614134
+    second: LDAttack_SS_8f_192x192_203
+  - first:
+      213: 4696258837995923070
+    second: LDAttack_SS_8f_192x192_204
+  - first:
+      213: -3770644435286706417
+    second: LDAttack_SS_8f_192x192_205
+  - first:
+      213: 5756455743202169999
+    second: LDAttack_SS_8f_192x192_206
+  - first:
+      213: -3681844706942836948
+    second: LDAttack_SS_8f_192x192_207
+  - first:
+      213: 6205395308646184124
+    second: LDAttack_SS_8f_192x192_208
+  - first:
+      213: 5106092697705114174
+    second: LDAttack_SS_8f_192x192_209
+  - first:
+      213: 4985031922415206528
+    second: LDAttack_SS_8f_192x192_210
+  - first:
+      213: -363581087084449453
+    second: LDAttack_SS_8f_192x192_211
+  - first:
+      213: 614771598313106753
+    second: LDAttack_SS_8f_192x192_212
+  - first:
+      213: 1812745188912130522
+    second: LDAttack_SS_8f_192x192_213
+  - first:
+      213: 8503338897288463574
+    second: LDAttack_SS_8f_192x192_214
+  - first:
+      213: -4099060527875580434
+    second: LDAttack_SS_8f_192x192_215
+  - first:
+      213: -4987551487674231587
+    second: LDAttack_SS_8f_192x192_216
+  - first:
+      213: -8598458909402094924
+    second: LDAttack_SS_8f_192x192_217
+  - first:
+      213: 1715006027366136504
+    second: LDAttack_SS_8f_192x192_218
+  - first:
+      213: -7929161536769184691
+    second: LDAttack_SS_8f_192x192_219
+  - first:
+      213: -4016110625084655586
+    second: LDAttack_SS_8f_192x192_220
+  - first:
+      213: -9092930546985972614
+    second: LDAttack_SS_8f_192x192_221
+  - first:
+      213: 7421223356435331631
+    second: LDAttack_SS_8f_192x192_222
+  - first:
+      213: -8191276916966852664
+    second: LDAttack_SS_8f_192x192_223
+  - first:
+      213: -2530770086655786593
+    second: LDAttack_SS_8f_192x192_224
+  - first:
+      213: -8643335049716134065
+    second: LDAttack_SS_8f_192x192_225
+  - first:
+      213: 7650556836368511542
+    second: LDAttack_SS_8f_192x192_226
+  - first:
+      213: -5994080953971747696
+    second: LDAttack_SS_8f_192x192_227
+  - first:
+      213: -7100329229229933677
+    second: LDAttack_SS_8f_192x192_228
+  - first:
+      213: -8876053129023718722
+    second: LDAttack_SS_8f_192x192_229
+  - first:
+      213: 7125234128651445267
+    second: LDAttack_SS_8f_192x192_230
+  - first:
+      213: 4107308525600010896
+    second: LDAttack_SS_8f_192x192_231
+  - first:
+      213: -808572205509206254
+    second: LDAttack_SS_8f_192x192_232
+  - first:
+      213: -3685829854254791604
+    second: LDAttack_SS_8f_192x192_233
+  - first:
+      213: 6532461007943084777
+    second: LDAttack_SS_8f_192x192_234
+  - first:
+      213: -9097714378168769435
+    second: LDAttack_SS_8f_192x192_235
+  - first:
+      213: 5653693909204485660
+    second: LDAttack_SS_8f_192x192_236
+  - first:
+      213: -7088303554642203238
+    second: LDAttack_SS_8f_192x192_237
+  - first:
+      213: 8004670230400826713
+    second: LDAttack_SS_8f_192x192_238
+  - first:
+      213: 8111940921701104937
+    second: LDAttack_SS_8f_192x192_239
+  - first:
+      213: -1515251652807127019
+    second: LDAttack_SS_8f_192x192_240
+  - first:
+      213: 8373196365861270161
+    second: LDAttack_SS_8f_192x192_241
+  - first:
+      213: 8026675247914774692
+    second: LDAttack_SS_8f_192x192_242
+  - first:
+      213: -547050865334760734
+    second: LDAttack_SS_8f_192x192_243
+  - first:
+      213: 7389264586775948936
+    second: LDAttack_SS_8f_192x192_244
+  - first:
+      213: -6301378784434566181
+    second: LDAttack_SS_8f_192x192_245
+  - first:
+      213: -2859332147933514699
+    second: LDAttack_SS_8f_192x192_246
+  - first:
+      213: -4724654068205462528
+    second: LDAttack_SS_8f_192x192_247
+  - first:
+      213: -8773657265412291180
+    second: LDAttack_SS_8f_192x192_248
+  - first:
+      213: 6557596383312252272
+    second: LDAttack_SS_8f_192x192_249
+  - first:
+      213: 8660903752051039718
+    second: LDAttack_SS_8f_192x192_250
+  - first:
+      213: -7540412344966925924
+    second: LDAttack_SS_8f_192x192_251
+  - first:
+      213: -848409136077159985
+    second: LDAttack_SS_8f_192x192_252
+  - first:
+      213: 4932907201388313326
+    second: LDAttack_SS_8f_192x192_253
+  - first:
+      213: 1465344095002875763
+    second: LDAttack_SS_8f_192x192_254
+  - first:
+      213: -4792188524640921713
+    second: LDAttack_SS_8f_192x192_255
+  - first:
+      213: 305788083496693092
+    second: LDAttack_SS_8f_192x192_256
+  - first:
+      213: -4838357023777349893
+    second: LDAttack_SS_8f_192x192_257
+  - first:
+      213: 7613733535658235596
+    second: LDAttack_SS_8f_192x192_258
+  - first:
+      213: 711370141831808169
+    second: LDAttack_SS_8f_192x192_259
+  - first:
+      213: 7990968543419691919
+    second: LDAttack_SS_8f_192x192_260
+  - first:
+      213: 4364944405721979487
+    second: LDAttack_SS_8f_192x192_261
+  - first:
+      213: -8374404868254985630
+    second: LDAttack_SS_8f_192x192_262
+  - first:
+      213: -3144861463917254340
+    second: LDAttack_SS_8f_192x192_263
+  - first:
+      213: -1245834378939146509
+    second: LDAttack_SS_8f_192x192_264
+  - first:
+      213: 6211641272825572412
+    second: LDAttack_SS_8f_192x192_265
+  - first:
+      213: 8679451901334938179
+    second: LDAttack_SS_8f_192x192_266
+  - first:
+      213: -5984841206738483904
+    second: LDAttack_SS_8f_192x192_267
+  - first:
+      213: 2188321284041277029
+    second: LDAttack_SS_8f_192x192_268
+  - first:
+      213: -4812447123311888730
+    second: LDAttack_SS_8f_192x192_269
+  - first:
+      213: 587996370207044988
+    second: LDAttack_SS_8f_192x192_270
+  - first:
+      213: -8487535029208686727
+    second: LDAttack_SS_8f_192x192_271
+  - first:
+      213: -8621414881913062000
+    second: LDAttack_SS_8f_192x192_272
+  - first:
+      213: 5827322118334360427
+    second: LDAttack_SS_8f_192x192_273
+  - first:
+      213: 810722115497829189
+    second: LDAttack_SS_8f_192x192_274
+  - first:
+      213: -4990815820980410893
+    second: LDAttack_SS_8f_192x192_275
+  - first:
+      213: -1861805952181558818
+    second: LDAttack_SS_8f_192x192_276
+  - first:
+      213: 3482872612107874037
+    second: LDAttack_SS_8f_192x192_277
+  - first:
+      213: -8058452238576397202
+    second: LDAttack_SS_8f_192x192_278
+  - first:
+      213: 5474818950240666366
+    second: LDAttack_SS_8f_192x192_279
+  - first:
+      213: -7659137678505299454
+    second: LDAttack_SS_8f_192x192_280
+  - first:
+      213: 8808781085733279478
+    second: LDAttack_SS_8f_192x192_281
+  - first:
+      213: -5105757939858989921
+    second: LDAttack_SS_8f_192x192_282
+  - first:
+      213: 5193507275777634883
+    second: LDAttack_SS_8f_192x192_283
+  - first:
+      213: -1538913853557270110
+    second: LDAttack_SS_8f_192x192_284
+  - first:
+      213: 7694645831180835017
+    second: LDAttack_SS_8f_192x192_285
+  - first:
+      213: -4234004599610929913
+    second: LDAttack_SS_8f_192x192_286
+  - first:
+      213: -3635481422140819960
+    second: LDAttack_SS_8f_192x192_287
+  - first:
+      213: 1583085500753301619
+    second: LDAttack_SS_8f_192x192_288
+  - first:
+      213: 3717474308362759353
+    second: LDAttack_SS_8f_192x192_289
+  - first:
+      213: -4996885091136052381
+    second: LDAttack_SS_8f_192x192_290
+  - first:
+      213: -9013738331479070750
+    second: LDAttack_SS_8f_192x192_291
+  - first:
+      213: 1516903624876007218
+    second: LDAttack_SS_8f_192x192_292
+  - first:
+      213: -6034923384114887928
+    second: LDAttack_SS_8f_192x192_293
+  - first:
+      213: -5505622031540151855
+    second: LDAttack_SS_8f_192x192_294
+  - first:
+      213: -3829715737647214666
+    second: LDAttack_SS_8f_192x192_295
+  - first:
+      213: 4395783074351771639
+    second: LDAttack_SS_8f_192x192_296
+  - first:
+      213: 2210258744698087648
+    second: LDAttack_SS_8f_192x192_297
+  - first:
+      213: -840194515972665885
+    second: LDAttack_SS_8f_192x192_298
+  - first:
+      213: -2485475367911351142
+    second: LDAttack_SS_8f_192x192_299
+  - first:
+      213: -1834029936681431615
+    second: LDAttack_SS_8f_192x192_300
+  - first:
+      213: 8396363269480597793
+    second: LDAttack_SS_8f_192x192_301
+  - first:
+      213: -1196913022508158377
+    second: LDAttack_SS_8f_192x192_302
+  - first:
+      213: -8786618357162353433
+    second: LDAttack_SS_8f_192x192_303
+  - first:
+      213: 6312073294542384977
+    second: LDAttack_SS_8f_192x192_304
+  - first:
+      213: 4566482887797742304
+    second: LDAttack_SS_8f_192x192_305
+  - first:
+      213: -9033292736918219956
+    second: LDAttack_SS_8f_192x192_306
+  - first:
+      213: -4631312316502972224
+    second: LDAttack_SS_8f_192x192_307
+  - first:
+      213: -6494118025270306520
+    second: LDAttack_SS_8f_192x192_308
+  - first:
+      213: -6734562403944330371
+    second: LDAttack_SS_8f_192x192_309
+  - first:
+      213: 7405937571128666095
+    second: LDAttack_SS_8f_192x192_310
+  - first:
+      213: 2892980308965587203
+    second: LDAttack_SS_8f_192x192_311
+  - first:
+      213: 8556546955570161241
+    second: LDAttack_SS_8f_192x192_312
+  - first:
+      213: 2999035614606996307
+    second: LDAttack_SS_8f_192x192_313
+  - first:
+      213: 8670183418967089381
+    second: LDAttack_SS_8f_192x192_314
+  - first:
+      213: -1001876391475612155
+    second: LDAttack_SS_8f_192x192_315
+  - first:
+      213: 5785334327701313616
+    second: LDAttack_SS_8f_192x192_316
+  - first:
+      213: -2803414707703362101
+    second: LDAttack_SS_8f_192x192_317
+  - first:
+      213: -6962812298370766354
+    second: LDAttack_SS_8f_192x192_318
+  - first:
+      213: -162263408300626650
+    second: LDAttack_SS_8f_192x192_319
+  - first:
+      213: -7807352580509859498
+    second: LDAttack_SS_8f_192x192_320
+  - first:
+      213: -7031684025277637684
+    second: LDAttack_SS_8f_192x192_321
+  - first:
+      213: 618803724816074958
+    second: LDAttack_SS_8f_192x192_322
+  - first:
+      213: -6302919286724603210
+    second: LDAttack_SS_8f_192x192_323
+  - first:
+      213: -5491067275198212760
+    second: LDAttack_SS_8f_192x192_324
+  - first:
+      213: -6520747758522367532
+    second: LDAttack_SS_8f_192x192_325
+  - first:
+      213: 5199385113308028857
+    second: LDAttack_SS_8f_192x192_326
+  - first:
+      213: -3121210229211954402
+    second: LDAttack_SS_8f_192x192_327
+  - first:
+      213: -1411620959694165094
+    second: LDAttack_SS_8f_192x192_328
+  - first:
+      213: 3165363897091009938
+    second: LDAttack_SS_8f_192x192_329
+  - first:
+      213: 6984566798250279958
+    second: LDAttack_SS_8f_192x192_330
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060f630dd14356bc0800000000000000
+      internalID: -3790566208710447008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ba6bef17cb2cf70800000000000000
+      internalID: 9206127786089425725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 589e31fc7e0418050800000000000000
+      internalID: 5800989159385721221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab0a09e33717cdc40800000000000000
+      internalID: 5538426381543710906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7550e1ba2ea369470800000000000000
+      internalID: 8400966900114130263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546d782b6965edb30800000000000000
+      internalID: 4313980698307843653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52adbb96dfce909f0800000000000000
+      internalID: -501609310330299867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a62193be8af97b10800000000000000
+      internalID: 1979889002010977952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7609b8a4d990f2940800000000000000
+      internalID: 5273444259839316071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b5d314ec7c69de0800000000000000
+      internalID: -1326653351542301918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5184ae577d17158d0800000000000000
+      internalID: -2859379118193358827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fff3a5f696832dc0800000000000000
+      internalID: -3664937688825069580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a6eb953d4b46ef0800000000000000
+      internalID: -115768870568039819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1692ff0fb857aaec0800000000000000
+      internalID: -3554899711951427231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b214f2182fad89c0800000000000000
+      internalID: -3923287113718295887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c83c340a8032250800000000000000
+      internalID: 5918583819719642257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca8d21ddc45f90d0800000000000000
+      internalID: -3413916749569094973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7cb2d186f2fabc0800000000000000
+      internalID: -3769742238873303135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6795ff63c845afbb0800000000000000
+      internalID: -4901512283244504714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37617a58c3ede5380800000000000000
+      internalID: -8980496255408466317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c9153e2bc5b0380800000000000000
+      internalID: -9004001106609464198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbbd47a4863008f90800000000000000
+      internalID: -6953554078199391300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ab121956b44cc80800000000000000
+      internalID: -8303428913365665168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1de12c36106d6d0800000000000000
+      internalID: -2966181776606703153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc04ad2c1cc85e10800000000000000
+      internalID: 2186722040485252319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa2b880718d54f70800000000000000
+      internalID: 9170973809649068717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1ad7f1ea13530d0800000000000000
+      internalID: -3443791716132478482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037351d0d5700f6b0800000000000000
+      internalID: -5264699868163262672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cea2908f9b975ea0800000000000000
+      internalID: -5884063278777061690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726f97351fcf00630800000000000000
+      internalID: 3891388191465928231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f914d902ea3e713e0800000000000000
+      internalID: -2082945965624573537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a50e67564cc77610800000000000000
+      internalID: 1618987193549587872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c01a86c0a5d5060800000000000000
+      internalID: 6943805209816665095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c3a2cd034656bd0800000000000000
+      internalID: -2637591845740594029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546c165a23647ca40800000000000000
+      internalID: 5388352662509045317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1be605dd770d7a0800000000000000
+      internalID: -6354447281798860306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7549a6fef901a99a0800000000000000
+      internalID: -6225645255783705513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4c9e3ae5981bf80800000000000000
+      internalID: -8092536015838133050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e2b0594b705bed0800000000000000
+      internalID: -2399002754328875386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eccf6de1ace220e20800000000000000
+      internalID: 3315263721333783758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a74701c228cc1080800000000000000
+      internalID: -9215270685913954400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477c5761d51897290800000000000000
+      internalID: -7892134635181324428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a86c949383fcd50800000000000000
+      internalID: 6759683384408443422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b52a0b41305ea00800000000000000
+      internalID: 785037097443679115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53315528d8d6ba80800000000000000
+      internalID: -8451329227863542948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b484148030c3516c0800000000000000
+      internalID: -4173363495967831989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daaa98c3f3b98b070800000000000000
+      internalID: 8122412623863589549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df3ee91bff154d0e0800000000000000
+      internalID: -2246080155512544259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 630087622d935ae40800000000000000
+      internalID: 5666999280866951222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77ff0d4d76f70550800000000000000
+      internalID: 6127136836085086077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c637484dd638f8eb0800000000000000
+      internalID: -4715405777093495956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3609a12a60105470800000000000000
+      internalID: 8381216954553796157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc1714021d2dadce0800000000000000
+      internalID: -1379558540204478004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ed5a312ff1afdc0800000000000000
+      internalID: -3604533427184476651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f0e4feea457f1e0800000000000000
+      internalID: -2164167985612320874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dac155bcba89b580800000000000000
+      internalID: -8810858652873143599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_56
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fc42c8d6ee723a0800000000000000
+      internalID: -6690116567165513867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_57
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44da0f7e50de84580800000000000000
+      internalID: -8842557258720039612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_58
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973d7fc9cb697d6c0800000000000000
+      internalID: -4118657597375523975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_59
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4e75f0fd4e50ee0800000000000000
+      internalID: -1295377671112891219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_60
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c56dd02316256cb30800000000000000
+      internalID: 4307220671031531100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_61
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a9e289ed10da72e0800000000000000
+      internalID: -2127159047088838232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f163596eb49638d0800000000000000
+      internalID: -2866940567242972684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4733731c88f908c60800000000000000
+      internalID: 7818424362821170036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_64
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7be987541c62a80800000000000000
+      internalID: -8491887543239919628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_65
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9042329152ce64a80800000000000000
+      internalID: -8482833204026072055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_66
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3c1f8d00bff54e0800000000000000
+      internalID: -1990596529216175176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_67
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e67674693fa9110800000000000000
+      internalID: 1268594071826820726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_68
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00cb824025984b980800000000000000
+      internalID: -8524037209355404288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_69
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00688ff6ad7640720800000000000000
+      internalID: 2811486255265121792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_70
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f1f6753236f287c0800000000000000
+      internalID: -4070420417683721735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDAttack_SS_8f_192x192_71
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ae44464cc4299e0800000000000000
+      internalID: -1616144909893047695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f479a4e75839100499a919489fb1f7d0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      LDAttack_SS_8f_192x192_0: -3790566208710447008
+      LDAttack_SS_8f_192x192_1: 9206127786089425725
+      LDAttack_SS_8f_192x192_10: -2859379118193358827
+      LDAttack_SS_8f_192x192_11: -3664937688825069580
+      LDAttack_SS_8f_192x192_12: -115768870568039819
+      LDAttack_SS_8f_192x192_13: -3554899711951427231
+      LDAttack_SS_8f_192x192_14: -3923287113718295887
+      LDAttack_SS_8f_192x192_15: 5918583819719642257
+      LDAttack_SS_8f_192x192_16: -3413916749569094973
+      LDAttack_SS_8f_192x192_17: -3769742238873303135
+      LDAttack_SS_8f_192x192_18: -4901512283244504714
+      LDAttack_SS_8f_192x192_19: -8980496255408466317
+      LDAttack_SS_8f_192x192_2: 5800989159385721221
+      LDAttack_SS_8f_192x192_20: -9004001106609464198
+      LDAttack_SS_8f_192x192_21: -6953554078199391300
+      LDAttack_SS_8f_192x192_22: -8303428913365665168
+      LDAttack_SS_8f_192x192_23: -2966181776606703153
+      LDAttack_SS_8f_192x192_24: 2186722040485252319
+      LDAttack_SS_8f_192x192_25: 9170973809649068717
+      LDAttack_SS_8f_192x192_26: -3443791716132478482
+      LDAttack_SS_8f_192x192_27: -5264699868163262672
+      LDAttack_SS_8f_192x192_28: -5884063278777061690
+      LDAttack_SS_8f_192x192_29: 3891388191465928231
+      LDAttack_SS_8f_192x192_3: 5538426381543710906
+      LDAttack_SS_8f_192x192_30: -2082945965624573537
+      LDAttack_SS_8f_192x192_31: 1618987193549587872
+      LDAttack_SS_8f_192x192_32: 6943805209816665095
+      LDAttack_SS_8f_192x192_33: -2637591845740594029
+      LDAttack_SS_8f_192x192_34: 5388352662509045317
+      LDAttack_SS_8f_192x192_35: -6354447281798860306
+      LDAttack_SS_8f_192x192_36: -6225645255783705513
+      LDAttack_SS_8f_192x192_37: -8092536015838133050
+      LDAttack_SS_8f_192x192_38: -2399002754328875386
+      LDAttack_SS_8f_192x192_39: 3315263721333783758
+      LDAttack_SS_8f_192x192_4: 8400966900114130263
+      LDAttack_SS_8f_192x192_40: -9215270685913954400
+      LDAttack_SS_8f_192x192_41: -7892134635181324428
+      LDAttack_SS_8f_192x192_42: 6759683384408443422
+      LDAttack_SS_8f_192x192_43: 785037097443679115
+      LDAttack_SS_8f_192x192_44: -8451329227863542948
+      LDAttack_SS_8f_192x192_45: -4173363495967831989
+      LDAttack_SS_8f_192x192_46: 8122412623863589549
+      LDAttack_SS_8f_192x192_47: -2246080155512544259
+      LDAttack_SS_8f_192x192_48: 5666999280866951222
+      LDAttack_SS_8f_192x192_49: 6127136836085086077
+      LDAttack_SS_8f_192x192_5: 4313980698307843653
+      LDAttack_SS_8f_192x192_50: -4715405777093495956
+      LDAttack_SS_8f_192x192_51: 8381216954553796157
+      LDAttack_SS_8f_192x192_52: -1379558540204478004
+      LDAttack_SS_8f_192x192_53: -3604533427184476651
+      LDAttack_SS_8f_192x192_54: -2164167985612320874
+      LDAttack_SS_8f_192x192_55: -8810858652873143599
+      LDAttack_SS_8f_192x192_56: -6690116567165513867
+      LDAttack_SS_8f_192x192_57: -8842557258720039612
+      LDAttack_SS_8f_192x192_58: -4118657597375523975
+      LDAttack_SS_8f_192x192_59: -1295377671112891219
+      LDAttack_SS_8f_192x192_6: -501609310330299867
+      LDAttack_SS_8f_192x192_60: 4307220671031531100
+      LDAttack_SS_8f_192x192_61: -2127159047088838232
+      LDAttack_SS_8f_192x192_62: -2866940567242972684
+      LDAttack_SS_8f_192x192_63: 7818424362821170036
+      LDAttack_SS_8f_192x192_64: -8491887543239919628
+      LDAttack_SS_8f_192x192_65: -8482833204026072055
+      LDAttack_SS_8f_192x192_66: -1990596529216175176
+      LDAttack_SS_8f_192x192_67: 1268594071826820726
+      LDAttack_SS_8f_192x192_68: -8524037209355404288
+      LDAttack_SS_8f_192x192_69: 2811486255265121792
+      LDAttack_SS_8f_192x192_7: 1979889002010977952
+      LDAttack_SS_8f_192x192_70: -4070420417683721735
+      LDAttack_SS_8f_192x192_71: -1616144909893047695
+      LDAttack_SS_8f_192x192_8: 5273444259839316071
+      LDAttack_SS_8f_192x192_9: -1326653351542301918
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

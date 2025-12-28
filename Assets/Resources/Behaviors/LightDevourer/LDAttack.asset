@@ -15,3 +15,4 @@ MonoBehaviour:
   maxRange: 2
   attackCooldown: 2
   colliderObjectName: MeleeCollider
+  orbitRadius: 1

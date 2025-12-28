@@ -29,6 +29,9 @@ namespace Game.Combat {
         [SerializeField] private float invulnerabilityDuration = 0.5f;
         private float invulnerableUntilTime = 0f;
 
+        [Header("Testing")]
+        [SerializeField] private bool noDamage=false;
+
         private int armor = 0;
         private CharacterVisual characterVisual;
         private PlayerProgression playerProgression;     
@@ -117,6 +120,11 @@ namespace Game.Combat {
         public void TakeDamage(float amount)
         {
             if (currentHealth <= 0) return;
+            if (noDamage)
+            {
+                DamageNumberSpawner.Instance.SpawnDamageToPlayerNumber(transform.position, amount);
+                return;
+            }
 
             if (Time.time < invulnerableUntilTime)
             {               

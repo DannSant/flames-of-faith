@@ -22,7 +22,7 @@ MonoBehaviour:
   attackRangeBase: 1
   xpBase: 2
   xpPerLevel: 2
-  projectileDamageBase: 10
+  projectileDamageBase: 5
   projectileDamagePerWave: 2
   healthPerWave: 5
   healthPerLevel: 15
