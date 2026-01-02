@@ -3,9 +3,10 @@ using UnityEngine;
 using Game.Control;
 using System;
 using Game.Progression;
+using Game.Utils;
 namespace Game.Combat
 {
-    public class WeaponManager :MonoBehaviour, IDependentStateLoader
+    public class WeaponManager :MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
     {
         [SerializeField] private WeaponBase startingWeapon;
         [SerializeField] private bool autoAttackEnabled = false;
@@ -28,7 +29,7 @@ namespace Game.Combat
             }
         }
 
-        private void Start()
+        public void InitializeAfterStateReady()
         {
             if (currentWeapon != null)
             {
@@ -123,6 +124,8 @@ namespace Game.Combat
         {
            //initialized on the weapon base 
         }
+
+        
     }
 
 }

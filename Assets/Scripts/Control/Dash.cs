@@ -47,13 +47,17 @@ namespace Game.Control
             inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
             inputHandler.Player.Jump.performed += ctx => StartDashEvent();
 
-            playerProgression.onStatUpdated += Dash_onStatUpdatedEvent;
+            playerProgression.onDerivedStatsChanged += OnDashCooldownUpdated;
             playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
         }
 
         private void OnDisable()
         {
-            playerProgression.onStatUpdated -= Dash_onStatUpdatedEvent;
+            if (playerProgression != null)
+            {
+                playerProgression.onDerivedStatsChanged -= OnDashCooldownUpdated;
+            }
+                
         }
 
 
@@ -69,13 +73,11 @@ namespace Game.Control
             CheckDashDirection();
         }
 
-        private void Dash_onStatUpdatedEvent(StatType statType, int value)
+        private void OnDashCooldownUpdated()
         {
 
-            if (statType == StatType.DashCooldown)
-            {
-                SetupAttackSpeedVariables();
-            }
+            RecalculateCooldownDuration();
+
         }
 
         private void StartDashEvent()
@@ -102,11 +104,11 @@ namespace Game.Control
             dashTrailRenderer.emitting = false;
         }
 
-        private void SetupAttackSpeedVariables()
-        {
+        private void RecalculateCooldownDuration()
+        {           
             float dashCooldown = StatsCalculations.CalculateDashCooldown(playerProgression.GetStatTotal(StatType.DashCooldown), dashCooldownBase);
-            dashCooldownTimer.SetEventDuration(dashCooldown);           
-
+            dashCooldownTimer.SetEventDuration(dashCooldown);  
+           
         }
 
         private void ManageDashTimerEvent() 
@@ -145,7 +147,7 @@ namespace Game.Control
 
         public void LoadState()
         {
-            SetupAttackSpeedVariables();
+            RecalculateCooldownDuration();
         }
 
         public void SaveState()

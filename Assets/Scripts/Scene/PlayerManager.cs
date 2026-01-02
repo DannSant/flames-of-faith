@@ -58,9 +58,9 @@ namespace Game.Scene
 
         public void LateInitializePlayer()
         {
-            foreach (var comp in currentPlayer.GetComponentsInChildren<ILateInitializable>())
+            foreach (var comp in currentPlayer.GetComponentsInChildren<IInitializeAfterStateReady>())
             {
-                comp.LateInitialize();
+                comp.InitializeAfterStateReady();
             }
         }
 

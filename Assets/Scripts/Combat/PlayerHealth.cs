@@ -10,7 +10,7 @@ using UnityEngine;
 using static Game.Progression.PlayerProgression;
 
 namespace Game.Combat {
-    public class PlayerHealth : MonoBehaviour, ILateInitializable, IDependentStateLoader
+    public class PlayerHealth : MonoBehaviour, IInitializeAfterStateReady, IDependentStateLoader
     {
         //state
         private float defaultMaxHealth = 20; // Default max health value
@@ -49,18 +49,22 @@ namespace Game.Combat {
         private void Start()
         {
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-            currentHealth = playerProgression.GetStatTotal(StatType.MaxHealth);
+
+        }
+
+        public void InitializeAfterStateReady()
+        {
+            
+            float derivedMaxHealth = playerProgression.GetStatTotal(StatType.MaxHealth);
+          
+            SetMaxHealth(derivedMaxHealth);
+            currentHealth = maxHealth;
             armor = playerProgression.GetStatTotal(StatType.Armor);
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 
             // Suscribe to onStatUpdated event to get notifications when the stats for health and armor change
-            playerProgression.onStatUpdated += OnStatUpdated;           
-
-        }
-
-        public void LateInitialize()
-        {
+            playerProgression.onDerivedStatsChanged += OnStatUpdated;
             if (MainSceneController.Instance == null)
             {
                 return;
@@ -71,8 +75,16 @@ namespace Game.Combat {
         private void OnDisable()
         {
             // Unsubscribe to avoid memory leaks
-            playerProgression.onStatUpdated -= OnStatUpdated;
-            MainSceneController.Instance.OnGameplayUISetupRequested -= PlayerHealth_OnSceneLoaded;
+            if (playerProgression != null)
+            {
+                playerProgression.onDerivedStatsChanged -= OnStatUpdated;
+            }
+
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayUISetupRequested -= PlayerHealth_OnSceneLoaded;
+            }
+            
         }      
 
         private void ResetPlayerHealthState() 
@@ -91,30 +103,33 @@ namespace Game.Combat {
             RestoreHealth();
         }
 
-        private void OnStatUpdated(StatType statType, int value)
+        private void OnStatUpdated()
         {
-            if (statType == StatType.MaxHealth)
-            {               
-                SetMaxHealth(value);                
-            }
-            else if (statType == StatType.Armor)
+            int newMaxHealth = playerProgression.GetStatTotal(StatType.MaxHealth);
+            if (newMaxHealth != maxHealth)
             {
-                SetArmor(value);
+                SetMaxHealth(newMaxHealth);
+            }
+            int newArmor = playerProgression.GetStatTotal(StatType.Armor);
+            if (newArmor != armor)
+            {
+                SetArmor(newArmor);
             }
         }
 
-        private void SetMaxHealth(int value)
+
+        private void SetMaxHealth(float value)
         {
-            float increasedAmount = value - maxHealth;
+            float percent = currentHealth / maxHealth;
+            //float increasedAmount = value - maxHealth;
             maxHealth = Mathf.Max(1, value);
-            currentHealth = currentHealth + increasedAmount;
+            currentHealth = Mathf.Clamp(maxHealth * percent, 1, maxHealth);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
         private void SetArmor(int value)
-        {
-          
-            armor = Mathf.Max(0, value); // Ensure armor is never negative
+        {           
+            armor = value;
         }
 
         public void TakeDamage(float amount)
@@ -152,10 +167,21 @@ namespace Game.Combat {
         public void Heal(float amount)
         {
             if (currentHealth <= 0) return;
+            if (IsAtMaxHealth()) return;
 
-            DamageNumberSpawner.Instance.SpawnHealToPlayerNumber(transform.position, amount);
+            float healingReceivedStat = playerProgression.GetStatTotal(StatType.HealingReceived);
 
-            currentHealth += amount;
+            float totalHealAmount = Mathf.Max(0f,amount + healingReceivedStat);
+
+            if(totalHealAmount <= 0)
+            {
+                DamageNumberSpawner.Instance.SpawnHealToPlayerNumber(transform.position, totalHealAmount);
+                return;
+            }
+
+            DamageNumberSpawner.Instance.SpawnHealToPlayerNumber(transform.position, totalHealAmount);
+
+            currentHealth += totalHealAmount;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -225,11 +251,18 @@ namespace Game.Combat {
 
         public void LoadState()
         {
-           
-            maxHealth = GameSession.Instance.PlayerData.savedStats[StatType.MaxHealth];           
+            float savedHealth = GameSession.Instance.LoadCurrentHealth();
+
+            // Force a stat refresh
+            OnStatUpdated();
+            //Debug.Log($"PlayerHealth LoadState: Max Health = {maxHealth}");
+            currentHealth = Mathf.Clamp(savedHealth, 1, maxHealth);
+            onHealthChanged?.Invoke(currentHealth, maxHealth);
+
+            /*maxHealth = GameSession.Instance.PlayerData.savedStats[StatType.MaxHealth];           
             currentHealth = maxHealth;
             armor = GameSession.Instance.PlayerData.savedStats[StatType.Armor];
-            onHealthChanged?.Invoke(currentHealth, maxHealth);
+            onHealthChanged?.Invoke(currentHealth, maxHealth);*/
         }
     }
 

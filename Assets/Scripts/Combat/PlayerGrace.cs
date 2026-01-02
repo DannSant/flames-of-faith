@@ -9,7 +9,7 @@ using static Game.Progression.PlayerProgression;
 
 namespace Game.Combat
 {
-    public class PlayerGrace : MonoBehaviour, ILateInitializable, IDependentStateLoader
+    public class PlayerGrace : MonoBehaviour, IInitializeAfterStateReady, IDependentStateLoader
     {
         public float defaultMaxGrace = 10;
         public float defaultStartingGrace = 5;
@@ -22,55 +22,47 @@ namespace Game.Combat
         public float CurrentGrace { get { return currentGrace; } }
         public float MaxGrace { get { return maxGrace; } }
 
-        private void Awake()
+        private PlayerProgression playerProgression;
+
+        private void Start()
         {
-            currentGrace = 0;
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         }
 
-        public void LateInitialize()
+        public void InitializeAfterStateReady()
         {
-            var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+           
             if (playerProgression != null)
             {
                 maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
-                playerProgression.onStatUpdated += OnMaxPlayerGraceStatUpdated;
+                playerProgression.onDerivedStatsChanged += RefreshMaxGrace;
             }
-
-
 
         }
 
         private void OnDisable()
-        {
-            var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-            playerProgression.onStatUpdated -= OnMaxPlayerGraceStatUpdated;
+        {                  
+            if (playerProgression != null)
+            {
+                playerProgression.onDerivedStatsChanged -= RefreshMaxGrace;
+            }
         }
 
-        private void OnMaxPlayerGraceStatUpdated(StatType statType, int value)
+        private void RefreshMaxGrace()
         {
-            if (statType == StatType.MaxGrace)
-            {
-                SetMaxGrace(value);
-            }
+            float newMaxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
+
+            if (newMaxGrace == maxGrace)
+                return;
+
+            ApplyMaxGrace(newMaxGrace);
 
         }
 
-        public void SetMaxGrace(int value)
+        public void ApplyMaxGrace(float value)
         {
-            int increasedAmount = value - (int)maxGrace;
-
-            //First time setup
-            if (maxGrace <= 0)
-            {
-                maxGrace = value;
-            }
-            else
-            //Update existing max grace
-            {
-                maxGrace = value;
-                currentGrace = Mathf.Min(currentGrace + increasedAmount, maxGrace);
-            }
-
+            maxGrace = Mathf.Max(0, value);
+            currentGrace = Mathf.Clamp(currentGrace, 0, maxGrace);
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 
@@ -83,6 +75,7 @@ namespace Game.Combat
             }
             DamageNumberSpawner.Instance.SpawnGraceGainedNumber(transform.position, amount);
             onGraceChanged?.Invoke(currentGrace, maxGrace);
+
         }
 
         public void RemoveGrace(float amount)
@@ -93,18 +86,21 @@ namespace Game.Combat
                 currentGrace = 0;
             }
             onGraceChanged?.Invoke(currentGrace, maxGrace);
+
         }
 
         public void LoadState()
         {
-            var savedStats = GameSession.Instance.PlayerData.savedStats;
+            /*var savedStats = GameSession.Instance.PlayerData.savedStats;
             int savedMaxGrace;
             if (savedStats != null && savedStats.TryGetValue(StatType.MaxGrace, out savedMaxGrace)) 
             {
                 maxGrace = savedMaxGrace;
             }
           
+            currentGrace = GameSession.Instance.LoadCurrentGrace();*/
             currentGrace = GameSession.Instance.LoadCurrentGrace();
+            RefreshMaxGrace();
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 

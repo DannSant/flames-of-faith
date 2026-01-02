@@ -119,6 +119,36 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Stats/Increase Attack Speed")]
+    public static void IncreaseAttackSpeed()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.AttackSpeed, 1);
+        }
+    }
+
+    [MenuItem("DevTools/Stats/Increase Dash Cooldown")]
+    public static void IncreaseDashCooldown()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.DashCooldown, 1);
+        }
+    }
+
+    [MenuItem("DevTools/Stats/Increase Move Speed")]
+    public static void IncreaseMoveSpeed()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.MoveSpeed, 1);
+        }
+    }
+
     [MenuItem("DevTools/Items/Give Concecrate")]
     public static void GiveholyCross()
     {

@@ -8,7 +8,7 @@ namespace Game.Progression
     /**
      * Sets data depending on the player class
      * */
-    public class PlayerClassManager : MonoBehaviour, ILateInitializable
+    public class PlayerClassManager : MonoBehaviour, IInitializeAfterStateReady
     {
         [SerializeField] private CharacterClassData classData;
 
@@ -29,7 +29,7 @@ namespace Game.Progression
             }
         }
 
-        public void LateInitialize()
+        public void InitializeAfterStateReady()
         {
             var abilityIcons = FindAnyObjectByType<IconCooldownDisplay>();
             if (abilityIcons!=null)

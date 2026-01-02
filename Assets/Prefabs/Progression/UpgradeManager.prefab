@@ -64,12 +64,16 @@ MonoBehaviour:
     tierValues: 050000000a0000000f00000014000000
     category: 0
     description: Max amount of health points of the player
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 1
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Melee damage caused by Melee weapons or some skills
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 2
     initialValue: 0
     allowLevelUpgrades: 1
@@ -77,18 +81,24 @@ MonoBehaviour:
     category: 0
     description: Increases cooldown reduction of your auto attack and special attack
       (R Click)
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 3
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Max speed which you can move
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 4
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases cooldown reduction of your Dash skill
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 5
     initialValue: 10
     allowLevelUpgrades: 1
@@ -97,6 +107,8 @@ MonoBehaviour:
     description: Grace increases damage done by 10% per point. You lose it whenever
       you clear a wave and you gain some when you rest on Camp Sites. Cannot go below
       0
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 6
     initialValue: 0
     allowLevelUpgrades: 1
@@ -104,12 +116,16 @@ MonoBehaviour:
     category: 0
     description: Reduces damage received by 1 for each point. Least amount of damage
       you can receive is 1.
+    affectedByCorruption: 1
+    corruptionReduceFactor: 1
   - statType: 7
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Reduces the required experience to level up
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 8
     initialValue: 0
     allowLevelUpgrades: 1
@@ -117,12 +133,16 @@ MonoBehaviour:
     category: 0
     description: Increases the chance to find higher tier upgrades when leveling
       up. Also increases chance to find objects on enemies.
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 9
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases damage of projectile weapons and skills that spawn projectiles.
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 10
     initialValue: 0
     allowLevelUpgrades: 0
@@ -130,6 +150,8 @@ MonoBehaviour:
     category: 0
     description: Increases range in which you detect enemies. Only works for Range
       based weapons
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 11
     initialValue: 0
     allowLevelUpgrades: 0
@@ -137,12 +159,16 @@ MonoBehaviour:
     category: 0
     description: Increases the amount of targets that your weapon projectiles can
       pierce before they are destroyed
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 12
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases damage done by Magic weapons and some skills.
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 13
     initialValue: 0
     allowLevelUpgrades: 0
@@ -150,33 +176,53 @@ MonoBehaviour:
     category: 0
     description: Causes damage to enemies around you when you use your auto attack.
       Only affects Melee weapons.
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 14
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Regenerates health over time.
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 15
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
     description: 'Chance to heal 1 health when dealing damage. '
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 16
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases the duration of item skills
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 18
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases the range to pickup items
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
   - statType: 19
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
     description: Increases the strength and duration of debuffs
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
+  - statType: 17
+    initialValue: 0
+    allowLevelUpgrades: 0
+    tierValues: 01000000020000000300000004000000
+    category: 0
+    description: Increases the healing amount received
+    affectedByCorruption: 1
+    corruptionReduceFactor: 1

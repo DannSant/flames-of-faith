@@ -132,8 +132,8 @@ namespace Game.Scene
             // Move the player to the gameplay scene
             var gameplayScene = SceneManager.GetSceneByName(levelData.SceneName);
             PlayerManager.Instance.MovePlayerToScene( gameplayScene);
-            PlayerManager.Instance.LateInitializePlayer();
-           
+            // PlayerManager.Instance.LateInitializePlayer(); was here before
+
             yield return new WaitForSeconds(0.1f); // Wait for player to be fully initialized
 
             //Setup UI events
@@ -143,11 +143,13 @@ namespace Game.Scene
             PlayerManager.Instance.BindWaveEventsIfReady();
             if (shouldReset)
             {
-                OnGameplayStateResetRequested?.Invoke();
-            }else
+                OnGameplayStateResetRequested?.Invoke(); // Resets the state, which initializes player components the first time it loads
+            }
+            else
             {
                 PlayerManager.Instance.LoadAllPlayerComponentStates();
             }
+            PlayerManager.Instance.LateInitializePlayer();
 
             OnGameplayInitialSetup?.Invoke();
 

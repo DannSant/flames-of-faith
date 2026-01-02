@@ -11,24 +11,17 @@ namespace Game.UI
     {
         [SerializeField] private float fillSpeed = 5f;
         [SerializeField] TextMeshProUGUI graceText;
-        private Slider graceSlider;
+        [SerializeField] private Image graceFillImage;
+        //private Slider graceSlider;
         private Coroutine currentRoutine;
-        private void Awake()
-        {
-            graceSlider = GetComponent<Slider>();
-            if (graceSlider == null)
-            {
-                Debug.LogError("GraceBar script requires an Slider component.");
-                enabled = false; // Disable this script if no Image component is found
-            }
-        }
+       
         private void Start()
         {
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             if (playerGrace != null)
             {
-                playerGrace.onGraceChanged += UpdateGraceBar;
-                UpdateGraceBar(playerGrace.CurrentGrace, playerGrace.MaxGrace);
+                playerGrace.onGraceChanged += UpdateGrace;
+                UpdateGrace(playerGrace.CurrentGrace, playerGrace.MaxGrace);
             }
             else
             {
@@ -41,14 +34,14 @@ namespace Game.UI
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             if (playerGrace != null)
             {
-                playerGrace.onGraceChanged -= UpdateGraceBar;
+                playerGrace.onGraceChanged -= UpdateGrace;
             }
         }
 
-        private void UpdateGraceBar(float current, float max)
+        private void UpdateGrace(float current, float max)
         {
             UpdateGraceText(current, max);
-            //UpdateGraceBar(current, max, instant: false);
+            UpdateGraceBar(current, max);
         }
 
         private void UpdateGraceText(float current, float max) 
@@ -56,10 +49,10 @@ namespace Game.UI
             graceText.text = $"Grace: {current}/{max}";
         }
 
-        /*private void UpdateGraceBar(int current, int max, bool instant)
+        private void UpdateGraceBar(float current, float max)
         {
            
-            if (graceSlider == null || max <= 0) return;
+            if (graceFillImage == null || max <= 0) return;
 
             float targetValue = current;
 
@@ -68,20 +61,21 @@ namespace Game.UI
                 StopCoroutine(currentRoutine);
             }
 
-            graceSlider.value = targetValue;
-            graceSlider.maxValue = max;
+            currentRoutine = StartCoroutine(AnimateSliderValue(targetValue / max));
+
+
         }
 
         private IEnumerator AnimateSliderValue(float target)
         {
-            Debug.Log("GraceBar: Animation started. Target value: " + target);
-            while (Mathf.Abs(graceSlider.value - target) > 0.01f)
+            //Debug.Log("GraceBar: Animation started. Target value: " + target);
+            while (Mathf.Abs(graceFillImage.fillAmount - target) > 0.01f)
             {
-                graceSlider.value = Mathf.Lerp(graceSlider.value, target, Time.deltaTime * fillSpeed);
+                graceFillImage.fillAmount = Mathf.Lerp(graceFillImage.fillAmount, target, Time.deltaTime * fillSpeed);
                 yield return null;
             }
-            Debug.Log("GraceBar: Animation complete. Final value: " + target);
-            graceSlider.value = target; // Final snap
-        }*/
+            //Debug.Log("GraceBar: Animation complete. Final value: " + target);
+            graceFillImage.fillAmount = target; // Final snap
+        }
     }
 }

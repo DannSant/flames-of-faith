@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 336429339396672147}
   - component: {fileID: 9058536188805504039}
   - component: {fileID: 7099271762150397571}
+  - component: {fileID: 6616224243192596392}
   m_Layer: 0
   m_Name: PlayerBase
   m_TagString: Untagged
@@ -497,6 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invulnerabilityDuration: 0.5
+  noDamage: 0
 --- !u!114 &1851307640931800644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +633,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Items.ItemBag
   pickedUpItems: []
+--- !u!114 &6616224243192596392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543883001522524048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bc24d21b827554b884a94943f2c390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.PlayerCorruption
 --- !u!1 &8015040885398619159
 GameObject:
   m_ObjectHideFlags: 0

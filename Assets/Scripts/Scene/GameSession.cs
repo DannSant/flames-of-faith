@@ -111,7 +111,7 @@ namespace Game.Scene
         }
         public float LoadCurrentGrace()
         {
-            Debug.Log($"Loaded Grace: {playerData.currentGrace}");
+            //Debug.Log($"Loaded Grace: {playerData.currentGrace}");
             return playerData.currentGrace;
         }
 
@@ -125,7 +125,18 @@ namespace Game.Scene
             return playerData.playerExperienceData;
         }
 
-        
+        public void SaveCorruptionLevel(float corruption)
+        {
+            playerData.corruptionLevel = corruption;
+        }
+
+        public float LoadCorruptionLevel()
+        {
+            
+            return playerData.corruptionLevel;
+        }
+
+
 
     }
     public enum DifficultyLevel

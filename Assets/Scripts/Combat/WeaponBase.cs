@@ -26,22 +26,26 @@ namespace Game.Combat
         protected int specialAttackCost = 3;
         protected bool attackButtonDown = false;
 
+        private void Start()
+        {
+            attackTimer = new UpdateTimer(1);
+            specialAttackTimer = new UpdateTimer(1);
+            playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
+            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        }
+
+        /**
+         * Executed on InitializeAfterStateReady
+         * */
         public virtual void Initialize(CharacterVisual characterVisual)
         {
             this.characterVisual = characterVisual;
 
-            playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
-            //playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
-            playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-            weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
-            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
-
-            attackTimer = new UpdateTimer(1);
-            specialAttackTimer = new UpdateTimer(1);
-
             SetupAttackSpeedVariables();
 
-            playerProgression.onStatUpdated += OnStatUpdated;
+            playerProgression.onDerivedStatsChanged += OnDerivedStatUpdated;
             characterVisual.OnAttackStartAnimEvent += OnAttackAnimationStarted;
             characterVisual.OnAttackEndAnimEvent += OnAttackAnimationPlayed;
 
@@ -57,11 +61,19 @@ namespace Game.Combat
 
         protected virtual void OnDisable()
         {
-            playerProgression.onStatUpdated -= OnStatUpdated;
-            characterVisual.OnAttackStartAnimEvent -= OnAttackAnimationStarted;
-            characterVisual.OnAttackEndAnimEvent -= OnAttackAnimationPlayed;
-            characterVisual.OnSpecialAttackEndAnimEvent -= OnSpecialAttackAnimationPlayed;
-            characterVisual.OnSpecialAttackStartAnimEvent -= OnSpecialAttackAnimationStarted;
+            if(playerProgression != null)
+            {
+                playerProgression.onDerivedStatsChanged -= OnDerivedStatUpdated;
+            }
+                
+            if(characterVisual != null)
+            {
+                characterVisual.OnAttackStartAnimEvent -= OnAttackAnimationStarted;
+                characterVisual.OnAttackEndAnimEvent -= OnAttackAnimationPlayed;
+                characterVisual.OnSpecialAttackEndAnimEvent -= OnSpecialAttackAnimationPlayed;
+                characterVisual.OnSpecialAttackStartAnimEvent -= OnSpecialAttackAnimationStarted;
+            }
+            
         }
 
         public virtual void SetupAttackSpeedVariables()
@@ -77,14 +89,13 @@ namespace Game.Combat
                 specialWeaponData.attackCooldownBase,
                 specialWeaponData.attackSpeedScale);
             specialAttackTimer.SetEventDuration(specialAttackDelay);
+
+            
         }
 
-        protected virtual void OnStatUpdated(StatType statType, int value)
+        protected virtual void OnDerivedStatUpdated()
         {
-            if (statType == StatType.AttackSpeed)
-            {
-                SetupAttackSpeedVariables();
-            }
+            SetupAttackSpeedVariables();
         }
 
         protected virtual void ProcessAttackTimers()
@@ -126,13 +137,6 @@ namespace Game.Combat
         public virtual float GetAttackTimerDuration() => attackTimer.GetEventDuration();
         public virtual float GetSpecialAttackTimerDuration() => specialAttackTimer.GetEventDuration();
 
-        protected void GrantGrace(int amount)
-        {
-            /*if (amount > 0)
-            {
-                playerGrace.AddGrace(amount);
-            }*/
-        }
         protected virtual void OnAttackAnimationStarted() { }
         protected virtual void OnAttackAnimationPlayed() { }
         protected virtual void OnSpecialAttackAnimationStarted() { }

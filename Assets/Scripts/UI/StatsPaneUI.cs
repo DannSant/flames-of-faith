@@ -19,8 +19,9 @@ namespace Game.UI
         private void Start()
         {
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-            playerProgression.onStatUpdated += ShowUpdatedStats;
+            //playerProgression.onStatUpdated += ShowUpdatedStats;
             UpgradeManager upgradeManager = UpgradeManager.Instance;
+            playerProgression.onDerivedStatsChanged += RefreshVisibleStats;
             if (upgradeManager != null)
             {
                 upgradeManager.OnUpgradeOptionsAvailable += ShowStatsWindow;
@@ -38,7 +39,8 @@ namespace Game.UI
 
         private void OnDisable()
         {
-            playerProgression.onStatUpdated -= ShowUpdatedStats;
+            //playerProgression.onStatUpdated -= ShowUpdatedStats;
+            playerProgression.onDerivedStatsChanged -= RefreshVisibleStats;
             UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
             {
@@ -52,30 +54,6 @@ namespace Game.UI
             }
         }
 
-        /*public void ShowStatsWindow(List<List<StatValuePair>> _) 
-        {
-            //Show panel
-            contentPanel.SetActive(true);
-            backgroundPanel.SetActive(true);
-            // Clear all stat rows
-            for (int i = contentPanel.transform.childCount - 1; i >= 0; i--)
-            {
-                Destroy(contentPanel.transform.GetChild(i).gameObject);
-            }
-
-            var allStats = playerProgression.GetAllCurrentStats();
-
-            foreach (var kvp in allStats)
-            {
-              
-                string statName = StatDisplayNameHelper.GetDisplayName(kvp.Key);
-                int statValue = kvp.Value;
-                Color color = getTextColor(statValue); // Default color for now
-
-                StatRowUI row = Instantiate(statRowPrefab, contentPanel.transform);
-                row.Initialize(statName, statValue, color, kvp.Key);
-            }
-        }*/
         public void ShowStatsWindow(List<List<StatValuePair>> _)
         {
             contentPanel.SetActive(true);
@@ -98,19 +76,31 @@ namespace Game.UI
 
                 rows[kvp.Key] = row;
             }
+            RefreshVisibleStats();
         }
 
+        private void RefreshVisibleStats()
+        {
+            if (!contentPanel.activeInHierarchy)
+                return;
 
-        private void ShowUpdatedStats(StatType statType, int value)
+            foreach (var kvp in rows)
+            {
+                int value = playerProgression.GetStatTotal(kvp.Key);
+                kvp.Value.UpdateValue(value, getTextColor(value));
+            }
+        }
+
+        /*private void ShowUpdatedStats(StatType statType, int value)
         {
             //ShowStatsWindow(null);
             if (!rows.TryGetValue(statType, out var row))
                 return;
 
             row.UpdateValue(value, getTextColor(value));
-        }
+        }*/
 
-        
+
 
         public void HideStatsWindow(int _)
         {

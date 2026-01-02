@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class CharacterVisual : MonoBehaviour, ILateInitializable
+    public class CharacterVisual : MonoBehaviour, IInitializeAfterStateReady
     {
         [SerializeField] private float flashDuration = 0.1f;
         [SerializeField] private Color flashColor = Color.white;
@@ -173,7 +173,7 @@ namespace Game.Control
             gameObject.SetActive(true);
         }
 
-        public void LateInitialize()
+        public void InitializeAfterStateReady()
         {
             InitializeAnimationParams();
         }

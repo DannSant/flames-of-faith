@@ -30,8 +30,8 @@ namespace Game.Pickups
 
             if(playerHealth != null && playerProgression != null)
             {
-                int healingReceivedStat = playerProgression.GetStatTotal(StatType.HealingReceived);
-                playerHealth.Heal(healAmount + healingReceivedStat);
+               
+                playerHealth.Heal(healAmount);
                 Destroy(gameObject);
             }
 

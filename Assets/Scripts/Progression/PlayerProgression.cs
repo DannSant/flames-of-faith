@@ -1,29 +1,40 @@
 
+using Game.Combat;
 using Game.Common;
 using Game.Effects;
 using Game.Scene;
 using Game.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Progression {
-    public class PlayerProgression : MonoBehaviour, ILateInitializable, IPrimaryStateLoader
+    public class PlayerProgression : MonoBehaviour, IInitializeAfterStateReady, IPrimaryStateLoader
     {       
 
         private Dictionary<StatType, int> currentStats = new Dictionary<StatType, int>();
 
         public delegate void OnStatUpdated(StatType statType, int value);
         public event OnStatUpdated onStatUpdated;
+        public event Action onDerivedStatsChanged;
 
         private Dictionary<StatType, float> cachedFinalStats = new();
         private bool statsDirty = true;
 
         private EffectStore effectStore;
+        private PlayerCorruption playerCorruption;
+        private PlayerGrace playerGrace;
 
         private void Awake()
         {
             effectStore = GetComponent<EffectStore>();
             effectStore.OnEffectsChanged += HandleEffectsChanged;
+
+            playerCorruption = GetComponent<PlayerCorruption>();
+            playerCorruption.OnCorruptionChanged += OnCorruptionChanged;
+
+            playerGrace = GetComponent<PlayerGrace>();
+            playerGrace.onGraceChanged += OnGraceChanged;
         }
 
         private void Start()
@@ -39,6 +50,8 @@ namespace Game.Progression {
         private void OnDisable()
         {
             effectStore.OnEffectsChanged -= HandleEffectsChanged;
+            playerCorruption.OnCorruptionChanged -= OnCorruptionChanged;
+            playerGrace.onGraceChanged -= OnGraceChanged;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetProgression;
@@ -71,13 +84,31 @@ namespace Game.Progression {
                         percentBonus += m.value;
                 }
 
-                float finalValue = (baseValue + flatBonus) * (1f + percentBonus);
-                cachedFinalStats[stat] = finalValue;
+                float totalBeforeCorruption = (baseValue + flatBonus) * (1f + percentBonus);
+
+                // Handle corruption effects if applicable
+                StatData statData = StatUpgradeDatabase.Instance.GetStatData(stat); // Exception is thrown inside this method
+                if(statData != null && statData.AffectedByCorruption)
+                {
+                    float corruptionLevel = playerCorruption.CalculateCorruptionEffectLevel();
+                    float corruptionReduction = corruptionLevel * statData.CorruptionReduceFactor;
+                    float finalValue = totalBeforeCorruption - corruptionReduction;
+                    cachedFinalStats[stat] = finalValue;
+                    //Debug.Log($"Corrupted Stat {stat} finalValue {finalValue}");
+                }else
+                {
+                    cachedFinalStats[stat] = totalBeforeCorruption;
+                    
+                }
+
+               
                 
             }
 
             statsDirty = false;
         }
+
+       
 
         private void ResetProgression()
         {
@@ -98,18 +129,22 @@ namespace Game.Progression {
                 // Update the stat value
                 currentStats[statType] += value;
 
-                var newStat = GetStatTotal(statType, true);           
+                // Mark stats as dirty
+                statsDirty = true;
 
+                var newStat = GetStatTotal(statType, true);
                 // Trigger the event to notify subscribers
                 onStatUpdated?.Invoke(statType, newStat);
 
-                // Mark stats as dirty
-                statsDirty = true;
+                //Trigger event for derived stats change
+                onDerivedStatsChanged?.Invoke(); 
+
             }
         }
 
         public Dictionary<StatType, int> GetAllCurrentStats()
         {
+           
             Dictionary<StatType, int> result = new Dictionary<StatType, int>();
             foreach (var stat in currentStats)
             {               
@@ -118,18 +153,22 @@ namespace Game.Progression {
             return result;
         }
 
-        private void HandleEffectsChanged()
-        {          
-
-            // Mark stats as dirty
+        private void OnGraceChanged(float _, float __)
+        {
             statsDirty = true;
+            onDerivedStatsChanged?.Invoke();
+        }
 
-            // Notify all listeners that stats have changed
-            foreach (var stat in currentStats.Keys)
-            {
-                onStatUpdated?.Invoke(stat, GetStatTotal(stat));
-            }
-                
+        private void OnCorruptionChanged(float _, float __, float ___)
+        {
+            statsDirty = true;
+            onDerivedStatsChanged?.Invoke();
+        }
+
+        private void HandleEffectsChanged()
+        {
+            statsDirty = true;
+            onDerivedStatsChanged?.Invoke();
         }
 
         // Method to retrieve a stat total value
@@ -137,12 +176,6 @@ namespace Game.Progression {
         {
             return Mathf.FloorToInt(GetFinalStat(statType, forceRecalculate));
         }
-
-        // Method to retrieve a stat base value
-        /*public int GetStatBase(StatType statType)
-        {
-            return currentStats.ContainsKey(statType) ? currentStats[statType] : 0;
-        }*/
 
         public float GetFinalStat(StatType stat, bool forceRecalculate=false)
         {
@@ -155,26 +188,9 @@ namespace Game.Progression {
             return cachedFinalStats.TryGetValue(stat, out float value) ? value : 0f;
         }
 
-        // Method to update the player's stat from effects
-        /*public void UpdateExtraStat(StatType statType, int value)
-        {
-            if (extraStats.ContainsKey(statType))
-            {
-                // Update the stat value
-                extraStats[statType] += value;
+       
 
-
-                // Trigger the event to notify subscribers
-                onStatUpdated?.Invoke(statType, GetStatTotal(statType));
-            }else
-            {
-                // If the stat doesn't exist, add it
-                extraStats.Add(statType, value);
-                onStatUpdated?.Invoke(statType, GetStatTotal(statType));
-            }
-        }*/
-
-        public void LateInitialize()
+        public void InitializeAfterStateReady()
         {
           // not used
         }

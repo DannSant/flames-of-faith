@@ -51,7 +51,7 @@ namespace Game.Combat
         {
             base.Update();
 
-            if (weaponManager.GetCurrentTarget()!=null)
+            if (weaponManager!= null && weaponManager.GetCurrentTarget()!=null)
             {
                 LookAtTarget();
             }
@@ -100,7 +100,7 @@ namespace Game.Combat
         private void OnDamageDealt(float damage, GameObject target)
         {
             Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
-            //GrantGrace(graceGenerated);
+          
         }
 
         private void OnSpecialDamageDealt(float damage, GameObject target)
@@ -109,7 +109,7 @@ namespace Game.Combat
             {
                 Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
             }
-            //GrantGrace(graceGenerated);
+           
         }
 
         private void LookAtTarget()

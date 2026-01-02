@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 using Game.Scene;
 using Game.Combat;
 using Game.Saving;
+using Game.Utils;
 namespace Game.Control
 {
-    public class PlayerController : MonoBehaviour, IDependentStateLoader
+    public class PlayerController : MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
     {
         [SerializeField] private float defaultMoveSpeed = 1f;
         [SerializeField] private float baseMoveSpeed = 5f;
@@ -56,8 +57,8 @@ namespace Game.Control
         {           
             weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();            
-            playerProgression.onStatUpdated += PlayerController_onStatUpdatedEvent;
-            SetMoveSpeed();
+            playerProgression.onDerivedStatsChanged += PlayerController_onStatUpdatedEvent;
+           
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayInitialSetup += ResetPlayerPosition;
@@ -71,7 +72,7 @@ namespace Game.Control
 
         private void OnDisable()
         {
-            playerProgression.onStatUpdated -= PlayerController_onStatUpdatedEvent;
+            playerProgression.onDerivedStatsChanged -= PlayerController_onStatUpdatedEvent;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayInitialSetup -= ResetPlayerPosition;
@@ -93,6 +94,11 @@ namespace Game.Control
             Move();
         }
 
+        public void InitializeAfterStateReady()
+        {
+            RecalculateMoveSpeed();
+        }
+
         private void StartAttacking()
         {
             attackButtonDown = true;
@@ -103,21 +109,18 @@ namespace Game.Control
             attackButtonDown = false;
         }
 
-        private void PlayerController_onStatUpdatedEvent(StatType statType, int value)
+        private void PlayerController_onStatUpdatedEvent()
         {
-            if (statType == StatType.MoveSpeed)
-            {
-                SetMoveSpeed();
-            }
+            RecalculateMoveSpeed();
         }
 
         private void ResetPlayerPosition() { 
             transform.position = defaultPosition; 
         }
 
-        private void SetMoveSpeed() 
+        private void RecalculateMoveSpeed() 
         { 
-            moveSpeed = StatsCalculations.CalculateMoveSpeed(playerProgression.GetStatTotal(StatType.MoveSpeed), baseMoveSpeed, baseMoveScale);
+            moveSpeed = StatsCalculations.CalculateMoveSpeed(playerProgression.GetStatTotal(StatType.MoveSpeed), baseMoveSpeed, baseMoveScale);           
         }
 
         private void MovementInput()
@@ -226,7 +229,7 @@ namespace Game.Control
 
         public void LoadState()
         {
-            SetMoveSpeed();
+            RecalculateMoveSpeed();
         }
 
         public void SaveState()
@@ -238,5 +241,7 @@ namespace Game.Control
         {
             moveSpeed = defaultMoveSpeed;
         }
+
+      
     }
 }
