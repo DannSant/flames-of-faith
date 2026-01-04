@@ -1,5 +1,6 @@
 using Game.Audio;
 using Game.Common;
+using Game.Overworld;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,10 @@ namespace Game.Scene
 
     public class MainSceneController : Singleton<MainSceneController>
     {
-        [Header("Scene Names")]      
-        [SerializeField] private List<string> activeGameplayScenes = new List<string>();
+        [Header("Map generation")]      
+        [SerializeField] private List<MapDefinition> actDefinitions;
+        [SerializeField] private int seed = 12345;
+        
 
         [Header("Loading Screen")]
         [SerializeField] private float fadeDuration = 0.5f;
@@ -38,6 +41,8 @@ namespace Game.Scene
         public event System.Action OnGameplayInitialSetup;        // For input/event/UI setup
         public event System.Action OnGameplayUISetupRequested;    // For UI setup
 
+        private List<string> activeGameplayScenes = new List<string>();
+
         protected override void Awake()
         {
             base.Awake();
@@ -60,12 +65,14 @@ namespace Game.Scene
             StartCoroutine(LoadGameplayRoutine(levelData, shouldReset));
         }
 
-        public void LoadLevelSelectorScene()
+        public void LoadLevelSelectorScene(bool newGame)
         {
-            StartCoroutine(LoadLevelSelectorSceneRoutine());
+          
+
+            StartCoroutine(LoadLevelSelectorSceneRoutine(newGame));
         }
 
-        private IEnumerator LoadLevelSelectorSceneRoutine()
+        private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame)
         {
             yield return StartCoroutine(FadeIn());
 
@@ -76,9 +83,15 @@ namespace Game.Scene
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
             //loads level selector scene
-            yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
+            yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);           
 
-            LevelSelectionController.Instance.StartMusicOfCurrentAct();
+            // If starting a new game, generate a new map per act
+            if (newGame)
+            {
+                var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions,seed);
+                MapRunController.Instance.Initialize(mapRunState);             
+                
+            }
 
             yield return StartCoroutine(FadeOut());
         }

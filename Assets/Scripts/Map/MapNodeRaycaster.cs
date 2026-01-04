@@ -1,9 +1,11 @@
 using Game.Common;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Map
 {
+    [Obsolete]
     public class MapNodeRaycaster : Singleton<MapNodeRaycaster>, ISceneCleanupHandler
     {
         [SerializeField] private Camera mapCamera;

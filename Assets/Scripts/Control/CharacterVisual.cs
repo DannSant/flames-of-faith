@@ -58,7 +58,7 @@ namespace Game.Control
             if (currentLevelData != null)
             { 
                
-                if (currentLevelData.type == Map.LevelType.Combat || currentLevelData.type == Map.LevelType.Boss)
+                if (currentLevelData.type == LevelType.Combat || currentLevelData.type == LevelType.Boss)
                 {
                     animator.SetBool("InCombat", true);
                 }

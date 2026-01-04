@@ -15,22 +15,22 @@ namespace Game.UI
         {
             animator = GetComponent<Animator>();
         }
-        public void StartGame() 
+        public void StartNewGame() 
         { 
             //MainSceneController.Instance.LoadGameplay();
-            MainSceneController.Instance.LoadLevelSelectorScene();
+            MainSceneController.Instance.LoadLevelSelectorScene(true);
         }
 
         public void SelectWarrior() 
         {
             GameSession.Instance.SelectedPlayerIndex = 0;
-            StartGame();
+            StartNewGame();
         }
 
         public void SelectArcher()
         {
             GameSession.Instance.SelectedPlayerIndex = 1;
-            StartGame();
+            StartNewGame();
         }
 
         public void SwitchFromMainPanelToCharacterSelect()

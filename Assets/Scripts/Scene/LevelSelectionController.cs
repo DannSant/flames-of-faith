@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Game.Scene
 {
+    [Obsolete]
 
     public class LevelSelectionController : Singleton<LevelSelectionController>
     {

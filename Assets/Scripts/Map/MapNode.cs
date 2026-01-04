@@ -1,12 +1,14 @@
 
 using Game.Scene;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace Game.Map
 {
-    public enum LevelType { Combat, Store, Rest, Event, Boss }
+  
+    [Obsolete]
     public class MapNode
     {
         public LevelType Type { get; set; }  

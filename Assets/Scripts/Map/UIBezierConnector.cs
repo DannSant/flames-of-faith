@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game.Map
 {
-
+    [Obsolete]
     [RequireComponent(typeof(CanvasRenderer))]
     public class UIBezierConnector : Graphic
     {

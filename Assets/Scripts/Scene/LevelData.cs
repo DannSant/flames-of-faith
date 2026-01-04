@@ -3,17 +3,15 @@ using UnityEngine;
 
 namespace Game.Scene
 {
-   
+    public enum LevelType { Combat, Store, Rest, Event, Boss, Treasure, CorruptionClean }
+
     [CreateAssetMenu(fileName = "LevelData", menuName = "Level/LevelData")]
     public class LevelData : ScriptableObject
     {
         [Header("Level Info")]
         public string SceneName;
-        public string DisplayName;
-        public bool IsUnlocked;
-        public bool IsBeaten;
-        public int actNumber = 1;
-        public bool IsFirstLevel;       
+        public string DisplayName;      
+        public int actNumber = 1;            
 
         [Header("Gameplay Settings")]
         public LevelType type;
@@ -24,7 +22,7 @@ namespace Game.Scene
 
         public override string ToString()
         {
-            return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber}, Unlocked: {IsUnlocked}, Beaten: {IsBeaten}, corruptionIncrease: {corruptionIncrease})";
+            return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber}, corruptionIncrease: {corruptionIncrease})";
         }
 
     }

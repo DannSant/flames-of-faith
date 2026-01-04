@@ -1,6 +1,8 @@
 using Game.Scene;
+using System;
 using UnityEngine;
 
+[Obsolete]
 public static class LevelTreeDebugger
 {
     public static void PrintTree(LevelTree tree)

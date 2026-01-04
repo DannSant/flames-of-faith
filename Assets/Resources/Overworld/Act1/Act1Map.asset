@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a85150d68ac4840aea51fef9aa67e7, type: 3}
+  m_Name: Act1Map
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Overworld.MapDefinition
+  mapId: act1
+  displayName: Jesterwoods
+  startNodeId: level1
+  nodes:
+  - id: level1
+    worldPosition: {x: 0, y: 0}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: ea5f1af5313ab55489286ea4d753ee42, type: 2}
+    isFirstLevel: 1
+    connections:
+    - toNodeId: rest1
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 0
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+  - id: rest1
+    worldPosition: {x: 0, y: -1}
+    nodeType: 2
+    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    isFirstLevel: 1
+    connections:
+    - toNodeId: level2
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 0
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: shop1
+      direction: 2
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 0
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+  - id: level2
+    worldPosition: {x: 1, y: -1}
+    nodeType: 2
+    levelData: {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
+    isFirstLevel: 1
+    connections:
+    - toNodeId: boss
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 0
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: level3
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 1
+      enableChance: 0.5
+      rngGroupId: 1
+      required: 0
+      countsTowardMinimumPaths: 0
+  - id: shop1
+    worldPosition: {x: -1, y: -1}
+    nodeType: 1
+    levelData: {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
+    isFirstLevel: 0
+    connections: []
+  - id: boss
+    worldPosition: {x: 1, y: -2}
+    nodeType: 4
+    levelData: {fileID: 11400000, guid: 834d3048fa149dc4393553e00a43d1fd, type: 2}
+    isFirstLevel: 0
+    connections: []
+  - id: level3
+    worldPosition: {x: 2, y: -1}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: f07883d7db6018842b1606deb08e54b2, type: 2}
+    isFirstLevel: 0
+    connections: []

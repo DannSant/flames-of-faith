@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Game.Map
 {
+    [Obsolete]
     public class MapLayer
     {
         public int LayerIndex;

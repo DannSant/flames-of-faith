@@ -1,9 +1,11 @@
 using Game.Scene;
+using System;
 using UnityEngine;
 
 
 namespace Game.Map
 {
+    [Obsolete]
     public class LevelSelectionSceneBootstrap : MonoBehaviour
     {
         private void Start()

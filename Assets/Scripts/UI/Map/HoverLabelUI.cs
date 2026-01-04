@@ -1,9 +1,11 @@
 using Game.Map;
+using System;
 using TMPro;
 using UnityEngine;
 
 namespace Game.UI.Map
 {
+    [Obsolete]
     public class HoverLabelUI : MonoBehaviour
     {
         [SerializeField] private GameObject panel;
@@ -11,19 +13,19 @@ namespace Game.UI.Map
 
         private void Start()
         {
-            MapRenderer.Instance.OnNodeHoverEnter += ShowLabel;
-            MapRenderer.Instance.OnNodeHoverExit += HideLabel;
+            //MapRenderer.Instance.OnNodeHoverEnter += ShowLabel;
+            //MapRenderer.Instance.OnNodeHoverExit += HideLabel;
 
             HideLabel();
         }
 
         private void OnDisable()
         {
-            if (MapRenderer.Instance != null)
+            /*if (MapRenderer.Instance != null)
             {
                 MapRenderer.Instance.OnNodeHoverEnter -= ShowLabel;
                 MapRenderer.Instance.OnNodeHoverExit -= HideLabel;
-            }
+            }*/
         }
         private void ShowLabel(string text)
         {

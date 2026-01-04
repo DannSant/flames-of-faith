@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ namespace Game.Scene
         public LevelNode Root;
     }
 
-   
 
+    [Obsolete]
     public class LevelNode
     {
         public LevelData LevelData;

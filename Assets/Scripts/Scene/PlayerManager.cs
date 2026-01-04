@@ -103,7 +103,7 @@ namespace Game.Scene
             GameSession.Instance.MarkLevelBeaten(GameSession.Instance.currentLevel);
 
             // Load Level Selector scene
-            MainSceneController.Instance.LoadLevelSelectorScene();
+            MainSceneController.Instance.LoadLevelSelectorScene(false);
         }
 
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Game.Map
 {
+    [Obsolete]
     public class MapNodeSprite : MonoBehaviour
     {
         private enum SpriteRendererState

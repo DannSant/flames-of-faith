@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Game.Map
 {
+    [Obsolete]
     public class MapRenderer : Singleton<MapRenderer>, ISceneCleanupHandler
     {
         [Header("Prefabs")]

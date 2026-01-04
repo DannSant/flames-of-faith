@@ -1,10 +1,12 @@
 using Game.Scene;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Game.Map
 {
+    [Obsolete]
     public class MapGenerator
     {
         private System.Random rng = new();

@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Game.Map
 {
+    [Obsolete]
     public class MapNodeHoverDetector : MonoBehaviour
     {
         public event Action<MapNodeSprite> OnHoverEnter;

@@ -2,6 +2,7 @@ using Game.Common;
 using Game.Effects;
 using Game.Map;
 using Game.Metaprogression;
+using Game.Overworld;
 using Game.Progression;
 using Game.Saving;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Game.Scene
 
         [Header("Other Settings")]
         public DifficultyLevel selectedDifficulty = DifficultyLevel.Normal;
+
+        
 
         public LevelData currentLevel;
 
@@ -46,13 +49,13 @@ namespace Game.Scene
 
         public void Initialize()
         {
-            levelsBeaten = 0;
-            LevelSelectionController.Instance.InitialSetup();            
+            levelsBeaten = 0;           
+            //LevelSelectionController.Instance.InitialSetup();            
         }
 
         public void MarkLevelBeaten(LevelData level)
         {           
-            LevelSelectionController.Instance.AdvanceToNextLayer();
+            //LevelSelectionController.Instance.AdvanceToNextLayer();
             levelsBeaten++;            
         }
 

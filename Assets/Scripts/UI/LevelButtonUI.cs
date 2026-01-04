@@ -28,27 +28,7 @@ namespace Game.UI
                 levelNameTxt.text = levelData.DisplayName;
             }
 
-            // Handle beaten state
-            if (levelData.IsBeaten)
-            {
-                button.interactable = false;
-                beatenImage.sprite = beatenTexture;
-
-
-            }
-            else
-            {
-                button.interactable = true;
-                beatenImage.sprite = notBeatenTexture;
-                if (button != null)
-                {
-                    button.onClick.RemoveAllListeners();
-                    button.onClick.AddListener(() =>
-                    {
-                        MainSceneController.Instance.LoadGameplay(levelData);
-                    });
-                }
-            }
+            
 
             // Highlight next level
             if (background != null)
