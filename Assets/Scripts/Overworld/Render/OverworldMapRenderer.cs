@@ -60,6 +60,14 @@ namespace Game.Overworld
             }
         }
 
+        private void OnDisable()
+        {
+            mapController.OnNodeRevealed -= OnNodeRevealed;
+            mapController.OnCurrentNodeChanged -= OnCurrentNodeChanged;
+            mapController.OnActChanged -= OnActChanged;
+            mapController.OnRunMapInitialized -= HandleMapInitialized;
+        }
+
         private void HandleMapInitialized()
         {
             BuildMap();
@@ -144,14 +152,16 @@ namespace Game.Overworld
 
         public void OnNodeClicked(string nodeId)
         {
-            if (mapController.TryMoveTo(nodeId))
+            var currentNode = mapController.CurrentNode;
+
+            if(nodeId == currentNode.id && currentNode.state == RunNodeState.Revealed)
             {
-                Debug.Log($"Moved to node {nodeId}");
+                var levelData = mapController.CurrentNode.levelData;
+                MainSceneController.Instance.LoadGameplay(levelData);
+                return;
             }
-            else
-            {
-                Debug.Log($"Cannot move to node {nodeId}");
-            }
+
+            mapController.TryMoveTo(nodeId);
         }
 
         private void OnNodeRevealed(RunNode node)

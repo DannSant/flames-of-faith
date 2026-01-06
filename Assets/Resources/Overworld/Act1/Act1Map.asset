@@ -33,7 +33,7 @@ MonoBehaviour:
   - id: rest1
     worldPosition: {x: 0, y: -1}
     nodeType: 2
-    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
     isFirstLevel: 1
     connections:
     - toNodeId: level2
@@ -54,7 +54,7 @@ MonoBehaviour:
       countsTowardMinimumPaths: 0
   - id: level2
     worldPosition: {x: 1, y: -1}
-    nodeType: 2
+    nodeType: 0
     levelData: {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
     isFirstLevel: 1
     connections:

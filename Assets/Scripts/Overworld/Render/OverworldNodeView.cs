@@ -30,7 +30,7 @@ namespace Game.Overworld
                     spriteRenderer.color = Color.white;
                     break;
                 case RunNodeState.Cleared:
-                    spriteRenderer.color = Color.gray;
+                    spriteRenderer.color = new Color(1, 1, 1, 0.5f);
                     break;
                 case RunNodeState.LockedHidden:
                     spriteRenderer.color = new Color(1, 1, 1, 0); // invisible

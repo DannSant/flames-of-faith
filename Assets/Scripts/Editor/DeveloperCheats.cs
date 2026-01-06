@@ -12,8 +12,7 @@ using UnityEditor;
 using UnityEngine;
 
 public class DeveloperCheats 
-{
-    private static List<MapLayer> mapToTest = null;
+{   
 
     [MenuItem("DevTools/Level/GoToNextLevel")]
     public static void GoToNextLevel()
@@ -300,22 +299,6 @@ public class DeveloperCheats
             effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
         }
 
-    }
-
-    [MenuItem("DevTools/Map/Generate Map")]
-    public static void TestgenerateMap()
-    {
-        var actConfig = Resources.Load<ActConfig>("Levels/Acts/Act1");
-        if(actConfig == null)
-        {
-            Debug.LogError("ActConfig not found in Resources/Levels/Acts/Act1");
-            return;
-        }
-        MapGenerator mapGenerator = new MapGenerator();
-        var map = mapGenerator.GenerateActMap(actConfig);
-        Debug.Log("Generated map with " + map.Count + " layers.");
-        Debug.Log(MapDebugUtils.MapToString(map));
-        mapToTest = map;
     }
 
     [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]

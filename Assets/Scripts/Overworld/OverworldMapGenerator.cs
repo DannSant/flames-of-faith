@@ -7,6 +7,7 @@ namespace Game.Overworld
     {
         public static RunMapState GenerateRun(List<MapDefinition> mapDefinitions, int seed)
         {
+           
             if (mapDefinitions == null || mapDefinitions.Count == 0)
             {
                 Debug.LogError("[MapGenerator] No MapDefinitions provided.");
@@ -36,7 +37,7 @@ namespace Game.Overworld
         }
         private static RunMapGraph GenerateActGraph(MapDefinition mapDefinition, int actSeed)
         {
-            // NOTE: we are NOT using RNG yet, but we keep the seed
+            System.Random rng = new System.Random(actSeed);
             RunMapGraph graph = new RunMapGraph
             {
                 mapId = mapDefinition.mapId,
@@ -44,7 +45,7 @@ namespace Game.Overworld
                 nodes = new Dictionary<string, RunNode>()
             };
 
-            // 1️⃣ Create all nodes
+            // 1️ Create all nodes
             foreach (var nodeDef in mapDefinition.nodes)
             {
                 if (graph.nodes.ContainsKey(nodeDef.id))
@@ -66,7 +67,73 @@ namespace Game.Overworld
                 graph.nodes.Add(runNode.id, runNode);
             }
 
-            // 2️⃣ Create connections (all enabled for now)
+            // 2️ Create connections 
+            //Build a temporary list of connection candidates
+            var connectionCandidates = new List<(NodeDefinition from, ConnectionDefinition conn)>();
+
+            foreach (var nodeDef in mapDefinition.nodes)
+            {
+                foreach (var connection in nodeDef.connections)
+                {
+                    connectionCandidates.Add((nodeDef, connection));
+                }
+            }
+
+            // Decide enabled state (with RNG)
+            Dictionary<ConnectionDefinition, bool> connectionEnabledMap = new();
+            Dictionary<string, List<ConnectionDefinition>> rngGroups = new();
+
+            foreach (var (from, conn) in connectionCandidates)
+            {
+                bool enabled;
+
+                if (conn.required)
+                {
+                    enabled = true;
+                }
+                else if (conn.canBeDisabledByRng)
+                {
+                    enabled = rng.NextDouble() <= conn.enableChance;
+                }
+                else
+                {
+                    enabled = true;
+                }
+
+                connectionEnabledMap[conn] = enabled;
+
+                if (!string.IsNullOrEmpty(conn.rngGroupId))
+                {
+                    if (!rngGroups.ContainsKey(conn.rngGroupId))
+                        rngGroups[conn.rngGroupId] = new List<ConnectionDefinition>();
+
+                    rngGroups[conn.rngGroupId].Add(conn);
+                }
+            }
+
+            //Enforce RNG group safety
+            foreach (var group in rngGroups)
+            {
+                bool anyEnabled = false;
+
+                foreach (var conn in group.Value)
+                {
+                    if (connectionEnabledMap[conn])
+                    {
+                        anyEnabled = true;
+                        break;
+                    }
+                }
+
+                if (!anyEnabled)
+                {
+                    // Force-enable one at random
+                    int index = rng.Next(group.Value.Count);
+                    connectionEnabledMap[group.Value[index]] = true;
+                }
+            }
+
+            //Create RunEdges using final enabled state
             foreach (var nodeDef in mapDefinition.nodes)
             {
                 RunNode fromNode = graph.nodes[nodeDef.id];
@@ -82,12 +149,14 @@ namespace Game.Overworld
                         continue;
                     }
 
+                    bool enabled = connectionEnabledMap[connection];
+
                     RunEdge edge = new RunEdge
                     {
                         fromNodeId = fromNode.id,
                         toNodeId = toNode.id,
                         direction = connection.direction,
-                        enabled = true, // RNG comes later
+                        enabled = enabled,
                         revealOnClear = connection.revealOnClear
                     };
 
@@ -95,7 +164,7 @@ namespace Game.Overworld
                 }
             }
 
-            // 3️⃣ Resolve start node
+            // 3️ Resolve start node
             string startNodeId = mapDefinition.startNodeId;
 
             if (string.IsNullOrEmpty(startNodeId))

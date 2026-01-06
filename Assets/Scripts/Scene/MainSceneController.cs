@@ -210,7 +210,7 @@ namespace Game.Scene
             yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
 
             // Play the act music if needed
-            LevelSelectionController.Instance.StartMusicOfCurrentAct();
+            //LevelSelectionController.Instance.StartMusicOfCurrentAct();
 
             yield return StartCoroutine(FadeOut());
 
