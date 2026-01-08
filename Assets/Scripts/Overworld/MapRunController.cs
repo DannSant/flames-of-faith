@@ -162,7 +162,7 @@ namespace Game.Overworld
         private void ApplyCorruption(RunNode node)
         {
             float corruption = node.levelData.corruptionIncrease;
-            Debug.Log($"[MapRun] Apply corruption: {corruption}");
+            //Debug.Log($"[MapRun] Apply corruption: {corruption}");
             // Hook PlayerCorruption here later
         }
 

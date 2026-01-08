@@ -17,20 +17,25 @@ namespace Game.UI
        
         private void Start()
         {
+            if (PlayerManager.Instance == null)
+            {
+                return;
+            }
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             if (playerGrace != null)
             {
                 playerGrace.onGraceChanged += UpdateGrace;
                 UpdateGrace(playerGrace.CurrentGrace, playerGrace.MaxGrace);
             }
-            else
-            {
-                Debug.LogWarning("PlayerGrace singleton instance not found!");
-            }
+            
         }
 
         private void OnDisable()
         {
+            if (PlayerManager.Instance == null)
+            {
+                return;
+            }
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             if (playerGrace != null)
             {
@@ -38,7 +43,7 @@ namespace Game.UI
             }
         }
 
-        private void UpdateGrace(float current, float max)
+        public void UpdateGrace(float current, float max)
         {
             UpdateGraceText(current, max);
             UpdateGraceBar(current, max);

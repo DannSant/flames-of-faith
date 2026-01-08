@@ -187,9 +187,7 @@ namespace Game.Scene
         }
 
         private IEnumerator RetryCurrentRunRoutine()
-        {
-            Debug.Log("[MainSceneController] Retrying current run...");
-
+        { 
             // Mark the session as a new run so future state resets correctly
             GameSession.Instance.SetIsNewRun(true);
             GameSession.Instance.Initialize();
@@ -213,8 +211,7 @@ namespace Game.Scene
             //LevelSelectionController.Instance.StartMusicOfCurrentAct();
 
             yield return StartCoroutine(FadeOut());
-
-            Debug.Log("[MainSceneController] Level selector reloaded successfully.");
+            
         }
 
 

@@ -87,7 +87,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Max speed which you can move
     affectedByCorruption: 0
     corruptionReduceFactor: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Reduces the required experience to level up
     affectedByCorruption: 0
     corruptionReduceFactor: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Increases the amount of targets that your weapon projectiles can
       pierce before they are destroyed
     affectedByCorruption: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Causes damage to enemies around you when you use your auto attack.
       Only affects Melee weapons.
     affectedByCorruption: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Increases the range to pickup items
     affectedByCorruption: 0
     corruptionReduceFactor: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Increases the healing amount received
     affectedByCorruption: 1
     corruptionReduceFactor: 1

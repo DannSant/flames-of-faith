@@ -58,7 +58,7 @@ namespace Game.Combat {
             float derivedMaxHealth = playerProgression.GetStatTotal(StatType.MaxHealth);
           
             SetMaxHealth(derivedMaxHealth);
-            currentHealth = maxHealth;
+            //currentHealth = maxHealth;
             armor = playerProgression.GetStatTotal(StatType.Armor);
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -255,7 +255,7 @@ namespace Game.Combat {
 
             // Force a stat refresh
             OnStatUpdated();
-            //Debug.Log($"PlayerHealth LoadState: Max Health = {maxHealth}");
+            //Debug.Log($"PlayerHealth LoadState: savedHealth = {savedHealth}");
             currentHealth = Mathf.Clamp(savedHealth, 1, maxHealth);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 

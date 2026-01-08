@@ -112,10 +112,24 @@ namespace Game.Scene
         {
             return playerData.currentHealth;
         }
+
+        public float LoadMaxHealth()
+        {
+            int maxHealth = 0;
+            playerData.savedStats.TryGetValue(StatType.MaxHealth, out maxHealth);
+            return maxHealth;
+        }
         public float LoadCurrentGrace()
         {
             //Debug.Log($"Loaded Grace: {playerData.currentGrace}");
             return playerData.currentGrace;
+        }
+
+        public float LoadMaxGrace()
+        {
+            int maxGrace = 0;
+            playerData.savedStats.TryGetValue(StatType.MaxGrace, out maxGrace);
+            return maxGrace;
         }
 
         public void SavePlayerExperienceState(PlayerExperienceData data)

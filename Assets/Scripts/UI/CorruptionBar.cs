@@ -19,7 +19,11 @@ namespace Game.UI
         private PlayerGrace playerGrace;
 
         private void Start()
-        {           
+        {          
+            if(PlayerManager.Instance== null)
+            {
+                return;
+            }
 
             playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             if (playerGrace != null)
@@ -33,10 +37,7 @@ namespace Game.UI
                 playerCorruption.OnCorruptionChanged += UpdateCorruption;
                 UpdateCorruption(playerCorruption.CorruptionValue, playerCorruption.CalculateCorruptionEffectLevel(), playerGrace != null ? playerGrace.MaxGrace : 1.0f);
             }
-            else
-            {
-                Debug.LogWarning("PlayerCorruption component not found!");
-            }
+            
         }
 
         private void OnDisable()
@@ -60,7 +61,7 @@ namespace Game.UI
             }
         }
 
-        private void UpdateCorruption(float corruptionLevel, float actualCorruption, float maxGrace)
+        public void UpdateCorruption(float corruptionLevel, float actualCorruption, float maxGrace)
         {
             UpdateCorruptionText(corruptionLevel, actualCorruption);
             float normalizedCorruption = Mathf.Min(corruptionLevel / maxGrace,1.0f);

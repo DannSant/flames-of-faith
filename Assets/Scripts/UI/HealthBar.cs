@@ -22,19 +22,32 @@ namespace Game.UI {
             }
         }
         private void Start()
-        {            
+        {
+            if (PlayerManager.Instance == null)
+            {
+                return;
+            }
             var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.onHealthChanged += UpdateHealthBar;
                 UpdateHealthBar(playerHealth.GetCurrentHealth(), playerHealth.GetMaxHealth());
             }
-            else
+            
+        }
+        private void OnDisable()
+        {
+            if (PlayerManager.Instance == null)
             {
-                Debug.LogWarning("PlayerHealth singleton instance not found!");
+                return;
+            }
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onHealthChanged -= UpdateHealthBar;
             }
         }
-        private void UpdateHealthBar(float current, float max)
+        public void UpdateHealthBar(float current, float max)
         {
             UpdateHealthBar(current, max, instant: false);
         }

@@ -9,8 +9,8 @@ namespace Game.Saving
     [Serializable]
     public class PlayerData
     {
-        public float currentHealth = 0;
-        public float currentGrace = 0;
+        public float currentHealth = 20;
+        public float currentGrace = 5;
         public Dictionary<StatType, int> savedStats = new Dictionary<StatType, int>();
         public PlayerExperienceData playerExperienceData = new PlayerExperienceData();
         public List<EffectInstance> savedEffects = new();
