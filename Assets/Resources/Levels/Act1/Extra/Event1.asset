@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Event1
   DisplayName: Event1
-  IsUnlocked: 0
-  IsBeaten: 0
   actNumber: 1
-  IsFirstLevel: 0
   type: 3
+  corruptionIncrease: 1
+  preventHealthRegen: 1
+  debugShouldPrintObjectCountReport: 0

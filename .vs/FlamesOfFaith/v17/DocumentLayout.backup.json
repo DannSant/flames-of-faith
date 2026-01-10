@@ -3,100 +3,20 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\campfire\\campfireui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\campfire\\campfireui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\mapruncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\mapruncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\campfire\\campfiregracegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\campfire\\campfiregracegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\statspaneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\statspaneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\healthregen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\healthregen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\overworld\\overworldplayerstatepresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\overworld\\overworldplayerstatepresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\corruptionbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\corruptionbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\healthbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\gracebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\gracebar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\statupgradedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\saving\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\saving\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\progression\\playerprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\overworld\\overworldcurrencydisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\overworld\\overworldcurrencydisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\editor\\overworldcheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\overworldcheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\overworldmapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\overworldmapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\render\\overworldmaprenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\render\\overworldmaprenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\render\\overworldnodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\render\\overworldnodeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\ui\\map\\levelnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\map\\levelnodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\runmapstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\runmapstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\runnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\runnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\nodedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\nodedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\mapdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\mapdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\playergrace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playergrace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\runedge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -105,6 +25,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\control\\charactervisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\control\\charactervisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\overworldmapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\overworldmapgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\scene\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\runnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\runnode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\nodedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\nodedefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\mapdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\overworld\\mapdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\overworld\\connectiondefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -118,45 +62,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PlayerProgression.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\PlayerProgression.cs",
-              "ViewState": "AgIAALUAAAAAAAAAAAAwwNIAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T03:42:41.775Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PlayerHealth.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAIAwwDwAAAAOAAAAAAAAAA==",
+              "Title": "CampfireUI.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Campfire\\CampfireUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Campfire\\CampfireUI.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Campfire\\CampfireUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Campfire\\CampfireUI.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowDAAAAB9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T03:30:00.135Z",
+              "WhenOpened": "2026-01-10T03:08:10.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PlayerData.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Saving\\PlayerData.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Saving\\PlayerData.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Saving\\PlayerData.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Saving\\PlayerData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "PlayerGrace.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerGrace.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerGrace.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerGrace.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\PlayerGrace.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAlwEIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T03:26:38.943Z",
+              "WhenOpened": "2026-01-10T02:54:14.636Z",
               "EditorCaption": ""
             },
             {
@@ -165,196 +96,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "OverworldCurrencyDisplay.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Overworld\\OverworldCurrencyDisplay.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Overworld\\OverworldCurrencyDisplay.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Overworld\\OverworldCurrencyDisplay.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\Overworld\\OverworldCurrencyDisplay.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CampfireGraceGenerator.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Campfire\\CampfireGraceGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Campfire\\CampfireGraceGenerator.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Campfire\\CampfireGraceGenerator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Campfire\\CampfireGraceGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T03:13:05.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HealthBar.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\HealthBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\HealthBar.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\HealthBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\HealthBar.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T03:07:15.876Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GraceBar.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\GraceBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\GraceBar.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\GraceBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\GraceBar.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T03:06:39.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CorruptionBar.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\CorruptionBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\CorruptionBar.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\CorruptionBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\CorruptionBar.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T02:59:45.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OverworldPlayerStatePresenter.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowDYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T02:54:30.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "StatUpgradeDatabase.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Progression\\StatUpgradeDatabase.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T04:31:37.133Z",
+              "WhenOpened": "2026-01-10T02:50:38.681Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "StatsPaneUI.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\StatsPaneUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\StatsPaneUI.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\StatsPaneUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\StatsPaneUI.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAjwNIAAAAXAAAAAAAAAA==",
+              "Title": "HealthRegen.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\HealthRegen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\HealthRegen.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\HealthRegen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\HealthRegen.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T04:18:25.98Z",
+              "WhenOpened": "2026-01-09T05:09:53.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OverworldCheats.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\OverworldCheats.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\OverworldCheats.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\OverworldCheats.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Editor\\OverworldCheats.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAB0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T03:34:01.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "LevelNodeUI.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\Map\\LevelNodeUI.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwDEAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T02:52:56.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OverworldNodeView.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\Render\\OverworldNodeView.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\Render\\OverworldNodeView.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\Render\\OverworldNodeView.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Overworld\\Render\\OverworldNodeView.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAUwCAAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T02:58:55.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "OverworldMapRenderer.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\Render\\OverworldMapRenderer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\Render\\OverworldMapRenderer.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\Render\\OverworldMapRenderer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Overworld\\Render\\OverworldMapRenderer.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAASwKIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T01:27:39.101Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "PlayerManager.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scene\\PlayerManager.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAArwGoAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T23:46:44.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MainSceneController.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\MainSceneController.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Scene\\MainSceneController.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAIAwwNQAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T22:40:50.631Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MapRunController.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\MapRunController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\MapRunController.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\MapRunController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Overworld\\MapRunController.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAswKQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T21:49:36.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "RunMapState.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\RunMapState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\RunMapState.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\RunMapState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Overworld\\RunMapState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T19:14:38.804Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "OverworldMapGenerator.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\OverworldMapGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\OverworldMapGenerator.cs",
@@ -362,11 +130,12 @@
               "RelativeToolTip": "Assets\\Scripts\\Overworld\\OverworldMapGenerator.cs",
               "ViewState": "AgIAAKEAAAAAAAAAAAAuwLYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T19:12:43.84Z"
+              "WhenOpened": "2026-01-03T19:12:43.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 4,
               "Title": "RunEdge.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\RunEdge.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\RunEdge.cs",
@@ -374,11 +143,12 @@
               "RelativeToolTip": "Assets\\Scripts\\Overworld\\RunEdge.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T05:36:23.476Z"
+              "WhenOpened": "2026-01-03T05:36:23.476Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 9,
               "Title": "RunNode.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\RunNode.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\RunNode.cs",
@@ -390,19 +160,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 5,
               "Title": "CharacterVisual.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Control\\CharacterVisual.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Control\\CharacterVisual.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Control\\CharacterVisual.cs",
               "RelativeToolTip": "Assets\\Scripts\\Control\\CharacterVisual.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAABaAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA5wDEAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T05:22:18.734Z"
+              "WhenOpened": "2026-01-03T05:22:18.734Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 12,
               "Title": "ConnectionDefinition.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\ConnectionDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\ConnectionDefinition.cs",
@@ -414,19 +185,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 6,
               "Title": "LevelData.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\LevelData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\LevelData.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\LevelData.cs",
               "RelativeToolTip": "Assets\\Scripts\\Scene\\LevelData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T04:59:45.859Z"
+              "WhenOpened": "2026-01-03T04:59:45.859Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 10,
               "Title": "NodeDefinition.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\NodeDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\NodeDefinition.cs",
@@ -438,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 11,
               "Title": "MapDefinition.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Overworld\\MapDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Overworld\\MapDefinition.cs",
@@ -450,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "GameSession.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\GameSession.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\GameSession.cs",
@@ -458,8 +230,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Scene\\GameSession.cs",
               "ViewState": "AgIAADEAAAAAAAAAAIA5wEwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T02:46:29.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-03T02:46:29.729Z"
             }
           ]
         }

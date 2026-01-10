@@ -39,14 +39,14 @@ namespace Game.Campfire.UI
         private void TogglePanel(bool value)
         {
             mainPanel.SetActive(value);
-
+            Debug.Log("CampfireUI: TogglePanel called with value: " + value);
             if (value && campfireGraceGenerator != null)
             {
                 // Unsubscribe after showing the panel once
                 campfireGraceGenerator.onPlayerEntersCampfire -= TogglePanel;
 
                 // Update info text
-                infoTxt.text = $"You gained {campfireGraceGenerator.GraceAmount} Grace.\r\nGrace improves all damage done.";
+                infoTxt.text = $"You gained {campfireGraceGenerator.GraceAmount} Grace and {campfireGraceGenerator.HealAmount} health.\r\nGrace improves all damage done.";
             }
 
         }

@@ -61,8 +61,10 @@ namespace Game.Combat
 
         public void ApplyMaxGrace(float value)
         {
+            float increasedAmount = value - maxGrace;
+            //float percent = currentGrace / maxGrace;
             maxGrace = Mathf.Max(0, value);
-            currentGrace = Mathf.Clamp(currentGrace, 0, maxGrace);
+            currentGrace = Mathf.Clamp(currentGrace + increasedAmount, 0, maxGrace);
             onGraceChanged?.Invoke(currentGrace, maxGrace);
         }
 

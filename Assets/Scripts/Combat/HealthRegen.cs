@@ -11,15 +11,28 @@ namespace Game.Combat
         private PlayerHealth playerHealth;
 
         private float regenTimer = 0f;
+        private LevelData levelData;
 
         private void Awake()
         {
             playerProgression = GetComponent<PlayerProgression>();
             playerHealth = GetComponent<PlayerHealth>();
+            
         }
 
         void Update()
         {
+            if (levelData == null)
+            {
+                levelData = FindLevelData();
+                return;
+            }
+            if (levelData.preventHealthRegen) 
+            {
+                //Debug.Log("levelData.preventHealthRegen");
+                return;
+            }
+           
             float hpRegen = playerProgression.GetStatTotal(StatType.HealthRegen);
             if (hpRegen <= 0f) return;
 
@@ -31,6 +44,16 @@ namespace Game.Combat
                 playerHealth.Heal(1);
                 regenTimer = 0f;
             }
+        }
+
+        private LevelData FindLevelData()
+        {
+            var levelSettings = FindAnyObjectByType<LevelSettings>();
+            if (levelSettings != null)
+            {
+                return levelSettings.LevelData;
+            }
+            return null;
         }
 
         private float CalculateHealInterval(float hpRegen)
