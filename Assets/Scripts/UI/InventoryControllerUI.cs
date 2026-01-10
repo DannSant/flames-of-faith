@@ -1,7 +1,7 @@
 using Game.Currency;
 using Game.Effects;
 using Game.Scene;
-using Game.Shop;
+using Game.RunEncounters;
 using Game.Waves;
 using TMPro;
 using UnityEngine;

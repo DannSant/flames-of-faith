@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Common;
 using Game.Scene;
 using System;
@@ -162,8 +163,16 @@ namespace Game.Overworld
         private void ApplyCorruption(RunNode node)
         {
             float corruption = node.levelData.corruptionIncrease;
-            //Debug.Log($"[MapRun] Apply corruption: {corruption}");
-            // Hook PlayerCorruption here later
+            var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
+            if (playerCorruption != null)
+            {
+                //Debug.Log($"Level Data {currentLevelData}");
+                playerCorruption.AddCorruption(corruption);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerCorruption not assigned.");
+            }
         }
 
         private void RevealChildren(RunNode node)

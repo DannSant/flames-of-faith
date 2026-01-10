@@ -98,13 +98,13 @@ namespace Game.Scene
 
         private void HandleWaveGroupFinished()
         {
+            // Notify MapRunController about level cleared
+            MapRunController.Instance.OnLevelCleared();
+
             SaveAllPlayerComponentStates();
 
             // Mark level as beaten to keep count of levels beaten in this run
-            GameSession.Instance.MarkLevelBeaten(GameSession.Instance.currentLevel);
-
-            // Notify MapRunController about level cleared
-            MapRunController.Instance.OnLevelCleared();
+            GameSession.Instance.MarkLevelBeaten(GameSession.Instance.currentLevel);            
 
             // Load Level Selector scene
             MainSceneController.Instance.LoadLevelSelectorScene(false);
