@@ -2,6 +2,7 @@ using Game.RunEncounters;
 using Game.Scene;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI.RunEncounters
 {
@@ -10,6 +11,7 @@ namespace Game.UI.RunEncounters
         [SerializeField] private GameObject mainPanel;
         [SerializeField] private TextMeshProUGUI rewardText;
         [SerializeField] private GameObject rejectButton;
+        [SerializeField] private Image rewardImage;
 
         private TreasureEncounterController treasureController;
 
@@ -45,7 +47,7 @@ namespace Game.UI.RunEncounters
         {
             mainPanel.SetActive(true);
             rewardText.text = DescribeReward(reward);
-
+            rewardImage.sprite = reward.rewardSprite;
             rejectButton.SetActive(
                 treasureController != null &&
                 treasureController.Data.allowReject
@@ -60,11 +62,13 @@ namespace Game.UI.RunEncounters
         public void OnAcceptClicked()
         {
             treasureController?.Accept();
+            Hide();
         }
 
         public void OnRejectClicked()
         {
             treasureController?.Reject();
+            Hide();
         }
 
         private string DescribeReward(TreasureReward reward)

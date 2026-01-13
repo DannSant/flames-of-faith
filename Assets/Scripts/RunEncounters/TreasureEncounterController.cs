@@ -1,8 +1,10 @@
-﻿using Game.Effects;
+﻿using Game.Currency;
+using Game.Effects;
 using Game.Overworld;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
+using Game.Waves;
 using NUnit.Framework.Interfaces;
 using System;
 using UnityEngine;
@@ -12,13 +14,16 @@ namespace Game.RunEncounters
     public class TreasureReward
     {
         public TreasureRewardType type;
-
+       
         public Effect item;
         public int amount;
+        public Sprite rewardSprite;
     }
     public class TreasureEncounterController : MonoBehaviour
     {
         [SerializeField] private TreasureEncounterData data;
+        [SerializeField] private Sprite currencySprite;
+        [SerializeField] private Sprite experienceSprite;
 
         private TreasureReward resolvedReward;
         private bool resolved = false;
@@ -87,6 +92,7 @@ namespace Game.RunEncounters
             {
                 case TreasureRewardType.Item:
                     reward.item = entry.item;
+                    reward.rewardSprite = entry.item.EffectIcon;
                     reward.amount = Mathf.Max(1, entry.itemCount);
                     break;
 
@@ -95,6 +101,7 @@ namespace Game.RunEncounters
                         entry.minCurrency,
                         entry.maxCurrency + 1
                     );
+                    reward.rewardSprite = currencySprite;
                     break;
 
                 case TreasureRewardType.Experience:
@@ -102,6 +109,7 @@ namespace Game.RunEncounters
                         entry.minExperience,
                         entry.maxExperience + 1
                     );
+                    reward.rewardSprite = experienceSprite;
                     break;
             }
 
@@ -125,23 +133,6 @@ namespace Game.RunEncounters
         {
             // UI hook later
             OnTreasurePresented?.Invoke(reward);
-        }
-
-        private string DescribeReward(TreasureReward reward)
-        {
-            return reward.type switch
-            {
-                TreasureRewardType.Item =>
-                    $"{reward.amount}x {reward.item.name}",
-
-                TreasureRewardType.Currency =>
-                    $"{reward.amount} Gold",
-
-                TreasureRewardType.Experience =>
-                    $"{reward.amount} XP",
-
-                _ => "Unknown Reward"
-            };
         }
 
         public void Accept()
@@ -168,15 +159,15 @@ namespace Game.RunEncounters
             switch (reward.type)
             {
                 case TreasureRewardType.Item:
-                    //PlayerInventory.Instance.AddItem(reward.item, reward.amount);
+                    PlayerManager.Instance.GetPlayerComponent<EffectStore>().AddEffect(reward.item);
                     break;
 
                 case TreasureRewardType.Currency:
-                    //PlayerWallet.Instance.Add(reward.amount);
+                    PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>().AddCurrency(reward.amount);
                     break;
 
                 case TreasureRewardType.Experience:
-                    //PlayerProgression.Instance.AddExperience(reward.amount);
+                    PlayerManager.Instance.GetPlayerComponent<PlayerExperience>().AddExperience(reward.amount);
                     break;
             }
         }
@@ -191,7 +182,7 @@ namespace Game.RunEncounters
 
         private void ExitEncounter()
         {
-            
+            WaveSpawner.Instance.InvokeOnWaveComplete();
         }
     }
 

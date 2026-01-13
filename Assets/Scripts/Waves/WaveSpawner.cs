@@ -13,23 +13,21 @@ namespace Game.Waves {
     public class WaveSpawner : Singleton<WaveSpawner>, ISceneCleanupHandler
     {
 
-        [Header("Spawn Area")]
-        //[SerializeField] private Vector2 minPosition = new Vector2(14, 5);
-        //[SerializeField] private Vector2 maxPosition = new Vector2(-13, -8);
+        [Header("Spawn Area")]       
         [SerializeField] private List<SpawnZone> spawnZones = new List<SpawnZone>();
         [SerializeField] private float minSpawnDistanceFromPlayer = 5f;
 
         [Header("Wave Settings")]
         [SerializeField] private WaveDatabase waveDatabase;
         [SerializeField] private float graceRemovedPerWave = 1f;
+        [SerializeField] private bool endImmediately = false;
 
         [Header("Spawn prefabs")]
         [SerializeField] private EnemySpawnPortal spawnPortalPrefab;
 
         [Header("Testing Settings")]
         [SerializeField]
-        private bool testMode = false;
-       // [SerializeField] private bool shortDurationWaves = false;
+        private bool testMode = false;      
 
         private Dictionary<EnemyType, GameObject> enemyPrefabs;
 
@@ -84,23 +82,13 @@ namespace Game.Waves {
                 return;
             }
 
-            if (testMode)
-            {
-                SpawnTestEnemies();
-            }
-            else
+            // If test mode is disabled, start the first wave normally. If test mode is enabled we should do nothing.
+            if (!testMode)
             {
                 StartNextWave();
-            }
-           
+            }         
         }
-
-        private void SpawnTestEnemies()
-        {            
-          
-           
-
-        }
+        
 
         private void OnDisable()
         {          
@@ -182,9 +170,9 @@ namespace Game.Waves {
         private void StartNextWave()
         {
             if (testMode) return;
-            if (waveDatabase == null){ return; }
-
-            
+            if (waveDatabase == null){               
+                return; 
+            }                      
 
             currentWaveIndex++;
 
@@ -239,12 +227,24 @@ namespace Game.Waves {
             }
 
             activeEnemies.Clear();
+            InvokeOnWaveComplete();
+        }
+
+        public void InvokeOnWaveComplete()
+        {
             OnWaveComplete?.Invoke();
         }
 
         public void ConfirmNextWave()
-        {
+        { 
+            if (endImmediately)
+            {
+                GoToNextLevel();
+                return;
+            }
+
             if (waveDatabase == null) { return; }
+
             if (!waveInProgress && currentWaveIndex < waveDatabase.waves.Count)
             {                
                 StartNextWave();
@@ -290,12 +290,6 @@ namespace Game.Waves {
             {
                 Debug.LogWarning("Could not find spawn point far enough from player.");
             }
-
-            // GameObject enemyGO = Instantiate(prefab, spawnPos, Quaternion.identity);
-            //enemyGO.transform.parent = transform; // Set parent to WaveSpawner
-            //Enemy enemyComponent = enemyGO.GetComponent<Enemy>();
-            //enemyComponent.Initialize(currentWaveIndex + 1);
-            //activeEnemies.Add(enemyGO);
 
             EnemySpawnPortal portal = Instantiate(spawnPortalPrefab, spawnPos, Quaternion.identity);
             portal.Initialize(new SpawnInfo

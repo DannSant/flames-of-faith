@@ -89,6 +89,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act1/Level2_Iso.unity
     guid: 95e33be18c0410545959622d679a5ad5
+  - enabled: 1
+    path: Assets/Scenes/Act1/Treasure.unity
+    guid: fc5b62c0b092e8d42abd1b831bd11450
   m_configObjects:
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

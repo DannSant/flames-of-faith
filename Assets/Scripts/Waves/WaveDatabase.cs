@@ -9,5 +9,6 @@ namespace Game.Waves {
         public List<WaveData> waves = new();
 
         public bool lastWave = false;
+      
     }
 }
