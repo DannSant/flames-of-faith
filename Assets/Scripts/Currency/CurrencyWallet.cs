@@ -36,7 +36,7 @@ namespace Game.Currency
                 return;
             }
 
-            currencyAmount -= amount;
+            currencyAmount -= Mathf.Max(0,amount);
             OnCurrencyChanged?.Invoke(currencyAmount);
         }
 

@@ -6,14 +6,15 @@ using UnityEngine;
 
 namespace Game.Currency
 {
-    public class CurrencyGenerator : Singleton<CurrencyGenerator>
+    public class CurrencyGenerator : Singleton<CurrencyGenerator>, ISceneCleanupHandler
     {
         [SerializeField] private int minCurrencyAmount = 10;
         [SerializeField] private int maxCurrencyAmount = 20;
         [SerializeField] private int currencyPerWave = 2;
+        [SerializeField] private bool shouldNotGenerate = false;
 
         private CurrencyWallet currencyWallet;
-        //private WaveSpawner waveSpawner;
+       
 
         public event Action<int> OnCurrencyGenerated;
 
@@ -25,6 +26,14 @@ namespace Game.Currency
                 MainSceneController.Instance.OnGameplayUISetupRequested += Initialize;
             }          
            
+        }
+
+        private void OnDisable()
+        {
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayUISetupRequested -= Initialize;
+            }
         }
 
         private void Initialize()
@@ -51,16 +60,22 @@ namespace Game.Currency
                 Debug.LogWarning("No listeners for OnCurrencyGenerated event. No currency will be generated.");
                
             }
+            Debug.Log($"shouldNotGenerate: {shouldNotGenerate}:: name {gameObject.name} {gameObject.scene}");
+            if (shouldNotGenerate)
+            {               
+                return;
+            }
             int currentWave = WaveSpawner.Instance.CurrentWaveIndex;
             int amount = UnityEngine.Random.Range(minCurrencyAmount, maxCurrencyAmount + 1) + (currentWave * currencyPerWave);
+            Debug.Log($"CurrencyGenerator.GenerateCurrency: Generating {amount} currency.");
             currencyWallet?.AddCurrency(amount);
             OnCurrencyGenerated?.Invoke(amount);            
         }
 
         public void Cleanup()
-        {
-            Debug.Log("CurrencyGenerator.Cleanup");
+        {            
             WaveSpawner.Instance.OnWaveComplete -= GenerateCurrency;
+            Destroy(gameObject);
         }
     }
 

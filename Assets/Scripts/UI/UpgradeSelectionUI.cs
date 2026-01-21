@@ -50,6 +50,8 @@ namespace Game.UI
             {
                 currencyGenerator.OnCurrencyGenerated += UpdateCoinsGainedText;
             }
+            coinsGainedText.text = "";
+
         }
 
         private void OnDisable()
