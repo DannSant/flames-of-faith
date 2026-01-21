@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc976da7df3a644c9731aafa5e5d83a, type: 3}
   m_Name: LoseHealthOption
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.LoseHealthOption
-  damage: 10
+  amount: 10
+  increase: 0

@@ -67,7 +67,7 @@ namespace Game.Currency
             }
             int currentWave = WaveSpawner.Instance.CurrentWaveIndex;
             int amount = UnityEngine.Random.Range(minCurrencyAmount, maxCurrencyAmount + 1) + (currentWave * currencyPerWave);
-            Debug.Log($"CurrencyGenerator.GenerateCurrency: Generating {amount} currency.");
+           
             currencyWallet?.AddCurrency(amount);
             OnCurrencyGenerated?.Invoke(amount);            
         }
