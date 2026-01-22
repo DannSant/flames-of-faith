@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\runencounters\\eventencounter\\changehealthoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\runencounters\\eventencounter\\changehealthoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\runencounters\\eventencounter\\changegraceoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\runencounters\\eventencounter\\changegraceoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\runencounters\\eventencounter\\changecurrencyoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\runencounters\\eventencounter\\changecurrencyoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\runencounters\\eventencounter\\changeplayercorruptionoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\runencounters\\eventencounter\\changeplayercorruptionoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\runencounters\\eventencounter\\changecurrencyoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\runencounters\\eventencounter\\changecurrencyoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\runencounters\\eventencounter\\changehealthoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\runencounters\\eventencounter\\changehealthoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|C:\\unityprojects\\FlamesOfFaith\\assets\\scripts\\runencounters\\eventencounter\\eventencountercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -87,31 +91,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ChangeGraceOption.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeGraceOption.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeGraceOption.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeGraceOption.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeGraceOption.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T03:40:02.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ChangeHealthOption.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeHealthOption.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeHealthOption.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeHealthOption.cs",
               "RelativeToolTip": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeHealthOption.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-21T03:23:12.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-21T03:23:12.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChangePlayerCorruptionOption.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangePlayerCorruptionOption.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangePlayerCorruptionOption.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangePlayerCorruptionOption.cs",
               "RelativeToolTip": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangePlayerCorruptionOption.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-21T03:17:43.259Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "EventEncounterOptionUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\RunEncounters\\EventEncounterOptionUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\RunEncounters\\EventEncounterOptionUI.cs",
@@ -123,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "EventEncounterUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\RunEncounters\\EventEncounterUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\RunEncounters\\EventEncounterUI.cs",
@@ -135,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "TreasureUI.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\RunEncounters\\TreasureUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\RunEncounters\\TreasureUI.cs",
@@ -147,19 +163,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ChangeCurrencyOption.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeCurrencyOption.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeCurrencyOption.cs",
               "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeCurrencyOption.cs",
               "RelativeToolTip": "Assets\\Scripts\\RunEncounters\\EventEncounter\\ChangeCurrencyOption.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T04:37:46.249Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "EventEncounterController.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\EventEncounterController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\EventEncounterController.cs",
@@ -171,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "EventContext.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\EventContext.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\EventContext.cs",
@@ -183,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "EventOptionActionBase.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\EventOptionActionBase.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\EventOptionActionBase.cs",
@@ -195,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "GiveRandomItemOptionAction.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\EventEncounter\\GiveRandomItemOptionAction.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\EventEncounter\\GiveRandomItemOptionAction.cs",
@@ -207,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "WaveDatabase.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveDatabase.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WaveDatabase.cs",
@@ -219,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "WaveSpawner.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
@@ -231,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "TreasureEncounterController.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\TreasureEncounterController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\TreasureEncounterController.cs",
@@ -243,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "WeightedRandom.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Utils\\WeightedRandom.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Utils\\WeightedRandom.cs",
@@ -255,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "TreasureEncounterData.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\TreasureEncounterData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\TreasureEncounterData.cs",
@@ -267,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "TreasureRewardEntry.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\RunEncounters\\TreasureRewardEntry.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RunEncounters\\TreasureRewardEntry.cs",
@@ -279,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "GameSession.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\GameSession.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\GameSession.cs",

@@ -93,8 +93,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Act1/Treasure.unity
     guid: fc5b62c0b092e8d42abd1b831bd11450
   - enabled: 1
-    path: Assets/Scenes/Act1/EventEncounter.unity
+    path: Assets/Scenes/Act1/BanditsEncounter.unity
     guid: bb2b243368b14964390a5907c90c20a8
+  - enabled: 1
+    path: Assets/Scenes/Act1/ArcaneBoxEncounter.unity
+    guid: 9b9d1dc74ab5d404f8aca1bd54fdbd4a
+  - enabled: 1
+    path: Assets/Scenes/Act1/CursedChestEncounter.unity
+    guid: de993087acdd7f045ba54f6dc2ade0c0
+  - enabled: 1
+    path: Assets/Scenes/Act1/HolyAltarEncounter.unity
+    guid: 320cd683fdf5d69408f9f69bd771b905
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

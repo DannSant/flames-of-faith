@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4c6ba3a120802439722953314c390f, type: 3}
+  m_Name: GiveRandomArcaneItem
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.GiveRandomItemOptionAction
+  possibleItems:
+  - item: {fileID: 11400000, guid: e8aab90266c1b324497ccf08e1a321db, type: 2}
+    weight: 1
+  - item: {fileID: 11400000, guid: 2db98d5d2a698eb44968f03a32be936d, type: 2}
+    weight: 1
+  - item: {fileID: 11400000, guid: e4fa4250e87e4074289f1ea26dc0c2f8, type: 2}
+    weight: 1
+  - item: {fileID: 11400000, guid: 7f50f8210504a544bbf8b97e6a714599, type: 2}
+    weight: 1
+  - item: {fileID: 11400000, guid: 980d367531a4d4e4eb82b072154c8839, type: 2}
+    weight: 1

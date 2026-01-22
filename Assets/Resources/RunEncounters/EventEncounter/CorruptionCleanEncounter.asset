@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861bc016933547642bf2de40bc14f38c, type: 3}
+  m_Name: CorruptionCleanEncounter
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
+  eventName: CorruptionCleanEncounter
+  title: Holy altar
+  fullText: 'You find an abandoned altar, still it radiates a holy aura.
+
+    You
+    start to feel better as you get close...'
+  options:
+  - {fileID: 11400000, guid: 06fc5c44feb27fe438707566212b9672, type: 2}
+  - {fileID: 11400000, guid: be5fc16e1962ba6439ee1d1b56c6d1e1, type: 2}
+  backgroundArt: {fileID: 252768029780725340, guid: fad8a0901ff5edc47b76beb65e498784, type: 3}
