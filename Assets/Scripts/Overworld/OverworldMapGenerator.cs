@@ -30,6 +30,23 @@ namespace Game.Overworld
                     seed + actIndex * 1000 // seed isolation per act
                 );
 
+                //Validate nodes, position must be unique
+                HashSet<Vector2> occupiedPositions = new HashSet<Vector2>();
+                foreach (var node in actGraph.nodes.Values)
+                {
+                    if (occupiedPositions.Contains(node.worldPosition))
+                    {
+                        Debug.LogError(
+                            $"[MapGenerator] Duplicate node position " +
+                            $"at {node.worldPosition} in act {actIndex}"
+                        );
+                    }
+                    else
+                    {
+                        occupiedPositions.Add(node.worldPosition);
+                    }
+                }
+
                 runState.acts.Add(actGraph);
             }
 

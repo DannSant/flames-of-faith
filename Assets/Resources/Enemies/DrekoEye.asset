@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1065387583721202172, guid: 16f21ce2e826fa948bd4e47063af937b, type: 3}
   healthBase: 70
   damageBase: 2
-  damagePerWave: 4
+  damagePerWave: 1
   damagePerLevel: 2
   speedBase: 3
   attackRangeBase: 2
@@ -24,5 +24,5 @@ MonoBehaviour:
   xpPerLevel: 2
   projectileDamageBase: 2
   projectileDamagePerWave: 3
-  healthPerWave: 15
-  healthPerLevel: 60
+  healthPerWave: 5
+  healthPerLevel: 20

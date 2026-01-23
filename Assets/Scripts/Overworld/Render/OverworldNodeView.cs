@@ -42,8 +42,8 @@ namespace Game.Overworld
         }
 
         private void OnMouseDown()
-        {
-           mapRenderer.OnNodeClicked(NodeId);
+        {            
+            mapRenderer.OnNodeClicked(NodeId);
         }
     }
 

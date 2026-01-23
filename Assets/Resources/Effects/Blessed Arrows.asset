@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: Inccreases Ranged Damage by 10, Range by 3 and Pierce Amount by 1;
     Reduces Dash Cooldown Reduction by 2, Armor by 2 and melee Damage by 5
-  buyPrice: 25
+  buyPrice: 50
   sellPrice: 10
   effectStatModifiers:
   - stat: 9

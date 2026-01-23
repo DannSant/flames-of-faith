@@ -20,8 +20,8 @@ MonoBehaviour:
 
     Each
     stack adds additional damage.'
-  buyPrice: 50
-  sellPrice: 15
+  buyPrice: 75
+  sellPrice: 25
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: 38c9af3fb2337fe45be3675292059e5e, type: 2}

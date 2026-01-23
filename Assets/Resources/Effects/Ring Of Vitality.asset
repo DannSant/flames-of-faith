@@ -17,8 +17,8 @@ MonoBehaviour:
   effectName: Ring Of Vitality
   scalingValue: 1
   description: Increases Max Health by 10 and Health Regen by 1
-  buyPrice: 25
-  sellPrice: 10
+  buyPrice: 50
+  sellPrice: 15
   effectStatModifiers:
   - stat: 0
     value: 10

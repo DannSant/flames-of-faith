@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: Spawns a holy projectile that deals Ranged Damage. when dealing any
     kind of damage
-  buyPrice: 50
-  sellPrice: 15
+  buyPrice: 75
+  sellPrice: 25
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: d4dfd011e34c32144a74935735d5b476, type: 2}

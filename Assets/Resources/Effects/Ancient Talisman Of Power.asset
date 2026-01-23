@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: "Ancient talisman with unknown power\n+2 Melee Damage\n+2 Ranged Damage
     \n+2 Magic Damage"
-  buyPrice: 25
+  buyPrice: 50
   sellPrice: 10
   effectStatModifiers:
   - stat: 1

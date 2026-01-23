@@ -34,7 +34,7 @@ MonoBehaviour:
     worldPosition: {x: 0, y: -2}
     nodeType: 2
     levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
-    isFirstLevel: 1
+    isFirstLevel: 0
     connections:
     - toNodeId: level2
       direction: 3
@@ -56,7 +56,7 @@ MonoBehaviour:
     worldPosition: {x: 2, y: -2}
     nodeType: 0
     levelData: {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
-    isFirstLevel: 1
+    isFirstLevel: 0
     connections:
     - toNodeId: level4
       direction: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
     connections:
     - toNodeId: treasure2
       direction: 2
-      revealOnClear: 0
+      revealOnClear: 1
       canBeDisabledByRng: 0
       enableChance: 0
       rngGroupId: 
@@ -118,7 +118,7 @@ MonoBehaviour:
       countsTowardMinimumPaths: 0
     - toNodeId: rest3
       direction: 1
-      revealOnClear: 0
+      revealOnClear: 1
       canBeDisabledByRng: 0
       enableChance: 0
       rngGroupId: 
@@ -208,7 +208,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
-    - toNodeId: rest3
+    - toNodeId: rest4
       direction: 1
       revealOnClear: 1
       canBeDisabledByRng: 0
@@ -252,14 +252,14 @@ MonoBehaviour:
     connections:
     - toNodeId: event2
       direction: 1
-      revealOnClear: 0
+      revealOnClear: 1
       canBeDisabledByRng: 0
       enableChance: 0
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
   - id: event2
-    worldPosition: {x: -4, y: -4}
+    worldPosition: {x: -4, y: -6}
     nodeType: 3
     levelData: {fileID: 11400000, guid: 80d4d2203eb4fda43bd64a43a18ee6b0, type: 2}
     isFirstLevel: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
       required: 0
       countsTowardMinimumPaths: 0
   - id: event3
-    worldPosition: {x: -2, y: -10}
+    worldPosition: {x: 0, y: -8}
     nodeType: 3
     levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
     isFirstLevel: 0
@@ -378,21 +378,21 @@ MonoBehaviour:
     connections:
     - toNodeId: rest5
       direction: 1
-      revealOnClear: 0
+      revealOnClear: 1
       canBeDisabledByRng: 0
       enableChance: 0
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
   - id: rest5
-    worldPosition: {x: 2, y: -10}
+    worldPosition: {x: 2, y: -12}
     nodeType: 2
     levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
     isFirstLevel: 0
     connections:
     - toNodeId: boss
       direction: 1
-      revealOnClear: 0
+      revealOnClear: 1
       canBeDisabledByRng: 0
       enableChance: 0
       rngGroupId: 

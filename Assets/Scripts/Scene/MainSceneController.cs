@@ -207,6 +207,9 @@ namespace Game.Scene
             // Load Level Selector again (fresh run)
             yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
 
+            var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, seed);
+            MapRunController.Instance.Initialize(mapRunState);
+
             // Play the act music if needed
             //LevelSelectionController.Instance.StartMusicOfCurrentAct();
 

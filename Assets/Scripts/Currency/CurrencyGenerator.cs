@@ -60,7 +60,7 @@ namespace Game.Currency
                 Debug.LogWarning("No listeners for OnCurrencyGenerated event. No currency will be generated.");
                
             }
-            Debug.Log($"shouldNotGenerate: {shouldNotGenerate}:: name {gameObject.name} {gameObject.scene}");
+            //Debug.Log($"shouldNotGenerate: {shouldNotGenerate}:: name {gameObject.name} {gameObject.scene}");
             if (shouldNotGenerate)
             {               
                 return;

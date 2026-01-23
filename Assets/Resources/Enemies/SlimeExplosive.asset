@@ -17,12 +17,12 @@ MonoBehaviour:
   healthBase: 15
   damageBase: 2
   damagePerWave: 1
-  damagePerLevel: 4
+  damagePerLevel: 2
   speedBase: 120
   attackRangeBase: 1
   xpBase: 2
   xpPerLevel: 2
   projectileDamageBase: 5
   projectileDamagePerWave: 2
-  healthPerWave: 5
-  healthPerLevel: 15
+  healthPerWave: 2
+  healthPerLevel: 5

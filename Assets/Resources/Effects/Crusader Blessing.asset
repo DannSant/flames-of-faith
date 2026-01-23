@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: Increases Melee Damage by 10, Max Grace by 5 and Attack Speed by 5.
     Reduces Ranged Damage by 5 and Range by 5.
-  buyPrice: 25
+  buyPrice: 50
   sellPrice: 10
   effectStatModifiers:
   - stat: 1

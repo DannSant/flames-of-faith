@@ -19,8 +19,8 @@ MonoBehaviour:
   description: "When you execute an special sttack (right click) spawns 4 holy orbs
     in a random direction and bounce against enemies. Scales with Magic Damage. \nEach
     stack adds an additional bounce"
-  buyPrice: 50
-  sellPrice: 15
+  buyPrice: 75
+  sellPrice: 25
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: 0747b0626f9fd7f45a03101e2c1a9339, type: 2}

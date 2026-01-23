@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: Chance to Spawn a number of holy crosses that damages enemies who
     cross it. Scales with Magic Damage
-  buyPrice: 50
-  sellPrice: 15
+  buyPrice: 75
+  sellPrice: 25
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: 52343fcad531b854ba9387ea4b5821b0, type: 2}
