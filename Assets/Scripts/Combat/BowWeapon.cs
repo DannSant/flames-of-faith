@@ -15,7 +15,10 @@ namespace Game.Combat
     public class BowWeapon : WeaponBase
     {
         [Header("Sound Effects")]
-        [SerializeField] private List<AudioClip> bowAttackSounds = new();        
+        [SerializeField] private List<AudioClip> bowAttackSounds = new();
+
+        [Header("Projectile")]
+        [SerializeField] private Transform projectileSpawnTransform;
 
         public event System.Action<DamageSourceBase> onBowAttackLaunched;
         public event System.Action<DamageSourceBase> onBowSpecialAttackLaunched;
@@ -36,10 +39,9 @@ namespace Game.Combat
 
         public override void SpecialAttack()
         {
-            if (specialAttackTimer.GetIsEventActive()) return;
-           // if (playerGrace.CurrentGrace <= specialAttackCost) return;
+            if (specialAttackTimer.GetIsEventActive()) return;           
 
-            //playerGrace.RemoveGrace(specialAttackCost);
+            playerHealth.IsInvulnerable = true;
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
@@ -49,17 +51,11 @@ namespace Game.Combat
         {
           
             //if (currentTarget == null) return;
-            Vector2 spawnPos = transform.position;
+            Vector2 spawnPos = projectileSpawnTransform.position;
             Vector2 targetPos = targetPosition;//currentTarget.transform.position;
             Vector2 direction = (targetPos - spawnPos).normalized;
-
-            //int damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * weaponData.attackScale;
+            
             int pierceAmount = weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
-
-            /*var projectile = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
-            projectile.Initialize(direction, weaponData.baseDamage, pierceAmount, 5f, false, weaponData.graceGenerated,playerProgression,weaponData);
-            projectile.ConfigureAfterSpawn();
-            projectile.OnDamageDealtEvent += OnDamageDealt;*/
 
             var go = Instantiate(weaponData.projectilePrefab, spawnPos, Quaternion.identity);
 
@@ -74,6 +70,7 @@ namespace Game.Combat
 
         protected override void OnSpecialAttackAnimationPlayed()
         {
+            playerHealth.IsInvulnerable = false;
             int numProjectiles = specialWeaponData.projectileAmount;
             //int numProjectiles = Random.Range(6, 11);
             float angleStep = 360f / numProjectiles;
@@ -88,11 +85,6 @@ namespace Game.Combat
                 float angle = randomOffset + i * angleStep;
                 float rad = angle * Mathf.Deg2Rad;
                 Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
-
-                //var projectile = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
-                //projectile.Initialize(direction, specialWeaponData.baseDamage, pierceAmount, 5f, false, specialWeaponData.graceGenerated, playerProgression, specialWeaponData);
-                //projectile.ConfigureAfterSpawn();
-                //onBowSpecialAttackLaunched?.Invoke(projectile);
 
                 var go = Instantiate(specialWeaponData.projectilePrefab, spawnPos, Quaternion.identity);
 

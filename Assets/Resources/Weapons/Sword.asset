@@ -15,7 +15,7 @@ MonoBehaviour:
   attackCooldownBase: 1
   baseDamage: 10
   attackScale: 1
-  attackSpeedScale: 0.0075
+  attackSpeedScale: 0.075
   weaponClass: 1
   rangeBase: 2
   projectilePrefab: {fileID: 0}
@@ -23,3 +23,5 @@ MonoBehaviour:
   knockbackForce: 2
   shouldApplyKnockback: 1
   graceGenerated: 1
+  elementalDebuffData: {fileID: 0}
+  projectileAmount: 16

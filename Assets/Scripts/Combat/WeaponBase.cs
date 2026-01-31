@@ -19,6 +19,7 @@ namespace Game.Combat
         protected PlayerProgression playerProgression;
         protected WeaponManager weaponManager;
         protected EffectStore effectStore;
+        protected PlayerHealth playerHealth;
 
         protected UpdateTimer attackTimer;
         protected UpdateTimer specialAttackTimer;
@@ -34,6 +35,7 @@ namespace Game.Combat
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
         }
 
         /**

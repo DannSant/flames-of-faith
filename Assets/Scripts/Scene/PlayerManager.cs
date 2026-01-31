@@ -75,6 +75,16 @@ namespace Game.Scene
             return currentPlayer?.GetComponent<T>();
         }
 
+        public T GetPlayerChildComponent<T>() where T : MonoBehaviour
+        {
+            if (currentPlayer == null)
+            {
+                //Debug.LogError("Player not spawned yet.");
+                return null;
+            }
+            return currentPlayer?.GetComponentInChildren<T>();
+        }
+
         public void ClearPlayer()
         {
             currentPlayer = null;

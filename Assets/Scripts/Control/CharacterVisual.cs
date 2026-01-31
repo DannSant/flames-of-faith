@@ -128,6 +128,11 @@ namespace Game.Control
             animator.SetTrigger("Dash");
         }
 
+        public void PlayCleanseAnimation()
+        {
+            animator.SetTrigger("Cleanse");
+        }
+
         public void PlayAttackAnimation()
         {
             IsAttackAnimationPlaying = true;

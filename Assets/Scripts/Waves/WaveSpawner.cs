@@ -1,6 +1,7 @@
 using Game.AI;
 using Game.Combat;
 using Game.Common;
+using Game.Control;
 using Game.Enemies;
 using Game.Scene;
 using System;
@@ -35,7 +36,8 @@ namespace Game.Waves {
         public event Action<int> OnWaveStarted;               // Sends wave number
         public event Action<float> OnWaveTimerUpdated;        // Sends remaining time
         public event Action<float> OnCooldownTimerUpdated;    // Sends cooldown time
-        public event Action OnWaveComplete;                   // Triggered when wave ends
+        public event Action OnWaveCompleteStarted;            // First part of wave complete process
+        public event Action OnWaveCompleteEnded;               // Second part of wave complete process
         public event Action OnWaveGroupFinished;              // Triggered when all waves are complete
         public event Action OnAllLevelsFinished;               // Triggered when all waves are complete and the game should end
 
@@ -46,12 +48,16 @@ namespace Game.Waves {
         private float waveTimer;
         
         private bool waveInProgress = false;
+        private bool endingWave = false;
 
 
         private List<GameObject> activeEnemies = new List<GameObject>();
         private Coroutine waveCoroutine;
+        private Coroutine waveEndingCoroutine;
 
         public int CurrentWaveIndex => currentWaveIndex;
+        public bool WaveInProgress => waveInProgress;
+        public bool EndingWave => endingWave;
 
         protected override void Awake()
         {
@@ -212,6 +218,35 @@ namespace Game.Waves {
                 StopCoroutine(waveCoroutine);
             }
 
+            if(waveEndingCoroutine != null)
+            {
+                StopCoroutine(waveEndingCoroutine);
+            }
+            waveEndingCoroutine = StartCoroutine(EndCurrentWaveRoutine());
+
+        }
+
+        public void InvokeOnWaveComplete()
+        {
+            OnWaveCompleteEnded?.Invoke();
+        }
+
+        private IEnumerator EndCurrentWaveRoutine()
+        {
+            endingWave = true;
+            // Invoke wave complete started event, this will make the player invulnerable so the cleanse animation can play safely
+            OnWaveCompleteStarted?.Invoke();
+
+            // Play cleanse animation          
+            var playerVisual = PlayerManager.Instance.GetPlayerChildComponent<CharacterVisual>();
+            if (playerVisual != null)
+            {
+                playerVisual.PlayCleanseAnimation();
+            }
+
+            // Wait for a short duration to allow the animation to play           
+            yield return new WaitForSeconds(2f);
+
             // Reduce grace when wave ends
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
             if (playerGrace != null)
@@ -219,20 +254,33 @@ namespace Game.Waves {
                 playerGrace.RemoveGrace(graceRemovedPerWave); // Remove 1 grace point
             }
 
-            // Destroy all remaining enemies
+            // Destroy all remaining enemies            
             foreach (var enemy in activeEnemies)
             {
                 if (enemy != null)
-                    Destroy(enemy);
+                {
+                    var enemyHealth = enemy.GetComponent<EnemyHealth>();
+                    if (enemyHealth != null)
+                    {
+                        enemyHealth.TakeDamage(new DamageRequest(9999f, WeaponClass.None, false));
+                    }
+                }
+
+            }
+            activeEnemies.Clear();
+
+
+            //Clear all projectiles in the scene
+            var projectiles = FindObjectsByType<EnemyTriggerDamage>(FindObjectsSortMode.None);
+            foreach (var proj in projectiles)
+            {
+                Destroy(proj.gameObject);
             }
 
-            activeEnemies.Clear();
-            InvokeOnWaveComplete();
-        }
 
-        public void InvokeOnWaveComplete()
-        {
-            OnWaveComplete?.Invoke();
+            //Invoke end wave complete event           
+            InvokeOnWaveComplete();
+            endingWave = false;
         }
 
         public void ConfirmNextWave()
@@ -329,6 +377,10 @@ namespace Game.Waves {
         public void Cleanup()
         {
             StopAllCoroutines();
+            endingWave = false;
+            waveInProgress = false;
+            waveCoroutine = null;
+            waveEndingCoroutine = null;
             var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
             if (playerHealth != null)
             {

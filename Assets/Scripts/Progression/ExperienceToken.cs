@@ -28,7 +28,7 @@ namespace Game.Progression
         {
             if (WaveSpawner.Instance != null)
             {
-                WaveSpawner.Instance.OnWaveComplete += HandleWaveComplete;
+                WaveSpawner.Instance.OnWaveCompleteEnded += HandleWaveComplete;
             }
         }
 
@@ -36,7 +36,7 @@ namespace Game.Progression
         {
             if (WaveSpawner.Instance != null)
             {
-                WaveSpawner.Instance.OnWaveComplete -= HandleWaveComplete;
+                WaveSpawner.Instance.OnWaveCompleteEnded -= HandleWaveComplete;
             }
         }
 

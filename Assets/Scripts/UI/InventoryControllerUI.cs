@@ -82,7 +82,7 @@ namespace Game.UI
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if (waveSpawner != null)
             {
-                waveSpawner.OnWaveComplete += ShowInventoryWindow;
+                waveSpawner.OnWaveCompleteEnded += ShowInventoryWindow;
                 waveSpawner.OnWaveStarted += HideInventoryWindow;
             }
 
@@ -100,7 +100,7 @@ namespace Game.UI
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if (waveSpawner != null)
             {
-                waveSpawner.OnWaveComplete -= ShowInventoryWindow;
+                waveSpawner.OnWaveCompleteEnded -= ShowInventoryWindow;
                 waveSpawner.OnWaveStarted -= HideInventoryWindow;
             }
 

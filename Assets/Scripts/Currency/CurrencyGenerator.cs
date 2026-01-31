@@ -45,7 +45,7 @@ namespace Game.Currency
                 Debug.LogError("WaveSpawner instance not found.");
                 return;
             }
-            WaveSpawner.Instance.OnWaveComplete += GenerateCurrency;
+            WaveSpawner.Instance.OnWaveCompleteEnded += GenerateCurrency;
         }
 
         private void GenerateCurrency()
@@ -74,7 +74,7 @@ namespace Game.Currency
 
         public void Cleanup()
         {            
-            WaveSpawner.Instance.OnWaveComplete -= GenerateCurrency;
+            WaveSpawner.Instance.OnWaveCompleteEnded -= GenerateCurrency;
             Destroy(gameObject);
         }
     }

@@ -1,6 +1,7 @@
 using Game.Enemies;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game.AI.Behaviors
 {
@@ -16,6 +17,7 @@ namespace Game.AI.Behaviors
         public Vector2 moveDirection;
         public bool isShooting;
         public float speedMultiplier = 1f;
+        public NavMeshAgent navMeshAgent;
 
         //public Dictionary<ScriptableObject, float> cooldownTracker = new();
 

@@ -200,8 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  healthPerWave: 2
-  healthPerLevel: 3
 --- !u!114 &7008180432358707353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +217,7 @@ MonoBehaviour:
   deathVfxPrefab: {fileID: 6136071736594798714, guid: c3b002affe4afff409df04a93e30e7df, type: 3}
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
+  shouldSpawnDamageNumbers: 1
 --- !u!114 &5236421020208634294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateBehaviors: []
+  fixedUpdateBehaviors: []
   collisionBehaviors: []
   triggerBehaviors: []
   deathBehaviors: []

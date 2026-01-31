@@ -357,4 +357,18 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Spawn Enemies/Chaser Slime")]
+    public static void SpawnChaserSlime()
+    {
+        var waveSpawner = WaveSpawner.Instance;
+        if (waveSpawner != null)
+        {
+            waveSpawner.SpawnEnemy(EnemyType.SlimeChaser);
+        }
+        else
+        {
+            Debug.LogError("WaveSpawner instance not found.");
+        }
+    }
+
 }

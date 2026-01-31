@@ -55,6 +55,7 @@ namespace Game.AI {
             int waveHealthBonus = (waveNumber - 1) * enemyData.healthPerWave;
             int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
             var enemyAnimController = GetComponent<EnemyAnimationController>();
+            var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
             health.SetMaxHealth(calculatedHealth);
 
@@ -71,7 +72,8 @@ namespace Game.AI {
                 playerTransform = player.transform,
                 enemyData = enemyData,
                 waveNumber = waveNumber,
-                enemyAnimController = enemyAnimController
+                enemyAnimController = enemyAnimController,
+                navMeshAgent = agent
             };
 
             behaviorController.Initialize(context);

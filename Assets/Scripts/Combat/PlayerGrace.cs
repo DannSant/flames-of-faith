@@ -87,6 +87,7 @@ namespace Game.Combat
             {
                 currentGrace = 0;
             }
+            DamageNumberSpawner.Instance.SpawnGraceLostNumber(transform.position, amount);
             onGraceChanged?.Invoke(currentGrace, maxGrace);
 
         }

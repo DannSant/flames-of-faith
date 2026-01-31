@@ -30,10 +30,9 @@ namespace Game.Control
             else
             {
                 characterVisual.AttackEndAnimEvent();
-            }
+            }           
             
-            
-        }
+        }        
     }
 
 }

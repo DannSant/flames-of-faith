@@ -15,7 +15,7 @@ MonoBehaviour:
   attackCooldownBase: 1.5
   baseDamage: 8
   attackScale: 1
-  attackSpeedScale: 0.0075
+  attackSpeedScale: 0.075
   weaponClass: 2
   rangeBase: 5
   projectilePrefab: {fileID: 1399671665664677946, guid: 48af545d34ba78046be1637164035508, type: 3}

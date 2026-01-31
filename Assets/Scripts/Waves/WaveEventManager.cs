@@ -24,7 +24,7 @@ namespace Game.Waves
 
         private void Start()
         {
-            WaveSpawner.Instance.OnWaveComplete += HandleWaveComplete;
+            WaveSpawner.Instance.OnWaveCompleteEnded += HandleWaveComplete;
             playerItemBag = PlayerManager.Instance.GetPlayerComponent<ItemBag>();
         }
 
@@ -32,7 +32,7 @@ namespace Game.Waves
         {
             if (WaveSpawner.Instance != null)
             {
-                WaveSpawner.Instance.OnWaveComplete -= HandleWaveComplete;
+                WaveSpawner.Instance.OnWaveCompleteEnded -= HandleWaveComplete;
             }
         }
 

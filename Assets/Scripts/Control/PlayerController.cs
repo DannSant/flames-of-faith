@@ -7,6 +7,7 @@ using Game.Scene;
 using Game.Combat;
 using Game.Saving;
 using Game.Utils;
+using Game.Waves;
 namespace Game.Control
 {
     public class PlayerController : MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
@@ -137,6 +138,10 @@ namespace Game.Control
 
         private void AttackInput()
         {
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
             if (attackButtonDown && CanAttack())
             {
                 Attack();
@@ -150,10 +155,14 @@ namespace Game.Control
 
         private void StartSpecialAttack()
         {
-            if (characterVisual.IsAttackAnimationPlaying)
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
+            /*if (characterVisual.IsAttackAnimationPlaying)
             {
                 return; // Prevent special attack if normal attack animation is playing
-            }
+            }*/
             weaponManager.SpecialAttack();
         }
 
@@ -167,6 +176,11 @@ namespace Game.Control
 
         private void Move()
         {
+            // Prevent movement if the wave is ending
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
             if (knockback.IsKnockbacked) return; // Prevent input during knockback
             rb.MovePosition(rb.position + movement * (CalculateMoveSpeed() * Time.fixedDeltaTime));
         }

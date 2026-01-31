@@ -4,6 +4,7 @@ using Game.Control;
 using System;
 using Game.Progression;
 using Game.Utils;
+using Game.Waves;
 namespace Game.Combat
 {
     public class WeaponManager :MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
@@ -45,6 +46,10 @@ namespace Game.Combat
 
         private void ManageAutoAttack()
         {
+            if(WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
             if (characterVisual.IsSpecialAttackAnimationPlaying)
             {
                 return;

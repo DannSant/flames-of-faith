@@ -17,6 +17,7 @@ namespace Game.Combat {
         private float maxHealth = 20;
         private float currentHealth;
         private bool isDead = false;
+        private bool isInvulnerable = false;
 
         public delegate void OnHealthChanged(float current, float max);
         public event OnHealthChanged onHealthChanged;
@@ -35,7 +36,9 @@ namespace Game.Combat {
         private int armor = 0;
         private CharacterVisual characterVisual;
         private PlayerProgression playerProgression;     
-      
+
+        public bool IsInvulnerable { get { return isInvulnerable; } set { isInvulnerable = value; } }
+
         private void Awake()
         {          
             characterVisual = GetComponentInChildren<CharacterVisual>();
@@ -70,6 +73,13 @@ namespace Game.Combat {
                 return;
             }
             MainSceneController.Instance.OnGameplayUISetupRequested += PlayerHealth_OnSceneLoaded;
+
+            if(WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.OnWaveCompleteStarted += ToggleOnInvulnerable;
+                WaveSpawner.Instance.OnWaveCompleteEnded += ToggleOffInvulnerable;
+            }
+
         }
 
         private void OnDisable()
@@ -84,7 +94,13 @@ namespace Game.Combat {
             {
                 MainSceneController.Instance.OnGameplayUISetupRequested -= PlayerHealth_OnSceneLoaded;
             }
-            
+
+            if (WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.OnWaveCompleteStarted -= ToggleOnInvulnerable;
+                WaveSpawner.Instance.OnWaveCompleteEnded -= ToggleOffInvulnerable;
+            }
+
         }      
 
         private void ResetPlayerHealthState() 
@@ -96,6 +112,16 @@ namespace Game.Combat {
             armor = 0;
             invulnerableUntilTime = 0f;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
+        }
+
+        private void ToggleOnInvulnerable()
+        {
+            isInvulnerable = true;
+        }
+
+        private void ToggleOffInvulnerable()
+        {
+            isInvulnerable = false;
         }
 
         private void PlayerHealth_OnSceneLoaded()
@@ -144,7 +170,12 @@ namespace Game.Combat {
             if (Time.time < invulnerableUntilTime)
             {               
                 return;
-            }            
+            }
+
+            if (isInvulnerable)
+            {
+                return;
+            }
 
             // Calculate damage after armor, ensure taking at least 1 damage
             float finalDamage = Mathf.Max(1, amount - armor);

@@ -16,7 +16,7 @@ namespace Game.Pickups
             var waveSpawner = WaveSpawner.Instance;
             if(waveSpawner != null)
             {
-                waveSpawner.OnWaveComplete += DestroyPickupOnWaveCompleted;
+                waveSpawner.OnWaveCompleteEnded += DestroyPickupOnWaveCompleted;
             }
         }
 
@@ -25,7 +25,7 @@ namespace Game.Pickups
             var waveSpawner = WaveSpawner.Instance;
             if (waveSpawner != null)
             {
-                waveSpawner.OnWaveComplete -= DestroyPickupOnWaveCompleted;
+                waveSpawner.OnWaveCompleteEnded -= DestroyPickupOnWaveCompleted;
             }
         }
 

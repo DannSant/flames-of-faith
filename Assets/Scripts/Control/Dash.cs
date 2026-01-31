@@ -3,6 +3,7 @@ using Game.Common;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
+using Game.Waves;
 using System;
 using UnityEngine;
 
@@ -21,12 +22,14 @@ namespace Game.Control
         private TrailRenderer dashTrailRenderer;
         private CharacterVisual characterVisual;
         private Collider2D characterCollider;
+        private PlayerHealth playerHealth;
 
         private float dashDuration = .2f;
         private float dashCooldownBase = 2f;
         
         private UpdateTimer dashUpdateTimer;
         private UpdateTimer dashCooldownTimer;
+
 
 
         private void Awake()
@@ -49,6 +52,8 @@ namespace Game.Control
 
             playerProgression.onDerivedStatsChanged += OnDashCooldownUpdated;
             playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
+
+            playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
         }
 
         private void OnDisable()
@@ -81,7 +86,11 @@ namespace Game.Control
         }
 
         private void StartDashEvent()
-        {  
+        {
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
             if (dashCooldownTimer.GetIsEventActive())
             {               
                 return;
@@ -95,6 +104,7 @@ namespace Game.Control
             characterVisual.PlayDashAnimation();          
             playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
+            playerHealth.IsInvulnerable = true;
         }
 
         private void EndDashing()
@@ -102,6 +112,7 @@ namespace Game.Control
             //PlayerController.Instance.ResetDashMultiplier();
             playerController.ResetDashMultiplier();
             dashTrailRenderer.emitting = false;
+            playerHealth.IsInvulnerable = false;
         }
 
         private void RecalculateCooldownDuration()
