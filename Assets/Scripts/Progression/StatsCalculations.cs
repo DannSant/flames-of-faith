@@ -50,7 +50,7 @@ public static class StatsCalculations
         return speed;
     }
 
-    public static float CalculateDashCooldown(int dashCooldownStat, float baseDashCooldown, float scale=0.01f)
+    public static float CalculateDashCooldown(int dashCooldownStat, float baseDashCooldown, float scale=0.08f)
     {
 
         float cooldown = baseDashCooldown / (1f + (dashCooldownStat * scale));

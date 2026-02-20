@@ -1,5 +1,6 @@
 using Game.AI;
 using Game.Common;
+using Game.Scene;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace Game.Waves
             shouldSpawn = false;
             onEnemySpawnedEvent = null;
             StopAllCoroutines();
+            Destroy(gameObject);
         }
 
         public void Initialize(SpawnInfo spawnInfo)
@@ -47,6 +49,10 @@ namespace Game.Waves
         {
             yield return new WaitForSeconds(spawnDelay);
             if (!shouldSpawn) yield break;
+            if (PlayerManager.Instance.IsPlayerOnMap)
+            {
+                yield break;
+            }
             var enemyObj = Instantiate(spawnInfo.EnemyToSpawn, spawnInfo.SpawnPosition, spawnInfo.SpawnRotation, spawnInfo.WaveSpawnerTransform);
             Enemy enemyComponent = enemyObj.GetComponent<Enemy>();
             onEnemySpawnedEvent?.Invoke(this, enemyObj);

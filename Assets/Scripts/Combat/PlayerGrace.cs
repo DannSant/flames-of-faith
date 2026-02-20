@@ -13,14 +13,16 @@ namespace Game.Combat
     {
         public float defaultMaxGrace = 10;
         public float defaultStartingGrace = 5;
-        private float maxGrace = 10;
+        private float lastKnownMaxGrace;
         private float currentGrace = 5;
 
         public delegate void OnGraceChanged(float current, float max);
         public event OnGraceChanged onGraceChanged;
 
         public float CurrentGrace { get { return currentGrace; } }
-        public float MaxGrace { get { return maxGrace; } }
+        public float MaxGrace => playerProgression != null
+           ? playerProgression.GetStatTotal(StatType.MaxGrace)
+           : 0f;
 
         private PlayerProgression playerProgression;
 
@@ -34,8 +36,10 @@ namespace Game.Combat
            
             if (playerProgression != null)
             {
-                maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
-                playerProgression.onDerivedStatsChanged += RefreshMaxGrace;
+                //maxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
+                playerProgression.onDerivedStatsChanged += OnDerivedStatsChanged;
+                lastKnownMaxGrace = MaxGrace;
+                ClampToMaxGrace();
             }
 
         }
@@ -44,81 +48,97 @@ namespace Game.Combat
         {                  
             if (playerProgression != null)
             {
-                playerProgression.onDerivedStatsChanged -= RefreshMaxGrace;
+                playerProgression.onDerivedStatsChanged -= OnDerivedStatsChanged;
             }
         }
 
-        private void RefreshMaxGrace()
+        private void OnDerivedStatsChanged()
         {
-            float newMaxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);
+            float newMax = MaxGrace;
 
-            if (newMaxGrace == maxGrace)
+            float delta = newMax - lastKnownMaxGrace;
+
+            if (delta > 0)
+            {
+                // Increase current grace when max increases
+                currentGrace += delta;
+            }
+
+            lastKnownMaxGrace = newMax;
+            ClampToMaxGrace();
+        }
+
+        private void ClampToMaxGrace()
+        {
+            currentGrace = Mathf.Clamp(currentGrace, 0f, MaxGrace);
+            //Debug.Log($"ClampToMaxGrace: currentGrace {currentGrace}: max {max}");
+            onGraceChanged?.Invoke(currentGrace, MaxGrace);
+        }
+
+        /*private void OnDerivedStatsChanged()
+        {
+            float newMaxGrace = playerProgression.GetStatTotal(StatType.MaxGrace);  
+            Debug.Log("Refreshing Max Grace. New Max Grace: " + newMaxGrace);
+
+            if (Mathf.Approximately(maxGrace,newMaxGrace))
                 return;
 
             ApplyMaxGrace(newMaxGrace);
 
-        }
+        }*/
 
-        public void ApplyMaxGrace(float value)
+        /*public void ApplyMaxGrace(float value)
         {
-            float increasedAmount = value - maxGrace;
-            //float percent = currentGrace / maxGrace;
+            float increasedAmount = value - maxGrace;           
             maxGrace = Mathf.Max(0, value);
             currentGrace = Mathf.Clamp(currentGrace + increasedAmount, 0, maxGrace);
             onGraceChanged?.Invoke(currentGrace, maxGrace);
-        }
+           
+
+        }*/
 
         public void AddGrace(float amount)
         {
-            currentGrace += amount;
-            if (currentGrace > maxGrace)
-            {
-                currentGrace = maxGrace;
-            }
+            currentGrace = Mathf.Clamp(currentGrace + amount, 0f, MaxGrace);
+           
             DamageNumberSpawner.Instance.SpawnGraceGainedNumber(transform.position, amount);
-            onGraceChanged?.Invoke(currentGrace, maxGrace);
+            onGraceChanged?.Invoke(currentGrace, MaxGrace);
 
         }
 
         public void RemoveGrace(float amount)
         {
-            currentGrace -= amount;
-            if (currentGrace < 0)
-            {
-                currentGrace = 0;
-            }
+            currentGrace = Mathf.Clamp(currentGrace - amount, 0f, MaxGrace);
+            
             DamageNumberSpawner.Instance.SpawnGraceLostNumber(transform.position, amount);
-            onGraceChanged?.Invoke(currentGrace, maxGrace);
+            onGraceChanged?.Invoke(currentGrace, MaxGrace);
 
         }
 
         public void LoadState()
         {
-            /*var savedStats = GameSession.Instance.PlayerData.savedStats;
-            int savedMaxGrace;
-            if (savedStats != null && savedStats.TryGetValue(StatType.MaxGrace, out savedMaxGrace)) 
-            {
-                maxGrace = savedMaxGrace;
-            }
-          
-            currentGrace = GameSession.Instance.LoadCurrentGrace();*/
+           
             currentGrace = GameSession.Instance.LoadCurrentGrace();
-            RefreshMaxGrace();
-            onGraceChanged?.Invoke(currentGrace, maxGrace);
+            lastKnownMaxGrace = MaxGrace;
+            //Debug.Log($"Loading Grace {currentGrace}");
+            ClampToMaxGrace();
         }
 
         public void SaveState()
-        {
+        {           
             GameSession.Instance.SaveCurrentGrace(currentGrace);
+           
         }
 
         public void ResetState()
-        {
-            maxGrace = defaultMaxGrace;
+        {           
             currentGrace = defaultStartingGrace;
+            lastKnownMaxGrace = MaxGrace;
+            //Debug.Log($"Reseting Grace {currentGrace}");
+            ClampToMaxGrace();
         }
 
-        public bool IsAtMaxGrace() => currentGrace >= maxGrace;
+        public bool IsAtMaxGrace() => currentGrace >= MaxGrace;
         
     }
 

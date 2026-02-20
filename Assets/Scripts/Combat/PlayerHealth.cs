@@ -37,7 +37,7 @@ namespace Game.Combat {
         private CharacterVisual characterVisual;
         private PlayerProgression playerProgression;     
 
-        public bool IsInvulnerable { get { return isInvulnerable; } set { isInvulnerable = value; } }
+        //public bool IsInvulnerable { get { return isInvulnerable; } set { isInvulnerable = value; } }
 
         private void Awake()
         {          
@@ -74,11 +74,11 @@ namespace Game.Combat {
             }
             MainSceneController.Instance.OnGameplayUISetupRequested += PlayerHealth_OnSceneLoaded;
 
-            if(WaveSpawner.Instance != null)
+            /*if(WaveSpawner.Instance != null)
             {
                 WaveSpawner.Instance.OnWaveCompleteStarted += ToggleOnInvulnerable;
                 WaveSpawner.Instance.OnWaveCompleteEnded += ToggleOffInvulnerable;
-            }
+            }*/
 
         }
 
@@ -95,11 +95,11 @@ namespace Game.Combat {
                 MainSceneController.Instance.OnGameplayUISetupRequested -= PlayerHealth_OnSceneLoaded;
             }
 
-            if (WaveSpawner.Instance != null)
+            /*if (WaveSpawner.Instance != null)
             {
                 WaveSpawner.Instance.OnWaveCompleteStarted -= ToggleOnInvulnerable;
                 WaveSpawner.Instance.OnWaveCompleteEnded -= ToggleOffInvulnerable;
-            }
+            }*/
 
         }      
 
@@ -116,12 +116,13 @@ namespace Game.Combat {
 
         private void ToggleOnInvulnerable()
         {
-            isInvulnerable = true;
+           ToggleIsInvulnerable(true);
         }
 
         private void ToggleOffInvulnerable()
         {
-            isInvulnerable = false;
+           
+            ToggleIsInvulnerable(false);
         }
 
         private void PlayerHealth_OnSceneLoaded()
@@ -158,6 +159,20 @@ namespace Game.Combat {
             armor = value;
         }
 
+        public void ToggleIsInvulnerable(bool value)
+        {
+            /*if(WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave)
+            {
+                isInvulnerable = true;
+                return; // Don't allow toggling invulnerability during wave complete
+            }else
+            {
+               
+            }*/
+            isInvulnerable = value;
+
+        }
+
         public void TakeDamage(float amount)
         {
             if (currentHealth <= 0) return;
@@ -175,6 +190,11 @@ namespace Game.Combat {
             if (isInvulnerable)
             {
                 return;
+            }
+
+            if(WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave)
+            {
+                return; // Don't take damage during wave complete
             }
 
             // Calculate damage after armor, ensure taking at least 1 damage

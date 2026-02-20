@@ -34,7 +34,7 @@ namespace Game.Progression {
             playerCorruption.OnCorruptionChanged += OnCorruptionChanged;
 
             playerGrace = GetComponent<PlayerGrace>();
-            playerGrace.onGraceChanged += OnGraceChanged;
+            //playerGrace.onGraceChanged += OnGraceChanged;
         }
 
         private void Start()
@@ -51,7 +51,7 @@ namespace Game.Progression {
         {
             effectStore.OnEffectsChanged -= HandleEffectsChanged;
             playerCorruption.OnCorruptionChanged -= OnCorruptionChanged;
-            playerGrace.onGraceChanged -= OnGraceChanged;
+            //playerGrace.onGraceChanged -= OnGraceChanged;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetProgression;
@@ -153,11 +153,11 @@ namespace Game.Progression {
             return result;
         }
 
-        private void OnGraceChanged(float _, float __)
+        /*private void OnGraceChanged(float _, float __)
         {
             statsDirty = true;
             onDerivedStatsChanged?.Invoke();
-        }
+        }*/
 
         private void OnCorruptionChanged(float _, float __, float ___)
         {
@@ -202,6 +202,14 @@ namespace Game.Progression {
 
         public void SaveState()
         {
+            /*foreach (var stat in currentStats)
+            {
+                if(stat.Key == StatType.MaxGrace)
+                {
+                    Debug.Log($"Saving Stat {stat.Key} with value {stat.Value}");
+                    break;
+                }
+            }*/
             GameSession.Instance.SaveStats(currentStats);
         }
 
@@ -209,7 +217,15 @@ namespace Game.Progression {
         {
             statsDirty = true;
             currentStats = new Dictionary<StatType, int>(GameSession.Instance.PlayerData.savedStats);
-            
+            /*foreach (var stat in currentStats)
+            {
+                if (stat.Key == StatType.MaxGrace)
+                {
+                    Debug.Log($"Loading Stat {stat.Key} with value {stat.Value}");
+                    break;
+                }
+            }*/
+
         }
     }
 }

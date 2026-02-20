@@ -72,7 +72,7 @@ namespace Game.UI
 
         private void UpdateCorruptionText(float corruptionLevel, float actualCorruption)
         {
-            corruptionText.text = $"Corruption: {actualCorruption} ({corruptionLevel})";
+            corruptionText.text = $"Corruption: {corruptionLevel} - Total: {actualCorruption}";
         }
 
         private void UpdateCorruptionBar(float current)

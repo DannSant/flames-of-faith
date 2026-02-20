@@ -7,23 +7,31 @@ using Game.Scene;
 using Game.Waves;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.RunEncounters
 {
     public class EventEncounterController : MonoBehaviour
     {
-        [SerializeField] private EventEncounterData data;
+        [SerializeField] private List<EventEncounterData> encountersList;
 
         public event Action<EventEncounterData> OnEventPresented;
         public event Action OnEventResolved;
 
         private EventContext context;
+        private EventEncounterData data;
 
         private void Start()
         {
+            if (encountersList.Count == 0)
+            {
+                Debug.LogWarning("No encounters assigned to EventEncounterController.");
+                return;
+            }
+            data = encountersList[UnityEngine.Random.Range(0, encountersList.Count)];
             BuildContext();
-           StartCoroutine(TriggerEventRoutine());
+            StartCoroutine(TriggerEventRoutine());
         }
 
         private IEnumerator TriggerEventRoutine()

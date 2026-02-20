@@ -27,6 +27,10 @@ public class SpawnZone : MonoBehaviour
 
     public Vector2 GetRandomPointInside()
     {
+        if(col == null)
+        {          
+            return Vector2.zero;
+        }
         Bounds bounds = col.bounds;
 
         float x = Random.Range(bounds.min.x, bounds.max.x);

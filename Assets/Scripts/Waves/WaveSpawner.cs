@@ -301,6 +301,10 @@ namespace Game.Waves {
 
         public void SpawnEnemy(EnemyType type)
         {
+            if (PlayerManager.Instance.IsPlayerOnMap)
+            {
+                return;
+            }
             if (!enemyPrefabs.TryGetValue(type, out var prefab))
             {
                 Debug.LogWarning($"No prefab found for enemy type: {type}");

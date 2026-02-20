@@ -1,3 +1,4 @@
+using Game.Common;
 using Game.Scene;
 using Game.Utils;
 using System;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Control
 {
-    public class CharacterVisual : MonoBehaviour, IInitializeAfterStateReady
+    public class CharacterVisual : MonoBehaviour, IInitializeAfterStateReady, IMapComponentDisabler
     {
         [SerializeField] private float flashDuration = 0.1f;
         [SerializeField] private Color flashColor = Color.white;
@@ -181,6 +182,11 @@ namespace Game.Control
         public void InitializeAfterStateReady()
         {
             InitializeAnimationParams();
+        }
+
+        public void DisableComponentsOnMap()
+        {
+            spriteRenderer.enabled = false;
         }
     }
 }

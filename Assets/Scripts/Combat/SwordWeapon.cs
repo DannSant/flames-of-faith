@@ -75,7 +75,7 @@ namespace Game.Combat
         {
             if (specialAttackTimer.GetIsEventActive()) return;
 
-            playerHealth.IsInvulnerable = true;
+            playerHealth.ToggleIsInvulnerable(true);
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             specialAttackCollider.SetActive(true);
@@ -95,7 +95,7 @@ namespace Game.Combat
 
         protected override void OnSpecialAttackAnimationPlayed()
         {
-            playerHealth.IsInvulnerable = false;
+            playerHealth.ToggleIsInvulnerable(false);
             specialAttackCollider.SetActive(false);
         }
 

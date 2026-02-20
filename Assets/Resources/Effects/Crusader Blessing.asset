@@ -16,22 +16,32 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0104ee884dc0a1b4e88f0533e7c24d13, type: 3}
   effectName: Crusader Blessing
   scalingValue: 1
-  description: Increases Melee Damage by 10, Max Grace by 5 and Attack Speed by 5.
-    Reduces Ranged Damage by 5 and Range by 5.
+  description: 'A poweful blessing bested upon your weapon.
+
+    +5 Melee Damage
+
+    +3
+    Max Grace
+
+    +3 Attack Speed
+
+    -5 Ranged Damage
+
+    -5 Range'
   buyPrice: 50
   sellPrice: 10
   effectStatModifiers:
   - stat: 1
-    value: 10
+    value: 5
     type: 0
   - stat: 9
     value: -5
     type: 0
   - stat: 5
-    value: 5
+    value: 3
     type: 0
   - stat: 2
-    value: 5
+    value: 3
     type: 0
   - stat: 10
     value: -5

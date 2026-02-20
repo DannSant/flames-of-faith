@@ -1,5 +1,6 @@
 using Game.Common;
 using Game.Control;
+using Game.Overworld;
 using Game.Scene;
 using Game.Waves;
 using Unity.Cinemachine;
@@ -30,7 +31,15 @@ namespace Game.Level
         public void SetPlayerCameraFollow()
         {
             cinemachineCamera = FindFirstObjectByType<CinemachineCamera>();
-            cinemachineCamera.Follow = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+            if (PlayerManager.Instance.IsPlayerOnMap)
+            {
+                cinemachineCamera.Follow = FindFirstObjectByType<OverworldMapRenderer>().PlayerMarkerTransform;
+            }
+            else
+            {                
+                cinemachineCamera.Follow = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+            }
+            
         }
         public void Cleanup()
         {

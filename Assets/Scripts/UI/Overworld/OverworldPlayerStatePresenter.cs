@@ -5,9 +5,9 @@ namespace Game.UI.Overworld
 {
     public class OverworldPlayerStatePresenter : MonoBehaviour
     {
-        [SerializeField] private CorruptionBar corruptionBar;
-        [SerializeField] private HealthBar healthBar;
-        [SerializeField] private GraceBar graceBar;
+        //[SerializeField] private CorruptionBar corruptionBar;
+        //[SerializeField] private HealthBar healthBar;
+        //[SerializeField] private GraceBar graceBar;
         [SerializeField] private OverworldCurrencyDisplay playerStatePanel;
         [SerializeField] private StatsPaneUI statsPaneUI;
 
@@ -15,6 +15,22 @@ namespace Game.UI.Overworld
         private const float MaxGraceDefault = 10f;
 
         private void Start()
+        {
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnLevelSelectorUISetupRequested += OnUISetup;
+            }            
+        }
+
+        private void OnDisable()
+        {
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnLevelSelectorUISetupRequested -= OnUISetup;
+            }
+        }
+
+        private void OnUISetup()
         {
             Refresh();
         }
@@ -26,7 +42,7 @@ namespace Game.UI.Overworld
             {
                 return;
             }
-
+            /*
             var health = session.LoadCurrentHealth();
             var maxHealth = session.LoadMaxHealth();
             if (maxHealth == 0)
@@ -46,17 +62,18 @@ namespace Game.UI.Overworld
             var corruptionLevel =session.LoadCorruptionLevel();
             float actualCorruption = Mathf.Min(grace - corruptionLevel, 0);
             corruptionBar.UpdateCorruption(corruptionLevel, actualCorruption, maxGrace);
-
+            */
             int currency = session.LoadCurrencyAmount();
             playerStatePanel.SetCurrencyText(currency.ToString());
 
-            var playerStats = session.PlayerData.savedStats;
+            //statsPaneUI.ShowStatsWindow(null);
+            /*var playerStats = session.PlayerData.savedStats;
             if (playerStats.Count > 0)
             {
                 statsPaneUI.BuildStatRowsFromOverworld(playerStats);
                 statsPaneUI.ShowStatsWindow(null);
-            }
-            
+            }*/
+
 
 
         }

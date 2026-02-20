@@ -20,7 +20,9 @@ namespace Game.AI.Behaviors
             var enemyData = context.enemyData;
             int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
             int waveDamageBonus = enemyData.projectileDamagePerWave * (context.waveNumber - 1);
-            return enemyData.projectileDamageBase + waveDamageBonus + levelDamageBonus;
+            int totalDamageBonus = enemyData.projectileDamageBase + waveDamageBonus + levelDamageBonus;
+            //Debug.Log($"Ranged Damage Calculation: Base={enemyData.projectileDamageBase}, WaveBonus={waveDamageBonus}, LevelBonus={levelDamageBonus}, Total={totalDamageBonus}");
+            return totalDamageBonus;
         }
 
     }

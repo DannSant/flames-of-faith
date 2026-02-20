@@ -104,7 +104,7 @@ namespace Game.Control
             characterVisual.PlayDashAnimation();          
             playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
-            playerHealth.IsInvulnerable = true;
+            playerHealth.ToggleIsInvulnerable(true);
         }
 
         private void EndDashing()
@@ -112,7 +112,7 @@ namespace Game.Control
             //PlayerController.Instance.ResetDashMultiplier();
             playerController.ResetDashMultiplier();
             dashTrailRenderer.emitting = false;
-            playerHealth.IsInvulnerable = false;
+            playerHealth.ToggleIsInvulnerable(false);
         }
 
         private void RecalculateCooldownDuration()

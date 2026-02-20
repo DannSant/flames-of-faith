@@ -458,7 +458,7 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.5, y: 0.5}
+      Size: {x: 0.2, y: 0.2}
     HardLimits:
       Enabled: 0
       Size: {x: 0.8, y: 0.8}
@@ -1362,9 +1362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b5cf51524b7284d9c756b25105d09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Overworld.OverworldPlayerStatePresenter
-  corruptionBar: {fileID: 1452386820}
-  healthBar: {fileID: 1452386819}
-  graceBar: {fileID: 1452386818}
   playerStatePanel: {fileID: 34818362}
   statsPaneUI: {fileID: 582345718}
 --- !u!1 &968400934
@@ -2141,6 +2138,38 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.72038525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.19655108
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.13037023
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.07210215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2.519989
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.4489746
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036997356367268733, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.1000061
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2151,39 +2180,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1251934728845488898, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
   m_PrefabInstance: {fileID: 1452386816}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1452386818 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1586910850913655837, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
-  m_PrefabInstance: {fileID: 1452386816}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22fe88f474791b54d8dc7c16cbcfad1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1452386819 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2906535706274832202, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
-  m_PrefabInstance: {fileID: 1452386816}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7105ddaaef16fcc43b3d84b687ff3076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1452386820 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9063479928330079949, guid: 29f111862a0b27845986eaff1d4297d9, type: 3}
-  m_PrefabInstance: {fileID: 1452386816}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9972abfccae69aa49ba09e94807e317b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorruptionBar
 --- !u!224 &1467770316 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1364598752693973528, guid: 803239dfc2ccb9b4a835c7d0bceff5ff, type: 3}

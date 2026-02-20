@@ -1,4 +1,5 @@
 using Game.Misc;
+using Game.Scene;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,8 @@ namespace Game.Effects.EffectBehaviors
 
         public override void Initialize(GameObject owner, EffectStore store, Effect effect)
         {
-            base.Initialize(owner, store, effect);           
+            base.Initialize(owner, store, effect);
+            PlayerManager.Instance.OnPlayerDisabledOnMap += DisableVisuals;
         }
 
         public override void OnTrigger(EffectTrigger trigger)
@@ -64,8 +66,18 @@ namespace Game.Effects.EffectBehaviors
 
         }
 
+        private void DisableVisuals()
+        {
+            foreach (var obj in spawnedObjects)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
+        }
+
         public override void Cleanup()
         {
+            PlayerManager.Instance.OnPlayerDisabledOnMap -= DisableVisuals;
             // Destroy spawned objects
             foreach (var obj in spawnedObjects)
             {

@@ -35,9 +35,6 @@ namespace Game.Progression
             if (abilityIcons!=null)
             {
                 abilityIcons.SetIcons(classData.abilityIcons[0], classData.abilityIcons[1]);
-            }else
-            {
-                Debug.LogError("PlayerClassManager: IconCooldownDisplay not found in the scene.");
             }
         }
     }

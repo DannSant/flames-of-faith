@@ -22,7 +22,7 @@ MonoBehaviour:
   sellPrice: 10
   effectStatModifiers:
   - stat: 9
-    value: 10
+    value: 5
     type: 0
   - stat: 10
     value: 3

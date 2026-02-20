@@ -4,6 +4,7 @@ using Game.Misc;
 using Game.Overworld;
 using Game.Utils;
 using Game.Waves;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,11 @@ namespace Game.Scene
 
         public GameObject CurrentPlayer => currentPlayer;
 
+        private bool isPlayerOnMap = false;
+        public bool IsPlayerOnMap { get { return isPlayerOnMap; } set { isPlayerOnMap = value; } }
+
+        public event Action OnPlayerDisabledOnMap;
+
         public void SpawnSelectedPlayer(int selectedIndex, bool isNewRun)
         {
             if (currentPlayer != null)
@@ -36,10 +42,10 @@ namespace Game.Scene
             
             currentPlayer = Instantiate(prefab, transform.position, Quaternion.identity);
 
-            if (isNewRun)
+            /*if (isNewRun)
             {
                 ResetAllPlayerComponentStates();
-            }
+            }*/
             
         }       
 
@@ -122,17 +128,36 @@ namespace Game.Scene
            
         }
 
+        public void DisableComponentsForMap()
+        {
+            foreach (var component in currentPlayer.GetComponentsInChildren<IMapComponentDisabler>())
+            {
+                component.DisableComponentsOnMap();
+            }
+
+            //Disable collider so we don't accidentally click on the player and prevent us to enter a level
+            var colliders = currentPlayer.GetComponentsInChildren<Collider2D>();
+            foreach (var collider in colliders)
+            {
+                collider.enabled = false;
+            }
+
+            //Call event for any additional logic that needs to happen when player is disabled on map
+            OnPlayerDisabledOnMap?.Invoke();
+        }
+
 
         public void SaveAllPlayerComponentStates()
         {
-            foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
-            {
-                component.SaveState();
-            }
             foreach (var component in currentPlayer.GetComponentsInChildren<IDependentStateLoader>())
             {
                 component.SaveState();
             }
+            foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
+            {
+                component.SaveState();
+            }
+            
         }
 
         public void LoadAllPlayerComponentStates()

@@ -51,6 +51,7 @@ namespace Game.UI
 
         private void UpdateGraceText(float current, float max) 
         {
+            //Debug.Log($"UpdateGraceText {current}/{max}");
             graceText.text = $"Grace: {current}/{max}";
         }
 

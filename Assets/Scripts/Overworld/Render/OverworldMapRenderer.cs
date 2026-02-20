@@ -39,6 +39,8 @@ namespace Game.Overworld
         private Dictionary<LevelType, Sprite> iconSpritesDictionary = new();
         private List<OverworldEdgeView> edgeViews = new();
 
+        public Transform PlayerMarkerTransform => playerMarker;
+
         private void Start()
         {
             mapController = MapRunController.Instance;
@@ -210,6 +212,9 @@ namespace Game.Overworld
                 return iconSpritesDictionary[LevelType.Combat]; // default sprite
             }
         }
+
+
+        
 
     }
 

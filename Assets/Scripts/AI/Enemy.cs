@@ -52,7 +52,9 @@ namespace Game.AI {
 
             int baseHealth = enemyData.healthBase;
             int levelHealthBonus = GameSession.Instance.LevelsBeaten * enemyData.healthPerLevel; // Health bonus based on levels beaten
+          
             int waveHealthBonus = (waveNumber - 1) * enemyData.healthPerWave;
+           
             int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
             var enemyAnimController = GetComponent<EnemyAnimationController>();
             var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();

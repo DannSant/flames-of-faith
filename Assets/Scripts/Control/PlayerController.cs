@@ -10,7 +10,7 @@ using Game.Utils;
 using Game.Waves;
 namespace Game.Control
 {
-    public class PlayerController : MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
+    public class PlayerController : MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady, IMapComponentDisabler
     {
         [SerializeField] private float defaultMoveSpeed = 1f;
         [SerializeField] private float baseMoveSpeed = 5f;
@@ -36,6 +36,7 @@ namespace Game.Control
         public Vector2 DefaultPosition { get { return defaultPosition; } set { defaultPosition = value; } }
 
         private bool facingLeft = false;
+        private bool disabledInput = false;
 
         private void Awake()
         {                                
@@ -46,7 +47,7 @@ namespace Game.Control
             characterVisual = GetComponentInChildren<CharacterVisual>();
             playerDash = GetComponent<Dash>();
             DashMultiplier = 1;
-            //defaultPosition = transform.position;
+            disabledInput = false;
 
             if (characterVisual == null)
             {
@@ -85,6 +86,8 @@ namespace Game.Control
         private void Update()
         {
             if (playerHealth.IsDead()) return;
+            if (disabledInput) {return;}
+
             MovementInput();
             AttackInput();
             AdjustPlayerFacingDirection();          
@@ -256,6 +259,9 @@ namespace Game.Control
             moveSpeed = defaultMoveSpeed;
         }
 
-      
+        public void DisableComponentsOnMap()
+        {
+            disabledInput = true;
+        }
     }
 }

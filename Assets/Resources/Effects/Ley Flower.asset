@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Ley Flower
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: c4f5c675-8a9e-4976-80fa-52b15a072fee
+  icon: {fileID: 21300000, guid: 98a9179ce9c311149b75fb739a85a91c, type: 3}
+  effectName: Ley Flower
+  scalingValue: 1
+  description: "Rare flowe that usually grows on Ley Lines or Ley Pools. \n+2 Magic
+    Damage\n+2 Healing Received"
+  buyPrice: 25
+  sellPrice: 10
+  effectStatModifiers:
+  - stat: 12
+    value: 2
+    type: 0
+  - stat: 17
+    value: 2
+    type: 0
+  behaviors: []
+  unlockedByDefault: 1

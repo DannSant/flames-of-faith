@@ -40,6 +40,7 @@ namespace Game.Scene
         public event System.Action OnGameplayStateResetRequested; // For ResetState() only
         public event System.Action OnGameplayInitialSetup;        // For input/event/UI setup
         public event System.Action OnGameplayUISetupRequested;    // For UI setup
+        public event System.Action OnLevelSelectorUISetupRequested;    // For UI setup for level selector
 
         private List<string> activeGameplayScenes = new List<string>();
 
@@ -82,8 +83,12 @@ namespace Game.Scene
             //unloads gameplay scenes if already loaded (for restart between levels)
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
+            //Spawn player
+            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, newGame);
+
             //loads level selector scene
-            yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);           
+            yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
+            PlayerManager.Instance.IsPlayerOnMap = true;
 
             // If starting a new game, generate a new map per act
             if (newGame)
@@ -92,6 +97,35 @@ namespace Game.Scene
                 MapRunController.Instance.Initialize(mapRunState);             
                 
             }
+
+            yield return new WaitForSeconds(0.1f); // Wait for scene to be fully initialized
+
+            // Move the player to the level selection scene
+            var levelSelectionScene = SceneManager.GetSceneByName("LevelSelector");
+            PlayerManager.Instance.MovePlayerToScene(levelSelectionScene);
+
+            //Setup UI events
+            OnLevelSelectorUISetupRequested?.Invoke();
+
+            //Once level and player are loaded, bind events
+            PlayerManager.Instance.BindWaveEventsIfReady();
+            if (newGame)
+            {
+                // Resets the state, which initializes player components the first time it loads
+                OnGameplayStateResetRequested?.Invoke();
+                // Resets player components to default values, which is needed on the first run and also on retries to reset any progress in the level.
+                PlayerManager.Instance.ResetAllPlayerComponentStates();
+            }
+            else
+            {
+                PlayerManager.Instance.LoadAllPlayerComponentStates();
+            }
+            PlayerManager.Instance.LateInitializePlayer();
+
+            OnGameplayInitialSetup?.Invoke();
+
+            PlayerManager.Instance.DisableComponentsForMap();
+           
 
             yield return StartCoroutine(FadeOut());
         }
@@ -122,9 +156,7 @@ namespace Game.Scene
             CleanupSceneObjects();
             PlayerManager.Instance.UnbindWaveEventsIfReady();
 
-            //Spawn player
-            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, GameSession.Instance.IsNewRun);
-            GameSession.Instance.SetIsNewRun(false);
+           
 
             //unloads gameplay scenes if already loaded (for restart)
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
@@ -132,10 +164,14 @@ namespace Game.Scene
             //unloads main menu scenes and level selector scene if loaded already
             yield return StartCoroutine(UnloadScenesByName(nonGameplaySceneNames));
 
+            //Spawn player
+            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, shouldReset);
+            GameSession.Instance.SetIsNewRun(false);
+
             // Load the gameplay scene and UI scene
             yield return SceneManager.LoadSceneAsync(levelData.SceneName, LoadSceneMode.Additive);
             yield return SceneManager.LoadSceneAsync(SceneNames.UI, LoadSceneMode.Additive);
-            
+            PlayerManager.Instance.IsPlayerOnMap = false;
 
             //clear previously loaded scenes
             activeGameplayScenes.Clear();
@@ -144,8 +180,7 @@ namespace Game.Scene
 
             // Move the player to the gameplay scene
             var gameplayScene = SceneManager.GetSceneByName(levelData.SceneName);
-            PlayerManager.Instance.MovePlayerToScene( gameplayScene);
-            // PlayerManager.Instance.LateInitializePlayer(); was here before
+            PlayerManager.Instance.MovePlayerToScene( gameplayScene);         
 
             yield return new WaitForSeconds(0.1f); // Wait for player to be fully initialized
 
@@ -156,7 +191,10 @@ namespace Game.Scene
             PlayerManager.Instance.BindWaveEventsIfReady();
             if (shouldReset)
             {
-                OnGameplayStateResetRequested?.Invoke(); // Resets the state, which initializes player components the first time it loads
+                // Resets the state, which initializes player components the first time it loads
+                OnGameplayStateResetRequested?.Invoke();
+                // Resets player components to default values, which is needed on the first run and also on retries to reset any progress in the level.
+                PlayerManager.Instance.ResetAllPlayerComponentStates(); 
             }
             else
             {
@@ -177,7 +215,7 @@ namespace Game.Scene
                 }
             }
             
-
+           
             yield return StartCoroutine(FadeOut());
         }
 

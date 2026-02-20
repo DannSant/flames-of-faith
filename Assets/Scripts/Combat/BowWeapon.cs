@@ -41,7 +41,7 @@ namespace Game.Combat
         {
             if (specialAttackTimer.GetIsEventActive()) return;           
 
-            playerHealth.IsInvulnerable = true;
+            playerHealth.ToggleIsInvulnerable(true);
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
@@ -70,7 +70,7 @@ namespace Game.Combat
 
         protected override void OnSpecialAttackAnimationPlayed()
         {
-            playerHealth.IsInvulnerable = false;
+            playerHealth.ToggleIsInvulnerable(false);
             int numProjectiles = specialWeaponData.projectileAmount;
             //int numProjectiles = Random.Range(6, 11);
             float angleStep = 360f / numProjectiles;
