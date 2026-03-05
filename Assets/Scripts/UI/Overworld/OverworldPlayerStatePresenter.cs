@@ -37,11 +37,14 @@ namespace Game.UI.Overworld
 
         public void Refresh()
         {
-            var session = GameSession.Instance;
+            var session = GameSession.Instance;            
             if (session == null)
             {
                 return;
             }
+
+            int currency = session.LoadCurrencyAmount();           
+            playerStatePanel.SetCurrencyText(currency.ToString());
             /*
             var health = session.LoadCurrentHealth();
             var maxHealth = session.LoadMaxHealth();
@@ -63,8 +66,7 @@ namespace Game.UI.Overworld
             float actualCorruption = Mathf.Min(grace - corruptionLevel, 0);
             corruptionBar.UpdateCorruption(corruptionLevel, actualCorruption, maxGrace);
             */
-            int currency = session.LoadCurrencyAmount();
-            playerStatePanel.SetCurrencyText(currency.ToString());
+
 
             //statsPaneUI.ShowStatsWindow(null);
             /*var playerStats = session.PlayerData.savedStats;

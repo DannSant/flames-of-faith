@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\unityprojects\\FlamesOfFaith\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\ui\\overworld\\overworldplayerstatepresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\overworld\\overworldplayerstatepresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scene\\mainscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{315F21D8-73AC-CB63-1449-DFFC95AB2B50}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\developercheats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|c:\\unityprojects\\flamesoffaith\\assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC7F11C4-7C65-2588-174A-437450421758}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combat\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,14 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PlayerHealth.cs",
-              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAQwGUAAAAPAAAAAAAAAA==",
+              "Title": "OverworldPlayerStatePresenter.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Overworld\\OverworldPlayerStatePresenter.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAADgvzAAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T03:52:01.557Z",
+              "WhenOpened": "2026-03-04T02:50:08.976Z",
               "EditorCaption": ""
             },
             {
@@ -40,6 +52,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainSceneController.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Scene\\MainSceneController.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Scene\\MainSceneController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Scene\\MainSceneController.cs",
+              "ViewState": "AgIAAPYAAAAAAAAAAAAkwBIBAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T02:13:31.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeveloperCheats.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Editor\\DeveloperCheats.cs",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAywIQBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T02:09:44.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerHealth.cs",
+              "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "ToolTip": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Combat\\PlayerHealth.cs",
+              "ViewState": "AgIAAPUAAAAAAAAAAADgvwsBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T03:52:01.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "WaveSpawner.cs",
               "DocumentMoniker": "C:\\unityprojects\\FlamesOfFaith\\Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
@@ -47,8 +98,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Waves\\WaveSpawner.cs",
               "ViewState": "AgIAAM4AAAAAAAAAAAArwOYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T01:57:53.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T01:57:53.914Z"
             }
           ]
         }

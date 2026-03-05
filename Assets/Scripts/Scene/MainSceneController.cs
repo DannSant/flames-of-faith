@@ -4,6 +4,7 @@ using Game.Overworld;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ using UnityEngine.UI;
 namespace Game.Scene
 {
 
-    public class MainSceneController : Singleton<MainSceneController>
+    public class MainSceneController : Common.Singleton<MainSceneController>
     {
         [Header("Map generation")]      
         [SerializeField] private List<MapDefinition> actDefinitions;
@@ -154,9 +155,7 @@ namespace Game.Scene
             yield return StartCoroutine(FadeIn());
 
             CleanupSceneObjects();
-            PlayerManager.Instance.UnbindWaveEventsIfReady();
-
-           
+            PlayerManager.Instance.UnbindWaveEventsIfReady();           
 
             //unloads gameplay scenes if already loaded (for restart)
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
@@ -239,6 +238,9 @@ namespace Game.Scene
             // Unload all active gameplay scenes
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
+            //Spawn player
+            PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, true);
+
             // Clear the list after unloading
             activeGameplayScenes.Clear();
 
@@ -247,6 +249,30 @@ namespace Game.Scene
 
             var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, seed);
             MapRunController.Instance.Initialize(mapRunState);
+
+            yield return new WaitForSeconds(0.1f); // Wait for scene to be fully initialized
+
+            // Move the player to the level selection scene
+            var levelSelectionScene = SceneManager.GetSceneByName("LevelSelector");
+            PlayerManager.Instance.MovePlayerToScene(levelSelectionScene);
+
+            //Setup UI events
+            OnLevelSelectorUISetupRequested?.Invoke();            
+
+            //Once level and player are loaded, bind events
+            PlayerManager.Instance.BindWaveEventsIfReady();
+
+            // Resets the state, which initializes player components the first time it loads
+            OnGameplayStateResetRequested?.Invoke();
+
+            // Resets player components to default values, which is needed on the first run and also on retries to reset any progress in the level.
+            PlayerManager.Instance.ResetAllPlayerComponentStates();
+
+            PlayerManager.Instance.LateInitializePlayer();
+
+            OnGameplayInitialSetup?.Invoke();
+
+            PlayerManager.Instance.DisableComponentsForMap();
 
             // Play the act music if needed
             //LevelSelectionController.Instance.StartMusicOfCurrentAct();

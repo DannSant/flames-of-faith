@@ -1,6 +1,7 @@
 
 using Codice.Client.BaseCommands;
 using Game.AI;
+using Game.Combat;
 using Game.Effects;
 using Game.GameSettings;
 using Game.Map;
@@ -371,4 +372,31 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Player/Decimate Health")]
+    public static void DecimateHealth()
+    {
+        var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(playerHealth.GetCurrentHealth() - 1); // Reduce health to 1
+        }
+        else
+        {
+            Debug.LogError("PlayerHealth instance not found.");
+        }
+    }
+
+    [MenuItem("DevTools/Player/Full Heal")]
+    public static void FullHeal()
+    {
+        var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.RestoreHealth();
+        }
+        else
+        {
+            Debug.LogError("PlayerHealth instance not found.");
+        }
+    }
 }

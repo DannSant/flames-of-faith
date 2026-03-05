@@ -8,6 +8,7 @@ namespace Game.Overworld
 
         private SpriteRenderer spriteRenderer;
         private OverworldMapRenderer mapRenderer;
+        private bool isDisabled = false;
 
         public void Initialize(
             string nodeId,
@@ -19,6 +20,7 @@ namespace Game.Overworld
             this.mapRenderer = renderer;
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sprite = sprite;
+            isDisabled = false;
         }
 
         public void SetState(RunNodeState state)
@@ -42,7 +44,9 @@ namespace Game.Overworld
         }
 
         private void OnMouseDown()
-        {            
+        {
+            if (isDisabled) return;
+            isDisabled = true; // Prevent multiple clicks until state is updated
             mapRenderer.OnNodeClicked(NodeId);
         }
     }

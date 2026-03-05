@@ -9,19 +9,7 @@ namespace Game.Common
 
         protected virtual void Awake()
         {
-            /*if (instance != null && this.gameObject != null)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                instance = (T)this;
-            }
-
-            if (!gameObject.transform.parent)
-            {
-                DontDestroyOnLoad(gameObject);
-            }*/
+           
             if (instance != null && instance != this)
             {
                 Destroy(gameObject);
