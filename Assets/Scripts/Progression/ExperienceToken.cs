@@ -11,37 +11,13 @@ namespace Game.Progression
        
         [SerializeField] private int testExtraExperience = 8;
 
-        private int xpAmount = 1;
-       
+        private int xpAmount = 1;      
         
 
         public void SetAmount(int amount)
         {
             xpAmount = amount;
-        }
-
-
-
-        
-
-        private void OnEnable()
-        {
-            if (WaveSpawner.Instance != null)
-            {
-                WaveSpawner.Instance.OnWaveCompleteEnded += HandleWaveComplete;
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (WaveSpawner.Instance != null)
-            {
-                WaveSpawner.Instance.OnWaveCompleteEnded -= HandleWaveComplete;
-            }
-        }
-
-
-       
+        }            
 
         private void OnTriggerEnter2D(Collider2D other)
         {           
@@ -54,12 +30,7 @@ namespace Game.Progression
                 Destroy(gameObject);
             }
             
-        }
-
-        private void HandleWaveComplete()
-        {
-            Destroy(gameObject);
-        }
+        }        
 
         public void Cleanup()
         {

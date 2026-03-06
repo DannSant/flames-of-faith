@@ -182,6 +182,7 @@ namespace Game.Control
             // Prevent movement if the wave is ending
             if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
             {
+                rb.linearVelocity = Vector2.zero; // Stop movement immediately
                 return;
             }
             if (knockback.IsKnockbacked) return; // Prevent input during knockback

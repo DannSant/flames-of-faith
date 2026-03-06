@@ -16,15 +16,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 006a992109a8ced4d9c595471f5d28e8, type: 3}
   effectName: Fire Arrows
   scalingValue: 1
-  description: 'Ranged Damage +2
+  description: '50% chance to inflict Fire, which cause damage over time. This scales
+    with Mastow Afinity (damage and duration)
 
-    50% chance to inflict Fire, which cause damage
-    over time. This scales with Mastow Afinity (damage and duration)'
+    +2 Ranged Damage
+
+    -3 Armor'
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers:
   - stat: 9
     value: 2
+    type: 0
+  - stat: 6
+    value: -3
     type: 0
   behaviors:
   - {fileID: 11400000, guid: 6af217a832fc34e4d9e5efe40576aea7, type: 2}

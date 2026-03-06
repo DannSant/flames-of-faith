@@ -3,6 +3,7 @@ using Game.Combat;
 using Game.Common;
 using Game.Control;
 using Game.Enemies;
+using Game.Misc;
 using Game.Scene;
 using System;
 using System.Collections;
@@ -245,7 +246,7 @@ namespace Game.Waves {
             }
 
             // Wait for a short duration to allow the animation to play           
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.7f);
 
             // Reduce grace when wave ends
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
@@ -259,6 +260,14 @@ namespace Game.Waves {
             {
                 if (enemy != null)
                 {
+                    var enemyKnockback = enemy.GetComponent<Knockback>();
+                   
+                    if (enemyKnockback != null)
+                    {
+                        float knockbackForce = UnityEngine.Random.Range(10f, 15f);
+                        enemyKnockback.ApplyKnockback(playerVisual.transform, knockbackForce);
+                    }
+
                     var enemyHealth = enemy.GetComponent<EnemyHealth>();
                     if (enemyHealth != null)
                     {
@@ -269,6 +278,9 @@ namespace Game.Waves {
             }
             activeEnemies.Clear();
 
+            // Wait for the enemies to be fully destroyed          
+            yield return new WaitForSeconds(1f);
+
 
             //Clear all projectiles in the scene
             var projectiles = FindObjectsByType<EnemyTriggerDamage>(FindObjectsSortMode.None);
@@ -277,6 +289,8 @@ namespace Game.Waves {
                 Destroy(proj.gameObject);
             }
 
+            // Wait for the enemies to be fully destroyed          
+            yield return new WaitForSeconds(1f);
 
             //Invoke end wave complete event           
             InvokeOnWaveComplete();

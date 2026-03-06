@@ -16,16 +16,21 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5e4fa453d3e93d348baccb2b8c588a1d, type: 3}
   effectName: Frost Arrows
   scalingValue: 1
-  description: 'Increases Range +2
+  description: '50% chance to inflict Frost in the target which makes them move slower
+    and take more damage. Scales with Mastow Affinity(damage and duration)
 
-    50% chance to inflict Frost in the target
-    which makes them move slower and take more damage. Scales with Mastow Affinity(damage
-    and duration)'
+    +1
+    Range
+
+    -3 Armor'
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers:
   - stat: 10
-    value: 2
+    value: 1
+    type: 0
+  - stat: 6
+    value: -3
     type: 0
   behaviors:
   - {fileID: 11400000, guid: f8d4757ccdcb81843a2421fac387fe43, type: 2}

@@ -45,8 +45,8 @@ namespace Game.Overworld
 
         private void OnMouseDown()
         {
-            if (isDisabled) return;
-            isDisabled = true; // Prevent multiple clicks until state is updated
+            //if (isDisabled) return;
+            //isDisabled = true; // Prevent multiple clicks until state is updated
             mapRenderer.OnNodeClicked(NodeId);
         }
     }
