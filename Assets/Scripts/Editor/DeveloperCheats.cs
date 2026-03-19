@@ -278,6 +278,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Ring of Vitality")]
+    public static void GiveRingOfVitality()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "a2331bad-46bb-46ba-b3f8-865cfd64fe31";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Items/Frost Arrows")]
     public static void GiveFrostArrows()
     {

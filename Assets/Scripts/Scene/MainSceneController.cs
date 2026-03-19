@@ -137,10 +137,13 @@ namespace Game.Scene
 
             CleanupSceneObjects();
 
+            //unloads main menu scenes and level selector scene if loaded already
+            yield return StartCoroutine(UnloadScenesByName(nonGameplaySceneNames));
+
             AudioManager.Instance.PlayMusic(mainMenuMusic);
 
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
-
+           
             yield return SceneManager.LoadSceneAsync(SceneNames.MainMenu, LoadSceneMode.Additive);
             yield return new WaitForSeconds(0.1f);
             GameSession.Instance.SetIsNewRun(true);           
@@ -287,6 +290,7 @@ namespace Game.Scene
 
             foreach(string sceneName in scenesToUnload)
             {
+              
                 UnityEngine.SceneManagement.Scene scene = SceneManager.GetSceneByName(sceneName);
                 if (scene.IsValid() && scene.isLoaded)
                 {

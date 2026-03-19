@@ -34,6 +34,10 @@ namespace Game.Currency
             {
                 MainSceneController.Instance.OnGameplayUISetupRequested -= Initialize;
             }
+            if (WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.OnWaveCompleteEnded -= GenerateCurrency;
+            }
         }
 
         private void Initialize()

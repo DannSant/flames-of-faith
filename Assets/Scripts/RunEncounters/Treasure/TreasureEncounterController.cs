@@ -131,26 +131,21 @@ namespace Game.RunEncounters
 
         private void PresentReward(TreasureReward reward)
         {
+            resolved = true;
+
             // UI hook later
             OnTreasurePresented?.Invoke(reward);
         }
 
         public void Accept()
-        {
-            if (resolved)
-                return;
+        {            
 
-            ApplyReward(resolvedReward);
-            resolved = true;
+            ApplyReward(resolvedReward);            
             ExitEncounter();
         }
 
         public void Reject()
-        {
-            if (resolved)
-                return;
-
-            resolved = true;
+        {            
             ExitEncounter();
         }
 

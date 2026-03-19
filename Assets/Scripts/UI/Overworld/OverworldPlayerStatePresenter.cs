@@ -1,3 +1,4 @@
+using Game.GameSettings;
 using Game.Scene;
 using UnityEngine;
 
@@ -78,6 +79,12 @@ namespace Game.UI.Overworld
 
 
 
+        }
+
+        public void ExitGame()
+        {
+            PauseManager.Instance.SetPause(false);
+            MainSceneController.Instance.LoadMainMenu();
         }
     }
 }

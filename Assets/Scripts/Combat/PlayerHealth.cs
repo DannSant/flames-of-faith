@@ -146,12 +146,13 @@ namespace Game.Combat {
 
 
         private void SetMaxHealth(float value)
-        {
-            float percent = currentHealth / maxHealth;
-            //float increasedAmount = value - maxHealth;
+        {           
+            //Debug.Log($"PlayerHealth SetMaxHealth: currentHealth = {currentHealth}, maxHealth={maxHealth}");          
             maxHealth = Mathf.Max(1, value);
+            float percent = currentHealth / maxHealth;
             currentHealth = Mathf.Clamp(maxHealth * percent, 1, maxHealth);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
+            //Debug.Log($"PlayerHealth SetMaxHealth: currentHealth after recalculation = {currentHealth}, maxHealth={maxHealth}, percent+{percent}");
         }
 
         private void SetArmor(int value)
@@ -306,7 +307,7 @@ namespace Game.Combat {
 
             // Force a stat refresh
             OnStatUpdated();
-            //Debug.Log($"PlayerHealth LoadState: savedHealth = {savedHealth}");
+           
             currentHealth = Mathf.Clamp(savedHealth, 1, maxHealth);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 
