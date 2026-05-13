@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6977f08f83706b047b6a1e1737751bd3, type: 3}
   m_Name: Boss1
   m_EditorClassIdentifier: 
-  SceneName: Boss1
+  SceneName: LevelBoss_Iso
   DisplayName: Altar of Malien
-  IsUnlocked: 0
-  IsBeaten: 0
   actNumber: 1
-  IsFirstLevel: 0
   type: 4
+  corruptionIncrease: 0
+  preventHealthRegen: 0
+  debugShouldPrintObjectCountReport: 0

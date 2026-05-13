@@ -304,17 +304,10 @@ namespace Game.Combat {
         public void LoadState()
         {
             float savedHealth = GameSession.Instance.LoadCurrentHealth();
-
             // Force a stat refresh
-            OnStatUpdated();
-           
+            OnStatUpdated();           
             currentHealth = Mathf.Clamp(savedHealth, 1, maxHealth);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
-
-            /*maxHealth = GameSession.Instance.PlayerData.savedStats[StatType.MaxHealth];           
-            currentHealth = maxHealth;
-            armor = GameSession.Instance.PlayerData.savedStats[StatType.Armor];
-            onHealthChanged?.Invoke(currentHealth, maxHealth);*/
         }
     }
 

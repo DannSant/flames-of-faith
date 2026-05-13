@@ -45,8 +45,7 @@ namespace Game.Currency
             currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
 
             if (WaveSpawner.Instance == null)
-            {
-                Debug.LogError("WaveSpawner instance not found.");
+            {                
                 return;
             }
             WaveSpawner.Instance.OnWaveCompleteEnded += GenerateCurrency;

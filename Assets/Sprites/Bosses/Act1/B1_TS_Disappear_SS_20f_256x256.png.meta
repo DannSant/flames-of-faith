@@ -1,0 +1,6943 @@
+fileFormatVersion: 2
+guid: 8cd20dd8d41bd2a4cb0648b30e099ec0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1859575049161623124
+    second: B1_TS_Disappear_SS_20f_256x256_0
+  - first:
+      213: 8916043199253561113
+    second: B1_TS_Disappear_SS_20f_256x256_1
+  - first:
+      213: 4823144054955595576
+    second: B1_TS_Disappear_SS_20f_256x256_2
+  - first:
+      213: -5046378512369835439
+    second: B1_TS_Disappear_SS_20f_256x256_3
+  - first:
+      213: 4691073645003708882
+    second: B1_TS_Disappear_SS_20f_256x256_4
+  - first:
+      213: -2877592982786689141
+    second: B1_TS_Disappear_SS_20f_256x256_5
+  - first:
+      213: 2010205936827376315
+    second: B1_TS_Disappear_SS_20f_256x256_6
+  - first:
+      213: -1131195694129039617
+    second: B1_TS_Disappear_SS_20f_256x256_7
+  - first:
+      213: -7025854515393684603
+    second: B1_TS_Disappear_SS_20f_256x256_8
+  - first:
+      213: 5444067197245470088
+    second: B1_TS_Disappear_SS_20f_256x256_9
+  - first:
+      213: -8196155049646398890
+    second: B1_TS_Disappear_SS_20f_256x256_10
+  - first:
+      213: -6045839992519401038
+    second: B1_TS_Disappear_SS_20f_256x256_11
+  - first:
+      213: 9099076034194637840
+    second: B1_TS_Disappear_SS_20f_256x256_12
+  - first:
+      213: -4187538106644585046
+    second: B1_TS_Disappear_SS_20f_256x256_13
+  - first:
+      213: 7761428584458969009
+    second: B1_TS_Disappear_SS_20f_256x256_14
+  - first:
+      213: 265876208311843093
+    second: B1_TS_Disappear_SS_20f_256x256_15
+  - first:
+      213: -3167290887878873219
+    second: B1_TS_Disappear_SS_20f_256x256_16
+  - first:
+      213: -7318479071399144297
+    second: B1_TS_Disappear_SS_20f_256x256_17
+  - first:
+      213: -661371530460595215
+    second: B1_TS_Disappear_SS_20f_256x256_18
+  - first:
+      213: -385455009703707697
+    second: B1_TS_Disappear_SS_20f_256x256_19
+  - first:
+      213: -247332222741267750
+    second: B1_TS_Disappear_SS_20f_256x256_20
+  - first:
+      213: -1360214629681435712
+    second: B1_TS_Disappear_SS_20f_256x256_21
+  - first:
+      213: -7603513517660326899
+    second: B1_TS_Disappear_SS_20f_256x256_22
+  - first:
+      213: -4768475509831981443
+    second: B1_TS_Disappear_SS_20f_256x256_23
+  - first:
+      213: 6589247487103051093
+    second: B1_TS_Disappear_SS_20f_256x256_24
+  - first:
+      213: 635659975854263436
+    second: B1_TS_Disappear_SS_20f_256x256_25
+  - first:
+      213: 6924491984497404359
+    second: B1_TS_Disappear_SS_20f_256x256_26
+  - first:
+      213: -7400285219264256426
+    second: B1_TS_Disappear_SS_20f_256x256_27
+  - first:
+      213: 6044284023681193655
+    second: B1_TS_Disappear_SS_20f_256x256_28
+  - first:
+      213: -3961512244924003741
+    second: B1_TS_Disappear_SS_20f_256x256_29
+  - first:
+      213: 6503125378961552656
+    second: B1_TS_Disappear_SS_20f_256x256_30
+  - first:
+      213: -6296552978346751364
+    second: B1_TS_Disappear_SS_20f_256x256_31
+  - first:
+      213: 5316357500051734831
+    second: B1_TS_Disappear_SS_20f_256x256_32
+  - first:
+      213: 6731784288478462824
+    second: B1_TS_Disappear_SS_20f_256x256_33
+  - first:
+      213: -676956592849367016
+    second: B1_TS_Disappear_SS_20f_256x256_34
+  - first:
+      213: 5096972728202936009
+    second: B1_TS_Disappear_SS_20f_256x256_35
+  - first:
+      213: 5649543252096617056
+    second: B1_TS_Disappear_SS_20f_256x256_36
+  - first:
+      213: 948473552078034978
+    second: B1_TS_Disappear_SS_20f_256x256_37
+  - first:
+      213: 3231382153111920421
+    second: B1_TS_Disappear_SS_20f_256x256_38
+  - first:
+      213: -427982808189889117
+    second: B1_TS_Disappear_SS_20f_256x256_39
+  - first:
+      213: -1356614971439989353
+    second: B1_TS_Disappear_SS_20f_256x256_40
+  - first:
+      213: -7290510839593353951
+    second: B1_TS_Disappear_SS_20f_256x256_41
+  - first:
+      213: 7650543565262273073
+    second: B1_TS_Disappear_SS_20f_256x256_42
+  - first:
+      213: 5534249489776185017
+    second: B1_TS_Disappear_SS_20f_256x256_43
+  - first:
+      213: 448897517506737399
+    second: B1_TS_Disappear_SS_20f_256x256_44
+  - first:
+      213: -1285757278757082431
+    second: B1_TS_Disappear_SS_20f_256x256_45
+  - first:
+      213: -3049709547583241141
+    second: B1_TS_Disappear_SS_20f_256x256_46
+  - first:
+      213: -6699454947893524994
+    second: B1_TS_Disappear_SS_20f_256x256_47
+  - first:
+      213: 8951948123024471129
+    second: B1_TS_Disappear_SS_20f_256x256_48
+  - first:
+      213: 5971756889073152396
+    second: B1_TS_Disappear_SS_20f_256x256_49
+  - first:
+      213: 4901369458738345356
+    second: B1_TS_Disappear_SS_20f_256x256_50
+  - first:
+      213: -1715028037218023044
+    second: B1_TS_Disappear_SS_20f_256x256_51
+  - first:
+      213: 8448975210611552860
+    second: B1_TS_Disappear_SS_20f_256x256_52
+  - first:
+      213: -213675132383355563
+    second: B1_TS_Disappear_SS_20f_256x256_53
+  - first:
+      213: -3854731357644956906
+    second: B1_TS_Disappear_SS_20f_256x256_54
+  - first:
+      213: 4668296782868196994
+    second: B1_TS_Disappear_SS_20f_256x256_55
+  - first:
+      213: -6341867644604243474
+    second: B1_TS_Disappear_SS_20f_256x256_56
+  - first:
+      213: -1633979320521781501
+    second: B1_TS_Disappear_SS_20f_256x256_57
+  - first:
+      213: 7640925521985931645
+    second: B1_TS_Disappear_SS_20f_256x256_58
+  - first:
+      213: -8896568519952973739
+    second: B1_TS_Disappear_SS_20f_256x256_59
+  - first:
+      213: -6425453715471587475
+    second: B1_TS_Disappear_SS_20f_256x256_60
+  - first:
+      213: -8611567467992734179
+    second: B1_TS_Disappear_SS_20f_256x256_61
+  - first:
+      213: 2570889901864769434
+    second: B1_TS_Disappear_SS_20f_256x256_62
+  - first:
+      213: 6917281342505453273
+    second: B1_TS_Disappear_SS_20f_256x256_63
+  - first:
+      213: 5476822432182800002
+    second: B1_TS_Disappear_SS_20f_256x256_64
+  - first:
+      213: 7230708437124894305
+    second: B1_TS_Disappear_SS_20f_256x256_65
+  - first:
+      213: -433381859905918410
+    second: B1_TS_Disappear_SS_20f_256x256_66
+  - first:
+      213: -8226505937418543685
+    second: B1_TS_Disappear_SS_20f_256x256_67
+  - first:
+      213: 8665762861946821345
+    second: B1_TS_Disappear_SS_20f_256x256_68
+  - first:
+      213: 944831274210781631
+    second: B1_TS_Disappear_SS_20f_256x256_69
+  - first:
+      213: 7769152058872307128
+    second: B1_TS_Disappear_SS_20f_256x256_70
+  - first:
+      213: 8019671343971308432
+    second: B1_TS_Disappear_SS_20f_256x256_71
+  - first:
+      213: 2872460922964871018
+    second: B1_TS_Disappear_SS_20f_256x256_72
+  - first:
+      213: 8905104195954189035
+    second: B1_TS_Disappear_SS_20f_256x256_73
+  - first:
+      213: -8997489188802148799
+    second: B1_TS_Disappear_SS_20f_256x256_74
+  - first:
+      213: -3178212798660881310
+    second: B1_TS_Disappear_SS_20f_256x256_75
+  - first:
+      213: -2399155742757599702
+    second: B1_TS_Disappear_SS_20f_256x256_76
+  - first:
+      213: -7629638169174264391
+    second: B1_TS_Disappear_SS_20f_256x256_77
+  - first:
+      213: -2313734580136924090
+    second: B1_TS_Disappear_SS_20f_256x256_78
+  - first:
+      213: -4231168138583888073
+    second: B1_TS_Disappear_SS_20f_256x256_79
+  - first:
+      213: -1256372615887654811
+    second: B1_TS_Disappear_SS_20f_256x256_80
+  - first:
+      213: -4579334437655313856
+    second: B1_TS_Disappear_SS_20f_256x256_81
+  - first:
+      213: -6124211383550474084
+    second: B1_TS_Disappear_SS_20f_256x256_82
+  - first:
+      213: -8429034509895019317
+    second: B1_TS_Disappear_SS_20f_256x256_83
+  - first:
+      213: -7281912367948942627
+    second: B1_TS_Disappear_SS_20f_256x256_84
+  - first:
+      213: 1399774723018019995
+    second: B1_TS_Disappear_SS_20f_256x256_85
+  - first:
+      213: 1033873479983165175
+    second: B1_TS_Disappear_SS_20f_256x256_86
+  - first:
+      213: -4152314499462246496
+    second: B1_TS_Disappear_SS_20f_256x256_87
+  - first:
+      213: -87221932088087985
+    second: B1_TS_Disappear_SS_20f_256x256_88
+  - first:
+      213: 1951681856094624153
+    second: B1_TS_Disappear_SS_20f_256x256_89
+  - first:
+      213: -6391577081996157049
+    second: B1_TS_Disappear_SS_20f_256x256_90
+  - first:
+      213: -7073842166111439643
+    second: B1_TS_Disappear_SS_20f_256x256_91
+  - first:
+      213: 2073376151476237794
+    second: B1_TS_Disappear_SS_20f_256x256_92
+  - first:
+      213: -5913250106667021137
+    second: B1_TS_Disappear_SS_20f_256x256_93
+  - first:
+      213: -5386174668353913803
+    second: B1_TS_Disappear_SS_20f_256x256_94
+  - first:
+      213: 5704802412548898423
+    second: B1_TS_Disappear_SS_20f_256x256_95
+  - first:
+      213: 4578309001206393180
+    second: B1_TS_Disappear_SS_20f_256x256_96
+  - first:
+      213: 8508982297792625793
+    second: B1_TS_Disappear_SS_20f_256x256_97
+  - first:
+      213: 7077509899191166644
+    second: B1_TS_Disappear_SS_20f_256x256_98
+  - first:
+      213: 6668366134407819401
+    second: B1_TS_Disappear_SS_20f_256x256_99
+  - first:
+      213: -7248092439209445857
+    second: B1_TS_Disappear_SS_20f_256x256_100
+  - first:
+      213: -6762728454996315892
+    second: B1_TS_Disappear_SS_20f_256x256_101
+  - first:
+      213: 941212523723561681
+    second: B1_TS_Disappear_SS_20f_256x256_102
+  - first:
+      213: 3906630692070192623
+    second: B1_TS_Disappear_SS_20f_256x256_103
+  - first:
+      213: -2309407070827434157
+    second: B1_TS_Disappear_SS_20f_256x256_104
+  - first:
+      213: -476971072474263152
+    second: B1_TS_Disappear_SS_20f_256x256_105
+  - first:
+      213: 1168336722242066892
+    second: B1_TS_Disappear_SS_20f_256x256_106
+  - first:
+      213: 5898329844571677096
+    second: B1_TS_Disappear_SS_20f_256x256_107
+  - first:
+      213: -9006514474038462255
+    second: B1_TS_Disappear_SS_20f_256x256_108
+  - first:
+      213: 3792969297296736335
+    second: B1_TS_Disappear_SS_20f_256x256_109
+  - first:
+      213: -1081130929202319263
+    second: B1_TS_Disappear_SS_20f_256x256_110
+  - first:
+      213: 8667061431284908338
+    second: B1_TS_Disappear_SS_20f_256x256_111
+  - first:
+      213: -6770233565533329216
+    second: B1_TS_Disappear_SS_20f_256x256_112
+  - first:
+      213: 240404248623363437
+    second: B1_TS_Disappear_SS_20f_256x256_113
+  - first:
+      213: 5612160329828191461
+    second: B1_TS_Disappear_SS_20f_256x256_114
+  - first:
+      213: 7574757259922301467
+    second: B1_TS_Disappear_SS_20f_256x256_115
+  - first:
+      213: -2606538088072790847
+    second: B1_TS_Disappear_SS_20f_256x256_116
+  - first:
+      213: -1828138148057004216
+    second: B1_TS_Disappear_SS_20f_256x256_117
+  - first:
+      213: 4580383949267813766
+    second: B1_TS_Disappear_SS_20f_256x256_118
+  - first:
+      213: -4664107177331480025
+    second: B1_TS_Disappear_SS_20f_256x256_119
+  - first:
+      213: -7752635301504395582
+    second: B1_TS_Disappear_SS_20f_256x256_120
+  - first:
+      213: -2175544230132369156
+    second: B1_TS_Disappear_SS_20f_256x256_121
+  - first:
+      213: 4443607005427046205
+    second: B1_TS_Disappear_SS_20f_256x256_122
+  - first:
+      213: 7527158886306252311
+    second: B1_TS_Disappear_SS_20f_256x256_123
+  - first:
+      213: -6883578182339319518
+    second: B1_TS_Disappear_SS_20f_256x256_124
+  - first:
+      213: 9174048783018235203
+    second: B1_TS_Disappear_SS_20f_256x256_125
+  - first:
+      213: 6817024512755452346
+    second: B1_TS_Disappear_SS_20f_256x256_126
+  - first:
+      213: -6046325866744720065
+    second: B1_TS_Disappear_SS_20f_256x256_127
+  - first:
+      213: -3513639556805389293
+    second: B1_TS_Disappear_SS_20f_256x256_128
+  - first:
+      213: 1604959724276599926
+    second: B1_TS_Disappear_SS_20f_256x256_129
+  - first:
+      213: 2237816225247924007
+    second: B1_TS_Disappear_SS_20f_256x256_130
+  - first:
+      213: -9186136202180487080
+    second: B1_TS_Disappear_SS_20f_256x256_131
+  - first:
+      213: 5213424245513519699
+    second: B1_TS_Disappear_SS_20f_256x256_132
+  - first:
+      213: -2395724677077147914
+    second: B1_TS_Disappear_SS_20f_256x256_133
+  - first:
+      213: -711564275271542309
+    second: B1_TS_Disappear_SS_20f_256x256_134
+  - first:
+      213: -3203062769354811516
+    second: B1_TS_Disappear_SS_20f_256x256_135
+  - first:
+      213: 1595056716259714057
+    second: B1_TS_Disappear_SS_20f_256x256_136
+  - first:
+      213: -7128396699132569347
+    second: B1_TS_Disappear_SS_20f_256x256_137
+  - first:
+      213: -7624415892914474634
+    second: B1_TS_Disappear_SS_20f_256x256_138
+  - first:
+      213: 3721190027706774700
+    second: B1_TS_Disappear_SS_20f_256x256_139
+  - first:
+      213: 7453367575162800
+    second: B1_TS_Disappear_SS_20f_256x256_140
+  - first:
+      213: -2823547080017141736
+    second: B1_TS_Disappear_SS_20f_256x256_141
+  - first:
+      213: -8193571085553886519
+    second: B1_TS_Disappear_SS_20f_256x256_142
+  - first:
+      213: -2471132986458963582
+    second: B1_TS_Disappear_SS_20f_256x256_143
+  - first:
+      213: 2798338502716801848
+    second: B1_TS_Disappear_SS_20f_256x256_144
+  - first:
+      213: 6253154856284279616
+    second: B1_TS_Disappear_SS_20f_256x256_145
+  - first:
+      213: -5231301450543723082
+    second: B1_TS_Disappear_SS_20f_256x256_146
+  - first:
+      213: -7128557854188341004
+    second: B1_TS_Disappear_SS_20f_256x256_147
+  - first:
+      213: -8882640921383560322
+    second: B1_TS_Disappear_SS_20f_256x256_148
+  - first:
+      213: -49342428903033857
+    second: B1_TS_Disappear_SS_20f_256x256_149
+  - first:
+      213: 5975966204604966660
+    second: B1_TS_Disappear_SS_20f_256x256_150
+  - first:
+      213: 5890076025087639612
+    second: B1_TS_Disappear_SS_20f_256x256_151
+  - first:
+      213: -7653958719241119737
+    second: B1_TS_Disappear_SS_20f_256x256_152
+  - first:
+      213: -605224840012473671
+    second: B1_TS_Disappear_SS_20f_256x256_153
+  - first:
+      213: 8835864085690091910
+    second: B1_TS_Disappear_SS_20f_256x256_154
+  - first:
+      213: 7760831580061911029
+    second: B1_TS_Disappear_SS_20f_256x256_155
+  - first:
+      213: -5827358509973735817
+    second: B1_TS_Disappear_SS_20f_256x256_156
+  - first:
+      213: -8529892045474504871
+    second: B1_TS_Disappear_SS_20f_256x256_157
+  - first:
+      213: -8555657015315981594
+    second: B1_TS_Disappear_SS_20f_256x256_158
+  - first:
+      213: 4350117596961025188
+    second: B1_TS_Disappear_SS_20f_256x256_159
+  - first:
+      213: 7240324870456689964
+    second: B1_TS_Disappear_SS_20f_256x256_160
+  - first:
+      213: 7809107067808878381
+    second: B1_TS_Disappear_SS_20f_256x256_161
+  - first:
+      213: -2579665138134312649
+    second: B1_TS_Disappear_SS_20f_256x256_162
+  - first:
+      213: -8089473714279663566
+    second: B1_TS_Disappear_SS_20f_256x256_163
+  - first:
+      213: 7329412873933584405
+    second: B1_TS_Disappear_SS_20f_256x256_164
+  - first:
+      213: -4405959684857632031
+    second: B1_TS_Disappear_SS_20f_256x256_165
+  - first:
+      213: 1426707514232809351
+    second: B1_TS_Disappear_SS_20f_256x256_166
+  - first:
+      213: 3961859807887533876
+    second: B1_TS_Disappear_SS_20f_256x256_167
+  - first:
+      213: -2983928779967187385
+    second: B1_TS_Disappear_SS_20f_256x256_168
+  - first:
+      213: 3242475957415366237
+    second: B1_TS_Disappear_SS_20f_256x256_169
+  - first:
+      213: 7773363186597633945
+    second: B1_TS_Disappear_SS_20f_256x256_170
+  - first:
+      213: -7184483281563535483
+    second: B1_TS_Disappear_SS_20f_256x256_171
+  - first:
+      213: 2606702284252953760
+    second: B1_TS_Disappear_SS_20f_256x256_172
+  - first:
+      213: 6404275179681272619
+    second: B1_TS_Disappear_SS_20f_256x256_173
+  - first:
+      213: 8032820044448473755
+    second: B1_TS_Disappear_SS_20f_256x256_174
+  - first:
+      213: -66247880036779126
+    second: B1_TS_Disappear_SS_20f_256x256_175
+  - first:
+      213: 6598777017859824937
+    second: B1_TS_Disappear_SS_20f_256x256_176
+  - first:
+      213: -1224837145071207816
+    second: B1_TS_Disappear_SS_20f_256x256_177
+  - first:
+      213: -8570000505865052524
+    second: B1_TS_Disappear_SS_20f_256x256_178
+  - first:
+      213: -189770287044198390
+    second: B1_TS_Disappear_SS_20f_256x256_179
+  - first:
+      213: -2582223474674028864
+    second: B1_TS_Disappear_SS_20f_256x256_180
+  - first:
+      213: 6062519873634924354
+    second: B1_TS_Disappear_SS_20f_256x256_181
+  - first:
+      213: 8020040410990755357
+    second: B1_TS_Disappear_SS_20f_256x256_182
+  - first:
+      213: -1518213292764706489
+    second: B1_TS_Disappear_SS_20f_256x256_183
+  - first:
+      213: 2009071958514040211
+    second: B1_TS_Disappear_SS_20f_256x256_184
+  - first:
+      213: 8671434132296682769
+    second: B1_TS_Disappear_SS_20f_256x256_185
+  - first:
+      213: -3192359927897645044
+    second: B1_TS_Disappear_SS_20f_256x256_186
+  - first:
+      213: -8555586846072642067
+    second: B1_TS_Disappear_SS_20f_256x256_187
+  - first:
+      213: 2406384735646307641
+    second: B1_TS_Disappear_SS_20f_256x256_188
+  - first:
+      213: 4889858643580332158
+    second: B1_TS_Disappear_SS_20f_256x256_189
+  - first:
+      213: -2876397366400204752
+    second: B1_TS_Disappear_SS_20f_256x256_190
+  - first:
+      213: -5145246155539002175
+    second: B1_TS_Disappear_SS_20f_256x256_191
+  - first:
+      213: 1754331991142430829
+    second: B1_TS_Disappear_SS_20f_256x256_192
+  - first:
+      213: 4909989673993255069
+    second: B1_TS_Disappear_SS_20f_256x256_193
+  - first:
+      213: 753065867608570873
+    second: B1_TS_Disappear_SS_20f_256x256_194
+  - first:
+      213: -3604155693378896817
+    second: B1_TS_Disappear_SS_20f_256x256_195
+  - first:
+      213: 5023410309751833579
+    second: B1_TS_Disappear_SS_20f_256x256_196
+  - first:
+      213: -7315455154199766442
+    second: B1_TS_Disappear_SS_20f_256x256_197
+  - first:
+      213: -3433747402619899202
+    second: B1_TS_Disappear_SS_20f_256x256_198
+  - first:
+      213: -6293906847019028749
+    second: B1_TS_Disappear_SS_20f_256x256_199
+  - first:
+      213: 2174466131394989636
+    second: B1_TS_Disappear_SS_20f_256x256_200
+  - first:
+      213: -110671738914373225
+    second: B1_TS_Disappear_SS_20f_256x256_201
+  - first:
+      213: 7165983911114582555
+    second: B1_TS_Disappear_SS_20f_256x256_202
+  - first:
+      213: 4937731181446525613
+    second: B1_TS_Disappear_SS_20f_256x256_203
+  - first:
+      213: 7261956429267020001
+    second: B1_TS_Disappear_SS_20f_256x256_204
+  - first:
+      213: -5045488976203779891
+    second: B1_TS_Disappear_SS_20f_256x256_205
+  - first:
+      213: 2753464061171725549
+    second: B1_TS_Disappear_SS_20f_256x256_206
+  - first:
+      213: 2450349830803930441
+    second: B1_TS_Disappear_SS_20f_256x256_207
+  - first:
+      213: 7592738665684470977
+    second: B1_TS_Disappear_SS_20f_256x256_208
+  - first:
+      213: 1606694589567514021
+    second: B1_TS_Disappear_SS_20f_256x256_209
+  - first:
+      213: 4631236266987504651
+    second: B1_TS_Disappear_SS_20f_256x256_210
+  - first:
+      213: 8923975192692078737
+    second: B1_TS_Disappear_SS_20f_256x256_211
+  - first:
+      213: -3527954371618851746
+    second: B1_TS_Disappear_SS_20f_256x256_212
+  - first:
+      213: -5882998587183027713
+    second: B1_TS_Disappear_SS_20f_256x256_213
+  - first:
+      213: 4529266472625376342
+    second: B1_TS_Disappear_SS_20f_256x256_214
+  - first:
+      213: -3595457030191466127
+    second: B1_TS_Disappear_SS_20f_256x256_215
+  - first:
+      213: 3184338885818164567
+    second: B1_TS_Disappear_SS_20f_256x256_216
+  - first:
+      213: -7481165046468758442
+    second: B1_TS_Disappear_SS_20f_256x256_217
+  - first:
+      213: 3701941108098403466
+    second: B1_TS_Disappear_SS_20f_256x256_218
+  - first:
+      213: -7432986628971305849
+    second: B1_TS_Disappear_SS_20f_256x256_219
+  - first:
+      213: -6880247150349275554
+    second: B1_TS_Disappear_SS_20f_256x256_220
+  - first:
+      213: -7547076517330098526
+    second: B1_TS_Disappear_SS_20f_256x256_221
+  - first:
+      213: -4163058950994470940
+    second: B1_TS_Disappear_SS_20f_256x256_222
+  - first:
+      213: 2071222811016526294
+    second: B1_TS_Disappear_SS_20f_256x256_223
+  - first:
+      213: 8008652702343787077
+    second: B1_TS_Disappear_SS_20f_256x256_224
+  - first:
+      213: 6144392732167545699
+    second: B1_TS_Disappear_SS_20f_256x256_225
+  - first:
+      213: -8787519036733324750
+    second: B1_TS_Disappear_SS_20f_256x256_226
+  - first:
+      213: 5487674218493501197
+    second: B1_TS_Disappear_SS_20f_256x256_227
+  - first:
+      213: 4282567232385481822
+    second: B1_TS_Disappear_SS_20f_256x256_228
+  - first:
+      213: -6052299217130481384
+    second: B1_TS_Disappear_SS_20f_256x256_229
+  - first:
+      213: 516497674091578102
+    second: B1_TS_Disappear_SS_20f_256x256_230
+  - first:
+      213: -5481163948047727583
+    second: B1_TS_Disappear_SS_20f_256x256_231
+  - first:
+      213: 969694747125663006
+    second: B1_TS_Disappear_SS_20f_256x256_232
+  - first:
+      213: -947876133227252698
+    second: B1_TS_Disappear_SS_20f_256x256_233
+  - first:
+      213: -868960782443054640
+    second: B1_TS_Disappear_SS_20f_256x256_234
+  - first:
+      213: -3954824695614417136
+    second: B1_TS_Disappear_SS_20f_256x256_235
+  - first:
+      213: -7515630622763351447
+    second: B1_TS_Disappear_SS_20f_256x256_236
+  - first:
+      213: -1482439238232572741
+    second: B1_TS_Disappear_SS_20f_256x256_237
+  - first:
+      213: 6591372558908290666
+    second: B1_TS_Disappear_SS_20f_256x256_238
+  - first:
+      213: -1024462245509897028
+    second: B1_TS_Disappear_SS_20f_256x256_239
+  - first:
+      213: 5648490986406825367
+    second: B1_TS_Disappear_SS_20f_256x256_240
+  - first:
+      213: -4128395999819333981
+    second: B1_TS_Disappear_SS_20f_256x256_241
+  - first:
+      213: -365077794374159908
+    second: B1_TS_Disappear_SS_20f_256x256_242
+  - first:
+      213: 7202555698988017505
+    second: B1_TS_Disappear_SS_20f_256x256_243
+  - first:
+      213: -9221084578613398133
+    second: B1_TS_Disappear_SS_20f_256x256_244
+  - first:
+      213: -3767467854574831855
+    second: B1_TS_Disappear_SS_20f_256x256_245
+  - first:
+      213: 6503811454484913810
+    second: B1_TS_Disappear_SS_20f_256x256_246
+  - first:
+      213: 7259506039272042904
+    second: B1_TS_Disappear_SS_20f_256x256_247
+  - first:
+      213: 8057922127611641583
+    second: B1_TS_Disappear_SS_20f_256x256_248
+  - first:
+      213: 1276030628354148112
+    second: B1_TS_Disappear_SS_20f_256x256_249
+  - first:
+      213: 1941810524358801114
+    second: B1_TS_Disappear_SS_20f_256x256_250
+  - first:
+      213: -1125607724297084113
+    second: B1_TS_Disappear_SS_20f_256x256_251
+  - first:
+      213: -5236976467148318920
+    second: B1_TS_Disappear_SS_20f_256x256_252
+  - first:
+      213: 2211892621233417562
+    second: B1_TS_Disappear_SS_20f_256x256_253
+  - first:
+      213: -3800999506645618168
+    second: B1_TS_Disappear_SS_20f_256x256_254
+  - first:
+      213: 8204755604971119168
+    second: B1_TS_Disappear_SS_20f_256x256_255
+  - first:
+      213: 3478026648601941482
+    second: B1_TS_Disappear_SS_20f_256x256_256
+  - first:
+      213: 5683623361254426771
+    second: B1_TS_Disappear_SS_20f_256x256_257
+  - first:
+      213: -5924037039165408371
+    second: B1_TS_Disappear_SS_20f_256x256_258
+  - first:
+      213: -822590135041323067
+    second: B1_TS_Disappear_SS_20f_256x256_259
+  - first:
+      213: 5128881315961246716
+    second: B1_TS_Disappear_SS_20f_256x256_260
+  - first:
+      213: 2726259339948644463
+    second: B1_TS_Disappear_SS_20f_256x256_261
+  - first:
+      213: 8210594500555136835
+    second: B1_TS_Disappear_SS_20f_256x256_262
+  - first:
+      213: 6900720882865307233
+    second: B1_TS_Disappear_SS_20f_256x256_263
+  - first:
+      213: 8637480200677955557
+    second: B1_TS_Disappear_SS_20f_256x256_264
+  - first:
+      213: -6424486931319455738
+    second: B1_TS_Disappear_SS_20f_256x256_265
+  - first:
+      213: -8636747328596200213
+    second: B1_TS_Disappear_SS_20f_256x256_266
+  - first:
+      213: -7039587180879494733
+    second: B1_TS_Disappear_SS_20f_256x256_267
+  - first:
+      213: 885426727861562327
+    second: B1_TS_Disappear_SS_20f_256x256_268
+  - first:
+      213: 4124337192827966209
+    second: B1_TS_Disappear_SS_20f_256x256_269
+  - first:
+      213: 3808480068331012291
+    second: B1_TS_Disappear_SS_20f_256x256_270
+  - first:
+      213: -7163642561468705548
+    second: B1_TS_Disappear_SS_20f_256x256_271
+  - first:
+      213: -6055234532461929455
+    second: B1_TS_Disappear_SS_20f_256x256_272
+  - first:
+      213: -2970508218969615571
+    second: B1_TS_Disappear_SS_20f_256x256_273
+  - first:
+      213: -5796298819552702490
+    second: B1_TS_Disappear_SS_20f_256x256_274
+  - first:
+      213: -4975337982419811822
+    second: B1_TS_Disappear_SS_20f_256x256_275
+  - first:
+      213: -7690369793208298597
+    second: B1_TS_Disappear_SS_20f_256x256_276
+  - first:
+      213: 611900669060422633
+    second: B1_TS_Disappear_SS_20f_256x256_277
+  - first:
+      213: -7013302852265187978
+    second: B1_TS_Disappear_SS_20f_256x256_278
+  - first:
+      213: 2274448513867461329
+    second: B1_TS_Disappear_SS_20f_256x256_279
+  - first:
+      213: 1915343473908192255
+    second: B1_TS_Disappear_SS_20f_256x256_280
+  - first:
+      213: -5220787803233110468
+    second: B1_TS_Disappear_SS_20f_256x256_281
+  - first:
+      213: 8128911291820331560
+    second: B1_TS_Disappear_SS_20f_256x256_282
+  - first:
+      213: -1604170384245244838
+    second: B1_TS_Disappear_SS_20f_256x256_283
+  - first:
+      213: -131546629898167223
+    second: B1_TS_Disappear_SS_20f_256x256_284
+  - first:
+      213: -2451050166632916730
+    second: B1_TS_Disappear_SS_20f_256x256_285
+  - first:
+      213: -6211744137218674199
+    second: B1_TS_Disappear_SS_20f_256x256_286
+  - first:
+      213: -4469648897471382343
+    second: B1_TS_Disappear_SS_20f_256x256_287
+  - first:
+      213: 6825104363225065384
+    second: B1_TS_Disappear_SS_20f_256x256_288
+  - first:
+      213: -1970379771209902912
+    second: B1_TS_Disappear_SS_20f_256x256_289
+  - first:
+      213: 6698419236961763120
+    second: B1_TS_Disappear_SS_20f_256x256_290
+  - first:
+      213: -3641483474681428710
+    second: B1_TS_Disappear_SS_20f_256x256_291
+  - first:
+      213: 4992102694185741439
+    second: B1_TS_Disappear_SS_20f_256x256_292
+  - first:
+      213: 2096143997987052925
+    second: B1_TS_Disappear_SS_20f_256x256_293
+  - first:
+      213: 8659665211954516992
+    second: B1_TS_Disappear_SS_20f_256x256_294
+  - first:
+      213: 19717429847645921
+    second: B1_TS_Disappear_SS_20f_256x256_295
+  - first:
+      213: -2457497731120743113
+    second: B1_TS_Disappear_SS_20f_256x256_296
+  - first:
+      213: -2103174942411043550
+    second: B1_TS_Disappear_SS_20f_256x256_297
+  - first:
+      213: -2852163506346421692
+    second: B1_TS_Disappear_SS_20f_256x256_298
+  - first:
+      213: 4782519381352500585
+    second: B1_TS_Disappear_SS_20f_256x256_299
+  - first:
+      213: -273117312118470922
+    second: B1_TS_Disappear_SS_20f_256x256_300
+  - first:
+      213: 9153188305698579956
+    second: B1_TS_Disappear_SS_20f_256x256_301
+  - first:
+      213: -6776806229748844077
+    second: B1_TS_Disappear_SS_20f_256x256_302
+  - first:
+      213: 1380210596430297328
+    second: B1_TS_Disappear_SS_20f_256x256_303
+  - first:
+      213: 6410704429693886113
+    second: B1_TS_Disappear_SS_20f_256x256_304
+  - first:
+      213: -150256020396739849
+    second: B1_TS_Disappear_SS_20f_256x256_305
+  - first:
+      213: 7098442599915216350
+    second: B1_TS_Disappear_SS_20f_256x256_306
+  - first:
+      213: 7036291810771661331
+    second: B1_TS_Disappear_SS_20f_256x256_307
+  - first:
+      213: -5661140697329426112
+    second: B1_TS_Disappear_SS_20f_256x256_308
+  - first:
+      213: -6850666861044955629
+    second: B1_TS_Disappear_SS_20f_256x256_309
+  - first:
+      213: -2677000123339345757
+    second: B1_TS_Disappear_SS_20f_256x256_310
+  - first:
+      213: 8009545623164133932
+    second: B1_TS_Disappear_SS_20f_256x256_311
+  - first:
+      213: -3251873452613268251
+    second: B1_TS_Disappear_SS_20f_256x256_312
+  - first:
+      213: 7969857791003330267
+    second: B1_TS_Disappear_SS_20f_256x256_313
+  - first:
+      213: 5037823307237290382
+    second: B1_TS_Disappear_SS_20f_256x256_314
+  - first:
+      213: -887786076448717731
+    second: B1_TS_Disappear_SS_20f_256x256_315
+  - first:
+      213: -420068941541201586
+    second: B1_TS_Disappear_SS_20f_256x256_316
+  - first:
+      213: -3044263634990813203
+    second: B1_TS_Disappear_SS_20f_256x256_317
+  - first:
+      213: 7933862718071754137
+    second: B1_TS_Disappear_SS_20f_256x256_318
+  - first:
+      213: 5376362117820557472
+    second: B1_TS_Disappear_SS_20f_256x256_319
+  - first:
+      213: 2656618154556589140
+    second: B1_TS_Disappear_SS_20f_256x256_320
+  - first:
+      213: 1988635866238164105
+    second: B1_TS_Disappear_SS_20f_256x256_321
+  - first:
+      213: -3435979577223796141
+    second: B1_TS_Disappear_SS_20f_256x256_322
+  - first:
+      213: -5037517761357775033
+    second: B1_TS_Disappear_SS_20f_256x256_323
+  - first:
+      213: 1369870811839322162
+    second: B1_TS_Disappear_SS_20f_256x256_324
+  - first:
+      213: -4475236593083048186
+    second: B1_TS_Disappear_SS_20f_256x256_325
+  - first:
+      213: -1635331425057312410
+    second: B1_TS_Disappear_SS_20f_256x256_326
+  - first:
+      213: 6443293766875666529
+    second: B1_TS_Disappear_SS_20f_256x256_327
+  - first:
+      213: -9107021171060531862
+    second: B1_TS_Disappear_SS_20f_256x256_328
+  - first:
+      213: 3949033354869604553
+    second: B1_TS_Disappear_SS_20f_256x256_329
+  - first:
+      213: -1012224467973958608
+    second: B1_TS_Disappear_SS_20f_256x256_330
+  - first:
+      213: 883632378194646495
+    second: B1_TS_Disappear_SS_20f_256x256_331
+  - first:
+      213: -6711723677326893056
+    second: B1_TS_Disappear_SS_20f_256x256_332
+  - first:
+      213: 4786685278258529775
+    second: B1_TS_Disappear_SS_20f_256x256_333
+  - first:
+      213: 7585222127589995760
+    second: B1_TS_Disappear_SS_20f_256x256_334
+  - first:
+      213: -4915059796728252587
+    second: B1_TS_Disappear_SS_20f_256x256_335
+  - first:
+      213: -7187839030555017098
+    second: B1_TS_Disappear_SS_20f_256x256_336
+  - first:
+      213: -3780138759301158127
+    second: B1_TS_Disappear_SS_20f_256x256_337
+  - first:
+      213: 6320142460190979027
+    second: B1_TS_Disappear_SS_20f_256x256_338
+  - first:
+      213: -6377088260252051064
+    second: B1_TS_Disappear_SS_20f_256x256_339
+  - first:
+      213: 7976041707828094520
+    second: B1_TS_Disappear_SS_20f_256x256_340
+  - first:
+      213: 7083628315812146189
+    second: B1_TS_Disappear_SS_20f_256x256_341
+  - first:
+      213: -8273228792438558253
+    second: B1_TS_Disappear_SS_20f_256x256_342
+  - first:
+      213: -2452604707793072728
+    second: B1_TS_Disappear_SS_20f_256x256_343
+  - first:
+      213: 2135647738917418942
+    second: B1_TS_Disappear_SS_20f_256x256_344
+  - first:
+      213: 1283150543148327556
+    second: B1_TS_Disappear_SS_20f_256x256_345
+  - first:
+      213: -2140591549467507654
+    second: B1_TS_Disappear_SS_20f_256x256_346
+  - first:
+      213: -6115154374077931232
+    second: B1_TS_Disappear_SS_20f_256x256_347
+  - first:
+      213: -2085035880375628558
+    second: B1_TS_Disappear_SS_20f_256x256_348
+  - first:
+      213: -1657246536695643479
+    second: B1_TS_Disappear_SS_20f_256x256_349
+  - first:
+      213: -7233025188521759013
+    second: B1_TS_Disappear_SS_20f_256x256_350
+  - first:
+      213: -2520667712825630766
+    second: B1_TS_Disappear_SS_20f_256x256_351
+  - first:
+      213: -4540944164515595881
+    second: B1_TS_Disappear_SS_20f_256x256_352
+  - first:
+      213: -5381210198587230025
+    second: B1_TS_Disappear_SS_20f_256x256_353
+  - first:
+      213: 4303578168402884961
+    second: B1_TS_Disappear_SS_20f_256x256_354
+  - first:
+      213: -296037296557423588
+    second: B1_TS_Disappear_SS_20f_256x256_355
+  - first:
+      213: 3723953572478229816
+    second: B1_TS_Disappear_SS_20f_256x256_356
+  - first:
+      213: -8771160516087527366
+    second: B1_TS_Disappear_SS_20f_256x256_357
+  - first:
+      213: 6573670777842756776
+    second: B1_TS_Disappear_SS_20f_256x256_358
+  - first:
+      213: -5667209350305972844
+    second: B1_TS_Disappear_SS_20f_256x256_359
+  - first:
+      213: -7494023327923803517
+    second: B1_TS_Disappear_SS_20f_256x256_360
+  - first:
+      213: 8670939135082351741
+    second: B1_TS_Disappear_SS_20f_256x256_361
+  - first:
+      213: 9195905762027034314
+    second: B1_TS_Disappear_SS_20f_256x256_362
+  - first:
+      213: 7250841830537552628
+    second: B1_TS_Disappear_SS_20f_256x256_363
+  - first:
+      213: -3362387157061524826
+    second: B1_TS_Disappear_SS_20f_256x256_364
+  - first:
+      213: -6841193999530472649
+    second: B1_TS_Disappear_SS_20f_256x256_365
+  - first:
+      213: 7018644885298261101
+    second: B1_TS_Disappear_SS_20f_256x256_366
+  - first:
+      213: 1670713990135982094
+    second: B1_TS_Disappear_SS_20f_256x256_367
+  - first:
+      213: -8248386925026334346
+    second: B1_TS_Disappear_SS_20f_256x256_368
+  - first:
+      213: 6198432646449382772
+    second: B1_TS_Disappear_SS_20f_256x256_369
+  - first:
+      213: -8469375377319084907
+    second: B1_TS_Disappear_SS_20f_256x256_370
+  - first:
+      213: 4798505494427736496
+    second: B1_TS_Disappear_SS_20f_256x256_371
+  - first:
+      213: 3532285648607531239
+    second: B1_TS_Disappear_SS_20f_256x256_372
+  - first:
+      213: -9160809671844317214
+    second: B1_TS_Disappear_SS_20f_256x256_373
+  - first:
+      213: -523046616647302882
+    second: B1_TS_Disappear_SS_20f_256x256_374
+  - first:
+      213: 8203962378637468712
+    second: B1_TS_Disappear_SS_20f_256x256_375
+  - first:
+      213: -3868471885101777004
+    second: B1_TS_Disappear_SS_20f_256x256_376
+  - first:
+      213: -638550996906372813
+    second: B1_TS_Disappear_SS_20f_256x256_377
+  - first:
+      213: -793054542953706173
+    second: B1_TS_Disappear_SS_20f_256x256_378
+  - first:
+      213: 6018203256085138441
+    second: B1_TS_Disappear_SS_20f_256x256_379
+  - first:
+      213: 876940647926395279
+    second: B1_TS_Disappear_SS_20f_256x256_380
+  - first:
+      213: 7401271062596963122
+    second: B1_TS_Disappear_SS_20f_256x256_381
+  - first:
+      213: -2790417233497137892
+    second: B1_TS_Disappear_SS_20f_256x256_382
+  - first:
+      213: -5322329200208749143
+    second: B1_TS_Disappear_SS_20f_256x256_383
+  - first:
+      213: 346153707787726724
+    second: B1_TS_Disappear_SS_20f_256x256_384
+  - first:
+      213: -8744766682000620994
+    second: B1_TS_Disappear_SS_20f_256x256_385
+  - first:
+      213: -3774828649526510926
+    second: B1_TS_Disappear_SS_20f_256x256_386
+  - first:
+      213: 6419214808003181877
+    second: B1_TS_Disappear_SS_20f_256x256_387
+  - first:
+      213: -8126935579957654669
+    second: B1_TS_Disappear_SS_20f_256x256_388
+  - first:
+      213: -1870706240454237189
+    second: B1_TS_Disappear_SS_20f_256x256_389
+  - first:
+      213: 8551462969824129350
+    second: B1_TS_Disappear_SS_20f_256x256_390
+  - first:
+      213: 2735615609981061112
+    second: B1_TS_Disappear_SS_20f_256x256_391
+  - first:
+      213: 802474195089718927
+    second: B1_TS_Disappear_SS_20f_256x256_392
+  - first:
+      213: -4773756527274518208
+    second: B1_TS_Disappear_SS_20f_256x256_393
+  - first:
+      213: -1206992531876519267
+    second: B1_TS_Disappear_SS_20f_256x256_394
+  - first:
+      213: -2967488518282424699
+    second: B1_TS_Disappear_SS_20f_256x256_395
+  - first:
+      213: 2253943877998493365
+    second: B1_TS_Disappear_SS_20f_256x256_396
+  - first:
+      213: 1237251717219870317
+    second: B1_TS_Disappear_SS_20f_256x256_397
+  - first:
+      213: -3793383766436536968
+    second: B1_TS_Disappear_SS_20f_256x256_398
+  - first:
+      213: 5167173635855983033
+    second: B1_TS_Disappear_SS_20f_256x256_399
+  - first:
+      213: 5017799992469392896
+    second: B1_TS_Disappear_SS_20f_256x256_400
+  - first:
+      213: -8498104304984779972
+    second: B1_TS_Disappear_SS_20f_256x256_401
+  - first:
+      213: 1271662055029995658
+    second: B1_TS_Disappear_SS_20f_256x256_402
+  - first:
+      213: 2613302976825586449
+    second: B1_TS_Disappear_SS_20f_256x256_403
+  - first:
+      213: -8472853837941814337
+    second: B1_TS_Disappear_SS_20f_256x256_404
+  - first:
+      213: -12306037097538470
+    second: B1_TS_Disappear_SS_20f_256x256_405
+  - first:
+      213: 5413943773362384740
+    second: B1_TS_Disappear_SS_20f_256x256_406
+  - first:
+      213: 3601441459687479680
+    second: B1_TS_Disappear_SS_20f_256x256_407
+  - first:
+      213: 3871050078351580936
+    second: B1_TS_Disappear_SS_20f_256x256_408
+  - first:
+      213: 1609888399034565091
+    second: B1_TS_Disappear_SS_20f_256x256_409
+  - first:
+      213: 2681877291644346401
+    second: B1_TS_Disappear_SS_20f_256x256_410
+  - first:
+      213: 4913474667010060352
+    second: B1_TS_Disappear_SS_20f_256x256_411
+  - first:
+      213: 6751369342654741933
+    second: B1_TS_Disappear_SS_20f_256x256_412
+  - first:
+      213: -5882420897718617629
+    second: B1_TS_Disappear_SS_20f_256x256_413
+  - first:
+      213: -5974923244164809384
+    second: B1_TS_Disappear_SS_20f_256x256_414
+  - first:
+      213: -1548284392772888074
+    second: B1_TS_Disappear_SS_20f_256x256_415
+  - first:
+      213: 979222405153579355
+    second: B1_TS_Disappear_SS_20f_256x256_416
+  - first:
+      213: 4781525813551766919
+    second: B1_TS_Disappear_SS_20f_256x256_417
+  - first:
+      213: -3514613342941372078
+    second: B1_TS_Disappear_SS_20f_256x256_418
+  - first:
+      213: -5480926673649115284
+    second: B1_TS_Disappear_SS_20f_256x256_419
+  - first:
+      213: 5585988771133453348
+    second: B1_TS_Disappear_SS_20f_256x256_420
+  - first:
+      213: 6201933420592083198
+    second: B1_TS_Disappear_SS_20f_256x256_421
+  - first:
+      213: 7135606203896769910
+    second: B1_TS_Disappear_SS_20f_256x256_422
+  - first:
+      213: -5556577902483874238
+    second: B1_TS_Disappear_SS_20f_256x256_423
+  - first:
+      213: -1965256091910437338
+    second: B1_TS_Disappear_SS_20f_256x256_424
+  - first:
+      213: -924245415559871834
+    second: B1_TS_Disappear_SS_20f_256x256_425
+  - first:
+      213: 5071217781090751186
+    second: B1_TS_Disappear_SS_20f_256x256_426
+  - first:
+      213: -3127735769545374602
+    second: B1_TS_Disappear_SS_20f_256x256_427
+  - first:
+      213: -4351839093664422487
+    second: B1_TS_Disappear_SS_20f_256x256_428
+  - first:
+      213: 5740428214983325811
+    second: B1_TS_Disappear_SS_20f_256x256_429
+  - first:
+      213: 2219014384107349526
+    second: B1_TS_Disappear_SS_20f_256x256_430
+  - first:
+      213: -764368643052487914
+    second: B1_TS_Disappear_SS_20f_256x256_431
+  - first:
+      213: 40725228565030940
+    second: B1_TS_Disappear_SS_20f_256x256_432
+  - first:
+      213: -8725430539577364119
+    second: B1_TS_Disappear_SS_20f_256x256_433
+  - first:
+      213: 8112407742609983521
+    second: B1_TS_Disappear_SS_20f_256x256_434
+  - first:
+      213: 7902010270436004777
+    second: B1_TS_Disappear_SS_20f_256x256_435
+  - first:
+      213: 270016993042502817
+    second: B1_TS_Disappear_SS_20f_256x256_436
+  - first:
+      213: 8062743301999447664
+    second: B1_TS_Disappear_SS_20f_256x256_437
+  - first:
+      213: -8773330578247634961
+    second: B1_TS_Disappear_SS_20f_256x256_438
+  - first:
+      213: -7124487996619466334
+    second: B1_TS_Disappear_SS_20f_256x256_439
+  - first:
+      213: 4636992932022292181
+    second: B1_TS_Disappear_SS_20f_256x256_440
+  - first:
+      213: 4099579536864033708
+    second: B1_TS_Disappear_SS_20f_256x256_441
+  - first:
+      213: -8057978947287771936
+    second: B1_TS_Disappear_SS_20f_256x256_442
+  - first:
+      213: -5658637600363224994
+    second: B1_TS_Disappear_SS_20f_256x256_443
+  - first:
+      213: -4164568009276879942
+    second: B1_TS_Disappear_SS_20f_256x256_444
+  - first:
+      213: -2062737227445081981
+    second: B1_TS_Disappear_SS_20f_256x256_445
+  - first:
+      213: -826841818783757181
+    second: B1_TS_Disappear_SS_20f_256x256_446
+  - first:
+      213: 8991808433813032854
+    second: B1_TS_Disappear_SS_20f_256x256_447
+  - first:
+      213: 7738184173603777631
+    second: B1_TS_Disappear_SS_20f_256x256_448
+  - first:
+      213: 365325415082620648
+    second: B1_TS_Disappear_SS_20f_256x256_449
+  - first:
+      213: 5888415808445347100
+    second: B1_TS_Disappear_SS_20f_256x256_450
+  - first:
+      213: 7901372642864668541
+    second: B1_TS_Disappear_SS_20f_256x256_451
+  - first:
+      213: 1909650084648143187
+    second: B1_TS_Disappear_SS_20f_256x256_452
+  - first:
+      213: 5894356131500148929
+    second: B1_TS_Disappear_SS_20f_256x256_453
+  - first:
+      213: -6829139219829485875
+    second: B1_TS_Disappear_SS_20f_256x256_454
+  - first:
+      213: -8451658113407787905
+    second: B1_TS_Disappear_SS_20f_256x256_455
+  - first:
+      213: -6038464951029275734
+    second: B1_TS_Disappear_SS_20f_256x256_456
+  - first:
+      213: -1460676549284673248
+    second: B1_TS_Disappear_SS_20f_256x256_457
+  - first:
+      213: 2550364888920000821
+    second: B1_TS_Disappear_SS_20f_256x256_458
+  - first:
+      213: 7700892388100963921
+    second: B1_TS_Disappear_SS_20f_256x256_459
+  - first:
+      213: -3539220981803594519
+    second: B1_TS_Disappear_SS_20f_256x256_460
+  - first:
+      213: 1007254619376674634
+    second: B1_TS_Disappear_SS_20f_256x256_461
+  - first:
+      213: 1593005962875736560
+    second: B1_TS_Disappear_SS_20f_256x256_462
+  - first:
+      213: -3165383069095265528
+    second: B1_TS_Disappear_SS_20f_256x256_463
+  - first:
+      213: -5985589762507691699
+    second: B1_TS_Disappear_SS_20f_256x256_464
+  - first:
+      213: 2620735241574296929
+    second: B1_TS_Disappear_SS_20f_256x256_465
+  - first:
+      213: 5876770654570881616
+    second: B1_TS_Disappear_SS_20f_256x256_466
+  - first:
+      213: 4616940217021842697
+    second: B1_TS_Disappear_SS_20f_256x256_467
+  - first:
+      213: -116462834527845385
+    second: B1_TS_Disappear_SS_20f_256x256_468
+  - first:
+      213: 2177442738901375402
+    second: B1_TS_Disappear_SS_20f_256x256_469
+  - first:
+      213: 8053077650705259732
+    second: B1_TS_Disappear_SS_20f_256x256_470
+  - first:
+      213: -7473332404808524426
+    second: B1_TS_Disappear_SS_20f_256x256_471
+  - first:
+      213: 8380849585065063903
+    second: B1_TS_Disappear_SS_20f_256x256_472
+  - first:
+      213: 2675012047092131734
+    second: B1_TS_Disappear_SS_20f_256x256_473
+  - first:
+      213: -7475106311333249950
+    second: B1_TS_Disappear_SS_20f_256x256_474
+  - first:
+      213: 962967169071071096
+    second: B1_TS_Disappear_SS_20f_256x256_475
+  - first:
+      213: -547158444813227066
+    second: B1_TS_Disappear_SS_20f_256x256_476
+  - first:
+      213: -1286399707931992182
+    second: B1_TS_Disappear_SS_20f_256x256_477
+  - first:
+      213: 7780523460744599558
+    second: B1_TS_Disappear_SS_20f_256x256_478
+  - first:
+      213: 9061722425083839417
+    second: B1_TS_Disappear_SS_20f_256x256_479
+  - first:
+      213: -4208212274680857943
+    second: B1_TS_Disappear_SS_20f_256x256_480
+  - first:
+      213: 2929665793506961025
+    second: B1_TS_Disappear_SS_20f_256x256_481
+  - first:
+      213: 7713309038753897632
+    second: B1_TS_Disappear_SS_20f_256x256_482
+  - first:
+      213: 8891065410749722908
+    second: B1_TS_Disappear_SS_20f_256x256_483
+  - first:
+      213: -4161880384499605954
+    second: B1_TS_Disappear_SS_20f_256x256_484
+  - first:
+      213: -8664816425124752018
+    second: B1_TS_Disappear_SS_20f_256x256_485
+  - first:
+      213: -7402881907031233380
+    second: B1_TS_Disappear_SS_20f_256x256_486
+  - first:
+      213: 6452743309195551456
+    second: B1_TS_Disappear_SS_20f_256x256_487
+  - first:
+      213: 5827753671720203684
+    second: B1_TS_Disappear_SS_20f_256x256_488
+  - first:
+      213: 5547483318769560761
+    second: B1_TS_Disappear_SS_20f_256x256_489
+  - first:
+      213: -1603858446300180951
+    second: B1_TS_Disappear_SS_20f_256x256_490
+  - first:
+      213: 6840439431774333673
+    second: B1_TS_Disappear_SS_20f_256x256_491
+  - first:
+      213: -6313262939936604740
+    second: B1_TS_Disappear_SS_20f_256x256_492
+  - first:
+      213: -1471184371963089394
+    second: B1_TS_Disappear_SS_20f_256x256_493
+  - first:
+      213: 6648243509061617162
+    second: B1_TS_Disappear_SS_20f_256x256_494
+  - first:
+      213: -1007415977682110503
+    second: B1_TS_Disappear_SS_20f_256x256_495
+  - first:
+      213: 823220702213280180
+    second: B1_TS_Disappear_SS_20f_256x256_496
+  - first:
+      213: -127222892769908084
+    second: B1_TS_Disappear_SS_20f_256x256_497
+  - first:
+      213: 6668665148377845226
+    second: B1_TS_Disappear_SS_20f_256x256_498
+  - first:
+      213: 9102546146184012306
+    second: B1_TS_Disappear_SS_20f_256x256_499
+  - first:
+      213: 8671806395235065690
+    second: B1_TS_Disappear_SS_20f_256x256_500
+  - first:
+      213: 7076632395976221758
+    second: B1_TS_Disappear_SS_20f_256x256_501
+  - first:
+      213: 8066647977457039326
+    second: B1_TS_Disappear_SS_20f_256x256_502
+  - first:
+      213: -9121587101025500790
+    second: B1_TS_Disappear_SS_20f_256x256_503
+  - first:
+      213: 1495048189464372844
+    second: B1_TS_Disappear_SS_20f_256x256_504
+  - first:
+      213: 7368712396367719682
+    second: B1_TS_Disappear_SS_20f_256x256_505
+  - first:
+      213: 9018243113038638685
+    second: B1_TS_Disappear_SS_20f_256x256_506
+  - first:
+      213: -8192296610067834050
+    second: B1_TS_Disappear_SS_20f_256x256_507
+  - first:
+      213: 2440786526200931100
+    second: B1_TS_Disappear_SS_20f_256x256_508
+  - first:
+      213: -7645528185562715989
+    second: B1_TS_Disappear_SS_20f_256x256_509
+  - first:
+      213: -6805142953554302237
+    second: B1_TS_Disappear_SS_20f_256x256_510
+  - first:
+      213: -7266141260408559313
+    second: B1_TS_Disappear_SS_20f_256x256_511
+  - first:
+      213: 6586349852625111493
+    second: B1_TS_Disappear_SS_20f_256x256_512
+  - first:
+      213: 6402474557223820268
+    second: B1_TS_Disappear_SS_20f_256x256_513
+  - first:
+      213: 7387201352865258869
+    second: B1_TS_Disappear_SS_20f_256x256_514
+  - first:
+      213: 6649053962711181948
+    second: B1_TS_Disappear_SS_20f_256x256_515
+  - first:
+      213: 7050680494360605937
+    second: B1_TS_Disappear_SS_20f_256x256_516
+  - first:
+      213: 7333212436702942044
+    second: B1_TS_Disappear_SS_20f_256x256_517
+  - first:
+      213: 7991900055633378658
+    second: B1_TS_Disappear_SS_20f_256x256_518
+  - first:
+      213: 3862007331810978086
+    second: B1_TS_Disappear_SS_20f_256x256_519
+  - first:
+      213: -534943873982215038
+    second: B1_TS_Disappear_SS_20f_256x256_520
+  - first:
+      213: 1210415247409954089
+    second: B1_TS_Disappear_SS_20f_256x256_521
+  - first:
+      213: 2149191668965307046
+    second: B1_TS_Disappear_SS_20f_256x256_522
+  - first:
+      213: -2091326286231165576
+    second: B1_TS_Disappear_SS_20f_256x256_523
+  - first:
+      213: -8406776186697078847
+    second: B1_TS_Disappear_SS_20f_256x256_524
+  - first:
+      213: -1897874231008719621
+    second: B1_TS_Disappear_SS_20f_256x256_525
+  - first:
+      213: -6136621816152787109
+    second: B1_TS_Disappear_SS_20f_256x256_526
+  - first:
+      213: 7594717034981331707
+    second: B1_TS_Disappear_SS_20f_256x256_527
+  - first:
+      213: 5797071152395273578
+    second: B1_TS_Disappear_SS_20f_256x256_528
+  - first:
+      213: 3781275627189943460
+    second: B1_TS_Disappear_SS_20f_256x256_529
+  - first:
+      213: -5076236272479785586
+    second: B1_TS_Disappear_SS_20f_256x256_530
+  - first:
+      213: 4891866600632351824
+    second: B1_TS_Disappear_SS_20f_256x256_531
+  - first:
+      213: -8707877554495083147
+    second: B1_TS_Disappear_SS_20f_256x256_532
+  - first:
+      213: 3958741165278468030
+    second: B1_TS_Disappear_SS_20f_256x256_533
+  - first:
+      213: 8140655603678414166
+    second: B1_TS_Disappear_SS_20f_256x256_534
+  - first:
+      213: -7687259394779128240
+    second: B1_TS_Disappear_SS_20f_256x256_535
+  - first:
+      213: 8025640411197262283
+    second: B1_TS_Disappear_SS_20f_256x256_536
+  - first:
+      213: 8741164869151659537
+    second: B1_TS_Disappear_SS_20f_256x256_537
+  - first:
+      213: -1791431325177299393
+    second: B1_TS_Disappear_SS_20f_256x256_538
+  - first:
+      213: 5243658662511876134
+    second: B1_TS_Disappear_SS_20f_256x256_539
+  - first:
+      213: 8077479868352859895
+    second: B1_TS_Disappear_SS_20f_256x256_540
+  - first:
+      213: 3786479913028547698
+    second: B1_TS_Disappear_SS_20f_256x256_541
+  - first:
+      213: 6134052599318349040
+    second: B1_TS_Disappear_SS_20f_256x256_542
+  - first:
+      213: 7830685562559509498
+    second: B1_TS_Disappear_SS_20f_256x256_543
+  - first:
+      213: 4697394915813502858
+    second: B1_TS_Disappear_SS_20f_256x256_544
+  - first:
+      213: -1105319002212193580
+    second: B1_TS_Disappear_SS_20f_256x256_545
+  - first:
+      213: -3409228227525570983
+    second: B1_TS_Disappear_SS_20f_256x256_546
+  - first:
+      213: 7649108721483398012
+    second: B1_TS_Disappear_SS_20f_256x256_547
+  - first:
+      213: -6593756085884763727
+    second: B1_TS_Disappear_SS_20f_256x256_548
+  - first:
+      213: -1130965805014302086
+    second: B1_TS_Disappear_SS_20f_256x256_549
+  - first:
+      213: -259803769431830476
+    second: B1_TS_Disappear_SS_20f_256x256_550
+  - first:
+      213: 3620147400930654240
+    second: B1_TS_Disappear_SS_20f_256x256_551
+  - first:
+      213: -6536043007450687313
+    second: B1_TS_Disappear_SS_20f_256x256_552
+  - first:
+      213: 7868804610853684383
+    second: B1_TS_Disappear_SS_20f_256x256_553
+  - first:
+      213: -1885256569859606167
+    second: B1_TS_Disappear_SS_20f_256x256_554
+  - first:
+      213: -1179234427643729957
+    second: B1_TS_Disappear_SS_20f_256x256_555
+  - first:
+      213: -2134493015551676846
+    second: B1_TS_Disappear_SS_20f_256x256_556
+  - first:
+      213: 779785408281204305
+    second: B1_TS_Disappear_SS_20f_256x256_557
+  - first:
+      213: 6989177670626694263
+    second: B1_TS_Disappear_SS_20f_256x256_558
+  - first:
+      213: -2253479718696813057
+    second: B1_TS_Disappear_SS_20f_256x256_559
+  - first:
+      213: -587782917972259572
+    second: B1_TS_Disappear_SS_20f_256x256_560
+  - first:
+      213: -6473225093091722775
+    second: B1_TS_Disappear_SS_20f_256x256_561
+  - first:
+      213: 5817030126985012545
+    second: B1_TS_Disappear_SS_20f_256x256_562
+  - first:
+      213: -3531027450236256182
+    second: B1_TS_Disappear_SS_20f_256x256_563
+  - first:
+      213: 2934634477456288844
+    second: B1_TS_Disappear_SS_20f_256x256_564
+  - first:
+      213: -1088905124664518008
+    second: B1_TS_Disappear_SS_20f_256x256_565
+  - first:
+      213: -6425064464690389754
+    second: B1_TS_Disappear_SS_20f_256x256_566
+  - first:
+      213: 8218636081536156860
+    second: B1_TS_Disappear_SS_20f_256x256_567
+  - first:
+      213: -4458140347242404875
+    second: B1_TS_Disappear_SS_20f_256x256_568
+  - first:
+      213: -2209012806643773752
+    second: B1_TS_Disappear_SS_20f_256x256_569
+  - first:
+      213: -553155480125369029
+    second: B1_TS_Disappear_SS_20f_256x256_570
+  - first:
+      213: 7809970775480788
+    second: B1_TS_Disappear_SS_20f_256x256_571
+  - first:
+      213: 9121969215528065003
+    second: B1_TS_Disappear_SS_20f_256x256_572
+  - first:
+      213: 307122603617532196
+    second: B1_TS_Disappear_SS_20f_256x256_573
+  - first:
+      213: -166463955742354198
+    second: B1_TS_Disappear_SS_20f_256x256_574
+  - first:
+      213: -6559884247105976135
+    second: B1_TS_Disappear_SS_20f_256x256_575
+  - first:
+      213: -7562786057590330769
+    second: B1_TS_Disappear_SS_20f_256x256_576
+  - first:
+      213: -1120003109009109363
+    second: B1_TS_Disappear_SS_20f_256x256_577
+  - first:
+      213: -8970637518665898188
+    second: B1_TS_Disappear_SS_20f_256x256_578
+  - first:
+      213: 2920542104178298792
+    second: B1_TS_Disappear_SS_20f_256x256_579
+  - first:
+      213: -516986607083299340
+    second: B1_TS_Disappear_SS_20f_256x256_580
+  - first:
+      213: -6588695025978045560
+    second: B1_TS_Disappear_SS_20f_256x256_581
+  - first:
+      213: 3364376510376226756
+    second: B1_TS_Disappear_SS_20f_256x256_582
+  - first:
+      213: -1003192698914413704
+    second: B1_TS_Disappear_SS_20f_256x256_583
+  - first:
+      213: -9590654748418980
+    second: B1_TS_Disappear_SS_20f_256x256_584
+  - first:
+      213: 2666277810545424075
+    second: B1_TS_Disappear_SS_20f_256x256_585
+  - first:
+      213: 4019660137441648711
+    second: B1_TS_Disappear_SS_20f_256x256_586
+  - first:
+      213: -4353007693973704876
+    second: B1_TS_Disappear_SS_20f_256x256_587
+  - first:
+      213: -3228207717451964241
+    second: B1_TS_Disappear_SS_20f_256x256_588
+  - first:
+      213: 8888444295803867705
+    second: B1_TS_Disappear_SS_20f_256x256_589
+  - first:
+      213: -3933751734479790039
+    second: B1_TS_Disappear_SS_20f_256x256_590
+  - first:
+      213: -6762955457408017590
+    second: B1_TS_Disappear_SS_20f_256x256_591
+  - first:
+      213: 418502149039514515
+    second: B1_TS_Disappear_SS_20f_256x256_592
+  - first:
+      213: -7768265086925321016
+    second: B1_TS_Disappear_SS_20f_256x256_593
+  - first:
+      213: 2809062251917065395
+    second: B1_TS_Disappear_SS_20f_256x256_594
+  - first:
+      213: -5581155982455329794
+    second: B1_TS_Disappear_SS_20f_256x256_595
+  - first:
+      213: 3982174728451296294
+    second: B1_TS_Disappear_SS_20f_256x256_596
+  - first:
+      213: 1592025463921807782
+    second: B1_TS_Disappear_SS_20f_256x256_597
+  - first:
+      213: 5873789723414780199
+    second: B1_TS_Disappear_SS_20f_256x256_598
+  - first:
+      213: -3877883847653562048
+    second: B1_TS_Disappear_SS_20f_256x256_599
+  - first:
+      213: -7785704945401253092
+    second: B1_TS_Disappear_SS_20f_256x256_600
+  - first:
+      213: 6886085166509282847
+    second: B1_TS_Disappear_SS_20f_256x256_601
+  - first:
+      213: -6348188161229080877
+    second: B1_TS_Disappear_SS_20f_256x256_602
+  - first:
+      213: 2039275199437381314
+    second: B1_TS_Disappear_SS_20f_256x256_603
+  - first:
+      213: -3553080344024170342
+    second: B1_TS_Disappear_SS_20f_256x256_604
+  - first:
+      213: -7236314321493711609
+    second: B1_TS_Disappear_SS_20f_256x256_605
+  - first:
+      213: -6586246920961777204
+    second: B1_TS_Disappear_SS_20f_256x256_606
+  - first:
+      213: -7024683170632325344
+    second: B1_TS_Disappear_SS_20f_256x256_607
+  - first:
+      213: 8008418379457248240
+    second: B1_TS_Disappear_SS_20f_256x256_608
+  - first:
+      213: 8808310860375387397
+    second: B1_TS_Disappear_SS_20f_256x256_609
+  - first:
+      213: -2105758907521535440
+    second: B1_TS_Disappear_SS_20f_256x256_610
+  - first:
+      213: -2538806836060002416
+    second: B1_TS_Disappear_SS_20f_256x256_611
+  - first:
+      213: 4821515175527404382
+    second: B1_TS_Disappear_SS_20f_256x256_612
+  - first:
+      213: -5049973250085490563
+    second: B1_TS_Disappear_SS_20f_256x256_613
+  - first:
+      213: -9144539280236709183
+    second: B1_TS_Disappear_SS_20f_256x256_614
+  - first:
+      213: 8549757574189705869
+    second: B1_TS_Disappear_SS_20f_256x256_615
+  - first:
+      213: -4719344252257122962
+    second: B1_TS_Disappear_SS_20f_256x256_616
+  - first:
+      213: -6275223155038121213
+    second: B1_TS_Disappear_SS_20f_256x256_617
+  - first:
+      213: -721565180472734612
+    second: B1_TS_Disappear_SS_20f_256x256_618
+  - first:
+      213: 461018734289593905
+    second: B1_TS_Disappear_SS_20f_256x256_619
+  - first:
+      213: -1262039337641336
+    second: B1_TS_Disappear_SS_20f_256x256_620
+  - first:
+      213: -3574202310773019563
+    second: B1_TS_Disappear_SS_20f_256x256_621
+  - first:
+      213: 9022668858895140539
+    second: B1_TS_Disappear_SS_20f_256x256_622
+  - first:
+      213: 4404752149523083443
+    second: B1_TS_Disappear_SS_20f_256x256_623
+  - first:
+      213: -3710477004361482389
+    second: B1_TS_Disappear_SS_20f_256x256_624
+  - first:
+      213: 1384551762765355907
+    second: B1_TS_Disappear_SS_20f_256x256_625
+  - first:
+      213: -666448609037398935
+    second: B1_TS_Disappear_SS_20f_256x256_626
+  - first:
+      213: 2860962230961861482
+    second: B1_TS_Disappear_SS_20f_256x256_627
+  - first:
+      213: -492927538626509363
+    second: B1_TS_Disappear_SS_20f_256x256_628
+  - first:
+      213: -7743749404804382688
+    second: B1_TS_Disappear_SS_20f_256x256_629
+  - first:
+      213: -7797965588460614998
+    second: B1_TS_Disappear_SS_20f_256x256_630
+  - first:
+      213: -8033210704912228845
+    second: B1_TS_Disappear_SS_20f_256x256_631
+  - first:
+      213: 158298221891309622
+    second: B1_TS_Disappear_SS_20f_256x256_632
+  - first:
+      213: -402673932603445171
+    second: B1_TS_Disappear_SS_20f_256x256_633
+  - first:
+      213: 9143003508732684253
+    second: B1_TS_Disappear_SS_20f_256x256_634
+  - first:
+      213: -7771666159243947700
+    second: B1_TS_Disappear_SS_20f_256x256_635
+  - first:
+      213: 739004922068583038
+    second: B1_TS_Disappear_SS_20f_256x256_636
+  - first:
+      213: -6053666588048224210
+    second: B1_TS_Disappear_SS_20f_256x256_637
+  - first:
+      213: 8764780061429744158
+    second: B1_TS_Disappear_SS_20f_256x256_638
+  - first:
+      213: -3683392818983290239
+    second: B1_TS_Disappear_SS_20f_256x256_639
+  - first:
+      213: 245206232179730089
+    second: B1_TS_Disappear_SS_20f_256x256_640
+  - first:
+      213: -2476398173325625567
+    second: B1_TS_Disappear_SS_20f_256x256_641
+  - first:
+      213: -417668321775117175
+    second: B1_TS_Disappear_SS_20f_256x256_642
+  - first:
+      213: -1054434035690737781
+    second: B1_TS_Disappear_SS_20f_256x256_643
+  - first:
+      213: 732156587995842346
+    second: B1_TS_Disappear_SS_20f_256x256_644
+  - first:
+      213: -3750862725462875912
+    second: B1_TS_Disappear_SS_20f_256x256_645
+  - first:
+      213: -5553892622179546457
+    second: B1_TS_Disappear_SS_20f_256x256_646
+  - first:
+      213: -4482717751828401029
+    second: B1_TS_Disappear_SS_20f_256x256_647
+  - first:
+      213: -2763032536810870410
+    second: B1_TS_Disappear_SS_20f_256x256_648
+  - first:
+      213: 7366585491078045121
+    second: B1_TS_Disappear_SS_20f_256x256_649
+  - first:
+      213: -1915218446178158384
+    second: B1_TS_Disappear_SS_20f_256x256_650
+  - first:
+      213: 2379416922249452739
+    second: B1_TS_Disappear_SS_20f_256x256_651
+  - first:
+      213: 1538753991164838015
+    second: B1_TS_Disappear_SS_20f_256x256_652
+  - first:
+      213: -257510762472967297
+    second: B1_TS_Disappear_SS_20f_256x256_653
+  - first:
+      213: 964587983532966434
+    second: B1_TS_Disappear_SS_20f_256x256_654
+  - first:
+      213: 3664750293772572586
+    second: B1_TS_Disappear_SS_20f_256x256_655
+  - first:
+      213: 6311912257507485989
+    second: B1_TS_Disappear_SS_20f_256x256_656
+  - first:
+      213: 6941711339439551086
+    second: B1_TS_Disappear_SS_20f_256x256_657
+  - first:
+      213: 4080306057815941507
+    second: B1_TS_Disappear_SS_20f_256x256_658
+  - first:
+      213: 2484453537235548437
+    second: B1_TS_Disappear_SS_20f_256x256_659
+  - first:
+      213: -2157467362846025642
+    second: B1_TS_Disappear_SS_20f_256x256_660
+  - first:
+      213: -4543672940038474370
+    second: B1_TS_Disappear_SS_20f_256x256_661
+  - first:
+      213: -904606835041722506
+    second: B1_TS_Disappear_SS_20f_256x256_662
+  - first:
+      213: -6137106645091199663
+    second: B1_TS_Disappear_SS_20f_256x256_663
+  - first:
+      213: 3814533719260513887
+    second: B1_TS_Disappear_SS_20f_256x256_664
+  - first:
+      213: -5146438923762431540
+    second: B1_TS_Disappear_SS_20f_256x256_665
+  - first:
+      213: 6615061380140174951
+    second: B1_TS_Disappear_SS_20f_256x256_666
+  - first:
+      213: 5244353363615626147
+    second: B1_TS_Disappear_SS_20f_256x256_667
+  - first:
+      213: -1171309039762335587
+    second: B1_TS_Disappear_SS_20f_256x256_668
+  - first:
+      213: -3746239139543315846
+    second: B1_TS_Disappear_SS_20f_256x256_669
+  - first:
+      213: 4530599423421540676
+    second: B1_TS_Disappear_SS_20f_256x256_670
+  - first:
+      213: -8509173187620944582
+    second: B1_TS_Disappear_SS_20f_256x256_671
+  - first:
+      213: -8269824847219518779
+    second: B1_TS_Disappear_SS_20f_256x256_672
+  - first:
+      213: 5037086033808369492
+    second: B1_TS_Disappear_SS_20f_256x256_673
+  - first:
+      213: -8653944438472243237
+    second: B1_TS_Disappear_SS_20f_256x256_674
+  - first:
+      213: -4533407546077624278
+    second: B1_TS_Disappear_SS_20f_256x256_675
+  - first:
+      213: 7920042437048796863
+    second: B1_TS_Disappear_SS_20f_256x256_676
+  - first:
+      213: 2205938865134644359
+    second: B1_TS_Disappear_SS_20f_256x256_677
+  - first:
+      213: -2405750837590223812
+    second: B1_TS_Disappear_SS_20f_256x256_678
+  - first:
+      213: -4974750113861777065
+    second: B1_TS_Disappear_SS_20f_256x256_679
+  - first:
+      213: 2222359726088103770
+    second: B1_TS_Disappear_SS_20f_256x256_680
+  - first:
+      213: -468250909334890194
+    second: B1_TS_Disappear_SS_20f_256x256_681
+  - first:
+      213: 2820935533260017225
+    second: B1_TS_Disappear_SS_20f_256x256_682
+  - first:
+      213: -5145665213184311552
+    second: B1_TS_Disappear_SS_20f_256x256_683
+  - first:
+      213: 442415809666451785
+    second: B1_TS_Disappear_SS_20f_256x256_684
+  - first:
+      213: -7856782220420749309
+    second: B1_TS_Disappear_SS_20f_256x256_685
+  - first:
+      213: 171619256332605835
+    second: B1_TS_Disappear_SS_20f_256x256_686
+  - first:
+      213: -1458179733742937842
+    second: B1_TS_Disappear_SS_20f_256x256_687
+  - first:
+      213: -293877429533789135
+    second: B1_TS_Disappear_SS_20f_256x256_688
+  - first:
+      213: -2638243151845436831
+    second: B1_TS_Disappear_SS_20f_256x256_689
+  - first:
+      213: -2183788425658888523
+    second: B1_TS_Disappear_SS_20f_256x256_690
+  - first:
+      213: 8019965308691536367
+    second: B1_TS_Disappear_SS_20f_256x256_691
+  - first:
+      213: 4847351126020779558
+    second: B1_TS_Disappear_SS_20f_256x256_692
+  - first:
+      213: 4239025243318676167
+    second: B1_TS_Disappear_SS_20f_256x256_693
+  - first:
+      213: 3356059917660067381
+    second: B1_TS_Disappear_SS_20f_256x256_694
+  - first:
+      213: -1076334234495762895
+    second: B1_TS_Disappear_SS_20f_256x256_695
+  - first:
+      213: 2154826836741754444
+    second: B1_TS_Disappear_SS_20f_256x256_696
+  - first:
+      213: -3880838460193151240
+    second: B1_TS_Disappear_SS_20f_256x256_697
+  - first:
+      213: -5054472526055778831
+    second: B1_TS_Disappear_SS_20f_256x256_698
+  - first:
+      213: -928611407694624944
+    second: B1_TS_Disappear_SS_20f_256x256_699
+  - first:
+      213: 8759479863276240339
+    second: B1_TS_Disappear_SS_20f_256x256_700
+  - first:
+      213: -2235402659285349040
+    second: B1_TS_Disappear_SS_20f_256x256_701
+  - first:
+      213: -9146739565148720216
+    second: B1_TS_Disappear_SS_20f_256x256_702
+  - first:
+      213: -4560347968351411330
+    second: B1_TS_Disappear_SS_20f_256x256_703
+  - first:
+      213: -4692570087818368235
+    second: B1_TS_Disappear_SS_20f_256x256_704
+  - first:
+      213: -9205567895509296188
+    second: B1_TS_Disappear_SS_20f_256x256_705
+  - first:
+      213: 2686358708583562084
+    second: B1_TS_Disappear_SS_20f_256x256_706
+  - first:
+      213: 6332084530061136358
+    second: B1_TS_Disappear_SS_20f_256x256_707
+  - first:
+      213: -5600406404936283834
+    second: B1_TS_Disappear_SS_20f_256x256_708
+  - first:
+      213: 1992439521649013976
+    second: B1_TS_Disappear_SS_20f_256x256_709
+  - first:
+      213: 2786106264113318116
+    second: B1_TS_Disappear_SS_20f_256x256_710
+  - first:
+      213: 2944746751764563700
+    second: B1_TS_Disappear_SS_20f_256x256_711
+  - first:
+      213: -6776765966003558891
+    second: B1_TS_Disappear_SS_20f_256x256_712
+  - first:
+      213: 237022771173914237
+    second: B1_TS_Disappear_SS_20f_256x256_713
+  - first:
+      213: 1077625619239201358
+    second: B1_TS_Disappear_SS_20f_256x256_714
+  - first:
+      213: -1994796206698476545
+    second: B1_TS_Disappear_SS_20f_256x256_715
+  - first:
+      213: 6453018375052532446
+    second: B1_TS_Disappear_SS_20f_256x256_716
+  - first:
+      213: -4682495230479274940
+    second: B1_TS_Disappear_SS_20f_256x256_717
+  - first:
+      213: -750468497941916663
+    second: B1_TS_Disappear_SS_20f_256x256_718
+  - first:
+      213: 3995307976026919338
+    second: B1_TS_Disappear_SS_20f_256x256_719
+  - first:
+      213: 4660291815726805064
+    second: B1_TS_Disappear_SS_20f_256x256_720
+  - first:
+      213: -7530837071451445615
+    second: B1_TS_Disappear_SS_20f_256x256_721
+  - first:
+      213: 1018628153571081857
+    second: B1_TS_Disappear_SS_20f_256x256_722
+  - first:
+      213: -2000056815111713460
+    second: B1_TS_Disappear_SS_20f_256x256_723
+  - first:
+      213: 1096619553328064563
+    second: B1_TS_Disappear_SS_20f_256x256_724
+  - first:
+      213: -6155396391577027592
+    second: B1_TS_Disappear_SS_20f_256x256_725
+  - first:
+      213: -2062079810525493041
+    second: B1_TS_Disappear_SS_20f_256x256_726
+  - first:
+      213: 5667688105055927606
+    second: B1_TS_Disappear_SS_20f_256x256_727
+  - first:
+      213: 8764058019213331144
+    second: B1_TS_Disappear_SS_20f_256x256_728
+  - first:
+      213: -2805042989913595006
+    second: B1_TS_Disappear_SS_20f_256x256_729
+  - first:
+      213: 7343305401450279289
+    second: B1_TS_Disappear_SS_20f_256x256_730
+  - first:
+      213: -2214180494738706704
+    second: B1_TS_Disappear_SS_20f_256x256_731
+  - first:
+      213: 1737116487499556326
+    second: B1_TS_Disappear_SS_20f_256x256_732
+  - first:
+      213: 6853333467489323060
+    second: B1_TS_Disappear_SS_20f_256x256_733
+  - first:
+      213: 681992966538931921
+    second: B1_TS_Disappear_SS_20f_256x256_734
+  - first:
+      213: 9051175745726691366
+    second: B1_TS_Disappear_SS_20f_256x256_735
+  - first:
+      213: -6989897477675190806
+    second: B1_TS_Disappear_SS_20f_256x256_736
+  - first:
+      213: -4812982172991703067
+    second: B1_TS_Disappear_SS_20f_256x256_737
+  - first:
+      213: 1585360876875934166
+    second: B1_TS_Disappear_SS_20f_256x256_738
+  - first:
+      213: 2510278661163191678
+    second: B1_TS_Disappear_SS_20f_256x256_739
+  - first:
+      213: -9080104033828571901
+    second: B1_TS_Disappear_SS_20f_256x256_740
+  - first:
+      213: 6962518225249674226
+    second: B1_TS_Disappear_SS_20f_256x256_741
+  - first:
+      213: 8259490316953364565
+    second: B1_TS_Disappear_SS_20f_256x256_742
+  - first:
+      213: -690532379829669019
+    second: B1_TS_Disappear_SS_20f_256x256_743
+  - first:
+      213: 7688788194921053851
+    second: B1_TS_Disappear_SS_20f_256x256_744
+  - first:
+      213: 4915952444025574999
+    second: B1_TS_Disappear_SS_20f_256x256_745
+  - first:
+      213: -8304918409984298231
+    second: B1_TS_Disappear_SS_20f_256x256_746
+  - first:
+      213: -5402446506442951036
+    second: B1_TS_Disappear_SS_20f_256x256_747
+  - first:
+      213: 3818233011765605388
+    second: B1_TS_Disappear_SS_20f_256x256_748
+  - first:
+      213: 5269631567156681069
+    second: B1_TS_Disappear_SS_20f_256x256_749
+  - first:
+      213: 770005601032520050
+    second: B1_TS_Disappear_SS_20f_256x256_750
+  - first:
+      213: 544733118096097888
+    second: B1_TS_Disappear_SS_20f_256x256_751
+  - first:
+      213: 5365872879378516706
+    second: B1_TS_Disappear_SS_20f_256x256_752
+  - first:
+      213: -1696454013828344751
+    second: B1_TS_Disappear_SS_20f_256x256_753
+  - first:
+      213: 8117897169276956587
+    second: B1_TS_Disappear_SS_20f_256x256_754
+  - first:
+      213: -3552213758147093405
+    second: B1_TS_Disappear_SS_20f_256x256_755
+  - first:
+      213: 1333002540102975780
+    second: B1_TS_Disappear_SS_20f_256x256_756
+  - first:
+      213: 2942284128450870929
+    second: B1_TS_Disappear_SS_20f_256x256_757
+  - first:
+      213: -8974758504136136348
+    second: B1_TS_Disappear_SS_20f_256x256_758
+  - first:
+      213: -7787471817358351700
+    second: B1_TS_Disappear_SS_20f_256x256_759
+  - first:
+      213: -656088004073821647
+    second: B1_TS_Disappear_SS_20f_256x256_760
+  - first:
+      213: -2303542327958896758
+    second: B1_TS_Disappear_SS_20f_256x256_761
+  - first:
+      213: -7293847027786148814
+    second: B1_TS_Disappear_SS_20f_256x256_762
+  - first:
+      213: 7810086571229834250
+    second: B1_TS_Disappear_SS_20f_256x256_763
+  - first:
+      213: 3643230619942546925
+    second: B1_TS_Disappear_SS_20f_256x256_764
+  - first:
+      213: 4919203490201725781
+    second: B1_TS_Disappear_SS_20f_256x256_765
+  - first:
+      213: -6601984519724955636
+    second: B1_TS_Disappear_SS_20f_256x256_766
+  - first:
+      213: 5641913582636686222
+    second: B1_TS_Disappear_SS_20f_256x256_767
+  - first:
+      213: -8231830958825236198
+    second: B1_TS_Disappear_SS_20f_256x256_768
+  - first:
+      213: 2001962421664940258
+    second: B1_TS_Disappear_SS_20f_256x256_769
+  - first:
+      213: 6632104881259877892
+    second: B1_TS_Disappear_SS_20f_256x256_770
+  - first:
+      213: 581243884740166304
+    second: B1_TS_Disappear_SS_20f_256x256_771
+  - first:
+      213: 1994011719146883059
+    second: B1_TS_Disappear_SS_20f_256x256_772
+  - first:
+      213: 1477243664294189557
+    second: B1_TS_Disappear_SS_20f_256x256_773
+  - first:
+      213: 2366203564165754304
+    second: B1_TS_Disappear_SS_20f_256x256_774
+  - first:
+      213: -2979666934656162038
+    second: B1_TS_Disappear_SS_20f_256x256_775
+  - first:
+      213: 8748346127353767505
+    second: B1_TS_Disappear_SS_20f_256x256_776
+  - first:
+      213: -6172561302347050488
+    second: B1_TS_Disappear_SS_20f_256x256_777
+  - first:
+      213: 8999605992417735683
+    second: B1_TS_Disappear_SS_20f_256x256_778
+  - first:
+      213: 5389055955114292478
+    second: B1_TS_Disappear_SS_20f_256x256_779
+  - first:
+      213: -8578636997647969062
+    second: B1_TS_Disappear_SS_20f_256x256_780
+  - first:
+      213: 4893744986529903245
+    second: B1_TS_Disappear_SS_20f_256x256_781
+  - first:
+      213: -754207881615200621
+    second: B1_TS_Disappear_SS_20f_256x256_782
+  - first:
+      213: 3195293106635336401
+    second: B1_TS_Disappear_SS_20f_256x256_783
+  - first:
+      213: -4470969253235902672
+    second: B1_TS_Disappear_SS_20f_256x256_784
+  - first:
+      213: -3317967448062862326
+    second: B1_TS_Disappear_SS_20f_256x256_785
+  - first:
+      213: 3591890028228632997
+    second: B1_TS_Disappear_SS_20f_256x256_786
+  - first:
+      213: -8564013846868439129
+    second: B1_TS_Disappear_SS_20f_256x256_787
+  - first:
+      213: 2540783190192559881
+    second: B1_TS_Disappear_SS_20f_256x256_788
+  - first:
+      213: -1733427240119426303
+    second: B1_TS_Disappear_SS_20f_256x256_789
+  - first:
+      213: 1365839200210524638
+    second: B1_TS_Disappear_SS_20f_256x256_790
+  - first:
+      213: 3356789141685352016
+    second: B1_TS_Disappear_SS_20f_256x256_791
+  - first:
+      213: 2734588865527357371
+    second: B1_TS_Disappear_SS_20f_256x256_792
+  - first:
+      213: -4182880709441549743
+    second: B1_TS_Disappear_SS_20f_256x256_793
+  - first:
+      213: -708796810148316459
+    second: B1_TS_Disappear_SS_20f_256x256_794
+  - first:
+      213: 7448035044679878842
+    second: B1_TS_Disappear_SS_20f_256x256_795
+  - first:
+      213: -7385369654817898369
+    second: B1_TS_Disappear_SS_20f_256x256_796
+  - first:
+      213: -98588072658860462
+    second: B1_TS_Disappear_SS_20f_256x256_797
+  - first:
+      213: -8338041597770659490
+    second: B1_TS_Disappear_SS_20f_256x256_798
+  - first:
+      213: 5391257877050015574
+    second: B1_TS_Disappear_SS_20f_256x256_799
+  - first:
+      213: 5569058040993669708
+    second: B1_TS_Disappear_SS_20f_256x256_800
+  - first:
+      213: 5191319084997384362
+    second: B1_TS_Disappear_SS_20f_256x256_801
+  - first:
+      213: 6238441253969745441
+    second: B1_TS_Disappear_SS_20f_256x256_802
+  - first:
+      213: -4897564034431014437
+    second: B1_TS_Disappear_SS_20f_256x256_803
+  - first:
+      213: 733625700331696347
+    second: B1_TS_Disappear_SS_20f_256x256_804
+  - first:
+      213: 8660259580315553368
+    second: B1_TS_Disappear_SS_20f_256x256_805
+  - first:
+      213: -811366293959128082
+    second: B1_TS_Disappear_SS_20f_256x256_806
+  - first:
+      213: 8734369164826415741
+    second: B1_TS_Disappear_SS_20f_256x256_807
+  - first:
+      213: 8741179417270443056
+    second: B1_TS_Disappear_SS_20f_256x256_808
+  - first:
+      213: -3392911355203265781
+    second: B1_TS_Disappear_SS_20f_256x256_809
+  - first:
+      213: 6693025646205403479
+    second: B1_TS_Disappear_SS_20f_256x256_810
+  - first:
+      213: -4434647424596336912
+    second: B1_TS_Disappear_SS_20f_256x256_811
+  - first:
+      213: -8767261031304896400
+    second: B1_TS_Disappear_SS_20f_256x256_812
+  - first:
+      213: 6691208636637817633
+    second: B1_TS_Disappear_SS_20f_256x256_813
+  - first:
+      213: -205851039298800490
+    second: B1_TS_Disappear_SS_20f_256x256_814
+  - first:
+      213: -2481218906432955165
+    second: B1_TS_Disappear_SS_20f_256x256_815
+  - first:
+      213: -5840076027871378856
+    second: B1_TS_Disappear_SS_20f_256x256_816
+  - first:
+      213: -1273441901482159377
+    second: B1_TS_Disappear_SS_20f_256x256_817
+  - first:
+      213: -6370281348908877862
+    second: B1_TS_Disappear_SS_20f_256x256_818
+  - first:
+      213: -7813887053290644473
+    second: B1_TS_Disappear_SS_20f_256x256_819
+  - first:
+      213: 4460562260163460761
+    second: B1_TS_Disappear_SS_20f_256x256_820
+  - first:
+      213: -3838583366819810672
+    second: B1_TS_Disappear_SS_20f_256x256_821
+  - first:
+      213: -8784220675261422283
+    second: B1_TS_Disappear_SS_20f_256x256_822
+  - first:
+      213: -2756784479301517075
+    second: B1_TS_Disappear_SS_20f_256x256_823
+  - first:
+      213: 890557222237822981
+    second: B1_TS_Disappear_SS_20f_256x256_824
+  - first:
+      213: -1270186522753734028
+    second: B1_TS_Disappear_SS_20f_256x256_825
+  - first:
+      213: 2769877899877141753
+    second: B1_TS_Disappear_SS_20f_256x256_826
+  - first:
+      213: 2512977059016020996
+    second: B1_TS_Disappear_SS_20f_256x256_827
+  - first:
+      213: 4757668305572955646
+    second: B1_TS_Disappear_SS_20f_256x256_828
+  - first:
+      213: -7869414536784019631
+    second: B1_TS_Disappear_SS_20f_256x256_829
+  - first:
+      213: 5769709919743622270
+    second: B1_TS_Disappear_SS_20f_256x256_830
+  - first:
+      213: -884546076702868785
+    second: B1_TS_Disappear_SS_20f_256x256_831
+  - first:
+      213: -1312458826764394948
+    second: B1_TS_Disappear_SS_20f_256x256_832
+  - first:
+      213: 3244000485181725665
+    second: B1_TS_Disappear_SS_20f_256x256_833
+  - first:
+      213: 4144972853530213792
+    second: B1_TS_Disappear_SS_20f_256x256_834
+  - first:
+      213: 6420772221258650819
+    second: B1_TS_Disappear_SS_20f_256x256_835
+  - first:
+      213: 3756333733329403468
+    second: B1_TS_Disappear_SS_20f_256x256_836
+  - first:
+      213: 3746557687092474409
+    second: B1_TS_Disappear_SS_20f_256x256_837
+  - first:
+      213: -160993083645263106
+    second: B1_TS_Disappear_SS_20f_256x256_838
+  - first:
+      213: 5714215936048429097
+    second: B1_TS_Disappear_SS_20f_256x256_839
+  - first:
+      213: -2378523883557964086
+    second: B1_TS_Disappear_SS_20f_256x256_840
+  - first:
+      213: 1263799533479871437
+    second: B1_TS_Disappear_SS_20f_256x256_841
+  - first:
+      213: 5770066620729735718
+    second: B1_TS_Disappear_SS_20f_256x256_842
+  - first:
+      213: 574531882663342573
+    second: B1_TS_Disappear_SS_20f_256x256_843
+  - first:
+      213: -7189416983338214357
+    second: B1_TS_Disappear_SS_20f_256x256_844
+  - first:
+      213: -3857409080744886614
+    second: B1_TS_Disappear_SS_20f_256x256_845
+  - first:
+      213: 3986380098293368672
+    second: B1_TS_Disappear_SS_20f_256x256_846
+  - first:
+      213: 4709601968241301406
+    second: B1_TS_Disappear_SS_20f_256x256_847
+  - first:
+      213: -1219838743366554473
+    second: B1_TS_Disappear_SS_20f_256x256_848
+  - first:
+      213: -6721031470509492874
+    second: B1_TS_Disappear_SS_20f_256x256_849
+  - first:
+      213: 4629599539594099530
+    second: B1_TS_Disappear_SS_20f_256x256_850
+  - first:
+      213: 6294640433340411749
+    second: B1_TS_Disappear_SS_20f_256x256_851
+  - first:
+      213: -6344497561822394518
+    second: B1_TS_Disappear_SS_20f_256x256_852
+  - first:
+      213: -7311729191762703123
+    second: B1_TS_Disappear_SS_20f_256x256_853
+  - first:
+      213: 5574441196963183998
+    second: B1_TS_Disappear_SS_20f_256x256_854
+  - first:
+      213: -1149023617623093559
+    second: B1_TS_Disappear_SS_20f_256x256_855
+  - first:
+      213: 5190129269712400735
+    second: B1_TS_Disappear_SS_20f_256x256_856
+  - first:
+      213: -521883905302811883
+    second: B1_TS_Disappear_SS_20f_256x256_857
+  - first:
+      213: 3207060917517907770
+    second: B1_TS_Disappear_SS_20f_256x256_858
+  - first:
+      213: -796573087687585629
+    second: B1_TS_Disappear_SS_20f_256x256_859
+  - first:
+      213: -8290094449337878
+    second: B1_TS_Disappear_SS_20f_256x256_860
+  - first:
+      213: -5398867438897344333
+    second: B1_TS_Disappear_SS_20f_256x256_861
+  - first:
+      213: 5779792068108549781
+    second: B1_TS_Disappear_SS_20f_256x256_862
+  - first:
+      213: 2323877610258419098
+    second: B1_TS_Disappear_SS_20f_256x256_863
+  - first:
+      213: 3374891441155258537
+    second: B1_TS_Disappear_SS_20f_256x256_864
+  - first:
+      213: 4004160514936865815
+    second: B1_TS_Disappear_SS_20f_256x256_865
+  - first:
+      213: 3861371428545738024
+    second: B1_TS_Disappear_SS_20f_256x256_866
+  - first:
+      213: 6553755532536524401
+    second: B1_TS_Disappear_SS_20f_256x256_867
+  - first:
+      213: -2485318747754189888
+    second: B1_TS_Disappear_SS_20f_256x256_868
+  - first:
+      213: -3062898970843211372
+    second: B1_TS_Disappear_SS_20f_256x256_869
+  - first:
+      213: 1614592861944079967
+    second: B1_TS_Disappear_SS_20f_256x256_870
+  - first:
+      213: 6993002361938616495
+    second: B1_TS_Disappear_SS_20f_256x256_871
+  - first:
+      213: -1514593759585983867
+    second: B1_TS_Disappear_SS_20f_256x256_872
+  - first:
+      213: -6250423428833808979
+    second: B1_TS_Disappear_SS_20f_256x256_873
+  - first:
+      213: -8015766962150626554
+    second: B1_TS_Disappear_SS_20f_256x256_874
+  - first:
+      213: -6478597971705483625
+    second: B1_TS_Disappear_SS_20f_256x256_875
+  - first:
+      213: -3528371140780020059
+    second: B1_TS_Disappear_SS_20f_256x256_876
+  - first:
+      213: 4401368640482834799
+    second: B1_TS_Disappear_SS_20f_256x256_877
+  - first:
+      213: 73523682468583357
+    second: B1_TS_Disappear_SS_20f_256x256_878
+  - first:
+      213: 1975689390837874723
+    second: B1_TS_Disappear_SS_20f_256x256_879
+  - first:
+      213: -6639968414745805336
+    second: B1_TS_Disappear_SS_20f_256x256_880
+  - first:
+      213: -5834690736079244710
+    second: B1_TS_Disappear_SS_20f_256x256_881
+  - first:
+      213: 6154870159362593627
+    second: B1_TS_Disappear_SS_20f_256x256_882
+  - first:
+      213: -2078643824813830616
+    second: B1_TS_Disappear_SS_20f_256x256_883
+  - first:
+      213: 2655631880142246604
+    second: B1_TS_Disappear_SS_20f_256x256_884
+  - first:
+      213: -358842580964280248
+    second: B1_TS_Disappear_SS_20f_256x256_885
+  - first:
+      213: 671453048389290129
+    second: B1_TS_Disappear_SS_20f_256x256_886
+  - first:
+      213: -2061606749846416071
+    second: B1_TS_Disappear_SS_20f_256x256_887
+  - first:
+      213: -1885281160357756191
+    second: B1_TS_Disappear_SS_20f_256x256_888
+  - first:
+      213: 5277946613840150807
+    second: B1_TS_Disappear_SS_20f_256x256_889
+  - first:
+      213: 7090472798485784266
+    second: B1_TS_Disappear_SS_20f_256x256_890
+  - first:
+      213: -8067147890871839104
+    second: B1_TS_Disappear_SS_20f_256x256_891
+  - first:
+      213: 8274555762249092303
+    second: B1_TS_Disappear_SS_20f_256x256_892
+  - first:
+      213: -7312187066308142984
+    second: B1_TS_Disappear_SS_20f_256x256_893
+  - first:
+      213: -8821929822891549546
+    second: B1_TS_Disappear_SS_20f_256x256_894
+  - first:
+      213: 1931372478484369862
+    second: B1_TS_Disappear_SS_20f_256x256_895
+  - first:
+      213: -2641294421251238702
+    second: B1_TS_Disappear_SS_20f_256x256_896
+  - first:
+      213: -7276972710243728009
+    second: B1_TS_Disappear_SS_20f_256x256_897
+  - first:
+      213: -4264592637284621049
+    second: B1_TS_Disappear_SS_20f_256x256_898
+  - first:
+      213: 4692732842028212360
+    second: B1_TS_Disappear_SS_20f_256x256_899
+  - first:
+      213: -8308631005872711769
+    second: B1_TS_Disappear_SS_20f_256x256_900
+  - first:
+      213: -5246384636386121132
+    second: B1_TS_Disappear_SS_20f_256x256_901
+  - first:
+      213: -3468965250316111496
+    second: B1_TS_Disappear_SS_20f_256x256_902
+  - first:
+      213: -3902177486494177984
+    second: B1_TS_Disappear_SS_20f_256x256_903
+  - first:
+      213: 7325501249717607698
+    second: B1_TS_Disappear_SS_20f_256x256_904
+  - first:
+      213: 8453917438023242066
+    second: B1_TS_Disappear_SS_20f_256x256_905
+  - first:
+      213: -1959996200290928297
+    second: B1_TS_Disappear_SS_20f_256x256_906
+  - first:
+      213: 3178926806952132709
+    second: B1_TS_Disappear_SS_20f_256x256_907
+  - first:
+      213: 610639395235066456
+    second: B1_TS_Disappear_SS_20f_256x256_908
+  - first:
+      213: 5674533386087018799
+    second: B1_TS_Disappear_SS_20f_256x256_909
+  - first:
+      213: 9137894239751680604
+    second: B1_TS_Disappear_SS_20f_256x256_910
+  - first:
+      213: -2287505437015160259
+    second: B1_TS_Disappear_SS_20f_256x256_911
+  - first:
+      213: 6484007436337721533
+    second: B1_TS_Disappear_SS_20f_256x256_912
+  - first:
+      213: 1837063247018382156
+    second: B1_TS_Disappear_SS_20f_256x256_913
+  - first:
+      213: 2133646962103152767
+    second: B1_TS_Disappear_SS_20f_256x256_914
+  - first:
+      213: -5272370258806511083
+    second: B1_TS_Disappear_SS_20f_256x256_915
+  - first:
+      213: -529862253372066211
+    second: B1_TS_Disappear_SS_20f_256x256_916
+  - first:
+      213: 2349221870588682085
+    second: B1_TS_Disappear_SS_20f_256x256_917
+  - first:
+      213: -8832249987439532716
+    second: B1_TS_Disappear_SS_20f_256x256_918
+  - first:
+      213: -3086114113950764049
+    second: B1_TS_Disappear_SS_20f_256x256_919
+  - first:
+      213: 3331552186218709579
+    second: B1_TS_Disappear_SS_20f_256x256_920
+  - first:
+      213: -4624936316424794390
+    second: B1_TS_Disappear_SS_20f_256x256_921
+  - first:
+      213: -296288971420263272
+    second: B1_TS_Disappear_SS_20f_256x256_922
+  - first:
+      213: 1386060806444031619
+    second: B1_TS_Disappear_SS_20f_256x256_923
+  - first:
+      213: -8039361808735131392
+    second: B1_TS_Disappear_SS_20f_256x256_924
+  - first:
+      213: -8087154507522514095
+    second: B1_TS_Disappear_SS_20f_256x256_925
+  - first:
+      213: -6711531239939738635
+    second: B1_TS_Disappear_SS_20f_256x256_926
+  - first:
+      213: 9096412898108091658
+    second: B1_TS_Disappear_SS_20f_256x256_927
+  - first:
+      213: 1510472169652899594
+    second: B1_TS_Disappear_SS_20f_256x256_928
+  - first:
+      213: 5826444304819161680
+    second: B1_TS_Disappear_SS_20f_256x256_929
+  - first:
+      213: -8839154696971913879
+    second: B1_TS_Disappear_SS_20f_256x256_930
+  - first:
+      213: 3495368550374287702
+    second: B1_TS_Disappear_SS_20f_256x256_931
+  - first:
+      213: -2143969485950401755
+    second: B1_TS_Disappear_SS_20f_256x256_932
+  - first:
+      213: -9002518245074128591
+    second: B1_TS_Disappear_SS_20f_256x256_933
+  - first:
+      213: -1030262153354741227
+    second: B1_TS_Disappear_SS_20f_256x256_934
+  - first:
+      213: -568989709328717355
+    second: B1_TS_Disappear_SS_20f_256x256_935
+  - first:
+      213: -5946925367188857636
+    second: B1_TS_Disappear_SS_20f_256x256_936
+  - first:
+      213: 5367489305795336033
+    second: B1_TS_Disappear_SS_20f_256x256_937
+  - first:
+      213: 4464215772327463815
+    second: B1_TS_Disappear_SS_20f_256x256_938
+  - first:
+      213: 3683244548486508645
+    second: B1_TS_Disappear_SS_20f_256x256_939
+  - first:
+      213: -2609907041128591587
+    second: B1_TS_Disappear_SS_20f_256x256_940
+  - first:
+      213: 3068129546477135507
+    second: B1_TS_Disappear_SS_20f_256x256_941
+  - first:
+      213: -3261064698628895129
+    second: B1_TS_Disappear_SS_20f_256x256_942
+  - first:
+      213: 3433519127763147858
+    second: B1_TS_Disappear_SS_20f_256x256_943
+  - first:
+      213: 3290780270378471536
+    second: B1_TS_Disappear_SS_20f_256x256_944
+  - first:
+      213: -1581388031350790400
+    second: B1_TS_Disappear_SS_20f_256x256_945
+  - first:
+      213: -5977636158012678811
+    second: B1_TS_Disappear_SS_20f_256x256_946
+  - first:
+      213: 428506399984619859
+    second: B1_TS_Disappear_SS_20f_256x256_947
+  - first:
+      213: 3060726819135582720
+    second: B1_TS_Disappear_SS_20f_256x256_948
+  - first:
+      213: -5805636952453485582
+    second: B1_TS_Disappear_SS_20f_256x256_949
+  - first:
+      213: 5188657740163464693
+    second: B1_TS_Disappear_SS_20f_256x256_950
+  - first:
+      213: -7053613435405184190
+    second: B1_TS_Disappear_SS_20f_256x256_951
+  - first:
+      213: 6982913718387638398
+    second: B1_TS_Disappear_SS_20f_256x256_952
+  - first:
+      213: -2646858460310057756
+    second: B1_TS_Disappear_SS_20f_256x256_953
+  - first:
+      213: -6412548147788422671
+    second: B1_TS_Disappear_SS_20f_256x256_954
+  - first:
+      213: -6148831245386252278
+    second: B1_TS_Disappear_SS_20f_256x256_955
+  - first:
+      213: 2737030832933504583
+    second: B1_TS_Disappear_SS_20f_256x256_956
+  - first:
+      213: -6246964438013304867
+    second: B1_TS_Disappear_SS_20f_256x256_957
+  - first:
+      213: -8360833730617535223
+    second: B1_TS_Disappear_SS_20f_256x256_958
+  - first:
+      213: 5047292524093082015
+    second: B1_TS_Disappear_SS_20f_256x256_959
+  - first:
+      213: -6747254169036112663
+    second: B1_TS_Disappear_SS_20f_256x256_960
+  - first:
+      213: 3661527029288157344
+    second: B1_TS_Disappear_SS_20f_256x256_961
+  - first:
+      213: 7694267118691182042
+    second: B1_TS_Disappear_SS_20f_256x256_962
+  - first:
+      213: -7856197501599269961
+    second: B1_TS_Disappear_SS_20f_256x256_963
+  - first:
+      213: 3782279596780688425
+    second: B1_TS_Disappear_SS_20f_256x256_964
+  - first:
+      213: -3413011783403331497
+    second: B1_TS_Disappear_SS_20f_256x256_965
+  - first:
+      213: -3682623535585673547
+    second: B1_TS_Disappear_SS_20f_256x256_966
+  - first:
+      213: 418136548280451033
+    second: B1_TS_Disappear_SS_20f_256x256_967
+  - first:
+      213: 1902108717381416040
+    second: B1_TS_Disappear_SS_20f_256x256_968
+  - first:
+      213: 2059414892784556181
+    second: B1_TS_Disappear_SS_20f_256x256_969
+  - first:
+      213: 4232293987087009629
+    second: B1_TS_Disappear_SS_20f_256x256_970
+  - first:
+      213: 3295546286946387093
+    second: B1_TS_Disappear_SS_20f_256x256_971
+  - first:
+      213: 6559575677019200732
+    second: B1_TS_Disappear_SS_20f_256x256_972
+  - first:
+      213: 5403598395694477454
+    second: B1_TS_Disappear_SS_20f_256x256_973
+  - first:
+      213: 4716685977452032558
+    second: B1_TS_Disappear_SS_20f_256x256_974
+  - first:
+      213: -7703961450656312742
+    second: B1_TS_Disappear_SS_20f_256x256_975
+  - first:
+      213: -1498999256511966336
+    second: B1_TS_Disappear_SS_20f_256x256_976
+  - first:
+      213: 7637139744085158169
+    second: B1_TS_Disappear_SS_20f_256x256_977
+  - first:
+      213: -7628654051330602445
+    second: B1_TS_Disappear_SS_20f_256x256_978
+  - first:
+      213: 971478558083218378
+    second: B1_TS_Disappear_SS_20f_256x256_979
+  - first:
+      213: -1732534258128494992
+    second: B1_TS_Disappear_SS_20f_256x256_980
+  - first:
+      213: -614616203716810286
+    second: B1_TS_Disappear_SS_20f_256x256_981
+  - first:
+      213: -2881641845051517536
+    second: B1_TS_Disappear_SS_20f_256x256_982
+  - first:
+      213: -2643479792524107983
+    second: B1_TS_Disappear_SS_20f_256x256_983
+  - first:
+      213: 4758424983207256703
+    second: B1_TS_Disappear_SS_20f_256x256_984
+  - first:
+      213: -3935131400425484847
+    second: B1_TS_Disappear_SS_20f_256x256_985
+  - first:
+      213: -1799067129728015836
+    second: B1_TS_Disappear_SS_20f_256x256_986
+  - first:
+      213: 4858256278124357601
+    second: B1_TS_Disappear_SS_20f_256x256_987
+  - first:
+      213: -6092146596936290540
+    second: B1_TS_Disappear_SS_20f_256x256_988
+  - first:
+      213: -5825563283191089841
+    second: B1_TS_Disappear_SS_20f_256x256_989
+  - first:
+      213: -3765812716863074016
+    second: B1_TS_Disappear_SS_20f_256x256_990
+  - first:
+      213: -8504363901617293093
+    second: B1_TS_Disappear_SS_20f_256x256_991
+  - first:
+      213: -5027242006802395597
+    second: B1_TS_Disappear_SS_20f_256x256_992
+  - first:
+      213: 4224343890114384689
+    second: B1_TS_Disappear_SS_20f_256x256_993
+  - first:
+      213: 2822735917228838107
+    second: B1_TS_Disappear_SS_20f_256x256_994
+  - first:
+      213: 1851080696067213121
+    second: B1_TS_Disappear_SS_20f_256x256_995
+  - first:
+      213: -84883532007028603
+    second: B1_TS_Disappear_SS_20f_256x256_996
+  - first:
+      213: -7903777434907205111
+    second: B1_TS_Disappear_SS_20f_256x256_997
+  - first:
+      213: 5485605996839877086
+    second: B1_TS_Disappear_SS_20f_256x256_998
+  - first:
+      213: -6843488074892718767
+    second: B1_TS_Disappear_SS_20f_256x256_999
+  - first:
+      213: 559111959032568797
+    second: B1_TS_Disappear_SS_20f_256x256_1000
+  - first:
+      213: 756541042596551169
+    second: B1_TS_Disappear_SS_20f_256x256_1001
+  - first:
+      213: -6558806298795789855
+    second: B1_TS_Disappear_SS_20f_256x256_1002
+  - first:
+      213: -5057881224732271970
+    second: B1_TS_Disappear_SS_20f_256x256_1003
+  - first:
+      213: -5468449949567074027
+    second: B1_TS_Disappear_SS_20f_256x256_1004
+  - first:
+      213: 3628702817906902643
+    second: B1_TS_Disappear_SS_20f_256x256_1005
+  - first:
+      213: -7406407229528398474
+    second: B1_TS_Disappear_SS_20f_256x256_1006
+  - first:
+      213: 2298214918643150750
+    second: B1_TS_Disappear_SS_20f_256x256_1007
+  - first:
+      213: -7136224279374902809
+    second: B1_TS_Disappear_SS_20f_256x256_1008
+  - first:
+      213: -403197170971742234
+    second: B1_TS_Disappear_SS_20f_256x256_1009
+  - first:
+      213: -881820504061452284
+    second: B1_TS_Disappear_SS_20f_256x256_1010
+  - first:
+      213: 2039326457569577419
+    second: B1_TS_Disappear_SS_20f_256x256_1011
+  - first:
+      213: -6157187903340971468
+    second: B1_TS_Disappear_SS_20f_256x256_1012
+  - first:
+      213: -8562018954752793343
+    second: B1_TS_Disappear_SS_20f_256x256_1013
+  - first:
+      213: -6383503370423643835
+    second: B1_TS_Disappear_SS_20f_256x256_1014
+  - first:
+      213: 6206161877258026992
+    second: B1_TS_Disappear_SS_20f_256x256_1015
+  - first:
+      213: 2562482021109226059
+    second: B1_TS_Disappear_SS_20f_256x256_1016
+  - first:
+      213: -2624482112428378127
+    second: B1_TS_Disappear_SS_20f_256x256_1017
+  - first:
+      213: -6884517990262583373
+    second: B1_TS_Disappear_SS_20f_256x256_1018
+  - first:
+      213: -4775411597072902509
+    second: B1_TS_Disappear_SS_20f_256x256_1019
+  - first:
+      213: 629887034211676613
+    second: B1_TS_Disappear_SS_20f_256x256_1020
+  - first:
+      213: 3494987783146630066
+    second: B1_TS_Disappear_SS_20f_256x256_1021
+  - first:
+      213: 8043620944420960259
+    second: B1_TS_Disappear_SS_20f_256x256_1022
+  - first:
+      213: -3159600766044492144
+    second: B1_TS_Disappear_SS_20f_256x256_1023
+  - first:
+      213: -2012729781237806739
+    second: B1_TS_Disappear_SS_20f_256x256_1024
+  - first:
+      213: -847713218963853118
+    second: B1_TS_Disappear_SS_20f_256x256_1025
+  - first:
+      213: -8656768777985698658
+    second: B1_TS_Disappear_SS_20f_256x256_1026
+  - first:
+      213: -6819404830239386800
+    second: B1_TS_Disappear_SS_20f_256x256_1027
+  - first:
+      213: 5498422832165647744
+    second: B1_TS_Disappear_SS_20f_256x256_1028
+  - first:
+      213: -4719856115293170426
+    second: B1_TS_Disappear_SS_20f_256x256_1029
+  - first:
+      213: 6211073410346746272
+    second: B1_TS_Disappear_SS_20f_256x256_1030
+  - first:
+      213: 2675441659522039839
+    second: B1_TS_Disappear_SS_20f_256x256_1031
+  - first:
+      213: 3820388979426513200
+    second: B1_TS_Disappear_SS_20f_256x256_1032
+  - first:
+      213: -4919955662653778868
+    second: B1_TS_Disappear_SS_20f_256x256_1033
+  - first:
+      213: 3233937484650947816
+    second: B1_TS_Disappear_SS_20f_256x256_1034
+  - first:
+      213: -8495306448936776149
+    second: B1_TS_Disappear_SS_20f_256x256_1035
+  - first:
+      213: 7474399644019434711
+    second: B1_TS_Disappear_SS_20f_256x256_1036
+  - first:
+      213: -7487553459875897867
+    second: B1_TS_Disappear_SS_20f_256x256_1037
+  - first:
+      213: 4055572950240043847
+    second: B1_TS_Disappear_SS_20f_256x256_1038
+  - first:
+      213: 3878877402625904454
+    second: B1_TS_Disappear_SS_20f_256x256_1039
+  - first:
+      213: -6143512305491742812
+    second: B1_TS_Disappear_SS_20f_256x256_1040
+  - first:
+      213: -1141737157471751895
+    second: B1_TS_Disappear_SS_20f_256x256_1041
+  - first:
+      213: -3380729900612799262
+    second: B1_TS_Disappear_SS_20f_256x256_1042
+  - first:
+      213: 5476119173787550160
+    second: B1_TS_Disappear_SS_20f_256x256_1043
+  - first:
+      213: -5019373504335377133
+    second: B1_TS_Disappear_SS_20f_256x256_1044
+  - first:
+      213: -725801152801224908
+    second: B1_TS_Disappear_SS_20f_256x256_1045
+  - first:
+      213: -4808824833970437530
+    second: B1_TS_Disappear_SS_20f_256x256_1046
+  - first:
+      213: -8099015787408998009
+    second: B1_TS_Disappear_SS_20f_256x256_1047
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456457e97a98ec910800000000000000
+      internalID: 1859575049161623124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fbb8dec062cbb70800000000000000
+      internalID: 8916043199253561113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8375a20c6ff3fe240800000000000000
+      internalID: 4823144054955595576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1522808da79a7f9b0800000000000000
+      internalID: -5046378512369835439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d994a130aa0a1140800000000000000
+      internalID: 4691073645003708882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87b7d4ad6cb018d0800000000000000
+      internalID: -2877592982786689141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb22af526afa5eb10800000000000000
+      internalID: 2010205936827376315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6bcff628f2d40f0800000000000000
+      internalID: -1131195694129039617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b9266fa862f7e90800000000000000
+      internalID: -7025854515393684603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8853c21a5463d8b40800000000000000
+      internalID: 5444067197245470088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6526dcd4868614e80800000000000000
+      internalID: -8196155049646398890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1e70d1f8cd81ca0800000000000000
+      internalID: -6045839992519401038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0140172b179664e70800000000000000
+      internalID: 9099076034194637840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa5a90e4740e2e5c0800000000000000
+      internalID: -4187538106644585046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf5d3efc2226bb60800000000000000
+      internalID: 7761428584458969009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519b7a6b00590b300800000000000000
+      internalID: 265876208311843093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_16
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7fe5afe7b58b04d0800000000000000
+      internalID: -3167290887878873219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_17
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7949f1d3f0a8f6a90800000000000000
+      internalID: -7318479071399144297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_18
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbf65ed81652d6f0800000000000000
+      internalID: -661371530460595215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_19
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb37bdf5b696aaf0800000000000000
+      internalID: -385455009703707697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adabff167ac419cf0800000000000000
+      internalID: -247332222741267750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb6c83400c8f1de0800000000000000
+      internalID: -1360214629681435712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d04b9f6adb4ea7690800000000000000
+      internalID: -7603513517660326899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d76a05cc9c8f2ddb0800000000000000
+      internalID: -4768475509831981443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_24
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 555a9ed9da5b17b50800000000000000
+      internalID: 6589247487103051093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_25
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c0ab2516152d800800000000000000
+      internalID: 635659975854263436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_26
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9e10ab5ccb81060800000000000000
+      internalID: 6924491984497404359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_27
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6562e2d2dc7ec4990800000000000000
+      internalID: -7400285219264256426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_28
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b61619ab4c91e350800000000000000
+      internalID: 6044284023681193655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_29
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ac1fb2a91e509c0800000000000000
+      internalID: -3961512244924003741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_30
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015b4deb31ebf3a50800000000000000
+      internalID: 6503125378961552656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_31
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ac6304d662e98a0800000000000000
+      internalID: -6296552978346751364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_32
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f214191aafe77c940800000000000000
+      internalID: 5316357500051734831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_33
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8638053d42a1c6d50800000000000000
+      internalID: 6731784288478462824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_34
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810dad2c097fa96f0800000000000000
+      internalID: -676956592849367016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_35
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ceb36ef0b51cb640800000000000000
+      internalID: 5096972728202936009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_36
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a8c6cb7a5376e40800000000000000
+      internalID: 5649543252096617056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_37
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228d67e9ba7a92d00800000000000000
+      internalID: 948473552078034978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_38
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fd5c992fc28dc20800000000000000
+      internalID: 3231382153111920421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_39
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a51edb47ef7f0af0800000000000000
+      internalID: -427982808189889117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79db7520fd55c2de0800000000000000
+      internalID: -1356614971439989353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d37e6a407e2da90800000000000000
+      internalID: -7290510839593353951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_42
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13abb1a96d03c2a60800000000000000
+      internalID: 7650543565262273073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_43
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be0f78d69a9dcc40800000000000000
+      internalID: 5534249489776185017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f43b8fe9edca3600800000000000000
+      internalID: 448897517506737399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1caaf443192182ee0800000000000000
+      internalID: -1285757278757082431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_46
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b440f2413514da5d0800000000000000
+      internalID: -3049709547583241141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_47
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef5c21a5831c603a0800000000000000
+      internalID: -6699454947893524994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_48
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95439907365bb3c70800000000000000
+      internalID: 8951948123024471129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_49
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81723a3041ffd250800000000000000
+      internalID: 5971756889073152396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_50
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c853c0ddd89250440800000000000000
+      internalID: 4901369458738345356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_51
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c79c8c5361ff238e0800000000000000
+      internalID: -1715028037218023044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_52
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c523590803ac04570800000000000000
+      internalID: 8448975210611552860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_53
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d94f4699fd80df0800000000000000
+      internalID: -213675132383355563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_54
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b5303e04e318ac0800000000000000
+      internalID: -3854731357644956906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_55
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e25f8b03f19c040800000000000000
+      internalID: 4668296782868196994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_56
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee122d65af82df7a0800000000000000
+      internalID: -6341867644604243474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_57
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f07f51770f259e0800000000000000
+      internalID: -1633979320521781501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_58
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d79003567450a0a60800000000000000
+      internalID: 7640925521985931645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_59
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550c740311a098480800000000000000
+      internalID: -8896568519952973739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d672a98a3e334d6a0800000000000000
+      internalID: -6425453715471587475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_61
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16abfe83019d7880800000000000000
+      internalID: -8611567467992734179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_62
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97d94d9eb2ada320800000000000000
+      internalID: 2570889901864769434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_63
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d6897f4bbe1fff50800000000000000
+      internalID: 6917281342505453273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_64
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e85201cf4910c40800000000000000
+      internalID: 5476822432182800002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_65
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ecf3d7303a85460800000000000000
+      internalID: 7230708437124894305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_66
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63aa53c9e715cf9f0800000000000000
+      internalID: -433381859905918410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_67
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd96819f6495dd80800000000000000
+      internalID: -8226505937418543685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_68
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eadc16e869f24870800000000000000
+      internalID: 8665762861946821345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_69
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb96308b907bc1d00800000000000000
+      internalID: 944831274210781631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_70
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd141382a291db60800000000000000
+      internalID: 7769152058872307128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_71
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0931ac8e8989b4f60800000000000000
+      internalID: 8019671343971308432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_72
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6703809df70dd720800000000000000
+      internalID: 2872460922964871018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_73
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2a0bfb519459b70800000000000000
+      internalID: 8905104195954189035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_74
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 146c707e04f722380800000000000000
+      internalID: -8997489188802148799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_75
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264d73b6c48b4e3d0800000000000000
+      internalID: -3178212798660881310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_76
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a264810309c74bed0800000000000000
+      internalID: -2399155742757599702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_77
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b53b9932841e1690800000000000000
+      internalID: -7629638169174264391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_78
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ca66678a6f3efd0800000000000000
+      internalID: -2313734580136924090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_79
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73fa1c2eefed745c0800000000000000
+      internalID: -4231168138583888073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560fc7c23c7709ee0800000000000000
+      internalID: -1256372615887654811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_81
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04287df579fe270c0800000000000000
+      internalID: -4579334437655313856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_82
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c980212b13e620ba0800000000000000
+      internalID: -6124211383550474084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_83
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4d23ea5cd060b80800000000000000
+      internalID: -8429034509895019317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_84
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd231e6584371fa90800000000000000
+      internalID: -7281912367948942627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_85
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b945f0bb1bffc6310800000000000000
+      internalID: 1399774723018019995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_86
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fee71dc37e095e00800000000000000
+      internalID: 1033873479983165175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_87
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af49df66f30066c0800000000000000
+      internalID: -4152314499462246496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_88
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a24496d102acef0800000000000000
+      internalID: -87221932088087985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_89
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9995813ce44c51b10800000000000000
+      internalID: 1951681856094624153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_90
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f5719028e8c47a0800000000000000
+      internalID: -6391577081996157049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_91
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e47fbb570aa4dd90800000000000000
+      internalID: -7073842166111439643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_92
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5f182ef9c16cc10800000000000000
+      internalID: 2073376151476237794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_93
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac42149b5aefeda0800000000000000
+      internalID: -5913250106667021137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_94
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53cbe822da67045b0800000000000000
+      internalID: -5386174668353913803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_95
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77eb4c1a1978b2f40800000000000000
+      internalID: 5704802412548898423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_96
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5961e897cb698f30800000000000000
+      internalID: 4578309001206393180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_97
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c340c315af51670800000000000000
+      internalID: 8508982297792625793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_98
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6a99b41cd583260800000000000000
+      internalID: 7077509899191166644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_99
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9807f913babca8c50800000000000000
+      internalID: 6668366134407819401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16f9bd145a996b90800000000000000
+      internalID: -7248092439209445857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_101
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01b487fc46f522a0800000000000000
+      internalID: -6762728454996315892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_102
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da11b6bdcbdf0d00800000000000000
+      internalID: 941212523723561681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_103
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe57b7d8ae3273630800000000000000
+      internalID: 3906630692070192623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_104
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f2e8d318653ffd0800000000000000
+      internalID: -2309407070827434157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_105
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091d80136557169f0800000000000000
+      internalID: -476971072474263152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_106
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9584b0f04c63010800000000000000
+      internalID: 1168336722242066892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_107
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1a7c13eb31bd150800000000000000
+      internalID: 5898329844571677096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_108
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8f58eedce620380800000000000000
+      internalID: -9006514474038462255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_109
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f40c559da7553a430800000000000000
+      internalID: 3792969297296736335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_110
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1603531e52d0ff0f0800000000000000
+      internalID: -1081130929202319263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_111
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231c932a376974870800000000000000
+      internalID: 8667061431284908338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_112
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8a5ff317c4b02a0800000000000000
+      internalID: -6770233565533329216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_113
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65b0b1f366165300800000000000000
+      internalID: 240404248623363437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_114
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecc2f1e51662ed40800000000000000
+      internalID: 5612160329828191461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_115
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12ea795891fe1960800000000000000
+      internalID: 7574757259922301467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_116
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc35ee3b67b3dbd0800000000000000
+      internalID: -2606538088072790847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_117
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847c8bc4a0621a6e0800000000000000
+      internalID: -1828138148057004216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_118
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68542071feac09f30800000000000000
+      internalID: 4580383949267813766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_119
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72aaec4db33c54fb0800000000000000
+      internalID: -4664107177331480025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c65dacb44b196490800000000000000
+      internalID: -7752635301504395582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_121
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf83fc99c0aeec1e0800000000000000
+      internalID: -2175544230132369156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_122
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d379ae7370ddaad30800000000000000
+      internalID: 4443607005427046205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_123
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71685326027d57860800000000000000
+      internalID: 7527158886306252311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_124
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229290a2d1e9870a0800000000000000
+      internalID: -6883578182339319518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_125
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34518ef03c4c05f70800000000000000
+      internalID: 9174048783018235203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_126
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab94beb1dafea9e50800000000000000
+      internalID: 6817024512755452346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_127
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35dc64b8a2271ca0800000000000000
+      internalID: -6046325866744720065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_128
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3149adb607b0d3fc0800000000000000
+      internalID: -3513639556805389293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_129
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67cc054ad56f54610800000000000000
+      internalID: 1604959724276599926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_130
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f028a10025e0f10800000000000000
+      internalID: 2237816225247924007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_131
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8581daa5bc9448080800000000000000
+      internalID: -9186136202180487080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_132
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3520e39babdc95840800000000000000
+      internalID: 5213424245513519699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_133
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fedd2b691da0ced0800000000000000
+      internalID: -2395724677077147914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_134
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9d499cf040026f0800000000000000
+      internalID: -711564275271542309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_135
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487d35fb16f6c83d0800000000000000
+      internalID: -3203062769354811516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_136
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904e249e1a7c22610800000000000000
+      internalID: 1595056716259714057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_137
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8d22258f8d21d90800000000000000
+      internalID: -7128396699132569347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_138
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6717dfa2422a03690800000000000000
+      internalID: -7624415892914474634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_139
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4303f4d9254a330800000000000000
+      internalID: 3721190027706774700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfa2be5cca7a1000800000000000000
+      internalID: 7453367575162800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_141
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810acf8f3eeb0d8d0800000000000000
+      internalID: -2823547080017141736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_142
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca16a352869a4e80800000000000000
+      internalID: -8193571085553886519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_143
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2810d5534a5c4bdd0800000000000000
+      internalID: -2471132986458963582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_144
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833cbbfba02b5d620800000000000000
+      internalID: 2798338502716801848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_145
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043555e063ba7c650800000000000000
+      internalID: 6253154856284279616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_146
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd0b5f1c0fa667b0800000000000000
+      internalID: -5231301450543723082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_147
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8784c7666421d90800000000000000
+      internalID: -7128557854188341004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_148
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b959de4258ab480800000000000000
+      internalID: -8882640921383560322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_149
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff331e48253b05ff0800000000000000
+      internalID: -49342428903033857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_150
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 407e73fd995eee250800000000000000
+      internalID: 5975966204604966660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_151
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30c46710f0cdb150800000000000000
+      internalID: 5890076025087639612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_152
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7081126e81da7c590800000000000000
+      internalID: -7653958719241119737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_153
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba50d1f63fc997f0800000000000000
+      internalID: -605224840012473671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_154
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689803f429b4f9a70800000000000000
+      internalID: 8835864085690091910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_155
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f74933143304bb60800000000000000
+      internalID: 7760831580061911029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_156
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7767a225f40112fa0800000000000000
+      internalID: -5827358509973735817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_157
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fdf01c06cbf9980800000000000000
+      internalID: -8529892045474504871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_158
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea130e3643344980800000000000000
+      internalID: -8555657015315981594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Disappear_SS_20f_256x256_159
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aca90218e8be5c30800000000000000
+      internalID: 4350117596961025188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 817a46dffbfaf844f926703d6b0b3c99
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      B1_TS_Disappear_SS_20f_256x256_0: 1859575049161623124
+      B1_TS_Disappear_SS_20f_256x256_1: 8916043199253561113
+      B1_TS_Disappear_SS_20f_256x256_10: -8196155049646398890
+      B1_TS_Disappear_SS_20f_256x256_100: -7248092439209445857
+      B1_TS_Disappear_SS_20f_256x256_101: -6762728454996315892
+      B1_TS_Disappear_SS_20f_256x256_102: 941212523723561681
+      B1_TS_Disappear_SS_20f_256x256_103: 3906630692070192623
+      B1_TS_Disappear_SS_20f_256x256_104: -2309407070827434157
+      B1_TS_Disappear_SS_20f_256x256_105: -476971072474263152
+      B1_TS_Disappear_SS_20f_256x256_106: 1168336722242066892
+      B1_TS_Disappear_SS_20f_256x256_107: 5898329844571677096
+      B1_TS_Disappear_SS_20f_256x256_108: -9006514474038462255
+      B1_TS_Disappear_SS_20f_256x256_109: 3792969297296736335
+      B1_TS_Disappear_SS_20f_256x256_11: -6045839992519401038
+      B1_TS_Disappear_SS_20f_256x256_110: -1081130929202319263
+      B1_TS_Disappear_SS_20f_256x256_111: 8667061431284908338
+      B1_TS_Disappear_SS_20f_256x256_112: -6770233565533329216
+      B1_TS_Disappear_SS_20f_256x256_113: 240404248623363437
+      B1_TS_Disappear_SS_20f_256x256_114: 5612160329828191461
+      B1_TS_Disappear_SS_20f_256x256_115: 7574757259922301467
+      B1_TS_Disappear_SS_20f_256x256_116: -2606538088072790847
+      B1_TS_Disappear_SS_20f_256x256_117: -1828138148057004216
+      B1_TS_Disappear_SS_20f_256x256_118: 4580383949267813766
+      B1_TS_Disappear_SS_20f_256x256_119: -4664107177331480025
+      B1_TS_Disappear_SS_20f_256x256_12: 9099076034194637840
+      B1_TS_Disappear_SS_20f_256x256_120: -7752635301504395582
+      B1_TS_Disappear_SS_20f_256x256_121: -2175544230132369156
+      B1_TS_Disappear_SS_20f_256x256_122: 4443607005427046205
+      B1_TS_Disappear_SS_20f_256x256_123: 7527158886306252311
+      B1_TS_Disappear_SS_20f_256x256_124: -6883578182339319518
+      B1_TS_Disappear_SS_20f_256x256_125: 9174048783018235203
+      B1_TS_Disappear_SS_20f_256x256_126: 6817024512755452346
+      B1_TS_Disappear_SS_20f_256x256_127: -6046325866744720065
+      B1_TS_Disappear_SS_20f_256x256_128: -3513639556805389293
+      B1_TS_Disappear_SS_20f_256x256_129: 1604959724276599926
+      B1_TS_Disappear_SS_20f_256x256_13: -4187538106644585046
+      B1_TS_Disappear_SS_20f_256x256_130: 2237816225247924007
+      B1_TS_Disappear_SS_20f_256x256_131: -9186136202180487080
+      B1_TS_Disappear_SS_20f_256x256_132: 5213424245513519699
+      B1_TS_Disappear_SS_20f_256x256_133: -2395724677077147914
+      B1_TS_Disappear_SS_20f_256x256_134: -711564275271542309
+      B1_TS_Disappear_SS_20f_256x256_135: -3203062769354811516
+      B1_TS_Disappear_SS_20f_256x256_136: 1595056716259714057
+      B1_TS_Disappear_SS_20f_256x256_137: -7128396699132569347
+      B1_TS_Disappear_SS_20f_256x256_138: -7624415892914474634
+      B1_TS_Disappear_SS_20f_256x256_139: 3721190027706774700
+      B1_TS_Disappear_SS_20f_256x256_14: 7761428584458969009
+      B1_TS_Disappear_SS_20f_256x256_140: 7453367575162800
+      B1_TS_Disappear_SS_20f_256x256_141: -2823547080017141736
+      B1_TS_Disappear_SS_20f_256x256_142: -8193571085553886519
+      B1_TS_Disappear_SS_20f_256x256_143: -2471132986458963582
+      B1_TS_Disappear_SS_20f_256x256_144: 2798338502716801848
+      B1_TS_Disappear_SS_20f_256x256_145: 6253154856284279616
+      B1_TS_Disappear_SS_20f_256x256_146: -5231301450543723082
+      B1_TS_Disappear_SS_20f_256x256_147: -7128557854188341004
+      B1_TS_Disappear_SS_20f_256x256_148: -8882640921383560322
+      B1_TS_Disappear_SS_20f_256x256_149: -49342428903033857
+      B1_TS_Disappear_SS_20f_256x256_15: 265876208311843093
+      B1_TS_Disappear_SS_20f_256x256_150: 5975966204604966660
+      B1_TS_Disappear_SS_20f_256x256_151: 5890076025087639612
+      B1_TS_Disappear_SS_20f_256x256_152: -7653958719241119737
+      B1_TS_Disappear_SS_20f_256x256_153: -605224840012473671
+      B1_TS_Disappear_SS_20f_256x256_154: 8835864085690091910
+      B1_TS_Disappear_SS_20f_256x256_155: 7760831580061911029
+      B1_TS_Disappear_SS_20f_256x256_156: -5827358509973735817
+      B1_TS_Disappear_SS_20f_256x256_157: -8529892045474504871
+      B1_TS_Disappear_SS_20f_256x256_158: -8555657015315981594
+      B1_TS_Disappear_SS_20f_256x256_159: 4350117596961025188
+      B1_TS_Disappear_SS_20f_256x256_16: -3167290887878873219
+      B1_TS_Disappear_SS_20f_256x256_17: -7318479071399144297
+      B1_TS_Disappear_SS_20f_256x256_18: -661371530460595215
+      B1_TS_Disappear_SS_20f_256x256_19: -385455009703707697
+      B1_TS_Disappear_SS_20f_256x256_2: 4823144054955595576
+      B1_TS_Disappear_SS_20f_256x256_20: -247332222741267750
+      B1_TS_Disappear_SS_20f_256x256_21: -1360214629681435712
+      B1_TS_Disappear_SS_20f_256x256_22: -7603513517660326899
+      B1_TS_Disappear_SS_20f_256x256_23: -4768475509831981443
+      B1_TS_Disappear_SS_20f_256x256_24: 6589247487103051093
+      B1_TS_Disappear_SS_20f_256x256_25: 635659975854263436
+      B1_TS_Disappear_SS_20f_256x256_26: 6924491984497404359
+      B1_TS_Disappear_SS_20f_256x256_27: -7400285219264256426
+      B1_TS_Disappear_SS_20f_256x256_28: 6044284023681193655
+      B1_TS_Disappear_SS_20f_256x256_29: -3961512244924003741
+      B1_TS_Disappear_SS_20f_256x256_3: -5046378512369835439
+      B1_TS_Disappear_SS_20f_256x256_30: 6503125378961552656
+      B1_TS_Disappear_SS_20f_256x256_31: -6296552978346751364
+      B1_TS_Disappear_SS_20f_256x256_32: 5316357500051734831
+      B1_TS_Disappear_SS_20f_256x256_33: 6731784288478462824
+      B1_TS_Disappear_SS_20f_256x256_34: -676956592849367016
+      B1_TS_Disappear_SS_20f_256x256_35: 5096972728202936009
+      B1_TS_Disappear_SS_20f_256x256_36: 5649543252096617056
+      B1_TS_Disappear_SS_20f_256x256_37: 948473552078034978
+      B1_TS_Disappear_SS_20f_256x256_38: 3231382153111920421
+      B1_TS_Disappear_SS_20f_256x256_39: -427982808189889117
+      B1_TS_Disappear_SS_20f_256x256_4: 4691073645003708882
+      B1_TS_Disappear_SS_20f_256x256_40: -1356614971439989353
+      B1_TS_Disappear_SS_20f_256x256_41: -7290510839593353951
+      B1_TS_Disappear_SS_20f_256x256_42: 7650543565262273073
+      B1_TS_Disappear_SS_20f_256x256_43: 5534249489776185017
+      B1_TS_Disappear_SS_20f_256x256_44: 448897517506737399
+      B1_TS_Disappear_SS_20f_256x256_45: -1285757278757082431
+      B1_TS_Disappear_SS_20f_256x256_46: -3049709547583241141
+      B1_TS_Disappear_SS_20f_256x256_47: -6699454947893524994
+      B1_TS_Disappear_SS_20f_256x256_48: 8951948123024471129
+      B1_TS_Disappear_SS_20f_256x256_49: 5971756889073152396
+      B1_TS_Disappear_SS_20f_256x256_5: -2877592982786689141
+      B1_TS_Disappear_SS_20f_256x256_50: 4901369458738345356
+      B1_TS_Disappear_SS_20f_256x256_51: -1715028037218023044
+      B1_TS_Disappear_SS_20f_256x256_52: 8448975210611552860
+      B1_TS_Disappear_SS_20f_256x256_53: -213675132383355563
+      B1_TS_Disappear_SS_20f_256x256_54: -3854731357644956906
+      B1_TS_Disappear_SS_20f_256x256_55: 4668296782868196994
+      B1_TS_Disappear_SS_20f_256x256_56: -6341867644604243474
+      B1_TS_Disappear_SS_20f_256x256_57: -1633979320521781501
+      B1_TS_Disappear_SS_20f_256x256_58: 7640925521985931645
+      B1_TS_Disappear_SS_20f_256x256_59: -8896568519952973739
+      B1_TS_Disappear_SS_20f_256x256_6: 2010205936827376315
+      B1_TS_Disappear_SS_20f_256x256_60: -6425453715471587475
+      B1_TS_Disappear_SS_20f_256x256_61: -8611567467992734179
+      B1_TS_Disappear_SS_20f_256x256_62: 2570889901864769434
+      B1_TS_Disappear_SS_20f_256x256_63: 6917281342505453273
+      B1_TS_Disappear_SS_20f_256x256_64: 5476822432182800002
+      B1_TS_Disappear_SS_20f_256x256_65: 7230708437124894305
+      B1_TS_Disappear_SS_20f_256x256_66: -433381859905918410
+      B1_TS_Disappear_SS_20f_256x256_67: -8226505937418543685
+      B1_TS_Disappear_SS_20f_256x256_68: 8665762861946821345
+      B1_TS_Disappear_SS_20f_256x256_69: 944831274210781631
+      B1_TS_Disappear_SS_20f_256x256_7: -1131195694129039617
+      B1_TS_Disappear_SS_20f_256x256_70: 7769152058872307128
+      B1_TS_Disappear_SS_20f_256x256_71: 8019671343971308432
+      B1_TS_Disappear_SS_20f_256x256_72: 2872460922964871018
+      B1_TS_Disappear_SS_20f_256x256_73: 8905104195954189035
+      B1_TS_Disappear_SS_20f_256x256_74: -8997489188802148799
+      B1_TS_Disappear_SS_20f_256x256_75: -3178212798660881310
+      B1_TS_Disappear_SS_20f_256x256_76: -2399155742757599702
+      B1_TS_Disappear_SS_20f_256x256_77: -7629638169174264391
+      B1_TS_Disappear_SS_20f_256x256_78: -2313734580136924090
+      B1_TS_Disappear_SS_20f_256x256_79: -4231168138583888073
+      B1_TS_Disappear_SS_20f_256x256_8: -7025854515393684603
+      B1_TS_Disappear_SS_20f_256x256_80: -1256372615887654811
+      B1_TS_Disappear_SS_20f_256x256_81: -4579334437655313856
+      B1_TS_Disappear_SS_20f_256x256_82: -6124211383550474084
+      B1_TS_Disappear_SS_20f_256x256_83: -8429034509895019317
+      B1_TS_Disappear_SS_20f_256x256_84: -7281912367948942627
+      B1_TS_Disappear_SS_20f_256x256_85: 1399774723018019995
+      B1_TS_Disappear_SS_20f_256x256_86: 1033873479983165175
+      B1_TS_Disappear_SS_20f_256x256_87: -4152314499462246496
+      B1_TS_Disappear_SS_20f_256x256_88: -87221932088087985
+      B1_TS_Disappear_SS_20f_256x256_89: 1951681856094624153
+      B1_TS_Disappear_SS_20f_256x256_9: 5444067197245470088
+      B1_TS_Disappear_SS_20f_256x256_90: -6391577081996157049
+      B1_TS_Disappear_SS_20f_256x256_91: -7073842166111439643
+      B1_TS_Disappear_SS_20f_256x256_92: 2073376151476237794
+      B1_TS_Disappear_SS_20f_256x256_93: -5913250106667021137
+      B1_TS_Disappear_SS_20f_256x256_94: -5386174668353913803
+      B1_TS_Disappear_SS_20f_256x256_95: 5704802412548898423
+      B1_TS_Disappear_SS_20f_256x256_96: 4578309001206393180
+      B1_TS_Disappear_SS_20f_256x256_97: 8508982297792625793
+      B1_TS_Disappear_SS_20f_256x256_98: 7077509899191166644
+      B1_TS_Disappear_SS_20f_256x256_99: 6668366134407819401
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

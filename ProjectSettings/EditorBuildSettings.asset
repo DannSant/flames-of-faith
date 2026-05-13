@@ -104,6 +104,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Act1/HolyAltarEncounter.unity
     guid: 320cd683fdf5d69408f9f69bd771b905
+  - enabled: 1
+    path: Assets/Scenes/Act1/LevelBoss_Iso.unity
+    guid: 16e1f00178b2a964aa19b7333fface77
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

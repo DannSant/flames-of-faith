@@ -1,0 +1,6098 @@
+fileFormatVersion: 2
+guid: 734fab18a141a404aba11cf214b949ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3651803818976602505
+    second: B1_TS_Death_ss_18f_256x256_0
+  - first:
+      213: -5099415322284769667
+    second: B1_TS_Death_ss_18f_256x256_1
+  - first:
+      213: -9019897355266818143
+    second: B1_TS_Death_ss_18f_256x256_2
+  - first:
+      213: -9160484271150551624
+    second: B1_TS_Death_ss_18f_256x256_3
+  - first:
+      213: -1221418916676325984
+    second: B1_TS_Death_ss_18f_256x256_4
+  - first:
+      213: 1516304396799350781
+    second: B1_TS_Death_ss_18f_256x256_5
+  - first:
+      213: 7512356706298080189
+    second: B1_TS_Death_ss_18f_256x256_6
+  - first:
+      213: -9008013929948636840
+    second: B1_TS_Death_ss_18f_256x256_7
+  - first:
+      213: 6307021668117273733
+    second: B1_TS_Death_ss_18f_256x256_8
+  - first:
+      213: -3864893669297498273
+    second: B1_TS_Death_ss_18f_256x256_9
+  - first:
+      213: 4858171077818395639
+    second: B1_TS_Death_ss_18f_256x256_10
+  - first:
+      213: 8584083326243846358
+    second: B1_TS_Death_ss_18f_256x256_11
+  - first:
+      213: 2027132384940686367
+    second: B1_TS_Death_ss_18f_256x256_12
+  - first:
+      213: -3682705282262233584
+    second: B1_TS_Death_ss_18f_256x256_13
+  - first:
+      213: 905782207553374176
+    second: B1_TS_Death_ss_18f_256x256_14
+  - first:
+      213: -7394530666258706842
+    second: B1_TS_Death_ss_18f_256x256_15
+  - first:
+      213: -894696696486208960
+    second: B1_TS_Death_ss_18f_256x256_16
+  - first:
+      213: -6945673736636693119
+    second: B1_TS_Death_ss_18f_256x256_17
+  - first:
+      213: -4219714835847942143
+    second: B1_TS_Death_ss_18f_256x256_18
+  - first:
+      213: 470891947643902528
+    second: B1_TS_Death_ss_18f_256x256_19
+  - first:
+      213: 8591066814904549999
+    second: B1_TS_Death_ss_18f_256x256_20
+  - first:
+      213: 3797195578707373955
+    second: B1_TS_Death_ss_18f_256x256_21
+  - first:
+      213: 3663895601732804875
+    second: B1_TS_Death_ss_18f_256x256_22
+  - first:
+      213: 5050254171773766882
+    second: B1_TS_Death_ss_18f_256x256_23
+  - first:
+      213: 4000365336776766105
+    second: B1_TS_Death_ss_18f_256x256_24
+  - first:
+      213: -1519472718361985049
+    second: B1_TS_Death_ss_18f_256x256_25
+  - first:
+      213: -1870710610175610641
+    second: B1_TS_Death_ss_18f_256x256_26
+  - first:
+      213: -6281402474318735397
+    second: B1_TS_Death_ss_18f_256x256_27
+  - first:
+      213: 3051498069841870488
+    second: B1_TS_Death_ss_18f_256x256_28
+  - first:
+      213: 3319826954605982615
+    second: B1_TS_Death_ss_18f_256x256_29
+  - first:
+      213: 2480339723108500670
+    second: B1_TS_Death_ss_18f_256x256_30
+  - first:
+      213: -3398266905550328671
+    second: B1_TS_Death_ss_18f_256x256_31
+  - first:
+      213: 6121395102806221942
+    second: B1_TS_Death_ss_18f_256x256_32
+  - first:
+      213: -8553174868432913469
+    second: B1_TS_Death_ss_18f_256x256_33
+  - first:
+      213: -6430659004362249246
+    second: B1_TS_Death_ss_18f_256x256_34
+  - first:
+      213: -8781333857823599979
+    second: B1_TS_Death_ss_18f_256x256_35
+  - first:
+      213: 1637643765488914988
+    second: B1_TS_Death_ss_18f_256x256_36
+  - first:
+      213: 918702468082581701
+    second: B1_TS_Death_ss_18f_256x256_37
+  - first:
+      213: -2828303740049896218
+    second: B1_TS_Death_ss_18f_256x256_38
+  - first:
+      213: -7382276651954429054
+    second: B1_TS_Death_ss_18f_256x256_39
+  - first:
+      213: -859140747031549562
+    second: B1_TS_Death_ss_18f_256x256_40
+  - first:
+      213: -6598186115239099726
+    second: B1_TS_Death_ss_18f_256x256_41
+  - first:
+      213: 1392842945574095123
+    second: B1_TS_Death_ss_18f_256x256_42
+  - first:
+      213: -972631323494109731
+    second: B1_TS_Death_ss_18f_256x256_43
+  - first:
+      213: -1458735190168542610
+    second: B1_TS_Death_ss_18f_256x256_44
+  - first:
+      213: 7480959632035859706
+    second: B1_TS_Death_ss_18f_256x256_45
+  - first:
+      213: -1876638983206632585
+    second: B1_TS_Death_ss_18f_256x256_46
+  - first:
+      213: 7242720887322230535
+    second: B1_TS_Death_ss_18f_256x256_47
+  - first:
+      213: 3366541058926309414
+    second: B1_TS_Death_ss_18f_256x256_48
+  - first:
+      213: 5278244997387401088
+    second: B1_TS_Death_ss_18f_256x256_49
+  - first:
+      213: 4087183487920265748
+    second: B1_TS_Death_ss_18f_256x256_50
+  - first:
+      213: 6195575555266956861
+    second: B1_TS_Death_ss_18f_256x256_51
+  - first:
+      213: -1920257794686611739
+    second: B1_TS_Death_ss_18f_256x256_52
+  - first:
+      213: -3085075434492997464
+    second: B1_TS_Death_ss_18f_256x256_53
+  - first:
+      213: -6931405968490125773
+    second: B1_TS_Death_ss_18f_256x256_54
+  - first:
+      213: -5826566962997461466
+    second: B1_TS_Death_ss_18f_256x256_55
+  - first:
+      213: 2389176433767795071
+    second: B1_TS_Death_ss_18f_256x256_56
+  - first:
+      213: -6316514656064830010
+    second: B1_TS_Death_ss_18f_256x256_57
+  - first:
+      213: -2015421733435372213
+    second: B1_TS_Death_ss_18f_256x256_58
+  - first:
+      213: 3338822831590395142
+    second: B1_TS_Death_ss_18f_256x256_59
+  - first:
+      213: 9123306761400760024
+    second: B1_TS_Death_ss_18f_256x256_60
+  - first:
+      213: -7112306085189530943
+    second: B1_TS_Death_ss_18f_256x256_61
+  - first:
+      213: -3406771651620166494
+    second: B1_TS_Death_ss_18f_256x256_62
+  - first:
+      213: -5865732091499782233
+    second: B1_TS_Death_ss_18f_256x256_63
+  - first:
+      213: 2005179012566058035
+    second: B1_TS_Death_ss_18f_256x256_64
+  - first:
+      213: 4252280540672626942
+    second: B1_TS_Death_ss_18f_256x256_65
+  - first:
+      213: -7517069143821206649
+    second: B1_TS_Death_ss_18f_256x256_66
+  - first:
+      213: -7010306980997593609
+    second: B1_TS_Death_ss_18f_256x256_67
+  - first:
+      213: 7531261169368657175
+    second: B1_TS_Death_ss_18f_256x256_68
+  - first:
+      213: 4996608587655792986
+    second: B1_TS_Death_ss_18f_256x256_69
+  - first:
+      213: 2732741441939637504
+    second: B1_TS_Death_ss_18f_256x256_70
+  - first:
+      213: -4473953609640379227
+    second: B1_TS_Death_ss_18f_256x256_71
+  - first:
+      213: 8457423775627241344
+    second: B1_TS_Death_ss_18f_256x256_72
+  - first:
+      213: 402635785969085754
+    second: B1_TS_Death_ss_18f_256x256_73
+  - first:
+      213: -4638908873139135371
+    second: B1_TS_Death_ss_18f_256x256_74
+  - first:
+      213: -1902493624350390096
+    second: B1_TS_Death_ss_18f_256x256_75
+  - first:
+      213: 3201704918845291075
+    second: B1_TS_Death_ss_18f_256x256_76
+  - first:
+      213: 1988010423992466851
+    second: B1_TS_Death_ss_18f_256x256_77
+  - first:
+      213: 6894504137819078117
+    second: B1_TS_Death_ss_18f_256x256_78
+  - first:
+      213: -2158948423187843267
+    second: B1_TS_Death_ss_18f_256x256_79
+  - first:
+      213: -8523666025303386237
+    second: B1_TS_Death_ss_18f_256x256_80
+  - first:
+      213: 6133287123763389127
+    second: B1_TS_Death_ss_18f_256x256_81
+  - first:
+      213: -3342027536296637378
+    second: B1_TS_Death_ss_18f_256x256_82
+  - first:
+      213: -1682677431515250610
+    second: B1_TS_Death_ss_18f_256x256_83
+  - first:
+      213: 7629446165089764180
+    second: B1_TS_Death_ss_18f_256x256_84
+  - first:
+      213: 8606663132228758764
+    second: B1_TS_Death_ss_18f_256x256_85
+  - first:
+      213: 6689995012872649136
+    second: B1_TS_Death_ss_18f_256x256_86
+  - first:
+      213: 4477784981020360166
+    second: B1_TS_Death_ss_18f_256x256_87
+  - first:
+      213: -553722667189285171
+    second: B1_TS_Death_ss_18f_256x256_88
+  - first:
+      213: 9144892458695065800
+    second: B1_TS_Death_ss_18f_256x256_89
+  - first:
+      213: 545667236156696066
+    second: B1_TS_Death_ss_18f_256x256_90
+  - first:
+      213: -7880563919837416137
+    second: B1_TS_Death_ss_18f_256x256_91
+  - first:
+      213: -5256417874154232534
+    second: B1_TS_Death_ss_18f_256x256_92
+  - first:
+      213: 2630688657355865525
+    second: B1_TS_Death_ss_18f_256x256_93
+  - first:
+      213: 2206705856340098692
+    second: B1_TS_Death_ss_18f_256x256_94
+  - first:
+      213: -6118922441531258853
+    second: B1_TS_Death_ss_18f_256x256_95
+  - first:
+      213: 6362437360621062352
+    second: B1_TS_Death_ss_18f_256x256_96
+  - first:
+      213: -4341018061547944117
+    second: B1_TS_Death_ss_18f_256x256_97
+  - first:
+      213: 8949641509172665754
+    second: B1_TS_Death_ss_18f_256x256_98
+  - first:
+      213: 8961068261623638458
+    second: B1_TS_Death_ss_18f_256x256_99
+  - first:
+      213: -2524999085550331063
+    second: B1_TS_Death_ss_18f_256x256_100
+  - first:
+      213: -6420358469429623221
+    second: B1_TS_Death_ss_18f_256x256_101
+  - first:
+      213: 4639424134380961137
+    second: B1_TS_Death_ss_18f_256x256_102
+  - first:
+      213: -4422107300952633572
+    second: B1_TS_Death_ss_18f_256x256_103
+  - first:
+      213: -358223810408286415
+    second: B1_TS_Death_ss_18f_256x256_104
+  - first:
+      213: 3766596627082792118
+    second: B1_TS_Death_ss_18f_256x256_105
+  - first:
+      213: -4068910540076313448
+    second: B1_TS_Death_ss_18f_256x256_106
+  - first:
+      213: -5657333401331392312
+    second: B1_TS_Death_ss_18f_256x256_107
+  - first:
+      213: 6686700930224074918
+    second: B1_TS_Death_ss_18f_256x256_108
+  - first:
+      213: 7074058755960903843
+    second: B1_TS_Death_ss_18f_256x256_109
+  - first:
+      213: 5623871761576790950
+    second: B1_TS_Death_ss_18f_256x256_110
+  - first:
+      213: -7445612244493359068
+    second: B1_TS_Death_ss_18f_256x256_111
+  - first:
+      213: -7143528168528354548
+    second: B1_TS_Death_ss_18f_256x256_112
+  - first:
+      213: -3616130938818913626
+    second: B1_TS_Death_ss_18f_256x256_113
+  - first:
+      213: -540339138186929778
+    second: B1_TS_Death_ss_18f_256x256_114
+  - first:
+      213: -8345061748393329450
+    second: B1_TS_Death_ss_18f_256x256_115
+  - first:
+      213: 5201988233604848774
+    second: B1_TS_Death_ss_18f_256x256_116
+  - first:
+      213: -8338076548582167198
+    second: B1_TS_Death_ss_18f_256x256_117
+  - first:
+      213: -4952612536195090792
+    second: B1_TS_Death_ss_18f_256x256_118
+  - first:
+      213: -9199630246222243793
+    second: B1_TS_Death_ss_18f_256x256_119
+  - first:
+      213: 8588627379851124755
+    second: B1_TS_Death_ss_18f_256x256_120
+  - first:
+      213: 2471025642166569984
+    second: B1_TS_Death_ss_18f_256x256_121
+  - first:
+      213: 5903856040495267688
+    second: B1_TS_Death_ss_18f_256x256_122
+  - first:
+      213: -4323647548405253615
+    second: B1_TS_Death_ss_18f_256x256_123
+  - first:
+      213: -6376817985236096082
+    second: B1_TS_Death_ss_18f_256x256_124
+  - first:
+      213: -3407051056262490127
+    second: B1_TS_Death_ss_18f_256x256_125
+  - first:
+      213: -8907275728084036276
+    second: B1_TS_Death_ss_18f_256x256_126
+  - first:
+      213: -8661675986291889131
+    second: B1_TS_Death_ss_18f_256x256_127
+  - first:
+      213: 4145368551214063917
+    second: B1_TS_Death_ss_18f_256x256_128
+  - first:
+      213: -8918723427705050948
+    second: B1_TS_Death_ss_18f_256x256_129
+  - first:
+      213: -643005073269089161
+    second: B1_TS_Death_ss_18f_256x256_130
+  - first:
+      213: -5345946981651302788
+    second: B1_TS_Death_ss_18f_256x256_131
+  - first:
+      213: 8054580177836873620
+    second: B1_TS_Death_ss_18f_256x256_132
+  - first:
+      213: -2251859461796900308
+    second: B1_TS_Death_ss_18f_256x256_133
+  - first:
+      213: -4507117720908721969
+    second: B1_TS_Death_ss_18f_256x256_134
+  - first:
+      213: -8589258821280300421
+    second: B1_TS_Death_ss_18f_256x256_135
+  - first:
+      213: 4234386081425032805
+    second: B1_TS_Death_ss_18f_256x256_136
+  - first:
+      213: 7895312919641910526
+    second: B1_TS_Death_ss_18f_256x256_137
+  - first:
+      213: -1491455412741610205
+    second: B1_TS_Death_ss_18f_256x256_138
+  - first:
+      213: -3160035310079209989
+    second: B1_TS_Death_ss_18f_256x256_139
+  - first:
+      213: -8088793641966607847
+    second: B1_TS_Death_ss_18f_256x256_140
+  - first:
+      213: 137836471699637011
+    second: B1_TS_Death_ss_18f_256x256_141
+  - first:
+      213: 7581559139582351639
+    second: B1_TS_Death_ss_18f_256x256_142
+  - first:
+      213: -4863386894522502688
+    second: B1_TS_Death_ss_18f_256x256_143
+  - first:
+      213: 5438130109688065473
+    second: B1_TS_Death_ss_18f_256x256_144
+  - first:
+      213: 1655326314106770129
+    second: B1_TS_Death_ss_18f_256x256_145
+  - first:
+      213: -6629979245933930148
+    second: B1_TS_Death_ss_18f_256x256_146
+  - first:
+      213: 545765725987206263
+    second: B1_TS_Death_ss_18f_256x256_147
+  - first:
+      213: 155954023074692230
+    second: B1_TS_Death_ss_18f_256x256_148
+  - first:
+      213: -2538893453342941134
+    second: B1_TS_Death_ss_18f_256x256_149
+  - first:
+      213: -5715985505017266300
+    second: B1_TS_Death_ss_18f_256x256_150
+  - first:
+      213: 5761115850654017379
+    second: B1_TS_Death_ss_18f_256x256_151
+  - first:
+      213: -2515873654402928824
+    second: B1_TS_Death_ss_18f_256x256_152
+  - first:
+      213: 676687280328710679
+    second: B1_TS_Death_ss_18f_256x256_153
+  - first:
+      213: 8262850888526549463
+    second: B1_TS_Death_ss_18f_256x256_154
+  - first:
+      213: -2175398581224034339
+    second: B1_TS_Death_ss_18f_256x256_155
+  - first:
+      213: 1016776773576090652
+    second: B1_TS_Death_ss_18f_256x256_156
+  - first:
+      213: -2777045489183091193
+    second: B1_TS_Death_ss_18f_256x256_157
+  - first:
+      213: -5278525426373062259
+    second: B1_TS_Death_ss_18f_256x256_158
+  - first:
+      213: 3274835898099613593
+    second: B1_TS_Death_ss_18f_256x256_159
+  - first:
+      213: 5654672723307605496
+    second: B1_TS_Death_ss_18f_256x256_160
+  - first:
+      213: 1899032936455891023
+    second: B1_TS_Death_ss_18f_256x256_161
+  - first:
+      213: -1430530965783366504
+    second: B1_TS_Death_ss_18f_256x256_162
+  - first:
+      213: 2796623835031699701
+    second: B1_TS_Death_ss_18f_256x256_163
+  - first:
+      213: -4013770510185651540
+    second: B1_TS_Death_ss_18f_256x256_164
+  - first:
+      213: -4636713918570131806
+    second: B1_TS_Death_ss_18f_256x256_165
+  - first:
+      213: 2972990517302857134
+    second: B1_TS_Death_ss_18f_256x256_166
+  - first:
+      213: -7359967596915831269
+    second: B1_TS_Death_ss_18f_256x256_167
+  - first:
+      213: 92849430667822781
+    second: B1_TS_Death_ss_18f_256x256_168
+  - first:
+      213: -2387975047046067846
+    second: B1_TS_Death_ss_18f_256x256_169
+  - first:
+      213: -6586744001291334610
+    second: B1_TS_Death_ss_18f_256x256_170
+  - first:
+      213: 2966300504903765102
+    second: B1_TS_Death_ss_18f_256x256_171
+  - first:
+      213: -8666560451034344749
+    second: B1_TS_Death_ss_18f_256x256_172
+  - first:
+      213: -2284215824457563494
+    second: B1_TS_Death_ss_18f_256x256_173
+  - first:
+      213: 4859610294722524214
+    second: B1_TS_Death_ss_18f_256x256_174
+  - first:
+      213: -1826967076308147478
+    second: B1_TS_Death_ss_18f_256x256_175
+  - first:
+      213: -7296187081184978358
+    second: B1_TS_Death_ss_18f_256x256_176
+  - first:
+      213: -1475581027517554337
+    second: B1_TS_Death_ss_18f_256x256_177
+  - first:
+      213: -6590980106589247459
+    second: B1_TS_Death_ss_18f_256x256_178
+  - first:
+      213: 729239628291893149
+    second: B1_TS_Death_ss_18f_256x256_179
+  - first:
+      213: -8103783145212317450
+    second: B1_TS_Death_ss_18f_256x256_180
+  - first:
+      213: -3810584988408919131
+    second: B1_TS_Death_ss_18f_256x256_181
+  - first:
+      213: -6964939858570667561
+    second: B1_TS_Death_ss_18f_256x256_182
+  - first:
+      213: -5286710386322386400
+    second: B1_TS_Death_ss_18f_256x256_183
+  - first:
+      213: 2843403705619240459
+    second: B1_TS_Death_ss_18f_256x256_184
+  - first:
+      213: -8730268838426475677
+    second: B1_TS_Death_ss_18f_256x256_185
+  - first:
+      213: 6542564979621436168
+    second: B1_TS_Death_ss_18f_256x256_186
+  - first:
+      213: 7856562856494703202
+    second: B1_TS_Death_ss_18f_256x256_187
+  - first:
+      213: 7505062595727801800
+    second: B1_TS_Death_ss_18f_256x256_188
+  - first:
+      213: -8420966189705307655
+    second: B1_TS_Death_ss_18f_256x256_189
+  - first:
+      213: 8583609007749884195
+    second: B1_TS_Death_ss_18f_256x256_190
+  - first:
+      213: 8767025118608745399
+    second: B1_TS_Death_ss_18f_256x256_191
+  - first:
+      213: 5507076870839404103
+    second: B1_TS_Death_ss_18f_256x256_192
+  - first:
+      213: 2867223475363519284
+    second: B1_TS_Death_ss_18f_256x256_193
+  - first:
+      213: -1476493418574874109
+    second: B1_TS_Death_ss_18f_256x256_194
+  - first:
+      213: -8524506597905426199
+    second: B1_TS_Death_ss_18f_256x256_195
+  - first:
+      213: -3593735334820918361
+    second: B1_TS_Death_ss_18f_256x256_196
+  - first:
+      213: 4824630013844250724
+    second: B1_TS_Death_ss_18f_256x256_197
+  - first:
+      213: -8407652857990376271
+    second: B1_TS_Death_ss_18f_256x256_198
+  - first:
+      213: 1304054333400906389
+    second: B1_TS_Death_ss_18f_256x256_199
+  - first:
+      213: 6428443612159210519
+    second: B1_TS_Death_ss_18f_256x256_200
+  - first:
+      213: -3176731795376971883
+    second: B1_TS_Death_ss_18f_256x256_201
+  - first:
+      213: -8418131296254676276
+    second: B1_TS_Death_ss_18f_256x256_202
+  - first:
+      213: 8456258929963382044
+    second: B1_TS_Death_ss_18f_256x256_203
+  - first:
+      213: 7148270793431817754
+    second: B1_TS_Death_ss_18f_256x256_204
+  - first:
+      213: 1399780220500066323
+    second: B1_TS_Death_ss_18f_256x256_205
+  - first:
+      213: 4754632371525162459
+    second: B1_TS_Death_ss_18f_256x256_206
+  - first:
+      213: 6251533449798898023
+    second: B1_TS_Death_ss_18f_256x256_207
+  - first:
+      213: 1340359457515641789
+    second: B1_TS_Death_ss_18f_256x256_208
+  - first:
+      213: 8362669263831681851
+    second: B1_TS_Death_ss_18f_256x256_209
+  - first:
+      213: 8171434505038879517
+    second: B1_TS_Death_ss_18f_256x256_210
+  - first:
+      213: 557439404182264206
+    second: B1_TS_Death_ss_18f_256x256_211
+  - first:
+      213: 7564940412371181736
+    second: B1_TS_Death_ss_18f_256x256_212
+  - first:
+      213: -4547957829641423635
+    second: B1_TS_Death_ss_18f_256x256_213
+  - first:
+      213: -2006964522437777109
+    second: B1_TS_Death_ss_18f_256x256_214
+  - first:
+      213: 6026700049556857521
+    second: B1_TS_Death_ss_18f_256x256_215
+  - first:
+      213: 7038787716937881249
+    second: B1_TS_Death_ss_18f_256x256_216
+  - first:
+      213: -8055913818646212452
+    second: B1_TS_Death_ss_18f_256x256_217
+  - first:
+      213: 3182475689292422334
+    second: B1_TS_Death_ss_18f_256x256_218
+  - first:
+      213: 609268247279876450
+    second: B1_TS_Death_ss_18f_256x256_219
+  - first:
+      213: -1594578430079131211
+    second: B1_TS_Death_ss_18f_256x256_220
+  - first:
+      213: -1981992428093667531
+    second: B1_TS_Death_ss_18f_256x256_221
+  - first:
+      213: 7771837992630566670
+    second: B1_TS_Death_ss_18f_256x256_222
+  - first:
+      213: 1286529201771933109
+    second: B1_TS_Death_ss_18f_256x256_223
+  - first:
+      213: -2489393306562155974
+    second: B1_TS_Death_ss_18f_256x256_224
+  - first:
+      213: 7647730668150857027
+    second: B1_TS_Death_ss_18f_256x256_225
+  - first:
+      213: 5991600821842939309
+    second: B1_TS_Death_ss_18f_256x256_226
+  - first:
+      213: -8432664646714236844
+    second: B1_TS_Death_ss_18f_256x256_227
+  - first:
+      213: 2635293919970795393
+    second: B1_TS_Death_ss_18f_256x256_228
+  - first:
+      213: -7292709727581062512
+    second: B1_TS_Death_ss_18f_256x256_229
+  - first:
+      213: 6615837003654723896
+    second: B1_TS_Death_ss_18f_256x256_230
+  - first:
+      213: 1336673793059120614
+    second: B1_TS_Death_ss_18f_256x256_231
+  - first:
+      213: -3240493089627371581
+    second: B1_TS_Death_ss_18f_256x256_232
+  - first:
+      213: -5963623689529861594
+    second: B1_TS_Death_ss_18f_256x256_233
+  - first:
+      213: -6963740712845169913
+    second: B1_TS_Death_ss_18f_256x256_234
+  - first:
+      213: 1958034524215951618
+    second: B1_TS_Death_ss_18f_256x256_235
+  - first:
+      213: 4876448301255091924
+    second: B1_TS_Death_ss_18f_256x256_236
+  - first:
+      213: 4167974741441389968
+    second: B1_TS_Death_ss_18f_256x256_237
+  - first:
+      213: 4767176538964676024
+    second: B1_TS_Death_ss_18f_256x256_238
+  - first:
+      213: 1855321882822540475
+    second: B1_TS_Death_ss_18f_256x256_239
+  - first:
+      213: -84345393684114010
+    second: B1_TS_Death_ss_18f_256x256_240
+  - first:
+      213: -8460384342362520925
+    second: B1_TS_Death_ss_18f_256x256_241
+  - first:
+      213: 5276752369314212922
+    second: B1_TS_Death_ss_18f_256x256_242
+  - first:
+      213: 3791455027208379161
+    second: B1_TS_Death_ss_18f_256x256_243
+  - first:
+      213: 6146175158486843923
+    second: B1_TS_Death_ss_18f_256x256_244
+  - first:
+      213: 4607381636223712999
+    second: B1_TS_Death_ss_18f_256x256_245
+  - first:
+      213: -659682115178900319
+    second: B1_TS_Death_ss_18f_256x256_246
+  - first:
+      213: -7757738300455530864
+    second: B1_TS_Death_ss_18f_256x256_247
+  - first:
+      213: -6744956633611007369
+    second: B1_TS_Death_ss_18f_256x256_248
+  - first:
+      213: -7063371647767952676
+    second: B1_TS_Death_ss_18f_256x256_249
+  - first:
+      213: -2811045387369079893
+    second: B1_TS_Death_ss_18f_256x256_250
+  - first:
+      213: 2181945565168046005
+    second: B1_TS_Death_ss_18f_256x256_251
+  - first:
+      213: 6618687859903072666
+    second: B1_TS_Death_ss_18f_256x256_252
+  - first:
+      213: -3270255984448581349
+    second: B1_TS_Death_ss_18f_256x256_253
+  - first:
+      213: 7851232707844159884
+    second: B1_TS_Death_ss_18f_256x256_254
+  - first:
+      213: 5907097191047900215
+    second: B1_TS_Death_ss_18f_256x256_255
+  - first:
+      213: 3805134680979048389
+    second: B1_TS_Death_ss_18f_256x256_256
+  - first:
+      213: -4899307844678365722
+    second: B1_TS_Death_ss_18f_256x256_257
+  - first:
+      213: -7869910848773569246
+    second: B1_TS_Death_ss_18f_256x256_258
+  - first:
+      213: 5918859469979935417
+    second: B1_TS_Death_ss_18f_256x256_259
+  - first:
+      213: 9186924845140426679
+    second: B1_TS_Death_ss_18f_256x256_260
+  - first:
+      213: 8216452869966243336
+    second: B1_TS_Death_ss_18f_256x256_261
+  - first:
+      213: 5949711103365195133
+    second: B1_TS_Death_ss_18f_256x256_262
+  - first:
+      213: 1853769706132881406
+    second: B1_TS_Death_ss_18f_256x256_263
+  - first:
+      213: 320966441964195841
+    second: B1_TS_Death_ss_18f_256x256_264
+  - first:
+      213: -280175825613098136
+    second: B1_TS_Death_ss_18f_256x256_265
+  - first:
+      213: -5560893588990978924
+    second: B1_TS_Death_ss_18f_256x256_266
+  - first:
+      213: 5991783997366814093
+    second: B1_TS_Death_ss_18f_256x256_267
+  - first:
+      213: -4753600211846979272
+    second: B1_TS_Death_ss_18f_256x256_268
+  - first:
+      213: -7909587548683233644
+    second: B1_TS_Death_ss_18f_256x256_269
+  - first:
+      213: 7164497499468470255
+    second: B1_TS_Death_ss_18f_256x256_270
+  - first:
+      213: -2273857270120484443
+    second: B1_TS_Death_ss_18f_256x256_271
+  - first:
+      213: -2081188818015562173
+    second: B1_TS_Death_ss_18f_256x256_272
+  - first:
+      213: -5124897143761168681
+    second: B1_TS_Death_ss_18f_256x256_273
+  - first:
+      213: -1895769328826519844
+    second: B1_TS_Death_ss_18f_256x256_274
+  - first:
+      213: 6218245760584876424
+    second: B1_TS_Death_ss_18f_256x256_275
+  - first:
+      213: 5446181989622809407
+    second: B1_TS_Death_ss_18f_256x256_276
+  - first:
+      213: -8295004802203228201
+    second: B1_TS_Death_ss_18f_256x256_277
+  - first:
+      213: 4981302159377542143
+    second: B1_TS_Death_ss_18f_256x256_278
+  - first:
+      213: 174415943315106865
+    second: B1_TS_Death_ss_18f_256x256_279
+  - first:
+      213: 4127117364264802496
+    second: B1_TS_Death_ss_18f_256x256_280
+  - first:
+      213: -899046090153489783
+    second: B1_TS_Death_ss_18f_256x256_281
+  - first:
+      213: 3405072561613125130
+    second: B1_TS_Death_ss_18f_256x256_282
+  - first:
+      213: 264713542592410832
+    second: B1_TS_Death_ss_18f_256x256_283
+  - first:
+      213: 6046090810137987933
+    second: B1_TS_Death_ss_18f_256x256_284
+  - first:
+      213: 4748046046226442806
+    second: B1_TS_Death_ss_18f_256x256_285
+  - first:
+      213: -2946132593707613803
+    second: B1_TS_Death_ss_18f_256x256_286
+  - first:
+      213: 6974477171924331404
+    second: B1_TS_Death_ss_18f_256x256_287
+  - first:
+      213: -5400444729111879964
+    second: B1_TS_Death_ss_18f_256x256_288
+  - first:
+      213: 1828007934138882634
+    second: B1_TS_Death_ss_18f_256x256_289
+  - first:
+      213: 484992549861319458
+    second: B1_TS_Death_ss_18f_256x256_290
+  - first:
+      213: 8097152049154454300
+    second: B1_TS_Death_ss_18f_256x256_291
+  - first:
+      213: -1826961879167985895
+    second: B1_TS_Death_ss_18f_256x256_292
+  - first:
+      213: -1679824078232327489
+    second: B1_TS_Death_ss_18f_256x256_293
+  - first:
+      213: -3225456566479329376
+    second: B1_TS_Death_ss_18f_256x256_294
+  - first:
+      213: -8272957999768564038
+    second: B1_TS_Death_ss_18f_256x256_295
+  - first:
+      213: 1294557944345104300
+    second: B1_TS_Death_ss_18f_256x256_296
+  - first:
+      213: 3688277870102698289
+    second: B1_TS_Death_ss_18f_256x256_297
+  - first:
+      213: -1159152818574121530
+    second: B1_TS_Death_ss_18f_256x256_298
+  - first:
+      213: -5758377937096687761
+    second: B1_TS_Death_ss_18f_256x256_299
+  - first:
+      213: 6223978050305695091
+    second: B1_TS_Death_ss_18f_256x256_300
+  - first:
+      213: 2468234115473770417
+    second: B1_TS_Death_ss_18f_256x256_301
+  - first:
+      213: 6082563973660300500
+    second: B1_TS_Death_ss_18f_256x256_302
+  - first:
+      213: -8036684231161802115
+    second: B1_TS_Death_ss_18f_256x256_303
+  - first:
+      213: -2003653121559680833
+    second: B1_TS_Death_ss_18f_256x256_304
+  - first:
+      213: -4282244686863206028
+    second: B1_TS_Death_ss_18f_256x256_305
+  - first:
+      213: -7865819984955883444
+    second: B1_TS_Death_ss_18f_256x256_306
+  - first:
+      213: -1208058825056413480
+    second: B1_TS_Death_ss_18f_256x256_307
+  - first:
+      213: -560461482047716200
+    second: B1_TS_Death_ss_18f_256x256_308
+  - first:
+      213: -617711831903340738
+    second: B1_TS_Death_ss_18f_256x256_309
+  - first:
+      213: -3677072232720871150
+    second: B1_TS_Death_ss_18f_256x256_310
+  - first:
+      213: -7619577839804970378
+    second: B1_TS_Death_ss_18f_256x256_311
+  - first:
+      213: -3361708986840104470
+    second: B1_TS_Death_ss_18f_256x256_312
+  - first:
+      213: 3473331013733461273
+    second: B1_TS_Death_ss_18f_256x256_313
+  - first:
+      213: 1789877494054312085
+    second: B1_TS_Death_ss_18f_256x256_314
+  - first:
+      213: -6812797765046157866
+    second: B1_TS_Death_ss_18f_256x256_315
+  - first:
+      213: -3345438288438189231
+    second: B1_TS_Death_ss_18f_256x256_316
+  - first:
+      213: -2239250958238746810
+    second: B1_TS_Death_ss_18f_256x256_317
+  - first:
+      213: 2502115503357421998
+    second: B1_TS_Death_ss_18f_256x256_318
+  - first:
+      213: -425239217989189623
+    second: B1_TS_Death_ss_18f_256x256_319
+  - first:
+      213: 7562324465692652280
+    second: B1_TS_Death_ss_18f_256x256_320
+  - first:
+      213: -4836351920574777670
+    second: B1_TS_Death_ss_18f_256x256_321
+  - first:
+      213: 7508125394060166930
+    second: B1_TS_Death_ss_18f_256x256_322
+  - first:
+      213: -4484581820674687416
+    second: B1_TS_Death_ss_18f_256x256_323
+  - first:
+      213: -1145933488261500681
+    second: B1_TS_Death_ss_18f_256x256_324
+  - first:
+      213: -8592634503981674299
+    second: B1_TS_Death_ss_18f_256x256_325
+  - first:
+      213: 4502284354091935719
+    second: B1_TS_Death_ss_18f_256x256_326
+  - first:
+      213: 8199402760427208464
+    second: B1_TS_Death_ss_18f_256x256_327
+  - first:
+      213: -4737942953633239678
+    second: B1_TS_Death_ss_18f_256x256_328
+  - first:
+      213: 859148091372497314
+    second: B1_TS_Death_ss_18f_256x256_329
+  - first:
+      213: -7289186310552788840
+    second: B1_TS_Death_ss_18f_256x256_330
+  - first:
+      213: -9161326383127874143
+    second: B1_TS_Death_ss_18f_256x256_331
+  - first:
+      213: -4766254016715198937
+    second: B1_TS_Death_ss_18f_256x256_332
+  - first:
+      213: 9011028394250880352
+    second: B1_TS_Death_ss_18f_256x256_333
+  - first:
+      213: -7770507664223397664
+    second: B1_TS_Death_ss_18f_256x256_334
+  - first:
+      213: 1607278651023357596
+    second: B1_TS_Death_ss_18f_256x256_335
+  - first:
+      213: -967849986963199396
+    second: B1_TS_Death_ss_18f_256x256_336
+  - first:
+      213: -8287685440896359980
+    second: B1_TS_Death_ss_18f_256x256_337
+  - first:
+      213: -7763813191383890546
+    second: B1_TS_Death_ss_18f_256x256_338
+  - first:
+      213: -9101602858905563590
+    second: B1_TS_Death_ss_18f_256x256_339
+  - first:
+      213: 5616423603418155145
+    second: B1_TS_Death_ss_18f_256x256_340
+  - first:
+      213: -5708257375686431237
+    second: B1_TS_Death_ss_18f_256x256_341
+  - first:
+      213: -851062163989290371
+    second: B1_TS_Death_ss_18f_256x256_342
+  - first:
+      213: -1325111448037948258
+    second: B1_TS_Death_ss_18f_256x256_343
+  - first:
+      213: 6292642838435520455
+    second: B1_TS_Death_ss_18f_256x256_344
+  - first:
+      213: -8636375679571614864
+    second: B1_TS_Death_ss_18f_256x256_345
+  - first:
+      213: 1925866655157885088
+    second: B1_TS_Death_ss_18f_256x256_346
+  - first:
+      213: 6955370464857776621
+    second: B1_TS_Death_ss_18f_256x256_347
+  - first:
+      213: 1174615885839045450
+    second: B1_TS_Death_ss_18f_256x256_348
+  - first:
+      213: 3066526217691101336
+    second: B1_TS_Death_ss_18f_256x256_349
+  - first:
+      213: 8321501163893922274
+    second: B1_TS_Death_ss_18f_256x256_350
+  - first:
+      213: 3848732101979907680
+    second: B1_TS_Death_ss_18f_256x256_351
+  - first:
+      213: 227856375477306127
+    second: B1_TS_Death_ss_18f_256x256_352
+  - first:
+      213: 3688313481063341263
+    second: B1_TS_Death_ss_18f_256x256_353
+  - first:
+      213: 1999953049151144650
+    second: B1_TS_Death_ss_18f_256x256_354
+  - first:
+      213: 4125600783437157182
+    second: B1_TS_Death_ss_18f_256x256_355
+  - first:
+      213: 2422347894490471875
+    second: B1_TS_Death_ss_18f_256x256_356
+  - first:
+      213: -5945318232987078225
+    second: B1_TS_Death_ss_18f_256x256_357
+  - first:
+      213: 9091598176383225795
+    second: B1_TS_Death_ss_18f_256x256_358
+  - first:
+      213: 187577314359464340
+    second: B1_TS_Death_ss_18f_256x256_359
+  - first:
+      213: -1518372497078544061
+    second: B1_TS_Death_ss_18f_256x256_360
+  - first:
+      213: -3458935456281735858
+    second: B1_TS_Death_ss_18f_256x256_361
+  - first:
+      213: -5188617432493404551
+    second: B1_TS_Death_ss_18f_256x256_362
+  - first:
+      213: 6423065995948084947
+    second: B1_TS_Death_ss_18f_256x256_363
+  - first:
+      213: -276602175889835723
+    second: B1_TS_Death_ss_18f_256x256_364
+  - first:
+      213: 7799139376306947997
+    second: B1_TS_Death_ss_18f_256x256_365
+  - first:
+      213: 893770620794225090
+    second: B1_TS_Death_ss_18f_256x256_366
+  - first:
+      213: 7464600320298877268
+    second: B1_TS_Death_ss_18f_256x256_367
+  - first:
+      213: -8305577366932045587
+    second: B1_TS_Death_ss_18f_256x256_368
+  - first:
+      213: 8149601837795888754
+    second: B1_TS_Death_ss_18f_256x256_369
+  - first:
+      213: 3403130359193260656
+    second: B1_TS_Death_ss_18f_256x256_370
+  - first:
+      213: -6077753196979278344
+    second: B1_TS_Death_ss_18f_256x256_371
+  - first:
+      213: 1341340962881136129
+    second: B1_TS_Death_ss_18f_256x256_372
+  - first:
+      213: 2485148765533240824
+    second: B1_TS_Death_ss_18f_256x256_373
+  - first:
+      213: 7025190375431064836
+    second: B1_TS_Death_ss_18f_256x256_374
+  - first:
+      213: -7726633949639741577
+    second: B1_TS_Death_ss_18f_256x256_375
+  - first:
+      213: -5977460979266423231
+    second: B1_TS_Death_ss_18f_256x256_376
+  - first:
+      213: -1806850383593067662
+    second: B1_TS_Death_ss_18f_256x256_377
+  - first:
+      213: -5670108802462167881
+    second: B1_TS_Death_ss_18f_256x256_378
+  - first:
+      213: 6788716894086638253
+    second: B1_TS_Death_ss_18f_256x256_379
+  - first:
+      213: -39838108030804351
+    second: B1_TS_Death_ss_18f_256x256_380
+  - first:
+      213: -2886300537215362901
+    second: B1_TS_Death_ss_18f_256x256_381
+  - first:
+      213: -6469885722215420231
+    second: B1_TS_Death_ss_18f_256x256_382
+  - first:
+      213: -1826837722285063114
+    second: B1_TS_Death_ss_18f_256x256_383
+  - first:
+      213: 3539468058698913459
+    second: B1_TS_Death_ss_18f_256x256_384
+  - first:
+      213: 8985337682348427535
+    second: B1_TS_Death_ss_18f_256x256_385
+  - first:
+      213: 2920451554510114915
+    second: B1_TS_Death_ss_18f_256x256_386
+  - first:
+      213: -2185470526310809825
+    second: B1_TS_Death_ss_18f_256x256_387
+  - first:
+      213: -8632756414030393181
+    second: B1_TS_Death_ss_18f_256x256_388
+  - first:
+      213: 8410123760141834321
+    second: B1_TS_Death_ss_18f_256x256_389
+  - first:
+      213: -7943392428434457192
+    second: B1_TS_Death_ss_18f_256x256_390
+  - first:
+      213: -3065098473075677565
+    second: B1_TS_Death_ss_18f_256x256_391
+  - first:
+      213: 7769658792200813073
+    second: B1_TS_Death_ss_18f_256x256_392
+  - first:
+      213: -3698778849138962400
+    second: B1_TS_Death_ss_18f_256x256_393
+  - first:
+      213: 5231554495318016066
+    second: B1_TS_Death_ss_18f_256x256_394
+  - first:
+      213: -2343136866093330217
+    second: B1_TS_Death_ss_18f_256x256_395
+  - first:
+      213: 6854989949502125024
+    second: B1_TS_Death_ss_18f_256x256_396
+  - first:
+      213: -1556885864614193975
+    second: B1_TS_Death_ss_18f_256x256_397
+  - first:
+      213: 3406826067378946304
+    second: B1_TS_Death_ss_18f_256x256_398
+  - first:
+      213: -7438521797790532377
+    second: B1_TS_Death_ss_18f_256x256_399
+  - first:
+      213: 6827947203446973209
+    second: B1_TS_Death_ss_18f_256x256_400
+  - first:
+      213: 3132769357699387861
+    second: B1_TS_Death_ss_18f_256x256_401
+  - first:
+      213: -5857970949356095309
+    second: B1_TS_Death_ss_18f_256x256_402
+  - first:
+      213: 1000521838401522179
+    second: B1_TS_Death_ss_18f_256x256_403
+  - first:
+      213: 1746189994404945259
+    second: B1_TS_Death_ss_18f_256x256_404
+  - first:
+      213: 9197243712871010426
+    second: B1_TS_Death_ss_18f_256x256_405
+  - first:
+      213: 1200806712904480630
+    second: B1_TS_Death_ss_18f_256x256_406
+  - first:
+      213: -7262603675374781214
+    second: B1_TS_Death_ss_18f_256x256_407
+  - first:
+      213: -7358256804066394576
+    second: B1_TS_Death_ss_18f_256x256_408
+  - first:
+      213: 6545450784406791773
+    second: B1_TS_Death_ss_18f_256x256_409
+  - first:
+      213: 2460953768447542479
+    second: B1_TS_Death_ss_18f_256x256_410
+  - first:
+      213: 8962558767820631988
+    second: B1_TS_Death_ss_18f_256x256_411
+  - first:
+      213: 3680198781979763620
+    second: B1_TS_Death_ss_18f_256x256_412
+  - first:
+      213: -5008644229677477397
+    second: B1_TS_Death_ss_18f_256x256_413
+  - first:
+      213: -6047431230776642055
+    second: B1_TS_Death_ss_18f_256x256_414
+  - first:
+      213: 4174536637942967519
+    second: B1_TS_Death_ss_18f_256x256_415
+  - first:
+      213: -3066216161792061900
+    second: B1_TS_Death_ss_18f_256x256_416
+  - first:
+      213: 5605252223102287791
+    second: B1_TS_Death_ss_18f_256x256_417
+  - first:
+      213: -6890965278300118817
+    second: B1_TS_Death_ss_18f_256x256_418
+  - first:
+      213: -6061032223212418240
+    second: B1_TS_Death_ss_18f_256x256_419
+  - first:
+      213: -6220492816535731060
+    second: B1_TS_Death_ss_18f_256x256_420
+  - first:
+      213: 2225626843858450122
+    second: B1_TS_Death_ss_18f_256x256_421
+  - first:
+      213: 4792388891926019823
+    second: B1_TS_Death_ss_18f_256x256_422
+  - first:
+      213: -2901585203823804241
+    second: B1_TS_Death_ss_18f_256x256_423
+  - first:
+      213: 7171847529470349896
+    second: B1_TS_Death_ss_18f_256x256_424
+  - first:
+      213: 5886292295908609413
+    second: B1_TS_Death_ss_18f_256x256_425
+  - first:
+      213: -1600060874754805151
+    second: B1_TS_Death_ss_18f_256x256_426
+  - first:
+      213: -8446946244926206131
+    second: B1_TS_Death_ss_18f_256x256_427
+  - first:
+      213: 506710443477787357
+    second: B1_TS_Death_ss_18f_256x256_428
+  - first:
+      213: 791575269851201200
+    second: B1_TS_Death_ss_18f_256x256_429
+  - first:
+      213: 4282404739896035269
+    second: B1_TS_Death_ss_18f_256x256_430
+  - first:
+      213: -330323653173411357
+    second: B1_TS_Death_ss_18f_256x256_431
+  - first:
+      213: -6079341241570300374
+    second: B1_TS_Death_ss_18f_256x256_432
+  - first:
+      213: -9037183615442805461
+    second: B1_TS_Death_ss_18f_256x256_433
+  - first:
+      213: -2703026526929587175
+    second: B1_TS_Death_ss_18f_256x256_434
+  - first:
+      213: 3403284854552177834
+    second: B1_TS_Death_ss_18f_256x256_435
+  - first:
+      213: -1902244042512591905
+    second: B1_TS_Death_ss_18f_256x256_436
+  - first:
+      213: -1647979295141881698
+    second: B1_TS_Death_ss_18f_256x256_437
+  - first:
+      213: -507194605618461930
+    second: B1_TS_Death_ss_18f_256x256_438
+  - first:
+      213: 7701775061708954279
+    second: B1_TS_Death_ss_18f_256x256_439
+  - first:
+      213: 3264980390342168518
+    second: B1_TS_Death_ss_18f_256x256_440
+  - first:
+      213: 5438405950581709311
+    second: B1_TS_Death_ss_18f_256x256_441
+  - first:
+      213: -7392911435486015757
+    second: B1_TS_Death_ss_18f_256x256_442
+  - first:
+      213: 8933689636767864753
+    second: B1_TS_Death_ss_18f_256x256_443
+  - first:
+      213: 5096542802542649183
+    second: B1_TS_Death_ss_18f_256x256_444
+  - first:
+      213: -575234102471676559
+    second: B1_TS_Death_ss_18f_256x256_445
+  - first:
+      213: -1019402658462590621
+    second: B1_TS_Death_ss_18f_256x256_446
+  - first:
+      213: -5956994657872819294
+    second: B1_TS_Death_ss_18f_256x256_447
+  - first:
+      213: -3072601521658979904
+    second: B1_TS_Death_ss_18f_256x256_448
+  - first:
+      213: 4565311904828963599
+    second: B1_TS_Death_ss_18f_256x256_449
+  - first:
+      213: 3948619250474517147
+    second: B1_TS_Death_ss_18f_256x256_450
+  - first:
+      213: 7998442638994059163
+    second: B1_TS_Death_ss_18f_256x256_451
+  - first:
+      213: -6971451177693042211
+    second: B1_TS_Death_ss_18f_256x256_452
+  - first:
+      213: 6694045176304411021
+    second: B1_TS_Death_ss_18f_256x256_453
+  - first:
+      213: -2793548996523169147
+    second: B1_TS_Death_ss_18f_256x256_454
+  - first:
+      213: -5020961446474876222
+    second: B1_TS_Death_ss_18f_256x256_455
+  - first:
+      213: 5275440635753263365
+    second: B1_TS_Death_ss_18f_256x256_456
+  - first:
+      213: -8741958652434707164
+    second: B1_TS_Death_ss_18f_256x256_457
+  - first:
+      213: 1071859320912417333
+    second: B1_TS_Death_ss_18f_256x256_458
+  - first:
+      213: -7580265873220035549
+    second: B1_TS_Death_ss_18f_256x256_459
+  - first:
+      213: 5312754504602349167
+    second: B1_TS_Death_ss_18f_256x256_460
+  - first:
+      213: 7174284161746698731
+    second: B1_TS_Death_ss_18f_256x256_461
+  - first:
+      213: 3897474766423619226
+    second: B1_TS_Death_ss_18f_256x256_462
+  - first:
+      213: 6550150943310053807
+    second: B1_TS_Death_ss_18f_256x256_463
+  - first:
+      213: -2794285989658859023
+    second: B1_TS_Death_ss_18f_256x256_464
+  - first:
+      213: -8856932508174421426
+    second: B1_TS_Death_ss_18f_256x256_465
+  - first:
+      213: 3917534509324441194
+    second: B1_TS_Death_ss_18f_256x256_466
+  - first:
+      213: -9154419944233997221
+    second: B1_TS_Death_ss_18f_256x256_467
+  - first:
+      213: 1081862841149998759
+    second: B1_TS_Death_ss_18f_256x256_468
+  - first:
+      213: -3557301041703850109
+    second: B1_TS_Death_ss_18f_256x256_469
+  - first:
+      213: -3443551457550271742
+    second: B1_TS_Death_ss_18f_256x256_470
+  - first:
+      213: 3271068373946440966
+    second: B1_TS_Death_ss_18f_256x256_471
+  - first:
+      213: -5749149257933200745
+    second: B1_TS_Death_ss_18f_256x256_472
+  - first:
+      213: 2914763773172961013
+    second: B1_TS_Death_ss_18f_256x256_473
+  - first:
+      213: -8358760448084155993
+    second: B1_TS_Death_ss_18f_256x256_474
+  - first:
+      213: 8780065843775757653
+    second: B1_TS_Death_ss_18f_256x256_475
+  - first:
+      213: 7271967128512782708
+    second: B1_TS_Death_ss_18f_256x256_476
+  - first:
+      213: 8468762569500166726
+    second: B1_TS_Death_ss_18f_256x256_477
+  - first:
+      213: 8564007328539794095
+    second: B1_TS_Death_ss_18f_256x256_478
+  - first:
+      213: 8933365509024091435
+    second: B1_TS_Death_ss_18f_256x256_479
+  - first:
+      213: 8326435332360149892
+    second: B1_TS_Death_ss_18f_256x256_480
+  - first:
+      213: -6766241100881606614
+    second: B1_TS_Death_ss_18f_256x256_481
+  - first:
+      213: -3007993442747441549
+    second: B1_TS_Death_ss_18f_256x256_482
+  - first:
+      213: -1662738616834922161
+    second: B1_TS_Death_ss_18f_256x256_483
+  - first:
+      213: -1527866545923570322
+    second: B1_TS_Death_ss_18f_256x256_484
+  - first:
+      213: 3603995623232297718
+    second: B1_TS_Death_ss_18f_256x256_485
+  - first:
+      213: -8579140526546642144
+    second: B1_TS_Death_ss_18f_256x256_486
+  - first:
+      213: 212550723808964329
+    second: B1_TS_Death_ss_18f_256x256_487
+  - first:
+      213: -192320047671130432
+    second: B1_TS_Death_ss_18f_256x256_488
+  - first:
+      213: 5929242493009323098
+    second: B1_TS_Death_ss_18f_256x256_489
+  - first:
+      213: -9118816714797284035
+    second: B1_TS_Death_ss_18f_256x256_490
+  - first:
+      213: 2649097386930324840
+    second: B1_TS_Death_ss_18f_256x256_491
+  - first:
+      213: 8353386084749009845
+    second: B1_TS_Death_ss_18f_256x256_492
+  - first:
+      213: -2935620330939173670
+    second: B1_TS_Death_ss_18f_256x256_493
+  - first:
+      213: -8279206816782087694
+    second: B1_TS_Death_ss_18f_256x256_494
+  - first:
+      213: -7909986356879039075
+    second: B1_TS_Death_ss_18f_256x256_495
+  - first:
+      213: 1899510223991862896
+    second: B1_TS_Death_ss_18f_256x256_496
+  - first:
+      213: -8387840844112587339
+    second: B1_TS_Death_ss_18f_256x256_497
+  - first:
+      213: 5598437310556432180
+    second: B1_TS_Death_ss_18f_256x256_498
+  - first:
+      213: -1123715842366648440
+    second: B1_TS_Death_ss_18f_256x256_499
+  - first:
+      213: 4083493627889039439
+    second: B1_TS_Death_ss_18f_256x256_500
+  - first:
+      213: 3315541026141787003
+    second: B1_TS_Death_ss_18f_256x256_501
+  - first:
+      213: 3597195983724495368
+    second: B1_TS_Death_ss_18f_256x256_502
+  - first:
+      213: -2776836373901349820
+    second: B1_TS_Death_ss_18f_256x256_503
+  - first:
+      213: -6473578479632641745
+    second: B1_TS_Death_ss_18f_256x256_504
+  - first:
+      213: 5408377126930310893
+    second: B1_TS_Death_ss_18f_256x256_505
+  - first:
+      213: 2522813269926604613
+    second: B1_TS_Death_ss_18f_256x256_506
+  - first:
+      213: -8545364676312863929
+    second: B1_TS_Death_ss_18f_256x256_507
+  - first:
+      213: 6048370452138648368
+    second: B1_TS_Death_ss_18f_256x256_508
+  - first:
+      213: 6853463707381200217
+    second: B1_TS_Death_ss_18f_256x256_509
+  - first:
+      213: -1342372968110557729
+    second: B1_TS_Death_ss_18f_256x256_510
+  - first:
+      213: -7693352342151471686
+    second: B1_TS_Death_ss_18f_256x256_511
+  - first:
+      213: -5448051179027934810
+    second: B1_TS_Death_ss_18f_256x256_512
+  - first:
+      213: -4293591884025426385
+    second: B1_TS_Death_ss_18f_256x256_513
+  - first:
+      213: -712617215013874557
+    second: B1_TS_Death_ss_18f_256x256_514
+  - first:
+      213: -4727029986986509310
+    second: B1_TS_Death_ss_18f_256x256_515
+  - first:
+      213: 6591956199588330753
+    second: B1_TS_Death_ss_18f_256x256_516
+  - first:
+      213: -209030597319442899
+    second: B1_TS_Death_ss_18f_256x256_517
+  - first:
+      213: -6955140957251647701
+    second: B1_TS_Death_ss_18f_256x256_518
+  - first:
+      213: -3282743390323950606
+    second: B1_TS_Death_ss_18f_256x256_519
+  - first:
+      213: -4031657546985909606
+    second: B1_TS_Death_ss_18f_256x256_520
+  - first:
+      213: 5928774115073004407
+    second: B1_TS_Death_ss_18f_256x256_521
+  - first:
+      213: -1868500241956866127
+    second: B1_TS_Death_ss_18f_256x256_522
+  - first:
+      213: -1719875869395464942
+    second: B1_TS_Death_ss_18f_256x256_523
+  - first:
+      213: 453137796944481765
+    second: B1_TS_Death_ss_18f_256x256_524
+  - first:
+      213: 9009080338973470982
+    second: B1_TS_Death_ss_18f_256x256_525
+  - first:
+      213: -7793894109583339205
+    second: B1_TS_Death_ss_18f_256x256_526
+  - first:
+      213: 7410194232647141013
+    second: B1_TS_Death_ss_18f_256x256_527
+  - first:
+      213: 7039323211884322006
+    second: B1_TS_Death_ss_18f_256x256_528
+  - first:
+      213: -9204024981235704079
+    second: B1_TS_Death_ss_18f_256x256_529
+  - first:
+      213: 5114326525326166980
+    second: B1_TS_Death_ss_18f_256x256_530
+  - first:
+      213: -101166900169817270
+    second: B1_TS_Death_ss_18f_256x256_531
+  - first:
+      213: 3325191573443833517
+    second: B1_TS_Death_ss_18f_256x256_532
+  - first:
+      213: 1082106278297561486
+    second: B1_TS_Death_ss_18f_256x256_533
+  - first:
+      213: 1219954527038563813
+    second: B1_TS_Death_ss_18f_256x256_534
+  - first:
+      213: -5083793216061850891
+    second: B1_TS_Death_ss_18f_256x256_535
+  - first:
+      213: -4213502499463957124
+    second: B1_TS_Death_ss_18f_256x256_536
+  - first:
+      213: -5480696765764030700
+    second: B1_TS_Death_ss_18f_256x256_537
+  - first:
+      213: -563638072918619173
+    second: B1_TS_Death_ss_18f_256x256_538
+  - first:
+      213: 3932140351132351580
+    second: B1_TS_Death_ss_18f_256x256_539
+  - first:
+      213: 9113786751929188652
+    second: B1_TS_Death_ss_18f_256x256_540
+  - first:
+      213: 3239555056601040867
+    second: B1_TS_Death_ss_18f_256x256_541
+  - first:
+      213: -1544946246785163081
+    second: B1_TS_Death_ss_18f_256x256_542
+  - first:
+      213: -1279381158215818850
+    second: B1_TS_Death_ss_18f_256x256_543
+  - first:
+      213: 861118990497598504
+    second: B1_TS_Death_ss_18f_256x256_544
+  - first:
+      213: -5725353618182873793
+    second: B1_TS_Death_ss_18f_256x256_545
+  - first:
+      213: -1964219555582922990
+    second: B1_TS_Death_ss_18f_256x256_546
+  - first:
+      213: 4953366936495944183
+    second: B1_TS_Death_ss_18f_256x256_547
+  - first:
+      213: -2937966585964893321
+    second: B1_TS_Death_ss_18f_256x256_548
+  - first:
+      213: 4955043269057727231
+    second: B1_TS_Death_ss_18f_256x256_549
+  - first:
+      213: -8691808839666031276
+    second: B1_TS_Death_ss_18f_256x256_550
+  - first:
+      213: 4243963301542253097
+    second: B1_TS_Death_ss_18f_256x256_551
+  - first:
+      213: -60627902400974785
+    second: B1_TS_Death_ss_18f_256x256_552
+  - first:
+      213: 1654368444151357818
+    second: B1_TS_Death_ss_18f_256x256_553
+  - first:
+      213: 3578955990410714077
+    second: B1_TS_Death_ss_18f_256x256_554
+  - first:
+      213: -7200821492300095592
+    second: B1_TS_Death_ss_18f_256x256_555
+  - first:
+      213: -1678897558817619447
+    second: B1_TS_Death_ss_18f_256x256_556
+  - first:
+      213: -2788500828320542030
+    second: B1_TS_Death_ss_18f_256x256_557
+  - first:
+      213: 5492891551428834632
+    second: B1_TS_Death_ss_18f_256x256_558
+  - first:
+      213: 7825809234609487064
+    second: B1_TS_Death_ss_18f_256x256_559
+  - first:
+      213: 7446085952254886431
+    second: B1_TS_Death_ss_18f_256x256_560
+  - first:
+      213: 4912677629452345107
+    second: B1_TS_Death_ss_18f_256x256_561
+  - first:
+      213: 2669239093524619934
+    second: B1_TS_Death_ss_18f_256x256_562
+  - first:
+      213: -4770523821924783811
+    second: B1_TS_Death_ss_18f_256x256_563
+  - first:
+      213: 3384152388915418106
+    second: B1_TS_Death_ss_18f_256x256_564
+  - first:
+      213: 2667532545855838986
+    second: B1_TS_Death_ss_18f_256x256_565
+  - first:
+      213: 2499815008009895615
+    second: B1_TS_Death_ss_18f_256x256_566
+  - first:
+      213: -1271047871286538779
+    second: B1_TS_Death_ss_18f_256x256_567
+  - first:
+      213: 6615778140790720344
+    second: B1_TS_Death_ss_18f_256x256_568
+  - first:
+      213: 302743257714013142
+    second: B1_TS_Death_ss_18f_256x256_569
+  - first:
+      213: -781664742277383933
+    second: B1_TS_Death_ss_18f_256x256_570
+  - first:
+      213: -4091845296856649405
+    second: B1_TS_Death_ss_18f_256x256_571
+  - first:
+      213: -1340913884042885869
+    second: B1_TS_Death_ss_18f_256x256_572
+  - first:
+      213: 6352281672735372989
+    second: B1_TS_Death_ss_18f_256x256_573
+  - first:
+      213: -1745691228030040318
+    second: B1_TS_Death_ss_18f_256x256_574
+  - first:
+      213: 2506315839115771240
+    second: B1_TS_Death_ss_18f_256x256_575
+  - first:
+      213: 2992890730673017169
+    second: B1_TS_Death_ss_18f_256x256_576
+  - first:
+      213: 416252138371814726
+    second: B1_TS_Death_ss_18f_256x256_577
+  - first:
+      213: -8532818388007947707
+    second: B1_TS_Death_ss_18f_256x256_578
+  - first:
+      213: 3932269470547228496
+    second: B1_TS_Death_ss_18f_256x256_579
+  - first:
+      213: -8908827734643270416
+    second: B1_TS_Death_ss_18f_256x256_580
+  - first:
+      213: 857860039367873376
+    second: B1_TS_Death_ss_18f_256x256_581
+  - first:
+      213: -2941908067821785020
+    second: B1_TS_Death_ss_18f_256x256_582
+  - first:
+      213: -2305971989380191716
+    second: B1_TS_Death_ss_18f_256x256_583
+  - first:
+      213: -1570895932170376755
+    second: B1_TS_Death_ss_18f_256x256_584
+  - first:
+      213: -6960017080455480720
+    second: B1_TS_Death_ss_18f_256x256_585
+  - first:
+      213: -5926050325219613027
+    second: B1_TS_Death_ss_18f_256x256_586
+  - first:
+      213: 971459957255916551
+    second: B1_TS_Death_ss_18f_256x256_587
+  - first:
+      213: 7155153910823468196
+    second: B1_TS_Death_ss_18f_256x256_588
+  - first:
+      213: 1469699849446365522
+    second: B1_TS_Death_ss_18f_256x256_589
+  - first:
+      213: 2507929125222572945
+    second: B1_TS_Death_ss_18f_256x256_590
+  - first:
+      213: 7485506541772932970
+    second: B1_TS_Death_ss_18f_256x256_591
+  - first:
+      213: -258497042298280975
+    second: B1_TS_Death_ss_18f_256x256_592
+  - first:
+      213: 1529117209700272249
+    second: B1_TS_Death_ss_18f_256x256_593
+  - first:
+      213: -6028989397168690504
+    second: B1_TS_Death_ss_18f_256x256_594
+  - first:
+      213: 3754418482753056864
+    second: B1_TS_Death_ss_18f_256x256_595
+  - first:
+      213: 5896971797158987920
+    second: B1_TS_Death_ss_18f_256x256_596
+  - first:
+      213: 5849896968693132102
+    second: B1_TS_Death_ss_18f_256x256_597
+  - first:
+      213: -4085141602059364474
+    second: B1_TS_Death_ss_18f_256x256_598
+  - first:
+      213: 4072955179815355628
+    second: B1_TS_Death_ss_18f_256x256_599
+  - first:
+      213: -6407331814403350901
+    second: B1_TS_Death_ss_18f_256x256_600
+  - first:
+      213: -4409637636020390603
+    second: B1_TS_Death_ss_18f_256x256_601
+  - first:
+      213: -8459249318618155917
+    second: B1_TS_Death_ss_18f_256x256_602
+  - first:
+      213: -5779902900092136305
+    second: B1_TS_Death_ss_18f_256x256_603
+  - first:
+      213: -7067402492073970834
+    second: B1_TS_Death_ss_18f_256x256_604
+  - first:
+      213: -787160173463474832
+    second: B1_TS_Death_ss_18f_256x256_605
+  - first:
+      213: -2383585130942068152
+    second: B1_TS_Death_ss_18f_256x256_606
+  - first:
+      213: -8019114470456063631
+    second: B1_TS_Death_ss_18f_256x256_607
+  - first:
+      213: 73720632536699548
+    second: B1_TS_Death_ss_18f_256x256_608
+  - first:
+      213: -5479234305659674080
+    second: B1_TS_Death_ss_18f_256x256_609
+  - first:
+      213: -3945988643291617696
+    second: B1_TS_Death_ss_18f_256x256_610
+  - first:
+      213: -9017559801333684229
+    second: B1_TS_Death_ss_18f_256x256_611
+  - first:
+      213: 3134522125314829739
+    second: B1_TS_Death_ss_18f_256x256_612
+  - first:
+      213: 8218738271261503245
+    second: B1_TS_Death_ss_18f_256x256_613
+  - first:
+      213: -1964687713328213475
+    second: B1_TS_Death_ss_18f_256x256_614
+  - first:
+      213: -8309791004623556654
+    second: B1_TS_Death_ss_18f_256x256_615
+  - first:
+      213: 615882053348542355
+    second: B1_TS_Death_ss_18f_256x256_616
+  - first:
+      213: -7511633270929609149
+    second: B1_TS_Death_ss_18f_256x256_617
+  - first:
+      213: 2841903894301582832
+    second: B1_TS_Death_ss_18f_256x256_618
+  - first:
+      213: 300890485017018923
+    second: B1_TS_Death_ss_18f_256x256_619
+  - first:
+      213: -1054835748336773743
+    second: B1_TS_Death_ss_18f_256x256_620
+  - first:
+      213: 7099801206991716435
+    second: B1_TS_Death_ss_18f_256x256_621
+  - first:
+      213: -1396369383222347211
+    second: B1_TS_Death_ss_18f_256x256_622
+  - first:
+      213: 4832187323548795558
+    second: B1_TS_Death_ss_18f_256x256_623
+  - first:
+      213: -2051888277719318532
+    second: B1_TS_Death_ss_18f_256x256_624
+  - first:
+      213: 5688734734164284265
+    second: B1_TS_Death_ss_18f_256x256_625
+  - first:
+      213: -8197569340700671326
+    second: B1_TS_Death_ss_18f_256x256_626
+  - first:
+      213: 8434214958552070159
+    second: B1_TS_Death_ss_18f_256x256_627
+  - first:
+      213: 2451372014965638761
+    second: B1_TS_Death_ss_18f_256x256_628
+  - first:
+      213: -1409932668463327324
+    second: B1_TS_Death_ss_18f_256x256_629
+  - first:
+      213: -904499342151938147
+    second: B1_TS_Death_ss_18f_256x256_630
+  - first:
+      213: 8044699413298282550
+    second: B1_TS_Death_ss_18f_256x256_631
+  - first:
+      213: 8728643522433061767
+    second: B1_TS_Death_ss_18f_256x256_632
+  - first:
+      213: -4886053836025520474
+    second: B1_TS_Death_ss_18f_256x256_633
+  - first:
+      213: -830018098238971192
+    second: B1_TS_Death_ss_18f_256x256_634
+  - first:
+      213: -1161876040190114372
+    second: B1_TS_Death_ss_18f_256x256_635
+  - first:
+      213: -8997820393911091978
+    second: B1_TS_Death_ss_18f_256x256_636
+  - first:
+      213: -4962621878820685544
+    second: B1_TS_Death_ss_18f_256x256_637
+  - first:
+      213: 3621308994389988468
+    second: B1_TS_Death_ss_18f_256x256_638
+  - first:
+      213: 6537414109706879605
+    second: B1_TS_Death_ss_18f_256x256_639
+  - first:
+      213: 7397557230068235729
+    second: B1_TS_Death_ss_18f_256x256_640
+  - first:
+      213: -4960247238516405745
+    second: B1_TS_Death_ss_18f_256x256_641
+  - first:
+      213: -2821910836409376874
+    second: B1_TS_Death_ss_18f_256x256_642
+  - first:
+      213: 2346355554087965559
+    second: B1_TS_Death_ss_18f_256x256_643
+  - first:
+      213: 4801414619646017784
+    second: B1_TS_Death_ss_18f_256x256_644
+  - first:
+      213: 7161994042603279361
+    second: B1_TS_Death_ss_18f_256x256_645
+  - first:
+      213: -7245869676025183183
+    second: B1_TS_Death_ss_18f_256x256_646
+  - first:
+      213: -8465882742992066089
+    second: B1_TS_Death_ss_18f_256x256_647
+  - first:
+      213: 8498340277583666733
+    second: B1_TS_Death_ss_18f_256x256_648
+  - first:
+      213: 6806078998197044012
+    second: B1_TS_Death_ss_18f_256x256_649
+  - first:
+      213: -8672883319995823123
+    second: B1_TS_Death_ss_18f_256x256_650
+  - first:
+      213: -5327162371435527751
+    second: B1_TS_Death_ss_18f_256x256_651
+  - first:
+      213: 8729399450901747132
+    second: B1_TS_Death_ss_18f_256x256_652
+  - first:
+      213: -1044358596431753046
+    second: B1_TS_Death_ss_18f_256x256_653
+  - first:
+      213: -6257680526392882742
+    second: B1_TS_Death_ss_18f_256x256_654
+  - first:
+      213: 1062926907722716759
+    second: B1_TS_Death_ss_18f_256x256_655
+  - first:
+      213: -2047893545363124250
+    second: B1_TS_Death_ss_18f_256x256_656
+  - first:
+      213: 2084241286903610622
+    second: B1_TS_Death_ss_18f_256x256_657
+  - first:
+      213: -5130096042574656708
+    second: B1_TS_Death_ss_18f_256x256_658
+  - first:
+      213: -5310803481333477619
+    second: B1_TS_Death_ss_18f_256x256_659
+  - first:
+      213: 7524287773146554706
+    second: B1_TS_Death_ss_18f_256x256_660
+  - first:
+      213: 8307626536047088731
+    second: B1_TS_Death_ss_18f_256x256_661
+  - first:
+      213: 2130184047893591459
+    second: B1_TS_Death_ss_18f_256x256_662
+  - first:
+      213: -4173809258977045321
+    second: B1_TS_Death_ss_18f_256x256_663
+  - first:
+      213: 6977273382233390324
+    second: B1_TS_Death_ss_18f_256x256_664
+  - first:
+      213: 4671727807523723700
+    second: B1_TS_Death_ss_18f_256x256_665
+  - first:
+      213: 1019416213653918647
+    second: B1_TS_Death_ss_18f_256x256_666
+  - first:
+      213: 9030845074433534649
+    second: B1_TS_Death_ss_18f_256x256_667
+  - first:
+      213: -5467208171454496137
+    second: B1_TS_Death_ss_18f_256x256_668
+  - first:
+      213: -8885191165719145855
+    second: B1_TS_Death_ss_18f_256x256_669
+  - first:
+      213: 1772136852710607409
+    second: B1_TS_Death_ss_18f_256x256_670
+  - first:
+      213: 7411841966751118455
+    second: B1_TS_Death_ss_18f_256x256_671
+  - first:
+      213: 6202262154349229633
+    second: B1_TS_Death_ss_18f_256x256_672
+  - first:
+      213: 5443801705727883422
+    second: B1_TS_Death_ss_18f_256x256_673
+  - first:
+      213: -12593221865256231
+    second: B1_TS_Death_ss_18f_256x256_674
+  - first:
+      213: 6692938435225374999
+    second: B1_TS_Death_ss_18f_256x256_675
+  - first:
+      213: -7208360995579680139
+    second: B1_TS_Death_ss_18f_256x256_676
+  - first:
+      213: -8239718892888667676
+    second: B1_TS_Death_ss_18f_256x256_677
+  - first:
+      213: -7265256602554567974
+    second: B1_TS_Death_ss_18f_256x256_678
+  - first:
+      213: -464925980512910729
+    second: B1_TS_Death_ss_18f_256x256_679
+  - first:
+      213: -9181422558432459125
+    second: B1_TS_Death_ss_18f_256x256_680
+  - first:
+      213: 377697433445822551
+    second: B1_TS_Death_ss_18f_256x256_681
+  - first:
+      213: 8748767820082786428
+    second: B1_TS_Death_ss_18f_256x256_682
+  - first:
+      213: -7215319590846030353
+    second: B1_TS_Death_ss_18f_256x256_683
+  - first:
+      213: 8646951965899328699
+    second: B1_TS_Death_ss_18f_256x256_684
+  - first:
+      213: 4857869071847352583
+    second: B1_TS_Death_ss_18f_256x256_685
+  - first:
+      213: 6212605317920804267
+    second: B1_TS_Death_ss_18f_256x256_686
+  - first:
+      213: 5856928930129336078
+    second: B1_TS_Death_ss_18f_256x256_687
+  - first:
+      213: -356447774066034145
+    second: B1_TS_Death_ss_18f_256x256_688
+  - first:
+      213: 1201581069199502265
+    second: B1_TS_Death_ss_18f_256x256_689
+  - first:
+      213: 2058158933018812766
+    second: B1_TS_Death_ss_18f_256x256_690
+  - first:
+      213: 2117010582322012494
+    second: B1_TS_Death_ss_18f_256x256_691
+  - first:
+      213: -4599582111110115904
+    second: B1_TS_Death_ss_18f_256x256_692
+  - first:
+      213: 1913139829229520891
+    second: B1_TS_Death_ss_18f_256x256_693
+  - first:
+      213: 7971388527503887435
+    second: B1_TS_Death_ss_18f_256x256_694
+  - first:
+      213: 5996560077991813714
+    second: B1_TS_Death_ss_18f_256x256_695
+  - first:
+      213: -1460994324904715571
+    second: B1_TS_Death_ss_18f_256x256_696
+  - first:
+      213: 3323045325284134550
+    second: B1_TS_Death_ss_18f_256x256_697
+  - first:
+      213: -3247571186048881908
+    second: B1_TS_Death_ss_18f_256x256_698
+  - first:
+      213: 5631699333405298821
+    second: B1_TS_Death_ss_18f_256x256_699
+  - first:
+      213: 4626644226043758821
+    second: B1_TS_Death_ss_18f_256x256_700
+  - first:
+      213: 7386001707767160958
+    second: B1_TS_Death_ss_18f_256x256_701
+  - first:
+      213: 1204386769154913824
+    second: B1_TS_Death_ss_18f_256x256_702
+  - first:
+      213: 5150672983614792419
+    second: B1_TS_Death_ss_18f_256x256_703
+  - first:
+      213: 5786625103929916100
+    second: B1_TS_Death_ss_18f_256x256_704
+  - first:
+      213: -5301983177145557720
+    second: B1_TS_Death_ss_18f_256x256_705
+  - first:
+      213: 5129963896726389429
+    second: B1_TS_Death_ss_18f_256x256_706
+  - first:
+      213: -6219258107095856614
+    second: B1_TS_Death_ss_18f_256x256_707
+  - first:
+      213: -7454198974624190012
+    second: B1_TS_Death_ss_18f_256x256_708
+  - first:
+      213: 7450009593560871504
+    second: B1_TS_Death_ss_18f_256x256_709
+  - first:
+      213: 455174075463867944
+    second: B1_TS_Death_ss_18f_256x256_710
+  - first:
+      213: 868851078492388044
+    second: B1_TS_Death_ss_18f_256x256_711
+  - first:
+      213: 7542048678711360950
+    second: B1_TS_Death_ss_18f_256x256_712
+  - first:
+      213: -5393495495488686254
+    second: B1_TS_Death_ss_18f_256x256_713
+  - first:
+      213: -7245317507315668944
+    second: B1_TS_Death_ss_18f_256x256_714
+  - first:
+      213: 8988957499082979345
+    second: B1_TS_Death_ss_18f_256x256_715
+  - first:
+      213: -127715757363633889
+    second: B1_TS_Death_ss_18f_256x256_716
+  - first:
+      213: 5450602914850289255
+    second: B1_TS_Death_ss_18f_256x256_717
+  - first:
+      213: -5409814686823868711
+    second: B1_TS_Death_ss_18f_256x256_718
+  - first:
+      213: 172104912398804129
+    second: B1_TS_Death_ss_18f_256x256_719
+  - first:
+      213: 9183135092184531706
+    second: B1_TS_Death_ss_18f_256x256_720
+  - first:
+      213: 272978860672696721
+    second: B1_TS_Death_ss_18f_256x256_721
+  - first:
+      213: -720275380829628781
+    second: B1_TS_Death_ss_18f_256x256_722
+  - first:
+      213: -3891903675973354302
+    second: B1_TS_Death_ss_18f_256x256_723
+  - first:
+      213: 5518374256271208472
+    second: B1_TS_Death_ss_18f_256x256_724
+  - first:
+      213: -7039530791496328990
+    second: B1_TS_Death_ss_18f_256x256_725
+  - first:
+      213: -3134192625334556829
+    second: B1_TS_Death_ss_18f_256x256_726
+  - first:
+      213: -5213469882293991296
+    second: B1_TS_Death_ss_18f_256x256_727
+  - first:
+      213: 8771159284061857026
+    second: B1_TS_Death_ss_18f_256x256_728
+  - first:
+      213: -8607405184396097627
+    second: B1_TS_Death_ss_18f_256x256_729
+  - first:
+      213: 1777812943718804451
+    second: B1_TS_Death_ss_18f_256x256_730
+  - first:
+      213: -6484224836583088030
+    second: B1_TS_Death_ss_18f_256x256_731
+  - first:
+      213: 1579658161339854393
+    second: B1_TS_Death_ss_18f_256x256_732
+  - first:
+      213: 8037491406024748772
+    second: B1_TS_Death_ss_18f_256x256_733
+  - first:
+      213: -5223080015414476706
+    second: B1_TS_Death_ss_18f_256x256_734
+  - first:
+      213: 2994586401272274044
+    second: B1_TS_Death_ss_18f_256x256_735
+  - first:
+      213: -2419206923541744044
+    second: B1_TS_Death_ss_18f_256x256_736
+  - first:
+      213: 7263252226189365026
+    second: B1_TS_Death_ss_18f_256x256_737
+  - first:
+      213: -7226482792091508655
+    second: B1_TS_Death_ss_18f_256x256_738
+  - first:
+      213: -4441247815416832280
+    second: B1_TS_Death_ss_18f_256x256_739
+  - first:
+      213: -5803005755855975258
+    second: B1_TS_Death_ss_18f_256x256_740
+  - first:
+      213: 3569897032743752073
+    second: B1_TS_Death_ss_18f_256x256_741
+  - first:
+      213: 9081736330667623061
+    second: B1_TS_Death_ss_18f_256x256_742
+  - first:
+      213: 2518326948506848779
+    second: B1_TS_Death_ss_18f_256x256_743
+  - first:
+      213: -6433128228047043655
+    second: B1_TS_Death_ss_18f_256x256_744
+  - first:
+      213: 142001189759783259
+    second: B1_TS_Death_ss_18f_256x256_745
+  - first:
+      213: 3674452886264905510
+    second: B1_TS_Death_ss_18f_256x256_746
+  - first:
+      213: 7960611633506291955
+    second: B1_TS_Death_ss_18f_256x256_747
+  - first:
+      213: -8965418587755934832
+    second: B1_TS_Death_ss_18f_256x256_748
+  - first:
+      213: -35670781359551346
+    second: B1_TS_Death_ss_18f_256x256_749
+  - first:
+      213: 9220474565166106504
+    second: B1_TS_Death_ss_18f_256x256_750
+  - first:
+      213: -1311328562294638546
+    second: B1_TS_Death_ss_18f_256x256_751
+  - first:
+      213: -4237181283885165622
+    second: B1_TS_Death_ss_18f_256x256_752
+  - first:
+      213: -8908657840512317588
+    second: B1_TS_Death_ss_18f_256x256_753
+  - first:
+      213: -1573303606640406735
+    second: B1_TS_Death_ss_18f_256x256_754
+  - first:
+      213: 7248255076018058117
+    second: B1_TS_Death_ss_18f_256x256_755
+  - first:
+      213: -5249097560081131593
+    second: B1_TS_Death_ss_18f_256x256_756
+  - first:
+      213: -4897542305365758624
+    second: B1_TS_Death_ss_18f_256x256_757
+  - first:
+      213: -1118630812941247828
+    second: B1_TS_Death_ss_18f_256x256_758
+  - first:
+      213: -5269835836286260072
+    second: B1_TS_Death_ss_18f_256x256_759
+  - first:
+      213: -4724916701874132079
+    second: B1_TS_Death_ss_18f_256x256_760
+  - first:
+      213: -1118863532524437767
+    second: B1_TS_Death_ss_18f_256x256_761
+  - first:
+      213: 7268518704187888162
+    second: B1_TS_Death_ss_18f_256x256_762
+  - first:
+      213: 8180397756046524604
+    second: B1_TS_Death_ss_18f_256x256_763
+  - first:
+      213: 6017648035995113487
+    second: B1_TS_Death_ss_18f_256x256_764
+  - first:
+      213: 209425219018138420
+    second: B1_TS_Death_ss_18f_256x256_765
+  - first:
+      213: -7256622293887416695
+    second: B1_TS_Death_ss_18f_256x256_766
+  - first:
+      213: -8823099267656546841
+    second: B1_TS_Death_ss_18f_256x256_767
+  - first:
+      213: 4380073890703713422
+    second: B1_TS_Death_ss_18f_256x256_768
+  - first:
+      213: 6950095101318763336
+    second: B1_TS_Death_ss_18f_256x256_769
+  - first:
+      213: -795664378906521369
+    second: B1_TS_Death_ss_18f_256x256_770
+  - first:
+      213: 2372738517496180969
+    second: B1_TS_Death_ss_18f_256x256_771
+  - first:
+      213: -869151223860666713
+    second: B1_TS_Death_ss_18f_256x256_772
+  - first:
+      213: -6525245492289556322
+    second: B1_TS_Death_ss_18f_256x256_773
+  - first:
+      213: 8500565908406921486
+    second: B1_TS_Death_ss_18f_256x256_774
+  - first:
+      213: 2441662143530274459
+    second: B1_TS_Death_ss_18f_256x256_775
+  - first:
+      213: 6361654213159712191
+    second: B1_TS_Death_ss_18f_256x256_776
+  - first:
+      213: -1480392705319338771
+    second: B1_TS_Death_ss_18f_256x256_777
+  - first:
+      213: -9149696306746612884
+    second: B1_TS_Death_ss_18f_256x256_778
+  - first:
+      213: -7469434295810022722
+    second: B1_TS_Death_ss_18f_256x256_779
+  - first:
+      213: -6436605790411933708
+    second: B1_TS_Death_ss_18f_256x256_780
+  - first:
+      213: 5386189281626065394
+    second: B1_TS_Death_ss_18f_256x256_781
+  - first:
+      213: -6673528772098083320
+    second: B1_TS_Death_ss_18f_256x256_782
+  - first:
+      213: 3660865758468796435
+    second: B1_TS_Death_ss_18f_256x256_783
+  - first:
+      213: -8375717784792388222
+    second: B1_TS_Death_ss_18f_256x256_784
+  - first:
+      213: -4869776430751388321
+    second: B1_TS_Death_ss_18f_256x256_785
+  - first:
+      213: -3278683982331072711
+    second: B1_TS_Death_ss_18f_256x256_786
+  - first:
+      213: -446419510710285945
+    second: B1_TS_Death_ss_18f_256x256_787
+  - first:
+      213: -3927221693088361243
+    second: B1_TS_Death_ss_18f_256x256_788
+  - first:
+      213: 5111324206921932324
+    second: B1_TS_Death_ss_18f_256x256_789
+  - first:
+      213: 1289569736810636792
+    second: B1_TS_Death_ss_18f_256x256_790
+  - first:
+      213: -37872272123129497
+    second: B1_TS_Death_ss_18f_256x256_791
+  - first:
+      213: -533243413015894982
+    second: B1_TS_Death_ss_18f_256x256_792
+  - first:
+      213: 3358265002562688198
+    second: B1_TS_Death_ss_18f_256x256_793
+  - first:
+      213: -7218056233284832787
+    second: B1_TS_Death_ss_18f_256x256_794
+  - first:
+      213: 897958519373877864
+    second: B1_TS_Death_ss_18f_256x256_795
+  - first:
+      213: 2807508939463706081
+    second: B1_TS_Death_ss_18f_256x256_796
+  - first:
+      213: 1714543625746013392
+    second: B1_TS_Death_ss_18f_256x256_797
+  - first:
+      213: -5854137566558302431
+    second: B1_TS_Death_ss_18f_256x256_798
+  - first:
+      213: 1595024143575454855
+    second: B1_TS_Death_ss_18f_256x256_799
+  - first:
+      213: -1329770050696548975
+    second: B1_TS_Death_ss_18f_256x256_800
+  - first:
+      213: 6840732092581909586
+    second: B1_TS_Death_ss_18f_256x256_801
+  - first:
+      213: -9089978185194616665
+    second: B1_TS_Death_ss_18f_256x256_802
+  - first:
+      213: 976431780758070968
+    second: B1_TS_Death_ss_18f_256x256_803
+  - first:
+      213: 677463022983782644
+    second: B1_TS_Death_ss_18f_256x256_804
+  - first:
+      213: 6552879025610032498
+    second: B1_TS_Death_ss_18f_256x256_805
+  - first:
+      213: 3025635102637924342
+    second: B1_TS_Death_ss_18f_256x256_806
+  - first:
+      213: -5570813848552024113
+    second: B1_TS_Death_ss_18f_256x256_807
+  - first:
+      213: -2310557636804436484
+    second: B1_TS_Death_ss_18f_256x256_808
+  - first:
+      213: 4768653259499162445
+    second: B1_TS_Death_ss_18f_256x256_809
+  - first:
+      213: 5734895540709154120
+    second: B1_TS_Death_ss_18f_256x256_810
+  - first:
+      213: 4135822557367666424
+    second: B1_TS_Death_ss_18f_256x256_811
+  - first:
+      213: 5233591325608550790
+    second: B1_TS_Death_ss_18f_256x256_812
+  - first:
+      213: -1777322721399987057
+    second: B1_TS_Death_ss_18f_256x256_813
+  - first:
+      213: 371059029474924406
+    second: B1_TS_Death_ss_18f_256x256_814
+  - first:
+      213: 5697491507468353102
+    second: B1_TS_Death_ss_18f_256x256_815
+  - first:
+      213: 5195179777311978742
+    second: B1_TS_Death_ss_18f_256x256_816
+  - first:
+      213: -7871361226189102199
+    second: B1_TS_Death_ss_18f_256x256_817
+  - first:
+      213: 5296539317236331713
+    second: B1_TS_Death_ss_18f_256x256_818
+  - first:
+      213: -66629365751826271
+    second: B1_TS_Death_ss_18f_256x256_819
+  - first:
+      213: -7675057325586541471
+    second: B1_TS_Death_ss_18f_256x256_820
+  - first:
+      213: -742685256526088391
+    second: B1_TS_Death_ss_18f_256x256_821
+  - first:
+      213: 2192274772289219224
+    second: B1_TS_Death_ss_18f_256x256_822
+  - first:
+      213: 4205205912630956587
+    second: B1_TS_Death_ss_18f_256x256_823
+  - first:
+      213: -1931498329530283122
+    second: B1_TS_Death_ss_18f_256x256_824
+  - first:
+      213: 7417397948134231845
+    second: B1_TS_Death_ss_18f_256x256_825
+  - first:
+      213: 4019128134744999584
+    second: B1_TS_Death_ss_18f_256x256_826
+  - first:
+      213: 4171009801582808064
+    second: B1_TS_Death_ss_18f_256x256_827
+  - first:
+      213: 4499727481527510754
+    second: B1_TS_Death_ss_18f_256x256_828
+  - first:
+      213: 7378301424869571320
+    second: B1_TS_Death_ss_18f_256x256_829
+  - first:
+      213: 6258296618885625086
+    second: B1_TS_Death_ss_18f_256x256_830
+  - first:
+      213: 5843550781905078092
+    second: B1_TS_Death_ss_18f_256x256_831
+  - first:
+      213: 2137144189304345382
+    second: B1_TS_Death_ss_18f_256x256_832
+  - first:
+      213: -2821185910517105155
+    second: B1_TS_Death_ss_18f_256x256_833
+  - first:
+      213: 7541971179967830320
+    second: B1_TS_Death_ss_18f_256x256_834
+  - first:
+      213: 6411774058869264210
+    second: B1_TS_Death_ss_18f_256x256_835
+  - first:
+      213: -4025542708480656886
+    second: B1_TS_Death_ss_18f_256x256_836
+  - first:
+      213: -6911106555481407843
+    second: B1_TS_Death_ss_18f_256x256_837
+  - first:
+      213: 8526578651344393555
+    second: B1_TS_Death_ss_18f_256x256_838
+  - first:
+      213: 13752937892973770
+    second: B1_TS_Death_ss_18f_256x256_839
+  - first:
+      213: 4396299121800874117
+    second: B1_TS_Death_ss_18f_256x256_840
+  - first:
+      213: -6476616600491593237
+    second: B1_TS_Death_ss_18f_256x256_841
+  - first:
+      213: 980777684437871562
+    second: B1_TS_Death_ss_18f_256x256_842
+  - first:
+      213: -3271436005963778283
+    second: B1_TS_Death_ss_18f_256x256_843
+  - first:
+      213: 2044081285266710126
+    second: B1_TS_Death_ss_18f_256x256_844
+  - first:
+      213: 8223207657581872537
+    second: B1_TS_Death_ss_18f_256x256_845
+  - first:
+      213: 2998456118131565006
+    second: B1_TS_Death_ss_18f_256x256_846
+  - first:
+      213: -4044499882366703659
+    second: B1_TS_Death_ss_18f_256x256_847
+  - first:
+      213: 5250049631891886511
+    second: B1_TS_Death_ss_18f_256x256_848
+  - first:
+      213: -4312541414451664418
+    second: B1_TS_Death_ss_18f_256x256_849
+  - first:
+      213: -4705421856504684443
+    second: B1_TS_Death_ss_18f_256x256_850
+  - first:
+      213: -4867811816496269056
+    second: B1_TS_Death_ss_18f_256x256_851
+  - first:
+      213: -8445560851120641902
+    second: B1_TS_Death_ss_18f_256x256_852
+  - first:
+      213: 4971607695953393304
+    second: B1_TS_Death_ss_18f_256x256_853
+  - first:
+      213: -4687898607996914469
+    second: B1_TS_Death_ss_18f_256x256_854
+  - first:
+      213: 1115164264952552974
+    second: B1_TS_Death_ss_18f_256x256_855
+  - first:
+      213: 2520365121920420427
+    second: B1_TS_Death_ss_18f_256x256_856
+  - first:
+      213: -5413688232267667017
+    second: B1_TS_Death_ss_18f_256x256_857
+  - first:
+      213: 1378934482713372036
+    second: B1_TS_Death_ss_18f_256x256_858
+  - first:
+      213: 1763170088663756560
+    second: B1_TS_Death_ss_18f_256x256_859
+  - first:
+      213: 2410258199188041840
+    second: B1_TS_Death_ss_18f_256x256_860
+  - first:
+      213: -3013096747296609876
+    second: B1_TS_Death_ss_18f_256x256_861
+  - first:
+      213: 8795283422168390238
+    second: B1_TS_Death_ss_18f_256x256_862
+  - first:
+      213: 7250107638944537349
+    second: B1_TS_Death_ss_18f_256x256_863
+  - first:
+      213: -6205702746539780284
+    second: B1_TS_Death_ss_18f_256x256_864
+  - first:
+      213: 2363670566015421106
+    second: B1_TS_Death_ss_18f_256x256_865
+  - first:
+      213: 1171048347098035793
+    second: B1_TS_Death_ss_18f_256x256_866
+  - first:
+      213: -2389585085797960642
+    second: B1_TS_Death_ss_18f_256x256_867
+  - first:
+      213: -1622334607339933941
+    second: B1_TS_Death_ss_18f_256x256_868
+  - first:
+      213: -2995960382221404814
+    second: B1_TS_Death_ss_18f_256x256_869
+  - first:
+      213: 6539500821283827500
+    second: B1_TS_Death_ss_18f_256x256_870
+  - first:
+      213: 7697824464082425997
+    second: B1_TS_Death_ss_18f_256x256_871
+  - first:
+      213: -8325571736621175838
+    second: B1_TS_Death_ss_18f_256x256_872
+  - first:
+      213: -8419505032839865272
+    second: B1_TS_Death_ss_18f_256x256_873
+  - first:
+      213: -6193110934721170800
+    second: B1_TS_Death_ss_18f_256x256_874
+  - first:
+      213: 6054666695235763109
+    second: B1_TS_Death_ss_18f_256x256_875
+  - first:
+      213: 8756362953600643494
+    second: B1_TS_Death_ss_18f_256x256_876
+  - first:
+      213: -1558658332751193408
+    second: B1_TS_Death_ss_18f_256x256_877
+  - first:
+      213: 7665820029198964925
+    second: B1_TS_Death_ss_18f_256x256_878
+  - first:
+      213: 6377450196028181297
+    second: B1_TS_Death_ss_18f_256x256_879
+  - first:
+      213: -8501480835557325861
+    second: B1_TS_Death_ss_18f_256x256_880
+  - first:
+      213: -4275119667344737665
+    second: B1_TS_Death_ss_18f_256x256_881
+  - first:
+      213: 833736538278389151
+    second: B1_TS_Death_ss_18f_256x256_882
+  - first:
+      213: -1930269388141344303
+    second: B1_TS_Death_ss_18f_256x256_883
+  - first:
+      213: 8468155455000750487
+    second: B1_TS_Death_ss_18f_256x256_884
+  - first:
+      213: 3197476568379897967
+    second: B1_TS_Death_ss_18f_256x256_885
+  - first:
+      213: -8814165620691948663
+    second: B1_TS_Death_ss_18f_256x256_886
+  - first:
+      213: 2825788388282832702
+    second: B1_TS_Death_ss_18f_256x256_887
+  - first:
+      213: 3855901795094384421
+    second: B1_TS_Death_ss_18f_256x256_888
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989e38ba930dda230800000000000000
+      internalID: 3651803818976602505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e380148cc3b39b0800000000000000
+      internalID: -5099415322284769667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aff5d41523e2d280800000000000000
+      internalID: -9019897355266818143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bda487f61c6fd080800000000000000
+      internalID: -9160484271150551624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ada09577f5ac0fe0800000000000000
+      internalID: -1221418916676325984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7969ea0defa0510800000000000000
+      internalID: 1516304396799350781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbbabe84f90414860800000000000000
+      internalID: 7512356706298080189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85914a5ae0b1df280800000000000000
+      internalID: -9008013929948636840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_8
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c52d68aca078750800000000000000
+      internalID: 6307021668117273733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57ddd25fa32d5ac0800000000000000
+      internalID: -3864893669297498273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_10
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb21770bd0bb6340800000000000000
+      internalID: 4858171077818395639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d83e170e4ac02770800000000000000
+      internalID: 8584083326243846358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c7415f922d12c10800000000000000
+      internalID: 2027132384940686367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e0e4ebe0764ecc0800000000000000
+      internalID: -3682705282262233584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e786156e1cf19c00800000000000000
+      internalID: 905782207553374176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ecae47989516990800000000000000
+      internalID: -7394530666258706842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_16
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a593848166593f0800000000000000
+      internalID: -894696696486208960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_17
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 185820a49820c9f90800000000000000
+      internalID: -6945673736636693119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10076dbb6bf8075c0800000000000000
+      internalID: -4219714835847942143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a18e24bb1f88600800000000000000
+      internalID: 470891947643902528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62480030c9993770800000000000000
+      internalID: 8591066814904549999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f698ba24952b430800000000000000
+      internalID: 3797195578707373955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01666b33a5c8d230800000000000000
+      internalID: 3663895601732804875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_23
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec820e696b161640800000000000000
+      internalID: 5050254171773766882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_24
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9927d563417248730800000000000000
+      internalID: 4000365336776766105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_25
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eff228fc9fb9eae0800000000000000
+      internalID: -1519472718361985049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_26
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0bdea8c96e906e0800000000000000
+      internalID: -1870710610175610641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_27
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7d8fadab9f3d8a0800000000000000
+      internalID: -6281402474318735397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_28
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ef6b5b359195a20800000000000000
+      internalID: 3051498069841870488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_29
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7937e09a605621e20800000000000000
+      internalID: 3319826954605982615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_30
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb44c2636dfeb6220800000000000000
+      internalID: 2480339723108500670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_31
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ace4b2114ee6d0d0800000000000000
+      internalID: -3398266905550328671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_32
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 674a498d96093f450800000000000000
+      internalID: 6121395102806221942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_33
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cbf14916c40d4980800000000000000
+      internalID: -8553174868432913469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_34
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb2255e4b5b1c6a0800000000000000
+      internalID: -6430659004362249246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_35
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 592505eb16f622680800000000000000
+      internalID: -8781333857823599979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c22999ef3541ab610800000000000000
+      internalID: 1637643765488914988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_37
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c04658f603efbc00800000000000000
+      internalID: 918702468082581701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_38
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ecca61cbb8dfb8d0800000000000000
+      internalID: -2828303740049896218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_39
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 283a89e7f72ec8990800000000000000
+      internalID: -7382276651954429054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_40
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689ee11ea08b314f0800000000000000
+      internalID: -859140747031549562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_41
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b24247dfa88e64a0800000000000000
+      internalID: -6598186115239099726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_42
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3194ad6874f545310800000000000000
+      internalID: 1392842945574095123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_43
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd27b9e6f48082f0800000000000000
+      internalID: -972631323494109731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_44
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6264a0c21881cbe0800000000000000
+      internalID: -1458735190168542610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_45
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afcc8864625b1d760800000000000000
+      internalID: 7480959632035859706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_46
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7738152a9c6d4f5e0800000000000000
+      internalID: -1876638983206632585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_47
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fb4200640538460800000000000000
+      internalID: 7242720887322230535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_48
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620f113a14b58be20800000000000000
+      internalID: 3366541058926309414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_49
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08732ca1cd7104940800000000000000
+      internalID: 5278244997387401088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_50
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a54593ab798b830800000000000000
+      internalID: 4087183487920265748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_51
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ec7c6542b1bf550800000000000000
+      internalID: 6195575555266956861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_52
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee878ea5bfd955e0800000000000000
+      internalID: -1920257794686611739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_53
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0d2cddc3c9f25d0800000000000000
+      internalID: -3085075434492997464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336af1eeef2becf90800000000000000
+      internalID: -6931405968490125773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_55
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e7286b730e32fa0800000000000000
+      internalID: -5826566962997461466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_56
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79c670ee4f082120800000000000000
+      internalID: 2389176433767795071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_57
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c505baf26b3758a0800000000000000
+      internalID: -6316514656064830010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_58
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d8bf19c98c704e0800000000000000
+      internalID: -2015421733435372213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_59
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60dc8ececa1e55e20800000000000000
+      internalID: 3338822831590395142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_60
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d63632892f7c9e70800000000000000
+      internalID: 9123306761400760024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_61
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cacd625c430c4d90800000000000000
+      internalID: -7112306085189530943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_62
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a42f429b37b8b0d0800000000000000
+      internalID: -3406771651620166494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_63
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afdb82adbbb89ea0800000000000000
+      internalID: -5865732091499782233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_64
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334811320b3d3db10800000000000000
+      internalID: 2005179012566058035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_65
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef019184f92230b30800000000000000
+      internalID: 4252280540672626942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_66
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78bbc7ad0710ea790800000000000000
+      internalID: -7517069143821206649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_67
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5823761f266be90800000000000000
+      internalID: -7010306980997593609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_68
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d69e6912a648860800000000000000
+      internalID: 7531261169368657175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_69
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59c3ec8905875540800000000000000
+      internalID: 4996608587655792986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_70
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0050dcddcd5ace520800000000000000
+      internalID: 2732741441939637504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_71
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5acfec365e259e1c0800000000000000
+      internalID: -4473953609640379227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08764355d1ece5570800000000000000
+      internalID: 8457423775627241344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_73
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d2c843d13769500800000000000000
+      internalID: 402635785969085754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_74
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c522735f84f9fb0800000000000000
+      internalID: -4638908873139135371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_75
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b84625e02cf895e0800000000000000
+      internalID: -1902493624350390096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_76
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34af46b09adbe6c20800000000000000
+      internalID: 3201704918845291075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_77
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad38db92f4d69b10800000000000000
+      internalID: 1988010423992466851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_78
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edba251cf23eaf50800000000000000
+      internalID: 6894504137819078117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_79
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37bf7309dfd902e0800000000000000
+      internalID: -2158948423187843267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_80
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387d9b909ead5b980800000000000000
+      internalID: -8523666025303386237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_81
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2e46db420dd1550800000000000000
+      internalID: 6133287123763389127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_82
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c077d99abbe91d0800000000000000
+      internalID: -3342027536296637378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_83
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4087fe8acde5a8e0800000000000000
+      internalID: -1682677431515250610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_84
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45344275ddc31e960800000000000000
+      internalID: 7629446165089764180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_85
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec22f9c482017770800000000000000
+      internalID: 8606663132228758764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_86
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9b863e403a7dc50800000000000000
+      internalID: 6689995012872649136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_87
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed3c4647b9442e30800000000000000
+      internalID: 4477784981020360166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_88
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcec91efa28c058f0800000000000000
+      internalID: -553722667189285171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_89
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c00bad4d3f29ee70800000000000000
+      internalID: 9144892458695065800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20660b0d579929700800000000000000
+      internalID: 545667236156696066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_91
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735b4503edc92a290800000000000000
+      internalID: -7880563919837416137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_92
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25e50c0bc37d07b0800000000000000
+      internalID: -5256417874154232534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_93
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd78585565128420800000000000000
+      internalID: 2630688657355865525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_94
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48efce2e84bcf9e10800000000000000
+      internalID: 2206705856340098692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_95
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b180d587578351ba0800000000000000
+      internalID: -6118922441531258853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_96
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d80e71e11beb4850800000000000000
+      internalID: 6362437360621062352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_97
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4741ed921b91c3c0800000000000000
+      internalID: -4341018061547944117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_98
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9dd35d0983833c70800000000000000
+      internalID: 8949641509172665754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_99
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9aa1e2b1c1c5c70800000000000000
+      internalID: 8961068261623638458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_100
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b169fa5b665fcd0800000000000000
+      internalID: -2524999085550331063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_101
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b460af21dfd46e6a0800000000000000
+      internalID: -6420358469429623221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_102
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17db6246bab826040800000000000000
+      internalID: 4639424134380961137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_103
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f8e00d6d481a2c0800000000000000
+      internalID: -4422107300952633572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_104
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137f686a755570bf0800000000000000
+      internalID: -358223810408286415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_105
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc44711da3a54430800000000000000
+      internalID: 3766596627082792118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_106
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89498ebfb635887c0800000000000000
+      internalID: -4068910540076313448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_107
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c0a0bdce3d1d71b0800000000000000
+      internalID: -5657333401331392312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0b741811febcc50800000000000000
+      internalID: 6686700930224074918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_109
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a89a4565fa1c2260800000000000000
+      internalID: 7074058755960903843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_110
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab822312910c0e40800000000000000
+      internalID: 5623871761576790950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_111
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428aca7bc1fdba890800000000000000
+      internalID: -7445612244493359068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_112
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03eedf8af61ddc90800000000000000
+      internalID: -7143528168528354548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_113
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa166af11ce0ddc0800000000000000
+      internalID: -3616130938818913626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_114
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89902aaa645088f0800000000000000
+      internalID: -540339138186929778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_115
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dcb05acd82603c80800000000000000
+      internalID: -8345061748393329450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_116
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c57c5bcbc213840800000000000000
+      internalID: 5201988233604848774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_117
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26daebb5e83394c80800000000000000
+      internalID: -8338076548582167198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_118
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896f1fd6329c44bb0800000000000000
+      internalID: -4952612536195090792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_119
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28dbf46809545080800000000000000
+      internalID: -9199630246222243793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_120
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3106834f81fe03770800000000000000
+      internalID: 8588627379851124755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_121
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c4830cab8da4220800000000000000
+      internalID: 2471025642166569984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_122
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fb3c2f9c5bee150800000000000000
+      internalID: 5903856040495267688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_123
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11af05f56715ff3c0800000000000000
+      internalID: -4323647548405253615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_124
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab2ea804ddf087a0800000000000000
+      internalID: -6376817985236096082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_125
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7dadb9d19b7b0d0800000000000000
+      internalID: -3407051056262490127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4597170beff26480800000000000000
+      internalID: -8907275728084036276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_127
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c6a8df49b8bc780800000000000000
+      internalID: -8661675986291889131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_128
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21a036fbbe478930800000000000000
+      internalID: 4145368551214063917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_129
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8afa1cb445a3480800000000000000
+      internalID: -8918723427705050948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_130
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c950bea469317f0800000000000000
+      internalID: -643005073269089161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_131
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c763a925b816fc5b0800000000000000
+      internalID: -5345946981651302788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_132
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4979eda2ffd97cf60800000000000000
+      internalID: 8054580177836873620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_133
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c225e7710c9cfb0e0800000000000000
+      internalID: -2251859461796900308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_134
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc01e5400508371c0800000000000000
+      internalID: -4507117720908721969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_135
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7282b12c92dcc880800000000000000
+      internalID: -8589258821280300421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_136
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5668231d4bf83ca30800000000000000
+      internalID: 4234386081425032805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_137
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efceecde449c19d60800000000000000
+      internalID: 7895312919641910526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_138
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 325e33544394d4be0800000000000000
+      internalID: -1491455412741610205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_139
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd8909c0ac4524d0800000000000000
+      internalID: -3160035310079209989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_140
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9126425f905debf80800000000000000
+      internalID: -8088793641966607847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_141
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31300cc6a81b9e100800000000000000
+      internalID: 137836471699637011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_142
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7191c6e5edb173960800000000000000
+      internalID: 7581559139582351639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B1_TS_Death_ss_18f_256x256_143
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e132b20367c18cb0800000000000000
+      internalID: -4863386894522502688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3b82f717bf434ff4886bd27eaf609966
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      B1_TS_Death_ss_18f_256x256_0: 3651803818976602505
+      B1_TS_Death_ss_18f_256x256_1: -5099415322284769667
+      B1_TS_Death_ss_18f_256x256_10: 4858171077818395639
+      B1_TS_Death_ss_18f_256x256_100: -2524999085550331063
+      B1_TS_Death_ss_18f_256x256_101: -6420358469429623221
+      B1_TS_Death_ss_18f_256x256_102: 4639424134380961137
+      B1_TS_Death_ss_18f_256x256_103: -4422107300952633572
+      B1_TS_Death_ss_18f_256x256_104: -358223810408286415
+      B1_TS_Death_ss_18f_256x256_105: 3766596627082792118
+      B1_TS_Death_ss_18f_256x256_106: -4068910540076313448
+      B1_TS_Death_ss_18f_256x256_107: -5657333401331392312
+      B1_TS_Death_ss_18f_256x256_108: 6686700930224074918
+      B1_TS_Death_ss_18f_256x256_109: 7074058755960903843
+      B1_TS_Death_ss_18f_256x256_11: 8584083326243846358
+      B1_TS_Death_ss_18f_256x256_110: 5623871761576790950
+      B1_TS_Death_ss_18f_256x256_111: -7445612244493359068
+      B1_TS_Death_ss_18f_256x256_112: -7143528168528354548
+      B1_TS_Death_ss_18f_256x256_113: -3616130938818913626
+      B1_TS_Death_ss_18f_256x256_114: -540339138186929778
+      B1_TS_Death_ss_18f_256x256_115: -8345061748393329450
+      B1_TS_Death_ss_18f_256x256_116: 5201988233604848774
+      B1_TS_Death_ss_18f_256x256_117: -8338076548582167198
+      B1_TS_Death_ss_18f_256x256_118: -4952612536195090792
+      B1_TS_Death_ss_18f_256x256_119: -9199630246222243793
+      B1_TS_Death_ss_18f_256x256_12: 2027132384940686367
+      B1_TS_Death_ss_18f_256x256_120: 8588627379851124755
+      B1_TS_Death_ss_18f_256x256_121: 2471025642166569984
+      B1_TS_Death_ss_18f_256x256_122: 5903856040495267688
+      B1_TS_Death_ss_18f_256x256_123: -4323647548405253615
+      B1_TS_Death_ss_18f_256x256_124: -6376817985236096082
+      B1_TS_Death_ss_18f_256x256_125: -3407051056262490127
+      B1_TS_Death_ss_18f_256x256_126: -8907275728084036276
+      B1_TS_Death_ss_18f_256x256_127: -8661675986291889131
+      B1_TS_Death_ss_18f_256x256_128: 4145368551214063917
+      B1_TS_Death_ss_18f_256x256_129: -8918723427705050948
+      B1_TS_Death_ss_18f_256x256_13: -3682705282262233584
+      B1_TS_Death_ss_18f_256x256_130: -643005073269089161
+      B1_TS_Death_ss_18f_256x256_131: -5345946981651302788
+      B1_TS_Death_ss_18f_256x256_132: 8054580177836873620
+      B1_TS_Death_ss_18f_256x256_133: -2251859461796900308
+      B1_TS_Death_ss_18f_256x256_134: -4507117720908721969
+      B1_TS_Death_ss_18f_256x256_135: -8589258821280300421
+      B1_TS_Death_ss_18f_256x256_136: 4234386081425032805
+      B1_TS_Death_ss_18f_256x256_137: 7895312919641910526
+      B1_TS_Death_ss_18f_256x256_138: -1491455412741610205
+      B1_TS_Death_ss_18f_256x256_139: -3160035310079209989
+      B1_TS_Death_ss_18f_256x256_14: 905782207553374176
+      B1_TS_Death_ss_18f_256x256_140: -8088793641966607847
+      B1_TS_Death_ss_18f_256x256_141: 137836471699637011
+      B1_TS_Death_ss_18f_256x256_142: 7581559139582351639
+      B1_TS_Death_ss_18f_256x256_143: -4863386894522502688
+      B1_TS_Death_ss_18f_256x256_15: -7394530666258706842
+      B1_TS_Death_ss_18f_256x256_16: -894696696486208960
+      B1_TS_Death_ss_18f_256x256_17: -6945673736636693119
+      B1_TS_Death_ss_18f_256x256_18: -4219714835847942143
+      B1_TS_Death_ss_18f_256x256_19: 470891947643902528
+      B1_TS_Death_ss_18f_256x256_2: -9019897355266818143
+      B1_TS_Death_ss_18f_256x256_20: 8591066814904549999
+      B1_TS_Death_ss_18f_256x256_21: 3797195578707373955
+      B1_TS_Death_ss_18f_256x256_22: 3663895601732804875
+      B1_TS_Death_ss_18f_256x256_23: 5050254171773766882
+      B1_TS_Death_ss_18f_256x256_24: 4000365336776766105
+      B1_TS_Death_ss_18f_256x256_25: -1519472718361985049
+      B1_TS_Death_ss_18f_256x256_26: -1870710610175610641
+      B1_TS_Death_ss_18f_256x256_27: -6281402474318735397
+      B1_TS_Death_ss_18f_256x256_28: 3051498069841870488
+      B1_TS_Death_ss_18f_256x256_29: 3319826954605982615
+      B1_TS_Death_ss_18f_256x256_3: -9160484271150551624
+      B1_TS_Death_ss_18f_256x256_30: 2480339723108500670
+      B1_TS_Death_ss_18f_256x256_31: -3398266905550328671
+      B1_TS_Death_ss_18f_256x256_32: 6121395102806221942
+      B1_TS_Death_ss_18f_256x256_33: -8553174868432913469
+      B1_TS_Death_ss_18f_256x256_34: -6430659004362249246
+      B1_TS_Death_ss_18f_256x256_35: -8781333857823599979
+      B1_TS_Death_ss_18f_256x256_36: 1637643765488914988
+      B1_TS_Death_ss_18f_256x256_37: 918702468082581701
+      B1_TS_Death_ss_18f_256x256_38: -2828303740049896218
+      B1_TS_Death_ss_18f_256x256_39: -7382276651954429054
+      B1_TS_Death_ss_18f_256x256_4: -1221418916676325984
+      B1_TS_Death_ss_18f_256x256_40: -859140747031549562
+      B1_TS_Death_ss_18f_256x256_41: -6598186115239099726
+      B1_TS_Death_ss_18f_256x256_42: 1392842945574095123
+      B1_TS_Death_ss_18f_256x256_43: -972631323494109731
+      B1_TS_Death_ss_18f_256x256_44: -1458735190168542610
+      B1_TS_Death_ss_18f_256x256_45: 7480959632035859706
+      B1_TS_Death_ss_18f_256x256_46: -1876638983206632585
+      B1_TS_Death_ss_18f_256x256_47: 7242720887322230535
+      B1_TS_Death_ss_18f_256x256_48: 3366541058926309414
+      B1_TS_Death_ss_18f_256x256_49: 5278244997387401088
+      B1_TS_Death_ss_18f_256x256_5: 1516304396799350781
+      B1_TS_Death_ss_18f_256x256_50: 4087183487920265748
+      B1_TS_Death_ss_18f_256x256_51: 6195575555266956861
+      B1_TS_Death_ss_18f_256x256_52: -1920257794686611739
+      B1_TS_Death_ss_18f_256x256_53: -3085075434492997464
+      B1_TS_Death_ss_18f_256x256_54: -6931405968490125773
+      B1_TS_Death_ss_18f_256x256_55: -5826566962997461466
+      B1_TS_Death_ss_18f_256x256_56: 2389176433767795071
+      B1_TS_Death_ss_18f_256x256_57: -6316514656064830010
+      B1_TS_Death_ss_18f_256x256_58: -2015421733435372213
+      B1_TS_Death_ss_18f_256x256_59: 3338822831590395142
+      B1_TS_Death_ss_18f_256x256_6: 7512356706298080189
+      B1_TS_Death_ss_18f_256x256_60: 9123306761400760024
+      B1_TS_Death_ss_18f_256x256_61: -7112306085189530943
+      B1_TS_Death_ss_18f_256x256_62: -3406771651620166494
+      B1_TS_Death_ss_18f_256x256_63: -5865732091499782233
+      B1_TS_Death_ss_18f_256x256_64: 2005179012566058035
+      B1_TS_Death_ss_18f_256x256_65: 4252280540672626942
+      B1_TS_Death_ss_18f_256x256_66: -7517069143821206649
+      B1_TS_Death_ss_18f_256x256_67: -7010306980997593609
+      B1_TS_Death_ss_18f_256x256_68: 7531261169368657175
+      B1_TS_Death_ss_18f_256x256_69: 4996608587655792986
+      B1_TS_Death_ss_18f_256x256_7: -9008013929948636840
+      B1_TS_Death_ss_18f_256x256_70: 2732741441939637504
+      B1_TS_Death_ss_18f_256x256_71: -4473953609640379227
+      B1_TS_Death_ss_18f_256x256_72: 8457423775627241344
+      B1_TS_Death_ss_18f_256x256_73: 402635785969085754
+      B1_TS_Death_ss_18f_256x256_74: -4638908873139135371
+      B1_TS_Death_ss_18f_256x256_75: -1902493624350390096
+      B1_TS_Death_ss_18f_256x256_76: 3201704918845291075
+      B1_TS_Death_ss_18f_256x256_77: 1988010423992466851
+      B1_TS_Death_ss_18f_256x256_78: 6894504137819078117
+      B1_TS_Death_ss_18f_256x256_79: -2158948423187843267
+      B1_TS_Death_ss_18f_256x256_8: 6307021668117273733
+      B1_TS_Death_ss_18f_256x256_80: -8523666025303386237
+      B1_TS_Death_ss_18f_256x256_81: 6133287123763389127
+      B1_TS_Death_ss_18f_256x256_82: -3342027536296637378
+      B1_TS_Death_ss_18f_256x256_83: -1682677431515250610
+      B1_TS_Death_ss_18f_256x256_84: 7629446165089764180
+      B1_TS_Death_ss_18f_256x256_85: 8606663132228758764
+      B1_TS_Death_ss_18f_256x256_86: 6689995012872649136
+      B1_TS_Death_ss_18f_256x256_87: 4477784981020360166
+      B1_TS_Death_ss_18f_256x256_88: -553722667189285171
+      B1_TS_Death_ss_18f_256x256_89: 9144892458695065800
+      B1_TS_Death_ss_18f_256x256_9: -3864893669297498273
+      B1_TS_Death_ss_18f_256x256_90: 545667236156696066
+      B1_TS_Death_ss_18f_256x256_91: -7880563919837416137
+      B1_TS_Death_ss_18f_256x256_92: -5256417874154232534
+      B1_TS_Death_ss_18f_256x256_93: 2630688657355865525
+      B1_TS_Death_ss_18f_256x256_94: 2206705856340098692
+      B1_TS_Death_ss_18f_256x256_95: -6118922441531258853
+      B1_TS_Death_ss_18f_256x256_96: 6362437360621062352
+      B1_TS_Death_ss_18f_256x256_97: -4341018061547944117
+      B1_TS_Death_ss_18f_256x256_98: 8949641509172665754
+      B1_TS_Death_ss_18f_256x256_99: 8961068261623638458
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -38,11 +38,23 @@ namespace Game.UI.Items
 
         private void Start()
         {
-            WaveEventManager.Instance.OnItemBagAvailable += HandleItemBagAvailable;
+            if (WaveEventManager.Instance)
+            {
+                WaveEventManager.Instance.OnItemBagAvailable += HandleItemBagAvailable;
+            }
+            
             itemBag = PlayerManager.Instance.GetPlayerComponent<ItemBag>();
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
             HidePanel();
+        }
+
+        private void OnDisable()
+        {
+            if (WaveEventManager.Instance)
+            {
+                WaveEventManager.Instance.OnItemBagAvailable -= HandleItemBagAvailable;
+            }
         }
 
         private void HandleItemBagAvailable()
