@@ -17,13 +17,14 @@ namespace Game.Boss
         [Header("References")]
         [SerializeField] private Animator animator;
         [SerializeField] private Transform castPoint;
-        [SerializeField] private BossBehavior behavior;
+       
 
         [Header("Adds")]
         [Tooltip("If the boss summons any adds (additional minions) they will spawn from these transforms")]
         [SerializeField] private Transform[] addsSpawnPoints;
         
         private Transform player;
+        private BossBehavior behavior;
 
         //State
         private bool isPhaseOne = false;
@@ -40,14 +41,21 @@ namespace Game.Boss
         //Events
         public event System.Action<BossAbilityRuntime> OnAbilityCasted;
         public event System.Action<BossAbilityRuntime> OnAbilityFinished;
+        public event System.Action OnAllAddsDeath;
+
+        private void Awake()
+        {
+            behavior = GetComponent<BossBehavior>();
+            behavior.Initialize(this);
+            phaseOneRuntimes = BuildRuntimeList(phaseOneAbilities);
+            phaseTwoRuntimes = BuildRuntimeList(phaseTwoAbilities);
+            CreateContext();
+        }
 
         private void Start()
         {
-            player = PlayerManager.Instance.gameObject.transform;
-            phaseOneRuntimes = BuildRuntimeList(phaseOneAbilities);
-            phaseTwoRuntimes = BuildRuntimeList(phaseTwoAbilities);
-            behavior.Initialize(this);
-            CreateContext();
+            player = PlayerManager.Instance.gameObject.transform;       
+
         }
 
         private void Update()
@@ -57,6 +65,7 @@ namespace Game.Boss
             context.phaseTime += Time.deltaTime;
             context.enrageLevel = enrageLevel; // keep synced
             context.activeAddsCount = activeAdds.Count;
+          
         }        
 
         private void CreateContext()
@@ -99,6 +108,7 @@ namespace Game.Boss
         {
             isPhaseOne = true;
             isPhaseTwo = false;
+            behavior.OnPhaseOneStart();
 
             abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseOneRuntimes));
         }
@@ -158,6 +168,7 @@ namespace Game.Boss
             OnAbilityCasted?.Invoke(abilityRuntime);
             currentBlockFlags |= (int)flags;
             var ability = abilityRuntime.GetBossAbility();
+           // Debug.Log($"Ability started: {ability.abilityName}, hasInitialAnimation flags: {ability.hasInitialAnimation}");
             if (ability.hasInitialAnimation)
             {
                 animator.ResetTrigger(ability.initialAnimationName);
@@ -167,14 +178,16 @@ namespace Game.Boss
 
         private void OnAbilityEnded(BossAbilityRuntime abilityRuntime)
         {
-            OnAbilityFinished?.Invoke(abilityRuntime);
+            
             var ability = abilityRuntime.GetBossAbility();           
             currentBlockFlags &= ~(int)ability.blocksWhileActive;
+            //Debug.Log($"Ability ended: {ability.abilityName}, hasEndAnimation flags: {ability.hasEndAnimation}");
             if (ability.hasEndAnimation)
             {
-                animator.ResetTrigger(ability.initialAnimationName);
+                animator.ResetTrigger(ability.endAnimationName);
                 animator.SetTrigger(ability.endAnimationName);
             }
+            //OnAbilityFinished?.Invoke(abilityRuntime);
         }
 
         public bool HasBlockFlag(AbilityBlockFlags flag)
@@ -197,6 +210,7 @@ namespace Game.Boss
 
         public void RegisterAdd(GameObject add)
         {
+           
             activeAdds.Add(add);
         }
 
@@ -207,6 +221,7 @@ namespace Game.Boss
             if (activeAdds.Count <= 0)
             {               
                 IncreaseEnrageLevel();
+                OnAllAddsDeath?.Invoke(); // we can pass context if needed
             }
         }
 

@@ -66,7 +66,9 @@ namespace Game.AI {
             {
                 return;
             }
-           
+
+            var target = FindAnyObjectByType<AITarget>();
+
             var context = new BehaviorContext
             {
                 enemyGameObject = gameObject,
@@ -75,7 +77,8 @@ namespace Game.AI {
                 enemyData = enemyData,
                 waveNumber = waveNumber,
                 enemyAnimController = enemyAnimController,
-                navMeshAgent = agent
+                navMeshAgent = agent,
+                aiFixedTarget = target
             };
 
             behaviorController.Initialize(context);

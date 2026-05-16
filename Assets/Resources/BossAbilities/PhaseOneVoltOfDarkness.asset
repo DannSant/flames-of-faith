@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a0c4781edb47b4b8295b5eb464c44f, type: 3}
   m_Name: PhaseOneVoltOfDarkness
   m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.VoltOfDarknessAbility
-  abilityName: Volt of darkness 1
-  animationName: attack
-  initialAnimationName: fadeIn
-  endAnimationName: fadeOut
+  abilityName: Volt of darkness Normal
+  animationName: Attack
+  initialAnimationName: FadeIn
+  endAnimationName: FadeOut
   conditions:
   - {fileID: 11400000, guid: f8c473811e9fe5b49b7cb6657a3669e2, type: 2}
   cooldown: 8
@@ -23,7 +23,11 @@ MonoBehaviour:
   delayToEnd: 1
   priority: 1
   blocksWhileActive: -1
-  projectilePrefab: {fileID: 0}
+  abilityMetadata:
+  - moveToRandomPoint
+  - showSpriteOnAbilityStart
+  - hideSpriteOnAbilityEnd
+  projectilePrefab: {fileID: 4655842776331200841, guid: 69a64f11f975f6a4993883ef4f461fe5, type: 3}
   projectileSpeed: 6
   baseDamage: 10
   damageScaling: 0.5

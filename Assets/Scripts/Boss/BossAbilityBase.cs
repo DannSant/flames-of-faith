@@ -43,6 +43,9 @@ namespace Game.Boss
         public AbilityPriority priority = AbilityPriority.Normal;
         public AbilityBlockFlags blocksWhileActive = AbilityBlockFlags.None;
 
+        [Header("Metadata")]
+        public List<string> abilityMetadata = new List<string>();
+
         public abstract IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context);
 
         public List<BossAbilityCondition> Conditions => conditions;

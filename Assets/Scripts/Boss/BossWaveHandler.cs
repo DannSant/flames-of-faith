@@ -133,6 +133,12 @@ namespace Game.Boss
             bossAlive = false;
             OnBossFightEnded?.Invoke();
         }
+
+        public void ReduceFlameProgress(float damageAmount)
+        {
+            currentFlameTime = Mathf.Max(0f, currentFlameTime - damageAmount);
+            OnFlameProgressChanged?.Invoke(currentFlameTime, flameDuration);
+        }
     }
 
 }

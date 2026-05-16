@@ -12,6 +12,8 @@ namespace Game.Boss
         public BossAbilityRuntime(BossAbilityBase ability)
         {
             this.ability = ability;
+            // Start on cooldown
+            lastUseTime = Time.time;
         }
 
         public bool CanExecute(BossController boss, BossAbilityContext context)
@@ -37,7 +39,7 @@ namespace Game.Boss
         {
             IsRunning = true;
             lastUseTime = Time.time;
-            //currentBlockFlags |= ability.blocksWhileActive;
+            
 
             onStart?.Invoke(ability.blocksWhileActive, this);
 

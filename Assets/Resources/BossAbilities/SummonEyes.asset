@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: SummonEyes
   m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.SummonEyesAbility
   abilityName: Summon Eyes
-  animationName: invoke
-  initialAnimationName: fadeIn
-  endAnimationName: fadeOut
+  animationName: Channel
+  initialAnimationName: FadeIn
+  endAnimationName: 
   conditions: []
-  cooldown: 5
-  delayToStart: 0
-  delayToEnd: 0
+  cooldown: 30
+  delayToStart: 1
+  delayToEnd: 1
   priority: 2
   blocksWhileActive: -1
-  eyePrefab: {fileID: 0}
+  abilityMetadata:
+  - moveToRandomPoint
+  - showSpriteOnAbilityStart
+  eyePrefab: {fileID: 1065387583721202172, guid: 9d1e7b95797ed3d4e91eca028132d59e, type: 3}
   baseEyeCount: 4

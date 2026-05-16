@@ -1,3 +1,4 @@
+using Game.AI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,14 +14,17 @@ namespace Game.Boss
 
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
+            yield return new WaitForSeconds(1.5f); // wait for the fade in animation to finish
             var animator = boss.GetAnimator();
 
             if (animator != null && animationName != "")
             {
                 animator.SetTrigger(animationName);
             }
+           
 
-            yield return new WaitForSeconds(1f); // cast delay
+            yield return new WaitForSeconds(1.5f); // cast delay
+           
 
             List<GameObject> eyes = new();
             var spawnPoints = boss.GetAddsSpawnPoints();
@@ -38,27 +42,14 @@ namespace Game.Boss
                     addComponent.Initialize(boss);
                     boss.RegisterAdd(eye);
                 }
-            }
-            //context.activeAddsCount = eyes.Count;
 
-            /*float spamTimer = 3f;
-
-            while (eyes.Exists(e => e != null))
-            {
-                spamTimer -= Time.deltaTime;
-
-                if (spamTimer <= 0f)
-                {
-                    // reuse volt logic? (later we can inject abilities)
-                    spamTimer = 3f;
+                var enemyComponent = eye.GetComponent<Enemy>();
+                if (enemyComponent != null) { 
+                    enemyComponent.Initialize(boss.GetEnrageLevel()+1); 
                 }
-
-                yield return null;
+                yield return new WaitForSeconds(0.1f); // stagger spawn
             }
 
-            context.activeAddsCount = 0;
-
-           boss.IncreaseEnrageLevel();*/
             yield return null;
         }
     }

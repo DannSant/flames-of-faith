@@ -13,5 +13,7 @@ namespace Game.Boss
 
         public abstract void OnPhaseOneStart();
         public abstract void OnPhaseTwoStart();
+
+        public abstract void OnAnimationEvent(string eventName);
     }
 }

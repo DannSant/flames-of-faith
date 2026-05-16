@@ -18,6 +18,7 @@ namespace Game.AI.Behaviors
         public bool isShooting;
         public float speedMultiplier = 1f;
         public NavMeshAgent navMeshAgent;
+        public AITarget aiFixedTarget;
 
         //public Dictionary<ScriptableObject, float> cooldownTracker = new();
 
