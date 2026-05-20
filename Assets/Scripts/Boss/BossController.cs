@@ -14,17 +14,28 @@ namespace Game.Boss
         [SerializeField] private List<BossAbilityBase> phaseOneAbilities;
         [SerializeField] private List<BossAbilityBase> phaseTwoAbilities;
 
-        [Header("References")]
-        [SerializeField] private Animator animator;
-        [SerializeField] private Transform castPoint;
+        //[Header("References")]
+        //[SerializeField] private Animator animator;  
        
 
         [Header("Adds")]
         [Tooltip("If the boss summons any adds (additional minions) they will spawn from these transforms")]
         [SerializeField] private Transform[] addsSpawnPoints;
-        
+
+        [Header("Cast points")]
+        [SerializeField] private Transform castPointN;
+        [SerializeField] private Transform castPointNE;
+        [SerializeField] private Transform castPointE;
+        [SerializeField] private Transform castPointSE;
+        [SerializeField] private Transform castPointS;
+        [SerializeField] private Transform castPointSW;
+        [SerializeField] private Transform castPointW;
+        [SerializeField] private Transform castPointNW;
+
         private Transform player;
         private BossBehavior behavior;
+        private BossMovement movement;
+        private BossRenderer bossRenderer;
 
         //State
         private bool isPhaseOne = false;
@@ -46,6 +57,8 @@ namespace Game.Boss
         private void Awake()
         {
             behavior = GetComponent<BossBehavior>();
+            movement = GetComponent<BossMovement>();
+            bossRenderer = GetComponent<BossRenderer>();
             behavior.Initialize(this);
             phaseOneRuntimes = BuildRuntimeList(phaseOneAbilities);
             phaseTwoRuntimes = BuildRuntimeList(phaseTwoAbilities);
@@ -123,6 +136,14 @@ namespace Game.Boss
                 StopCoroutine(abilityLoopRoutine);
             }
 
+            StartCoroutine(PhaseOneToTwoTransition());
+
+        }
+
+        private IEnumerator PhaseOneToTwoTransition()
+        {
+            bossRenderer.TriggerAnimation(behavior.GetPhaseTransitionAnimationName());
+            yield return new WaitForSeconds(2f);
             abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
         }
 
@@ -171,8 +192,8 @@ namespace Game.Boss
            // Debug.Log($"Ability started: {ability.abilityName}, hasInitialAnimation flags: {ability.hasInitialAnimation}");
             if (ability.hasInitialAnimation)
             {
-                animator.ResetTrigger(ability.initialAnimationName);
-                animator.SetTrigger(ability.initialAnimationName);
+                bossRenderer.ResetTrigger(ability.initialAnimationName);    
+                bossRenderer.TriggerAnimation(ability.initialAnimationName);               
             }
         }
 
@@ -184,10 +205,10 @@ namespace Game.Boss
             //Debug.Log($"Ability ended: {ability.abilityName}, hasEndAnimation flags: {ability.hasEndAnimation}");
             if (ability.hasEndAnimation)
             {
-                animator.ResetTrigger(ability.endAnimationName);
-                animator.SetTrigger(ability.endAnimationName);
+                bossRenderer.ResetTrigger(ability.endAnimationName);
+                bossRenderer.TriggerAnimation(ability.endAnimationName);
             }
-            //OnAbilityFinished?.Invoke(abilityRuntime);
+            
         }
 
         public bool HasBlockFlag(AbilityBlockFlags flag)
@@ -197,8 +218,8 @@ namespace Game.Boss
 
         // 🔹 Public API for abilities
         public Transform GetPlayer() => context.playerTransform;
-        public Transform GetCastPoint() => castPoint;
-        public Animator GetAnimator() => animator;
+        
+        public BossRenderer GetBossRenderer() => bossRenderer;
 
         public int GetEnrageLevel() => enrageLevel;
 
@@ -225,9 +246,30 @@ namespace Game.Boss
             }
         }
 
-        public Transform[] GetAddsSpawnPoints() => addsSpawnPoints;  
-       
+        public Transform[] GetAddsSpawnPoints() => addsSpawnPoints;
 
-       
+        public FacingDirection GetFacingDirection()
+        {
+            return movement.CurrentFacing;
+        }
+
+        public Transform GetCurrentCastPoint()
+        {
+            return GetFacingDirection() switch
+            {
+                FacingDirection.N => castPointN,
+                FacingDirection.NE => castPointNE,
+                FacingDirection.E => castPointE,
+                FacingDirection.SE => castPointSE,
+                FacingDirection.S => castPointS,
+                FacingDirection.SW => castPointSW,
+                FacingDirection.W => castPointW,
+                FacingDirection.NW => castPointNW,
+                _ => castPointS
+            };
+        }
+
+
+
     }
 }

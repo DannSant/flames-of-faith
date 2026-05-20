@@ -27,7 +27,7 @@ MonoBehaviour:
   - moveToRandomPoint
   - showSpriteOnAbilityStart
   - hideSpriteOnAbilityEnd
-  projectilePrefab: {fileID: 4655842776331200841, guid: 69a64f11f975f6a4993883ef4f461fe5, type: 3}
+  projectilePrefab: {fileID: 4655842776331200841, guid: b5069c4db20092f49917428774a2938b, type: 3}
   projectileSpeed: 6
   baseDamage: 10
   damageScaling: 0.5

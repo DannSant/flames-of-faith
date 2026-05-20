@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bab69857193bb4282c5e4e37cfdadc, type: 3}
   m_Name: MoveToAltar
   m_EditorClassIdentifier: Assembly-CSharp::AIBehaviorMoveToObject
-  speed: 1.5
+  speed: 1
   arrivalThreshold: 0.1

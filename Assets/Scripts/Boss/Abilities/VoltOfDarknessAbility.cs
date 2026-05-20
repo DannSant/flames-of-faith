@@ -16,9 +16,10 @@ namespace Game.Boss
 
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
-            var animator = boss.GetAnimator();
+            var bossRenderer = boss.GetBossRenderer();
             var player = boss.GetPlayer();
-            var castPoint = boss.GetCastPoint();
+            var castPoint = boss.GetCurrentCastPoint();
+            Debug.Log($"castPoint {castPoint.name}");
             var ability = bossAbilityRuntime.GetBossAbility();
 
             if (player == null) yield break;
@@ -30,13 +31,13 @@ namespace Game.Boss
 
             for (int i = 0; i < projectilesToSpawn; i++) {
                 // Trigger animation
-                if (animator != null && animationName != "")
+                if (bossRenderer != null && animationName != "")
                 {
-                    animator.SetTrigger(animationName);
+                    bossRenderer.TriggerAnimation(animationName);
                 }
 
                 // Wait for animation windup
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(.95f);
 
                 GameObject projectile = Instantiate(projectilePrefab, castPoint.position, Quaternion.identity);
                 Vector2 direction = (player.position - castPoint.position).normalized;

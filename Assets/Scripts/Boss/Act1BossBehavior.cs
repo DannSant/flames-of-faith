@@ -5,35 +5,35 @@ namespace Game.Boss
 {
     public class Act1BossBehavior : BossBehavior
     {
+        [SerializeField] string fadeOutAnim = "FadeOut";
+        [SerializeField] string damageAnim = "Damage";
         private BossMovement movement;
-        private Animator animator;
-        private SpriteRenderer spriteRenderer;
+        //private Animator animator;
+       
 
         private bool eyesActive = false;
 
         private void Awake()
         {
             movement = GetComponent<BossMovement>();
-            animator = GetComponentInChildren<Animator>();
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            //animator = GetComponentInChildren<Animator>();
+           // spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         }
 
         public override void OnPhaseOneStart()
         {
-            boss.OnAbilityCasted += HandleAbilityCastPhaseOne;
-            boss.OnAbilityFinished += HandleAbilityFinishedPhaseOne;
-            boss.OnAllAddsDeath += HandleAllAddsDead;
-            //StartCoroutine(PhaseOneLoop());
+            boss.OnAbilityCasted += HandleAbilityCastPhaseOne;          
+            boss.OnAllAddsDeath += HandleAllAddsDead;           
         }
 
         public override void OnPhaseTwoStart()
         {
-            boss.OnAbilityCasted -= HandleAbilityCastPhaseOne;
-            boss.OnAbilityFinished -= HandleAbilityFinishedPhaseOne;
+            boss.OnAbilityCasted -= HandleAbilityCastPhaseOne;            
             boss.OnAllAddsDeath -= HandleAllAddsDead;
             StopAllCoroutines();          
             // Phase 2 movement logic later
+
         }
 
         private void HandleAbilityCastPhaseOne(BossAbilityRuntime ability)
@@ -49,18 +49,18 @@ namespace Game.Boss
 
 
             if (metadata.Contains("moveToRandomPoint")) {
-                movement.MoveToRandomPoint();                
+                movement.TeleportToRandomPoint();                
             }
 
             if (metadata.Contains("showSpriteOnAbilityStart"))
             {               
-                spriteRenderer.enabled = true;
+                bossRenderer.ToggleSprite(true);
             }
 
 
         }
 
-        private void HandleAbilityFinishedPhaseOne(BossAbilityRuntime ability)
+        /*private void HandleAbilityFinishedPhaseOne(BossAbilityRuntime ability)
         {
             var abilityData = ability.GetBossAbility();
             var metadata = abilityData.abilityMetadata;
@@ -73,7 +73,7 @@ namespace Game.Boss
                 spriteRenderer.enabled = false;
             }
            
-        }
+        }*/
 
         public override void OnAnimationEvent(string eventName)
         {
@@ -84,17 +84,17 @@ namespace Game.Boss
         }
 
         public void HandleFadeoutAnimationEnd() {
-            spriteRenderer.enabled = false;
+            bossRenderer.ToggleSprite(false);
             //TODO: disable hitbox here if we add one, or disable damage dealing component
 
         }
 
         private IEnumerator HandleAllAddsDeadRoutine()
         {
-            animator.SetTrigger("FadeOut");
+            bossRenderer.TriggerAnimation(fadeOutAnim);
             yield return new WaitForSeconds(1f);
             // Hide boss again when all adds are dead
-            spriteRenderer.enabled = false;
+            bossRenderer.ToggleSprite(false);
         }
 
         private void HandleAllAddsDead()
@@ -107,10 +107,9 @@ namespace Game.Boss
             yield return null;
         }*/
 
-        // Called externally by ability
-        public void SetEyesActive(bool value)
+       public override string GetPhaseTransitionAnimationName()
         {
-            eyesActive = value;
+            return damageAnim;
         }
     }
 }

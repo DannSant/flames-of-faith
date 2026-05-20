@@ -15,11 +15,11 @@ namespace Game.Boss
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
             yield return new WaitForSeconds(1.5f); // wait for the fade in animation to finish
-            var animator = boss.GetAnimator();
+            var bossRenderer = boss.GetBossRenderer();
 
-            if (animator != null && animationName != "")
+            if (bossRenderer != null && animationName != "")
             {
-                animator.SetTrigger(animationName);
+                bossRenderer.TriggerAnimation(animationName);
             }
            
 
