@@ -18,7 +18,9 @@ namespace Game.Boss
         private Transform player;
         private Animator animator;
 
-        public FacingDirection CurrentFacing { get; private set; }
+        //public FacingDirection CurrentFacing { get; private set; }
+
+        public Vector2 Direction { get; private set; }
 
         private void Awake()
         {
@@ -47,7 +49,10 @@ namespace Game.Boss
             animator.SetFloat("DirectionX", directionToPlayer.x);
             animator.SetFloat("DirectionY", directionToPlayer.y);
 
-            CurrentFacing = GetFacingDirection(directionToPlayer);
+          
+
+            //CurrentFacing = GetFacingDirection(directionToPlayer);
+            Direction = directionToPlayer;
         }
 
 
@@ -61,38 +66,34 @@ namespace Game.Boss
             transform.position = randomPoint;
         }
 
-        private FacingDirection GetFacingDirection(Vector2 dir)
+        public FacingDirection GetFacingDirection(Vector2 dir)
         {
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            dir.Normalize();
 
-            // Convert angle to 0-360
-            if (angle < 0)
-                angle += 360f;
+            float diagonalThreshold = 0.35f;
 
-            // 8-direction sectors (45 degrees each)
+            bool right = dir.x > diagonalThreshold;
+            bool left = dir.x < -diagonalThreshold;
+            bool up = dir.y > diagonalThreshold;
+            bool down = dir.y < -diagonalThreshold;
 
-            if (angle >= 337.5f || angle < 22.5f)
-                return FacingDirection.E;
+            // Diagonals first
+            if (up && right) return FacingDirection.NE;
+            if (up && left) return FacingDirection.NW;
+            if (down && right) return FacingDirection.SE;
+            if (down && left) return FacingDirection.SW;
 
-            if (angle >= 22.5f && angle < 67.5f)
-                return FacingDirection.NE;
+            // Cardinals
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+            {
+                return dir.x > 0
+                    ? FacingDirection.E
+                    : FacingDirection.W;
+            }
 
-            if (angle >= 67.5f && angle < 112.5f)
-                return FacingDirection.N;
-
-            if (angle >= 112.5f && angle < 157.5f)
-                return FacingDirection.NW;
-
-            if (angle >= 157.5f && angle < 202.5f)
-                return FacingDirection.W;
-
-            if (angle >= 202.5f && angle < 247.5f)
-                return FacingDirection.SW;
-
-            if (angle >= 247.5f && angle < 292.5f)
-                return FacingDirection.S;
-
-            return FacingDirection.SE;
+            return dir.y > 0
+                ? FacingDirection.N
+                : FacingDirection.S;
         }
 
         public void OnDrawGizmos()

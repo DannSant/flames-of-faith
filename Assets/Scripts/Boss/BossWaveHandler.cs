@@ -136,6 +136,8 @@ namespace Game.Boss
 
         public void ReduceFlameProgress(float damageAmount)
         {
+            if (!isPhaseOne) return;
+            if(currentFlameTime>=flameDuration) return;
             currentFlameTime = Mathf.Max(0f, currentFlameTime - damageAmount);
             OnFlameProgressChanged?.Invoke(currentFlameTime, flameDuration);
         }

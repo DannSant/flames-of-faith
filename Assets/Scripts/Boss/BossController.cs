@@ -248,14 +248,19 @@ namespace Game.Boss
 
         public Transform[] GetAddsSpawnPoints() => addsSpawnPoints;
 
-        public FacingDirection GetFacingDirection()
+        public FacingDirection GetFacingDirection(Vector2 dir)
         {
-            return movement.CurrentFacing;
+            return movement.GetFacingDirection(dir);
         }
 
-        public Transform GetCurrentCastPoint()
+        public Vector2 GetFacingDirectionVector()
         {
-            return GetFacingDirection() switch
+            return movement.Direction;
+        }
+
+        public Transform GetCurrentCastPoint(Vector2 dir)
+        {
+            return GetFacingDirection(dir) switch
             {
                 FacingDirection.N => castPointN,
                 FacingDirection.NE => castPointNE,

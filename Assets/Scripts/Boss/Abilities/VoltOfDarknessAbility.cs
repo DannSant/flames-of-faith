@@ -1,6 +1,7 @@
 ﻿using Game.Combat;
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Game.Boss
 {
@@ -13,13 +14,11 @@ namespace Game.Boss
         public float damageScaling = .5f;
         public int projectileNumberScaling = 1;
 
-
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
             var bossRenderer = boss.GetBossRenderer();
             var player = boss.GetPlayer();
-            var castPoint = boss.GetCurrentCastPoint();
-            Debug.Log($"castPoint {castPoint.name}");
+
             var ability = bossAbilityRuntime.GetBossAbility();
 
             if (player == null) yield break;
@@ -30,6 +29,10 @@ namespace Game.Boss
             int projectilesToSpawn = 1 + (boss.GetEnrageLevel() * projectileNumberScaling);
 
             for (int i = 0; i < projectilesToSpawn; i++) {
+                var dir = (player.position - boss.transform.position).normalized;
+                var castPoint = boss.GetCurrentCastPoint(dir);
+                Debug.Log($"castPoint {castPoint.name} - Boss:{boss.transform.position}- Player:{player.position}- direction {dir}");
+
                 // Trigger animation
                 if (bossRenderer != null && animationName != "")
                 {

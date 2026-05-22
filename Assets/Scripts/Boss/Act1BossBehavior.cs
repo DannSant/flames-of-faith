@@ -92,9 +92,10 @@ namespace Game.Boss
         private IEnumerator HandleAllAddsDeadRoutine()
         {
             bossRenderer.TriggerAnimation(fadeOutAnim);
-            yield return new WaitForSeconds(1f);
+            yield return null;
+            //yield return new WaitForSeconds(1f);
             // Hide boss again when all adds are dead
-            bossRenderer.ToggleSprite(false);
+            //bossRenderer.ToggleSprite(false);
         }
 
         private void HandleAllAddsDead()
