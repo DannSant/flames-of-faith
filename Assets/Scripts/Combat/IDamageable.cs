@@ -21,6 +21,8 @@ namespace Game.Combat
         public void TakeDamage(DamageRequest damageRequest);
         public bool ShouldSpawnDamageNumber();
         public bool ShouldSpawnEffectObject();
+
+        public bool IsImmune();
     }
 
 }

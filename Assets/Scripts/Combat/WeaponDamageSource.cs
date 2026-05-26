@@ -37,15 +37,15 @@ namespace Game.Combat
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
             Transform transform = collision.transform;
             Knockback knockback = collision.GetComponent<Knockback>();
-            if (damageableObject != null)
+            if (damageableObject != null && weaponData != null)
             {
 
-                //float damageAmount = weaponData.baseDamage + playerProgression.GetStatTotal(StatType.MeleeDamage) * weaponData.attackScale;
+              
                 var damageRequest = new DamageCalculationRequest(weaponData.baseDamage, null, "", WeaponClass.Melee, playerProgression, weaponData.attackScale);
                 float damageAmount = DamageCalculator.CalculateTotalDamage(damageRequest);
                 damageableObject.TakeDamage(new DamageRequest(damageAmount, weaponData.weaponClass, true));
 
-                if (damageableObject.ShouldSpawnDamageNumber())
+                if (damageableObject.ShouldSpawnDamageNumber() && !damageableObject.IsImmune())
                 {
                     DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, damageAmount);
                 }

@@ -1,4 +1,6 @@
-﻿using Game.Control;
+﻿using Game.AI;
+using Game.Combat;
+using Game.Control;
 using Game.Scene;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +38,8 @@ namespace Game.Boss
         private BossBehavior behavior;
         private BossMovement movement;
         private BossRenderer bossRenderer;
+        private Enemy enemyComponent;
+        private EnemyHealth health;
 
         //State
         private bool isPhaseOne = false;
@@ -58,8 +62,12 @@ namespace Game.Boss
         {
             behavior = GetComponent<BossBehavior>();
             movement = GetComponent<BossMovement>();
-            bossRenderer = GetComponent<BossRenderer>();
             behavior.Initialize(this);
+            bossRenderer = GetComponent<BossRenderer>();
+            enemyComponent = GetComponent<Enemy>();
+            enemyComponent.InitializeBossHealth();
+            health = GetComponent<EnemyHealth>();
+
             phaseOneRuntimes = BuildRuntimeList(phaseOneAbilities);
             phaseTwoRuntimes = BuildRuntimeList(phaseTwoAbilities);
             CreateContext();
@@ -123,6 +131,9 @@ namespace Game.Boss
             isPhaseTwo = false;
             behavior.OnPhaseOneStart();
 
+            //Set immunity flag for phase 1 if needed
+            health.IsImmuneFlag = true;
+
             abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseOneRuntimes));
         }
 
@@ -130,6 +141,9 @@ namespace Game.Boss
         {
             isPhaseOne = false;
             isPhaseTwo = true;
+
+            //Remove immunity flag for phase 2
+            health.IsImmuneFlag = false;
 
             if (abilityLoopRoutine != null)
             {

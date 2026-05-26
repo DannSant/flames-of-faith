@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4604f6b413c4bc94dbf8332f83ed5327, type: 3}
+  m_Name: Act1Boss
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Enemies.EnemyData
+  enemyType: 6
+  enemyPrefab: {fileID: 6737919231293769747, guid: 4ce3cf27d18dd4547a2879d717c8a012, type: 3}
+  healthBase: 100
+  damageBase: 1
+  damagePerWave: 1
+  damagePerLevel: 2
+  speedBase: 1
+  attackRangeBase: 1
+  xpBase: 1
+  xpPerLevel: 1
+  projectileDamageBase: 0
+  projectileDamagePerWave: 0
+  healthPerWave: 30
+  healthPerLevel: 40

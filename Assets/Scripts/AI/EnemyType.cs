@@ -8,6 +8,7 @@ namespace Game.AI {
         FlameShooter,
         LightDevourerAttacker,
         DrekoEye,
-        SlimeExplosive
+        SlimeExplosive,
+        Boss
     }
 }

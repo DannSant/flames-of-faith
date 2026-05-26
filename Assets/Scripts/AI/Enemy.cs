@@ -43,6 +43,18 @@ namespace Game.AI {
             return enemyDatabase.GetEnemyData(enemyType);
         }
 
+        public void InitializeBossHealth()
+        {
+            if (enemyData == null)
+            {
+                enemyData = FindEnemyData();
+            }
+
+            int baseHealth = enemyData.healthBase;
+            health.SetMaxHealth(baseHealth);
+
+        }
+
         public void Initialize(int waveNumber)
         {
             if(enemyData == null)

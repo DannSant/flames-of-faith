@@ -58,6 +58,11 @@ namespace Game.Misc
         {
             return false;
         }
+
+        public bool IsImmune()
+        {
+            return false;
+        }
     }
 
 }

@@ -31,7 +31,7 @@ namespace Game.Boss
             for (int i = 0; i < projectilesToSpawn; i++) {
                 var dir = (player.position - boss.transform.position).normalized;
                 var castPoint = boss.GetCurrentCastPoint(dir);
-                Debug.Log($"castPoint {castPoint.name} - Boss:{boss.transform.position}- Player:{player.position}- direction {dir}");
+                //Debug.Log($"castPoint {castPoint.name} - Boss:{boss.transform.position}- Player:{player.position}- direction {dir}");
 
                 // Trigger animation
                 if (bossRenderer != null && animationName != "")

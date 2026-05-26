@@ -63,6 +63,7 @@ namespace Game.Combat
 
         public override void Attack()
         {
+            if(characterVisual == null) return;
             if (!attackTimer.GetIsEventActive())
             {
                 PlayRandomSwordSound();

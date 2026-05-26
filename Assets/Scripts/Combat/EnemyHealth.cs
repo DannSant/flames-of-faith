@@ -29,6 +29,13 @@ namespace Game.Combat
         private float currentHealth;
         private Flash flash;    
         private float extraDamageTakenPercentage = 0f;
+        private bool isImmune = false;
+
+        public bool IsImmuneFlag
+        {
+            get => isImmune;
+            set => isImmune = value;
+        }
 
         //References
         private PlayerHealth playerHealth;
@@ -65,6 +72,12 @@ namespace Game.Combat
             if (damagedSFX != null)
             {
                 AudioManager.Instance.PlayLowVolumeSFX(damagedSFX, true);
+            }
+
+            if (IsImmuneFlag) 
+            {
+                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(transform.position, 0f);
+                return;
             }
             currentHealth -= damage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -142,6 +155,11 @@ namespace Game.Combat
         public bool ShouldSpawnEffectObject()
         {
             return true;
+        }
+
+        public bool IsImmune()
+        {
+            return isImmune;
         }
     }
 }

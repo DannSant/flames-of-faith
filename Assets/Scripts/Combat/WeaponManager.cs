@@ -77,6 +77,12 @@ namespace Game.Combat
             foreach (var hit in hits)
             {
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
+
+                if(enemy.IsImmune())
+                {
+                    continue; // Skip immune enemies
+                }
+
                 if (enemy != null) // Optional: check if alive
                 {
                     float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
