@@ -18,7 +18,7 @@ namespace Game.Boss
 
         //[Header("References")]
         //[SerializeField] private Animator animator;  
-       
+
 
         [Header("Adds")]
         [Tooltip("If the boss summons any adds (additional minions) they will spawn from these transforms")]
@@ -75,7 +75,7 @@ namespace Game.Boss
 
         private void Start()
         {
-            player = PlayerManager.Instance.gameObject.transform;       
+            player = PlayerManager.Instance.gameObject.transform;
 
         }
 
@@ -86,15 +86,15 @@ namespace Game.Boss
             context.phaseTime += Time.deltaTime;
             context.enrageLevel = enrageLevel; // keep synced
             context.activeAddsCount = activeAdds.Count;
-          
-        }        
+
+        }
 
         private void CreateContext()
         {
             context = new BossAbilityContext
             {
                 bossTransform = transform,
-                playerTransform = FindPlayer(), 
+                playerTransform = FindPlayer(),
                 coroutineRunner = this,
                 phaseTime = 0f,
                 enrageLevel = 0
@@ -159,6 +159,9 @@ namespace Game.Boss
             bossRenderer.TriggerAnimation(behavior.GetPhaseTransitionAnimationName());
             yield return new WaitForSeconds(2f);
             abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
+
+            // Remove immunity flag for phase 2 after transition animation
+            health.IsImmuneFlag = false;
         }
 
         private IEnumerator AbilityLoop(List<BossAbilityRuntime> abilities)
@@ -170,7 +173,7 @@ namespace Game.Boss
 
                 foreach (var ability in abilities)
                 {
-                    if (!ability.CanExecute(this,context))
+                    if (!ability.CanExecute(this, context))
                         continue;
 
                     if (selected == null || ability.GetBossAbility().priority > selected.GetBossAbility().priority)
@@ -181,12 +184,16 @@ namespace Game.Boss
 
                 if (selected != null)
                 {
+                    context.currentAbility = selected.GetBossAbility();
+                    movement.SetCasting(true);
                     yield return StartCoroutine(selected.Execute(
                         this,
                         context,
                         OnAbilityStarted,
                         OnAbilityEnded
                     ));
+                    context.currentAbility = null;
+                    movement.SetCasting(false);
                 }
 
                 yield return null;
@@ -203,18 +210,18 @@ namespace Game.Boss
             OnAbilityCasted?.Invoke(abilityRuntime);
             currentBlockFlags |= (int)flags;
             var ability = abilityRuntime.GetBossAbility();
-           // Debug.Log($"Ability started: {ability.abilityName}, hasInitialAnimation flags: {ability.hasInitialAnimation}");
+            // Debug.Log($"Ability started: {ability.abilityName}, hasInitialAnimation flags: {ability.hasInitialAnimation}");
             if (ability.hasInitialAnimation)
             {
-                bossRenderer.ResetTrigger(ability.initialAnimationName);    
-                bossRenderer.TriggerAnimation(ability.initialAnimationName);               
+                bossRenderer.ResetTrigger(ability.initialAnimationName);
+                bossRenderer.TriggerAnimation(ability.initialAnimationName);
             }
         }
 
         private void OnAbilityEnded(BossAbilityRuntime abilityRuntime)
         {
-            
-            var ability = abilityRuntime.GetBossAbility();           
+
+            var ability = abilityRuntime.GetBossAbility();
             currentBlockFlags &= ~(int)ability.blocksWhileActive;
             //Debug.Log($"Ability ended: {ability.abilityName}, hasEndAnimation flags: {ability.hasEndAnimation}");
             if (ability.hasEndAnimation)
@@ -222,7 +229,7 @@ namespace Game.Boss
                 bossRenderer.ResetTrigger(ability.endAnimationName);
                 bossRenderer.TriggerAnimation(ability.endAnimationName);
             }
-            
+
         }
 
         public bool HasBlockFlag(AbilityBlockFlags flag)
@@ -232,7 +239,7 @@ namespace Game.Boss
 
         // 🔹 Public API for abilities
         public Transform GetPlayer() => context.playerTransform;
-        
+
         public BossRenderer GetBossRenderer() => bossRenderer;
 
         public int GetEnrageLevel() => enrageLevel;
@@ -245,7 +252,7 @@ namespace Game.Boss
 
         public void RegisterAdd(GameObject add)
         {
-           
+
             activeAdds.Add(add);
         }
 
@@ -254,7 +261,7 @@ namespace Game.Boss
             activeAdds.Remove(add);
 
             if (activeAdds.Count <= 0)
-            {               
+            {
                 IncreaseEnrageLevel();
                 OnAllAddsDeath?.Invoke(); // we can pass context if needed
             }
@@ -288,7 +295,12 @@ namespace Game.Boss
             };
         }
 
+        public bool IsCastingAbility()
+        {
+            return context.currentAbility != null;
 
 
+
+        }
     }
 }

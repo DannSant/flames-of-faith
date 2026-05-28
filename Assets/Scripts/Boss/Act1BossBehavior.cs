@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Boss
@@ -8,17 +11,61 @@ namespace Game.Boss
         [SerializeField] string fadeOutAnim = "FadeOut";
         [SerializeField] string damageAnim = "Damage";
         private BossMovement movement;
-        //private Animator animator;
-       
+        private Collider2D bossCollider;
 
-        private bool eyesActive = false;
+        [SerializeField] private List<Transform> patrolPoints = new List<Transform>();  
+
+        private bool isOnPhase2 = false;
+        private Transform currentPatrolPoint;
+
 
         private void Awake()
         {
             movement = GetComponent<BossMovement>();
-            //animator = GetComponentInChildren<Animator>();
-           // spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            bossCollider = GetComponent<Collider2D>();
+        }
 
+        private void Update()
+        {
+            if (isOnPhase2)
+            {
+                Phase2MovementUpdate();
+            }
+
+        }
+
+        private void Phase2MovementUpdate()
+        {
+            if (movement == null)
+                return;
+
+            // Do not issue movement while casting
+            if (boss.IsCastingAbility())
+                return;
+
+            // If already moving → nothing to do
+            if (movement.IsMoving)
+                return;
+
+            SelectNextPatrolPoint();
+        }
+
+        private void SelectNextPatrolPoint()
+        {
+            if (patrolPoints.Count == 0)
+                return;
+
+            List<Transform> validPoints =
+                patrolPoints
+                .Where(p => p != currentPatrolPoint)
+                .ToList();
+
+            if (validPoints.Count == 0)
+                validPoints = patrolPoints;
+
+            currentPatrolPoint = validPoints[Random.Range(0, validPoints.Count)];
+
+            movement.MoveTo(currentPatrolPoint.position);
         }
 
         public override void OnPhaseOneStart()
@@ -31,8 +78,10 @@ namespace Game.Boss
         {
             boss.OnAbilityCasted -= HandleAbilityCastPhaseOne;            
             boss.OnAllAddsDeath -= HandleAllAddsDead;
-            StopAllCoroutines();          
-            // Phase 2 movement logic later
+            StopAllCoroutines();
+
+            // Enable phase 2 movement
+            isOnPhase2 = true;
 
         }
 
@@ -55,25 +104,11 @@ namespace Game.Boss
             if (metadata.Contains("showSpriteOnAbilityStart"))
             {               
                 bossRenderer.ToggleSprite(true);
+                bossCollider.enabled = true;
             }
 
 
         }
-
-        /*private void HandleAbilityFinishedPhaseOne(BossAbilityRuntime ability)
-        {
-            var abilityData = ability.GetBossAbility();
-            var metadata = abilityData.abilityMetadata;
-            if (metadata == null)
-            {
-                return;
-            }
-            if (metadata.Contains("hideSpriteOnAbilityEnd"))
-            {
-                spriteRenderer.enabled = false;
-            }
-           
-        }*/
 
         public override void OnAnimationEvent(string eventName)
         {
@@ -85,7 +120,7 @@ namespace Game.Boss
 
         public void HandleFadeoutAnimationEnd() {
             bossRenderer.ToggleSprite(false);
-            //TODO: disable hitbox here if we add one, or disable damage dealing component
+            bossCollider.enabled = false; // Disable collider to prevent player from hitting invisible boss
 
         }
 
@@ -93,20 +128,12 @@ namespace Game.Boss
         {
             bossRenderer.TriggerAnimation(fadeOutAnim);
             yield return null;
-            //yield return new WaitForSeconds(1f);
-            // Hide boss again when all adds are dead
-            //bossRenderer.ToggleSprite(false);
         }
 
         private void HandleAllAddsDead()
         {
             StartCoroutine(HandleAllAddsDeadRoutine());
         }
-
-        /*private IEnumerator PhaseOneLoop()
-        {
-            yield return null;
-        }*/
 
        public override string GetPhaseTransitionAnimationName()
         {

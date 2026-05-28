@@ -694,7 +694,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 815129e39b9c1534a8cec5d30666beaf, type: 2}
   - {fileID: 11400000, guid: b42620965adadd44e99c5288230cb9a0, type: 2}
   - {fileID: 11400000, guid: e70fd09165325eb46bf1bd5cbd5625f1, type: 2}
-  phaseTwoAbilities: []
+  phaseTwoAbilities:
+  - {fileID: 11400000, guid: 47bca08f49dc3b245bada592d2c0486b, type: 2}
+  - {fileID: 11400000, guid: f3c185ba0a36ccb45acd4da968aafa41, type: 2}
   addsSpawnPoints:
   - {fileID: 0}
   - {fileID: 0}

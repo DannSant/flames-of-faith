@@ -82,7 +82,11 @@ namespace Game.Combat
             currentHealth -= damage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
             healthbar.SetHealth(currentHealth, maxHealth);
-            flash.StartFlash();
+            if (flash != null)
+            {
+                flash.StartFlash();
+            }
+            
             if (currentHealth <= 0)
             {
                 healthbar.Hide();

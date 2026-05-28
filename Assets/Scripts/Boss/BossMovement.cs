@@ -18,9 +18,14 @@ namespace Game.Boss
         private Transform player;
         private Animator animator;
 
-        //public FacingDirection CurrentFacing { get; private set; }
+        private Vector2? targetPosition;
+        private bool isCastingAbility;       
 
+        // Properties
         public Vector2 Direction { get; private set; }
+        public bool HasTargetPosition => targetPosition.HasValue;
+        public bool HasReachedDestination => !targetPosition.HasValue;
+        public bool IsMoving => targetPosition.HasValue;
 
         private void Awake()
         {
@@ -38,21 +43,84 @@ namespace Game.Boss
 
         private void Update()
         {
-            if (animator == null) { 
-                Debug.LogWarning("Animator not found on BossMovement."); 
+            if (player == null)
+                return;
+
+            if (animator == null)
+            {
+                Debug.LogWarning("Animator not found on BossMovement.");
                 return;
             }
+
+
+            if (targetPosition.HasValue && !isCastingAbility)
+            {
+                MoveTowardsTarget();
+            }
+            else
+            {
+                FacePlayer();
+            }
+        }
+
+        private void MoveTowardsTarget()
+        {
+            Vector2 current =  transform.position;
+
+            Vector2 target = targetPosition.Value;
+
+            Vector2 direction = (target - current).normalized;
+
+            transform.position = Vector2.MoveTowards(current,target, moveSpeed * Time.deltaTime);
+
+            UpdateFacing(direction);
+
+            float distance =Vector2.Distance(current, target);
+            animator.SetBool("Move", true);
+
+            if (distance <= 0.05f)
+            {
+                transform.position = target;
+                targetPosition = null;
+                animator.SetBool("Move", false);
+            }
+        }
+
+        private void FacePlayer()
+        {
             //Face the player if the boss is not moving
             Vector2 directionToPlayer = (player.position - transform.position).normalized;
 
-           
-            animator.SetFloat("DirectionX", directionToPlayer.x);
-            animator.SetFloat("DirectionY", directionToPlayer.y);
+            UpdateFacing(directionToPlayer);
+        }
 
-          
+        private void UpdateFacing(Vector2 direction)
+        {
+            animator.SetFloat("DirectionX", direction.x);
+            animator.SetFloat("DirectionY", direction.y);
 
-            //CurrentFacing = GetFacingDirection(directionToPlayer);
-            Direction = directionToPlayer;
+
+            Direction = direction;
+        }
+
+        public void MoveTo(Vector2 position)
+        {
+            targetPosition = position;
+        }
+
+        public void SetCasting(bool value)
+        {
+            isCastingAbility = value;
+        }
+
+        public void StopMovement()
+        {
+            targetPosition = null;
+        }
+
+        public bool IsCasting()
+        {
+            return isCastingAbility;
         }
 
 

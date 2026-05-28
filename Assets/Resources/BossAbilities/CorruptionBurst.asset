@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fe238b4f2fed6449e6b8a8f4504927, type: 3}
+  m_Name: CorruptionBurst
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.CorruptionBurst
+  abilityName: Corruption Burst
+  animationName: ChannelContinious
+  initialAnimationName: 
+  endAnimationName: 
+  conditions:
+  - {fileID: 11400000, guid: ef0069fbdcc94584d8562d375e0defee, type: 2}
+  cooldown: 15
+  delayToStart: 1
+  delayToEnd: 1
+  priority: 1
+  blocksWhileActive: -1
+  abilityMetadata: []
+  projectilePrefab: {fileID: 4655842776331200841, guid: 69a64f11f975f6a4993883ef4f461fe5, type: 3}
+  duration: 5
+  fireInterval: 0.2
+  spreadAngle: 35
+  projectileSpeed: 8
+  projectilesPerShot: 1
+  baseDamage: 5
+  damageScaling: 1

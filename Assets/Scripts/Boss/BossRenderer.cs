@@ -37,6 +37,16 @@ namespace Game.Boss
             animator.SetTrigger(animationName);
         }
 
+        public void SetAnimationBool(string parameterName, bool value)
+        {
+            if (animator == null)
+            {
+                Debug.LogWarning("Animator not found on BossRenderer.");
+                return;
+            }
+            animator.SetBool(parameterName, value);
+        }
+
         public void ResetTrigger(string animationName)
         {
             if (animator == null)

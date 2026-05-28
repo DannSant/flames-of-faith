@@ -16,5 +16,6 @@ namespace Game.Boss
         public System.Action<float> ModifyFlameProgress; // for altar interactions
 
         public int activeAddsCount;
+        public BossAbilityBase currentAbility;
     }
 }

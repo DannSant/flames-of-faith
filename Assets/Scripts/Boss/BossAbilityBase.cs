@@ -25,9 +25,11 @@ namespace Game.Boss
     {
         [Header("Ability data")]
         public string abilityName;
+        [Header("Animation data")]
         public string animationName;
         public string initialAnimationName; // optional animation to play at the start of the ability (e.g. a cast animation before the main one)
         public string endAnimationName; // optional animation to play at the end of the ability (e.g. a recovery animation)
+        public bool useTriggerAnimation; // true for one time animations, false for continuous animations like channelling
         public bool hasInitialAnimation => !string.IsNullOrEmpty(initialAnimationName);
         public bool hasEndAnimation => !string.IsNullOrEmpty(endAnimationName);        
 
