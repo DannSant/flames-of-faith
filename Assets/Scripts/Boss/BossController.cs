@@ -140,7 +140,7 @@ namespace Game.Boss
         private void EnterPhaseTwo()
         {
             isPhaseOne = false;
-            isPhaseTwo = true;
+            isPhaseTwo = true;          
 
             //Remove immunity flag for phase 2
             health.IsImmuneFlag = false;
@@ -162,6 +162,8 @@ namespace Game.Boss
 
             // Remove immunity flag for phase 2 after transition animation
             health.IsImmuneFlag = false;
+
+            behavior.OnPhaseTwoStart();
         }
 
         private IEnumerator AbilityLoop(List<BossAbilityRuntime> abilities)

@@ -27,6 +27,7 @@ namespace Game.Boss
 
         private void Update()
         {
+           
             if (isOnPhase2)
             {
                 Phase2MovementUpdate();
@@ -37,21 +38,31 @@ namespace Game.Boss
         private void Phase2MovementUpdate()
         {
             if (movement == null)
+            {
+               
                 return;
+            }
 
             // Do not issue movement while casting
             if (boss.IsCastingAbility())
+            {
+               
                 return;
+            }
 
             // If already moving → nothing to do
             if (movement.IsMoving)
+            {
+               
                 return;
+            }                
 
             SelectNextPatrolPoint();
         }
 
         private void SelectNextPatrolPoint()
         {
+            //Debug.Log("Selecting next patrol point...");
             if (patrolPoints.Count == 0)
                 return;
 
@@ -64,6 +75,8 @@ namespace Game.Boss
                 validPoints = patrolPoints;
 
             currentPatrolPoint = validPoints[Random.Range(0, validPoints.Count)];
+
+            //Debug.Log($"Boss moving to patrol point: {currentPatrolPoint.name}");
 
             movement.MoveTo(currentPatrolPoint.position);
         }

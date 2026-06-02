@@ -26,6 +26,11 @@ namespace Game.Combat.Projectiles
 
         protected abstract void Move();
 
+        public virtual void SetTarget(Transform target)
+        {
+            // Optional override for projectiles that need a target reference (e.g., homing)
+        }
+
         private void FixedUpdate()
         {
             Move();

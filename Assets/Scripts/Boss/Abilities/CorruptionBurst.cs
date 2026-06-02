@@ -32,6 +32,12 @@ namespace Game.Boss
             if (player == null)
                 yield break;
 
+            if (!string.IsNullOrEmpty(initialAnimationName)) { 
+                bossRenderer.TriggerAnimation(initialAnimationName);
+            }
+
+            yield return new WaitForSeconds(delayToStart);
+
             if (!string.IsNullOrEmpty(animationName))
             {
                 if (useTriggerAnimation)
@@ -60,6 +66,12 @@ namespace Game.Boss
             {
                 bossRenderer.SetAnimationBool(animationName, false);
             }
+
+            if (!string.IsNullOrEmpty(endAnimationName))
+            {
+                bossRenderer.TriggerAnimation(endAnimationName);
+            }
+            yield return new WaitForSeconds(delayToEnd);
         }
 
         private void FireBurstShot(BossController boss,Transform player)

@@ -59,6 +59,7 @@ namespace Game.Boss
             }
             else
             {
+                StopMovement();
                 FacePlayer();
             }
         }
@@ -81,8 +82,7 @@ namespace Game.Boss
             if (distance <= 0.05f)
             {
                 transform.position = target;
-                targetPosition = null;
-                animator.SetBool("Move", false);
+                StopMovement();
             }
         }
 
@@ -116,6 +116,7 @@ namespace Game.Boss
         public void StopMovement()
         {
             targetPosition = null;
+            animator.SetBool("Move", false);
         }
 
         public bool IsCasting()

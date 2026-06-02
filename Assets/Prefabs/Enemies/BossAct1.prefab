@@ -697,6 +697,7 @@ MonoBehaviour:
   phaseTwoAbilities:
   - {fileID: 11400000, guid: 47bca08f49dc3b245bada592d2c0486b, type: 2}
   - {fileID: 11400000, guid: f3c185ba0a36ccb45acd4da968aafa41, type: 2}
+  - {fileID: 11400000, guid: edaa1dfc7eb55464092ff455c8fa8eed, type: 2}
   addsSpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -729,6 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.Act1BossBehavior
   fadeOutAnim: FadeOut
   damageAnim: Damage
+  patrolPoints: []
 --- !u!114 &6599958081129926117
 MonoBehaviour:
   m_ObjectHideFlags: 0
