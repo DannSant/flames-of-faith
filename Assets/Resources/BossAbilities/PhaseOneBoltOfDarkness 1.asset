@@ -16,6 +16,7 @@ MonoBehaviour:
   animationName: Attack
   initialAnimationName: 
   endAnimationName: 
+  useTriggerAnimation: 0
   conditions:
   - {fileID: 11400000, guid: 5b94a25dd7f7a184d83656d5ca6b401a, type: 2}
   cooldown: 3
@@ -26,6 +27,8 @@ MonoBehaviour:
   abilityMetadata: []
   projectilePrefab: {fileID: 4655842776331200841, guid: b5069c4db20092f49917428774a2938b, type: 3}
   projectileSpeed: 6
-  baseDamage: 10
+  baseDamage: 30
   damageScaling: 0.5
   projectileNumberScaling: 1
+  baseProjectileCount: 1
+  animationWindup: 0.95

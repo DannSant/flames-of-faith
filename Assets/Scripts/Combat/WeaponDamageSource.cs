@@ -37,7 +37,18 @@ namespace Game.Combat
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
             Transform transform = collision.transform;
             Knockback knockback = collision.GetComponent<Knockback>();
-            if (damageableObject != null && weaponData != null)
+
+            if (damageableObject==null)
+            {
+                return;
+            }
+
+            if (damageableObject.IsDead())
+            {
+                return;
+            }
+
+            if (weaponData != null)
             {
 
               

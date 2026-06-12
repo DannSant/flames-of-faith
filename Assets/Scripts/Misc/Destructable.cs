@@ -63,6 +63,11 @@ namespace Game.Misc
         {
             return false;
         }
+
+        public bool IsDead()
+        {
+            return currentHealth <= 0;
+        }
     }
 
 }

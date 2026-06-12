@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Control;
 using Game.Scene;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Game.Boss
 
         private Transform player;
         private Animator animator;
+        private EnemyHealth bossHealth;
 
         private Vector2? targetPosition;
         private bool isCastingAbility;       
@@ -30,6 +32,7 @@ namespace Game.Boss
         private void Awake()
         {
             animator = GetComponentInChildren<Animator>();
+            bossHealth = GetComponent<EnemyHealth>();
         }
 
         private void Start()
@@ -49,6 +52,11 @@ namespace Game.Boss
             if (animator == null)
             {
                 Debug.LogWarning("Animator not found on BossMovement.");
+                return;
+            }
+
+            if (bossHealth != null && bossHealth.IsDead())
+            {
                 return;
             }
 
@@ -165,11 +173,7 @@ namespace Game.Boss
                 : FacingDirection.S;
         }
 
-        public void OnDrawGizmos()
-        {
-            
-            Gizmos.DrawWireSphere(transform.position, moveRange);
-        }
+
     }
 
 }

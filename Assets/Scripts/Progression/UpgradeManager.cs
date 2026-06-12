@@ -40,10 +40,6 @@ namespace Game.Progression
                 lastRecordedLevel = playerExperience.GetCurrentLevel();
             }
 
-            /*if (WaveSpawner.Instance != null)
-            {
-                WaveSpawner.Instance.OnWaveComplete += HandleWaveComplete;
-            }*/
 
             if (MainSceneController.Instance != null)
             {
@@ -57,10 +53,7 @@ namespace Game.Progression
 
         private void OnDestroy()
         {
-            /*if (WaveSpawner.Instance != null)
-            {
-                WaveSpawner.Instance.OnWaveComplete -= HandleWaveComplete;
-            }*/
+
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetUpgradeManagerstate;
@@ -89,40 +82,6 @@ namespace Game.Progression
             levelsGainedThisWave = 0;
         }
 
-       /* private void HandleWaveComplete()
-        {
-
-            
-
-            int currentLevel = CalculateLevelsGainedInWave();
-            lastRecordedLevel = currentLevel;
-
-            if (levelsGainedThisWave > 0)
-            {
-                List<List<StatValuePair>> upgradeChoiceGroups = new();
-
-                for (int i = 0; i < levelsGainedThisWave; i++)
-                {
-                    List<StatType> selectedStats = GetRandomStats(3); // Or adjust # of choices here
-                    List<StatValuePair> upgradeOptions = new();
-
-                    foreach (var stat in selectedStats)
-                    {
-                        int tier = RollUpgradeTier(stat);
-                        int value = StatUpgradeDatabase.Instance.GetUpgradeAmount(stat, tier);
-                        upgradeOptions.Add(new StatValuePair(stat, value));
-                    }
-
-                    upgradeChoiceGroups.Add(upgradeOptions);
-                }
-
-                OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups);
-            }
-            else
-            {
-                OnNoUpgradeAvailable?.Invoke();
-            }
-        }*/
 
         private int RollUpgradeTier(StatType stat)
         {
@@ -211,10 +170,7 @@ namespace Game.Progression
 
         public void Cleanup()
         {
-            /*if (WaveSpawner.Instance != null)
-            {
-                WaveSpawner.Instance.OnWaveComplete -= HandleWaveComplete;
-            }*/
+
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetUpgradeManagerstate;

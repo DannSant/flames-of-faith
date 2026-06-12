@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game.Boss
 {
     public class BossAbilityContext
-    {
+    {        
         public Transform bossTransform;
         public Transform playerTransform;
 
@@ -17,5 +17,6 @@ namespace Game.Boss
 
         public int activeAddsCount;
         public BossAbilityBase currentAbility;
+        public bool isPhaseTwo;       
     }
 }

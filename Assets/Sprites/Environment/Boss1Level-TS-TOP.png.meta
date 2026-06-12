@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: ac3ccbf22c41abe4f807e2814ad3d6c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1471510230604819137
+    second: Boss1Level-TS-TOP_0
+  - first:
+      213: 3447872469112765662
+    second: Boss1Level-TS-TOP_1
+  - first:
+      213: -9023961061122259200
+    second: Boss1Level-TS-TOP_2
+  - first:
+      213: 6257325383652720200
+    second: Boss1Level-TS-TOP_3
+  - first:
+      213: -2144913581846036474
+    second: Boss1Level-TS-TOP_4
+  - first:
+      213: 6936900340067564375
+    second: Boss1Level-TS-TOP_5
+  - first:
+      213: -9141702220888163334
+    second: Boss1Level-TS-TOP_6
+  - first:
+      213: 6993476090551670139
+    second: Boss1Level-TS-TOP_7
+  - first:
+      213: -460447362616642882
+    second: Boss1Level-TS-TOP_8
+  - first:
+      213: 1603833288825897990
+    second: Boss1Level-TS-TOP_9
+  - first:
+      213: -7207497581769789388
+    second: Boss1Level-TS-TOP_10
+  - first:
+      213: 2738866477103214750
+    second: Boss1Level-TS-TOP_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_0
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 1505
+        width: 54
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35527ddd35249be0800000000000000
+      internalID: -1471510230604819137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_1
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 1366
+        width: 14
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edcb0583ebd49df20800000000000000
+      internalID: 3447872469112765662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_2
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 1502
+        width: 484
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007c9d4d93374c280800000000000000
+      internalID: -9023961061122259200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_3
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 1430
+        width: 9
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84eb7a0a84c76d650800000000000000
+      internalID: 6257325383652720200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_4
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 604
+        width: 2338
+        height: 896
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6000828267cbb32e0800000000000000
+      internalID: -2144913581846036474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_5
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 1448
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b73042b12d44060800000000000000
+      internalID: 6936900340067564375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_6
+      rect:
+        serializedVersion: 2
+        x: 2561
+        y: 598
+        width: 215
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afbbf81d346222180800000000000000
+      internalID: -9141702220888163334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_7
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 598
+        width: 51
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75158a8371dd0160800000000000000
+      internalID: 6993476090551670139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_8
+      rect:
+        serializedVersion: 2
+        x: 2826
+        y: 602
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb2387130992c99f0800000000000000
+      internalID: -460447362616642882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_9
+      rect:
+        serializedVersion: 2
+        x: 2828
+        y: 598
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6040a63f0e5f14610800000000000000
+      internalID: 1603833288825897990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_10
+      rect:
+        serializedVersion: 2
+        x: 2852
+        y: 598
+        width: 82
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430ff17e223d9fb90800000000000000
+      internalID: -7207497581769789388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss1Level-TS-TOP_11
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 598
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9076febc88620620800000000000000
+      internalID: 2738866477103214750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss1Level-TS-TOP_0: -1471510230604819137
+      Boss1Level-TS-TOP_1: 3447872469112765662
+      Boss1Level-TS-TOP_10: -7207497581769789388
+      Boss1Level-TS-TOP_11: 2738866477103214750
+      Boss1Level-TS-TOP_2: -9023961061122259200
+      Boss1Level-TS-TOP_3: 6257325383652720200
+      Boss1Level-TS-TOP_4: -2144913581846036474
+      Boss1Level-TS-TOP_5: 6936900340067564375
+      Boss1Level-TS-TOP_6: -9141702220888163334
+      Boss1Level-TS-TOP_7: 6993476090551670139
+      Boss1Level-TS-TOP_8: -460447362616642882
+      Boss1Level-TS-TOP_9: 1603833288825897990
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,10 +9,24 @@ namespace Game.Boss
     public class VoltOfDarknessAbility : BossAbilityBase
     {
         public GameObject projectilePrefab;
-        public float projectileSpeed = 6f;
-        public float baseDamage = 10;
-        public float damageScaling = .5f;
-        public int projectileNumberScaling = 1;
+
+        [SerializeField]
+        private float projectileSpeed = 6f;
+
+        [SerializeField]
+        private float baseDamage = 10f;
+
+        [SerializeField]
+        private float damageScaling = .5f;
+
+        [SerializeField]
+        private int projectileNumberScaling = 1;
+
+        [SerializeField]
+        private int baseProjectileCount = 1;
+
+        [SerializeField]
+        private float animationWindup = 0.95f;
 
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
@@ -26,7 +40,7 @@ namespace Game.Boss
 
             yield return new WaitForSeconds(ability.delayToStart);
 
-            int projectilesToSpawn = 1 + (boss.GetEnrageLevel() * projectileNumberScaling);
+            int projectilesToSpawn = baseProjectileCount + (boss.GetEnrageLevel() * projectileNumberScaling);
 
             for (int i = 0; i < projectilesToSpawn; i++) {
                 var dir = (player.position - boss.transform.position).normalized;
@@ -40,7 +54,7 @@ namespace Game.Boss
                 }
 
                 // Wait for animation windup
-                yield return new WaitForSeconds(.95f);
+                yield return new WaitForSeconds(animationWindup);
 
                 GameObject projectile = Instantiate(projectilePrefab, castPoint.position, Quaternion.identity);
                 Vector2 direction = (player.position - castPoint.position).normalized;

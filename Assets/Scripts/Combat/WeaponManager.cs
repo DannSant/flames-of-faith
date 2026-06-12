@@ -78,9 +78,14 @@ namespace Game.Combat
             {
                 EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
 
-                if(enemy.IsImmune())
+                if (enemy == null)
                 {
-                    continue; // Skip immune enemies
+                    continue; // Skip if no EnemyHealth component found
+                }   
+
+                if (enemy.IsImmune() || enemy.IsDead())
+                {
+                    continue; // Skip immune or dead enemies
                 }
 
                 if (enemy != null) // Optional: check if alive

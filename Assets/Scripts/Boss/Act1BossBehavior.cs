@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Game.Combat;
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,23 @@ namespace Game.Boss
 
         private bool isOnPhase2 = false;
         private Transform currentPatrolPoint;
+        private EnemyHealth bossHealth;
 
 
         private void Awake()
         {
             movement = GetComponent<BossMovement>();
             bossCollider = GetComponent<Collider2D>();
+            bossHealth = GetComponent<EnemyHealth>();
+
+            bossCollider.enabled = false;
+
+            bossHealth.onDeath += HandleBossDeath;
+        }
+
+        private void OnDisable()
+        {
+            bossHealth.onDeath -= HandleBossDeath;
         }
 
         private void Update()
@@ -55,7 +67,12 @@ namespace Game.Boss
             {
                
                 return;
-            }                
+            }          
+            
+            if(bossHealth != null && bossHealth.IsDead())
+            {
+                return;
+            }
 
             SelectNextPatrolPoint();
         }
@@ -99,9 +116,8 @@ namespace Game.Boss
         }
 
         private void HandleAbilityCastPhaseOne(BossAbilityRuntime ability)
-        {
-            // Move to random point when any ability is cast, and show boss if it was hidden   
-           
+        {         
+         
             var abilityData = ability.GetBossAbility();
             var metadata = abilityData.abilityMetadata;
             if (metadata == null)
@@ -109,7 +125,7 @@ namespace Game.Boss
                 return;
             }
 
-
+            // Move to random point when any ability is cast, and show boss if it was hidden   
             if (metadata.Contains("moveToRandomPoint")) {
                 movement.TeleportToRandomPoint();                
             }
@@ -148,7 +164,23 @@ namespace Game.Boss
             StartCoroutine(HandleAllAddsDeadRoutine());
         }
 
-       public override string GetPhaseTransitionAnimationName()
+        private void HandleBossDeath()
+        {
+            //Disable collider
+            bossCollider.enabled = false;
+
+            //Search for summoned objects and destroy them
+            var summonedObjects = Object.FindObjectsByType<SummonedObject>(FindObjectsSortMode.None);
+            foreach (var obj in summonedObjects)
+            {
+                if (obj.shouldBeDestroyedOnBossDeath())
+                {
+                    Destroy(obj.gameObject);
+                }
+            }
+        }
+
+        public override string GetPhaseTransitionAnimationName()
         {
             return damageAnim;
         }

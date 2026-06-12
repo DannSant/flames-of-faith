@@ -264,5 +264,10 @@ namespace Game.Control
         {
             disabledInput = true;
         }
+
+        public void EnableInput()
+        {
+            disabledInput = false;
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Game.Combat
 
         private float maxHealth;
         private float currentHealth;
-        private Flash flash;    
+        private Flash flash;
         private float extraDamageTakenPercentage = 0f;
         private bool isImmune = false;
 
@@ -62,7 +62,7 @@ namespace Game.Combat
 
         public void TakeDamage(DamageRequest damageRequest)
         {
-            if(damageRequest == null)
+            if (damageRequest == null)
             {
                 Debug.LogWarning("DamageRequest is null!");
                 return;
@@ -74,7 +74,7 @@ namespace Game.Combat
                 AudioManager.Instance.PlayLowVolumeSFX(damagedSFX, true);
             }
 
-            if (IsImmuneFlag) 
+            if (IsImmuneFlag)
             {
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(transform.position, 0f);
                 return;
@@ -86,7 +86,7 @@ namespace Game.Combat
             {
                 flash.StartFlash();
             }
-            
+
             if (currentHealth <= 0)
             {
                 healthbar.Hide();
@@ -109,11 +109,11 @@ namespace Game.Combat
 
         private void InflictExtraDamage(float damage)
         {
-            float extraDamage = Mathf.Max(damage * (extraDamageTakenPercentage),1f);
+            float extraDamage = Mathf.Max(damage * (extraDamageTakenPercentage), 1f);
             currentHealth -= damage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
             healthbar.SetHealth(currentHealth, maxHealth);
-            DamageNumberSpawner.Instance.SpawnFrostDebuffDamageNumber(transform.position,extraDamage);
+            DamageNumberSpawner.Instance.SpawnFrostDebuffDamageNumber(transform.position, extraDamage);
             if (currentHealth <= 0)
             {
                 healthbar.Hide();
@@ -147,7 +147,7 @@ namespace Game.Combat
             {
                 var instancedVfx = Instantiate(deathVfxPrefab, transform.position, Quaternion.identity);
                 GameObject.Destroy(instancedVfx, 2f);
-            }          
+            }
             onDeath?.Invoke();
         }
 
@@ -164,6 +164,11 @@ namespace Game.Combat
         public bool IsImmune()
         {
             return isImmune;
+        }
+
+        public bool IsDead()
+        {
+            return currentHealth <= 0;
         }
     }
 }

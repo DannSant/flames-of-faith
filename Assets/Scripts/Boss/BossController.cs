@@ -2,8 +2,10 @@
 using Game.Combat;
 using Game.Control;
 using Game.Scene;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game.Boss
@@ -71,6 +73,18 @@ namespace Game.Boss
             phaseOneRuntimes = BuildRuntimeList(phaseOneAbilities);
             phaseTwoRuntimes = BuildRuntimeList(phaseTwoAbilities);
             CreateContext();
+
+            if (health != null) {
+                health.onDeath += StopBossAbilities;
+            }
+        }
+
+        private void StopBossAbilities()
+        {
+            if (abilityLoopRoutine != null)
+            {
+                StopCoroutine(abilityLoopRoutine);
+            }
         }
 
         private void Start()
@@ -86,6 +100,7 @@ namespace Game.Boss
             context.phaseTime += Time.deltaTime;
             context.enrageLevel = enrageLevel; // keep synced
             context.activeAddsCount = activeAdds.Count;
+            context.isPhaseTwo = isPhaseTwo;
 
         }
 
@@ -97,7 +112,8 @@ namespace Game.Boss
                 playerTransform = FindPlayer(),
                 coroutineRunner = this,
                 phaseTime = 0f,
-                enrageLevel = 0
+                enrageLevel = 0,
+                isPhaseTwo = false
             };
         }
 
@@ -111,6 +127,11 @@ namespace Game.Boss
         {
             waveHandler.OnPhaseOneStarted -= EnterPhaseOne;
             waveHandler.OnPhaseTwoStarted -= EnterPhaseTwo;
+
+            if (health != null)
+            {
+                health.onDeath -= StopBossAbilities;
+            }
         }
 
         private List<BossAbilityRuntime> BuildRuntimeList(List<BossAbilityBase> abilities)
@@ -156,14 +177,30 @@ namespace Game.Boss
 
         private IEnumerator PhaseOneToTwoTransition()
         {
+            bossRenderer.ToggleSprite(true);
             bossRenderer.TriggerAnimation(behavior.GetPhaseTransitionAnimationName());
             yield return new WaitForSeconds(2f);
-            abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
+            // Reset flags on ability runtimes to prevent any weird edge cases during transition
+            foreach (var runtime in phaseOneRuntimes)
+            {
+                runtime.ResetRuntimeState();
+            }
+            foreach (var runtime in phaseTwoRuntimes)
+            {
+                runtime.ResetRuntimeState();
+            }
 
             // Remove immunity flag for phase 2 after transition animation
             health.IsImmuneFlag = false;
 
+            // Reset flags on components if needed
+            movement.SetCasting(false);
+
+            abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
+
             behavior.OnPhaseTwoStart();
+
+
         }
 
         private IEnumerator AbilityLoop(List<BossAbilityRuntime> abilities)
@@ -176,13 +213,24 @@ namespace Game.Boss
                 foreach (var ability in abilities)
                 {
                     if (!ability.CanExecute(this, context))
+                    {
+                        /*if(isPhaseTwo)
+                        {
+                            Debug.Log($"[BossController] Phase 2 - Skipping ability: {ability.GetBossAbility().abilityName}, Enrage Level: {enrageLevel}, Active Adds: {context.activeAddsCount}");
+                        }*/
                         continue;
+                    }
 
                     if (selected == null || ability.GetBossAbility().priority > selected.GetBossAbility().priority)
                     {
                         selected = ability;
                     }
                 }
+
+                /*if (isPhaseTwo)
+                {
+                    Debug.Log($"[BossController] Phase 2 - Selected ability: {(selected != null ? selected.GetBossAbility().abilityName : "None")}, Enrage Level: {enrageLevel}, Active Adds: {context.activeAddsCount}");
+                }*/
 
                 if (selected != null)
                 {
@@ -248,8 +296,7 @@ namespace Game.Boss
 
         public void IncreaseEnrageLevel()
         {
-            enrageLevel++;
-            Debug.Log($"Boss enraged! Level: {enrageLevel}");
+            enrageLevel++;           
         }
 
         public void RegisterAdd(GameObject add)

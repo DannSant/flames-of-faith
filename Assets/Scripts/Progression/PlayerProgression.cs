@@ -139,6 +139,8 @@ namespace Game.Progression {
                 //Trigger event for derived stats change
                 onDerivedStatsChanged?.Invoke(); 
 
+                //Debug.Log($"Updated Stat {statType} by {value}. New total: {newStat}");
+
             }
         }
 

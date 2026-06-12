@@ -23,6 +23,8 @@ namespace Game.Combat
         public bool ShouldSpawnEffectObject();
 
         public bool IsImmune();
+
+        public bool IsDead();
     }
 
 }

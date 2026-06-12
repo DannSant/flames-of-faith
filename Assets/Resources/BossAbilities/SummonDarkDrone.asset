@@ -27,4 +27,5 @@ MonoBehaviour:
   blocksWhileActive: -1
   abilityMetadata: []
   objectPrefab: {fileID: 4655842776331200841, guid: b735d2ed02adfe04885db66a8d58239b, type: 3}
-  baseDamage: 10
+  baseDamage: 30
+  castDelay: 1.5

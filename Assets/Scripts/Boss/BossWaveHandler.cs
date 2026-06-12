@@ -33,7 +33,7 @@ namespace Game.Boss
         private void Start()
         {
             Initialize();
-            StartPhaseOne();
+            //StartPhaseOne();
         }
 
         private void Initialize()
@@ -44,7 +44,7 @@ namespace Game.Boss
             OnBossFightStarted?.Invoke();
         }
 
-        private void StartPhaseOne()
+        public void StartPhaseOne()
         {
             isPhaseOne = true;
             isPhaseTwo = false;
@@ -60,10 +60,6 @@ namespace Game.Boss
             if (isPhaseOne)
             {
                 UpdatePhaseOne();
-            }
-            else if (isPhaseTwo)
-            {
-                // Optional: monitor boss death here if needed
             }
         }
 

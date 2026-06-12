@@ -9,8 +9,9 @@ namespace Game.Boss
     [CreateAssetMenu(menuName = "Boss/Abilities/SummonObject")]
     public class SummonObjectAbility : BossAbilityBase
     {
-        public GameObject objectPrefab;
-        public float baseDamage = 10;
+        [SerializeField] private GameObject objectPrefab;
+        [SerializeField] private float baseDamage = 10;
+        [SerializeField] private float castDelay = 1.5f;
 
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
@@ -22,7 +23,7 @@ namespace Game.Boss
                 bossRenderer.TriggerAnimation(animationName);
             }
 
-            yield return new WaitForSeconds(1.5f); // cast delay
+            yield return new WaitForSeconds(castDelay); // cast delay
 
             var dir = (player.position - boss.transform.position).normalized;
             var castPoint = boss.GetCurrentCastPoint(dir);

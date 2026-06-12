@@ -1,3 +1,5 @@
+using Game.Combat;
+using System;
 using UnityEngine;
 
 namespace Game.Boss
@@ -6,6 +8,8 @@ namespace Game.Boss
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Animator animator;
+
+        private EnemyHealth health;
 
         private void Awake()
         {
@@ -20,6 +24,25 @@ namespace Game.Boss
             }
 
             ToggleSprite(false);
+
+            health = GetComponent<EnemyHealth>();
+            if (health != null)
+            {
+                health.onDeath += DeathAnimation;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if(health != null)
+            {
+                health.onDeath -= DeathAnimation;
+            }
+        }
+
+        private void DeathAnimation()
+        {
+           animator.SetTrigger("Death");
         }
 
         public void ToggleSprite(bool value)

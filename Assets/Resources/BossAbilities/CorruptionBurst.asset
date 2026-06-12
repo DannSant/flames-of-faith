@@ -23,7 +23,7 @@ MonoBehaviour:
   cooldown: 15
   delayToStart: 0.4
   delayToEnd: 1
-  priority: 1
+  priority: 2
   blocksWhileActive: -1
   abilityMetadata: []
   projectilePrefab: {fileID: 4655842776331200841, guid: 69a64f11f975f6a4993883ef4f461fe5, type: 3}
@@ -32,5 +32,5 @@ MonoBehaviour:
   spreadAngle: 35
   projectileSpeed: 8
   projectilesPerShot: 1
-  baseDamage: 5
+  baseDamage: 15
   damageScaling: 1

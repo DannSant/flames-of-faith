@@ -146,13 +146,45 @@ namespace Game.Combat {
 
 
         private void SetMaxHealth(float value)
-        {           
-            //Debug.Log($"PlayerHealth SetMaxHealth: currentHealth = {currentHealth}, maxHealth={maxHealth}");          
-            maxHealth = Mathf.Max(1, value);
-            float percent = currentHealth / maxHealth;
-            currentHealth = Mathf.Clamp(maxHealth * percent, 1, maxHealth);
+        {   
+           
+            float oldMax = maxHealth;
+            float newMax = Mathf.Max(1, value);
+
+            // If nothing changed, nothing to do
+            if (Mathf.Approximately(oldMax, newMax))
+            {
+                return;
+            }
+
+            float newCurrent = currentHealth;
+
+            // Avoid division by zero and handle scaling when max increases/decreases
+            if (oldMax > 0f && currentHealth > 0f)
+            {
+                // If player was exactly at full health, keep them full after the change
+                if (Mathf.Approximately(currentHealth, oldMax))
+                {
+                    newCurrent = newMax;
+                }
+                else
+                {
+                    float ratio = newMax / oldMax;
+                    newCurrent = currentHealth * ratio;
+
+                    // When increasing max health the requirement is to round down the resulting current health
+                    if (ratio > 1f)
+                    {
+                        newCurrent = Mathf.Floor(newCurrent);
+                    }
+                }
+            }
+
+            // Apply new max and clamp current between 0 and newMax
+            maxHealth = newMax;
+            currentHealth = Mathf.Clamp(newCurrent, 0f, maxHealth);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
-            //Debug.Log($"PlayerHealth SetMaxHealth: currentHealth after recalculation = {currentHealth}, maxHealth={maxHealth}, percent+{percent}");
+            
         }
 
         private void SetArmor(int value)

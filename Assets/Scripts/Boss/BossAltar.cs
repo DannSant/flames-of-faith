@@ -1,6 +1,10 @@
 using Game.AI;
 using Game.Combat;
+using Game.Control;
+using Game.Scene;
 using System;
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Game.Boss
@@ -14,7 +18,18 @@ namespace Game.Boss
         [Header("References")]
         [SerializeField] private Animator animator;
 
+        [Header("Camera")]
+        [SerializeField] private CinemachineCamera virtualCamera;
+        [SerializeField] private float zoomedInSize = 3f;       
+        [SerializeField] private float zoomOutDuration = 1.5f;
+
         private BossWaveHandler waveHandler;
+        private float originalZoom;
+
+        private void Awake()
+        {
+            originalZoom = virtualCamera.Lens.OrthographicSize;
+        }
 
         private void Start()
         {
@@ -25,6 +40,8 @@ namespace Game.Boss
             }
 
             waveHandler.OnFlameProgressChanged += HandleFlameProgressChanged;
+
+            StartCoroutine(StartingAnimation());
         }
 
         private void OnDisable()
@@ -52,6 +69,12 @@ namespace Game.Boss
 
         private void HandleFlameProgressChanged(float current, float max)
         {
+            if(current <= 0f)
+            {
+                //if progress is 0 or less, fight has not started yet, so we don't want to trigger any animation
+                return;
+            }
+
            float percentage = (current / max) * 100f;
             if(percentage < midThreshold)
             {
@@ -64,6 +87,58 @@ namespace Game.Boss
             {
                 animator.SetTrigger("High");
             }
+        }
+
+        private IEnumerator StartingAnimation() {
+
+            //Zoom in camera
+            if (virtualCamera != null)
+            {
+                virtualCamera.Lens.OrthographicSize = zoomedInSize;
+            }
+
+            yield return new WaitForSeconds(0.5f); // Wait for components to be fully initialized
+
+            //Play cleanse animation
+            var characterVisual = PlayerManager.Instance.GetPlayerChildComponent<CharacterVisual>();
+            characterVisual.PlayCleanseAnimation();
+
+            //Disable player input
+            var playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
+            playerController.DisableComponentsOnMap();
+
+            //Slowly zoom out camera while animation is playing
+            if (virtualCamera != null)
+            {
+                yield return StartCoroutine(ZoomCamera(zoomedInSize, originalZoom, zoomOutDuration));
+            }
+
+            yield return new WaitForSeconds(.8f);
+
+            //Re-enable player input
+            playerController.EnableInput();
+
+            //Start fight
+            waveHandler.StartPhaseOne();
+
+        }
+
+        private IEnumerator ZoomCamera(float startSize, float endSize, float duration)
+        {
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+
+                float t = Mathf.Clamp01(elapsed / duration);
+
+                virtualCamera.Lens.OrthographicSize = Mathf.Lerp(startSize, endSize, t);
+
+                yield return null;
+            }
+
+            virtualCamera.Lens.OrthographicSize = endSize;
         }
     }
 

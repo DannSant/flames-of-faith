@@ -9,12 +9,25 @@ namespace Game.Boss
     public class SummonEyesAbility : BossAbilityBase
     {
         public GameObject eyePrefab;
-        
-        public int baseEyeCount = 4;
+
+        [SerializeField]
+        private int baseEyeCount = 4;
+
+        [SerializeField]
+        private float fadeInDelay = 1.5f;
+
+        [SerializeField]
+        private float castDelay = 1.5f;
+
+        [SerializeField]
+        private float spawnStagger = 0.1f;
+
+        [SerializeField]
+        private int enemyEnrageOffset = 1;
 
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
-            yield return new WaitForSeconds(1.5f); // wait for the fade in animation to finish
+            yield return new WaitForSeconds(fadeInDelay); // wait for the fade in animation to finish
             var bossRenderer = boss.GetBossRenderer();
 
             if (bossRenderer != null && animationName != "")
@@ -23,7 +36,7 @@ namespace Game.Boss
             }
            
 
-            yield return new WaitForSeconds(1.5f); // cast delay
+            yield return new WaitForSeconds(castDelay); // cast delay
            
 
             List<GameObject> eyes = new();
@@ -45,9 +58,9 @@ namespace Game.Boss
 
                 var enemyComponent = eye.GetComponent<Enemy>();
                 if (enemyComponent != null) { 
-                    enemyComponent.Initialize(boss.GetEnrageLevel()+1); 
+                    enemyComponent.Initialize(boss.GetEnrageLevel() + enemyEnrageOffset); 
                 }
-                yield return new WaitForSeconds(0.1f); // stagger spawn
+                yield return new WaitForSeconds(spawnStagger); // stagger spawn
             }
 
             yield return null;
