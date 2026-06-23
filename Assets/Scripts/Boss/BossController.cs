@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static TreeEditor.TreeGroup;
 
 namespace Game.Boss
 {
@@ -198,6 +199,8 @@ namespace Game.Boss
 
             abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
 
+            ClearAllBlockFlags();
+
             behavior.OnPhaseTwoStart();
 
 
@@ -284,7 +287,18 @@ namespace Game.Boss
 
         public bool HasBlockFlag(AbilityBlockFlags flag)
         {
-            return ((AbilityBlockFlags)currentBlockFlags).HasFlag(flag);
+            bool result = ((AbilityBlockFlags)currentBlockFlags).HasFlag(flag);
+            /*if (isPhaseTwo)
+            {
+                Debug.Log($"[BossController] HasBlockFlag called. flag={flag}, currentBlockFlags={(AbilityBlockFlags)currentBlockFlags}, result={result}");
+            }*/
+            return result;
+        }
+
+        // Reset example
+        private void ClearAllBlockFlags()
+        {
+            currentBlockFlags = (int)AbilityBlockFlags.None; // equals 0
         }
 
         // 🔹 Public API for abilities
