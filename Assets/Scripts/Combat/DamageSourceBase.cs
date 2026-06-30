@@ -17,6 +17,7 @@ namespace Game.Combat
         [SerializeField] private float attackScale = 1f;
         [SerializeField] private string effectID;
         [SerializeField] private string layerMaskName = "Enemy";
+        [SerializeField] private LayerMask enemyLayerMask = 0;
         [SerializeField] private DamageOriginType originType = DamageOriginType.Weapon;
 
         [Header("Hit Mode")]
@@ -46,19 +47,13 @@ namespace Game.Combat
 
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
-        private float stayTimer = 0f;
-        private int enemyLayerMask;
+        private float stayTimer = 0f;       
         private WeaponData weaponData;
         
         public DamageOriginType OriginType => originType;
 
         // In case something external wants to know when we dealt damage
         public event Action<float, GameObject> OnDamageDealtEvent;
-
-        private void Awake()
-        {
-            enemyLayerMask = LayerMask.NameToLayer(layerMaskName);
-        }
 
         private void Start()
         {
@@ -79,7 +74,7 @@ namespace Game.Combat
         {
             if (!useTriggerEnter) return;
 
-            if ( other.gameObject.layer == enemyLayerMask)
+            if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
             {
                 TryApplyDamage(other);
             }
@@ -99,7 +94,7 @@ namespace Game.Combat
             // For now, shouldStackDamage is just a config hint; we always allow
             // each instance to tick independently like your current ContinuousDamageSource.
             // Later we can centralize stacking per-target if you want.
-            if (other.gameObject.layer == enemyLayerMask)
+            if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
             {
                 TryApplyDamage(other);
             }
@@ -107,18 +102,18 @@ namespace Game.Combat
 
         private void TryApplyDamage(Collider2D collision)
         {
-            if (collision == null) return;
+            if (collision == null) return;          
 
             // IDamageable check (enemy, etc.)
             IDamageable damageable = collision.GetComponent<IDamageable>();
             if (damageable != null)
-            {
+            {              
                 float totalDamage = CalculateTotalDamage();
                 damageable.TakeDamage(new DamageRequest(totalDamage,weaponClass, canTriggerLifesteal));
 
                 if (damageable.ShouldSpawnDamageNumber())
                 {
-                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage    );
+                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage);
                 }
 
                 

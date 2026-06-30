@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: deathVfxPrefab
       value: 
       objectReference: {fileID: 6136071736594798714, guid: af360550c4640c74f972f2be1873e589, type: 3}
+    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: shouldDieOnTouchingAltar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7104703125509277119, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: pickups.Array.size
       value: 1
@@ -136,6 +140,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2504184116801059795, guid: 470b4a23221ce1447925ec966363e936, type: 3}
+    - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Color.b
+      value: 0.26779994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Color.g
+      value: 0.26779994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_SortingOrder
       value: 3

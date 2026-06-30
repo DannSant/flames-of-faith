@@ -130,13 +130,6 @@ namespace Game.Boss
                 movement.TeleportToRandomPoint();                
             }
 
-            if (metadata.Contains("showSpriteOnAbilityStart"))
-            {               
-                bossRenderer.ToggleSprite(true);
-                bossCollider.enabled = true;
-            }
-
-
         }
 
         public override void OnAnimationEvent(string eventName)
@@ -145,6 +138,17 @@ namespace Game.Boss
             {
                 HandleFadeoutAnimationEnd();
             }
+
+            if (eventName == "FadeInStart")
+            {
+                HandleFadeInAnimationStart();
+            }
+        }
+
+        public void HandleFadeInAnimationStart()
+        {
+            bossRenderer.ToggleSprite(true);
+            bossCollider.enabled = true;
         }
 
         public void HandleFadeoutAnimationEnd() {

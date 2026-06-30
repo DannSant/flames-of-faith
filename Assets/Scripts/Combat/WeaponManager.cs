@@ -69,7 +69,7 @@ namespace Game.Combat
         {
             bool isRangeWeapon = currentWeapon.GetWeaponData().weaponClass == WeaponClass.Ranged || currentWeapon.GetWeaponData().weaponClass == WeaponClass.Magic;
             int additionalRange = isRangeWeapon ? playerProgression.GetStatTotal(StatType.Range) : 0;
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range + additionalRange, LayerMask.GetMask("Enemy"));
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range + additionalRange, LayerMask.GetMask("Enemy","Boss"));
 
             EnemyHealth closest = null;
             float closestDistanceSqr = Mathf.Infinity;

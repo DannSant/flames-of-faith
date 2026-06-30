@@ -99,7 +99,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0041866302, y: -0.013606384}
+  m_Offset: {x: -0.0052802563, y: -0.01287815}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.08312893, y: 0.45364502}
+  m_Size: {x: 0.33800507, y: 0.13177258}
   m_EdgeRadius: 0
 --- !u!114 &5646688322668009695
 MonoBehaviour:
@@ -156,15 +156,19 @@ MonoBehaviour:
   attackScale: 1
   effectID: 
   layerMaskName: Enemy
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1152
   originType: 0
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1
   shouldStackDamage: 1
   enablePierce: 1
-  pierceCount: 5
+  pierceCount: 2
   applyKnockback: 0
   knockbackForce: 5
+  canTriggerLifesteal: 1
 --- !u!114 &-9035687851212520077
 MonoBehaviour:
   m_ObjectHideFlags: 0

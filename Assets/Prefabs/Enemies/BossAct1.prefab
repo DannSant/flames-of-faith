@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4505366299506498379}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_ne
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1173018855323591789}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_se
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4683169903364026524}
   - component: {fileID: 6902123198644064156}
   - component: {fileID: 4956942054957454428}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: FillImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5810843604633150438}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Wrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 1728428275333347084}
   - component: {fileID: 8732277680542552113}
   - component: {fileID: 2279621545147881240}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7566459734737609404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_n
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 5317303804023875231}
   - component: {fileID: 5771144759384610617}
   - component: {fileID: 7886608987086620665}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7903628670275725570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_w
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -421,7 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4937755315839193201}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_e
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 360635981401223061}
   - component: {fileID: 9146145091152517261}
   - component: {fileID: 737967880039978869}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 4125278898882560054}
   - component: {fileID: 5108861510679237834}
   - component: {fileID: -2534790278257341007}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: BossAct1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,6 +791,7 @@ MonoBehaviour:
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   shouldSpawnDamageNumbers: 1
+  shouldDieOnTouchingAltar: 0
 --- !u!1 &7838305054356647481
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5744534811368936554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_nw
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -831,7 +832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500848299136026169}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_s
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -862,7 +863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4345878810976470499}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CastPoint_sw
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -896,7 +897,7 @@ GameObject:
   - component: {fileID: 3818960930260642805}
   - component: {fileID: 8759434879841373480}
   - component: {fileID: 6327381709542338923}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

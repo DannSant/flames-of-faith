@@ -23,6 +23,9 @@ namespace Game.Boss
         private int projectileNumberScaling = 1;
 
         [SerializeField]
+        private int maxProjectileCount = 5;
+
+        [SerializeField]
         private int baseProjectileCount = 1;
 
         [SerializeField]
@@ -40,7 +43,7 @@ namespace Game.Boss
 
             yield return new WaitForSeconds(ability.delayToStart);
 
-            int projectilesToSpawn = baseProjectileCount + (boss.GetEnrageLevel() * projectileNumberScaling);
+            int projectilesToSpawn = Mathf.Min(baseProjectileCount + (boss.GetEnrageLevel() * projectileNumberScaling), maxProjectileCount);
 
             for (int i = 0; i < projectilesToSpawn; i++) {
                 var dir = (player.position - boss.transform.position).normalized;

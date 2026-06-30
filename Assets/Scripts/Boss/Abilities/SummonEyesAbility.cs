@@ -25,6 +25,9 @@ namespace Game.Boss
         [SerializeField]
         private int enemyEnrageOffset = 1;
 
+        [SerializeField]
+        private int maxSummonCount = 10;
+
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
             yield return new WaitForSeconds(fadeInDelay); // wait for the fade in animation to finish
@@ -42,7 +45,7 @@ namespace Game.Boss
             List<GameObject> eyes = new();
             var spawnPoints = boss.GetAddsSpawnPoints();
 
-            int eyeCount = baseEyeCount + boss.GetEnrageLevel(); // scale with enrage level
+            int eyeCount = Mathf.Min(baseEyeCount + boss.GetEnrageLevel(), maxSummonCount);
 
             for (int i = 0; i < eyeCount; i++)
             {

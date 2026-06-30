@@ -22,6 +22,9 @@ namespace Game.Combat
         [SerializeField] private AudioClip deathSFX;
         [SerializeField] private bool shouldSpawnDamageNumbers = true;
 
+        [Header("Misc")]
+        [SerializeField] private bool shouldDieOnTouchingAltar = false;
+
         public event OnHealthChanged onHealthChanged;
         public event OnDeath onDeath;
 
@@ -35,6 +38,12 @@ namespace Game.Combat
         {
             get => isImmune;
             set => isImmune = value;
+        }
+
+        public bool ShouldDieOnTouchingAltar
+        {
+            get => shouldDieOnTouchingAltar;
+            private set => shouldDieOnTouchingAltar = value;
         }
 
         //References
@@ -79,7 +88,10 @@ namespace Game.Combat
                 DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(transform.position, 0f);
                 return;
             }
+           
+            // Apply damage
             currentHealth -= damage;
+
             onHealthChanged?.Invoke(currentHealth, maxHealth);
             healthbar.SetHealth(currentHealth, maxHealth);
             if (flash != null)

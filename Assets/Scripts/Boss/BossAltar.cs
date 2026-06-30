@@ -61,7 +61,7 @@ namespace Game.Boss
             }
 
             var enemyHealth = collision.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            if (enemyHealth != null && enemyHealth.ShouldDieOnTouchingAltar)
             {
                 enemyHealth.TakeDamage(new DamageRequest(9999f, WeaponClass.Melee, false));
             }
