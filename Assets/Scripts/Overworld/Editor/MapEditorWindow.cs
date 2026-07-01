@@ -1,3 +1,4 @@
+using Codice.Client.BaseCommands;
 using Game.Overworld;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -16,12 +17,13 @@ namespace Game.Overworld.Editor
         [MenuItem("Tools/Flames of Faith/Map Editor")]
         public static void ShowWindow()
         {
-            var window = GetWindow<MapEditorWindow>("Flames of Faith - Overworld Map Editor");
+            var window = GetWindow<MapEditorWindow>("Overworld Map Editor");
             window.minSize = new Vector2(1200, 800);
         }
 
         private void CreateGUI()
         {
+            Debug.Log("Creating GUI for Map Editor");
             rootVisualElement.style.flexDirection = FlexDirection.Column;
 
             // Toolbar
@@ -30,6 +32,7 @@ namespace Game.Overworld.Editor
             toolbar.Add(new Button(() => SaveMap()) { text = "Save" });
             toolbar.Add(new Button(() => AddNewNode()) { text = "Add Node" });
             toolbar.Add(new Button(() => DeleteSelected()) { text = "Delete Selected" });
+            toolbar.Add(new Button(() => BakeEditorPositionsToWorldPositions()) { text = "Bake Positions" });
             toolbar.Add(new Toggle() { label = "Snap to Grid", value = true });
             toolbar.Add(new Button(() => graphView?.ZoomToFit()) { text = "Zoom to Fit" });
             toolbar.Add(new Button(() => ValidateMap()) { text = "Validate" });
@@ -72,24 +75,34 @@ namespace Game.Overworld.Editor
 
         private void OpenMap()
         {
-            var map = EditorUtility.OpenFilePanelWithFilters("Open Map", "Assets", new[] { "Map Definition", "asset" });
-            if (!string.IsNullOrEmpty(map))
+            string path = EditorUtility.OpenFilePanelWithFilters("Open Map Definition", "Assets", new[] { "Map Definition", "asset" });
+            if (string.IsNullOrEmpty(path)) return;
+
+            string assetPath = "Assets" + path.Substring(Application.dataPath.Length);
+            var loadedMap = AssetDatabase.LoadAssetAtPath<MapDefinition>(assetPath);
+            if (loadedMap != null)
             {
-                var assetPath = "Assets" + map.Substring(Application.dataPath.Length);
-                var loadedMap = AssetDatabase.LoadAssetAtPath<MapDefinition>(assetPath);
-                if (loadedMap != null)
-                {
-                    LoadMap(loadedMap);
-                }
+                LoadMap(loadedMap);
+            }
+            else
+            {
+                Debug.LogError("Failed to load MapDefinition at: " + assetPath);
             }
         }
 
         public void LoadMap(MapDefinition map)
         {
+            if (map == null) return;
+
             currentMap = map;
             serializedMap = new SerializedObject(map);
-            graphView?.PopulateFromMap(map, serializedMap);
-            UpdateInspector(null); // clear
+
+            if (graphView != null)
+            {
+                graphView.PopulateFromMap(map, serializedMap);
+            }
+
+            UpdateInspector(null);
         }
 
         public void SaveMap()
@@ -102,20 +115,41 @@ namespace Game.Overworld.Editor
 
         public void UpdateInspector(object selected)
         {
+            if(inspectorPanel == null)
+            {              
+                Debug.LogWarning("Inspector panel is null, cannot update inspector");
+                return;
+            }
             inspectorPanel.Clear();
             inspectorPanel.Add(new Label("Inspector") { style = { unityFontStyleAndWeight = FontStyle.Bold } });
 
             if (selected == null || serializedMap == null)
             {
-                inspectorPanel.Add(new Label("Select a node or connection"));
+                inspectorPanel.Add(new Label("Select a node or connection in the graph"));
                 return;
             }
 
-            // TODO: For now placeholder - later bind to specific SerializedProperty
-            // e.g. find node index and use GetArrayElementAtIndex
-            var propField = new PropertyField(serializedMap.FindProperty("nodes").GetArrayElementAtIndex(0)); // placeholder
-            propField.Bind(serializedMap);
-            inspectorPanel.Add(propField);
+            // TODO: Proper binding later (find node by ID or index)
+            inspectorPanel.Add(new Label("Node/Connection properties will appear here"));
+            inspectorPanel.Add(new Label("(Inspector binding coming in next iteration)"));
+        }
+
+        private void BakeEditorPositionsToWorldPositions()
+        {
+            if(currentMap == null) return;
+            var map = currentMap;
+            // Find the minimum editor coordinates
+            Vector2 min = new Vector2(float.MaxValue, float.MaxValue);
+            foreach (var n in map.nodes)
+                min = Vector2.Min(min, n.editorPosition);
+
+            float scale = 100f; // same scale used when loading
+
+            foreach (var n in map.nodes)
+            {
+                Vector2 relative = (n.editorPosition - min) / scale;
+                n.worldPosition = new Vector2(Mathf.Round(relative.x), Mathf.Round(relative.y));
+            }
         }
 
         private void AddNewNode()

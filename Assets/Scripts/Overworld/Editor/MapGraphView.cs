@@ -30,7 +30,7 @@ namespace Game.Overworld.Editor
             grid.StretchToParentSize();
 
             // Style
-            styleSheets.Add(Resources.Load<StyleSheet>("MapEditorStyles")); // TODO: create USS later or remove if missing
+            //styleSheets.Add(Resources.Load<StyleSheet>("MapEditorStyles")); // TODO: create USS later or remove if missing
 
             // Callbacks
             graphViewChanged = OnGraphViewChanged;
@@ -47,14 +47,22 @@ namespace Game.Overworld.Editor
             var nodeDict = new Dictionary<string, MapNodeView>();
             foreach (var nodeDef in mapDef.nodes)
             {
-                var nodeView = new MapNodeView(nodeDef, this);
-                nodeView.SetPosition(new Rect(nodeDef.worldPosition, new Vector2(150, 100)));
+                var nodeView = new MapNodeView(nodeDef, this);               
                 AddElement(nodeView);
                 nodeDict[nodeDef.id] = nodeView;
+
+                // Initialize editorPosition if not set
+                if (nodeDef.editorPosition == Vector2.zero && nodeDef.worldPosition != Vector2.zero)
+                {
+                    nodeDef.editorPosition = nodeDef.worldPosition * 100f;   // good visual scale
+                }
+
+                // Apply position AFTER adding to graph
+                nodeView.SetPosition(new Rect(nodeDef.editorPosition, new Vector2(180, 120)));
             }
 
-            // Create connections (edges)
-            foreach (var nodeDef in mapDef.nodes)
+            // Create connections (edges) //commented due to inputPort and outputPort are no longer defined
+            /*foreach (var nodeDef in mapDef.nodes)
             {
                 foreach (var conn in nodeDef.connections)
                 {
@@ -69,7 +77,7 @@ namespace Game.Overworld.Editor
                         AddElement(edge);
                     }
                 }
-            }
+            }*/
 
             // Refresh
             FrameAll();
