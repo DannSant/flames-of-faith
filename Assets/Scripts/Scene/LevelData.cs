@@ -21,6 +21,9 @@ namespace Game.Scene
         [Header("Debug Settings")]
         public bool debugShouldPrintObjectCountReport = false;
 
+         [Header("Music Settings")]
+        public AudioClip MusicClip;
+
         public override string ToString()
         {
             return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber}, corruptionIncrease: {corruptionIncrease})";

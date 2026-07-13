@@ -18,6 +18,7 @@ namespace Game.Scene
         [Header("Act data")]
         public int ActNumber;
         public AudioClip MusicClip;
+        public AudioClip CombatMusicClip;
 
         [Header("Fixed levels")]
         public LevelData FirstLevel;

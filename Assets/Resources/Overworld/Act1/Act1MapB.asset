@@ -1,0 +1,379 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a85150d68ac4840aea51fef9aa67e7, type: 3}
+  m_Name: Act1MapB
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Overworld.MapDefinition
+  mapId: newMap
+  displayName: newMap
+  startNodeId: level1
+  nodes:
+  - id: level1
+    worldPosition: {x: 0, y: 0}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: ea5f1af5313ab55489286ea4d753ee42, type: 2}
+    isFirstLevel: 1
+    connections:
+    - toNodeId: rest1
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 69, y: 6}
+  - id: rest1
+    worldPosition: {x: 0, y: -2}
+    nodeType: 2
+    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: level2
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 69.00001, y: 151.30005}
+  - id: level2
+    worldPosition: {x: 0, y: -4}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 84e71692c1b7718499731b219c361980, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: shop1
+      direction: 2
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: level3
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 69, y: 315}
+  - id: shop1
+    worldPosition: {x: -2, y: -4}
+    nodeType: 1
+    levelData: {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
+    isFirstLevel: 0
+    connections: []
+    editorPosition: {x: -199, y: 315.00003}
+  - id: level3
+    worldPosition: {x: 0, y: -6}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: f07883d7db6018842b1606deb08e54b2, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: event1
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 69, y: 498}
+  - id: event1
+    worldPosition: {x: 2, y: -6}
+    nodeType: 3
+    levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: corruptionClean1
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: rest2
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 339.1551, y: 498}
+  - id: corruptionClean1
+    worldPosition: {x: 4, y: -6}
+    nodeType: 6
+    levelData: {fileID: 11400000, guid: eed2a4d87a0eb1343b940959e0324741, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: treasure1
+      direction: 0
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 722.43384, y: 498}
+  - id: treasure1
+    worldPosition: {x: 4, y: -4}
+    nodeType: 5
+    levelData: {fileID: 11400000, guid: 9d5217a54b5fbb3449906ad9b196b56f, type: 2}
+    isFirstLevel: 0
+    connections: []
+    editorPosition: {x: 748.00006, y: 265.1348}
+  - id: rest2
+    worldPosition: {x: 2, y: -8}
+    nodeType: 2
+    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: level4
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 339.00003, y: 704.0079}
+  - id: level4
+    worldPosition: {x: 2, y: -10}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 3bd447fc52490d44bac12f163ca7cdcc, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: event2
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: level6
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 339, y: 939.2489}
+  - id: event2
+    worldPosition: {x: 4, y: -10}
+    nodeType: 3
+    levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: level5
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 677.72687, y: 939.0001}
+  - id: level5
+    worldPosition: {x: 6, y: -10}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 1c72e165d8e302242a1d855b12e92ea5, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: shop2
+      direction: 0
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: corruptionClean2
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 1091.0651, y: 939}
+  - id: shop2
+    worldPosition: {x: 6, y: -8}
+    nodeType: 1
+    levelData: {fileID: 11400000, guid: e6906acf7b2cd9b48bff15c40bb0e5f3, type: 2}
+    isFirstLevel: 0
+    connections: []
+    editorPosition: {x: 1091, y: 704}
+  - id: level6
+    worldPosition: {x: 2, y: -12}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 3c67c76f466578b4fb0abd4ba22626b3, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: event4
+      direction: 2
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    - toNodeId: level8
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 339.00006, y: 1164.9781}
+  - id: event4
+    worldPosition: {x: 0, y: -12}
+    nodeType: 3
+    levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: treasure2
+      direction: 0
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 3.9999917, y: 1165}
+  - id: treasure2
+    worldPosition: {x: 0, y: -10}
+    nodeType: 5
+    levelData: {fileID: 11400000, guid: 9d5217a54b5fbb3449906ad9b196b56f, type: 2}
+    isFirstLevel: 0
+    connections: []
+    editorPosition: {x: 19.999924, y: 921.68427}
+  - id: level8
+    worldPosition: {x: 2, y: -14}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 028a68d1f9028f141822d1704cff46bf, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: rest4
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 339.00003, y: 1380.4348}
+  - id: rest4
+    worldPosition: {x: 4, y: -14}
+    nodeType: 2
+    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: level9
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 697.5136, y: 1379.0002}
+  - id: corruptionClean2
+    worldPosition: {x: 6, y: -12}
+    nodeType: 6
+    levelData: {fileID: 11400000, guid: eed2a4d87a0eb1343b940959e0324741, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: event3
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 1091, y: 1140.6481}
+  - id: event3
+    worldPosition: {x: 8, y: -12}
+    nodeType: 3
+    levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: rest3
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 1458.7412, y: 1141}
+  - id: rest3
+    worldPosition: {x: 8, y: -14}
+    nodeType: 2
+    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: level7
+      direction: 2
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 1493.5004, y: 1378.8501}
+  - id: level7
+    worldPosition: {x: 6, y: -14}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 37565fdc0c0cae54289660b62c3ccdcc, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: rest4
+      direction: 2
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 1115, y: 1379.9998}
+  - id: level9
+    worldPosition: {x: 4, y: -16}
+    nodeType: 0
+    levelData: {fileID: 11400000, guid: 533b5390c936d014794c320aebb5630b, type: 2}
+    isFirstLevel: 0
+    connections:
+    - toNodeId: boss
+      direction: 1
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
+    editorPosition: {x: 727.99994, y: 1622.1959}
+  - id: boss
+    worldPosition: {x: 4, y: -18}
+    nodeType: 4
+    levelData: {fileID: 11400000, guid: 834d3048fa149dc4393553e00a43d1fd, type: 2}
+    isFirstLevel: 0
+    connections: []
+    editorPosition: {x: 1071.0001, y: 1622}
+  mapMusic: {fileID: 8300000, guid: bfc62d2807ce9a54ea2a828e03e6851b, type: 3}

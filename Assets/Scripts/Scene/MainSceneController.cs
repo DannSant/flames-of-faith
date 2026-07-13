@@ -17,8 +17,7 @@ namespace Game.Scene
     {
         [Header("Map generation")]      
         [SerializeField] private List<MapDefinition> actDefinitions;
-        [SerializeField] private int seed = 12345;
-        
+        [SerializeField] private int seed = 12345;        
 
         [Header("Loading Screen")]
         [SerializeField] private float fadeDuration = 0.5f;
@@ -69,8 +68,6 @@ namespace Game.Scene
 
         public void LoadLevelSelectorScene(bool newGame)
         {
-          
-
             StartCoroutine(LoadLevelSelectorSceneRoutine(newGame));
         }
 
@@ -126,6 +123,10 @@ namespace Game.Scene
             OnGameplayInitialSetup?.Invoke();
 
             PlayerManager.Instance.DisableComponentsForMap();
+
+            //Start music
+            var clip = actDefinitions[0].mapMusic; // TODO: Determine which act's music to play based on the current act in the map run state
+            AudioManager.Instance.PlayMusic(clip);
            
 
             yield return StartCoroutine(FadeOut());
@@ -215,6 +216,12 @@ namespace Game.Scene
                 {
                     ObjectCountTracker.PrintReport();
                 }
+            }
+
+            // Play the level music if needed
+            if (levelData.MusicClip != null)
+            {
+                AudioManager.Instance.PlayMusic(levelData.MusicClip);
             }
             
            

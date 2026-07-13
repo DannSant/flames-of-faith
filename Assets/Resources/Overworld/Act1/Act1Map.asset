@@ -30,6 +30,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 38.00004, y: 64.17036}
   - id: rest1
     worldPosition: {x: 0, y: -2}
     nodeType: 2
@@ -52,6 +53,7 @@ MonoBehaviour:
       rngGroupId: 1
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 0, y: 300}
   - id: level2
     worldPosition: {x: 2, y: -2}
     nodeType: 0
@@ -74,6 +76,7 @@ MonoBehaviour:
       rngGroupId: 1
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 300, y: 300}
   - id: shop1
     worldPosition: {x: -2, y: -2}
     nodeType: 1
@@ -88,6 +91,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: -300, y: 300}
   - id: level4
     worldPosition: {x: 2, y: -4}
     nodeType: 0
@@ -102,6 +106,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 300, y: 600}
   - id: level3
     worldPosition: {x: -2, y: -4}
     nodeType: 0
@@ -132,6 +137,7 @@ MonoBehaviour:
       rngGroupId: 1
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: -300, y: 600}
   - id: event1
     worldPosition: {x: 4, y: -2}
     nodeType: 3
@@ -154,6 +160,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 600, y: 300}
   - id: level5
     worldPosition: {x: 6, y: -2}
     nodeType: 0
@@ -168,12 +175,14 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 900, y: 300}
   - id: treasure1
     worldPosition: {x: 6, y: -4}
     nodeType: 5
     levelData: {fileID: 11400000, guid: 9d5217a54b5fbb3449906ad9b196b56f, type: 2}
     isFirstLevel: 0
     connections: []
+    editorPosition: {x: 900, y: 600}
   - id: rest2
     worldPosition: {x: 4, y: -4}
     nodeType: 2
@@ -188,6 +197,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 600, y: 600}
   - id: shop2
     worldPosition: {x: 4, y: -6}
     nodeType: 1
@@ -210,6 +220,7 @@ MonoBehaviour:
       rngGroupId: 1
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 600, y: 900}
   - id: level6
     worldPosition: {x: 2, y: -6}
     nodeType: 0
@@ -232,6 +243,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 300, y: 900}
   - id: cleanCorruption1
     worldPosition: {x: 0, y: -4}
     nodeType: 6
@@ -246,6 +258,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 0, y: 600}
   - id: shop3
     worldPosition: {x: 0, y: -6}
     nodeType: 1
@@ -260,6 +273,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 0, y: 900}
   - id: treasure2
     worldPosition: {x: -4, y: -4}
     nodeType: 5
@@ -274,12 +288,14 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: -600, y: 600}
   - id: event2
     worldPosition: {x: -4, y: -6}
     nodeType: 3
     levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
     isFirstLevel: 0
     connections: []
+    editorPosition: {x: -600, y: 900}
   - id: rest3
     worldPosition: {x: -2, y: -6}
     nodeType: 2
@@ -302,6 +318,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: -300, y: 900}
   - id: level8
     worldPosition: {x: -2, y: -8}
     nodeType: 0
@@ -316,6 +333,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: -300, y: 1200}
   - id: cleanCorruption2
     worldPosition: {x: -2, y: -10}
     nodeType: 6
@@ -330,6 +348,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: -300, y: 1515}
   - id: event3
     worldPosition: {x: 0, y: -8}
     nodeType: 3
@@ -352,6 +371,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 0, y: 1200}
   - id: rest4
     worldPosition: {x: 2, y: -8}
     nodeType: 2
@@ -374,6 +394,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 300, y: 1200}
   - id: level7
     worldPosition: {x: 4, y: -8}
     nodeType: 0
@@ -388,12 +409,14 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 600, y: 1200}
   - id: treasure3
     worldPosition: {x: 6, y: -8}
     nodeType: 5
     levelData: {fileID: 11400000, guid: 9d5217a54b5fbb3449906ad9b196b56f, type: 2}
     isFirstLevel: 0
     connections: []
+    editorPosition: {x: 900, y: 1200}
   - id: level9
     worldPosition: {x: 2, y: -10}
     nodeType: 0
@@ -408,6 +431,7 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 300, y: 1500}
   - id: rest5
     worldPosition: {x: 2, y: -12}
     nodeType: 2
@@ -422,9 +446,12 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    editorPosition: {x: 300, y: 1800}
   - id: boss
     worldPosition: {x: 2, y: -14}
     nodeType: 4
     levelData: {fileID: 11400000, guid: 834d3048fa149dc4393553e00a43d1fd, type: 2}
     isFirstLevel: 0
     connections: []
+    editorPosition: {x: 300, y: 2100}
+  mapMusic: {fileID: 8300000, guid: bfc62d2807ce9a54ea2a828e03e6851b, type: 3}

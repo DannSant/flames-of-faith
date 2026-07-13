@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Level2_Iso
   DisplayName: Jesterwood clifs
-  IsUnlocked: 0
-  IsBeaten: 0
   actNumber: 1
-  IsFirstLevel: 0
   type: 0
+  corruptionIncrease: 1
+  preventHealthRegen: 0
+  debugShouldPrintObjectCountReport: 0
+  MusicClip: {fileID: 8300000, guid: 6cf868959415c0a4fb4010bc89c3f1b3, type: 3}

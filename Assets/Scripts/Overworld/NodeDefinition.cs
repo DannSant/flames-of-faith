@@ -27,7 +27,7 @@ namespace Game.Overworld
         //[Header("Connections")]
         public List<ConnectionDefinition> connections;
 
-        [HideInInspector]
+        //[HideInInspector]
         public Vector2 editorPosition;
     }
 

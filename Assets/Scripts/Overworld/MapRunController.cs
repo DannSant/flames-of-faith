@@ -9,6 +9,7 @@ namespace Game.Overworld
 {
     public class MapRunController : Singleton<MapRunController>
     {
+
         private RunMapState runState;
 
         public event Action<RunNode> OnCurrentNodeChanged;
