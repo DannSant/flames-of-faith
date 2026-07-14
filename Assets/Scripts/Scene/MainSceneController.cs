@@ -124,11 +124,6 @@ namespace Game.Scene
 
             PlayerManager.Instance.DisableComponentsForMap();
 
-            //Start music
-            var clip = actDefinitions[0].mapMusic; // TODO: Determine which act's music to play based on the current act in the map run state
-            AudioManager.Instance.PlayMusic(clip);
-           
-
             yield return StartCoroutine(FadeOut());
         }
 
@@ -141,7 +136,7 @@ namespace Game.Scene
             //unloads main menu scenes and level selector scene if loaded already
             yield return StartCoroutine(UnloadScenesByName(nonGameplaySceneNames));
 
-            AudioManager.Instance.PlayMusic(mainMenuMusic);
+            MusicManager.Instance.PlayTrack(mainMenuMusic);
 
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
            
@@ -218,13 +213,6 @@ namespace Game.Scene
                 }
             }
 
-            // Play the level music if needed
-            if (levelData.MusicClip != null)
-            {
-                AudioManager.Instance.PlayMusic(levelData.MusicClip);
-            }
-            
-           
             yield return StartCoroutine(FadeOut());
         }
 
@@ -284,11 +272,7 @@ namespace Game.Scene
 
             PlayerManager.Instance.DisableComponentsForMap();
 
-            // Play the act music if needed
-            //LevelSelectionController.Instance.StartMusicOfCurrentAct();
-
             yield return StartCoroutine(FadeOut());
-            
         }
 
 

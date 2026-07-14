@@ -8,6 +8,9 @@ namespace Game.Overworld
         public string mapId;
         public int seed;
 
+        public int actNumber;
+        public AudioClip mapMusic;
+
         public Dictionary<string, RunNode> nodes;
         public string currentNodeId;
     }

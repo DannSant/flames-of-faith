@@ -11,14 +11,14 @@ namespace Game.Overworld
     {
 
         private RunMapState runState;
+        private RunMapGraph currentRunMapState;
 
         public event Action<RunNode> OnCurrentNodeChanged;
         public event Action<RunNode> OnNodeRevealed;
         public event Action<int> OnActChanged;
         public event Action OnRunMapInitialized;
 
-        public RunMapGraph CurrentAct =>
-        runState.acts[runState.currentActIndex];
+        public RunMapGraph CurrentAct => currentRunMapState;
 
         public RunNode CurrentNode =>
             CurrentAct.nodes[CurrentAct.currentNodeId];
@@ -34,14 +34,33 @@ namespace Game.Overworld
         {
             runState = state;
 
-            // Ensure current act index is valid
-            runState.currentActIndex = Mathf.Clamp(
-                runState.currentActIndex, 0, runState.acts.Count - 1
-            );
+            SetCurrentMapGraph(1);
 
             RevealStartNodeIfNeeded();
-          
+
             OnRunMapInitialized?.Invoke();
+        }
+
+        public void ChangeAct(int newActNumber)
+        {
+            SetCurrentMapGraph(newActNumber);
+
+            RevealStartNodeIfNeeded();
+
+            OnActChanged?.Invoke(newActNumber);
+        }
+
+        private void SetCurrentMapGraph(int actNumber)
+        {
+            var actMaps = runState.acts.FindAll(a => a.actNumber == actNumber);
+
+            if (actMaps.Count == 0)
+            {
+                Debug.LogError($"[MapRunController] No maps found for act {actNumber}.");
+                return;
+            }
+
+            currentRunMapState = actMaps[UnityEngine.Random.Range(0, actMaps.Count)];
         }
         public IReadOnlyList<RunNode> GetVisibleNodes()
         {
@@ -205,16 +224,15 @@ namespace Game.Overworld
 
         private void AdvanceToNextAct()
         {
-            if (runState.currentActIndex + 1 >= runState.acts.Count)
+            int nextActNumber = CurrentAct.actNumber + 1;
+
+            if (!runState.acts.Exists(a => a.actNumber == nextActNumber))
             {
                 Debug.Log("[MapRun] Run complete!");
                 return;
             }
 
-            runState.currentActIndex++;
-            OnActChanged?.Invoke(runState.currentActIndex);
-
-            RevealStartNodeIfNeeded();
+            ChangeAct(nextActNumber);
         }
     }
 }

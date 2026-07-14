@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a85150d68ac4840aea51fef9aa67e7, type: 3}
   m_Name: Act1MapB
   m_EditorClassIdentifier: Assembly-CSharp::Game.Overworld.MapDefinition
-  mapId: newMap
-  displayName: newMap
+  mapId: act1B
+  displayName: Jesterwoods
   startNodeId: level1
   nodes:
   - id: level1
@@ -34,7 +34,7 @@ MonoBehaviour:
   - id: rest1
     worldPosition: {x: 0, y: -2}
     nodeType: 2
-    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
     isFirstLevel: 0
     connections:
     - toNodeId: level2
@@ -139,7 +139,7 @@ MonoBehaviour:
   - id: rest2
     worldPosition: {x: 2, y: -8}
     nodeType: 2
-    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
     isFirstLevel: 0
     connections:
     - toNodeId: level4
@@ -282,7 +282,7 @@ MonoBehaviour:
   - id: rest4
     worldPosition: {x: 4, y: -14}
     nodeType: 2
-    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
     isFirstLevel: 0
     connections:
     - toNodeId: level9
@@ -327,7 +327,7 @@ MonoBehaviour:
   - id: rest3
     worldPosition: {x: 8, y: -14}
     nodeType: 2
-    levelData: {fileID: 11400000, guid: 18792702b442fdb4cb2b141a97980a01, type: 2}
+    levelData: {fileID: 11400000, guid: 8e7f8aafe7501bc49ab24061acf73101, type: 2}
     isFirstLevel: 0
     connections:
     - toNodeId: level7
@@ -377,3 +377,5 @@ MonoBehaviour:
     connections: []
     editorPosition: {x: 1071.0001, y: 1622}
   mapMusic: {fileID: 8300000, guid: bfc62d2807ce9a54ea2a828e03e6851b, type: 3}
+  actNumber: 1
+  isValid: 0

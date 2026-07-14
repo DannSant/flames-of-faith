@@ -17,7 +17,6 @@ namespace Game.Overworld
             RunMapState runState = new RunMapState
             {
                 seed = seed,
-                currentActIndex = 0,
                 acts = new List<RunMapGraph>()
             };
 
@@ -59,6 +58,8 @@ namespace Game.Overworld
             {
                 mapId = mapDefinition.mapId,
                 seed = actSeed,
+                actNumber = mapDefinition.actNumber,
+                mapMusic = mapDefinition.mapMusic,
                 nodes = new Dictionary<string, RunNode>()
             };
 

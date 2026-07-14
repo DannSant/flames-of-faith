@@ -39,10 +39,19 @@ namespace Game.Audio
             }
         }
 
-        public void PlayMusic(AudioClip clip)
+        public AudioClip CurrentMusicClip => musicSource.clip;
+        public bool IsMusicPlaying => musicSource.isPlaying;
+        public float MusicTime
+        {
+            get => musicSource.time;
+            set => musicSource.time = value;
+        }
+
+        public void PlayMusic(AudioClip clip, float startTime = 0f)
         {
             musicSource.clip = clip;
             musicSource.loop = true;
+            musicSource.time = Mathf.Clamp(startTime, 0f, Mathf.Max(0f, clip.length - 0.01f));
             musicSource.Play();
         }
 

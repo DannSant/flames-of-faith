@@ -11,6 +11,7 @@ namespace Game.Overworld
         public string startNodeId;
         public List<NodeDefinition> nodes;
         public AudioClip mapMusic;
+        public int actNumber = 1;
 
         [SerializeField] private bool isValid;
         public bool Valid
