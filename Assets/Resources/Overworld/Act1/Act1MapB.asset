@@ -30,6 +30,14 @@ MonoBehaviour:
       rngGroupId: 
       required: 0
       countsTowardMinimumPaths: 0
+    - toNodeId: event-test
+      direction: 3
+      revealOnClear: 1
+      canBeDisabledByRng: 0
+      enableChance: 1
+      rngGroupId: 
+      required: 0
+      countsTowardMinimumPaths: 0
     editorPosition: {x: 69, y: 6}
   - id: rest1
     worldPosition: {x: 0, y: -2}
@@ -376,6 +384,13 @@ MonoBehaviour:
     isFirstLevel: 0
     connections: []
     editorPosition: {x: 1071.0001, y: 1622}
+  - id: event-test
+    worldPosition: {x: 2, y: 0}
+    nodeType: 3
+    levelData: {fileID: 11400000, guid: 1b33a1c8ed4a7d849b94707f5861c650, type: 2}
+    isFirstLevel: 0
+    connections: []
+    editorPosition: {x: 377.20007, y: 5.9999847}
   mapMusic: {fileID: 8300000, guid: bfc62d2807ce9a54ea2a828e03e6851b, type: 3}
   actNumber: 1
   isValid: 0

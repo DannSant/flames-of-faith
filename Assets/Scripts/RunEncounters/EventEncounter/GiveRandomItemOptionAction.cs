@@ -1,4 +1,5 @@
 using Game.Effects;
+using Game.Items;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,13 @@ namespace Game.RunEncounters
 
         public override void Apply(EventContext context)
         {
+            var itemBag = context.playerEffectStore.GetComponent<ItemBag>();
+
+            if(itemBag == null)
+            {
+                Debug.LogWarning("ItemBag component not found on player.");
+                return;
+            }
 
             float totalWeight = 0f;
             foreach (var entry in possibleItems)
@@ -30,7 +38,8 @@ namespace Game.RunEncounters
                 cumulativeWeight += entry.weight;
                 if (randomValue <= cumulativeWeight)
                 {
-                    context.playerEffectStore.AddEffect(entry.item);
+                    //context.playerEffectStore.AddEffect(entry.item);
+                    itemBag.AddEffectItem(entry.item);
                     break;
                 }
             }
