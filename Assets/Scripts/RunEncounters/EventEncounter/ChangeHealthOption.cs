@@ -1,3 +1,4 @@
+using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
@@ -5,24 +6,28 @@ namespace Game.RunEncounters
     [CreateAssetMenu(menuName = "RunEncounters/EventOptionsActions/Change Health", fileName = "ChangeHealthOption")]
     public class ChangeHealthOption : EventOptionActionBase
     {
-        [SerializeField] private float amount = 10f;
-        [SerializeField] private bool increase = true;
-
-        public override void Apply(EventContext context)
+        public override string Apply(EventContext context)
         {
             if (context.playerHealth == null)
             {
                 Debug.LogError("[ChangeHealthOption] PlayerHealth missing from context.");
-                return;
+                return string.Empty;
             }
-            if (increase)
+
+            float finalAmount = isPlainReward
+                ? amount
+                : StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat);
+
+            if (finalAmount >= 0)
             {
-                context.playerHealth.Heal(amount);                
-            }else
-            {
-                context.playerHealth.TakeDamage(amount);
+                context.playerHealth.Heal(finalAmount);
             }
-            
+            else
+            {
+                context.playerHealth.TakeDamage(-finalAmount);
+            }
+
+            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
         }
     }
 

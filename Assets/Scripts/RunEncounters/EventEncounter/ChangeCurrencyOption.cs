@@ -1,4 +1,5 @@
 using Game.RunEncounters;
+using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
@@ -6,24 +7,28 @@ namespace Game.RunEncounters
     [CreateAssetMenu(menuName = "RunEncounters/EventOptionsActions/Change Currency", fileName = "ChangeCurrencyOption")]
     public class ChangeCurrencyOption : EventOptionActionBase
     {
-        [SerializeField] private int amount = 10;
-        [SerializeField] private bool increase = true;
-        public override void Apply(EventContext context)
+        public override string Apply(EventContext context)
         {
             if (context.playerWallet == null)
             {
                 Debug.LogError("[ChangeCurrencyOption] PlayerWallet missing from context.");
-                return;
+                return string.Empty;
             }
-            if (increase)
+
+            int finalAmount = isPlainReward
+                ? Mathf.RoundToInt(amount)
+                : Mathf.RoundToInt(StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat));
+
+            if (finalAmount >= 0)
             {
-                context.playerWallet.AddCurrency(amount);
+                context.playerWallet.AddCurrency(finalAmount);
             }
             else
             {
-                context.playerWallet.RemoveCurrency(amount);
+                context.playerWallet.RemoveCurrency(-finalAmount);
             }
-            
+
+            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
         }
     }
 

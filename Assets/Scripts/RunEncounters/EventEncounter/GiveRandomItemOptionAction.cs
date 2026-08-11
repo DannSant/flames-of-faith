@@ -16,14 +16,16 @@ namespace Game.RunEncounters
     {
         [SerializeField] private List<ItemOptionEntry> possibleItems = new();
 
-        public override void Apply(EventContext context)
+        public List<ItemOptionEntry> PossibleItems => possibleItems;
+
+        public override string Apply(EventContext context)
         {
             var itemBag = context.playerEffectStore.GetComponent<ItemBag>();
 
             if(itemBag == null)
             {
                 Debug.LogWarning("ItemBag component not found on player.");
-                return;
+                return string.Empty;
             }
 
             float totalWeight = 0f;
@@ -40,9 +42,11 @@ namespace Game.RunEncounters
                 {
                     //context.playerEffectStore.AddEffect(entry.item);
                     itemBag.AddEffectItem(entry.item);
-                    break;
+                    return $"Found item: {entry.item.effectName}";
                 }
             }
+
+            return string.Empty;
         }
     }
 }

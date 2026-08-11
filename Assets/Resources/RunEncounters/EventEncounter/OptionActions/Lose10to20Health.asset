@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbc976da7df3a644c9731aafa5e5d83a, type: 3}
-  m_Name: Lose10Health
+  m_Name: Lose10to20Health
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.LoseHealthOption
+  resourceName: Health
   amount: 10
-  increase: 0
+  isPlainReward: 0
+  amountRange: {x: -20, y: -10}
+  baseChance: 0
+  biasStat: 8

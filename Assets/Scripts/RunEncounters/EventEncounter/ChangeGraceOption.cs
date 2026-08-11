@@ -1,3 +1,4 @@
+using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
@@ -5,25 +6,28 @@ namespace Game.RunEncounters
     [CreateAssetMenu(menuName = "RunEncounters/EventOptionsActions/Change Grace", fileName = "ChangeGraceOption")]
     public class ChangeGraceOption : EventOptionActionBase
     {
-        [SerializeField] private float amount = 10f;
-        [SerializeField] private bool increase = true;
-
-        public override void Apply(EventContext context)
+        public override string Apply(EventContext context)
         {
             if (context.playerGrace == null)
             {
                 Debug.LogError("[ChangeGraceOption] PlayeeGRace missing from context.");
-                return;
+                return string.Empty;
             }
-            if (increase)
+
+            float finalAmount = isPlainReward
+                ? amount
+                : StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat);
+
+            if (finalAmount >= 0)
             {
-                context.playerGrace.AddGrace(amount);
+                context.playerGrace.AddGrace(finalAmount);
             }
             else
             {
-                context.playerGrace.RemoveGrace(amount);
+                context.playerGrace.RemoveGrace(-finalAmount);
             }
 
+            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
         }
     }
 

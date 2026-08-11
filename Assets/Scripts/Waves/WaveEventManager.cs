@@ -41,7 +41,7 @@ namespace Game.Waves
         /// We can also subscribe directly to the WaveSpawner's OnWaveComplete event, but having this intermediary method allows us to have control over the flow on the different components that need to be notified.
         /// </summary>
         public void HandleWaveComplete()
-        {          
+        {
             // If bag is not empty, trigger item bag event and return
             if (!playerItemBag.IsBagEmpty())
             {
@@ -50,8 +50,7 @@ namespace Game.Waves
             }
 
             // Otherwise, trigger upgrade options event
-
-            int levelsGained = UpgradeManager.Instance.CalculateLevelsGainedInWave();            
+            int levelsGained = UpgradeManager.Instance.CalculateLevelsGainedInWave();
             if (levelsGained > 0)
             {
                 UpgradeManager.Instance.RecordLastLevel();

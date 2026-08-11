@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a230ad2f4fa653498d1a74ad91453b7, type: 3}
-  m_Name: Gain100Currency
+  m_Name: Gain50To150Coins
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.ChangeCurrencyOption
+  resourceName: Coins
   amount: 100
-  increase: 1
+  isPlainReward: 0
+  amountRange: {x: 50, y: 150}
+  baseChance: 0
+  biasStat: 8

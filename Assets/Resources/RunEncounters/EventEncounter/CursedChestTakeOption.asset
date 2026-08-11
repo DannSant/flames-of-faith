@@ -15,4 +15,5 @@ MonoBehaviour:
   optionActionsList:
   - {fileID: 11400000, guid: 26372b2a2eabd12418b0620b45fec36c, type: 2}
   - {fileID: 11400000, guid: 5763332355a20f14e9a20b5286433428, type: 2}
-  optionDescription: Take coins, gain 100 Golden Chronos, but gain 5 Corruption
+  - {fileID: 11400000, guid: 03c70a8d3cb870a4facde4b254dcdd3c, type: 2}
+  optionDescription: Take coins

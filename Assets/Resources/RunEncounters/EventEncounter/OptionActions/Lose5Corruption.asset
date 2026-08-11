@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c4c29c250bab7444adefb4caf8ec802, type: 3}
-  m_Name: Gain5Corruption
+  m_Name: Lose5Corruption
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.ChangePlayerCorruptionOption
+  resourceName: Corruption
   amount: 5
-  increase: 1
+  isPlainReward: 1
+  amountRange: {x: 0, y: 0}
+  baseChance: 0
+  biasStat: 8

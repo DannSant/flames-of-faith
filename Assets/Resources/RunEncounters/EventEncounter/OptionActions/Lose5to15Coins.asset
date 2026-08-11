@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a230ad2f4fa653498d1a74ad91453b7, type: 3}
-  m_Name: Lose10Currency
+  m_Name: Lose5to15Coins
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.LoseCurrencyOption
+  resourceName: Coins
   amount: 10
-  increase: 0
+  isPlainReward: 0
+  amountRange: {x: -15, y: -5}
+  baseChance: 0
+  biasStat: 8

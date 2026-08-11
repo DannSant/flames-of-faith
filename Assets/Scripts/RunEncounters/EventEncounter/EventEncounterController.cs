@@ -17,7 +17,7 @@ namespace Game.RunEncounters
         [SerializeField] private List<EventEncounterData> encountersList;
 
         public event Action<EventEncounterData> OnEventPresented;
-        public event Action OnEventResolved;
+        public event Action<string> OnEventResolved;
 
         private EventContext context;
         private EventEncounterData data;
@@ -47,13 +47,19 @@ namespace Game.RunEncounters
 
         public void SelectOption(EventOptionsList option)
         {
-            option.Apply(context);
-            Resolve();
+            string results = option.Apply(context);
+            Resolve(results);
         }
 
-        private void Resolve()
+        private void Resolve(string results)
         {
-            OnEventResolved?.Invoke();
+            OnEventResolved?.Invoke(results);
+            //StartCoroutine(DelayedWaveComplete());
+        }
+
+        private IEnumerator DelayedWaveComplete()
+        {
+            yield return new WaitForSeconds(5f);
             WaveSpawner.Instance.InvokeOnWaveComplete();
         }
 

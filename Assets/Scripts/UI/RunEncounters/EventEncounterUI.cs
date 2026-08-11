@@ -15,11 +15,14 @@ namespace Game.UI.RunEncounters
         [SerializeField] private Transform optionsContainer;
         [SerializeField] private EventEncounterOptionUI optionPrefab;
 
+        private GeneralTooltipPaneUI generalTooltipPaneUI;
+
 
         private EventEncounterController eventController;
 
         private void Start()
         {
+            generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
             HidePanel();
             MainSceneController.Instance.OnGameplayUISetupRequested += SubscribeToEvents;
         }
@@ -60,7 +63,7 @@ namespace Game.UI.RunEncounters
             foreach (var option in data.options)
             {
                 var optionUI = Instantiate(optionPrefab, optionsContainer);
-                optionUI.Initialize(option.OptionDescription);
+                optionUI.Initialize(option, generalTooltipPaneUI);
 
                 var optionButton = optionUI.GetComponent<Button>();
                 optionButton.onClick.AddListener(() =>
@@ -68,6 +71,7 @@ namespace Game.UI.RunEncounters
                     eventController.SelectOption(option);
                     HidePanel();
                     CleanupComponent();
+                    generalTooltipPaneUI?.HideTooltip();
                 });
             }
         }

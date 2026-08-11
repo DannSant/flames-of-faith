@@ -73,6 +73,7 @@ namespace Game.Scene
 
         private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame)
         {
+            Debug.Log("LoadLevelSelectorSceneRoutine");
             yield return StartCoroutine(FadeIn());
 
             //unloads main menu scenes if coming from main menu
@@ -129,6 +130,7 @@ namespace Game.Scene
 
         private IEnumerator LoadMainMenuRoutine()
         {           
+            Debug.Log("LoadMainMenuRoutine");
             yield return StartCoroutine(FadeIn());
 
             CleanupSceneObjects();
@@ -150,6 +152,7 @@ namespace Game.Scene
 
         private IEnumerator LoadGameplayRoutine(LevelData levelData, bool shouldReset)
         {
+            Debug.Log($"LoadGameplayRoutine");
             GameSession.Instance.currentLevel = levelData;
             yield return StartCoroutine(FadeIn());
 
@@ -223,6 +226,7 @@ namespace Game.Scene
 
         private IEnumerator RetryCurrentRunRoutine()
         { 
+             Debug.Log($"RetryCurrentRunRoutine");
             // Mark the session as a new run so future state resets correctly
             GameSession.Instance.SetIsNewRun(true);
             GameSession.Instance.Initialize();

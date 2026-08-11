@@ -1,3 +1,4 @@
+using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
@@ -5,24 +6,28 @@ namespace Game.RunEncounters
     [CreateAssetMenu(menuName = "RunEncounters/EventOptionsActions/Change Corruption", fileName = "ChangeCorruptionOption")]
     public class ChangePlayerCorruptionOption : EventOptionActionBase
     {
-        [SerializeField] private int amount = 1;
-        [SerializeField] private bool increase = true;
-        public override void Apply(EventContext context)
+        public override string Apply(EventContext context)
         {
             if (context.playerCorruption == null)
             {
                 Debug.LogError("[LoseCurrencyOption] PlayerCorruption missing from context.");
-                return;
+                return string.Empty;
             }
-            if (increase)
+
+            int finalAmount = isPlainReward
+                ? Mathf.RoundToInt(amount)
+                : Mathf.RoundToInt(StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat));
+
+            if (finalAmount >= 0)
             {
-                context.playerCorruption.AddCorruption(amount);
+                context.playerCorruption.AddCorruption(finalAmount);
             }
             else
             {
-                context.playerCorruption.ReduceCorruption(amount);
+                context.playerCorruption.ReduceCorruption(-finalAmount);
             }
-                
+
+            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
         }
     }
 }
