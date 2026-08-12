@@ -1,12 +1,14 @@
 using Game.Combat;
 using Game.Progression;
+using Game.Scene;
 using UnityEngine;
 
 namespace Game.Pickups
 {
     public class HealthPickup : BasePickup
     {
-        [SerializeField] private float healAmount = 10;
+        [SerializeField] private float baseAmount = 5;
+        [SerializeField] private float amountPerLevel = 2;
 
         public override bool CanBePickedUp(GameObject picker)
         {
@@ -30,8 +32,8 @@ namespace Game.Pickups
 
             if(playerHealth != null && playerProgression != null)
             {
-               
-                playerHealth.Heal(healAmount);
+               int levelHealthBonus = GameSession.Instance.LevelsBeaten * (int)amountPerLevel;
+                playerHealth.Heal(baseAmount + levelHealthBonus);
                 Destroy(gameObject);
             }
 
