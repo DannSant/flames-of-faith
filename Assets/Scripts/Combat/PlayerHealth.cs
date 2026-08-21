@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Common;
 using Game.Control;
 using Game.Misc;
@@ -32,6 +33,9 @@ namespace Game.Combat {
 
         [Header("Testing")]
         [SerializeField] private bool noDamage=false;
+
+        [Header("Death")]
+        [SerializeField] private AudioClip deathSFX;
 
         private int armor = 0;
         private CharacterVisual characterVisual;
@@ -103,10 +107,11 @@ namespace Game.Combat {
 
         }      
 
-        private void ResetPlayerHealthState() 
+        private void ResetPlayerHealthState()
         {
             isDead = false;
             characterVisual?.Show();
+            characterVisual?.ResetDeathAnimationState();
             maxHealth = defaultMaxHealth;
             currentHealth = maxHealth;
             armor = 0;
@@ -311,10 +316,11 @@ namespace Game.Combat {
 
         }
 
-        private IEnumerator DeathRoutine() 
+        private IEnumerator DeathRoutine()
         {
-            characterVisual?.Hide(); // Hide the player sprite          
-            yield return new WaitForSeconds(1f);
+            if (deathSFX != null) AudioManager.Instance?.PlaySFX(deathSFX);
+            if (characterVisual != null) yield return characterVisual.PlayDeathAnimationRoutine();
+            //characterVisual?.Hide(); // Hide the player sprite
             onDeath?.Invoke();
         }
 

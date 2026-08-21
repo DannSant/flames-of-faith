@@ -14,7 +14,8 @@ namespace Game.Combat
         [SerializeField] private CharacterVisual characterVisual;
         private WeaponBase currentWeapon;
         private PlayerProgression playerProgression;
-       
+        private PlayerHealth playerHealth;
+
 
         public event Action<float, float> OnAttackTimerUpdated;
         public event Action<float, float> OnSpecialAttackTimerUpdated;
@@ -24,9 +25,10 @@ namespace Game.Combat
         private void Awake()
         {
             playerProgression = GetComponent<PlayerProgression>();
+            playerHealth = GetComponent<PlayerHealth>();
             if (startingWeapon != null)
             {
-                EquipWeapon(startingWeapon);                
+                EquipWeapon(startingWeapon);
             }
         }
 
@@ -40,6 +42,10 @@ namespace Game.Combat
 
         private void Update()
         {
+            if (playerHealth != null && playerHealth.IsDead())
+            {
+                return;
+            }
             ManageAttackTimer();
             ManageAutoAttack();
         }

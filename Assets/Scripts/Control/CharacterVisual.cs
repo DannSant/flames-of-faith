@@ -2,6 +2,7 @@ using Game.Common;
 using Game.Scene;
 using Game.Utils;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Control
@@ -30,6 +31,8 @@ namespace Game.Control
         public event Action OnAttackEndAnimEvent;
         public event Action OnSpecialAttackStartAnimEvent;
         public event Action OnSpecialAttackEndAnimEvent;
+
+        private const string DeathStateName = "Death";
 
         private LevelData currentLevelData = null;
 
@@ -167,6 +170,42 @@ namespace Game.Control
         {
             IsSpecialAttackAnimationPlaying = true;
             animator.SetTrigger("SpecialAttack");
+        }
+
+        public IEnumerator PlayDeathAnimationRoutine()
+        {
+            if (animator == null) yield break;
+
+            // Clear any queued triggers so a stray Dash/Attack/Special/Cleanse
+            // input right before death can't leave a trigger sitting around
+            // waiting to fire once Death is reset on respawn.
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("SpecialAttack");
+            animator.ResetTrigger("Dash");
+            animator.ResetTrigger("Cleanse");
+            // Death is a Bool, not a Trigger: every other Any State transition
+            // is gated on Death == false, so once this is set it can't be
+            // interrupted by a same-frame/queued Attack/Dash/etc. trigger the
+            // way a Trigger-vs-Trigger race on Any State could.
+            animator.SetBool(DeathStateName, true);
+            Debug.Log($"[{Time.time:F2}] PlayDeathAnimationRoutine: Waiting for Death animation to start and finish...");
+
+            float timeout = Time.time + 5f; // safety valve if the controller is misconfigured
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName(DeathStateName) && Time.time < timeout)
+                yield return null;
+            while (animator.GetCurrentAnimatorStateInfo(0).IsName(DeathStateName) &&
+                   animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f && Time.time < timeout)
+                yield return null;
+        }
+
+        public void ResetDeathAnimationState()
+        {
+            if (animator == null) return;
+            animator.SetBool(DeathStateName, false);
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("SpecialAttack");
+            animator.ResetTrigger("Dash");
+            animator.ResetTrigger("Cleanse");
         }
 
         public void Hide()

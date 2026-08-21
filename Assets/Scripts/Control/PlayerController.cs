@@ -87,6 +87,7 @@ namespace Game.Control
         {
             if (playerHealth.IsDead()) return;
             if (disabledInput) {return;}
+            
 
             MovementInput();
             AttackInput();
@@ -158,6 +159,10 @@ namespace Game.Control
 
         private void StartSpecialAttack()
         {
+            if (playerHealth != null && playerHealth.IsDead())
+            {
+                return;
+            }
             if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
             {
                 return;
@@ -171,6 +176,10 @@ namespace Game.Control
 
         private bool CanAttack() 
         {
+            if (playerHealth != null && playerHealth.IsDead())
+            {
+                return false; // Prevent attack if the player is dead
+            }
             if (weaponManager == null) return false;
             var currentWeapon = weaponManager.GetCurrentWeapon();
             bool canAttack = !(currentWeapon.IsAttackTimerActive() || currentWeapon.IsSpecialAttackTimerActive());
@@ -179,6 +188,11 @@ namespace Game.Control
 
         private void Move()
         {
+            if (playerHealth != null && playerHealth.IsDead())
+            {
+                rb.linearVelocity = Vector2.zero; // Stop movement immediately
+                return;
+            }
             // Prevent movement if the wave is ending
             if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
             {

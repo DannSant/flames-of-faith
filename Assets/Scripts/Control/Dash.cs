@@ -87,6 +87,10 @@ namespace Game.Control
 
         private void StartDashEvent()
         {
+            if (playerHealth != null && playerHealth.IsDead())
+            {
+                return;
+            }
             if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
             {
                 return;
