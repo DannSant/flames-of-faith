@@ -45,6 +45,11 @@ namespace Game.Combat
         [Header("Lifesteal")]
         [SerializeField] private bool canTriggerLifesteal = true;
 
+        [Header("Direct Elemental Debuff")]
+        [Tooltip("Elemental debuff applied directly by this damage source, independent of any weapon/effect data. " +
+            "Useful for damage sources not tied to a WeaponData asset (e.g. an AoE explosion prefab).")]
+        [SerializeField] private ElementalDebuffData directElementalDebuffData;
+
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
         private float stayTimer = 0f;       
@@ -166,9 +171,16 @@ namespace Game.Combat
             //Effect debuff check
             var debuffsToApply = effectStore.GetElementalTypesToApply(originType, weaponClass);
             foreach (var debuffData in debuffsToApply)
-            {              
-                int debuffStrengthStat = playerProgression.GetStatTotal(StatType.MastowAffinity) + debuffData.count;                
+            {
+                int debuffStrengthStat = playerProgression.GetStatTotal(StatType.MastowAffinity) + debuffData.count;
                 debuffHandler.TryToApplyDebuff(debuffData.elementalDebuffData, debuffStrengthStat);
+            }
+
+            //Direct debuff check (assigned straight on this component, e.g. an AoE explosion prefab)
+            if (directElementalDebuffData != null && directElementalDebuffData.ElementalType != ElementalType.None)
+            {
+                int debuffStrengthStat = playerProgression.GetStatTotal(StatType.MastowAffinity);
+                debuffHandler.TryToApplyDebuff(directElementalDebuffData, debuffStrengthStat);
             }
 
         }
@@ -197,6 +209,8 @@ namespace Game.Combat
         {
             this.effectID = effectID;
         }
+
+        public void SetElementalDebuffData(ElementalDebuffData debuffData) => directElementalDebuffData = debuffData;
 
         public void SetBaseDamage(int value) => baseDamage = value;
         public void SetWeaponClass(WeaponClass wc) => weaponClass = wc;

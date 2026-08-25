@@ -33,6 +33,12 @@ namespace Game.UI
             StartNewGame();
         }
 
+        public void SelectAugur()
+        {
+            GameSession.Instance.SelectedPlayerIndex = 2;
+            StartNewGame();
+        }
+
         public void SwitchFromMainPanelToCharacterSelect()
         {
             StartCoroutine(SwitchFromMainPanelToCharacterSelectRoutine());

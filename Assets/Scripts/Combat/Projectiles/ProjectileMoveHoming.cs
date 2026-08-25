@@ -9,7 +9,7 @@ namespace Game.Combat.Projectiles
 
         private Transform target;
 
-        public void SetTarget(Transform t)
+        public override void SetTarget(Transform t)
         {
             target = t;
         }
