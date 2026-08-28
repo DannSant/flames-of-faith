@@ -2,12 +2,9 @@
 using Game.Combat;
 using Game.Control;
 using Game.Scene;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static TreeEditor.TreeGroup;
 
 namespace Game.Boss
 {
