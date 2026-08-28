@@ -1002,6 +1002,12 @@ MonoBehaviour:
   sfxSourceLowVolume: {fileID: 1863026248}
   defaultMusicLowVolume: 0.1
   defaultMusicVolume: 0.7
+  enemyHitSfxQueue:
+    maxQueueSize: 2
+    staggerInterval: 0.05
+  enemyDeathSfxQueue:
+    maxQueueSize: 2
+    staggerInterval: 0.05
 --- !u!4 &1863026245
 Transform:
   m_ObjectHideFlags: 0

@@ -126,7 +126,16 @@ namespace Game.Combat
             }
         }
 
-        public void Attack() => currentWeapon?.Attack();
+        public void Attack()
+        {
+            if (currentWeapon == null) return;
+
+            // Re-resolve the target every manual attack so a stale in-range target
+            // from auto-attack can't be used once the enemy is out of range.
+            var target = FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange());
+            currentWeapon.SetTarget(target);
+            currentWeapon.Attack();
+        }
         public void SpecialAttack() => currentWeapon?.SpecialAttack();
         public EnemyHealth GetCurrentTarget() => currentWeapon?.GetTarget();
 

@@ -8,6 +8,7 @@ namespace Game.Combat
         public float baseDamage;
         public WeaponClass originWeaponClass;
         public bool canTriggerLifeSteal = true;
+        public bool silent = false; // Skips hit/death SFX, used for mass/forced kills
 
         public DamageRequest(float baseDamage, WeaponClass weaponClass, bool canTriggerLifeSteal)
         {

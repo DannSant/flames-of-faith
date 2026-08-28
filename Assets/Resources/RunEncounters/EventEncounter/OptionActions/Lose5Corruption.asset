@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lose5Corruption
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.ChangePlayerCorruptionOption
   resourceName: Corruption
-  amount: 5
+  amount: -5
   isPlainReward: 1
   amountRange: {x: 0, y: 0}
   baseChance: 0

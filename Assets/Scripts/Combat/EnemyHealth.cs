@@ -78,9 +78,9 @@ namespace Game.Combat
             }
             float damage = damageRequest.baseDamage;
 
-            if (damagedSFX != null)
+            if (damagedSFX != null && !damageRequest.silent)
             {
-                AudioManager.Instance.PlayLowVolumeSFX(damagedSFX, true);
+                AudioManager.Instance.PlayEnemyHitSFX(damagedSFX);
             }
 
             if (IsImmuneFlag)
@@ -102,7 +102,7 @@ namespace Game.Combat
             if (currentHealth <= 0)
             {
                 healthbar.Hide();
-                DetectDeath();
+                DetectDeath(damageRequest.silent);
                 return;
             }
 
@@ -143,11 +143,11 @@ namespace Game.Combat
             extraDamageTakenPercentage = 0f;
         }
 
-        private void DetectDeath()
+        private void DetectDeath(bool silent = false)
         {
-            if (damagedSFX != null)
+            if (deathSFX != null && !silent)
             {
-                AudioManager.Instance.PlayLowVolumeSFX(deathSFX, true);
+                AudioManager.Instance.PlayEnemyDeathSFX(deathSFX);
             }
             StartCoroutine(DeathRoutine());
         }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ScepterSpecial
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.WeaponData
   attackCooldownBase: 6
-  baseDamage: 15
-  attackScale: 1
+  baseDamage: 20
+  attackScale: 2
   attackSpeedScale: 0.075
   weaponClass: 3
   rangeBase: 2

@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbdfec7dbd6c6948b37d8e8fc4a91c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveHoming
-  speed: 5
+  speed: 2.5
   turnSpeed: 180
 --- !u!114 &3817911464351429657
 MonoBehaviour:

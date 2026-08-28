@@ -271,7 +271,7 @@ namespace Game.Waves {
                     var enemyHealth = enemy.GetComponent<EnemyHealth>();
                     if (enemyHealth != null)
                     {
-                        enemyHealth.TakeDamage(new DamageRequest(9999f, WeaponClass.None, false));
+                        enemyHealth.TakeDamage(new DamageRequest(9999f, WeaponClass.None, false) { silent = true });
                     }
                 }
 
