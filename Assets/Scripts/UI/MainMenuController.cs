@@ -86,7 +86,43 @@ namespace Game.UI
             else
             {
                 animator.SetTrigger("CharacterSelectHide");
-            }            
+            }
+        }
+
+        public void OpenSettings()
+        {
+            StartCoroutine(OpenSettingsRoutine());
+        }
+
+        public IEnumerator OpenSettingsRoutine()
+        {
+            ToggleMainPanel(false);
+            yield return new WaitForSeconds(1f);
+            ToggleSettingsPanel(true);
+        }
+
+        public void CloseSettings()
+        {
+            StartCoroutine(CloseSettingsRoutine());
+        }
+
+        public IEnumerator CloseSettingsRoutine()
+        {
+            ToggleSettingsPanel(false);
+            yield return new WaitForSeconds(1f);
+            ToggleMainPanel(true);
+        }
+
+        private void ToggleSettingsPanel(bool show)
+        {
+            if (show)
+            {
+                animator.SetTrigger("SettingsShow");
+            }
+            else
+            {
+                animator.SetTrigger("SettingsHide");
+            }
         }
 
         public void ExitGame()

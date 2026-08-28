@@ -14,6 +14,9 @@ namespace Game.Audio
         [SerializeField] private float defaultMusicLowVolume = 0.1f;
         [SerializeField] private float defaultMusicVolume = 0.7f;
 
+        private float masterVolume = 1f;
+        private float musicVolume;
+        private float sfxVolume = 1f;
 
         protected override void Awake()
         {
@@ -95,11 +98,12 @@ namespace Game.Audio
 
         private void SetLowVolume()
         {
-            musicSource.volume = defaultMusicLowVolume;
+            float duckRatio = defaultMusicLowVolume / defaultMusicVolume;
+            musicSource.volume = musicVolume * masterVolume * duckRatio;
         }
         private void SetNormalVolume()
         {
-            musicSource.volume = defaultMusicVolume;
+            musicSource.volume = musicVolume * masterVolume;
         }
 
         public void StopMusic()
@@ -107,9 +111,25 @@ namespace Game.Audio
             musicSource.Stop();
         }
 
+        public void SetMasterVolume(float volume)
+        {
+            masterVolume = Mathf.Clamp01(volume);
+            musicSource.volume = musicVolume * masterVolume;
+            sfxSource.volume = sfxVolume * masterVolume;
+            sfxSourceLowVolume.volume = sfxVolume * masterVolume;
+        }
+
         public void SetMusicVolume(float volume)
         {
-            musicSource.volume = Mathf.Clamp01(volume);
+            musicVolume = Mathf.Clamp01(volume);
+            musicSource.volume = musicVolume * masterVolume;
+        }
+
+        public void SetSfxVolume(float volume)
+        {
+            sfxVolume = Mathf.Clamp01(volume);
+            sfxSource.volume = sfxVolume * masterVolume;
+            sfxSourceLowVolume.volume = sfxVolume * masterVolume;
         }
 
         public void ResetMusicVolume()
