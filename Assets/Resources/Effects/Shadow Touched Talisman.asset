@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: Increases Magic Damage by 15 but reduces Armor by 5 and Max Health
     by 10
-  buyPrice: 25
+  buyPrice: 50
   sellPrice: 10
   effectStatModifiers:
   - stat: 12
@@ -32,3 +32,4 @@ MonoBehaviour:
     type: 0
   behaviors: []
   unlockedByDefault: 1
+  quality: 3

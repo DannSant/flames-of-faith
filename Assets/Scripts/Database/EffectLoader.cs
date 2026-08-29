@@ -34,6 +34,7 @@ namespace Game.Database
             effect.Description = row.description;
             effect.BuyPrice = row.priceBuy;
             effect.SellPrice = row.priceSell;
+            effect.Quality = (EffectQuality)row.quality;
 
             // Load icon
             if (!string.IsNullOrEmpty(row.iconKey))

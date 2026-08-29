@@ -1,5 +1,8 @@
 using System.Text;
+using Game.Effects;
+using Game.Progression;
 using Game.RunEncounters;
+using Game.Scene;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -66,16 +69,10 @@ namespace Game.UI.RunEncounters
         {
             if(action is GiveRandomItemOptionAction giveRandomItemAction)
             {
-                var itemNames = new StringBuilder();
-                foreach (var itemEntry in giveRandomItemAction.PossibleItems)
-                {
-                    if (itemEntry.item != null)
-                    {
-                        itemNames.Append($"{itemEntry.item.effectName},");
-                    }
-                }
+                var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+                EffectQuality maxQuality = giveRandomItemAction.GetMaxEligibleQuality(playerProgression);
 
-                return $"Might receive one of the following items: {itemNames}";
+                return $"Might receive an item up to: {maxQuality} quality";
             }
             
             if (action.IsPlainReward)

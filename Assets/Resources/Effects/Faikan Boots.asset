@@ -18,18 +18,19 @@ MonoBehaviour:
   scalingValue: 1
   description: 'High quality boots make with Faikan skin
 
-    +3 Move Speed
+    +2 Move Speed
 
-    +3
+    +2
     Dash Cooldown reduction'
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:
   - stat: 3
-    value: 3
+    value: 2
     type: 0
   - stat: 4
-    value: 3
+    value: 2
     type: 0
   behaviors: []
   unlockedByDefault: 1
+  quality: 1

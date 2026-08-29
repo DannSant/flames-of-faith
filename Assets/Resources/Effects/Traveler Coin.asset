@@ -16,7 +16,14 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0cbe2c5a40027594da88317f9bb6ae02, type: 3}
   effectName: Traveler Coin
   scalingValue: 1
-  description: Increases Move Speed and Pickup Range by 5 and Luck by 10
+  description: 'An old coin, crafted with some strange metals
+
+    +5 Move Speed
+
+    +2
+    Luck
+
+    +3 Pickup Range'
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:
@@ -24,10 +31,11 @@ MonoBehaviour:
     value: 5
     type: 0
   - stat: 8
-    value: 10
+    value: 2
     type: 0
   - stat: 18
-    value: 5
+    value: 3
     type: 0
   behaviors: []
   unlockedByDefault: 1
+  quality: 1

@@ -169,6 +169,16 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Stats/Increase Luck")]
+    public static void IncreaseLuck()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.Luck, 1);
+        }
+    }
+
     [MenuItem("DevTools/Items/Give Concecrate")]
     public static void GiveholyCross()
     {
@@ -329,6 +339,18 @@ public class DeveloperCheats
         if (effectStore != null)
         {
             string effectId = "222676b1-9b64-480a-83c6-885b121930c2";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
+        [MenuItem("DevTools/Items/Ley Flower")]
+    public static void GiveLeyFlower()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "c4f5c675-8a9e-4976-80fa-52b15a072fee";
             effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
         }
 

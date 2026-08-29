@@ -27,6 +27,7 @@ namespace Game.Effects.EffectBehaviors
         // Runtime
         private WeaponDamageSource meleeSource;
         private BowWeapon bowSource;
+         private ScepterWeapon scepterSource;
         private readonly List<DamageSourceBase> registeredProjectiles = new();
 
 
@@ -36,7 +37,7 @@ namespace Game.Effects.EffectBehaviors
         {
             base.Initialize(owner, store, parentEffect);
 
-            // Player’s current weapon
+            // Playerï¿½s current weapon
             var weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
             var currentWeapon = weaponManager.GetCurrentWeapon();
 
@@ -58,6 +59,12 @@ namespace Game.Effects.EffectBehaviors
                 bowSource = bow;
                 bowSource.onBowAttackLaunched += RegisterProjectile;
             }
+
+            if (currentWeapon is ScepterWeapon scepter)
+            {
+                scepterSource = scepter;
+                scepterSource.onScepterAttackLaunched += RegisterProjectile;
+            }
         }       
 
 
@@ -70,6 +77,10 @@ namespace Game.Effects.EffectBehaviors
             // Unsubscribe bow
             if (bowSource != null)
                 bowSource.onBowAttackLaunched -= RegisterProjectile;
+
+            // Unsubscribe scepter
+            if (scepterSource != null)
+                scepterSource.onScepterAttackLaunched -= RegisterProjectile;
 
             // Unsubscribe all registered projectiles
             foreach (var p in registeredProjectiles)

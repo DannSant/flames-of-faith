@@ -26,6 +26,7 @@ namespace Game.Effects{
         [Header("Behaviors")]
         [SerializeField] private List<EffectBehavior> behaviors = new();
         [SerializeField] private bool unlockedByDefault = false;
+        [SerializeField] private EffectQuality quality = EffectQuality.Common;
 
         protected EffectStore ownerStore;
 
@@ -40,6 +41,7 @@ namespace Game.Effects{
         public List<StatModifier> StatModifiers { get => effectStatModifiers; set => effectStatModifiers = value; }
         public List<EffectBehavior> Behaviors { get => behaviors; set => behaviors = value; }
         public bool UnlockedByDefault { get => unlockedByDefault; set => unlockedByDefault = value; }
+        public EffectQuality Quality { get => quality; set => quality = value; }
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -92,6 +94,7 @@ namespace Game.Effects{
             BuyPrice = row.priceBuy;
             SellPrice = row.priceSell;
             UnlockedByDefault = row.unlockedByDefault == 1 ? true : false;
+            Quality = (EffectQuality)row.quality;
 
             // Load icon
             if (!string.IsNullOrEmpty(row.iconKey))

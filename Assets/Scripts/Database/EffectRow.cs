@@ -18,6 +18,8 @@ namespace Game.Database
 
         public int unlockedByDefault { get; set; }  // 0 = false, 1 = true
 
+        public int quality { get; set; }  // EffectQuality: 0=Common, 1=Uncommon, 2=Rare, 3=Heroic, 4=Epic, 5=Legendary
+
         // JSON with stat modifiers
         public string statModifiersJson { get; set; }
 

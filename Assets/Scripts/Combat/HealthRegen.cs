@@ -41,7 +41,7 @@ namespace Game.Combat
 
             if (regenTimer >= interval)
             {
-                playerHealth.Heal(1);
+                playerHealth.Heal(1, applyHealingReceivedStat: false);
                 regenTimer = 0f;
             }
         }

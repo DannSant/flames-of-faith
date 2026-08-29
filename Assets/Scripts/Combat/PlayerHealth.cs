@@ -253,12 +253,12 @@ namespace Game.Combat {
             }
         }       
 
-        public void Heal(float amount)
+        public void Heal(float amount, bool applyHealingReceivedStat = true)
         {
             if (currentHealth <= 0) return;
             if (IsAtMaxHealth()) return;
 
-            float healingReceivedStat = playerProgression.GetStatTotal(StatType.HealingReceived);
+            float healingReceivedStat = applyHealingReceivedStat ? playerProgression.GetStatTotal(StatType.HealingReceived) : 0f;
 
             float totalHealAmount = Mathf.Max(0f,amount + healingReceivedStat);
 

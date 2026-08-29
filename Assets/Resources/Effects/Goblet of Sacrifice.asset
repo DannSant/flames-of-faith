@@ -19,9 +19,9 @@ MonoBehaviour:
   description: 'Increases Max Grace and Magic Damage by +5
 
     Reduces Max Health
-    -15
+    -10
 
-    Reduces Health Regen -5'
+    Reduces Health Regen -2'
   buyPrice: 50
   sellPrice: 15
   effectStatModifiers:
@@ -32,10 +32,11 @@ MonoBehaviour:
     value: 5
     type: 0
   - stat: 0
-    value: -15
+    value: -10
     type: 0
   - stat: 14
-    value: -5
+    value: -2
     type: 0
   behaviors: []
   unlockedByDefault: 1
+  quality: 2

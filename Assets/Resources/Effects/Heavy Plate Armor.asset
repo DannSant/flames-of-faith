@@ -18,23 +18,24 @@ MonoBehaviour:
   scalingValue: 1
   description: 'Heavy armor crafted by a skilled smith from the Glenos Empire.
 
-    +3
+    +4
     Armor
 
     -2 Move Speed
 
-    -2 Attack Speed'
+    -1 Attack Speed'
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:
   - stat: 6
-    value: 3
+    value: 4
     type: 0
   - stat: 3
     value: -2
     type: 0
   - stat: 2
-    value: -2
+    value: -1
     type: 0
   behaviors: []
   unlockedByDefault: 1
+  quality: 1

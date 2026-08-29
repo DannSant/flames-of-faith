@@ -216,6 +216,7 @@ namespace Game.Editor.Database
             selectedRow.priceBuy = EditorGUILayout.IntField("Buy Price", selectedRow.priceBuy);
             selectedRow.priceSell = EditorGUILayout.IntField("Sell Price", selectedRow.priceSell);
             selectedRow.unlockedByDefault = EditorGUILayout.IntField("Unlocked by default", selectedRow.unlockedByDefault);
+            selectedRow.quality = (int)(EffectQuality)EditorGUILayout.EnumPopup("Quality", (EffectQuality)selectedRow.quality);
 
             EditorGUILayout.Space();
 

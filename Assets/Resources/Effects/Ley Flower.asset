@@ -17,7 +17,7 @@ MonoBehaviour:
   effectName: Ley Flower
   scalingValue: 1
   description: "Rare flowe that usually grows on Ley Lines or Ley Pools. \n+2 Magic
-    Damage\n+2 Healing Received"
+    Damage\n+1 Healing Received"
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:
@@ -25,7 +25,8 @@ MonoBehaviour:
     value: 2
     type: 0
   - stat: 17
-    value: 2
+    value: 1
     type: 0
   behaviors: []
   unlockedByDefault: 1
+  quality: 1

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Fustina wand
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 1395d84a-5802-4e0b-b389-d576c27937f6
+  icon: {fileID: 21300000, guid: 449a590bb43ea92418fc91c383296d56, type: 3}
+  effectName: Fustina wand
+  scalingValue: 1
+  description: "A handcrafted wand made by the elves of Fustina. \n+1 Magic Damage\n+1
+    Luck"
+  buyPrice: 15
+  sellPrice: 5
+  effectStatModifiers:
+  - stat: 12
+    value: 1
+    type: 0
+  - stat: 8
+    value: 1
+    type: 0
+  behaviors: []
+  unlockedByDefault: 1
+  quality: 0

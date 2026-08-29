@@ -99,6 +99,9 @@ MonoBehaviour:
   attackScale: 1
   effectID: 
   layerMaskName: Enemy
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   originType: 1
   useTriggerEnter: 1
   useTriggerStay: 0
@@ -108,6 +111,8 @@ MonoBehaviour:
   pierceCount: 1
   applyKnockback: 0
   knockbackForce: 0
+  canTriggerLifesteal: 1
+  directElementalDebuffData: {fileID: 0}
 --- !u!114 &8226258143542772387
 MonoBehaviour:
   m_ObjectHideFlags: 0
