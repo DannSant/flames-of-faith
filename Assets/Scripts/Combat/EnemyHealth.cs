@@ -143,8 +143,12 @@ namespace Game.Combat
             extraDamageTakenPercentage = 0f;
         }
 
+        public bool DiedSilently { get; private set; }
+
         private void DetectDeath(bool silent = false)
         {
+            DiedSilently = silent;
+
             if (deathSFX != null && !silent)
             {
                 AudioManager.Instance.PlayEnemyDeathSFX(deathSFX);

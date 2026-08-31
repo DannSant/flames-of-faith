@@ -15,6 +15,7 @@ namespace Game.RunEncounters
         [SerializeField] private int itemCount = 10;
         [SerializeField] private float qualityScalePerStat = 2f;
         [SerializeField] private int quantityScalePerStat = 1;
+        [SerializeField] private int maxItemCount = 20;
         public List<Effect> items;
 
         public event System.Action<bool, List<Effect>> onShopWindowToggle;
@@ -56,24 +57,26 @@ namespace Game.RunEncounters
             var availableEffects = EffectsDatabaseProvider.Instance.GetAvailableEffects();
 
             int luck = playerProgression != null ? playerProgression.GetStatTotal(StatType.Luck) : 0;
-            //Debug.Log(playerProgression==null ? "null" : playerProgression.name);
-            EffectQuality maxQuality = EffectQualityScaler.GetMaxEligibleQuality(luck, qualityScalePerStat);
-            var eligibleEffects = EffectQualityScaler.FilterByMaxQuality(availableEffects, maxQuality);
 
-            int displayCount = itemCount + luck * quantityScalePerStat;
+            int displayCount = Mathf.Min(itemCount + luck * quantityScalePerStat, maxItemCount);
 
-            // Fill from the highest eligible quality down, spilling into lower tiers only once
-            // a tier is exhausted; ThenBy randomizes which items are picked within the same quality.
-            var selectedEffects = eligibleEffects
-                .OrderByDescending(e => e.Quality)
-                .ThenBy(e => Random.value)
-                .Take(displayCount)
-                .ToList();
+            // Roll each slot's quality independently (weighted by Luck, never fully excluding
+            // any tier) rather than sorting-and-cutting, so common items can still show up
+            // alongside rare ones instead of being pushed out entirely at high Luck.
+            var remainingPool = new List<Effect>(availableEffects);
+            var selectedEffects = new List<Effect>();
 
-            //Debug.Log($"ShopKeeper: Selected {selectedEffects.Count} items for display. Max Quality: {maxQuality}, Luck: {luck}");
-            //Debug.Log($"Items {string.Join(", ", selectedEffects.Select(e => e.effectName))}");
+            for (int i = 0; i < displayCount && remainingPool.Count > 0; i++)
+            {
+                EffectQuality rolledQuality = EffectQualityScaler.RollQualityTier(luck, qualityScalePerStat, remainingPool);
+                var candidates = remainingPool.Where(e => e.Quality == rolledQuality).ToList();
+                var chosen = candidates[Random.Range(0, candidates.Count)];
 
-            // Shuffle again so the shop display isn't visibly grouped by quality.
+                selectedEffects.Add(chosen);
+                remainingPool.Remove(chosen);
+            }
+
+            // Shuffle final display order so it doesn't read as grouped/sorted by quality.
             items = selectedEffects.OrderBy(x => Random.value).ToList();
         }
 

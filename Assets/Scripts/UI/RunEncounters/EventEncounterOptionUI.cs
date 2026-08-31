@@ -70,9 +70,9 @@ namespace Game.UI.RunEncounters
             if(action is GiveRandomItemOptionAction giveRandomItemAction)
             {
                 var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-                EffectQuality maxQuality = giveRandomItemAction.GetMaxEligibleQuality(playerProgression);
+                EffectQuality expectedQuality = giveRandomItemAction.GetExpectedQuality(playerProgression);
 
-                return $"Might receive an item up to: {maxQuality} quality";
+                return $"Might receive an item of any quality, averaging around {expectedQuality} (higher Luck favors rarer items)";
             }
             
             if (action.IsPlainReward)

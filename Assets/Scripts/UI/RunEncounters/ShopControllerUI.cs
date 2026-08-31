@@ -103,6 +103,7 @@ namespace Game.UI.RunEncounters
                 return;
             }
             effectNameText.text = effect.effectName;
+            effectNameText.color = EffectQualityDisplayHelper.GetQualityColor(effect.Quality);
             effectDescriptionText.text = effect.description;
         }
 

@@ -22,10 +22,10 @@ namespace Game.RunEncounters
 
         public List<ItemOptionEntry> PossibleItems => possibleItems;
 
-        public EffectQuality GetMaxEligibleQuality(PlayerProgression playerProgression)
+        public EffectQuality GetExpectedQuality(PlayerProgression playerProgression)
         {
             int statValue = playerProgression != null ? playerProgression.GetStatTotal(biasStat) : 0;
-            return EffectQualityScaler.GetMaxEligibleQuality(statValue, qualityScalePerStat);
+            return EffectQualityScaler.GetExpectedQualityTier(statValue, qualityScalePerStat);
         }
 
         public override string Apply(EventContext context)
@@ -38,22 +38,29 @@ namespace Game.RunEncounters
                 return string.Empty;
             }
 
-            EffectQuality maxQuality = GetMaxEligibleQuality(context.playerProgression);
-            var eligibleItems = possibleItems.Where(entry => entry.item != null && entry.item.Quality <= maxQuality).ToList();
+            if (possibleItems.Count == 0)
+            {
+                return string.Empty;
+            }
 
-            if (eligibleItems.Count == 0)
+            int statValue = context.playerProgression != null ? context.playerProgression.GetStatTotal(biasStat) : 0;
+            var pool = possibleItems.Where(entry => entry.item != null).Select(entry => entry.item);
+            EffectQuality rolledQuality = EffectQualityScaler.RollQualityTier(statValue, qualityScalePerStat, pool);
+
+            var tierEntries = possibleItems.Where(entry => entry.item != null && entry.item.Quality == rolledQuality).ToList();
+            if (tierEntries.Count == 0)
             {
                 return string.Empty;
             }
 
             float totalWeight = 0f;
-            foreach (var entry in eligibleItems)
+            foreach (var entry in tierEntries)
             {
                 totalWeight += entry.weight;
             }
             float randomValue = Random.Range(0f, totalWeight);
             float cumulativeWeight = 0f;
-            foreach (var entry in eligibleItems)
+            foreach (var entry in tierEntries)
             {
                 cumulativeWeight += entry.weight;
                 if (randomValue <= cumulativeWeight)

@@ -75,6 +75,8 @@ namespace Game.AI.Behaviors
 
         public void Die()
         {
+            context.diedSilently = health.DiedSilently;
+
             foreach (var behavior in deathBehaviors)
             {
                 behavior.OnDeath(context);
