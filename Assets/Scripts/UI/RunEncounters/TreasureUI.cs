@@ -1,3 +1,4 @@
+using Game.Effects;
 using Game.RunEncounters;
 using Game.Scene;
 using TMPro;
@@ -76,7 +77,7 @@ namespace Game.UI.RunEncounters
             return reward.type switch
             {
                 TreasureRewardType.Item =>
-                    $"You found {reward.amount}x {reward.item.EffectName}",
+                    $"You found {reward.amount}x {ColorizeItemName(reward.item)}",
 
                 TreasureRewardType.Currency =>
                     $"You found {reward.amount} golden chronos",
@@ -86,6 +87,12 @@ namespace Game.UI.RunEncounters
 
                 _ => "You found something mysterious..."
             };
+        }
+
+        private string ColorizeItemName(Effect item)
+        {
+            string hex = ColorUtility.ToHtmlStringRGB(EffectQualityDisplayHelper.GetQualityColor(item.Quality));
+            return $"<color=#{hex}>{item.EffectName}</color>";
         }
     }
 

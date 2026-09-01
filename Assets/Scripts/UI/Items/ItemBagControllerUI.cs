@@ -110,6 +110,7 @@ namespace Game.UI.Items
             selectedItemIndex = index;
             var item = itemBag.PickedUpItems[index];
             itemNameText.text = item.EffectName;
+            itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(item.Quality);
             itemNameDesc.text = item.Description;
             itemSellText.text = $"Sell ({item.SellPrice})";
 

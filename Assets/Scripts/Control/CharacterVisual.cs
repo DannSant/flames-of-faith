@@ -129,17 +129,27 @@ namespace Game.Control
 
         public void PlayDashAnimation()
         {
+            // Dash can interrupt an in-progress Attack/SpecialAttack animation via an Any
+            // State transition, which skips that animation's exit frame and its Animation
+            // Event — leaving IsAttackAnimationPlaying/IsSpecialAttackAnimationPlaying stuck
+            // true forever, which permanently blocks auto-attack (WeaponManager.ManageAutoAttack).
+            IsAttackAnimationPlaying = false;
+            IsSpecialAttackAnimationPlaying = false;
             animator.SetTrigger("Dash");
         }
 
         public void PlayCleanseAnimation()
         {
+            // Same interruption risk as Dash above (e.g. wave-end cleanse firing mid-attack).
+            IsAttackAnimationPlaying = false;
+            IsSpecialAttackAnimationPlaying = false;
             animator.SetTrigger("Cleanse");
         }
 
         public void PlayAttackAnimation()
         {
             IsAttackAnimationPlaying = true;
+            IsSpecialAttackAnimationPlaying = false; // Attack/SpecialAttack are mutually exclusive animator states
             animator.SetTrigger("Attack");
         }
 
@@ -169,6 +179,7 @@ namespace Game.Control
         public void PlayAttackSpecialAnimation()
         {
             IsSpecialAttackAnimationPlaying = true;
+            IsAttackAnimationPlaying = false; // Attack/SpecialAttack are mutually exclusive animator states
             animator.SetTrigger("SpecialAttack");
         }
 
@@ -183,6 +194,11 @@ namespace Game.Control
             animator.ResetTrigger("SpecialAttack");
             animator.ResetTrigger("Dash");
             animator.ResetTrigger("Cleanse");
+            // Same reasoning as Dash/Cleanse above: dying mid-attack would otherwise skip
+            // the attack's exit event and leave these stuck true, blocking auto-attack
+            // permanently on respawn.
+            IsAttackAnimationPlaying = false;
+            IsSpecialAttackAnimationPlaying = false;
             // Death is a Bool, not a Trigger: every other Any State transition
             // is gated on Death == false, so once this is set it can't be
             // interrupted by a same-frame/queued Attack/Dash/etc. trigger the
