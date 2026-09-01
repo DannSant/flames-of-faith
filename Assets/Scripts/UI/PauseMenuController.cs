@@ -13,6 +13,7 @@ namespace Game.UI
         private bool isPaused = false;
         private StatsPaneUI statsPaneUI;
         private InventoryControllerUI inventoryControllerUI;
+        private LevelData levelData;
 
 
         private void Start()
@@ -30,8 +31,30 @@ namespace Game.UI
             inputHandler.UI.Pause.performed -= TogglePauseMenu;
         }
 
+        private LevelData GetLevelData()
+        {
+            if (levelData == null)
+            {
+                var levelSettings = FindAnyObjectByType<LevelSettings>();
+                if (levelSettings != null)
+                {
+                    levelData = levelSettings.LevelData;
+                }
+            }
+            return levelData;
+        }
+
         private void TogglePauseMenu(CallbackContext _)
         {
+            if (!isPaused)
+            {
+                var data = GetLevelData();
+                if (data != null && !data.allowPause)
+                {
+                    return;
+                }
+            }
+
             isPaused = !isPaused;
             pauseScreenPanel.SetActive(isPaused);
 

@@ -17,11 +17,11 @@ namespace Game.UI.RunEncounters
         private Action<Effect> showTooltipAction;
         private Action hideTooltipAction;
 
-        public void Setup(Effect effect, Action<Effect> clickAction, Action<Effect> showTooltipAction, Action hideTooltipAction)
+        public void Setup(Effect effect, int displayPrice, Action<Effect> clickAction, Action<Effect> showTooltipAction, Action hideTooltipAction)
         {
             this.effect = effect;
             icon.sprite = effect.EffectIcon;
-            costText.text = effect.BuyPrice.ToString();
+            costText.text = displayPrice.ToString();
 
             this.showTooltipAction = showTooltipAction;
             this.hideTooltipAction = hideTooltipAction;

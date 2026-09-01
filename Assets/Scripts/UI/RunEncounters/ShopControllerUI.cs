@@ -26,6 +26,8 @@ namespace Game.UI.RunEncounters
         [Header("Prefab Settings")]
         [SerializeField] private ShopIconUI shopIconPrefab;
 
+        private ShopKeeper shopKeeper;
+
         private void Start()
         {
             TogglePanel(false);
@@ -34,25 +36,26 @@ namespace Game.UI.RunEncounters
 
         private void SubscribeToEvents()
         {
-            var shopKeeper = FindAnyObjectByType<ShopKeeper>();
-            if (shopKeeper != null)
+            var foundShopKeeper = FindAnyObjectByType<ShopKeeper>();
+            if (foundShopKeeper != null)
             {
-                shopKeeper.onShopWindowToggle += ToggleShopUI;
+                foundShopKeeper.onShopWindowToggle += ToggleShopUI;
             }
         }
 
         private void OnDisable()
         {
             MainSceneController.Instance.OnGameplayUISetupRequested -= SubscribeToEvents;
-            var shopKeeper = FindAnyObjectByType<ShopKeeper>();
-            if (shopKeeper != null)
+            var foundShopKeeper = FindAnyObjectByType<ShopKeeper>();
+            if (foundShopKeeper != null)
             {
-                shopKeeper.onShopWindowToggle -= ToggleShopUI;
+                foundShopKeeper.onShopWindowToggle -= ToggleShopUI;
             }
         }
 
-        private void ToggleShopUI(bool value, List<Effect> items)
+        private void ToggleShopUI(bool value, List<Effect> items, ShopKeeper shopKeeper)
         {
+            this.shopKeeper = shopKeeper;
             TogglePanel(value);
             PopulateShopGrid(items);
             HideEffectTooltip();
@@ -62,14 +65,15 @@ namespace Game.UI.RunEncounters
         private void PopulateShopGrid(List<Effect> items)
         {
             foreach (Transform child in itemsContainer.transform)
-            {                
+            {
                 Destroy(child.gameObject);
             }
 
             foreach (var effect in items)
             {
                 ShopIconUI iconUI = Instantiate(shopIconPrefab, itemsContainer.transform);
-                iconUI.Setup(effect,  BuyItem, ShowEffectTooltip, HideEffectTooltip);
+                int price = shopKeeper != null ? shopKeeper.GetDiscountedPrice(effect) : effect.BuyPrice;
+                iconUI.Setup(effect, price, BuyItem, ShowEffectTooltip, HideEffectTooltip);
             }
 
             errorTextUI.gameObject.SetActive(false);
@@ -78,20 +82,21 @@ namespace Game.UI.RunEncounters
 
         private void BuyItem(Effect effect)
         {
-            var shopKeeper = FindAnyObjectByType<ShopKeeper>();
-            if (shopKeeper != null)
+            if (shopKeeper == null)
             {
-                bool result = shopKeeper.BuyItem(effect);
-                if (result)
-                {
-                    //refresh items the item
-                    PopulateShopGrid(shopKeeper.GetAvailableItems());                   
-                }
-                else
-                {
-                    //show error message
-                    errorTextUI.gameObject.SetActive(true);
-                }
+                return;
+            }
+
+            bool result = shopKeeper.BuyItem(effect);
+            if (result)
+            {
+                //refresh items the item
+                PopulateShopGrid(shopKeeper.GetAvailableItems());
+            }
+            else
+            {
+                //show error message
+                errorTextUI.gameObject.SetActive(true);
             }
         }
 

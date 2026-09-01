@@ -56,4 +56,36 @@ public static class StatsCalculations
         float cooldown = baseDashCooldown / (1f + (dashCooldownStat * scale));
         return Mathf.Max(cooldown, MIN_ATTACK_DELAY);
     }
+
+    /**
+         * Calculates the shop price multiplier based on the ShopItemDiscount stat.
+         * The formula is piecewise: 1% discount per point up to softCap, then 0.5%
+         * per point up to hardCap, then no further benefit past hardCap.
+         *  How it works (with default softCap=50, hardCap=80):
+            At discountStat = 0:
+            discount% = 0 -> multiplier = 1.0
+
+            At discountStat = 50:
+            discount% = 50 * 1 = 50 -> multiplier = 0.5
+
+            At discountStat = 80:
+            discount% = 50 + (30 * 0.5) = 65 -> multiplier = 0.35
+
+            At discountStat = 999:
+            clamped to 80 -> same as above, multiplier = 0.35
+         *
+         * @param discountStat The player's current ShopItemDiscount stat total.
+         * @param softCap The stat value at which the discount rate slows down.
+         * @param hardCap The stat value beyond which no further discount is applied.
+         * @return The multiplier to apply to a shop item's base price (e.g. 0.65 = 35% off).
+         */
+    public static float CalculateShopDiscountMultiplier(int discountStat, int softCap = 50, int hardCap = 80)
+    {
+        int stat = Mathf.Clamp(discountStat, 0, hardCap);
+        float discountPercent = stat <= softCap
+            ? stat * 1f
+            : softCap + (stat - softCap) * 0.5f;
+
+        return 1f - (discountPercent / 100f);
+    }
 }

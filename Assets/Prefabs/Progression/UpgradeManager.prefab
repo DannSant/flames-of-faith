@@ -226,3 +226,11 @@ MonoBehaviour:
     description: Increases the healing amount received
     affectedByCorruption: 1
     corruptionReduceFactor: 1
+  - statType: 20
+    initialValue: 0
+    allowLevelUpgrades: 0
+    tierValues: 01000000020000000300000004000000
+    category: 1
+    description: Decrease price of items in the shop
+    affectedByCorruption: 0
+    corruptionReduceFactor: 1

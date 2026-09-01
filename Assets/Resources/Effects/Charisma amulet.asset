@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Charisma amulet
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 1f52c934-2feb-4259-ab5e-78b75b6a6f88
+  icon: {fileID: 21300000, guid: ee2aca3874db19f48a0507fad0cc55cc, type: 3}
+  effectName: Charisma amulet
+  scalingValue: 1
+  description: 'An elegant jewel, made by the craftsmen of For Shandor in the distant
+    south
+
+    +2 Luck
+
+    +2 Shop Discount'
+  buyPrice: 25
+  sellPrice: 10
+  effectStatModifiers:
+  - stat: 8
+    value: 2
+    type: 0
+  - stat: 20
+    value: 2
+    type: 0
+  behaviors: []
+  unlockedByDefault: 1
+  quality: 1

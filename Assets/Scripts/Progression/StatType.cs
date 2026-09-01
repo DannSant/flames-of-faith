@@ -22,7 +22,8 @@ namespace Game.Progression {
         SkillDuration,
         HealingReceived,//TODO
         PickupRange,
-        MastowAffinity, 
+        MastowAffinity,
+        ShopItemDiscount,
     }
 
 }

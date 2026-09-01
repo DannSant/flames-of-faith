@@ -168,6 +168,7 @@ public class DeveloperCheats
             playerProgression.UpdateStat(StatType.MoveSpeed, 1);
         }
     }
+    
 
     [MenuItem("DevTools/Stats/Increase Luck")]
     public static void IncreaseLuck()
@@ -344,13 +345,25 @@ public class DeveloperCheats
 
     }
 
-        [MenuItem("DevTools/Items/Ley Flower")]
+    [MenuItem("DevTools/Items/Ley Flower")]
     public static void GiveLeyFlower()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         if (effectStore != null)
         {
             string effectId = "c4f5c675-8a9e-4976-80fa-52b15a072fee";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
+    [MenuItem("DevTools/Items/Charisma Amulet")]
+    public static void GiveCharismaAmulet()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "1f52c934-2feb-4259-ab5e-78b75b6a6f88";
             effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
         }
 

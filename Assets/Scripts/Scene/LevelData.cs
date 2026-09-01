@@ -17,6 +17,7 @@ namespace Game.Scene
         public LevelType type;
         public float corruptionIncrease = 1f;
         public bool preventHealthRegen = false;
+        public bool allowPause = true;
 
         [Header("Debug Settings")]
         public bool debugShouldPrintObjectCountReport = false;

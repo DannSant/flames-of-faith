@@ -26,6 +26,7 @@ public static class StatDisplayNameHelper
             StatType.PickupRange => "Pickup Range",
             StatType.Range => "Attack Range",
             StatType.MastowAffinity => "Mastow Affinity",
+            StatType.ShopItemDiscount => "Shop Discount",
             _ => statType.ToString()
         };
     }

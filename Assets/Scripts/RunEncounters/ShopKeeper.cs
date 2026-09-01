@@ -3,6 +3,7 @@ using Game.Currency;
 using Game.Effects;
 using Game.Progression;
 using Game.Scene;
+using Game.UI;
 using Game.Utils;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,14 @@ namespace Game.RunEncounters
         [SerializeField] private int maxItemCount = 20;
         public List<Effect> items;
 
-        public event System.Action<bool, List<Effect>> onShopWindowToggle;
+        public event System.Action<bool, List<Effect>, ShopKeeper> onShopWindowToggle;
         public event System.Action onShopWindowOpened;
         public event System.Action onInventoryWindowRefresh;
 
         private CurrencyWallet playerWallet;
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
+        private StatsPaneUI statsPaneUI;
 
         private void Start()
         {
@@ -49,6 +51,7 @@ namespace Game.RunEncounters
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             playerWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
             BuildItemList();
         }
 
@@ -81,12 +84,22 @@ namespace Game.RunEncounters
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
-        {          
+        {
             if (collision.GetComponent<CurrencyWallet>())
             {
-                onShopWindowToggle?.Invoke(true, items);
+                onShopWindowToggle?.Invoke(true, items, this);
                 onShopWindowOpened?.Invoke();
+
+                // Open (and refresh) the stats window so the player can see what they need.
+                statsPaneUI?.ShowStatsWindow(null);
             }
+        }
+
+        public int GetDiscountedPrice(Effect effect)
+        {
+            int discountStat = playerProgression != null ? playerProgression.GetStatTotal(StatType.ShopItemDiscount) : 0;
+            float multiplier = StatsCalculations.CalculateShopDiscountMultiplier(discountStat);
+            return Mathf.Max(0, Mathf.RoundToInt(effect.BuyPrice * multiplier));
         }
 
         public bool BuyItem(Effect effect)
@@ -96,12 +109,14 @@ namespace Game.RunEncounters
                 Debug.LogWarning("Player wallet not found. Cannot process purchase.");
                 return false;
             }
-            if (playerWallet.CurrencyAmount < effect.BuyPrice)
+
+            int finalPrice = GetDiscountedPrice(effect);
+            if (playerWallet.CurrencyAmount < finalPrice)
             {
                 return false;
             }
 
-            playerWallet.RemoveCurrency(effect.BuyPrice);
+            playerWallet.RemoveCurrency(finalPrice);
             items.Remove(effect);
 
             if(effectStore != null)
