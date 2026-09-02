@@ -16,14 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 42eeaa35031f7464aaa3df9ce7188fc5, type: 3}
   effectName: Heavy Plate Armor
   scalingValue: 1
-  description: 'Heavy armor crafted by a skilled smith from the Glenos Empire.
-
-    +4
-    Armor
-
-    -2 Move Speed
-
-    -1 Attack Speed'
+  description: Heavy armor crafted by a skilled smith from the Glenos Empire.
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:

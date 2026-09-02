@@ -1,4 +1,3 @@
-using Game.Combat;
 using Game.Currency;
 using Game.Effects;
 using Game.Scene;
@@ -201,7 +200,8 @@ namespace Game.UI
                 return;
             }
             effectNameText.text = effect.effectName;
-            effectDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(effect.description);
+            effectNameText.color = EffectQualityDisplayHelper.GetQualityColor(effect.Quality);
+            effectDescriptionText.text = effect.GetFormattedDescription();
         }
 
         private void HideEffectTooltip()

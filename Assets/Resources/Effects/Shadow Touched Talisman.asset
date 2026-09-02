@@ -16,8 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0d592186100f6ba499747a98942dab66, type: 3}
   effectName: Shadow Touched Talisman
   scalingValue: 1
-  description: Increases Magic Damage by 15 but reduces Armor by 5 and Max Health
-    by 10
+  description: Cursed talisman created by the Drekos cultists
   buyPrice: 50
   sellPrice: 10
   effectStatModifiers:

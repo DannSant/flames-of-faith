@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Progression;
 using UnityEngine;
 
 namespace Game.Combat
@@ -7,18 +8,18 @@ namespace Game.Combat
     {
         private const string ConfigResourcePath = "Combat/DamageTypeColorConfig";
 
-        private static readonly Dictionary<string, WeaponClass> metaTagMap = new()
+        private static readonly Dictionary<string, StatType> metaTagMap = new()
         {
-            { "_melee_damage_", WeaponClass.Melee },
-            { "_ranged_damage_", WeaponClass.Ranged },
-            { "_magic_damage_", WeaponClass.Magic },
+            { "_melee_damage_", StatType.MeleeDamage },
+            { "_ranged_damage_", StatType.RangedDamage },
+            { "_magic_damage_", StatType.MagicDamage },
         };
 
-        private static readonly Dictionary<WeaponClass, string> displayLabels = new()
+        private static readonly Dictionary<StatType, WeaponClass> damageStatToWeaponClass = new()
         {
-            { WeaponClass.Melee, "Melee Damage" },
-            { WeaponClass.Ranged, "Ranged Damage" },
-            { WeaponClass.Magic, "Magic Damage" },
+            { StatType.MeleeDamage, WeaponClass.Melee },
+            { StatType.RangedDamage, WeaponClass.Ranged },
+            { StatType.MagicDamage, WeaponClass.Magic },
         };
 
         private static DamageTypeColorConfig config;
@@ -59,6 +60,13 @@ namespace Game.Combat
 
         public static string GetHex(WeaponClass damageType) => ColorUtility.ToHtmlStringRGB(GetColor(damageType));
 
+        /// <summary>
+        /// True if this stat is one of the three damage-type stats (Melee/Ranged/Magic Damage)
+        /// that should be color-coded to match its damage number color.
+        /// </summary>
+        public static bool TryGetWeaponClass(StatType statType, out WeaponClass weaponClass) =>
+            damageStatToWeaponClass.TryGetValue(statType, out weaponClass);
+
         public static string ColorizeMetaTags(string text)
         {
             if (string.IsNullOrEmpty(text))
@@ -73,8 +81,9 @@ namespace Game.Combat
                     continue;
                 }
 
-                string label = displayLabels[tagEntry.Value];
-                string replacement = $"<color=#{GetHex(tagEntry.Value)}>{label}</color>";
+                WeaponClass weaponClass = damageStatToWeaponClass[tagEntry.Value];
+                string label = StatDisplayNameHelper.GetDisplayName(tagEntry.Value);
+                string replacement = $"<color=#{GetHex(weaponClass)}>{label}</color>";
                 text = text.Replace(tagEntry.Key, replacement);
             }
 

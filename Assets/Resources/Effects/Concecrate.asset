@@ -17,7 +17,7 @@ MonoBehaviour:
   effectName: Concecrate
   scalingValue: 1
   description: Chance to Spawn a number of holy crosses that damages enemies who
-    cross it. Scales with Magic Damage
+    cross it. Scales with _magic_damage_
   buyPrice: 75
   sellPrice: 25
   effectStatModifiers: []

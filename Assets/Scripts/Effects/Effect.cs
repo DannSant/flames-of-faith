@@ -112,6 +112,40 @@ namespace Game.Effects{
                 .ToList();            
         }
 
+        /// <summary>
+        /// Description text with damage-type meta tags colorized, plus an auto-generated
+        /// line per stat modifier (e.g. "+2 Melee Damage") appended after a line break.
+        /// </summary>
+        public string GetFormattedDescription()
+        {
+            string result = DamageTypeColorHelper.ColorizeMetaTags(description);
+
+            if (effectStatModifiers != null && effectStatModifiers.Count > 0)
+            {
+                var modifierLines = effectStatModifiers.Select(BuildModifierLine);
+                result += "\n" + string.Join("\n", modifierLines);
+            }
+
+            return result;
+        }
+
+        private static string BuildModifierLine(StatModifier modifier)
+        {
+            string sign = modifier.value >= 0 ? "+" : "";
+            string formattedValue = modifier.value % 1 == 0
+                ? ((int)modifier.value).ToString()
+                : modifier.value.ToString("0.##");
+            string suffix = modifier.type == ModifierType.PercentAdd ? "%" : "";
+
+            string label = StatDisplayNameHelper.GetDisplayName(modifier.stat);
+            if (DamageTypeColorHelper.TryGetWeaponClass(modifier.stat, out WeaponClass weaponClass))
+            {
+                label = $"<color=#{DamageTypeColorHelper.GetHex(weaponClass)}>{label}</color>";
+            }
+
+            return $"{sign}{formattedValue}{suffix} {label}";
+        }
+
         public override string ToString()
         {
             return $"EffectID: {effectID}, " +

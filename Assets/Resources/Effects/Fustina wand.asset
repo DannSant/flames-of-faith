@@ -16,8 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 449a590bb43ea92418fc91c383296d56, type: 3}
   effectName: Fustina wand
   scalingValue: 1
-  description: "A handcrafted wand made by the elves of Fustina. \n+1 Magic Damage\n+1
-    Luck"
+  description: 'A handcrafted wand made by the elves of Fustina. '
   buyPrice: 15
   sellPrice: 5
   effectStatModifiers:

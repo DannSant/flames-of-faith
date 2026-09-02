@@ -16,12 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9bf99fa004379b74e86402521471e2f5, type: 3}
   effectName: Blacksmith Tools
   scalingValue: 1
-  description: 'Tools that improve your armor and weapon.
-
-    +1 Armor
-
-    +1 Melee
-    Damage'
+  description: Tools that improve your armor and weapon.
   buyPrice: 15
   sellPrice: 5
   effectStatModifiers:

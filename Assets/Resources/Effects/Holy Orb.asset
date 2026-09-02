@@ -17,8 +17,8 @@ MonoBehaviour:
   effectName: Holy Orb
   scalingValue: 1
   description: "When you execute an special sttack (right click) spawns 4 holy orbs
-    in a random direction and bounce against enemies. Scales with Magic Damage. \nEach
-    stack adds an additional bounce"
+    in a random direction and bounce against enemies. Scales with _magic_damage_.
+    \nEach stack adds an additional bounce"
   buyPrice: 75
   sellPrice: 25
   effectStatModifiers: []

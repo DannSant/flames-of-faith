@@ -16,8 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 98a9179ce9c311149b75fb739a85a91c, type: 3}
   effectName: Ley Flower
   scalingValue: 1
-  description: "Rare flowe that usually grows on Ley Lines or Ley Pools. \n+2 Magic
-    Damage\n+1 Healing Received"
+  description: 'Rare flowe that usually grows on Ley Lines or Ley Pools. '
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:

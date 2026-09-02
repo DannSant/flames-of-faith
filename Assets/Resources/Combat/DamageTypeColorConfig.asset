@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e211834643d4699975263f16fc9100b, type: 3}
   m_Name: DamageTypeColorConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageTypeColorConfig
-  meleeColor: {r: 0.90588236, g: 0.29803923, b: 0.23529412, a: 1}
+  meleeColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   rangedColor: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
-  magicColor: {r: 0.5764706, g: 0.34901962, b: 0.90980393, a: 1}
+  magicColor: {r: 0.5764706, g: 0.34901962, b: 0.9098039, a: 1}

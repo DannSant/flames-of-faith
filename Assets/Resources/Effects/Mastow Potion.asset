@@ -16,10 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9601a7ef3675842488b838dde8a64377, type: 3}
   effectName: Mastow Potion
   scalingValue: 1
-  description: 'Potion designed to increase your Mastow Affinity. Not recommended
+  description: Potion designed to increase your Mastow Affinity. Not recommended
     for humans
-
-    +2 Mastow Affinity'
   buyPrice: 15
   sellPrice: 5
   effectStatModifiers:

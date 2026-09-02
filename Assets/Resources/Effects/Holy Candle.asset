@@ -16,12 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6a090f08f7a2a3a4c8b5451b70e14faa, type: 3}
   effectName: Holy Candle
   scalingValue: 1
-  description: 'A candle blessed by the White Church of Ashemdrek
-
-    +1 Armor
-
-    +1
-    Max Grace'
+  description: A candle blessed by the White Church of Ashemdrek
   buyPrice: 15
   sellPrice: 5
   effectStatModifiers:

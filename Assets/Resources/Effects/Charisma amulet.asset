@@ -16,12 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ee2aca3874db19f48a0507fad0cc55cc, type: 3}
   effectName: Charisma amulet
   scalingValue: 1
-  description: 'An elegant jewel, made by the craftsmen of For Shandor in the distant
+  description: An elegant jewel, made by the craftsmen of For Shandor in the distant
     south
-
-    +2 Luck
-
-    +2 Shop Discount'
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:

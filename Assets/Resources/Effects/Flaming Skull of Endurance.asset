@@ -16,16 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5c38812a1787342429d011d5918384aa, type: 3}
   effectName: Flaming Skull of Endurance
   scalingValue: 1
-  description: 'A strange ornament that emanates mystic energy.
-
-    +3 Magic damage
-
-    +1
-    Mastow Affinity
-
-    +1 Armor
-
-    -2 Move speed'
+  description: A strange ornament that emanates mystic energy.
   buyPrice: 50
   sellPrice: 10
   effectStatModifiers:

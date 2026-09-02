@@ -1,4 +1,3 @@
-using Game.Combat;
 using Game.Effects;
 using Game.Scene;
 using Game.RunEncounters;
@@ -110,7 +109,7 @@ namespace Game.UI.RunEncounters
             }
             effectNameText.text = effect.effectName;
             effectNameText.color = EffectQualityDisplayHelper.GetQualityColor(effect.Quality);
-            effectDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(effect.description);
+            effectDescriptionText.text = effect.GetFormattedDescription();
         }
 
         private void HideEffectTooltip()

@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a17cc5e46a311c34bb30cbf069d7dffa, type: 3}
   effectName: Swords of Fire
   scalingValue: 1
-  description: 'Creates 2 swords that deal Melee Damage around the player, and may
-    inflict Fire debuff.
+  description: 'Creates 2 swords that deal _melee_damage_ around the player, and
+    may inflict Fire debuff.
 
     Each stack adds additional damage.
 

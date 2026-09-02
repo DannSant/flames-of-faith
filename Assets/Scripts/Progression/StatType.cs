@@ -20,7 +20,7 @@ namespace Game.Progression {
         HealthRegen,
         LifeSteal, 
         SkillDuration,
-        HealingReceived,//TODO
+        HealingReceived,
         PickupRange,
         MastowAffinity,
         ShopItemDiscount,
