@@ -203,8 +203,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285647918
-  m_fontColor: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+    rgba: 4282141927
+  m_fontColor: {r: 0.90588236, g: 0.29803923, b: 0.23529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 3171153609502651806}
   - component: {fileID: 919319326700557449}
   m_Layer: 0
-  m_Name: NumberDamageToEnemyNumberVFX
+  m_Name: NumberDamageToEnemyMeleeVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Common;
 using Game.Progression;
 using System.Collections.Generic;
@@ -77,7 +78,7 @@ namespace Game.Progression
             var stat = statsConfig.FirstOrDefault(s => s.StatType == statType);
             if (stat != null)
             {
-                return stat.Description;
+                return DamageTypeColorHelper.ColorizeMetaTags(stat.Description);
             }
             Debug.LogWarning($"No description found for stat {statType}");
             return string.Empty; // fallback

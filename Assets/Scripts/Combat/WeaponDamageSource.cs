@@ -58,7 +58,7 @@ namespace Game.Combat
 
                 if (damageableObject.ShouldSpawnDamageNumber() && !damageableObject.IsImmune())
                 {
-                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, damageAmount);
+                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, damageAmount, weaponData.weaponClass);
                 }
 
                 OnDamageDealt?.Invoke(damageAmount, transform.gameObject);               

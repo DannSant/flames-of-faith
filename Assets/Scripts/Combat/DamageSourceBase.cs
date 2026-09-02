@@ -118,7 +118,7 @@ namespace Game.Combat
 
                 if (damageable.ShouldSpawnDamageNumber())
                 {
-                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage);
+                    DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage, weaponClass);
                 }
 
                 

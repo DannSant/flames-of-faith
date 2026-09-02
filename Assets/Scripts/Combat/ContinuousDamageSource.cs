@@ -57,7 +57,7 @@ namespace Game.Combat
             IDamageable damageableObject = collision.GetComponent<IDamageable>();
             if (damageableObject != null) {
                 float totalDamage = CalculateTotalDamage();
-                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage);
+                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage, weaponClass);
                
             }
 

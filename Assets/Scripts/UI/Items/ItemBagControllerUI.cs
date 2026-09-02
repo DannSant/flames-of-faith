@@ -1,4 +1,5 @@
 using Game.Audio;
+using Game.Combat;
 using Game.Currency;
 using Game.Effects;
 using Game.GameSettings;
@@ -111,7 +112,7 @@ namespace Game.UI.Items
             var item = itemBag.PickedUpItems[index];
             itemNameText.text = item.EffectName;
             itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(item.Quality);
-            itemNameDesc.text = item.Description;
+            itemNameDesc.text = DamageTypeColorHelper.ColorizeMetaTags(item.Description);
             itemSellText.text = $"Sell ({item.SellPrice})";
 
             takeButton.onClick.AddListener(() =>

@@ -71,7 +71,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Melee damage caused by Melee weapons or some skills
+    description: _melee_damage_ caused by Melee weapons or some skills
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 2
@@ -140,7 +140,8 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases damage of projectile weapons and skills that spawn projectiles.
+    description: _ranged_damage_ increases damage of projectile weapons and skills
+      that spawn projectiles.
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 10
@@ -166,7 +167,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases damage done by Magic weapons and some skills.
+    description: _magic_damage_ increases damage done by Magic weapons and some skills.
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 13

@@ -85,7 +85,7 @@ namespace Game.Combat
 
             if (IsImmuneFlag)
             {
-                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(transform.position, 0f);
+                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(transform.position, 0f, damageRequest.originWeaponClass);
                 return;
             }
            
