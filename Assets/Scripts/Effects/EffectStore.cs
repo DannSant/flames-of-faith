@@ -3,6 +3,7 @@ using Game.Combat;
 using Game.Common;
 using Game.Effects;
 using Game.Effects.EffectBehaviors;
+using Game.Progression;
 using Game.Scene;
 using System;
 using System.Collections.Generic;
@@ -211,6 +212,13 @@ namespace Game.Effects
                     behavior.OnTrigger(trigger);
                 }
             }
+        }
+
+        public IEnumerable<Effect> GetEffectsGrantingStat(StatType statType)
+        {
+            return activeEffects
+                .Where(ei => ei.effect.StatModifiers.Any(m => m.stat == statType))
+                .Select(ei => ei.effect);
         }
 
         public List<StatModifier> GetAllStatModifiers()

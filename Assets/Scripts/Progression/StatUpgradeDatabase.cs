@@ -30,14 +30,13 @@ namespace Game.Progression
 
     public class StatUpgradeDatabase : Singleton<StatUpgradeDatabase>
     {
-        [SerializeField] private List<StatData> statsConfig;
+        [SerializeField] private StatDatabase statDatabase;
         private Dictionary<StatType, int[]> tierLookup;
-       
 
         protected override void Awake()
         {
             base.Awake();
-            tierLookup = statsConfig.ToDictionary(cfg => cfg.StatType, cfg => cfg.TierValues);
+            tierLookup = statDatabase.Stats.ToDictionary(cfg => cfg.StatType, cfg => cfg.TierValues);
         }
 
         public int GetUpgradeAmount(StatType statType, int tier = 0)
@@ -59,12 +58,12 @@ namespace Game.Progression
         }
         public List<StatData> GetStatsConfig()
         {
-            return statsConfig;
+            return statDatabase.Stats;
         }
 
         public StatData GetStatData(StatType statType)
         {
-            var stat = statsConfig.FirstOrDefault(s => s.StatType == statType);
+            var stat = statDatabase.Stats.FirstOrDefault(s => s.StatType == statType);
             if (stat != null)
             {
                 return stat;
@@ -75,7 +74,7 @@ namespace Game.Progression
 
         public string GetStatDescription(StatType statType)
         {
-            var stat = statsConfig.FirstOrDefault(s => s.StatType == statType);
+            var stat = statDatabase.Stats.FirstOrDefault(s => s.StatType == statType);
             if (stat != null)
             {
                 return DamageTypeColorHelper.ColorizeMetaTags(stat.Description);

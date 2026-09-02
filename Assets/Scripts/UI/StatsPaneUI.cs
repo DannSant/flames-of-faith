@@ -1,9 +1,14 @@
+using Game.Control;
+using Game.Effects;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Game.UI
@@ -25,10 +30,18 @@ namespace Game.UI
         [SerializeField] private Color selectedStatColor;       
 
         private PlayerProgression playerProgression;
+        private PlayerInputHandler inputHandler;
+        private GeneralTooltipPaneUI generalTooltipPaneUI;
 
         private readonly Dictionary<StatType, StatRowUI> rows = new();
 
         private StatCategory displayCategory = StatCategory.Primary;
+
+        private bool shiftHeld;
+        private StatType? hoveredStat;
+
+        public event Action<StatType, bool> OnStatHovered;
+        public event Action OnStatHoverEnded;
 
         private void Start()
         {
@@ -39,13 +52,21 @@ namespace Game.UI
                 {
                     playerProgression.onDerivedStatsChanged += RefreshVisibleStats;
                 }
-                
+
+                inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
+                if (inputHandler != null)
+                {
+                    inputHandler.UI.ShowStatSources.performed += HandleShiftPerformed;
+                    inputHandler.UI.ShowStatSources.canceled += HandleShiftCanceled;
+                }
             }
-            
-            UpgradeManager upgradeManager = UpgradeManager.Instance;           
+
+            generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
+
+            UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
             {
-                upgradeManager.OnUpgradeOptionsAvailable += ShowStatsWindow;               
+                upgradeManager.OnUpgradeOptionsAvailable += ShowStatsWindow;
             }
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if ((waveSpawner!=null))
@@ -66,7 +87,13 @@ namespace Game.UI
             {
                 playerProgression.onDerivedStatsChanged -= RefreshVisibleStats;
             }
-                
+
+            if (inputHandler != null)
+            {
+                inputHandler.UI.ShowStatSources.performed -= HandleShiftPerformed;
+                inputHandler.UI.ShowStatSources.canceled -= HandleShiftCanceled;
+            }
+
             UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
             {
@@ -83,6 +110,62 @@ namespace Game.UI
             secondaryButton.onClick.RemoveAllListeners();
         }
 
+        private void HandleShiftPerformed(InputAction.CallbackContext _)
+        {
+            shiftHeld = true;
+            RefreshHoveredTooltip();
+        }
+
+        private void HandleShiftCanceled(InputAction.CallbackContext _)
+        {
+            shiftHeld = false;
+            RefreshHoveredTooltip();
+        }
+
+        public void NotifyHover(StatType statType)
+        {
+            hoveredStat = statType;
+            RefreshHoveredTooltip();
+        }
+
+        public void NotifyHoverEnded()
+        {
+            hoveredStat = null;
+            generalTooltipPaneUI?.HideTooltip();
+            OnStatHoverEnded?.Invoke();
+        }
+
+        private void RefreshHoveredTooltip()
+        {
+            if (!hoveredStat.HasValue)
+            {
+                return;
+            }
+
+            StatType stat = hoveredStat.Value;
+            string statName = StatDisplayNameHelper.GetDisplayName(stat);
+            string description = StatUpgradeDatabase.Instance.GetStatDescription(stat);
+
+            string sourcesText = null;
+            if (shiftHeld)
+            {
+                var effectStore = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<EffectStore>() : null;
+                var grantingEffects = effectStore != null ? effectStore.GetEffectsGrantingStat(stat).ToList() : new List<Effect>();
+                sourcesText = grantingEffects.Count > 0
+                    ? string.Join("\n", grantingEffects.Select(FormatEffectSourceLine))
+                    : "No items currently grant this stat";
+            }
+
+            generalTooltipPaneUI?.ShowTooltip(description, statName, sourcesText);
+            OnStatHovered?.Invoke(stat, shiftHeld);
+        }
+
+        private static string FormatEffectSourceLine(Effect effect)
+        {
+            string hex = ColorUtility.ToHtmlStringRGB(EffectQualityDisplayHelper.GetQualityColor(effect.Quality));
+            return $"<color=#{hex}>{effect.EffectName}</color>";
+        }
+
         public void BuildStatRowsFromOverworld(Dictionary<StatType, int> savedStats)
         {
             var allStats = savedStats;
@@ -95,7 +178,8 @@ namespace Game.UI
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
                     getTextColor(kvp.Value),
-                    kvp.Key
+                    kvp.Key,
+                    this
                 );
 
                 rows[kvp.Key] = row;
@@ -109,7 +193,8 @@ namespace Game.UI
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
                     getTextColor(kvp.Value),
-                    kvp.Key
+                    kvp.Key,
+                    this
                 );
 
                 rows[kvp.Key] = row;
@@ -131,7 +216,8 @@ namespace Game.UI
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
                     getTextColor(kvp.Value),
-                    kvp.Key
+                    kvp.Key,
+                    this
                 );
 
                 rows[kvp.Key] = row;
@@ -144,7 +230,8 @@ namespace Game.UI
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
                     getTextColor(kvp.Value),
-                    kvp.Key
+                    kvp.Key,
+                    this
                 );
 
                 rows[kvp.Key] = row;

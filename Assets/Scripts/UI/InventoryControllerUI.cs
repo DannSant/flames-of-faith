@@ -1,8 +1,11 @@
 using Game.Currency;
 using Game.Effects;
+using Game.Progression;
 using Game.Scene;
 using Game.RunEncounters;
 using Game.Waves;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +31,8 @@ namespace Game.UI
 
         private EffectStore effectStore;
         private CurrencyWallet currencyWallet;
+        private StatsPaneUI statsPaneUI;
+        private readonly List<EffectIconUI> spawnedIcons = new();
 
         private void Start()
         {
@@ -47,12 +52,19 @@ namespace Game.UI
             if (effectStore != null)
             {
                 effectStore.OnEffectAdded += OnEffectAdded;
-                
+
             }
             currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
             if (currencyWallet != null)
             {
                 currencyWallet.OnCurrencyChanged += OnUpdatedCurrency;
+            }
+
+            statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
+            if (statsPaneUI != null)
+            {
+                statsPaneUI.OnStatHovered += HandleStatHovered;
+                statsPaneUI.OnStatHoverEnded += HandleStatHoverEnded;
             }
         }
 
@@ -74,6 +86,40 @@ namespace Game.UI
             if (currencyWallet != null)
             {
                 currencyWallet.OnCurrencyChanged -= OnUpdatedCurrency;
+            }
+
+            if (statsPaneUI != null)
+            {
+                statsPaneUI.OnStatHovered -= HandleStatHovered;
+                statsPaneUI.OnStatHoverEnded -= HandleStatHoverEnded;
+            }
+        }
+
+        private void HandleStatHovered(StatType stat, bool shiftHeld)
+        {
+            if (!shiftHeld)
+            {
+                ClearIconDimming();
+                return;
+            }
+
+            foreach (var icon in spawnedIcons)
+            {
+                bool grantsStat = icon.Effect.StatModifiers.Any(m => m.stat == stat);
+                icon.SetDimmed(!grantsStat);
+            }
+        }
+
+        private void HandleStatHoverEnded()
+        {
+            ClearIconDimming();
+        }
+
+        private void ClearIconDimming()
+        {
+            foreach (var icon in spawnedIcons)
+            {
+                icon.SetDimmed(false);
             }
         }
 
@@ -171,6 +217,7 @@ namespace Game.UI
                 }
                 Destroy(child.gameObject);
             }
+            spawnedIcons.Clear();
             effectNameText.text = string.Empty;
             effectDescriptionText.text = string.Empty;
 
@@ -187,6 +234,7 @@ namespace Game.UI
             {
                 EffectIconUI iconUI = Instantiate(effectIconPrefab, mainPanel.transform);
                 iconUI.Setup(effectInstance.effect, effectInstance.effect.EffectIcon, effectInstance.count, ShowEffectTooltip, HideEffectTooltip);
+                spawnedIcons.Add(iconUI);
             }
 
         }
