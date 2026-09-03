@@ -63,12 +63,12 @@ namespace Game.Combat.Elemental
                     newDebuff = gameObject.AddComponent<DebuffFrost>();
                     break;
 
-                /*case ElementalType.Chaos:
-                    newDebuff = gameObject.AddComponent<DebuffChaos>();
-                    break;
-
                 case ElementalType.Energy:
                     newDebuff = gameObject.AddComponent<DebuffEnergy>();
+                    break;
+
+                /*case ElementalType.Chaos:
+                    newDebuff = gameObject.AddComponent<DebuffChaos>();
                     break;
 
                 case ElementalType.Holy:

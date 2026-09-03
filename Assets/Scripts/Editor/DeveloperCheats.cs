@@ -369,6 +369,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Ley Arrows")]
+    public static void GiveLeyArrows()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "21267774-d53f-447e-85ca-5dec3571ab96";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]
     public static void SpawnFlameShooter()
     {

@@ -2,6 +2,7 @@ using Game.Audio;
 using Game.Misc;
 using Game.Progression;
 using Game.UI;
+using System;
 using System.Collections;
 using UnityEngine;
 using static Game.Combat.PlayerHealth;
@@ -27,6 +28,7 @@ namespace Game.Combat
 
         public event OnHealthChanged onHealthChanged;
         public event OnDeath onDeath;
+        public event Action<DamageRequest> onDamageTaken;
 
         private float maxHealth;
         private float currentHealth;
@@ -93,6 +95,7 @@ namespace Game.Combat
             currentHealth -= damage;
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
+            onDamageTaken?.Invoke(damageRequest);
             healthbar.SetHealth(currentHealth, maxHealth);
             if (flash != null)
             {
