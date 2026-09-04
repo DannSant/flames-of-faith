@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Combat.Elemental
 {
-    public class DebuffEnergy : DebuffBase
+    public class DebuffLeyCharge : DebuffBase
     {
         [SerializeField] private float chainRadius = 6f;
         [SerializeField] private int maxChainDepth = 3;
@@ -33,9 +33,9 @@ namespace Game.Combat.Elemental
         private void HandleDamageTaken(DamageRequest sourceDamage)
         {
             if (enemyHealth == null || enemyHealth.IsDead()) return;
-            if (sourceDamage.energyChainDepth >= maxChainDepth) return;
+            if (sourceDamage.leyChargeChainDepth >= maxChainDepth) return;
 
-            var visited = sourceDamage.energyChainVisited ?? new HashSet<EnemyHealth>();
+            var visited = sourceDamage.leyChargeChainVisited ?? new HashSet<EnemyHealth>();
             visited.Add(enemyHealth);
 
             EnemyHealth nearest = FindNearestEnemy(visited);
@@ -45,15 +45,15 @@ namespace Game.Combat.Elemental
 
             var chainDamage = new DamageRequest(strength, WeaponClass.Magic, false)
             {
-                energyChainDepth = sourceDamage.energyChainDepth + 1,
-                energyChainVisited = visited
+                leyChargeChainDepth = sourceDamage.leyChargeChainDepth + 1,
+                leyChargeChainVisited = visited
             };
             nearest.TakeDamage(chainDamage);
-            DamageNumberSpawner.Instance.SpawnEnergyDebuffDamageNumber(nearest.transform.position, strength);
+            DamageNumberSpawner.Instance.SpawnLeyChargeDebuffDamageNumber(nearest.transform.position, strength);
 
             var debuffHandler = nearest.GetComponent<DebuffHandler>();
             if (debuffHandler != null)
-                debuffHandler.ApplyDebuff(ElementalType.Energy, duration, strength);
+                debuffHandler.ApplyDebuff(ElementalType.LeyCharge, duration, strength);
 
             SpawnChainVfx(transform.position, nearest.transform.position);
         }

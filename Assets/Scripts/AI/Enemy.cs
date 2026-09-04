@@ -45,6 +45,11 @@ namespace Game.AI {
 
         public void InitializeBossHealth()
         {
+            if (health == null)
+            {
+                health = GetComponent<EnemyHealth>();
+            }
+
             if (enemyData == null)
             {
                 enemyData = FindEnemyData();
@@ -57,6 +62,11 @@ namespace Game.AI {
 
         public void Initialize(int waveNumber)
         {
+            if (health == null)
+            {
+                health = GetComponent<EnemyHealth>();
+            }
+
             if(enemyData == null)
             {
                 enemyData = FindEnemyData();

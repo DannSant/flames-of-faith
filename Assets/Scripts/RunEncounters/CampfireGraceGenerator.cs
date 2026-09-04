@@ -1,4 +1,6 @@
 using Game.Combat;
+using Game.Scene;
+using Game.UI;
 using UnityEngine;
 
 namespace Game.RunEncounters
@@ -11,19 +13,52 @@ namespace Game.RunEncounters
         private bool isActive = true;
         private const string PLAYER_TAG = "Player";
 
+        private StatsPaneUI statsPaneUI;
+
         public event System.Action<bool> onPlayerEntersCampfire;
         public int GraceAmount { get { return graceAmount; } }
         public int HealAmount { get { return healAmount; } }
 
+        private void Start()
+        {
+            // The UI scene loads after this level's scene (see MainSceneController.LoadGameplayRoutine),
+            // so StatsPaneUI doesn't exist yet if we look for it here. Wait for the signal that
+            // gameplay setup (both scenes loaded) has fully completed, same as ShopKeeper does.
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayInitialSetup += CacheStatsPaneUI;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayInitialSetup -= CacheStatsPaneUI;
+            }
+        }
+
+        private void CacheStatsPaneUI()
+        {
+            statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
+            if (statsPaneUI == null)
+            {
+                Debug.LogWarning("CampfireGraceGenerator: StatsPaneUI not found after gameplay initial setup.");
+            }
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
-        {            
+        {
             if(!collision.CompareTag(PLAYER_TAG)) return;
-           
+
             GenerateGrace(collision);
             Heal(collision);
-           
+
             onPlayerEntersCampfire?.Invoke(true);
             isActive = false;
+
+            // Open (and refresh) the stats window so the player can see what they need.
+            statsPaneUI?.ShowStatsWindow(null);
         }
 
         private void GenerateGrace(Collider2D collision)

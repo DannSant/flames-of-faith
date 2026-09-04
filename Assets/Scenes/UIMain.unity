@@ -1176,6 +1176,7 @@ MonoBehaviour:
   itemSellText: {fileID: 8088030857682186702}
   takeButton: {fileID: 1836052254082012831}
   sellButton: {fileID: 8795644734442641559}
+  statsPaneUI: {fileID: 4700634888451211786}
 --- !u!1 &186636334
 GameObject:
   m_ObjectHideFlags: 0
@@ -13053,6 +13054,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 243da6197654354438fac97d9a0b815c, type: 3}
+--- !u!114 &4700634888451211786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4098873279300546653, guid: 243da6197654354438fac97d9a0b815c, type: 3}
+  m_PrefabInstance: {fileID: 4700634888451211785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4476aa71200fd904b96a8948f7a2308a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4754803581277836757
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using DamageNumbersPro;
 using Game.Combat;
 using Game.Common;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Misc
 {
@@ -17,7 +18,8 @@ namespace Game.Misc
         [SerializeField] private DamageNumber graceLostNumberPrefab;
         [SerializeField] private DamageNumber fireDebuffDamageNumberPrefab;
         [SerializeField] private DamageNumber frostDebuffDamageNumberPrefab;
-        [SerializeField] private DamageNumber energyDebuffDamageNumberPrefab;
+        [FormerlySerializedAs("energyDebuffDamageNumberPrefab")]
+        [SerializeField] private DamageNumber leyChargeDebuffDamageNumberPrefab;
 
         protected override void Awake()
         {
@@ -61,9 +63,9 @@ namespace Game.Misc
         {
             frostDebuffDamageNumberPrefab.Spawn(positionTospawn, number);
         }
-        public void SpawnEnergyDebuffDamageNumber(Vector3 positionTospawn, float number)
+        public void SpawnLeyChargeDebuffDamageNumber(Vector3 positionTospawn, float number)
         {
-            energyDebuffDamageNumberPrefab.Spawn(positionTospawn, number);
+            leyChargeDebuffDamageNumberPrefab.Spawn(positionTospawn, number);
         }
         public void SpawnGraceLostNumber(Vector3 positionTospawn, float number)
         {

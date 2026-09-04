@@ -147,7 +147,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1152
-  originType: 1
+  originType: 0
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1

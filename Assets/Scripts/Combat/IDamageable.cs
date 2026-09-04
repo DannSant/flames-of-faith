@@ -10,8 +10,8 @@ namespace Game.Combat
         public WeaponClass originWeaponClass;
         public bool canTriggerLifeSteal = true;
         public bool silent = false; // Skips hit/death SFX, used for mass/forced kills
-        public int energyChainDepth = 0; // How many Energy debuff jumps this damage is already the result of
-        public HashSet<EnemyHealth> energyChainVisited = null; // Enemies already hit in this Energy chain, to prevent revisiting
+        public int leyChargeChainDepth = 0; // How many Ley Charge debuff jumps this damage is already the result of
+        public HashSet<EnemyHealth> leyChargeChainVisited = null; // Enemies already hit in this Ley Charge chain, to prevent revisiting
 
         public DamageRequest(float baseDamage, WeaponClass weaponClass, bool canTriggerLifeSteal)
         {

@@ -27,6 +27,7 @@ namespace Game.UI.Items
         [SerializeField] private TextMeshProUGUI itemSellText;
         [SerializeField] private Button takeButton;
         [SerializeField] private Button sellButton;
+        [SerializeField] private StatsPaneUI statsPaneUI;
 
         // References
         private ItemBag itemBag;
@@ -71,6 +72,9 @@ namespace Game.UI.Items
 
             ShowPanel();
             SelectFirstItem();
+
+            // Open (and refresh) the stats window so the player can see what they need.
+            statsPaneUI?.ShowStatsWindow(null);
         }
 
         private void SelectFirstItem()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Augur
   characterClass: 2
-  animatorController: {fileID: 9100000, guid: 281fe65995468ba46bfa19316915ef72, type: 2}
+  animatorController: {fileID: 9100000, guid: c393c834190ebdc363a8b1d4194370a5, type: 2}
   defaultSprite: {fileID: 21300000, guid: 41aca6795290d486aa661b867d2f8548, type: 3}
   abilityIcons:
   - {fileID: 21300000, guid: 3475591a070c0af44812fbc0a4c52450, type: 3}

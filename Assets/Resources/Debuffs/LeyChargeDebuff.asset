@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2436316cca02bd649aa870b2c44f8d62, type: 3}
-  m_Name: EnergyDebuff
+  m_Name: LeyChargeDebuff
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.ElementalDebuffData
   elementalType: 4
   baseDuration: 4

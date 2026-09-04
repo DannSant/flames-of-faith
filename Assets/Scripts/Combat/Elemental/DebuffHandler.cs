@@ -63,8 +63,8 @@ namespace Game.Combat.Elemental
                     newDebuff = gameObject.AddComponent<DebuffFrost>();
                     break;
 
-                case ElementalType.Energy:
-                    newDebuff = gameObject.AddComponent<DebuffEnergy>();
+                case ElementalType.LeyCharge:
+                    newDebuff = gameObject.AddComponent<DebuffLeyCharge>();
                     break;
 
                 /*case ElementalType.Chaos:

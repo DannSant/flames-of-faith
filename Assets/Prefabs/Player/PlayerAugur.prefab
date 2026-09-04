@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6053897080765917240, guid: d58e581181fcabc42aa1071ffa2ed557, type: 3}
+      objectReference: {fileID: 4883475080216427660, guid: d311aad819c922144b9d5074c8a22080, type: 3}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 6055726788964509217, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 281fe65995468ba46bfa19316915ef72, type: 2}
+      objectReference: {fileID: 9100000, guid: c393c834190ebdc363a8b1d4194370a5, type: 2}
     - target: {fileID: 6543883001522524048, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Name
       value: PlayerAugur
