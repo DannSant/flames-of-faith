@@ -214,11 +214,10 @@ namespace Game.Effects
             }
         }
 
-        public IEnumerable<Effect> GetEffectsGrantingStat(StatType statType)
+        public IEnumerable<EffectInstance> GetEffectInstancesGrantingStat(StatType statType)
         {
             return activeEffects
-                .Where(ei => ei.effect.StatModifiers.Any(m => m.stat == statType))
-                .Select(ei => ei.effect);
+                .Where(ei => ei.effect.StatModifiers.Any(m => m.stat == statType));
         }
 
         public List<StatModifier> GetAllStatModifiers()

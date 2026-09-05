@@ -15,11 +15,18 @@ namespace Game.UI.RunEncounters
         [SerializeField] private Image rewardImage;
 
         private TreasureEncounterController treasureController;
+        private GeneralTooltipPaneUI generalTooltipPaneUI;
+        private TreasureReward currentReward;
 
         private void Start()
         {
             mainPanel.SetActive(false);
             MainSceneController.Instance.OnGameplayUISetupRequested += SubscribeToEvents;
+
+            generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
+
+            var rewardIconTrigger = rewardImage.gameObject.AddComponent<TreasureRewardIconUI>();
+            rewardIconTrigger.Setup(ShowRewardTooltip, HideRewardTooltip);
         }
 
         private void OnDisable()
@@ -46,6 +53,7 @@ namespace Game.UI.RunEncounters
 
         private void ShowTreasure(TreasureReward reward)
         {
+            currentReward = reward;
             mainPanel.SetActive(true);
             rewardText.text = DescribeReward(reward);
             rewardImage.sprite = reward.rewardSprite;
@@ -58,6 +66,20 @@ namespace Game.UI.RunEncounters
         private void Hide()
         {
             mainPanel.SetActive(false);
+            HideRewardTooltip();
+        }
+
+        private void ShowRewardTooltip()
+        {
+            if (currentReward == null || currentReward.type != TreasureRewardType.Item || currentReward.item == null)
+                return;
+
+            generalTooltipPaneUI?.ShowTooltip(currentReward.item.GetFormattedDescription(), ColorizeItemName(currentReward.item));
+        }
+
+        private void HideRewardTooltip()
+        {
+            generalTooltipPaneUI?.HideTooltip();
         }
 
         public void OnAcceptClicked()

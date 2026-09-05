@@ -76,8 +76,11 @@ namespace Game.Currency
         }
 
         public void Cleanup()
-        {            
-            WaveSpawner.Instance.OnWaveCompleteEnded -= GenerateCurrency;
+        {
+            if (WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.OnWaveCompleteEnded -= GenerateCurrency;
+            }
             Destroy(gameObject);
         }
     }

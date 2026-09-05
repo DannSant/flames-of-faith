@@ -150,9 +150,9 @@ namespace Game.UI
             if (shiftHeld)
             {
                 var effectStore = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<EffectStore>() : null;
-                var grantingEffects = effectStore != null ? effectStore.GetEffectsGrantingStat(stat).ToList() : new List<Effect>();
+                var grantingEffects = effectStore != null ? effectStore.GetEffectInstancesGrantingStat(stat).ToList() : new List<EffectInstance>();
                 sourcesText = grantingEffects.Count > 0
-                    ? string.Join("\n", grantingEffects.Select(FormatEffectSourceLine))
+                    ? string.Join("\n", grantingEffects.Select(ei => FormatEffectSourceLine(ei.effect, ei.count, stat)))
                     : "No items currently grant this stat";
             }
 
@@ -160,10 +160,40 @@ namespace Game.UI
             OnStatHovered?.Invoke(stat, shiftHeld);
         }
 
-        private static string FormatEffectSourceLine(Effect effect)
+        private static string FormatEffectSourceLine(Effect effect, int count, StatType stat)
         {
             string hex = ColorUtility.ToHtmlStringRGB(EffectQualityDisplayHelper.GetQualityColor(effect.Quality));
-            return $"<color=#{hex}>{effect.EffectName}</color>";
+            string contribution = FormatStatContribution(effect, count, stat);
+            return $"<color=#{hex}>{effect.EffectName}</color> ({contribution})";
+        }
+
+        private static string FormatStatContribution(Effect effect, int count, StatType stat)
+        {
+            float flatTotal = 0f;
+            float percentTotal = 0f;
+
+            foreach (var modifier in effect.StatModifiers)
+            {
+                if (modifier.stat != stat) continue;
+
+                if (modifier.type == ModifierType.Flat)
+                    flatTotal += modifier.value * count;
+                else if (modifier.type == ModifierType.PercentAdd)
+                    percentTotal += modifier.value * count;
+            }
+
+            var parts = new List<string>();
+            if (flatTotal != 0f) parts.Add(FormatSignedNumber(flatTotal));
+            if (percentTotal != 0f) parts.Add(FormatSignedNumber(percentTotal * 100f) + "%");
+
+            return parts.Count > 0 ? string.Join(" ", parts) : "0";
+        }
+
+        private static string FormatSignedNumber(float value)
+        {
+            string sign = value >= 0 ? "+" : "";
+            string formatted = value % 1 == 0 ? ((int)value).ToString() : value.ToString("0.##");
+            return $"{sign}{formatted}";
         }
 
         public void BuildStatRowsFromOverworld(Dictionary<StatType, int> savedStats)
