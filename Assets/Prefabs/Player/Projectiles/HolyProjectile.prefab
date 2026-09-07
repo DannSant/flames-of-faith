@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
-  baseDamage: 5
+  baseDamage: 1
   weaponClass: 2
   attackScale: 1
   effectID: 
@@ -170,6 +170,7 @@ MonoBehaviour:
   applyKnockback: 0
   knockbackForce: 5
   canTriggerLifesteal: 1
+  directElementalDebuffData: {fileID: 0}
 --- !u!114 &-6525033825346590171
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -90,9 +90,26 @@ namespace Game.Combat
                  
             }
 
-            //Calculate extra damage for effects
-            var effectDamage = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).GetMultiplier();           
-            totalDamage = Mathf.FloorToInt(baseDamage + progressionStatDamage + effectDamage);
+            // How much of the player's damage stat this source is entitled to. A source that
+            // belongs to an effect (a spawned missile, an orbiting sword) takes the share defined
+            // by that effect's scalingValue, so an ability can be tuned to deal a fraction of the
+            // stat instead of all of it. Anything without an effect id is the weapon itself and
+            // gets the full stat.
+            //
+            // The default of 1 matters: GetEffectMultiplierConfig returns an empty struct
+            // (scaleValue 0) for an empty/unknown id, so multiplying by it directly would zero out
+            // all normal weapon damage.
+            //
+            // Stack count is deliberately not part of this - it multiplies how many instances an
+            // effect spawns, so folding it in here as well would make stacking scale quadratically.
+            float effectStatScale = 1f;
+            if (!string.IsNullOrEmpty(damageRequest.EffectID))
+            {
+                effectStatScale = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).scaleValue;
+            }
+
+            totalDamage = Mathf.FloorToInt(
+                baseDamage + progressionStatDamage * effectStatScale * damageRequest.WeaponScaleDamage);
             graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
             finalDamage = totalDamage + graceDamage;
             if (finalDamage<=0)

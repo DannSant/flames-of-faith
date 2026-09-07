@@ -73,6 +73,14 @@ namespace Game.Combat
             this.effectID = effectId;
             this.weaponClass = weaponClass;
             this.weaponData = weaponData;
+
+            // Adopt the firing weapon's attack scale so special attacks actually apply their
+            // multiplier. The prefab's own value stays as the fallback for sources spawned
+            // without weapon data (effect-spawned projectiles, AoE prefabs).
+            if (weaponData != null)
+            {
+                this.attackScale = weaponData.attackScale;
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)

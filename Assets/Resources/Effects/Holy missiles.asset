@@ -15,7 +15,7 @@ MonoBehaviour:
   effectID: 2bf80c37-2cb1-4792-b7b1-39ff7ac47490
   icon: {fileID: 21300000, guid: 239d6bf243f66914aaef83720f8a73fb, type: 3}
   effectName: Holy missiles
-  scalingValue: 1
+  scalingValue: 0.5
   description: Spawns a holy projectile that deals _ranged_damage_ when dealing any
     kind of damage. Additional items increase the number of missiles spawned
   buyPrice: 75
