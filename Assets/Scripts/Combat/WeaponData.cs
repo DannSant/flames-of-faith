@@ -26,6 +26,14 @@ namespace Game.Combat {
         [Tooltip("Initial range")]
         public float rangeBase = 2;
 
+        [Tooltip("Whether this weapon benefits from the Attack Range stat. Deliberately independent " +
+            "of weaponClass, so a thrown weapon that deals Melee damage can still scale with range.")]
+        public bool isRangeBased = false;
+
+        [Tooltip("How much reach this weapon gains per point of the Attack Range stat. " +
+            "e.g. 0.4 on a bow = +0.4 range per point.")]
+        public float rangeScale = 0.2f;
+
         [Tooltip("Prefab of the projectile if applicable")]
         public GameObject projectilePrefab;
 

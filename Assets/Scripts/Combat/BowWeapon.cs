@@ -63,7 +63,7 @@ namespace Game.Combat
             move.Initialize(direction);
 
             var damage = go.GetComponent<DamageSourceBase>();
-            damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass,weaponData);
+            damage.Initialize(weaponData.baseDamage, pierceAmount, null, weaponData.weaponClass,weaponData);
 
             onBowAttackLaunched?.Invoke(damage);
         }
@@ -92,7 +92,7 @@ namespace Game.Combat
                 move.Initialize(direction);
 
                 var damage = go.GetComponent<DamageSourceBase>();
-                damage.Initialize(specialWeaponData.baseDamage, specialWeaponData.pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
+                damage.Initialize(specialWeaponData.baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
             }
         }
 
@@ -102,12 +102,6 @@ namespace Game.Combat
             {
                 playerGrace.AddGrace(graceGenerated);
             }*/
-        }
-
-        public override float GetWeaponRange()
-        {
-            float playerRange = playerProgression.GetStatTotal(StatType.Range);
-            return weaponData.rangeBase + playerRange;
         }
 
         private void PlayRandomArrowSound()

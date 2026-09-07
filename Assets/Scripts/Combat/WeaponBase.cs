@@ -129,7 +129,27 @@ namespace Game.Combat
         public abstract void Attack();
         public abstract void SpecialAttack();
 
-        public abstract float GetWeaponRange();
+        /// <summary>
+        /// The weapon's effective attack range: its base reach plus its share of the player's
+        /// Attack Range stat, scaled per weapon.
+        ///
+        /// This is the ONE place range is computed. WeaponManager consumes the result as-is -
+        /// it used to add the Range stat a second time on top of this, which made the real
+        /// radius rangeBase + 2x Range.
+        /// </summary>
+        public virtual float GetWeaponRange()
+        {
+            if (weaponData == null) return 0f;
+
+            float range = weaponData.rangeBase;
+
+            if (weaponData.isRangeBased && playerProgression != null)
+            {
+                range += playerProgression.GetStatTotal(StatType.Range) * weaponData.rangeScale;
+            }
+
+            return range;
+        }
         public WeaponData GetWeaponData() => weaponData;
 
         public virtual bool IsAttackTimerActive() => attackTimer.GetIsEventActive();

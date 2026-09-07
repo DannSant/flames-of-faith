@@ -149,11 +149,6 @@ namespace Game.Combat
             weaponColliderObject.transform.position = pivotPoint.position + (Vector3)offset;
         }
 
-        public override float GetWeaponRange()
-        {
-            return weaponData.rangeBase;
-        }
-
         private void CleaveDamage()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, weaponData.rangeBase, LayerMask.GetMask("Enemy"));

@@ -127,12 +127,6 @@ namespace Game.Combat
             return closest;
         }
 
-        public override float GetWeaponRange()
-        {
-            float playerRange = playerProgression.GetStatTotal(StatType.Range);
-            return weaponData.rangeBase + playerRange;
-        }
-
         private void PlayRandomScepterSound()
         {
             if (scepterAttackSounds.Count == 0) return;

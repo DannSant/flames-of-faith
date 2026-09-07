@@ -18,6 +18,8 @@ MonoBehaviour:
   attackSpeedScale: 0.075
   weaponClass: 1
   rangeBase: 2
+  isRangeBased: 0
+  rangeScale: 0
   projectilePrefab: {fileID: 0}
   pierceAmount: 1
   knockbackForce: 2

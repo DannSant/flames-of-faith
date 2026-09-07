@@ -2,7 +2,6 @@ using Game.Common;
 using UnityEngine;
 using Game.Control;
 using System;
-using Game.Progression;
 using Game.Utils;
 using Game.Waves;
 namespace Game.Combat
@@ -13,7 +12,6 @@ namespace Game.Combat
         [SerializeField] private bool autoAttackEnabled = false;
         [SerializeField] private CharacterVisual characterVisual;
         private WeaponBase currentWeapon;
-        private PlayerProgression playerProgression;
         private PlayerHealth playerHealth;
 
 
@@ -24,7 +22,6 @@ namespace Game.Combat
 
         private void Awake()
         {
-            playerProgression = GetComponent<PlayerProgression>();
             playerHealth = GetComponent<PlayerHealth>();
             if (startingWeapon != null)
             {
@@ -73,9 +70,11 @@ namespace Game.Combat
 
         private EnemyHealth FindClosestEnemyWithinRange(float range)
         {
-            bool isRangeWeapon = currentWeapon.GetWeaponData().weaponClass == WeaponClass.Ranged || currentWeapon.GetWeaponData().weaponClass == WeaponClass.Magic;
-            int additionalRange = isRangeWeapon ? playerProgression.GetStatTotal(StatType.Range) : 0;
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range + additionalRange, LayerMask.GetMask("Enemy","Boss"));
+            // The range passed in already includes the player's Attack Range contribution
+            // (see WeaponBase.GetWeaponRange). This used to add the stat again on top, which
+            // doubled it - and gated it on weaponClass, so a thrown melee weapon could never
+            // benefit. Both concerns now live on WeaponData (isRangeBased / rangeScale).
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy","Boss"));
 
             EnemyHealth closest = null;
             float closestDistanceSqr = Mathf.Infinity;

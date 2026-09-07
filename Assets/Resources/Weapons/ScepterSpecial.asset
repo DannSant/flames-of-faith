@@ -25,3 +25,5 @@ MonoBehaviour:
   graceGenerated: 1
   elementalDebuffData: {fileID: 11400000, guid: d14759c9cd789d541b8813542a28a43f, type: 2}
   projectileAmount: 4
+  isRangeBased: 1
+  rangeScale: 0.2
