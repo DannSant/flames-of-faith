@@ -54,9 +54,15 @@ namespace Game.Scene
         }
 
         public void MarkLevelBeaten(LevelData level)
-        {           
-            //LevelSelectionController.Instance.AdvanceToNextLayer();
-            levelsBeaten++;            
+        {
+            // Only fights count toward run progression. This fires for every level the player
+            // finishes, including shops, campfires, treasures and event encounters - counting
+            // those would scale enemy damage, health and XP based on the route taken through the
+            // map rather than on how much combat the player has actually cleared.
+            if (level == null) return;
+            if (level.type != LevelType.Combat && level.type != LevelType.Boss) return;
+
+            levelsBeaten++;
         }
 
         public void SetIsNewRun(bool value)

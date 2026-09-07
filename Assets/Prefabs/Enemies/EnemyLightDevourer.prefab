@@ -268,23 +268,23 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 894fd95ddcdc91f4e8ac04c8f9dd61c2, type: 2}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.x
-      value: 1.01
+      value: 0.65712386
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.y
-      value: 0.7
+      value: 1.281954
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.x
-      value: -0.08636248
+      value: -0.0006015003
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.y
-      value: -0.5354059
+      value: -0.24443316
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Direction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathSFX

@@ -204,7 +204,7 @@ namespace Game.Control
             // interrupted by a same-frame/queued Attack/Dash/etc. trigger the
             // way a Trigger-vs-Trigger race on Any State could.
             animator.SetBool(DeathStateName, true);
-            Debug.Log($"[{Time.time:F2}] PlayDeathAnimationRoutine: Waiting for Death animation to start and finish...");
+            //Debug.Log($"[{Time.time:F2}] PlayDeathAnimationRoutine: Waiting for Death animation to start and finish...");
 
             float timeout = Time.time + 5f; // safety valve if the controller is misconfigured
             while (!animator.GetCurrentAnimatorStateInfo(0).IsName(DeathStateName) && Time.time < timeout)

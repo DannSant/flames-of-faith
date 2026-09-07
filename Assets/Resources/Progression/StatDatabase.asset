@@ -69,8 +69,9 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Reduces damage received by 1 for each point. Least amount of damage
-      you can receive is 1.
+    description: Reduces all damage received by a percentage, with each point worth
+      slightly less than the last. Damage can never be reduced below 15% of its original
+      amount.
     affectedByCorruption: 1
     corruptionReduceFactor: 1
   - statType: 7

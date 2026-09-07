@@ -34,20 +34,10 @@ namespace Game.AI.Behaviors
                 int damageAmount = GetDamageAmount(context);
                 health.TakeDamage(damageAmount);
               
-                state.lastDamageTime = Time.time; 
+                state.lastDamageTime = Time.time;
             }
-            
-        }
 
-        /*private int GetDamageAmount(BehaviorContext context)
-        {
-            var enemyData = context.enemyData;
-            int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
-            int waveDamageBonus = enemyData.damagePerWave * (context.waveNumber - 1);
-            return enemyData.damageBase + waveDamageBonus + levelDamageBonus;
-        }*/
-        
-        
+        }
     }
 
 }

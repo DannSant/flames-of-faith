@@ -31,6 +31,15 @@ namespace Game.Combat {
         [SerializeField] private float invulnerabilityDuration = 0.5f;
         private float invulnerableUntilTime = 0f;
 
+        [Header("Armor")]
+        [Tooltip("Controls how quickly armor loses effectiveness. Reduction = armor / (armor + this). " +
+            "Higher values make each point of armor weaker. At 25: armor 10 = -29%, armor 25 = -50%, armor 50 = -67%.")]
+        [SerializeField] private float armorEffectivenessConstant = 25f;
+        [Tooltip("Armor can never reduce an attack below this fraction of its raw damage, " +
+            "so stacking armor can't trivialise every enemy.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float minDamagePercent = 0.15f;
+
         [Header("Testing")]
         [SerializeField] private bool noDamage=false;
 
@@ -193,8 +202,33 @@ namespace Game.Combat {
         }
 
         private void SetArmor(int value)
-        {           
+        {
             armor = value;
+        }
+
+        /// <summary>
+        /// Armor mitigates a proportion of incoming damage rather than subtracting a flat amount.
+        /// Flat subtraction was a step function: every attack weaker than the player's armor
+        /// collapsed to exactly 1 while anything stronger came through almost untouched, so two
+        /// enemies in the same run could feel 7x apart, and a +1 tuning change could flip an enemy
+        /// across that edge. Scaling keeps the relative difference between enemies intact and makes
+        /// balancing predictable.
+        /// </summary>
+        private float ApplyArmor(float amount)
+        {
+            if (amount <= 0f) return 0f;
+
+            float effectiveArmor = Mathf.Max(0f, armor);
+            float reduction = effectiveArmor / (effectiveArmor + Mathf.Max(1f, armorEffectivenessConstant));
+            float mitigated = amount * (1f - reduction);
+
+            // Cap total mitigation so heavy armor stacking can't reduce everything to nothing.
+            mitigated = Mathf.Max(amount * minDamagePercent, mitigated);
+
+            // Damage is displayed as a whole number, so keep the health math matching what the
+            // player is shown. The floor of 1 is a sanity guard, not the old cliff - with
+            // proportional mitigation it only binds for genuinely tiny hits.
+            return Mathf.Max(1f, Mathf.Round(mitigated));
         }
 
         public void ToggleIsInvulnerable(bool value)
@@ -235,8 +269,7 @@ namespace Game.Combat {
                 return; // Don't take damage during wave complete
             }
 
-            // Calculate damage after armor, ensure taking at least 1 damage
-            float finalDamage = Mathf.Max(1, amount - armor);
+            float finalDamage = ApplyArmor(amount);
             currentHealth -= finalDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 

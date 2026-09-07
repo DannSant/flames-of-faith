@@ -1,3 +1,4 @@
+using Game.Enemies;
 using Game.Scene;
 using UnityEngine;
 
@@ -9,20 +10,20 @@ namespace Game.AI.Behaviors
 
         protected int GetDamageAmount(BehaviorContext context)
         {
-            var enemyData = context.enemyData;
-            int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
-            int waveDamageBonus = enemyData.damagePerWave * (context.waveNumber - 1);
-            return enemyData.damageBase + waveDamageBonus + levelDamageBonus;
+            return EnemyDamageCalculator.Calculate(
+                context.enemyData,
+                context.waveNumber,
+                GameSession.Instance.LevelsBeaten,
+                EnemyDamageKind.Contact);
         }
 
         protected int GetRangedDamageAmount(BehaviorContext context)
         {
-            var enemyData = context.enemyData;
-            int levelDamageBonus = GameSession.Instance.LevelsBeaten * enemyData.damagePerLevel;
-            int waveDamageBonus = enemyData.projectileDamagePerWave * (context.waveNumber - 1);
-            int totalDamageBonus = enemyData.projectileDamageBase + waveDamageBonus + levelDamageBonus;
-            //Debug.Log($"Ranged Damage Calculation: Base={enemyData.projectileDamageBase}, WaveBonus={waveDamageBonus}, LevelBonus={levelDamageBonus}, Total={totalDamageBonus}");
-            return totalDamageBonus;
+            return EnemyDamageCalculator.Calculate(
+                context.enemyData,
+                context.waveNumber,
+                GameSession.Instance.LevelsBeaten,
+                EnemyDamageKind.Projectile);
         }
 
     }
