@@ -53,7 +53,7 @@ namespace Game.Combat.Elemental
 
             var debuffHandler = nearest.GetComponent<DebuffHandler>();
             if (debuffHandler != null)
-                debuffHandler.ApplyDebuff(ElementalType.LeyCharge, duration, strength);
+                debuffHandler.ApplyDebuff(data, duration, strength);
 
             SpawnChainVfx(transform.position, nearest.transform.position);
         }

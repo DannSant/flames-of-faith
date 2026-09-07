@@ -6,12 +6,10 @@ namespace Game.Combat.Elemental
     public class DebuffFrost : DebuffBase
     {
         private float hardLimitReduction = 0.8f; // max 80% slow
-        public override void Initialize(float duration, float strength)
+        public override void Initialize(ElementalDebuffData data, float duration, float strength, int generation)
         {
-            base.Initialize(duration, strength);
+            base.Initialize(data, duration, strength, generation);
 
-            //If the component is removed, do nothing
-            if(this==null) return;
             var behaviorController = GetComponent<BehaviorController>();
             if (behaviorController != null)
             {

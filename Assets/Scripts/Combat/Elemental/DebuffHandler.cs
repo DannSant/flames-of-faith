@@ -1,4 +1,4 @@
-﻿using Game.Misc;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Combat.Elemental
@@ -6,47 +6,49 @@ namespace Game.Combat.Elemental
     public class DebuffHandler : MonoBehaviour
     {
         // Keeps track of active debuffs (1 per type, no stacking)
-        private readonly System.Collections.Generic.Dictionary<ElementalType, DebuffBase> activeDebuffs
-            = new System.Collections.Generic.Dictionary<ElementalType, DebuffBase>();
+        private readonly Dictionary<ElementalType, DebuffBase> activeDebuffs = new Dictionary<ElementalType, DebuffBase>();
+
+        private EnemyHealth enemyHealth;
+
+        private void Awake()
+        {
+            enemyHealth = GetComponent<EnemyHealth>();
+        }
 
         public bool TryToApplyDebuff(ElementalDebuffData debuffData, int debuffStrengthStat)
         {
+            if (debuffData == null) return false;
+
             float chance = debuffData.ChanceToApply;
-            if (UnityEngine.Random.value > chance)
+            if (Random.value > chance)
             {
                 return false; // Debuff application failed
             }
-          
+
             float duration = debuffData.BaseDuration + debuffStrengthStat * debuffData.DurationStatScale;
             float strength = debuffData.BaseStrength + debuffStrengthStat * debuffData.StrengthStatScale;
-            
-            ApplyDebuff(debuffData.ElementalType, duration, strength);
 
-            // Optionally instantiate VFX here using debuffData.VFX
-            if(debuffData.VFX != null)
-            {
-                var vfx = Instantiate(debuffData.VFX, transform.position, Quaternion.identity, transform);
-                if(vfx.TryGetComponent<DestroyAfterTime>(out var autoDestroy))
-                {
-                    autoDestroy.StartDestroyTimer(duration);
-                } 
-                
-            }
+            ApplyDebuff(debuffData, duration, strength);
             return true;
         }
 
         /// <summary>
-        /// Applies or refreshes the debuff for the given element type.
+        /// Applies or refreshes the debuff described by <paramref name="debuffData"/>.
+        /// <paramref name="generation"/> is 0 for a direct application and increases with each propagation hop.
         /// </summary>
-        public void ApplyDebuff(ElementalType type, float duration, float strength)
+        public void ApplyDebuff(ElementalDebuffData debuffData, float duration, float strength, int generation = 0)
         {
-            if (type == ElementalType.None)
-                return;
+            if (debuffData == null) return;
 
-            // if debuff already exists → refresh it instead of stacking
-            if (activeDebuffs.TryGetValue(type, out DebuffBase existing))
+            ElementalType type = debuffData.ElementalType;
+            if (type == ElementalType.None) return;
+            if (enemyHealth != null && enemyHealth.IsDead()) return;
+
+            // if debuff already exists → refresh it instead of stacking.
+            // The null check matters: an expired debuff Destroy()s itself, leaving a fake-null entry behind.
+            if (activeDebuffs.TryGetValue(type, out DebuffBase existing) && existing != null)
             {
-                existing.Initialize(duration, strength);
+                existing.Initialize(debuffData, duration, strength, generation);
                 return;
             }
 
@@ -78,8 +80,23 @@ namespace Game.Combat.Elemental
 
             if (newDebuff != null)
             {
-                newDebuff.Initialize(duration, strength);
+                newDebuff.Initialize(debuffData, duration, strength, generation);
                 activeDebuffs[type] = newDebuff;
+            }
+        }
+
+        /// <summary>
+        /// Called by a debuff right before it destroys itself, so the slot can be reused.
+        /// </summary>
+        public void NotifyDebuffEnded(DebuffBase debuff)
+        {
+            if (debuff == null) return;
+
+            ElementalType type = debuff.ElementalType;
+            // Only clear the slot if it is still owned by this debuff, never one that already replaced it.
+            if (activeDebuffs.TryGetValue(type, out DebuffBase current) && current == debuff)
+            {
+                activeDebuffs.Remove(type);
             }
         }
     }

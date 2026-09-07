@@ -13,6 +13,7 @@ namespace Game.Combat.Elemental
         [Range(0f, 1f)]
         [SerializeField] private float chanceToApply = 1f;
         [SerializeField] private GameObject vfx;
+        [SerializeField] private DebuffContactSpreadData contactSpread = new DebuffContactSpreadData();
 
         public ElementalType ElementalType => elementalType;
         public float BaseDuration => baseDuration;
@@ -21,6 +22,7 @@ namespace Game.Combat.Elemental
         public float StrengthStatScale => strengthStatScale;
         public float ChanceToApply => chanceToApply;
         public GameObject VFX => vfx;
+        public DebuffContactSpreadData ContactSpread => contactSpread;
     }
 
 }

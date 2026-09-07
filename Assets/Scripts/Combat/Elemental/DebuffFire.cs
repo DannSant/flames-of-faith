@@ -5,16 +5,13 @@ namespace Game.Combat.Elemental
 {
     public class DebuffFire : DebuffBase
     {
-        //[SerializeField] private float baseTickDamage = 2f;
         [SerializeField] private float tickInterval = 0.5f;
 
         private float tickTimer = 0f;
 
-        protected override void Update()
+        protected override void Tick(float deltaTime)
         {
-            base.Update(); // handles duration countdown
-
-            tickTimer += Time.deltaTime;
+            tickTimer += deltaTime;
             if (tickTimer >= tickInterval)
             {
                 tickTimer = 0f;
@@ -29,20 +26,20 @@ namespace Game.Combat.Elemental
             float finalDamage = strength;
 
             // spawn damage numbers
-            DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(enemyHealth.transform.position,finalDamage );
+            DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(enemyHealth.transform.position, finalDamage);
 
             enemyHealth.TakeDamage(new DamageRequest(finalDamage, WeaponClass.Magic, false));
         }
 
-        public override void Initialize(float duration, float strength)
+        public override void Initialize(ElementalDebuffData data, float duration, float strength, int generation)
         {
-            base.Initialize(duration, strength);
+            base.Initialize(data, duration, strength, generation);
             tickTimer = 0f;
         }
 
         public override void End()
         {
-            
+
         }
     }
 

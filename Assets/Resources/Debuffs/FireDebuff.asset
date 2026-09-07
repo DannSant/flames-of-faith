@@ -19,3 +19,10 @@ MonoBehaviour:
   strengthStatScale: 1
   chanceToApply: 0.5
   vfx: {fileID: 508358228207870394, guid: 9771c85cc49cb534b8ef6e04860875bd, type: 3}
+  contactSpread:
+    enabled: 1
+    chance: 0.35
+    cooldown: 0.75
+    maxGenerations: 3
+    durationFalloff: 0.8
+    strengthFalloff: 0.8
