@@ -20,6 +20,18 @@ namespace Game.AI.Behaviors
 
             var state = context.GetState<MoveShootCycleState>(sharedStateGroup);
 
+            // Hold position while a burst is in progress. Without this, anything that displaces
+            // the enemy mid-burst (knockback, a shove from another enemy) puts it further than
+            // arrivalThreshold from the now-stale snapshot point, which would re-engage movement
+            // and drag moveDirection toward where the player *used* to be - and the animation
+            // controller would then aim the sprite there, often the opposite way from the player.
+            if (context.isShooting)
+            {
+                context.isMoving = false;
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
+
             // If we don't have a target yet → capture it
             if (!state.hasTarget)
             {
@@ -31,19 +43,22 @@ namespace Game.AI.Behaviors
             Vector2 dir = (state.targetPoint - (Vector2)rb.position);
             float distance = Vector2.Distance(rb.position, state.targetPoint);
             Debug.DrawLine(rb.position, state.targetPoint, Color.red);
-           
+
             if (distance <= arrivalThreshold)
             {
-               
                 state.reachedPoint = true;
                 context.isMoving = false;
+                rb.linearVelocity = Vector2.zero;
                 return;
             }
 
-            Vector2 step = dir.normalized * speed * Time.deltaTime;
-            rb.MovePosition(rb.position + step);
+            // Velocity-driven, and written every tick (zero included) for the same reason as
+            // AIBehaviorChaserMovement: the body is Dynamic with no linear damping, so any
+            // velocity it picks up - a knockback impulse, a collision shove - would otherwise
+            // persist forever and stack with the next one.
             context.isMoving = true;
             context.moveDirection = dir.normalized;
+            rb.linearVelocity = context.moveDirection * speed;
         }
     }
 }

@@ -18,54 +18,70 @@ namespace Game.AI.Behaviors
         public override void Tick(BehaviorContext context)
         {
             var state = context.GetState<MoveShootCycleState>(sharedStateGroup);
-          
-         
 
             if (!state.reachedPoint)
                 return; // not time to shoot
 
-          
+            if (state.isShooting)
+                return; // burst already running
 
-            if (!state.isShooting)
-            {
-                state.isShooting = true;
-                context.isShooting = true;
-                context.enemyTransform.GetComponent<MonoBehaviour>()
-                    .StartCoroutine(ShootRoutine(context, state));
-            }
+            // Host the routine on the BehaviorController rather than whatever MonoBehaviour
+            // happens to sit first on the GameObject - that lookup was order-dependent, and if
+            // it resolved to a component that got disabled the routine would die mid-burst and
+            // leave isShooting stuck true, freezing the facing for the rest of the enemy's life.
+            var host = context.enemyTransform.GetComponent<BehaviorController>();
+            if (host == null) return;
+
+            state.isShooting = true;
+            context.isShooting = true;
+            host.StartCoroutine(ShootRoutine(context, state));
         }
 
         private IEnumerator ShootRoutine(BehaviorContext context, MoveShootCycleState state)
         {
-          
-            for (int i = 0; i < shootTimes; i++)
+            try
             {
-                ShootAtPlayer(context);
-                yield return new WaitForSeconds(delayBetweenShots);
+                for (int i = 0; i < shootTimes; i++)
+                {
+                    ShootAtPlayer(context);
+                    yield return new WaitForSeconds(delayBetweenShots);
+                }
             }
-
-            // Reset cycle
-            state.ResetCycle();
-            context.isShooting = false;
+            finally
+            {
+                // Runs even if the routine is stopped or the enemy is destroyed mid-burst, so
+                // the shooting flags can never be left set.
+                state.ResetCycle();
+                context.isShooting = false;
+            }
         }
 
         private void ShootAtPlayer(BehaviorContext context)
         {
             var animator = context.enemyAnimController;
-          
+
             if (animator != null)
             {
+                // Re-aims at the player's current position and commits that 8-way facing to the
+                // context, which is what makes each shot in the burst turn to follow the player
+                // while still holding its direction for the duration of that shot.
                 animator.PlayShoot();
             }
-           
         }
 
         public void OnAnimationEventStart(BehaviorContext context, string eventName)
         {
             if (projectilePrefab == null) return;
 
-            Vector2 baseDirection =
-                (context.playerTransform.position - context.enemyTransform.position).normalized;
+            // Fire along the facing the sprite is actually showing (committed by PlayShoot),
+            // not a freshly computed vector - otherwise the shots and the animation can point
+            // in different directions when the player moves between the two.
+            Vector2 baseDirection = context.facingDirection;
+            if (!IsometricDirectionHelper.IsValid(baseDirection))
+            {
+                baseDirection = IsometricDirectionHelper.SnapTo8(
+                    context.playerTransform.position - context.enemyTransform.position);
+            }
 
             // Middle of the arc will be the base direction
             float halfSpread = spreadAngle / 2f;
