@@ -19,3 +19,5 @@ MonoBehaviour:
   abilityIcons:
   - {fileID: 21300000, guid: e2f7cf4dcbe48ed43a010d3cf95019c5, type: 3}
   - {fileID: 21300000, guid: d45fd7b28cb3d404a94f1eb721fbec6a, type: 3}
+  mainStat: 9
+  levelsPerMainStatPoint: 1

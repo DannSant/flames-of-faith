@@ -43,6 +43,19 @@ namespace Game.Misc
             prefab.Spawn(positionTospawn, number).SetColor(DamageTypeColorHelper.GetColor(damageType));
         }
 
+        public void SpawnStatGainedByWeaponClass(Vector3 positionTospawn, string text, WeaponClass damageType)
+        {
+            DamageNumber prefab = damageType switch
+            {
+                WeaponClass.Melee => damageToEnemyMeleeNumberPrefab,
+                WeaponClass.Ranged => damageToEnemyRangedNumberPrefab,
+                WeaponClass.Magic => damageToEnemyMagicNumberPrefab,
+                _ => damageToEnemyNumberPrefab
+            };
+            prefab.Spawn(positionTospawn, text).SetColor(DamageTypeColorHelper.GetColor(damageType));
+        }
+
+
         public void SpawnDamageToPlayerNumber(Vector3 positionTospawn, float number)
         {
             damageToPlayerNumberPrefab.Spawn(positionTospawn, number);

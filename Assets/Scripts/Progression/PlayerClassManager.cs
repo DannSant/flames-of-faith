@@ -27,6 +27,8 @@ namespace Game.Progression
             {
                 characterVisual.Initialize(classData);
             }
+
+            gameObject.AddComponent<PlayerMainStatProgression>();
         }
 
         public void InitializeAfterStateReady()

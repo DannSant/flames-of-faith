@@ -88,6 +88,7 @@ namespace Game.AI.Behaviors
         private IEnumerable<AIBehavior> GetAllBehaviors()
         {
             return updateBehaviors.Cast<AIBehavior>()
+                .Concat(fixedUpdateBehaviors)
                 .Concat(collisionBehaviors)
                 .Concat(triggerBehaviors)
                 .Concat(deathBehaviors);
@@ -95,21 +96,26 @@ namespace Game.AI.Behaviors
 
         public void OnAnimationEventStart(string eventName)
         {
-            foreach (var behavior in updateBehaviors)
+            foreach (var receiver in GetAnimationEventReceivers())
             {
-                if (behavior is IAnimationEventReceiver receiver)
-                    receiver.OnAnimationEventStart(context, eventName);
+                receiver.OnAnimationEventStart(context, eventName);
             }
         }
 
         public void OnAnimationEventEnd(string eventName)
         {
-           
-            foreach (var behavior in updateBehaviors)
+            foreach (var receiver in GetAnimationEventReceivers())
             {
-                if (behavior is IAnimationEventReceiver receiver)
-                    receiver.OnAnimationEventEnd(context, eventName);
+                receiver.OnAnimationEventEnd(context, eventName);
             }
+        }
+
+        // Any behavior implementing IAnimationEventReceiver gets animation events, no matter
+        // which list it was authored into - previously only updateBehaviors were scanned, so a
+        // receiver placed in any other list would silently never fire.
+        private IEnumerable<IAnimationEventReceiver> GetAnimationEventReceivers()
+        {
+            return GetAllBehaviors().OfType<IAnimationEventReceiver>();
         }
 
         public BehaviorContext GetBehaviorContext()

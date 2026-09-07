@@ -17,7 +17,7 @@ MonoBehaviour:
   effectName: Holy missiles
   scalingValue: 1
   description: Spawns a holy projectile that deals _ranged_damage_ when dealing any
-    kind of damage
+    kind of damage. Additional items increase the number of missiles spawned
   buyPrice: 75
   sellPrice: 25
   effectStatModifiers: []
