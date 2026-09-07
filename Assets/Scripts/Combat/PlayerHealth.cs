@@ -17,6 +17,10 @@ namespace Game.Combat {
         private float defaultMaxHealth = 20; // Default max health value
         private float maxHealth = 20;
         private float currentHealth;
+        // Health restored from the save, held until InitializeAfterStateReady can apply it
+        // against a maxHealth that accounts for item modifiers. Negative means "nothing loaded",
+        // i.e. a fresh run.
+        private float pendingSavedHealth = -1f;
         private bool isDead = false;
         private bool isInvulnerable = false;
 
@@ -70,12 +74,22 @@ namespace Game.Combat {
 
         public void InitializeAfterStateReady()
         {
-            
-            float derivedMaxHealth = playerProgression.GetStatTotal(StatType.MaxHealth);
-          
-            SetMaxHealth(derivedMaxHealth);
-            //currentHealth = maxHealth;
+            // Every state loader has run by now, so the stats include item modifiers and this is
+            // the first point where maxHealth can be trusted.
+            //
+            // Assign it directly rather than through SetMaxHealth: that method proportionally
+            // rescales currentHealth, which is correct for a max change during play (an upgrade,
+            // an item picked up) but wrong for initial setup - applying it here is what was
+            // scaling saved health by the ratio between the item-less and real max.
+            maxHealth = Mathf.Max(1f, playerProgression.GetStatTotal(StatType.MaxHealth));
             armor = playerProgression.GetStatTotal(StatType.Armor);
+
+            // A continued run restores its saved health against the correct max; a fresh run
+            // (nothing loaded) starts full.
+            currentHealth = pendingSavedHealth >= 0f
+                ? Mathf.Clamp(pendingSavedHealth, 1f, maxHealth)
+                : maxHealth;
+            pendingSavedHealth = -1f;
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
 
@@ -125,6 +139,8 @@ namespace Game.Combat {
             currentHealth = maxHealth;
             armor = 0;
             invulnerableUntilTime = 0f;
+            // A reset run has nothing to restore - InitializeAfterStateReady should start it full.
+            pendingSavedHealth = -1f;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
         }
 
@@ -374,11 +390,16 @@ namespace Game.Combat {
 
         public void LoadState()
         {
-            float savedHealth = GameSession.Instance.LoadCurrentHealth();
-            // Force a stat refresh
-            OnStatUpdated();           
-            currentHealth = Mathf.Clamp(savedHealth, 1, maxHealth);
-            onHealthChanged?.Invoke(currentHealth, maxHealth);
+            // Only stash the value here - do NOT derive maxHealth yet.
+            //
+            // Load order across IDependentStateLoader components follows their order on the
+            // player prefab, and PlayerHealth sits before EffectStore. Asking PlayerProgression
+            // for MaxHealth at this point returns the base stat without any item modifiers, so
+            // the max would be wrong - and the later correction went through SetMaxHealth, whose
+            // proportional rescale then silently multiplied the player's health on every single
+            // level transition. The derivation happens in InitializeAfterStateReady instead,
+            // which by contract runs once all state loaders have finished.
+            pendingSavedHealth = GameSession.Instance.LoadCurrentHealth();
         }
     }
 
