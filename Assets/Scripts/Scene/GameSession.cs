@@ -27,6 +27,7 @@ namespace Game.Scene
         private bool isInitialized = false;
         private PlayerData playerData;
         private int levelsBeaten = 0; // Track how many levels have been beaten in this session
+        private bool suppressNextProgressionIncrement = false;
 
         //Properties
         public bool IsInitialized => isInitialized;
@@ -62,7 +63,20 @@ namespace Game.Scene
             if (level == null) return;
             if (level.type != LevelType.Combat && level.type != LevelType.Boss) return;
 
+            if (suppressNextProgressionIncrement)
+            {
+                suppressNextProgressionIncrement = false;
+                return;
+            }
+
             levelsBeaten++;
+        }
+
+        // Debug-window hook: lets a level be skipped without counting toward run
+        // progression (enemy health/damage/XP scaling). Self-resets after one use.
+        public void SetSuppressNextProgressionIncrement(bool suppress)
+        {
+            suppressNextProgressionIncrement = suppress;
         }
 
         public void SetIsNewRun(bool value)

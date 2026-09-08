@@ -512,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actDefinitions:
   - {fileID: 11400000, guid: 12177ff8c38e1d34dbbb510460d54a53, type: 2}
+  - {fileID: 11400000, guid: e2dc62a3f2b351249922874754ad60fe, type: 2}
   seed: 12345
   fadeDuration: 0.5
   mainMenuMusic: {fileID: 8300000, guid: 78793306b2a081846b9fac62b6bb25e3, type: 3}
@@ -701,6 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318593abb6da48942b8923de90572096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.GameSettings.SettingsManager
+  developerCheatsEnabled: 1
 --- !u!4 &1509007020
 Transform:
   m_ObjectHideFlags: 0

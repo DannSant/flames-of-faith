@@ -36,6 +36,9 @@ namespace Game.GameSettings
         private bool vsyncEnabled;
         private string languageKey;
 
+        [Header("Developer Tools")]
+        [SerializeField] private bool developerCheatsEnabled = true;
+
         public float MasterVolume => masterVolume;
         public float MusicVolume => musicVolume;
         public float SfxVolume => sfxVolume;
@@ -45,6 +48,7 @@ namespace Game.GameSettings
         public int QualityLevel => qualityLevel;
         public bool VsyncEnabled => vsyncEnabled;
         public string LanguageKey => languageKey;
+        public bool DeveloperCheatsEnabled => developerCheatsEnabled;
 
         protected override void Awake()
         {
