@@ -13,6 +13,7 @@ namespace Game.Combat.Elemental
         protected float duration;
         protected float strength; // how strong is this effect
         protected int generation; // how many contact spreads away this instance is from the original application
+        protected int stacks; // always at least 1; only grows for debuffs whose data enables stacking
 
         private GameObject vfxInstance;
         private float nextSpreadTime;
@@ -27,19 +28,65 @@ namespace Game.Combat.Elemental
         }
 
         /// <summary>
-        /// Called right after AddComponent() by the debuff applicator, and again every time the debuff is refreshed.
+        /// Entry point for the debuff applicator: called right after AddComponent(), and again
+        /// every time the same debuff is applied to an already-affected target.
         /// </summary>
-        public virtual void Initialize(ElementalDebuffData data, float duration, float strength, int generation)
+        public void Apply(ElementalDebuffData data, float duration, float strength, int generation)
         {
+            bool firstApplication = this.data == null;
+
             this.data = data;
-            this.duration = duration;
             this.strength = strength;
 
             // A direct application from the player arrives as generation 0 and resets the counter.
             // A propagated application never walks the counter backwards.
             this.generation = generation == 0 ? 0 : Mathf.Max(this.generation, generation);
 
-            SpawnVfx();
+            if (firstApplication)
+            {
+                this.duration = duration;
+                stacks = 1;
+                SpawnVfx();
+                OnApplied();
+                return;
+            }
+
+            OnReapplied(duration);
+        }
+
+        /// <summary>
+        /// Called once, when the debuff first lands on the target.
+        /// </summary>
+        protected virtual void OnApplied() { }
+
+        /// <summary>
+        /// Called when the debuff is applied again to an already-affected target. The default is the
+        /// generic, data-driven policy: stack if the data says so, otherwise refresh the duration.
+        /// Subclasses need no stacking code of their own.
+        /// </summary>
+        protected virtual void OnReapplied(float newDuration)
+        {
+            DebuffStackData stacking = data.Stacking;
+
+            if (!stacking.Enabled)
+            {
+                duration = newDuration; // classic refresh, no stacking
+                return;
+            }
+
+            int previousStacks = stacks;
+            stacks = Mathf.Min(stacks + 1, stacking.MaxStacks);
+
+            // Only flash the stack VFX when a stack was actually gained, so a capped debuff goes quiet.
+            if (stacks > previousStacks)
+            {
+                SpawnOneShotVfx(stacking.StackVfx, stacking.StackVfxLifetime);
+            }
+
+            if (stacking.RefreshDurationOnStack)
+            {
+                duration = newDuration;
+            }
         }
 
         /// <summary>
@@ -75,6 +122,18 @@ namespace Game.Combat.Elemental
             if (vfxInstance != null) return; // refreshing must not stack duplicated VFX
 
             vfxInstance = Instantiate(data.VFX, transform.position, Quaternion.identity, transform);
+        }
+
+        /// <summary>
+        /// Spawns a fire-and-forget VFX that is NOT parented to the target, so it survives the target dying.
+        /// The lifetime is explicit because these prefabs do not necessarily carry a DestroyAfterTime.
+        /// </summary>
+        protected void SpawnOneShotVfx(GameObject prefab, float lifetime)
+        {
+            if (prefab == null) return;
+
+            GameObject instance = Instantiate(prefab, transform.position, Quaternion.identity);
+            Destroy(instance, lifetime);
         }
 
         protected virtual void OnDestroy()

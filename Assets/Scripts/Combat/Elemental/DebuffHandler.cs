@@ -5,7 +5,8 @@ namespace Game.Combat.Elemental
 {
     public class DebuffHandler : MonoBehaviour
     {
-        // Keeps track of active debuffs (1 per type, no stacking)
+        // Keeps track of active debuffs: one component per type. Debuffs that stack track their own
+        // stack count internally, so this stays a single slot per element.
         private readonly Dictionary<ElementalType, DebuffBase> activeDebuffs = new Dictionary<ElementalType, DebuffBase>();
 
         private EnemyHealth enemyHealth;
@@ -44,11 +45,11 @@ namespace Game.Combat.Elemental
             if (type == ElementalType.None) return;
             if (enemyHealth != null && enemyHealth.IsDead()) return;
 
-            // if debuff already exists → refresh it instead of stacking.
+            // if debuff already exists → re-apply it (which refreshes or stacks, per its data).
             // The null check matters: an expired debuff Destroy()s itself, leaving a fake-null entry behind.
             if (activeDebuffs.TryGetValue(type, out DebuffBase existing) && existing != null)
             {
-                existing.Initialize(debuffData, duration, strength, generation);
+                existing.Apply(debuffData, duration, strength, generation);
                 return;
             }
 
@@ -69,6 +70,10 @@ namespace Game.Combat.Elemental
                     newDebuff = gameObject.AddComponent<DebuffLeyCharge>();
                     break;
 
+                case ElementalType.Bleed:
+                    newDebuff = gameObject.AddComponent<DebuffBleed>();
+                    break;
+
                 /*case ElementalType.Chaos:
                     newDebuff = gameObject.AddComponent<DebuffChaos>();
                     break;
@@ -80,7 +85,7 @@ namespace Game.Combat.Elemental
 
             if (newDebuff != null)
             {
-                newDebuff.Initialize(debuffData, duration, strength, generation);
+                newDebuff.Apply(debuffData, duration, strength, generation);
                 activeDebuffs[type] = newDebuff;
             }
         }

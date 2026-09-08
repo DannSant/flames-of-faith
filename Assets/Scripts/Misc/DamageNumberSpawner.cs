@@ -20,6 +20,7 @@ namespace Game.Misc
         [SerializeField] private DamageNumber frostDebuffDamageNumberPrefab;
         [FormerlySerializedAs("energyDebuffDamageNumberPrefab")]
         [SerializeField] private DamageNumber leyChargeDebuffDamageNumberPrefab;
+        [SerializeField] private DamageNumber bleedDebuffDamageNumberPrefab;
 
         protected override void Awake()
         {
@@ -79,6 +80,12 @@ namespace Game.Misc
         public void SpawnLeyChargeDebuffDamageNumber(Vector3 positionTospawn, float number)
         {
             leyChargeDebuffDamageNumberPrefab.Spawn(positionTospawn, number);
+        }
+        public void SpawnBleedDebuffDamageNumber(Vector3 positionTospawn, float number)
+        {
+            // Guarded because the prefab is not wired up yet; the others are all assigned already.
+            if (bleedDebuffDamageNumberPrefab == null) return;
+            bleedDebuffDamageNumberPrefab.Spawn(positionTospawn, number);
         }
         public void SpawnGraceLostNumber(Vector3 positionTospawn, float number)
         {

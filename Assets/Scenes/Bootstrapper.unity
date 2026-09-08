@@ -1353,7 +1353,8 @@ MonoBehaviour:
   graceLostNumberPrefab: {fileID: 3171153609502651806, guid: 57967cb8a08c4c547b058c5c027fd19d, type: 3}
   fireDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: 2717909dc38758d49beb8f8fcd5ebadf, type: 3}
   frostDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: 219508e3f28fb9b45bc16a94f1745288, type: 3}
-  energyDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: e485636b1ea107f4e991e2efa10a3115, type: 3}
+  leyChargeDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: e485636b1ea107f4e991e2efa10a3115, type: 3}
+  bleedDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: 817d71d39e5ceff4ab3328779e357808, type: 3}
 --- !u!4 &2071091514
 Transform:
   m_ObjectHideFlags: 0

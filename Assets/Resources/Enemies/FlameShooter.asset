@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   enemyPrefab: {fileID: 4302877176766348490, guid: 9e3340d0d9ba00a4daa919be465662a8, type: 3}
-  healthBase: 20
+  healthBase: 40
   damageBase: 3
   damagePerWave: 1
   damagePerLevel: 2
@@ -25,4 +25,4 @@ MonoBehaviour:
   projectileDamageBase: 2
   projectileDamagePerWave: 2
   healthPerWave: 5
-  healthPerLevel: 15
+  healthPerLevel: 30

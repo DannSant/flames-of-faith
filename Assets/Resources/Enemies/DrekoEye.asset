@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Enemies.EnemyData
   enemyType: 4
   enemyPrefab: {fileID: 1065387583721202172, guid: 16f21ce2e826fa948bd4e47063af937b, type: 3}
-  healthBase: 30
+  healthBase: 50
   damageBase: 2
   damagePerWave: 1
   damagePerLevel: 1
@@ -25,4 +25,4 @@ MonoBehaviour:
   projectileDamageBase: 2
   projectileDamagePerWave: 3
   healthPerWave: 5
-  healthPerLevel: 30
+  healthPerLevel: 60

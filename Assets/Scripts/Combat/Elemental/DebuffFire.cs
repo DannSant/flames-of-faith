@@ -1,18 +1,15 @@
 using Game.Misc;
-using UnityEngine;
 
 namespace Game.Combat.Elemental
 {
     public class DebuffFire : DebuffBase
     {
-        [SerializeField] private float tickInterval = 0.5f;
-
         private float tickTimer = 0f;
 
         protected override void Tick(float deltaTime)
         {
             tickTimer += deltaTime;
-            if (tickTimer >= tickInterval)
+            if (tickTimer >= data.TickInterval)
             {
                 tickTimer = 0f;
                 ApplyTickDamage();
@@ -31,9 +28,8 @@ namespace Game.Combat.Elemental
             enemyHealth.TakeDamage(new DamageRequest(finalDamage, WeaponClass.Magic, false));
         }
 
-        public override void Initialize(ElementalDebuffData data, float duration, float strength, int generation)
+        protected override void OnApplied()
         {
-            base.Initialize(data, duration, strength, generation);
             tickTimer = 0f;
         }
 

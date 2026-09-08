@@ -10,20 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2436316cca02bd649aa870b2c44f8d62, type: 3}
-  m_Name: FireDebuff
+  m_Name: BleedDebuff
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.ElementalDebuffData
-  elementalType: 1
-  baseDuration: 3
+  elementalType: 6
+  baseDuration: 12
   durationStatScale: 0.25
-  baseStrength: 3
-  strengthStatScale: 1
-  chanceToApply: 0.5
+  baseStrength: 1
+  strengthStatScale: 0.5
+  chanceToApply: 0.25
   tickInterval: 0.5
-  vfx: {fileID: 508358228207870394, guid: 9771c85cc49cb534b8ef6e04860875bd, type: 3}
+  vfx: {fileID: 4750923977209644162, guid: 62eca7d4c850eb44a9dfa8af34d17b49, type: 3}
   contactSpread:
-    enabled: 1
-    chance: 0.35
+    enabled: 0
+    chance: 0.5
     cooldown: 0.75
     maxGenerations: 3
     durationFalloff: 0.8
     strengthFalloff: 0.8
+  stacking:
+    enabled: 1
+    maxStacks: 5
+    refreshDurationOnStack: 0
+    burstDamagePerStack: 5
+    stackVfx: {fileID: 4750923977209644162, guid: 32d59b220a080fb43a2b7376fd4ba83e, type: 3}
+    stackVfxLifetime: 0.5

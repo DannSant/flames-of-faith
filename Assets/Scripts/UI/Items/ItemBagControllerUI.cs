@@ -127,7 +127,7 @@ namespace Game.UI.Items
 
             sellButton.onClick.AddListener(() =>
             {
-                Debug.Log($"Selling item: {item.EffectName} for {item.SellPrice} currency.");
+              
                 itemBag.RemoveEffectItem(item);
                 currencyWallet.AddCurrency(item.SellPrice);               
                 CheckIfItemsLeft();

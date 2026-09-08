@@ -10,29 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Ley Arrows
+  m_Name: Bloody Amulet
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: 21267774-d53f-447e-85ca-5dec3571ab96
-  icon: {fileID: 21300000, guid: b958b7863fa9b804a9b4207751ec0478, type: 3}
-  effectName: Ley Arrows
+  effectID: 416e66a7-736d-4b7f-a909-201a7c70e913
+  icon: {fileID: 21300000, guid: a1f3973ebc0c12342946f1806aa83aa8, type: 3}
+  effectName: Bloody Amulet
   scalingValue: 1
-  description: Arrows infused with Ley Energy. Inflict the debuff Energy to the target
+  description: Gives your weapon attacks a chance to inflict Bleed. Bleed causes
+    damage overtime and can stack. When the effect ends, a burst of damage is inflicted
+    to the target
   buyPrice: 50
-  sellPrice: 15
+  sellPrice: 10
   effectStatModifiers:
-  - stat: 9
-    value: 2
-    type: 0
-  - stat: 12
-    value: 2
-    type: 0
-  - stat: 10
-    value: 2
+  - stat: 19
+    value: 3
     type: 0
   - stat: 6
     value: -2
     type: 0
   behaviors:
-  - {fileID: 11400000, guid: beeef12f57ce23e43bf203e346cf4b36, type: 2}
+  - {fileID: 11400000, guid: 7d2f4a8c1e9b3054b8a7c2d6f1e05b39, type: 2}
   unlockedByDefault: 1
   quality: 2

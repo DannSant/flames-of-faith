@@ -18,12 +18,12 @@ MonoBehaviour:
   attackSpeedScale: 0.045
   weaponClass: 1
   rangeBase: 2
+  isRangeBased: 0
+  rangeScale: 0.2
   projectilePrefab: {fileID: 0}
   pierceAmount: 1
   knockbackForce: 4
   shouldApplyKnockback: 1
   graceGenerated: 0
-  elementalDebuffData: {fileID: 0}
+  elementalDebuffData: {fileID: 11400000, guid: dd8b6159c0b6baa45acdcfb4cd45253c, type: 2}
   projectileAmount: 16
-  isRangeBased: 0
-  rangeScale: 0.2

@@ -12,8 +12,11 @@ namespace Game.Combat.Elemental
         [SerializeField] private float strengthStatScale = 1f;
         [Range(0f, 1f)]
         [SerializeField] private float chanceToApply = 1f;
+        [Tooltip("Seconds between damage-over-time ticks, for debuffs that tick.")]
+        [SerializeField] private float tickInterval = 0.5f;
         [SerializeField] private GameObject vfx;
         [SerializeField] private DebuffContactSpreadData contactSpread = new DebuffContactSpreadData();
+        [SerializeField] private DebuffStackData stacking = new DebuffStackData();
 
         public ElementalType ElementalType => elementalType;
         public float BaseDuration => baseDuration;
@@ -21,8 +24,10 @@ namespace Game.Combat.Elemental
         public float BaseStrength => baseStrength;
         public float StrengthStatScale => strengthStatScale;
         public float ChanceToApply => chanceToApply;
+        public float TickInterval => tickInterval;
         public GameObject VFX => vfx;
         public DebuffContactSpreadData ContactSpread => contactSpread;
+        public DebuffStackData Stacking => stacking;
     }
 
 }

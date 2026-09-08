@@ -6,14 +6,24 @@ namespace Game.Combat.Elemental
     public class DebuffFrost : DebuffBase
     {
         private float hardLimitReduction = 0.8f; // max 80% slow
-        public override void Initialize(ElementalDebuffData data, float duration, float strength, int generation)
+        protected override void OnApplied()
         {
-            base.Initialize(data, duration, strength, generation);
+            ApplyModifiers();
+        }
 
+        protected override void OnReapplied(float newDuration)
+        {
+            base.OnReapplied(newDuration);
+            // Re-apply the modifiers: a fresh hit may carry a different strength.
+            ApplyModifiers();
+        }
+
+        private void ApplyModifiers()
+        {
             var behaviorController = GetComponent<BehaviorController>();
             if (behaviorController != null)
             {
-                float clampedStrength = Mathf.Min(strength, hardLimitReduction);              
+                float clampedStrength = Mathf.Min(strength, hardLimitReduction);
                 behaviorController.SetContextSpeedMultiplier(1f - clampedStrength);
             }
             var enemyHealth = GetComponent<EnemyHealth>();
@@ -21,7 +31,6 @@ namespace Game.Combat.Elemental
             {
                 enemyHealth.SetExtraDamageTakenPercentage(strength);
             }
-
         }
 
         public override void End()
