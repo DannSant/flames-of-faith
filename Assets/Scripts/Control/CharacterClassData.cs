@@ -1,3 +1,4 @@
+using Game.Effects;
 using Game.Progression;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -19,6 +20,14 @@ namespace Game.Control
         public StatType mainStat = StatType.MeleeDamage;
         [Tooltip("The player gains +1 to mainStat every N level-ups. Set to 1 for every level.")]
         public int levelsPerMainStatPoint = 1;
+
+        [Header("Dash Ability")]
+        public string dashName;
+        [TextArea] public string dashDescription;
+
+        [Header("Menu Display")]
+        [TextArea] public string classDescription;
+        public Effect startingItem;
     }
 
     public enum CharacterClass

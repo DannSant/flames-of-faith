@@ -36,7 +36,8 @@ namespace Game.Progression
             var abilityIcons = FindAnyObjectByType<IconCooldownDisplay>();
             if (abilityIcons!=null)
             {
-                abilityIcons.SetIcons(classData.abilityIcons[0], classData.abilityIcons[1]);
+                abilityIcons.SetIcons(classData.abilityIcons[0], classData.abilityIcons[1], classData.abilityIcons[2]);
+                abilityIcons.SetDashTooltip(classData.dashName, classData.dashDescription);
             }
         }
     }

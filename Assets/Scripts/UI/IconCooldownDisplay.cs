@@ -1,4 +1,5 @@
 using Game.Combat;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Game.Control;
@@ -9,9 +10,12 @@ namespace Game.UI
     {
         [SerializeField] private Image attackBackground;
         [SerializeField] private Image specialAttackBackground;
+        [SerializeField] private Image dashBackground;
         [SerializeField] private Image cooldownAttackBackground;
         [SerializeField] private Image cooldownSpecialAttackBackground;
         [SerializeField] private Image cooldownDashBackground;
+        [SerializeField] private TextMeshProUGUI dashChargesText;
+        [SerializeField] private AbilityIconTooltip dashTooltip;
 
         private WeaponManager weaponManager;
 
@@ -23,15 +27,12 @@ namespace Game.UI
                 weaponManager.OnAttackTimerUpdated += UpdateCooldownAttackDisplay;
                 weaponManager.OnSpecialAttackTimerUpdated += UpdateCooldownSpecialAttackDisplay;
             }
-            /*if(Dash.Instance != null)
-            {
-                Dash.Instance.OnDashTimerUpdated += UpdateCooldownDashDisplay;
-            }*/
-            var playerDash = PlayerManager.Instance.GetPlayerComponent<Dash>();
+            var playerDash = PlayerManager.Instance.GetPlayerComponent<DashBase>();
             if (playerDash != null)
             {
                 playerDash.OnDashTimerUpdated += UpdateCooldownDashDisplay;
-
+                playerDash.OnChargesUpdated += UpdateDashChargesDisplay;
+                UpdateDashChargesDisplay(playerDash.CurrentCharges, playerDash.MaxCharges);
             }
         }
 
@@ -42,11 +43,11 @@ namespace Game.UI
                 weaponManager.OnAttackTimerUpdated -= UpdateCooldownAttackDisplay;
                 weaponManager.OnSpecialAttackTimerUpdated -= UpdateCooldownSpecialAttackDisplay;
             }
-            var playerDash = PlayerManager.Instance.GetPlayerComponent<Dash>();
+            var playerDash = PlayerManager.Instance.GetPlayerComponent<DashBase>();
             if (playerDash != null)
             {
                 playerDash.OnDashTimerUpdated -= UpdateCooldownDashDisplay;
-
+                playerDash.OnChargesUpdated -= UpdateDashChargesDisplay;
             }
         }
 
@@ -68,17 +69,37 @@ namespace Game.UI
             cooldownDashBackground.fillAmount = fill;
         }
 
-        public void SetIcons(Sprite attackIcon, Sprite specialAttackIcon)
+        private void UpdateDashChargesDisplay(int current, int max)
+        {
+            if (dashChargesText == null) return;
+
+            bool showCharges = max > 1;
+            dashChargesText.gameObject.SetActive(showCharges);
+            if (showCharges)
+            {
+                dashChargesText.SetText($"{current}");
+            }
+        }
+
+        public void SetIcons(Sprite attackIcon, Sprite specialAttackIcon, Sprite dashIcon)
         {
             if (attackBackground != null)
             {
                 attackBackground.sprite = attackIcon;
-            }            
+            }
             if (specialAttackBackground != null)
             {
                 specialAttackBackground.sprite = specialAttackIcon;
-            }           
-           
+            }
+            if (dashBackground != null)
+            {
+                dashBackground.sprite = dashIcon;
+            }
+        }
+
+        public void SetDashTooltip(string title, string description)
+        {
+            dashTooltip?.SetTooltip(title, DamageTypeColorHelper.ColorizeMetaTags(description));
         }
     }
 }

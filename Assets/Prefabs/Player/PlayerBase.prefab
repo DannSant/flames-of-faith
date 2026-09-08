@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 3207512564547789242}
   - component: {fileID: 2164243721028737180}
   - component: {fileID: 2414452716380248719}
-  - component: {fileID: 6846231228422835459}
   - component: {fileID: 3109023086003309007}
   - component: {fileID: 5987711000833707507}
   - component: {fileID: 1851307640931800644}
@@ -457,20 +456,6 @@ MonoBehaviour:
   defaultMoveSpeed: 1
   baseMoveSpeed: 3.5
   baseMoveScale: 0.01
---- !u!114 &6846231228422835459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543883001522524048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b992408f0e7a8764d9b32b0d6fd5be73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultCooldown: 2
-  dashSpeed: 4
 --- !u!114 &3109023086003309007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +483,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invulnerabilityDuration: 0.5
+  armorEffectivenessConstant: 25
+  minDamagePercent: 0.15
   noDamage: 0
+  deathSFX: {fileID: 0}
 --- !u!114 &1851307640931800644
 MonoBehaviour:
   m_ObjectHideFlags: 0

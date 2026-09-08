@@ -1,5 +1,106 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1038054260044299398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839112623773261114}
+  - component: {fileID: 6680255798738491842}
+  - component: {fileID: 2904758571941983776}
+  m_Layer: 0
+  m_Name: DashHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &839112623773261114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038054260044299398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878718787057479802}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &6680255798738491842
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038054260044299398}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.21}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
+--- !u!114 &2904758571941983776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038054260044299398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  baseDamage: 2
+  weaponClass: 0
+  attackScale: 0.5
+  effectID: 
+  layerMaskName: Enemy
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1152
+  originType: 0
+  useTriggerEnter: 1
+  useTriggerStay: 0
+  tickInterval: 1
+  shouldStackDamage: 1
+  enablePierce: 0
+  pierceCount: 1
+  applyKnockback: 1
+  knockbackForce: 10
+  canTriggerLifesteal: 1
+  directElementalDebuffData: {fileID: 0}
 --- !u!1 &3880400851706861701
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,13 +798,41 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       insertIndex: 1
       addedObject: {fileID: 4589891650837819230}
-    m_AddedComponents: []
+    - targetCorrespondingSourceObject: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 839112623773261114}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6543883001522524048, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7331801417703818096}
   m_SourcePrefab: {fileID: 100100000, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
 --- !u!4 &1878718787057479802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
   m_PrefabInstance: {fileID: 8954117819987448128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2779812082305949392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6543883001522524048, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+  m_PrefabInstance: {fileID: 8954117819987448128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7331801417703818096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779812082305949392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577d3f830294b3a4d93e6b3918b11ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Control.WarriorDash
+  dashCooldownBase: 2
+  dashSpeed: 3
+  dashDuration: 0.2
+  maxCharges: 1
+  dashHitbox: {fileID: 1038054260044299398}
 --- !u!4 &2839436811405689589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6567618295629468597, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}

@@ -338,7 +338,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6567618295629468597, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5011863125021810619}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6543883001522524048, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8279705341352601106}
   m_SourcePrefab: {fileID: 100100000, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
 --- !u!114 &488839975680563868 stripped
 MonoBehaviour:
@@ -356,6 +359,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6567618295629468597, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
   m_PrefabInstance: {fileID: 4846639974642968440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1842591873529211112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6543883001522524048, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+  m_PrefabInstance: {fileID: 4846639974642968440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8279705341352601106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842591873529211112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c0d3da34bf47f4eaf70d7b6943bf90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Control.ArcherDash
+  dashCooldownBase: 2
+  dashSpeed: 3
+  dashDuration: 0.2
+  trapPrefab: {fileID: 100000, guid: 18248dcdaf98ac345b877b6b093a4a24, type: 3}
 --- !u!4 &2671583594282763842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}

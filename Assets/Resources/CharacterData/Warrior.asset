@@ -19,5 +19,20 @@ MonoBehaviour:
   abilityIcons:
   - {fileID: 21300000, guid: 95de7ebaf4e06d547b6c94707450d6f2, type: 3}
   - {fileID: 21300000, guid: e7e072706bb6f8f4097434493f40ddaf, type: 3}
+  - {fileID: 21300000, guid: fabe5c1b5ec83234abb7bc20bfc8205a, type: 3}
   mainStat: 1
   levelsPerMainStatPoint: 1
+  dashName: Charge Dash
+  dashDescription: 'A heavy Dash that pushes away enemys and deals a small amount
+    of _melee_damage_
+
+    Player is invulnerable while dashing'
+  classDescription: 'A fierce warrior trained in the Abidor Institute.
+
+    Main
+    stat: _melee_damage_
+
+    Dash skill: Charge Dash. A heavy Dash that pushes away
+    enemys and deals a small amount of _melee_damage_ Player is invulnerable while
+    dashing'
+  startingItem: {fileID: 11400000, guid: 448a3ecdad82052408cc1dd84906808c, type: 2}

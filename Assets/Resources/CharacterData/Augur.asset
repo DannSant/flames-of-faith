@@ -19,5 +19,24 @@ MonoBehaviour:
   abilityIcons:
   - {fileID: 21300000, guid: 3475591a070c0af44812fbc0a4c52450, type: 3}
   - {fileID: 21300000, guid: 6cbb867442c968a44961e5dae369e7de, type: 3}
+  - {fileID: 21300000, guid: c578f422b4abf6d478bf63c50d97fd85, type: 3}
   mainStat: 12
   levelsPerMainStatPoint: 1
+  dashName: Flame Dash
+  dashDescription: 'A Dash skill with two charges. Allows you to pass through the
+    enemies and leave a trail of flames behind that deal _magic_damage_.
+
+    Duration
+    of the flames increases with the stat Skill Duration'
+  classDescription: 'One of the last remainings of the White Church of Ashemdrek.
+
+    Main
+    stat: _magic_damage_
+
+    Dash skill: Flame Dash. A Dash skill with two charges.
+    Allows you to pass through the enemies and leave a trail of flames behind that
+    deal _magic_damage_.
+
+    Duration of the flames increases with the stat Skill
+    Duration'
+  startingItem: {fileID: 11400000, guid: 139c5f168ac7e434583e6252795794cc, type: 2}

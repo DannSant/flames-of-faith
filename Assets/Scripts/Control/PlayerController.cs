@@ -18,7 +18,7 @@ namespace Game.Control
 
         private float moveSpeed = 1f;
 
-        private Dash playerDash;
+        private DashBase playerDash;
         private CharacterVisual characterVisual;
         private PlayerProgression playerProgression;
         private PlayerInputHandler inputHandler;
@@ -45,7 +45,7 @@ namespace Game.Control
             knockback = GetComponent<Knockback>();
             playerHealth = GetComponent<PlayerHealth>();
             characterVisual = GetComponentInChildren<CharacterVisual>();
-            playerDash = GetComponent<Dash>();
+            playerDash = GetComponent<DashBase>();
             DashMultiplier = 1;
             disabledInput = false;
 
