@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
   baseDamage: 2
   weaponClass: 0
-  attackScale: 0.5
+  attackScale: 1
   effectID: 
   layerMaskName: Enemy
   enemyLayerMask:
@@ -828,9 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577d3f830294b3a4d93e6b3918b11ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Control.WarriorDash
-  dashCooldownBase: 2
+  dashCooldownBase: 4
   dashSpeed: 3
-  dashDuration: 0.2
+  dashDuration: 0.3
   maxCharges: 1
   dashHitbox: {fileID: 1038054260044299398}
 --- !u!4 &2839436811405689589 stripped

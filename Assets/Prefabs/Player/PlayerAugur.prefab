@@ -377,9 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d126300f14742645a54cf5237194631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Control.AugurDash
-  dashCooldownBase: 2
+  dashCooldownBase: 3
   dashSpeed: 3
-  dashDuration: 0.2
+  dashDuration: 0.3
   maxCharges: 2
   passThroughDetectionRadius: 3
   enemyLayerMask:

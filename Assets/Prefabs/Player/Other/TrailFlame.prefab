@@ -112,7 +112,7 @@ MonoBehaviour:
   applyKnockback: 0
   knockbackForce: 0
   canTriggerLifesteal: 1
-  directElementalDebuffData: {fileID: 0}
+  directElementalDebuffData: {fileID: 11400000, guid: d14759c9cd789d541b8813542a28a43f, type: 2}
 --- !u!114 &8226258143542772387
 MonoBehaviour:
   m_ObjectHideFlags: 0
