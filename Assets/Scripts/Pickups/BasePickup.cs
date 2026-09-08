@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Pickups
 {
-    public abstract class BasePickup : MonoBehaviour, ISceneCleanupHandler
+    public abstract class BasePickup : MonoBehaviour, ISceneCleanupHandler, IWorldPickup
     {
         public abstract void OnPickup(GameObject picker);
         public abstract bool CanBePickedUp(GameObject picker);

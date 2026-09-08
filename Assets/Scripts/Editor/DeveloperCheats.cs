@@ -369,6 +369,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Bloody Amulet")]
+    public static void GiveBloodyAmulet()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "416e66a7-736d-4b7f-a909-201a7c70e913";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Items/Ley Arrows")]
     public static void GiveLeyArrows()
     {

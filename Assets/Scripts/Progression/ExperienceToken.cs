@@ -1,12 +1,13 @@
 using Game.Common;
 using Game.Control;
+using Game.Pickups;
 using Game.Scene;
 using Game.Waves;
 using UnityEngine;
 
 namespace Game.Progression
 {
-    public class ExperienceToken : MonoBehaviour, ISceneCleanupHandler
+    public class ExperienceToken : MonoBehaviour, ISceneCleanupHandler, IWorldPickup
     {
        
         [SerializeField] private int testExtraExperience = 8;
