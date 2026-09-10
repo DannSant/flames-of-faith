@@ -393,6 +393,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Ley Fracture")]
+    public static void GiveLeyFracture()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "806ff2a0-88d4-4ee5-aeaa-c2e86c9dc72b";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]
     public static void SpawnFlameShooter()
     {

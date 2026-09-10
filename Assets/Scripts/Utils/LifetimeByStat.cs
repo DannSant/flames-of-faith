@@ -8,6 +8,7 @@ namespace Game.Utils
     {
         [Header("Lifetime Settings")]
         [SerializeField] private float baseDurationTime = 3f;
+        [SerializeField] private float durationScalingFactor = 1f;
         [SerializeField] private StatType durationStat = StatType.SkillDuration;
 
         private void Start()
@@ -21,7 +22,7 @@ namespace Game.Utils
             }
 
             float extra = progression.GetStatTotal(durationStat);
-            float totalDuration = baseDurationTime + extra;
+            float totalDuration = baseDurationTime + (extra * durationScalingFactor);
 
             Destroy(gameObject, totalDuration);
         }
