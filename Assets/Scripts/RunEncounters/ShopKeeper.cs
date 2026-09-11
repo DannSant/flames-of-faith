@@ -57,7 +57,9 @@ namespace Game.RunEncounters
 
         private void BuildItemList()
         {
-            var availableEffects = EffectsDatabaseProvider.Instance.GetAvailableEffects();
+            var availableEffects = EffectsDatabaseProvider.Instance.GetAvailableEffects()
+                .Where(e => e.AvailableForShop)
+                .ToList();
 
             int luck = playerProgression != null ? playerProgression.GetStatTotal(StatType.Luck) : 0;
 

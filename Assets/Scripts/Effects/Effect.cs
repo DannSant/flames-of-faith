@@ -27,6 +27,7 @@ namespace Game.Effects{
         [SerializeField] private List<EffectBehavior> behaviors = new();
         [SerializeField] private bool unlockedByDefault = false;
         [SerializeField] private EffectQuality quality = EffectQuality.Common;
+        [SerializeField] private bool availableForShop = true;
 
         protected EffectStore ownerStore;
 
@@ -42,6 +43,7 @@ namespace Game.Effects{
         public List<EffectBehavior> Behaviors { get => behaviors; set => behaviors = value; }
         public bool UnlockedByDefault { get => unlockedByDefault; set => unlockedByDefault = value; }
         public EffectQuality Quality { get => quality; set => quality = value; }
+        public bool AvailableForShop { get => availableForShop; set => availableForShop = value; }
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -95,6 +97,9 @@ namespace Game.Effects{
             SellPrice = row.priceSell;
             UnlockedByDefault = row.unlockedByDefault == 1 ? true : false;
             Quality = (EffectQuality)row.quality;
+            // null means the row predates this column - treat pre-existing effects as
+            // available for shop so they don't silently vanish from it.
+            AvailableForShop = !row.availableForShop.HasValue || row.availableForShop.Value == 1;
 
             // Load icon
             if (!string.IsNullOrEmpty(row.iconKey))

@@ -35,6 +35,7 @@ namespace Game.Database
             effect.BuyPrice = row.priceBuy;
             effect.SellPrice = row.priceSell;
             effect.Quality = (EffectQuality)row.quality;
+            effect.AvailableForShop = !row.availableForShop.HasValue || row.availableForShop.Value == 1;
 
             // Load icon
             if (!string.IsNullOrEmpty(row.iconKey))

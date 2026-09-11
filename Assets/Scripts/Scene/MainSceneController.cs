@@ -226,7 +226,7 @@ namespace Game.Scene
 
         private IEnumerator RetryCurrentRunRoutine()
         { 
-             Debug.Log($"RetryCurrentRunRoutine");
+            // Debug.Log($"RetryCurrentRunRoutine");
             // Mark the session as a new run so future state resets correctly
             GameSession.Instance.SetIsNewRun(true);
             GameSession.Instance.Initialize();

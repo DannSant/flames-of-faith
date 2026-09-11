@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
   baseDurationTime: 3
+  durationScalingFactor: 1
   durationStat: 16
 --- !u!114 &9190267972364934588
 MonoBehaviour:
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
   baseDamage: 1
-  weaponClass: 2
+  weaponClass: 3
   attackScale: 1
   effectID: 
   layerMaskName: Enemy

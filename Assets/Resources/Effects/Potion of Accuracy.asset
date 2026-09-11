@@ -25,9 +25,10 @@ MonoBehaviour:
   - stat: 10
     value: 1
     type: 0
-  - stat: 10
+  - stat: 9
     value: 1
     type: 0
   behaviors: []
   unlockedByDefault: 1
   quality: 0
+  availableForShop: 1

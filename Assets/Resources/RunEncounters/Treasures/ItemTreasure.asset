@@ -31,3 +31,59 @@ MonoBehaviour:
     maxCurrency: 0
     minExperience: 0
     maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: 430f514c9ddcbc34fa5e5057e7974bff, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: ab9dc22facff247418b86fd0f2051d0f, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: b47de3bf31797af41a96bf4d79722a9e, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: 999bcadec92e0b74ba63acf0f5a3d74b, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: 24deba1b15afc6b498f32fc3f519c5ae, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: 29f74251dba92e140a3c130e6dbefd0b, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: 11efb14754fda7c43a47350eb602165b, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0

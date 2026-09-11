@@ -52,6 +52,16 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 
 Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combines weapon class, active `Effect`/`EffectBehavior` modifiers via `IEffectMultiplier`, and player progression stats) → applied to `PlayerHealth`/`EnemyHealth`. Projectiles separate "what it is" (`ProjectileBase`, damage/effect) from "how it moves" (`ProjectileMovementBase` subclasses: linear/arc/homing/bounce/delayed-homing) — extend by composing a movement strategy rather than a new projectile subclass per behavior.
 
+### Effect data pipeline — every field change touches 5 places
+
+`Effect` (`Assets/Scripts/Effects/Effect.cs`) is authored in a SQLite database (via `Tools/Effects/Effect Database`), not hand-edited as ScriptableObjects — the `.asset` files under `Assets/Resources/Effects/` are generated output, not source of truth. Whenever a field is added/changed/removed on `Effect`, update all of these together or the DB and the runtime SOs silently drift apart:
+
+1. **`EffectRow`** (`Assets/Scripts/Database/EffectRow.cs`) — the SQLite row shape. Prefer a nullable type (e.g. `int?`) for a new column rather than a non-nullable value type: `SQLiteConnection.CreateTable` auto-migrates missing columns onto the existing table via `ALTER TABLE ADD COLUMN` with no default value, so pre-existing rows read back as SQLite `NULL` for that column — assigning `null` into a non-nullable value-type property via this ORM's reflection-based `SetValue` throws at load time. Treat `null` as "column didn't exist yet" and pick whatever meaning is backward-compatible (e.g. `availableForShop`'s `null` means "true", so old effects don't silently disappear from the shop).
+2. **`Effect`** — add the `[SerializeField]` + property, and map it in `InitializeFromData(EffectRow row)`.
+3. **`EffectLoader.CreateEffectSO(EffectRow row)`** (`Assets/Scripts/Database/EffectLoader.cs`) — a second, separate row→SO mapper used by the DB window's "Test Load" button; easy to update `Effect.InitializeFromData` and forget this one exists.
+4. **`EffectLoader.GenerateAndSaveAllEffects`** — the actual DB→`.asset` generator (menu `Tools/Effects/Generate ScriptableObjects`), run after editing rows so the generated SOs pick up the change; it calls `InitializeFromData` under the hood, so it needs no edits itself, but you must re-run it.
+5. **`EffectDatabaseWindow`** (`Assets/Scripts/Editor/Database/EffectDatabaseWindow.cs`) — the custom `EditorWindow` (`Tools/Effects/Effect Database`) for authoring rows; add a control for the new field in `DrawEditPanel`, mirroring its existing `unlockedByDefault`/`quality` fields.
+
 ## Coding conventions
 
 - Every script declares an explicit `namespace Game.<Area> { ... }` matching its folder.

@@ -20,6 +20,12 @@ namespace Game.Database
 
         public int quality { get; set; }  // EffectQuality: 0=Common, 1=Uncommon, 2=Rare, 3=Heroic, 4=Epic, 5=Legendary
 
+        // 0 = false, 1 = true, null = column didn't exist yet on this row (legacy data,
+        // treated as true/available so pre-existing effects don't vanish from the shop).
+        // Nullable so SQLite migration adding this column to an existing table doesn't
+        // try to write a null into a non-nullable int and throw on load.
+        public int? availableForShop { get; set; }
+
         // JSON with stat modifiers
         public string statModifiersJson { get; set; }
 
