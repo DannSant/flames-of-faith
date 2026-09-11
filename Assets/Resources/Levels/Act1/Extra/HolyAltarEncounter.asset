@@ -18,6 +18,7 @@ MonoBehaviour:
   type: 3
   corruptionIncrease: 0
   preventHealthRegen: 1
+  preventAttacks: 1
   allowPause: 0
   debugShouldPrintObjectCountReport: 0
   MusicClip: {fileID: 0}

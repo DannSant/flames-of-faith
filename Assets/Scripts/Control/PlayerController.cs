@@ -149,10 +149,23 @@ namespace Game.Control
             {
                 return;
             }
+            if (IsAttacksPreventedByLevel())
+            {
+                return;
+            }
             if (attackButtonDown && CanAttack())
             {
                 Attack();
             }
+        }
+
+        // Some level types (shop, campfire, event, treasure...) have no combat and don't
+        // pause the game, so clicking their UI can otherwise bleed through as an attack input.
+        private bool IsAttacksPreventedByLevel()
+        {
+            return GameSession.Instance != null
+                && GameSession.Instance.currentLevel != null
+                && GameSession.Instance.currentLevel.preventAttacks;
         }
 
         private void Attack()
@@ -171,6 +184,10 @@ namespace Game.Control
                 return;
             }
             if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
+            {
+                return;
+            }
+            if (IsAttacksPreventedByLevel())
             {
                 return;
             }

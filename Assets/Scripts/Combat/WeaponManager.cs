@@ -5,6 +5,7 @@ using System;
 using Game.Utils;
 using Game.Waves;
 using Game.GameSettings;
+using Game.Scene;
 namespace Game.Combat
 {
     public class WeaponManager :MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
@@ -55,6 +56,12 @@ namespace Game.Combat
                 return;
             }
             if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
+            {
+                return;
+            }
+            // Some level types (shop, campfire, event, treasure...) have no combat and
+            // don't pause the game, so this blocks auto-attack there too.
+            if (GameSession.Instance != null && GameSession.Instance.currentLevel != null && GameSession.Instance.currentLevel.preventAttacks)
             {
                 return;
             }

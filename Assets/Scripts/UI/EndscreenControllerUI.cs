@@ -1,3 +1,4 @@
+using Game.GameSettings;
 using Game.Waves;
 using UnityEngine;
 
@@ -28,7 +29,13 @@ namespace Game.UI
         private void ShowEndScreen()
         {
             endScreenPanel.SetActive(true);
-            Time.timeScale = 0f; // Pause the game
+            // Route through PauseManager (rather than setting Time.timeScale directly) so
+            // PauseManager.IsPaused reflects it too - otherwise the player can still rotate
+            // and attack behind the end screen, since Update() keeps running at timeScale 0.
+            if (PauseManager.Instance != null)
+            {
+                PauseManager.Instance.SetPause(true);
+            }
         }
     }
 
