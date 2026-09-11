@@ -83,7 +83,7 @@ namespace Game.UI
             TogglePanel(true);
             ShowCurrentChoice();
             PauseManager.Instance.SetPause(true); // Pause the game when showing upgrade choices
-            AudioManager.Instance.SetMusicVolume(0.2f); // Lower music volume during upgrade selection
+            AudioManager.Instance.SetLowVolume(); // Lower music volume during upgrade selection
         }
 
         private void ShowCurrentChoice()

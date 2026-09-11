@@ -1,10 +1,12 @@
 using Game.Control;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Game.Level
 {
+    [Obsolete("Use MainSceneController instead.")]
     public class NodeTransitioner : MonoBehaviour
     {
         [SerializeField] private float timeUntilExit = 5f;

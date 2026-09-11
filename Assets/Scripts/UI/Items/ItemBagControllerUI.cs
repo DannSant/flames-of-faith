@@ -62,7 +62,7 @@ namespace Game.UI.Items
         {
             //Pause the game and Lower music volume
             PauseManager.Instance.SetPause(true); 
-            AudioManager.Instance.SetMusicVolume(0.2f);  
+            AudioManager.Instance.SetLowVolume();  
 
             // Clear existing UI
             ClearUI();

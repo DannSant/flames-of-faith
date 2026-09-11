@@ -1,10 +1,12 @@
 using Game.Common;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game.Level
 {
+    [Obsolete("Use MainSceneController instead.")]
     public class UIFade : Singleton<UIFade>
     {
         [SerializeField] private Image fadeImage;

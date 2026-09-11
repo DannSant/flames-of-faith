@@ -153,7 +153,7 @@ namespace Game.Audio
             }
         }
 
-        private void SetLowVolume()
+        public void SetLowVolume()
         {
             float duckRatio = defaultMusicLowVolume / defaultMusicVolume;
             musicSource.volume = musicVolume * masterVolume * duckRatio;
@@ -191,7 +191,7 @@ namespace Game.Audio
 
         public void ResetMusicVolume()
         {
-            SetMusicVolume(defaultMusicVolume);
+            SetNormalVolume();
         }
     }
 

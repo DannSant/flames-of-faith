@@ -1,3 +1,4 @@
+using System;
 using Game.Common;
 using Game.Control;
 using Game.Overworld;
@@ -8,6 +9,7 @@ using UnityEngine;
 
 namespace Game.Level
 {
+    [Obsolete("Use MainSceneController instead.")]
     public class CameraController : Singleton<CameraController>, ISceneCleanupHandler
     {
         private CinemachineCamera cinemachineCamera;
