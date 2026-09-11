@@ -7,6 +7,7 @@ namespace Game.GameSettings
     {
         public event System.Action<bool> onPauseToggled;
 
+        public bool IsPaused { get; private set; }
 
         protected override void Awake()
         {
@@ -15,6 +16,8 @@ namespace Game.GameSettings
 
         public void SetPause(bool isPaused)
         {
+            IsPaused = isPaused;
+
             // Notify subscribers about the pause state change
             onPauseToggled?.Invoke(isPaused);
 

@@ -4,6 +4,7 @@ using Game.Progression;
 using Game.Scene;
 using Game.Utils;
 using Game.Waves;
+using Game.GameSettings;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -101,6 +102,10 @@ namespace Game.Control
                 return;
             }
             if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
+            if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
             {
                 return;
             }

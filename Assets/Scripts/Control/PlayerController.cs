@@ -8,6 +8,7 @@ using Game.Combat;
 using Game.Saving;
 using Game.Utils;
 using Game.Waves;
+using Game.GameSettings;
 namespace Game.Control
 {
     public class PlayerController : MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady, IMapComponentDisabler
@@ -87,7 +88,9 @@ namespace Game.Control
         {
             if (playerHealth.IsDead()) return;
             if (disabledInput) {return;}
-            
+            // Update() still runs while Time.timeScale is 0, so pause must be checked
+            // explicitly - otherwise mouse-look keeps working while everything else freezes.
+            if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
             MovementInput();
             AttackInput();
@@ -167,6 +170,10 @@ namespace Game.Control
             {
                 return;
             }
+            if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
+            {
+                return;
+            }
             /*if (characterVisual.IsAttackAnimationPlaying)
             {
                 return; // Prevent special attack if normal attack animation is playing
@@ -205,6 +212,10 @@ namespace Game.Control
 
         private void AdjustPlayerFacingDirection()
         {
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            {
+                return;
+            }
             if (playerDash.isDashActive()) return;
             if (weaponManager != null && weaponManager.IsAutoAttackEnabled)
             {

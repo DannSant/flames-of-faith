@@ -48,13 +48,22 @@ namespace Game.Waves
 
             // Play cleanse animation
             var playerVisual = PlayerManager.Instance.GetPlayerChildComponent<CharacterVisual>();
+            float cleanseAnimationDuration = 1.7f; // Fallback if the duration can't be read from the clip
             if (playerVisual != null)
             {
                 playerVisual.PlayCleanseAnimation();
+
+                // Each class's Cleanse clip can have a different length, so read it
+                // dynamically instead of assuming a single shared duration
+                var duration = playerVisual.GetCleanseAnimationDuration();
+                if (duration > 0f)
+                {
+                    cleanseAnimationDuration = duration;
+                }
             }
 
-            // Wait for a short duration to allow the animation to play
-            yield return new WaitForSeconds(1.7f);
+            // Wait for the animation to finish playing
+            yield return new WaitForSeconds(cleanseAnimationDuration);
 
             // Reduce grace when wave ends
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();

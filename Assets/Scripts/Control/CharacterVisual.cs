@@ -146,6 +146,23 @@ namespace Game.Control
             animator.SetTrigger("Cleanse");
         }
 
+        // Each class has its own Cleanse clip (currently all 22 frames / ~1.83s, but
+        // that isn't guaranteed to stay true), so callers should wait this long rather
+        // than a shared hardcoded duration.
+        public float GetCleanseAnimationDuration()
+        {
+            if (animator == null || animator.runtimeAnimatorController == null) return 0f;
+
+            foreach (var clip in animator.runtimeAnimatorController.animationClips)
+            {
+                if (clip.name == "Cleanse")
+                {
+                    return clip.length;
+                }
+            }
+            return 0f;
+        }
+
         public void PlayAttackAnimation()
         {
             IsAttackAnimationPlaying = true;
