@@ -22,8 +22,13 @@ namespace Game.Control
         private float flashTimer;
         private bool isAttackAnimationPlaying = false;
         private bool isSpecialAttackAnimationPlaying = false;
+        private Vector2 facingDirection = Vector2.right;
 
         public CharacterClassData CharacterData => characterData;
+        // Last non-zero direction passed to SetFacingDirection, regardless of source
+        // (mouse today, potentially a gamepad look/right-stick later) - lets other
+        // systems (e.g. dash) reuse "the direction the player is looking" generically.
+        public Vector2 FacingDirection => facingDirection;
         public bool IsAttackAnimationPlaying { get { return isAttackAnimationPlaying; } set { isAttackAnimationPlaying = value; } }
         public bool IsSpecialAttackAnimationPlaying { get { return isSpecialAttackAnimationPlaying; } set { isSpecialAttackAnimationPlaying = value; } }
 
@@ -96,6 +101,10 @@ namespace Game.Control
 
         public void SetFacingDirection(Vector2 facingDirection)
         {
+            if (facingDirection.sqrMagnitude > 0.0001f)
+            {
+                this.facingDirection = facingDirection.normalized;
+            }
             animator.SetFloat("DirectionX", facingDirection.x);
             animator.SetFloat("DirectionY", facingDirection.y);
         }

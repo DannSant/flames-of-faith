@@ -33,9 +33,14 @@ namespace Game.Control
         protected UpdateTimer dashCooldownTimer;
 
         protected int currentCharges;
+        private Vector2 dashDirection;
 
         public int MaxCharges => maxCharges;
         public int CurrentCharges => currentCharges;
+        // Direction captured once when the dash starts: the current move input if any,
+        // otherwise wherever the player is currently facing (mouse today, potentially a
+        // gamepad look direction later) - so dashing without a move input doesn't dash in place.
+        public Vector2 DashDirection => dashDirection;
 
         private Action<InputAction.CallbackContext> dashInputCallback;
 
@@ -118,6 +123,9 @@ namespace Game.Control
                 return;
             }
 
+            Vector2 moveInput = inputHandler.Player.Move.ReadValue<Vector2>();
+            dashDirection = moveInput.sqrMagnitude > 0.0001f ? moveInput.normalized : characterVisual.FacingDirection;
+
             currentCharges--;
             OnChargesUpdated?.Invoke(currentCharges, maxCharges);
             dashUpdateTimer.StartEvent();
@@ -177,7 +185,7 @@ namespace Game.Control
         {
             if (dashUpdateTimer.GetIsEventActive())
             {
-                characterVisual.SetFacingDirection(inputHandler.Player.Move.ReadValue<Vector2>());
+                characterVisual.SetFacingDirection(dashDirection);
             }
         }
 

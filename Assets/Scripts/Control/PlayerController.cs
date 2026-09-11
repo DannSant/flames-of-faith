@@ -207,7 +207,12 @@ namespace Game.Control
                 return;
             }
             if (knockback.IsKnockbacked) return; // Prevent input during knockback
-            rb.MovePosition(rb.position + movement * (CalculateMoveSpeed() * Time.fixedDeltaTime));
+
+            // While dashing, move along the direction captured when the dash started
+            // rather than the live move input - otherwise dashing without holding a
+            // movement key would dash in place.
+            Vector2 moveDirection = playerDash.isDashActive() ? playerDash.DashDirection : movement;
+            rb.MovePosition(rb.position + moveDirection * (CalculateMoveSpeed() * Time.fixedDeltaTime));
         }
 
         private void AdjustPlayerFacingDirection()
