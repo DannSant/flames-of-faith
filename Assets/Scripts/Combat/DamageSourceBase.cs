@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Game.Combat
 {
-    public class DamageSourceBase : MonoBehaviour, IEffectMultiplier
+    public class DamageSourceBase : MonoBehaviour, IEffectMultiplier, IDamageDealtNotifier
     {
         [Header("Damage")]
         [SerializeField] private int baseDamage = 5;
@@ -56,6 +56,11 @@ namespace Game.Combat
         private WeaponData weaponData;
         
         public DamageOriginType OriginType => originType;
+
+        // Exposed so sibling components that propagate this hit (e.g. AreaDamageOnHit) stay in
+        // sync with it instead of duplicating the serialized fields on their own inspector.
+        public WeaponClass WeaponClass => weaponClass;
+        public bool CanTriggerLifesteal => canTriggerLifesteal;
 
         // In case something external wants to know when we dealt damage
         public event Action<float, GameObject> OnDamageDealtEvent;
@@ -134,7 +139,7 @@ namespace Game.Combat
                 OnDamageDealtEvent?.Invoke(totalDamage, collision.gameObject);
 
                 // Elemental Debuff (optional)
-                TryApplyElementalDebuff(collision);
+                TryApplyElementalDebuff(collision.gameObject);
             }
 
             // Knockback (optional)
@@ -162,11 +167,19 @@ namespace Game.Combat
             }
         }
 
-        private void TryApplyElementalDebuff(Collider2D collision)
+        /// <summary>
+        /// Applies this source's on-hit elemental debuffs to a target it did not hit directly.
+        /// Used by sibling components that propagate the hit (e.g. <see cref="AreaDamageOnHit"/>)
+        /// so they don't have to re-implement the weapon/effect/direct debuff lookups.
+        /// </summary>
+        public void ApplyOnHitEffectsTo(GameObject target) => TryApplyElementalDebuff(target);
+
+        private void TryApplyElementalDebuff(GameObject target)
         {
+            if (target == null) return;
 
             //Weapon debuff check
-            var debuffHandler = collision.GetComponent<DebuffHandler>();
+            var debuffHandler = target.GetComponent<DebuffHandler>();
             if (debuffHandler == null) return;
 
             if (weaponData!=null && weaponData.elementalDebuffData!= null && weaponData.elementalDebuffData.ElementalType != ElementalType.None)

@@ -378,7 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Control.ArcherDash
   dashCooldownBase: 1.5
   dashSpeed: 3
-  dashDuration: 0.1
+  dashDuration: 0.15
   maxCharges: 1
   trapPrefab: {fileID: 100000, guid: 18248dcdaf98ac345b877b6b093a4a24, type: 3}
 --- !u!4 &2671583594282763842 stripped

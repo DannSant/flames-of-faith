@@ -34,7 +34,29 @@ namespace Game.AI.Behaviors
 
             state.isShooting = true;
             context.isShooting = true;
-            host.StartCoroutine(ShootRoutine(context, state));
+            state.shootRoutine = host.StartCoroutine(ShootRoutine(context, state));
+        }
+
+        public override void OnStunStateChanged(BehaviorContext context, bool isStunned)
+        {
+            if (!isStunned) return;
+
+            var state = context.GetState<MoveShootCycleState>(sharedStateGroup);
+
+            if (state.shootRoutine != null)
+            {
+                var host = context.enemyTransform.GetComponent<BehaviorController>();
+                if (host != null)
+                {
+                    host.StopCoroutine(state.shootRoutine);
+                }
+            }
+
+            // Reset explicitly rather than trusting the routine's finally block to run when the
+            // coroutine is stopped. If it didn't, isShooting would stick true and Tick would
+            // early-out forever, permanently locking this enemy out of shooting from one stun.
+            state.ResetCycle();
+            context.isShooting = false;
         }
 
         private IEnumerator ShootRoutine(BehaviorContext context, MoveShootCycleState state)

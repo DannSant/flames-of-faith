@@ -8,6 +8,14 @@ namespace Game.AI.Behaviors
     {
         public virtual void Initialize(BehaviorContext ctx) { }
 
+        /// <summary>
+        /// Called on every behavior when the enemy is stunned or recovers. Behaviors that start
+        /// something the animator normally finishes (a melee hitbox, a shot burst) must cancel it
+        /// here: a stun freezes the animator, so the animation event that would have cleaned up
+        /// never arrives.
+        /// </summary>
+        public virtual void OnStunStateChanged(BehaviorContext ctx, bool isStunned) { }
+
         protected int GetDamageAmount(BehaviorContext context)
         {
             return EnemyDamageCalculator.Calculate(

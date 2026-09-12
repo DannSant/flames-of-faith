@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7104703125509277119}
   - component: {fileID: -8540169653406218948}
   - component: {fileID: -1800832208903587473}
+  - component: {fileID: 3345317890817980593}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Untagged
@@ -41,6 +42,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 876196344214665086}
+  - {fileID: 2385011330199383940}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8526461644135740295
@@ -218,6 +220,7 @@ MonoBehaviour:
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   shouldSpawnDamageNumbers: 1
+  shouldDieOnTouchingAltar: 0
 --- !u!114 &5236421020208634294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +272,9 @@ MonoBehaviour:
     weight: 0.1
   - pickupPrefab: {fileID: 2148069401913672984, guid: 0fcfaddd5f19ea048926abd99c8a0833, type: 3}
     weight: 0.1
+  occupiedCheckRadius: 0.5
+  scatterRadius: 1
+  maxPlacementAttempts: 3
 --- !u!114 &-8540169653406218948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +300,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90f7ff6062b904479c733b5cbe10ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Elemental.DebuffHandler
+--- !u!114 &3345317890817980593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917486536579394036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f9a5c63d7bfef4791fccdcb80862ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.StunHandler
+  stunVfxPrefab: {fileID: 4750923977209644162, guid: 9896a581e237b3c44bf6fcd095b77dc2, type: 3}
+  stunVfxAnchor: {fileID: 2385011330199383940}
+  freezeAnimator: 1
+  blockContactDamageWhileStunned: 0
 --- !u!1 &3015610524819291867
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,3 +707,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &8695449114782658989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2385011330199383940}
+  m_Layer: 7
+  m_Name: StunVFXSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2385011330199383940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8695449114782658989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2715067817682413358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

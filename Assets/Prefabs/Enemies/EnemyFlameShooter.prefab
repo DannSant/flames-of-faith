@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFlameShooter
       objectReference: {fileID: 0}
+    - target: {fileID: 2385011330199383940, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.777
+      objectReference: {fileID: 0}
     - target: {fileID: 2715067817682413358, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

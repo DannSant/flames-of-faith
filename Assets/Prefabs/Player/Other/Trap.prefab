@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 739926376318044966}
   - component: {fileID: 972515622795459112}
   - component: {fileID: -3641013413717535556}
+  - component: {fileID: 4790444909268210794}
+  - component: {fileID: 4946063468544176235}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -224,6 +226,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5401637a4ffd0fc44b05ebe6a12c6d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
-  baseDurationTime: 3
-  durationScalingFactor: 1
+  baseDurationTime: 5
+  durationScalingFactor: 2
   durationStat: 16
+--- !u!114 &4790444909268210794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9112fdc8fda0d74d99038ccd9b5bf48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.ApplyStunOnDamage
+  stunDuration: 2
+  stunAreaDamageTargets: 1
+--- !u!114 &4946063468544176235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cffdf55893ad2c4ab50cf2f5e1430de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.AreaDamageOnHit
+  radius: 1.11
+  origin: 0
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1152
+  damageMultiplier: 0.5
+  applyDebuffsToSecondaryTargets: 0
+  allowLifestealOnSecondaryTargets: 0
+  oneShot: 1
+  areaVfxPrefab: {fileID: 0}
+  areaVfxLifetime: 1

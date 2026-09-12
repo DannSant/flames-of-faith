@@ -66,6 +66,22 @@ namespace Game.AI.Behaviors
             }
         }
 
+        public override void OnStunStateChanged(BehaviorContext context, bool isStunned)
+        {
+            if (!isStunned) return;
+
+            // The frozen animator will never deliver the end event that normally disables the
+            // hitbox, so an enemy stunned mid-swing would keep a live melee collider for the whole
+            // stun. isAttacking is deliberately left set: when the stun ends the animation resumes
+            // and its own end event clears it, so the interrupted swing finishes rather than
+            // restarting from the top.
+            var state = context.GetState<MeleeAttackerBehaviorState>(this);
+            if (state.meleeCollider != null)
+            {
+                state.meleeCollider.enabled = false;
+            }
+        }
+
         private void Attack(EnemyAnimationController animator, MeleeAttackerBehaviorState state )
         {
             state.isAttacking = true;
