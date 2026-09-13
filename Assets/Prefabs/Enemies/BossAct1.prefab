@@ -775,6 +775,7 @@ MonoBehaviour:
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   shouldSpawnDamageNumbers: 1
+  targetingBodyRadius: 2
   shouldDieOnTouchingAltar: 0
 --- !u!1 &7838305054356647481
 GameObject:

@@ -18,6 +18,7 @@ MonoBehaviour:
   attackSpeedScale: 0.075
   weaponClass: 3
   rangeBase: 2
+  compensateForEnemyBodySize: 1
   projectilePrefab: {fileID: 5262266157608048503, guid: 5ee4b015a13b18e419212ccd008a63f9, type: 3}
   pierceAmount: 0
   knockbackForce: 15

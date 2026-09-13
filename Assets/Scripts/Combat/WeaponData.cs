@@ -34,6 +34,13 @@ namespace Game.Combat {
             "e.g. 0.4 on a bow = +0.4 range per point.")]
         public float rangeScale = 0.2f;
 
+        [Tooltip("Whether target acquisition treats a large enemy's visible body as part of its " +
+            "reach (see EnemyHealth.targetingBodyRadius). Turn this off for weapons whose real hit " +
+            "comes from a collider rather than the acquisition radius: the sword damages through " +
+            "weaponColliderObject orbiting at 0.5, so acquiring a boss from further out would only " +
+            "burn the attack cooldown on a swing that cannot reach.")]
+        public bool compensateForEnemyBodySize = true;
+
         [Tooltip("Prefab of the projectile if applicable")]
         public GameObject projectilePrefab;
 

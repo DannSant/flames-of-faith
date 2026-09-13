@@ -81,7 +81,8 @@ namespace Game.Combat
         private void SpawnSpecialProjectile(Vector2 spawnPos)
         {
             int pierceAmount = specialWeaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
-            EnemyHealth target = FindClosestEnemyToPosition(spawnPos, specialAttackTargetSearchRadius);
+            EnemyHealth target = EnemyTargeting.FindClosest(
+                spawnPos, specialAttackTargetSearchRadius, ShouldSpecialCompensateForEnemyBodySize);
             Vector2 direction = target != null
                 ? ((Vector2)target.transform.position - spawnPos).normalized
                 : Random.insideUnitCircle.normalized;
@@ -99,32 +100,6 @@ namespace Game.Combat
             damage.Initialize(specialWeaponData.baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
 
             onScepterSpecialAttackLaunched?.Invoke(damage);
-        }
-
-        private EnemyHealth FindClosestEnemyToPosition(Vector2 position, float radius)
-        {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(position, radius, LayerMask.GetMask("Enemy", "Boss"));
-
-            EnemyHealth closest = null;
-            float closestDistanceSqr = Mathf.Infinity;
-
-            foreach (var hit in hits)
-            {
-                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-                if (enemy == null || enemy.IsImmune() || enemy.IsDead())
-                {
-                    continue;
-                }
-
-                float distanceSqr = ((Vector2)enemy.transform.position - position).sqrMagnitude;
-                if (distanceSqr < closestDistanceSqr)
-                {
-                    closest = enemy;
-                    closestDistanceSqr = distanceSqr;
-                }
-            }
-
-            return closest;
         }
 
         private void PlayRandomScepterSound()

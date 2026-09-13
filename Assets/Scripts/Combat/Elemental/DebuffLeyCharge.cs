@@ -38,7 +38,10 @@ namespace Game.Combat.Elemental
             var visited = sourceDamage.leyChargeChainVisited ?? new HashSet<EnemyHealth>();
             visited.Add(enemyHealth);
 
-            EnemyHealth nearest = FindNearestEnemy(visited);
+            // compensateForBodySize: true - a chain hop should reach a big enemy's body for the same
+            // reason an attack should, and nothing here is gated on a collider landing the hit.
+            EnemyHealth nearest = EnemyTargeting.FindClosest(
+                transform.position, chainRadius, compensateForBodySize: true, excluded: visited);
             if (nearest == null) return;
 
             visited.Add(nearest);
@@ -56,30 +59,6 @@ namespace Game.Combat.Elemental
                 debuffHandler.ApplyDebuff(data, duration, strength);
 
             SpawnChainVfx(transform.position, nearest.transform.position);
-        }
-
-        private EnemyHealth FindNearestEnemy(HashSet<EnemyHealth> excluded)
-        {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, chainRadius, LayerMask.GetMask("Enemy", "Boss"));
-
-            EnemyHealth closest = null;
-            float closestDistanceSqr = Mathf.Infinity;
-
-            foreach (var hit in hits)
-            {
-                EnemyHealth candidate = hit.GetComponent<EnemyHealth>();
-                if (candidate == null || candidate.IsImmune() || candidate.IsDead()) continue;
-                if (excluded.Contains(candidate)) continue;
-
-                float distanceSqr = ((Vector2)candidate.transform.position - (Vector2)transform.position).sqrMagnitude;
-                if (distanceSqr < closestDistanceSqr)
-                {
-                    closest = candidate;
-                    closestDistanceSqr = distanceSqr;
-                }
-            }
-
-            return closest;
         }
 
         private void SpawnChainVfx(Vector3 from, Vector3 to)

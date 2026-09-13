@@ -86,37 +86,14 @@ namespace Game.Combat
             // (see WeaponBase.GetWeaponRange). This used to add the stat again on top, which
             // doubled it - and gated it on weaponClass, so a thrown melee weapon could never
             // benefit. Both concerns now live on WeaponData (isRangeBased / rangeScale).
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy","Boss"));
-
-            EnemyHealth closest = null;
-            float closestDistanceSqr = Mathf.Infinity;
-
-            foreach (var hit in hits)
-            {
-                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-
-                if (enemy == null)
-                {
-                    continue; // Skip if no EnemyHealth component found
-                }   
-
-                if (enemy.IsImmune() || enemy.IsDead())
-                {
-                    continue; // Skip immune or dead enemies
-                }
-
-                if (enemy != null) // Optional: check if alive
-                {
-                    float distanceSqr = (enemy.transform.position - transform.position).sqrMagnitude;
-                    if (distanceSqr < closestDistanceSqr)
-                    {
-                        closest = enemy;
-                        closestDistanceSqr = distanceSqr;
-                    }
-                }
-            }
-
-            return closest;
+            //
+            // The search itself lives in EnemyTargeting, which measures to the enemy's body rather
+            // than its transform - this used to rank by centre distance, so a boss standing on top
+            // of the player lost to a slime several units away.
+            return EnemyTargeting.FindClosest(
+                transform.position,
+                range,
+                currentWeapon != null && currentWeapon.ShouldCompensateForEnemyBodySize);
         }
 
         public void EquipWeapon(WeaponBase weapon)
@@ -164,10 +141,20 @@ namespace Game.Combat
 
         public void ResetState()
         {
-           //initialized on the weapon base 
+           //initialized on the weapon base
         }
 
-        
+#if UNITY_EDITOR
+        // The acquisition radius, so it can be compared by eye against an enemy's
+        // EnemyHealth.targetingBodyRadius gizmo while tuning that value in Play mode.
+        private void OnDrawGizmosSelected()
+        {
+            if (currentWeapon == null) return;
+
+            Gizmos.color = new Color(0.2f, 0.8f, 1f, 0.9f);
+            Gizmos.DrawWireSphere(transform.position, currentWeapon.GetWeaponRange());
+        }
+#endif
     }
 
 }

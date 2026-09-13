@@ -20,6 +20,7 @@ MonoBehaviour:
   rangeBase: 2
   isRangeBased: 0
   rangeScale: 0.2
+  compensateForEnemyBodySize: 0
   projectilePrefab: {fileID: 0}
   pierceAmount: 1
   knockbackForce: 4

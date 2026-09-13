@@ -150,6 +150,17 @@ namespace Game.Combat
 
             return range;
         }
+        /// <summary>
+        /// Whether this weapon's target acquisition should count a large enemy's visible body as
+        /// part of its reach. Exposed here so callers don't have to reach through to WeaponData.
+        /// </summary>
+        public virtual bool ShouldCompensateForEnemyBodySize =>
+            weaponData != null && weaponData.compensateForEnemyBodySize;
+
+        /// <inheritdoc cref="ShouldCompensateForEnemyBodySize"/>
+        public virtual bool ShouldSpecialCompensateForEnemyBodySize =>
+            specialWeaponData != null && specialWeaponData.compensateForEnemyBodySize;
+
         public WeaponData GetWeaponData() => weaponData;
 
         public virtual bool IsAttackTimerActive() => attackTimer.GetIsEventActive();

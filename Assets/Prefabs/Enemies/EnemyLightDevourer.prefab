@@ -291,6 +291,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: targetingBodyRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathSFX
       value: 
       objectReference: {fileID: 8300000, guid: 0ebd869d7fd8b2d4b91978255843f237, type: 3}

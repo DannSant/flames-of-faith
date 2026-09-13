@@ -23,6 +23,16 @@ namespace Game.Combat
         [SerializeField] private AudioClip deathSFX;
         [SerializeField] private bool shouldSpawnDamageNumbers = true;
 
+        [Header("Targeting")]
+        [Tooltip("Extra targeting reach standing in for the visible body, used only by " +
+            "EnemyTargeting when resolving what is in attack range - it is not a collider and " +
+            "affects nothing else. Set it on enemies whose sprite is much larger than their " +
+            "physics collider: BossAct1 draws 6x6 world units but collides as a circle of radius " +
+            "0.98, so without this the player has to close two extra units before the game agrees " +
+            "the boss is in range. Leave at 0 for normal-sized enemies whose collider already " +
+            "matches their sprite.")]
+        [SerializeField] private float targetingBodyRadius = 0f;
+
         [Header("Misc")]
         [SerializeField] private bool shouldDieOnTouchingAltar = false;
 
@@ -48,6 +58,12 @@ namespace Game.Combat
             get => shouldDieOnTouchingAltar;
             private set => shouldDieOnTouchingAltar = value;
         }
+
+        /// <summary>
+        /// Stand-in for the visible body when it is larger than the physics collider. See the
+        /// tooltip on the serialized field, and <see cref="EnemyTargeting"/> for how it is applied.
+        /// </summary>
+        public float TargetingBodyRadius => targetingBodyRadius;
 
         //References
         private PlayerHealth playerHealth;
@@ -197,5 +213,17 @@ namespace Game.Combat
         {
             return currentHealth <= 0;
         }
+
+#if UNITY_EDITOR
+        // Lets targetingBodyRadius be tuned against the sprite by eye: select the enemy and grow
+        // the circle until it matches the drawn silhouette, not the sprite's padded bounds.
+        private void OnDrawGizmosSelected()
+        {
+            if (targetingBodyRadius <= 0f) return;
+
+            Gizmos.color = new Color(1f, 0.6f, 0.1f, 0.9f);
+            Gizmos.DrawWireSphere(transform.position, targetingBodyRadius);
+        }
+#endif
     }
 }
