@@ -12,7 +12,6 @@ namespace Game.Boss
         [SerializeField] string fadeOutAnim = "FadeOut";
         [SerializeField] string damageAnim = "Damage";
         private BossMovement movement;
-        private Collider2D bossCollider;
 
         [SerializeField] private List<Transform> patrolPoints = new List<Transform>();  
 
@@ -24,10 +23,9 @@ namespace Game.Boss
         private void Awake()
         {
             movement = GetComponent<BossMovement>();
-            bossCollider = GetComponent<Collider2D>();
             bossHealth = GetComponent<EnemyHealth>();
 
-            bossCollider.enabled = false;
+            // The boss starts hidden and untargetable; BossRenderer.Awake handles both.
 
             bossHealth.onDeath += HandleBossDeath;
         }
@@ -147,14 +145,12 @@ namespace Game.Boss
 
         public void HandleFadeInAnimationStart()
         {
-            bossRenderer.ToggleSprite(true);
-            bossCollider.enabled = true;
+            bossRenderer.SetVisible(true);
         }
 
         public void HandleFadeoutAnimationEnd() {
-            bossRenderer.ToggleSprite(false);
-            bossCollider.enabled = false; // Disable collider to prevent player from hitting invisible boss
-
+            // SetVisible also drops the collider, so the player can't hit an invisible boss.
+            bossRenderer.SetVisible(false);
         }
 
         private IEnumerator HandleAllAddsDeadRoutine()
@@ -170,8 +166,9 @@ namespace Game.Boss
 
         private void HandleBossDeath()
         {
-            //Disable collider
-            bossCollider.enabled = false;
+            // Targetable, not visible: the boss stays on screen for its death animation but must
+            // stop taking hits.
+            bossRenderer.SetTargetable(false);
 
             //Search for summoned objects and destroy them
             var summonedObjects = Object.FindObjectsByType<SummonedObject>(FindObjectsSortMode.None);
@@ -187,6 +184,11 @@ namespace Game.Boss
         public override string GetPhaseTransitionAnimationName()
         {
             return damageAnim;
+        }
+
+        public override string GetFadeOutAnimationName()
+        {
+            return fadeOutAnim;
         }
     }
 }

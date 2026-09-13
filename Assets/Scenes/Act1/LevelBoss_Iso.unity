@@ -27536,7 +27536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d630aba23ce2649a9b10e06b163ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.BossWaveHandler
-  flameDuration: 95
+  flameDuration: 10
   enemySpawnInterval: 10
   enemySpawnPoints:
   - {fileID: 8242037683536833621}

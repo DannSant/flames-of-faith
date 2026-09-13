@@ -21,6 +21,12 @@ namespace Game.Boss
 
         public abstract string GetPhaseTransitionAnimationName();
 
+        /// <summary>
+        /// Animation that makes the boss vanish - reused for both a mid-fight hide and, on player
+        /// death, making the boss disappear for good.
+        /// </summary>
+        public abstract string GetFadeOutAnimationName();
+
         public abstract void OnAnimationEvent(string eventName);
     }
 }

@@ -44,6 +44,21 @@ namespace Game.Scene
 
         private List<string> activeGameplayScenes = new List<string>();
 
+        // "UIMain" is the gameplay HUD scene. It is reloaded fresh for each gameplay level so its
+        // UI controllers' Start() re-runs and rebinds to that level's WaveSpawner/BossWaveHandler,
+        // and unloaded again whenever we leave gameplay (main menu or level selector).
+        //
+        // It is tracked by its actual Scene handle rather than looked up by name, because
+        // SceneManager.GetSceneByName cannot disambiguate once two loaded scenes share a name -
+        // and two is exactly what used to happen: Bootstraper loads one copy at startup, and
+        // LoadGameplayRoutine loaded a second on top of it, so every gameplay level ran with two
+        // full HUDs, two EventSystems and two of every UI controller. Unity keeps only one
+        // EventSystem active among duplicates, so clicks could land on UI that isn't the one
+        // being drawn - which is what made the pause/end-screen buttons unreliable.
+        private UnityEngine.SceneManagement.Scene uiScene;
+
+        private bool isTransitioning;
+
         protected override void Awake()
         {
             base.Awake();
@@ -57,18 +72,51 @@ namespace Game.Scene
 
         public void LoadMainMenu()
         {
-            StartCoroutine(LoadMainMenuRoutine());
+            if (!BeginTransition()) return;
+            StartCoroutine(RunTransition(LoadMainMenuRoutine()));
         }
 
         public void LoadGameplay(LevelData levelData)
         {
+            if (!BeginTransition()) return;
             bool shouldReset = GameSession.Instance.IsNewRun;
-            StartCoroutine(LoadGameplayRoutine(levelData, shouldReset));
+            StartCoroutine(RunTransition(LoadGameplayRoutine(levelData, shouldReset)));
         }
 
         public void LoadLevelSelectorScene(bool newGame)
         {
-            StartCoroutine(LoadLevelSelectorSceneRoutine(newGame));
+            if (!BeginTransition()) return;
+            StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(newGame)));
+        }
+
+        /// <summary>
+        /// Scene transitions must never overlap. They unload and reload the same scenes and share
+        /// activeGameplayScenes, so two running at once corrupt each other - and because the UI
+        /// stays interactive during the fade, a second click on a button like Exit is enough to
+        /// start one. Returns false if a transition is already in flight.
+        /// </summary>
+        private bool BeginTransition()
+        {
+            if (isTransitioning)
+            {
+                Debug.LogWarning("MainSceneController: a scene transition is already in progress, ignoring this request.");
+                return false;
+            }
+
+            isTransitioning = true;
+            return true;
+        }
+
+        private IEnumerator RunTransition(IEnumerator routine)
+        {
+            try
+            {
+                yield return StartCoroutine(routine);
+            }
+            finally
+            {
+                isTransitioning = false;
+            }
         }
 
         private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame)
@@ -81,6 +129,9 @@ namespace Game.Scene
 
             //unloads gameplay scenes if already loaded (for restart between levels)
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
+
+            //the gameplay HUD belongs to gameplay levels only, not the map
+            yield return StartCoroutine(UnloadUIScene());
 
             //Spawn player
             PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, newGame);
@@ -97,7 +148,7 @@ namespace Game.Scene
                 
             }
 
-            yield return new WaitForSeconds(0.1f); // Wait for scene to be fully initialized
+            yield return new WaitForSecondsRealtime(0.1f); // Wait for scene to be fully initialized
 
             // Move the player to the level selection scene
             var levelSelectionScene = SceneManager.GetSceneByName("LevelSelector");
@@ -130,7 +181,7 @@ namespace Game.Scene
 
         private IEnumerator LoadMainMenuRoutine()
         {           
-            //Debug.Log("LoadMainMenuRoutine");
+            //Debug.Log("LoadMainMenuRoutine 1");
             yield return StartCoroutine(FadeIn());
 
             CleanupSceneObjects();
@@ -141,9 +192,13 @@ namespace Game.Scene
             MusicManager.Instance.PlayTrack(mainMenuMusic);
 
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
-           
+
+            //the gameplay HUD must go too, or it stays overlaid on top of the main menu
+            yield return StartCoroutine(UnloadUIScene());
+
+
             yield return SceneManager.LoadSceneAsync(SceneNames.MainMenu, LoadSceneMode.Additive);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
             GameSession.Instance.SetIsNewRun(true);           
             GameSession.Instance.Initialize();
 
@@ -171,19 +226,18 @@ namespace Game.Scene
 
             // Load the gameplay scene and UI scene
             yield return SceneManager.LoadSceneAsync(levelData.SceneName, LoadSceneMode.Additive);
-            yield return SceneManager.LoadSceneAsync(SceneNames.UI, LoadSceneMode.Additive);
+            yield return StartCoroutine(LoadUIScene());
             PlayerManager.Instance.IsPlayerOnMap = false;
 
             //clear previously loaded scenes
             activeGameplayScenes.Clear();
             activeGameplayScenes.Add(levelData.SceneName);
-            activeGameplayScenes.Add(SceneNames.UI);
 
             // Move the player to the gameplay scene
             var gameplayScene = SceneManager.GetSceneByName(levelData.SceneName);
             PlayerManager.Instance.MovePlayerToScene( gameplayScene);         
 
-            yield return new WaitForSeconds(0.1f); // Wait for player to be fully initialized
+            yield return new WaitForSecondsRealtime(0.1f); // Wait for player to be fully initialized
 
             //Setup UI events
             OnGameplayUISetupRequested?.Invoke();
@@ -219,9 +273,43 @@ namespace Game.Scene
             yield return StartCoroutine(FadeOut());
         }
 
+        /// <summary>
+        /// Loads a fresh gameplay HUD, guaranteeing exactly one "UIMain" is ever loaded.
+        /// See the comment on <see cref="uiScene"/> for why this is handle-based.
+        /// </summary>
+        private IEnumerator LoadUIScene()
+        {
+            yield return StartCoroutine(UnloadUIScene());
+
+            yield return SceneManager.LoadSceneAsync(SceneNames.UI, LoadSceneMode.Additive);
+            uiScene = SceneManager.GetSceneByName(SceneNames.UI);
+        }
+
+        /// <summary>
+        /// Unloads the gameplay HUD. Called whenever we leave gameplay, so it can't sit on top of
+        /// the main menu or the level selector.
+        /// </summary>
+        private IEnumerator UnloadUIScene()
+        {
+            // Adopt an instance we never loaded ourselves - Bootstraper loads one at startup.
+            // Safe to resolve by name here precisely because we never allow two at once.
+            if (!uiScene.IsValid() || !uiScene.isLoaded)
+            {
+                uiScene = SceneManager.GetSceneByName(SceneNames.UI);
+            }
+
+            if (uiScene.IsValid() && uiScene.isLoaded)
+            {
+                yield return SceneManager.UnloadSceneAsync(uiScene);
+            }
+
+            uiScene = default;
+        }
+
         public void RetryCurrentRun()
         {
-            StartCoroutine(RetryCurrentRunRoutine());
+            if (!BeginTransition()) return;
+            StartCoroutine(RunTransition(RetryCurrentRunRoutine()));
         }
 
         private IEnumerator RetryCurrentRunRoutine()
@@ -240,6 +328,9 @@ namespace Game.Scene
             // Unload all active gameplay scenes
             yield return StartCoroutine(UnloadScenesByName(activeGameplayScenes));
 
+            //this retry ends up on the map, so the gameplay HUD goes too
+            yield return StartCoroutine(UnloadUIScene());
+
             //Spawn player
             PlayerManager.Instance.SpawnSelectedPlayer(GameSession.Instance.SelectedPlayerIndex, true);
 
@@ -252,7 +343,7 @@ namespace Game.Scene
             var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, seed);
             MapRunController.Instance.Initialize(mapRunState);
 
-            yield return new WaitForSeconds(0.1f); // Wait for scene to be fully initialized
+            yield return new WaitForSecondsRealtime(0.1f); // Wait for scene to be fully initialized
 
             // Move the player to the level selection scene
             var levelSelectionScene = SceneManager.GetSceneByName("LevelSelector");
@@ -282,8 +373,13 @@ namespace Game.Scene
 
         private IEnumerator UnloadScenesByName(List<string> scenesToUnload)
         {
+            // Iterate a snapshot: this loop yields between unloads, so the enumeration spans
+            // several frames, and the list it is handed is the same one that gets cleared and
+            // rebuilt during a transition. Enumerating it live would throw mid-transition and
+            // kill the coroutine, leaving the game stuck behind a black fade.
+            var sceneNames = new List<string>(scenesToUnload);
 
-            foreach(string sceneName in scenesToUnload)
+            foreach(string sceneName in sceneNames)
             {
               
                 UnityEngine.SceneManagement.Scene scene = SceneManager.GetSceneByName(sceneName);
@@ -312,7 +408,7 @@ namespace Game.Scene
             {
                 float alpha = Mathf.Lerp(0f, 1f, time / fadeDuration);
                 img.color = new Color(color.r, color.g, color.b, alpha);
-                time += Time.deltaTime;
+                time += Time.unscaledDeltaTime;
                 yield return null;
             }
             img.color = new Color(color.r, color.g, color.b, 1f);
@@ -331,7 +427,7 @@ namespace Game.Scene
             {
                 float alpha = Mathf.Lerp(1f, 0f, time / fadeDuration);
                 img.color = new Color(color.r, color.g, color.b, alpha);
-                time += Time.deltaTime;
+                time += Time.unscaledDeltaTime;
                 yield return null;
             }
             img.color = new Color(color.r, color.g, color.b, 0f);

@@ -1,3 +1,5 @@
+using Game.Combat;
+using Game.Scene;
 using Game.Waves;
 using System;
 using System.Collections.Generic;
@@ -34,6 +36,55 @@ namespace Game.Boss
         {
             Initialize();
             //StartPhaseOne();
+        }
+
+        private void OnEnable()
+        {
+            if (PlayerManager.Instance == null) return;
+
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath += HandlePlayerDeath;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (PlayerManager.Instance == null) return;
+
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath -= HandlePlayerDeath;
+            }
+        }
+
+        private void HandlePlayerDeath()
+        {
+            // Update() only drives the flame timer and add spawning while isPhaseOne is true, so
+            // this alone halts both. isPhaseTwo is cleared too for state hygiene even though
+            // nothing currently reads it in an Update loop.
+            isPhaseOne = false;
+            isPhaseTwo = false;
+
+            DestroyAllTrackedEnemiesSilently();
+        }
+
+        /// <summary>
+        /// Destroys every add this handler spawned, with no death VFX/loot/animation - mirrors
+        /// EnemySpawnCoordinator.DestroyAllTrackedEnemiesSilently, used the same way on player death.
+        /// </summary>
+        public void DestroyAllTrackedEnemiesSilently()
+        {
+            foreach (var enemy in activeEnemies)
+            {
+                if (enemy != null)
+                {
+                    Destroy(enemy);
+                }
+            }
+            activeEnemies.Clear();
         }
 
         private void Initialize()

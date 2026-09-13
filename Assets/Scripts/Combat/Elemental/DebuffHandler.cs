@@ -43,7 +43,7 @@ namespace Game.Combat.Elemental
 
             ElementalType type = debuffData.ElementalType;
             if (type == ElementalType.None) return;
-            if (enemyHealth != null && enemyHealth.IsDead()) return;
+            if (enemyHealth != null && (enemyHealth.IsDead() || enemyHealth.IsImmune())) return;
 
             // if debuff already exists → re-apply it (which refreshes or stacks, per its data).
             // The null check matters: an expired debuff Destroy()s itself, leaving a fake-null entry behind.

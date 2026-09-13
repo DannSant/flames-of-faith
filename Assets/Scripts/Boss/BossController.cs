@@ -40,6 +40,7 @@ namespace Game.Boss
         private BossRenderer bossRenderer;
         private Enemy enemyComponent;
         private EnemyHealth health;
+        private PlayerHealth playerHealth;
 
         //State
         private bool isPhaseOne = false;
@@ -58,6 +59,13 @@ namespace Game.Boss
         public event System.Action<BossAbilityRuntime> OnAbilityFinished;
         public event System.Action OnAllAddsDeath;
 
+        // Phase entry. By design every boss has exactly two phases: an invulnerable first phase and
+        // the real fight. OnSecondPhaseEntered fires after the transition animation, at the same
+        // moment immunity is dropped, so presentation can never claim the boss is vulnerable before
+        // it actually is.
+        public event System.Action OnFirstPhaseEntered;
+        public event System.Action OnSecondPhaseEntered;
+
         private void Awake()
         {
             behavior = GetComponent<BossBehavior>();
@@ -74,6 +82,7 @@ namespace Game.Boss
 
             if (health != null) {
                 health.onDeath += StopBossAbilities;
+                health.onDeath += HandleBossDefeated;
             }
         }
 
@@ -85,10 +94,34 @@ namespace Game.Boss
             }
         }
 
+        // BossWaveHandler.OnBossFightEnded already exists for exactly this (FlameBarUI already
+        // listens to it) - it just needed something to actually call NotifyBossDied().
+        private void HandleBossDefeated()
+        {
+            if (waveHandler != null)
+            {
+                waveHandler.NotifyBossDied();
+            }
+        }
+
         private void Start()
         {
             player = PlayerManager.Instance.gameObject.transform;
 
+            playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath += HandlePlayerDeath;
+            }
+        }
+
+        private void HandlePlayerDeath()
+        {
+            if (health != null && health.IsDead()) return; // boss already dead, nothing to hide
+
+            StopBossAbilities();
+            movement.SetCasting(true); // freeze in place instead of sliding away mid-fade
+            bossRenderer.TriggerAnimation(behavior.GetFadeOutAnimationName());
         }
 
         private void Update()
@@ -129,6 +162,12 @@ namespace Game.Boss
             if (health != null)
             {
                 health.onDeath -= StopBossAbilities;
+                health.onDeath -= HandleBossDefeated;
+            }
+
+            if (playerHealth != null)
+            {
+                playerHealth.onDeath -= HandlePlayerDeath;
             }
         }
 
@@ -153,16 +192,19 @@ namespace Game.Boss
             //Set immunity flag for phase 1 if needed
             health.IsImmuneFlag = true;
 
+            OnFirstPhaseEntered?.Invoke();
+
             abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseOneRuntimes));
         }
 
         private void EnterPhaseTwo()
         {
             isPhaseOne = false;
-            isPhaseTwo = true;          
+            isPhaseTwo = true;
 
-            //Remove immunity flag for phase 2
-            health.IsImmuneFlag = false;
+            // Immunity is deliberately NOT dropped here - it is dropped at the end of
+            // PhaseOneToTwoTransition, so the boss stays invulnerable for the duration of the
+            // transition animation and becomes vulnerable and opaque at the same instant.
 
             if (abilityLoopRoutine != null)
             {
@@ -175,7 +217,11 @@ namespace Game.Boss
 
         private IEnumerator PhaseOneToTwoTransition()
         {
-            bossRenderer.ToggleSprite(true);
+            // SetVisible (not just the sprite) because phase one usually ends while the boss is
+            // faded out, and nothing in phase two plays the FadeIn whose animation event used to be
+            // the only thing that re-enabled the collider - the boss would be visible but unhittable
+            // for the whole fight.
+            bossRenderer.SetVisible(true);
             bossRenderer.TriggerAnimation(behavior.GetPhaseTransitionAnimationName());
             yield return new WaitForSeconds(2f);
             // Reset flags on ability runtimes to prevent any weird edge cases during transition
@@ -190,6 +236,11 @@ namespace Game.Boss
 
             // Remove immunity flag for phase 2 after transition animation
             health.IsImmuneFlag = false;
+
+            // Fired next to the immunity drop on purpose: anything that presents "the boss is
+            // vulnerable now" (the first phase transparency, for one) has to change at exactly this
+            // moment, or it goes back to lying to the player.
+            OnSecondPhaseEntered?.Invoke();
 
             // Reset flags on components if needed
             movement.SetCasting(false);

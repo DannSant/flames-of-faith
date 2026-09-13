@@ -35,6 +35,7 @@ namespace Game.Combat
         private Flash flash;
         private float extraDamageTakenPercentage = 0f;
         private bool isImmune = false;
+        private bool deathDetected = false;
 
         public bool IsImmuneFlag
         {
@@ -150,6 +151,13 @@ namespace Game.Combat
 
         private void DetectDeath(bool silent = false)
         {
+            // TakeDamage has no already-dead guard and the collider stays live through the death
+            // delay, so lingering projectiles and DoT ticks can still land on a corpse. Without
+            // this each one would start another DeathRoutine and fire onDeath again - duplicate
+            // XP drops and death VFX, and for the boss a duplicate NotifyBossDied/end screen.
+            if (deathDetected) return;
+            deathDetected = true;
+
             DiedSilently = silent;
 
             if (deathSFX != null && !silent)

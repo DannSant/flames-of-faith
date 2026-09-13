@@ -760,6 +760,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.BossRenderer
   spriteRenderer: {fileID: 3818960930260642805}
   animator: {fileID: 8759434879841373480}
+  bossCollider: {fileID: 0}
+  enableFirstPhaseTransparency: 1
+  firstPhaseAlpha: 0.5
 --- !u!114 &5108861510679237834
 MonoBehaviour:
   m_ObjectHideFlags: 0

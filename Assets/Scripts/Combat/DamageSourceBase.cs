@@ -129,7 +129,10 @@ namespace Game.Combat
                 float totalDamage = CalculateTotalDamage();
                 damageable.TakeDamage(new DamageRequest(totalDamage,weaponClass, canTriggerLifesteal));
 
-                if (damageable.ShouldSpawnDamageNumber())
+                // TakeDamage above already no-ops on an immune target (e.g. the boss's first
+                // phase), but it still needs telling apart here - otherwise this spawns a
+                // real-looking damage number for damage that never actually landed.
+                if (damageable.ShouldSpawnDamageNumber() && !damageable.IsImmune())
                 {
                     DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(collision.transform.position, totalDamage, weaponClass);
                 }
@@ -138,8 +141,13 @@ namespace Game.Combat
               
                 OnDamageDealtEvent?.Invoke(totalDamage, collision.gameObject);
 
-                // Elemental Debuff (optional)
-                TryApplyElementalDebuff(collision.gameObject);
+                // Elemental Debuff (optional) - skipped on an immune target so it can't pick up a
+                // real DoT (which would then tick its own real-looking damage numbers) from a hit
+                // that never actually landed.
+                if (!damageable.IsImmune())
+                {
+                    TryApplyElementalDebuff(collision.gameObject);
+                }
             }
 
             // Knockback (optional)
