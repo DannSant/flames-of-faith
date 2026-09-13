@@ -19,7 +19,7 @@ MonoBehaviour:
   - id: level1
     worldPosition: {x: 0, y: 0}
     nodeType: 0
-    levelData: {fileID: 11400000, guid: 834d3048fa149dc4393553e00a43d1fd, type: 2}
+    levelData: {fileID: 11400000, guid: ea5f1af5313ab55489286ea4d753ee42, type: 2}
     isFirstLevel: 1
     connections:
     - toNodeId: rest1
