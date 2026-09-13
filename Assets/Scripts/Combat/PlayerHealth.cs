@@ -6,6 +6,7 @@ using Game.Progression;
 using Game.Scene;
 using Game.Utils;
 using Game.Waves;
+using System;
 using System.Collections;
 using UnityEngine;
 using static Game.Progression.PlayerProgression;
@@ -29,6 +30,8 @@ namespace Game.Combat {
 
         public delegate void OnDeath();
         public event OnDeath onDeath;
+
+        public event Action<float, GameObject> onDamageTaken;
 
         // Invulnerability logic
         [Header("Invulnerability Settings")]
@@ -261,7 +264,7 @@ namespace Game.Combat {
 
         }
 
-        public void TakeDamage(float amount)
+        public void TakeDamage(float amount, GameObject attacker = null)
         {
             if (currentHealth <= 0) return;
             if (noDamage)
@@ -292,6 +295,7 @@ namespace Game.Combat {
             DamageNumberSpawner.Instance.SpawnDamageToPlayerNumber(transform.position, finalDamage);
 
             onHealthChanged?.Invoke(currentHealth, maxHealth);
+            onDamageTaken?.Invoke(finalDamage, attacker);
 
             // Set invulnerability time
             invulnerableUntilTime = Time.time + invulnerabilityDuration;
@@ -345,7 +349,7 @@ namespace Game.Combat {
            
            
             float chance = lifestealChanceBase + (lifestealChancePerStat * lifesteal);
-            if (Random.value <= chance)
+            if (UnityEngine.Random.value <= chance)
             {                
                 float healAmount = Mathf.Clamp(lifesteal * lifestealAmountPerStat, minLifestealDamageThreshold, maxLifestealDamageThreshold);
                 Heal(healAmount);               

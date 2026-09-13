@@ -22,7 +22,7 @@ namespace Game.Combat {
             PlayerHealth health = collision.GetComponent<PlayerHealth>();          
             if (health != null)
             {
-                health.TakeDamage(damageAmount);                
+                health.TakeDamage(damageAmount, gameObject);
             }
         }
     }

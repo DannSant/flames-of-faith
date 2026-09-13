@@ -3,6 +3,7 @@ using Game.Effects;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
+using System;
 using UnityEngine;
 
 namespace Game.Combat
@@ -26,6 +27,16 @@ namespace Game.Combat
 
         protected int specialAttackCost = 3;
         protected bool attackButtonDown = false;
+
+        /// <summary>
+        /// Fires whenever this weapon lands a hit with its primary or special attack, regardless
+        /// of whether the hit came from a melee hitbox (<see cref="WeaponDamageSource"/>) or a
+        /// spawned projectile (<see cref="DamageSourceBase"/>). Lets a single subscriber (e.g.
+        /// RetributionHandler) react to on-hit effects without caring which weapon is equipped.
+        /// </summary>
+        public event Action<float, GameObject> OnWeaponDamageDealt;
+
+        protected void RaiseWeaponDamageDealt(float damage, GameObject target) => OnWeaponDamageDealt?.Invoke(damage, target);
 
         private void Start()
         {

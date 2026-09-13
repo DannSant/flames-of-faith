@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 9058536188805504039}
   - component: {fileID: 7099271762150397571}
   - component: {fileID: 6616224243192596392}
+  - component: {fileID: 3391120786682544022}
   m_Layer: 0
   m_Name: PlayerBase
   m_TagString: Player
@@ -633,6 +634,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bc24d21b827554b884a94943f2c390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.PlayerCorruption
+--- !u!114 &3391120786682544022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543883001522524048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f883cbd6b98a643a0bed632f429588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.RetributionHandler
+  damageTier1Cap: 35
+  damageTier2Cap: 50
+  damageHardCap: 70
+  damageTier1Rate: 1
+  damageTier2Rate: 0.2
+  damageTier3Rate: 0.01
+  meleeDamageScaling: 0.2
+  graceTier1Cap: 25
+  graceHardCap: 50
+  graceTier1Rate: 1
+  graceTier2Rate: 0.5
+  graceGeneratedAmount: 1
 --- !u!1 &8015040885398619159
 GameObject:
   m_ObjectHideFlags: 0

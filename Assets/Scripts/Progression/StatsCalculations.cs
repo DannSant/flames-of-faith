@@ -88,4 +88,55 @@ public static class StatsCalculations
 
         return 1f - (discountPercent / 100f);
     }
+
+    /**
+         * Piecewise reflect-percent curve for the Retribution stat: tier1Rate% per point up to
+         * tier1Cap, then tier2Rate% per point up to tier2Cap, then tier3Rate% per point up to the
+         * hard cap. Same shape as CalculateShopDiscountMultiplier, extended to three tiers.
+         *
+         * @return The fraction (0-1) of incoming damage to reflect back at the attacker.
+         */
+    public static float CalculateRetributionDamagePercent(
+        int retributionStat,
+        float tier1Cap = 35f, float tier2Cap = 50f, float hardCap = 70f,
+        float tier1Rate = 1f, float tier2Rate = 0.2f, float tier3Rate = 0.01f)
+    {
+        float stat = Mathf.Clamp(retributionStat, 0, hardCap);
+
+        float percent;
+        if (stat <= tier1Cap)
+        {
+            percent = stat * tier1Rate;
+        }
+        else if (stat <= tier2Cap)
+        {
+            percent = tier1Cap * tier1Rate + (stat - tier1Cap) * tier2Rate;
+        }
+        else
+        {
+            percent = tier1Cap * tier1Rate + (tier2Cap - tier1Cap) * tier2Rate + (stat - tier2Cap) * tier3Rate;
+        }
+
+        return percent / 100f;
+    }
+
+    /**
+         * Piecewise chance curve for Retribution's Grace-on-hit proc: tier1Rate% per point up to
+         * tier1Cap, then tier2Rate% per point up to the hard cap.
+         *
+         * @return The fraction (0-1) chance to generate Grace on a landed weapon hit.
+         */
+    public static float CalculateRetributionGraceChance(
+        int retributionStat,
+        float tier1Cap = 25f, float hardCap = 50f,
+        float tier1Rate = 1f, float tier2Rate = 0.5f)
+    {
+        float stat = Mathf.Clamp(retributionStat, 0, hardCap);
+
+        float percent = stat <= tier1Cap
+            ? stat * tier1Rate
+            : tier1Cap * tier1Rate + (stat - tier1Cap) * tier2Rate;
+
+        return percent / 100f;
+    }
 }

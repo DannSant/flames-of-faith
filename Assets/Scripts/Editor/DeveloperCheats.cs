@@ -180,6 +180,16 @@ public class DeveloperCheats
         }
     }
 
+        [MenuItem("DevTools/Stats/Increase Retribution")]
+    public static void IncreaseRetribution()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.Retribution, 1);
+        }
+    }
+
     [MenuItem("DevTools/Items/Give Concecrate")]
     public static void GiveholyCross()
     {

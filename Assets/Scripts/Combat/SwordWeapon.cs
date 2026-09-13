@@ -103,7 +103,7 @@ namespace Game.Combat
         private void OnDamageDealt(float damage, GameObject target)
         {
             Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
-          
+            RaiseWeaponDamageDealt(damage, target);
         }
 
         private void OnSpecialDamageDealt(float damage, GameObject target)
@@ -112,7 +112,7 @@ namespace Game.Combat
             {
                 Instantiate(specialAttackVFXPrefab, target.transform.position, Quaternion.identity);
             }
-           
+            RaiseWeaponDamageDealt(damage, target);
         }
 
         private void LookAtTarget()

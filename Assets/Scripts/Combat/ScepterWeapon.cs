@@ -62,6 +62,7 @@ namespace Game.Combat
 
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass, weaponData);
+            damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onScepterAttackLaunched?.Invoke(damage);
         }
@@ -98,9 +99,12 @@ namespace Game.Combat
 
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(specialWeaponData.baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
+            damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onScepterSpecialAttackLaunched?.Invoke(damage);
         }
+
+        private void HandleProjectileDamageDealt(float damage, GameObject target) => RaiseWeaponDamageDealt(damage, target);
 
         private void PlayRandomScepterSound()
         {

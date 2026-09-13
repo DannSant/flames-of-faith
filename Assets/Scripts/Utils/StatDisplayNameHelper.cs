@@ -27,6 +27,7 @@ public static class StatDisplayNameHelper
             StatType.Range => "Attack Range",
             StatType.MastowAffinity => "Mastow Affinity",
             StatType.ShopItemDiscount => "Shop Discount",
+            StatType.Retribution => "Retribution",
             _ => statType.ToString()
         };
     }

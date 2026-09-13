@@ -24,6 +24,7 @@ namespace Game.Progression {
         PickupRange,
         MastowAffinity,
         ShopItemDiscount,
+        Retribution,
     }
 
 }

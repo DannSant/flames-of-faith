@@ -32,7 +32,7 @@ namespace Game.Combat {
             var health = collision.GetComponent<PlayerHealth>();            
             if (health != null)
             {
-                health.TakeDamage(damageAmount);                
+                health.TakeDamage(damageAmount, gameObject);
             }
 
             var knockback = collision.GetComponent<Knockback>();

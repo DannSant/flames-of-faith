@@ -192,3 +192,13 @@ MonoBehaviour:
     description: Decrease price of items in the shop
     affectedByCorruption: 0
     corruptionReduceFactor: 1
+  - statType: 21
+    initialValue: 0
+    allowLevelUpgrades: 1
+    tierValues: 01000000020000000300000004000000
+    category: 0
+    description: Holy force that reflects damage to enemies when they hit you. Deals
+      _melee_damage_. Also adds a chance to generate Grace when striking with your
+      weapon, primary or secondary attacks
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0

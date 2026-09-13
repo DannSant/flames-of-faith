@@ -64,6 +64,7 @@ namespace Game.Combat
 
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(weaponData.baseDamage, pierceAmount, null, weaponData.weaponClass,weaponData);
+            damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onBowAttackLaunched?.Invoke(damage);
         }
@@ -93,16 +94,11 @@ namespace Game.Combat
 
                 var damage = go.GetComponent<DamageSourceBase>();
                 damage.Initialize(specialWeaponData.baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
+                damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
             }
         }
 
-        private void OnDamageDealt(float damage, int graceGenerated, GameObject target)
-        {
-            /*if (graceGenerated > 0)
-            {
-                playerGrace.AddGrace(graceGenerated);
-            }*/
-        }
+        private void HandleProjectileDamageDealt(float damage, GameObject target) => RaiseWeaponDamageDealt(damage, target);
 
         private void PlayRandomArrowSound()
         {
