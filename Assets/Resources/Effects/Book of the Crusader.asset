@@ -10,23 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Steeldawn Shard
+  m_Name: Book of the Crusader
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: 2169c272-a6a0-47a8-944b-57113f343904
-  icon: {fileID: 21300000, guid: 702803f03aecfc040842d8bf5dc97cef, type: 3}
-  effectName: Steeldawn Shard
+  effectID: f93eef98-cee0-4e62-9e05-388bc74fb4c3
+  icon: {fileID: 21300000, guid: 4d9b1b4bba77a3b4f9e80ed293fea08f, type: 3}
+  effectName: Book of the Crusader
   scalingValue: 1
-  description: Special and blessed material that increases your Max Grace
-  buyPrice: 15
-  sellPrice: 5
+  description: A holy book written in the times of the Chaos Age by the Glenian Crusaders,
+    still used today for meditation and holy studies
+  buyPrice: 50
+  sellPrice: 10
   effectStatModifiers:
-  - stat: 5
-    value: 1
+  - stat: 0
+    value: 5
     type: 0
   - stat: 21
-    value: 1
+    value: 2
+    type: 0
+  - stat: 16
+    value: -2
     type: 0
   behaviors: []
-  unlockedByDefault: 1
-  quality: 0
+  unlockedByDefault: 0
+  quality: 2
   availableForShop: 1
