@@ -53,9 +53,24 @@ namespace Game.Effects
 
         public List<EffectInstance> ActiveEffects => activeEffects;
 
+        // Behavior assets are shared ScriptableObject instances reused across runs, so their
+        // mutable runtime state (cooldowns, cached subscriptions, ...) lives here instead - see
+        // EffectBehaviorContext.
+        private EffectBehaviorContext context;
+
+        private void Awake()
+        {
+            context = new EffectBehaviorContext { ownerObject = gameObject, storeOwner = this };
+        }
+
         private void ResetEffects()
         {
-            ClearAll();          
+            ClearAll();
+
+            // Fresh context for the new run so no behavior's runtime state (a cooldown timer, a
+            // stale cached reference) survives from the previous one.
+            context = new EffectBehaviorContext { ownerObject = gameObject, storeOwner = this };
+
             foreach (var effect in startingEffects)
             {
                 AddEffect(effect);
@@ -93,7 +108,7 @@ namespace Game.Effects
             foreach (var behavior in effect.Behaviors)
             {
                 if (behavior == null) continue;
-                behavior.Initialize(gameObject, this, effect);
+                behavior.Initialize(context, effect);
                 behavior.OnTrigger(EffectTrigger.OnApply);
             }
 

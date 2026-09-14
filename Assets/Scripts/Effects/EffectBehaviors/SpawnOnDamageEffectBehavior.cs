@@ -22,20 +22,21 @@ namespace Game.Effects.EffectBehaviors
         [Range(0f, 1f)]
         [SerializeField] private float chanceToSpawn = 1f;
 
-        
-
-        // Runtime
-        private WeaponDamageSource meleeSource;
-        private BowWeapon bowSource;
-         private ScepterWeapon scepterSource;
-        private readonly List<DamageSourceBase> registeredProjectiles = new();
-
-
-
-
-        public override void Initialize(GameObject owner, EffectStore store, Effect parentEffect)
+        // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly
+        // on this ScriptableObject.
+        private class RuntimeState
         {
-            base.Initialize(owner, store, parentEffect);
+            public WeaponDamageSource meleeSource;
+            public BowWeapon bowSource;
+            public ScepterWeapon scepterSource;
+            public readonly List<DamageSourceBase> registeredProjectiles = new();
+        }
+
+        public override void Initialize(EffectBehaviorContext context, Effect parentEffect)
+        {
+            base.Initialize(context, parentEffect);
+
+            var state = GetState<RuntimeState>();
 
             // Player�s current weapon
             var weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
@@ -47,49 +48,51 @@ namespace Game.Effects.EffectBehaviors
             // Sword / melee
             if (currentWeapon is SwordWeapon sword)
             {
-                meleeSource = sword.GetDamageSource();
-               
-                if (meleeSource != null)
-                    meleeSource.OnDamageDealt += HandleDamageDealt;
+                state.meleeSource = sword.GetDamageSource();
+
+                if (state.meleeSource != null)
+                    state.meleeSource.OnDamageDealt += HandleDamageDealt;
             }
 
             // Bow / ranged
             if (currentWeapon is BowWeapon bow)
             {
-                bowSource = bow;
-                bowSource.onBowAttackLaunched += RegisterProjectile;
+                state.bowSource = bow;
+                state.bowSource.onBowAttackLaunched += RegisterProjectile;
             }
 
             if (currentWeapon is ScepterWeapon scepter)
             {
-                scepterSource = scepter;
-                scepterSource.onScepterAttackLaunched += RegisterProjectile;
+                state.scepterSource = scepter;
+                state.scepterSource.onScepterAttackLaunched += RegisterProjectile;
             }
-        }       
+        }
 
 
         public override void Cleanup()
         {
+            var state = GetState<RuntimeState>();
+
             // Unsubscribe melee
-            if (meleeSource != null)
-                meleeSource.OnDamageDealt -= HandleDamageDealt;
+            if (state.meleeSource != null)
+                state.meleeSource.OnDamageDealt -= HandleDamageDealt;
 
             // Unsubscribe bow
-            if (bowSource != null)
-                bowSource.onBowAttackLaunched -= RegisterProjectile;
+            if (state.bowSource != null)
+                state.bowSource.onBowAttackLaunched -= RegisterProjectile;
 
             // Unsubscribe scepter
-            if (scepterSource != null)
-                scepterSource.onScepterAttackLaunched -= RegisterProjectile;
+            if (state.scepterSource != null)
+                state.scepterSource.onScepterAttackLaunched -= RegisterProjectile;
 
             // Unsubscribe all registered projectiles
-            foreach (var p in registeredProjectiles)
+            foreach (var p in state.registeredProjectiles)
             {
                 if (p != null)
                     p.OnDamageDealtEvent -= HandleDamageDealt;
             }
 
-            registeredProjectiles.Clear();
+            state.registeredProjectiles.Clear();
         }
 
         private void RegisterProjectile(DamageSourceBase projectile)
@@ -97,7 +100,7 @@ namespace Game.Effects.EffectBehaviors
             if (projectile == null) return;
 
             projectile.OnDamageDealtEvent += HandleDamageDealt;
-            registeredProjectiles.Add(projectile);
+            GetState<RuntimeState>().registeredProjectiles.Add(projectile);
         }
 
 

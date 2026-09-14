@@ -653,6 +653,7 @@ MonoBehaviour:
   damageTier2Rate: 0.2
   damageTier3Rate: 0.01
   meleeDamageScaling: 0.2
+  damageReflectionEffectPrefab: {fileID: 4750923977209644162, guid: f9d30bce963a5b24f83168289e121474, type: 3}
   graceTier1Cap: 25
   graceHardCap: 50
   graceTier1Rate: 1

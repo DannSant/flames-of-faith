@@ -39,9 +39,9 @@ namespace Game.Effects.EffectBehaviors
 
         public ElementalDebuffData elementalDebuffData;
 
-        public override void Initialize(GameObject owner, EffectStore store, Effect parentEffect)
+        public override void Initialize(EffectBehaviorContext context, Effect parentEffect)
         {
-            base.Initialize(owner, store, parentEffect);
+            base.Initialize(context, parentEffect);
             // No setup needed (effect is passive until queried)
         }
 

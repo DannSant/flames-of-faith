@@ -27,10 +27,15 @@ namespace Game.Effects
     {
         [SerializeField] protected string behaviorId;
         [SerializeField] protected EffectStackBehavior stackBehavior = EffectStackBehavior.None;
-        // References
-        protected GameObject ownerObject;
-        protected EffectStore storeOwner;
+
+        // Shared, per-owner state - see EffectBehaviorContext for why this can't be a field on
+        // this ScriptableObject instead.
+        protected EffectBehaviorContext context;
         protected Effect parentEffect;
+
+        // Convenience accessors so existing/derived behaviors can keep reading these as before.
+        protected GameObject ownerObject => context?.ownerObject;
+        protected EffectStore storeOwner => context?.storeOwner;
 
         public string BehaviorId { get => behaviorId; set => behaviorId = value; }
 
@@ -47,11 +52,17 @@ namespace Game.Effects
 #endif
 
         /// <summary> Called once when the effect is added to the owner. </summary>
-        public virtual void Initialize(GameObject owner, EffectStore store, Effect effect) {
-            ownerObject = owner;
-            storeOwner = store;
+        public virtual void Initialize(EffectBehaviorContext context, Effect effect) {
+            this.context = context;
             parentEffect = effect;
         }
+
+        /// <summary>
+        /// Per-behavior mutable runtime state (cooldown timers, cached subscriptions, etc.),
+        /// scoped to this behavior's owning EffectBehaviorContext so it resets with the run
+        /// instead of persisting on the shared ScriptableObject.
+        /// </summary>
+        protected T GetState<T>() where T : class, new() => context.GetState<T>(this);
 
         /// <summary> Called when a trigger happens (attack, hit, etc). </summary>
         public virtual void OnTrigger(EffectTrigger trigger) { }

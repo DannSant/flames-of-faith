@@ -20,6 +20,7 @@ namespace Game.Combat
         [SerializeField] private float damageTier2Rate = 0.2f;
         [SerializeField] private float damageTier3Rate = 0.01f;
         [SerializeField] private float meleeDamageScaling = 0.2f;
+        [SerializeField] private GameObject damageReflectionEffectPrefab;
 
         [Header("Grace Generation")]
         [SerializeField] private float graceTier1Cap = 25f;
@@ -92,6 +93,12 @@ namespace Game.Combat
             if (reflectedDamage <= 0f) return;
 
             damageable.TakeDamage(new DamageRequest(reflectedDamage, WeaponClass.Melee, false));
+
+            if (damageReflectionEffectPrefab != null)
+            {
+                GameObject effectInstance = Instantiate(damageReflectionEffectPrefab, attacker.transform.position, Quaternion.identity);
+                Destroy(effectInstance, 0.6f);
+            }
 
             if (damageable.ShouldSpawnDamageNumber() && !damageable.IsImmune())
             {

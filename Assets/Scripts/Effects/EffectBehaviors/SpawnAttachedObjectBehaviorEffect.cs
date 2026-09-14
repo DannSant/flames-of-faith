@@ -12,12 +12,16 @@ namespace Game.Effects.EffectBehaviors
         [SerializeField] private int count = 2;
         [SerializeField] private float angleStep = 180f;
 
-        private readonly List<GameObject> spawnedObjects = new();
-
-
-        public override void Initialize(GameObject owner, EffectStore store, Effect effect)
+        // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly
+        // on this ScriptableObject.
+        private class RuntimeState
         {
-            base.Initialize(owner, store, effect);
+            public readonly List<GameObject> spawnedObjects = new();
+        }
+
+        public override void Initialize(EffectBehaviorContext context, Effect effect)
+        {
+            base.Initialize(context, effect);
             PlayerManager.Instance.OnPlayerDisabledOnMap += DisableVisuals;
         }
 
@@ -44,6 +48,7 @@ namespace Game.Effects.EffectBehaviors
             }
 
             float currentAngle = 0f;
+            var state = GetState<RuntimeState>();
 
             for (int i = 0; i < count; i++)
             {
@@ -56,7 +61,7 @@ namespace Game.Effects.EffectBehaviors
                 // Optional: effect multiplier
                 obj.GetComponent<IEffectMultiplier>()?.SetEffectID(parentEffect.EffectID);
 
-                spawnedObjects.Add(obj);
+                state.spawnedObjects.Add(obj);
                 currentAngle += angleStep;
             }
         }
@@ -68,7 +73,7 @@ namespace Game.Effects.EffectBehaviors
 
         private void DisableVisuals()
         {
-            foreach (var obj in spawnedObjects)
+            foreach (var obj in GetState<RuntimeState>().spawnedObjects)
             {
                 if (obj != null)
                     obj.SetActive(false);
@@ -78,14 +83,17 @@ namespace Game.Effects.EffectBehaviors
         public override void Cleanup()
         {
             PlayerManager.Instance.OnPlayerDisabledOnMap -= DisableVisuals;
+
+            var state = GetState<RuntimeState>();
+
             // Destroy spawned objects
-            foreach (var obj in spawnedObjects)
+            foreach (var obj in state.spawnedObjects)
             {
                 if (obj != null)
                     GameObject.Destroy(obj);
             }
 
-            spawnedObjects.Clear();
+            state.spawnedObjects.Clear();
         }
     }
 

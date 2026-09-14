@@ -415,6 +415,19 @@ public class DeveloperCheats
 
     }
 
+    
+    [MenuItem("DevTools/Items/Scroll of Vengance Daggers")]
+    public static void GiveScrollOfVengeanceDaggers()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "cfc621a3-c452-497f-ad24-a61f5fb60c22";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]
     public static void SpawnFlameShooter()
     {
