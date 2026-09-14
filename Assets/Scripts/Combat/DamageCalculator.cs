@@ -13,7 +13,8 @@ namespace Game.Combat
         private WeaponClass weaponClass;
         private PlayerProgression playerProgression;
         private float weaponScaleDamage;
-        public DamageCalculationRequest(float damageAmount, EffectStore effectStore, string effectID, WeaponClass weaponClass, PlayerProgression playerProgression, float weaponScaleDamage)
+        private float stackDamageMultiplier;
+        public DamageCalculationRequest(float damageAmount, EffectStore effectStore, string effectID, WeaponClass weaponClass, PlayerProgression playerProgression, float weaponScaleDamage, float stackDamageMultiplier = 1f)
         {
             this.damageAmount = damageAmount;
             this.effectStore = effectStore;
@@ -21,6 +22,7 @@ namespace Game.Combat
             this.weaponClass = weaponClass;
             this.playerProgression = playerProgression;
             this.weaponScaleDamage = weaponScaleDamage;
+            this.stackDamageMultiplier = stackDamageMultiplier;
         }
 
         public float DamageAmount => damageAmount;
@@ -30,9 +32,15 @@ namespace Game.Combat
         public PlayerProgression PlayerProgression => playerProgression;
         public float WeaponScaleDamage => weaponScaleDamage;
 
+        // Set by the spawning EffectBehavior when the effect authors a Damage scaling rule, and
+        // left at 1 otherwise. Passed in rather than derived from EffectID inside the calculator
+        // on purpose: an effect that scales its spawn count instead passes 1 here, which is what
+        // makes the quadratic case structurally impossible rather than merely discouraged.
+        public float StackDamageMultiplier => stackDamageMultiplier;
+
         public override string ToString()
         {
-            return $"DamageRequest(DamageAmount: {damageAmount}, EffectStore: {effectStore}, EffectID: {effectID}, WeaponClass: {weaponClass}, PlayerProgression: {playerProgression}, WeaponScaleDamage: {weaponScaleDamage})";
+            return $"DamageRequest(DamageAmount: {damageAmount}, EffectStore: {effectStore}, EffectID: {effectID}, WeaponClass: {weaponClass}, PlayerProgression: {playerProgression}, WeaponScaleDamage: {weaponScaleDamage}, StackDamageMultiplier: {stackDamageMultiplier})";
         }
     }
     public class DamageCalculator : MonoBehaviour
@@ -79,7 +87,8 @@ namespace Game.Combat
             float finalDamage = 0;
             if (effectStore == null)
             {
-                totalDamage = baseDamage + progressionStatDamage * damageRequest.WeaponScaleDamage;
+                totalDamage = (baseDamage + progressionStatDamage * damageRequest.WeaponScaleDamage)
+                    * damageRequest.StackDamageMultiplier;
                 graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
                 finalDamage = totalDamage + graceDamage;
                 if (finalDamage <= 0)
@@ -100,16 +109,21 @@ namespace Game.Combat
             // (scaleValue 0) for an empty/unknown id, so multiplying by it directly would zero out
             // all normal weapon damage.
             //
-            // Stack count is deliberately not part of this - it multiplies how many instances an
-            // effect spawns, so folding it in here as well would make stacking scale quadratically.
+            // Stack count is deliberately not looked up here - an effect that stacks its damage
+            // hands the resolved multiplier in via StackDamageMultiplier instead. Deriving it from
+            // the id at this point would apply it to effects that stack their spawn count too, and
+            // N times as many objects each hitting N times as hard is quadratic.
             float effectStatScale = 1f;
             if (!string.IsNullOrEmpty(damageRequest.EffectID))
             {
                 effectStatScale = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).scaleValue;
             }
 
+            // The multiplier covers the whole sum, not just the progression term: effect prefabs
+            // are commonly WeaponClass.None, where that term is 0 and scaling it would be a no-op.
             totalDamage = Mathf.FloorToInt(
-                baseDamage + progressionStatDamage * effectStatScale * damageRequest.WeaponScaleDamage);
+                (baseDamage + progressionStatDamage * effectStatScale * damageRequest.WeaponScaleDamage)
+                * damageRequest.StackDamageMultiplier);
             graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
             finalDamage = totalDamage + graceDamage;
             if (finalDamage<=0)

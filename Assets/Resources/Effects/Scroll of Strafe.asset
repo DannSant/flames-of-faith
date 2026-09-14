@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Scroll of Vengance Daggers
+  m_Name: Scroll of Strafe
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: cfc621a3-c452-497f-ad24-a61f5fb60c22
-  icon: {fileID: 21300000, guid: 3850c097fc5cdc549892aeb984b4db07, type: 3}
-  effectName: Scroll of Vengance Daggers
+  effectID: f432e5fc-d77c-4ced-aef7-e4f17ba18f56
+  icon: {fileID: 21300000, guid: b223170de10937143b3d52b7e7cfb899, type: 3}
+  effectName: Scroll of Strafe
   scalingValue: 1
-  description: 'Skill item. When hit have a chance to spawn up to 5 daggers and throw
-    them in random directions.
+  description: 'Skill item. When Dashing you will shoot arrows in random directions
+    dealing _ranged_damage_. Skil Duration will increase the reach of the arrows
 
-    Damage scales with _melee_damage_ and how far
-    they travel with Skill Duration. May inflict Bleed on enemies'
+'
   buyPrice: 75
   sellPrice: 25
   effectStatModifiers: []
   behaviors:
-  - {fileID: 11400000, guid: ee62e472750dd5d4bac52530f35e3939, type: 2}
+  - {fileID: 11400000, guid: e518b45e6c1ca2a4cb3d3c3b9e0c8b80, type: 2}
   unlockedByDefault: 1
   quality: 3
   availableForShop: 1

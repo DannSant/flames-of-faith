@@ -62,8 +62,7 @@ namespace Game.Effects.EffectBehaviors
 
             state.nextAvailableTime = Time.time + cooldown;
 
-            // Number of rolls depends on effect stack count
-            int finalMaxSpawnCount = maxSpawnCount * storeOwner.GetEffectMultiplierConfig(parentEffect.EffectID).count;
+            int finalMaxSpawnCount = ResolveSpawnCount(maxSpawnCount);
 
             for (int i = 0; i < finalMaxSpawnCount; i++)
             {
@@ -90,12 +89,7 @@ namespace Game.Effects.EffectBehaviors
                 spawnPos += randomOffsetVec;
             }
 
-            GameObject instance = Instantiate(prefabToSpawn, spawnPos, rot);
-
-            if (instance.TryGetComponent<IEffectMultiplier>(out var multiplier))
-            {
-                multiplier.SetEffectID(parentEffect.EffectID);
-            }
+            SpawnEffectObject(prefabToSpawn, spawnPos, rot);
         }
     }
 }

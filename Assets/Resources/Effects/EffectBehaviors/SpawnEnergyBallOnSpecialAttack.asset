@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: SpawnEnergyBallOnSpecialAttack
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.SpawnObjectOnSpecialAttack
   behaviorId: SpawnEnergyBallOnSpecialAttack
-  stackBehavior: 2
+  stackScaling:
+  - target: 1
+    perStack: 1
+    mode: 0
+    maxTotal: 0
   prefabToSpawn: {fileID: 3820325500369716553, guid: 0eaeebd9822b6c74b9cb1319186b9a49, type: 3}
   spawnCount: 1
   spawnOffset: {x: 0, y: 0}

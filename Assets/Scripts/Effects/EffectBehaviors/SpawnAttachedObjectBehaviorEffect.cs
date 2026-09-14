@@ -10,7 +10,6 @@ namespace Game.Effects.EffectBehaviors
     {
         [SerializeField] private GameObject prefabToSpawn;
         [SerializeField] private int count = 2;
-        [SerializeField] private float angleStep = 180f;
 
         // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly
         // on this ScriptableObject.
@@ -47,28 +46,47 @@ namespace Game.Effects.EffectBehaviors
                 return;
             }
 
-            float currentAngle = 0f;
             var state = GetState<RuntimeState>();
+            int finalCount = ResolveSpawnCount(count);
 
-            for (int i = 0; i < count; i++)
+            // Spacing is derived from the count rather than authored, so stacking redistributes
+            // the orbiters evenly instead of piling new ones on top of the existing ones.
+            float angleStep = 360f / finalCount;
+
+            for (int i = 0; i < finalCount; i++)
             {
-                GameObject obj = Instantiate(prefabToSpawn, ownerObject.transform.position, Quaternion.identity, ownerObject.transform);
+                GameObject obj = SpawnEffectObject(
+                    prefabToSpawn, ownerObject.transform.position, Quaternion.identity, ownerObject.transform);
 
-                // Give it initial rotation offset
-                IOrbitInitializer orbitInit = obj.GetComponent<IOrbitInitializer>();
-                orbitInit?.InitializeOrbit(ownerObject.transform, currentAngle);
+                if (obj == null) continue;
 
-                // Optional: effect multiplier
-                obj.GetComponent<IEffectMultiplier>()?.SetEffectID(parentEffect.EffectID);
-
+                obj.GetComponent<IOrbitInitializer>()?.InitializeOrbit(ownerObject.transform, angleStep * i);
                 state.spawnedObjects.Add(obj);
-                currentAngle += angleStep;
             }
         }
 
+        /// <summary>
+        /// These orbiters are persistent rather than fire-and-forget, so a new stack can't just
+        /// widen a spawn loop - the existing ones have to be torn down and the whole ring rebuilt
+        /// at the new count to stay evenly spaced.
+        /// </summary>
         private void UpdateStackScaling()
         {
+            DespawnObjects();
+            SpawnObjects();
+        }
 
+        private void DespawnObjects()
+        {
+            var state = GetState<RuntimeState>();
+
+            foreach (var obj in state.spawnedObjects)
+            {
+                if (obj != null)
+                    Destroy(obj);
+            }
+
+            state.spawnedObjects.Clear();
         }
 
         private void DisableVisuals()
@@ -83,17 +101,7 @@ namespace Game.Effects.EffectBehaviors
         public override void Cleanup()
         {
             PlayerManager.Instance.OnPlayerDisabledOnMap -= DisableVisuals;
-
-            var state = GetState<RuntimeState>();
-
-            // Destroy spawned objects
-            foreach (var obj in state.spawnedObjects)
-            {
-                if (obj != null)
-                    GameObject.Destroy(obj);
-            }
-
-            state.spawnedObjects.Clear();
+            DespawnObjects();
         }
     }
 

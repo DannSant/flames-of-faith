@@ -117,9 +117,8 @@ namespace Game.Effects.EffectBehaviors
             float roll = Random.Range(0f, 1f);
             if (roll > chanceToSpawn)
                 return;
-            //TODO: Use the EffectStackBehavior to modify spawn count 
-            // Number of instances depends on effect stack count
-            int finalCount = spawnCount * storeOwner.GetEffectMultiplierConfig(parentEffect.EffectID).count;
+
+            int finalCount = ResolveSpawnCount(spawnCount);
 
             for (int i = 0; i < finalCount; i++)
             {
@@ -137,13 +136,7 @@ namespace Game.Effects.EffectBehaviors
                     spawnPos += randomOffsetVec;
                 }
 
-                GameObject instance = Instantiate(prefabToSpawn, spawnPos, rot);
-
-                // Attach effect multiplier ID
-                if (instance.TryGetComponent<IEffectMultiplier>(out var multiplier))
-                {
-                    multiplier.SetEffectID(parentEffect.EffectID);
-                }
+                SpawnEffectObject(prefabToSpawn, spawnPos, rot);
             }
         }
     }

@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: SpawnDaggersOnDamageReceived
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.SpawnOnDamageReceivedEffectBehavior
   behaviorId: SpawnDaggersOnDamageReceived
-  stackBehavior: 2
+  stackScaling:
+  - target: 1
+    perStack: 1
+    mode: 0
+    maxTotal: 0
   prefabToSpawn: {fileID: 2396757274246169807, guid: 444d1c5eafc2f244d9bbe708d2f58435, type: 3}
   maxSpawnCount: 5
   spawnOffset: {x: 0, y: 0}

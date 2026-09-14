@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Combat.Projectiles
 {
-    public class ProjectileMoveBounce : ProjectileMovementBase, IEffectStackModifier
+    public class ProjectileMoveBounce : ProjectileMovementBase, IStackScalable
     {
         [SerializeField] private float speed = 5f;
         [SerializeField] private int maxBounces = 3;
@@ -59,15 +59,11 @@ namespace Game.Combat.Projectiles
             return normal;
         }
 
-        public void ModifyEffect(int stackCount, EffectStackBehavior effectStackBehavior)
+        public void ApplyStackScaling(StackScaling scaling)
         {
-            if (effectStackBehavior != EffectStackBehavior.AddBounces)
-            { 
-                return; 
-            }
-
-            additionalBounces = stackCount;
-            
+            // Every rule resolves to 1 at a single unstacked copy, so the -1 is what leaves an
+            // unstacked projectile with exactly its authored maxBounces and nothing extra.
+            additionalBounces = Mathf.Max(0, Mathf.RoundToInt(scaling.Get(StackScalingTarget.Bounces)) - 1);
         }
     }
 

@@ -428,6 +428,18 @@ public class DeveloperCheats
 
     }
 
+    [MenuItem("DevTools/Items/Scroll of Strafe")]
+    public static void GiveScrollOfStrafe()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "f432e5fc-d77c-4ced-aef7-e4f17ba18f56";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]
     public static void SpawnFlameShooter()
     {

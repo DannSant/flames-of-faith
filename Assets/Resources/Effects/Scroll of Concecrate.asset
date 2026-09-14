@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Scroll of Vengance Daggers
+  m_Name: Scroll of Concecrate
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: cfc621a3-c452-497f-ad24-a61f5fb60c22
-  icon: {fileID: 21300000, guid: 3850c097fc5cdc549892aeb984b4db07, type: 3}
-  effectName: Scroll of Vengance Daggers
+  effectID: 849c2af3-bc0d-4fca-a444-20c03195458d
+  icon: {fileID: 21300000, guid: 8c9822441c7f6064dbc16cb6d5f13cf2, type: 3}
+  effectName: Scroll of Concecrate
   scalingValue: 1
-  description: 'Skill item. When hit have a chance to spawn up to 5 daggers and throw
-    them in random directions.
+  description: 'Skill item. Chance to Spawn a number of holy crosses that damages
+    enemies who cross it. Scales with _magic_damage_. T
 
-    Damage scales with _melee_damage_ and how far
-    they travel with Skill Duration. May inflict Bleed on enemies'
+    he crosses last longer
+    with more Skill Duration'
   buyPrice: 75
   sellPrice: 25
   effectStatModifiers: []
   behaviors:
-  - {fileID: 11400000, guid: ee62e472750dd5d4bac52530f35e3939, type: 2}
+  - {fileID: 11400000, guid: 52343fcad531b854ba9387ea4b5821b0, type: 2}
   unlockedByDefault: 1
   quality: 3
   availableForShop: 1

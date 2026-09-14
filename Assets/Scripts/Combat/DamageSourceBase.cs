@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Game.Combat
 {
-    public class DamageSourceBase : MonoBehaviour, IEffectMultiplier, IDamageDealtNotifier
+    public class DamageSourceBase : MonoBehaviour, IEffectMultiplier, IDamageDealtNotifier, IStackScalable
     {
         [Header("Damage")]
         [SerializeField] private int baseDamage = 5;
@@ -52,7 +52,8 @@ namespace Game.Combat
 
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
-        private float stayTimer = 0f;       
+        private float stackDamageMultiplier = 1f;
+        private float stayTimer = 0f;
         private WeaponData weaponData;
         
         public DamageOriginType OriginType => originType;
@@ -229,7 +230,8 @@ namespace Game.Combat
                     effectID,
                     weaponClass,
                     playerProgression,
-                    attackScale
+                    attackScale,
+                    stackDamageMultiplier
                 )
             );
         }
@@ -237,6 +239,17 @@ namespace Game.Combat
         public void SetEffectID(string effectID)
         {
             this.effectID = effectID;
+        }
+
+        public void ApplyStackScaling(StackScaling scaling)
+        {
+            stackDamageMultiplier = scaling.Get(StackScalingTarget.Damage);
+
+            float pierceScale = scaling.Get(StackScalingTarget.Pierce);
+            if (pierceScale != 1f)
+            {
+                pierceCount = Mathf.Max(1, Mathf.RoundToInt(pierceCount * pierceScale));
+            }
         }
 
         public void SetElementalDebuffData(ElementalDebuffData debuffData) => directElementalDebuffData = debuffData;
@@ -257,29 +270,6 @@ namespace Game.Combat
             pierceCount = count;
         }
 
-        public bool FindCurrentEffectInstance(out EffectInstance? result)
-        {
-            if(effectID == null || effectStore == null)
-            {
-                result = new EffectInstance(null);
-                return false;
-            }
-
-            var effectInstance = effectStore.GetEffectInstanceByID(effectID);
-
-            if (effectInstance != null)
-            {
-                result = effectInstance;
-                return true;
-            }
-            else
-            {
-                result = new EffectInstance(null);
-                return false;
-            }
-        }
-
-        
     }
 
 }

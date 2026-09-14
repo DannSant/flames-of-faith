@@ -1,5 +1,3 @@
-using Game.Combat;
-using Game.Combat.Projectiles;
 using UnityEngine;
 
 namespace Game.Effects.EffectBehaviors
@@ -19,8 +17,6 @@ namespace Game.Effects.EffectBehaviors
         [Range(0f, 1f)]
         [SerializeField] private float chanceToSpawn = 1f;
 
-        
-
         public override void OnTrigger(EffectTrigger trigger)
         {
             if (trigger == EffectTrigger.OnSpecialAttack)
@@ -28,22 +24,19 @@ namespace Game.Effects.EffectBehaviors
                 TrySpawnObjects();
             }
         }
+
         private void TrySpawnObjects()
         {
-            for (int i = 0; i < spawnCount; i++)
+            int finalCount = ResolveSpawnCount(spawnCount);
+
+            for (int i = 0; i < finalCount; i++)
             {
                 if (Random.value <= chanceToSpawn)
                 {
                     Vector2 spawnPosition = (Vector2)ownerObject.transform.position + spawnOffset;
                     Quaternion rotation = randomRotation ? Quaternion.Euler(0, 0, Random.Range(0f, 360f)) : Quaternion.identity;
-                    var spawned = Instantiate(prefabToSpawn, spawnPosition, rotation);
 
-                    var effectDamage = spawned.GetComponent<DamageSourceBase>();
-                    effectDamage.SetEffectID(parentEffect.EffectID);
-
-                    var effectCount = storeOwner.GetEffectMultiplierConfig(parentEffect.EffectID).count;
-                    var effectStackModifier = spawned.GetComponent<IEffectStackModifier>();
-                    effectStackModifier?.ModifyEffect(effectCount, stackBehavior);
+                    SpawnEffectObject(prefabToSpawn, spawnPosition, rotation);
                 }
             }
         }

@@ -6,7 +6,6 @@ namespace Game.Effects
     {
         public int count;
         public float scaleValue;
-        public float GetMultiplier() => count * scaleValue;
     }
     public interface IEffectMultiplier 
     {        

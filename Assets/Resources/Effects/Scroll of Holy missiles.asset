@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Scroll of Vengance Daggers
+  m_Name: Scroll of Holy missiles
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: cfc621a3-c452-497f-ad24-a61f5fb60c22
-  icon: {fileID: 21300000, guid: 3850c097fc5cdc549892aeb984b4db07, type: 3}
-  effectName: Scroll of Vengance Daggers
-  scalingValue: 1
-  description: 'Skill item. When hit have a chance to spawn up to 5 daggers and throw
-    them in random directions.
+  effectID: 2bf80c37-2cb1-4792-b7b1-39ff7ac47490
+  icon: {fileID: 21300000, guid: 239d6bf243f66914aaef83720f8a73fb, type: 3}
+  effectName: Scroll of Holy missiles
+  scalingValue: 0.2
+  description: 'Skill Item. Spawns a holy projectile that deals _magic_damage_ when
+    dealing any kind of damage. Additional items increase the number of missiles
+    spawned.
 
-    Damage scales with _melee_damage_ and how far
-    they travel with Skill Duration. May inflict Bleed on enemies'
+    Skill Duration makes the missile reach further'
   buyPrice: 75
   sellPrice: 25
   effectStatModifiers: []
   behaviors:
-  - {fileID: 11400000, guid: ee62e472750dd5d4bac52530f35e3939, type: 2}
+  - {fileID: 11400000, guid: d4dfd011e34c32144a74935735d5b476, type: 2}
   unlockedByDefault: 1
   quality: 3
   availableForShop: 1

@@ -20,6 +20,8 @@ namespace Game.Control
 
         public Action<float, float> OnDashTimerUpdated;
         public Action<int, int> OnChargesUpdated;
+        public event Action onDashStarted;
+        public event Action onDashEnded;
 
         protected PlayerInputHandler inputHandler;
         protected PlayerController playerController;
@@ -153,6 +155,7 @@ namespace Game.Control
             playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
             playerHealth.ToggleIsInvulnerable(true);
+            onDashStarted?.Invoke();
         }
 
         protected virtual void EndDashing()
@@ -160,6 +163,7 @@ namespace Game.Control
             playerController.ResetDashMultiplier();
             dashTrailRenderer.emitting = false;
             playerHealth.ToggleIsInvulnerable(false);
+            onDashEnded?.Invoke();
         }
 
         protected virtual void RecalculateCooldownDuration()

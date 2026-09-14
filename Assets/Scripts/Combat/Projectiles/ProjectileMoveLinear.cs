@@ -1,11 +1,17 @@
+using Game.Effects;
 using UnityEngine;
 
 namespace Game.Combat.Projectiles
 {
-    public class ProjectileMoveLinear : ProjectileMovementBase
+    public class ProjectileMoveLinear : ProjectileMovementBase, IStackScalable
     {
         [SerializeField] private float speed = 5f;
         [SerializeField] private bool rotateTowardsDirection = true;
+
+        public void ApplyStackScaling(StackScaling scaling)
+        {
+            speed *= scaling.Get(StackScalingTarget.Speed);
+        }
 
         protected override void Move()
         {

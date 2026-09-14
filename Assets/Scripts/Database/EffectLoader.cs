@@ -1,57 +1,24 @@
 ﻿
 
 using Game.Effects;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
-using System.Linq;
 using UnityEditor;
-using Game.Database;
 
 
 namespace Game.Database
 {
-    [Serializable]
-    public class StatModifierList
-    {
-        public List<StatModifier> list;
-    }
-
-    [Serializable]
-    public class BehaviorIDList
-    {
-        public List<string> ids;
-    }
     public static class EffectLoader
     {
+        /// <summary>
+        /// Row -> runtime SO, for the DB window's Test Load button. Delegates to the same mapper
+        /// the asset generator uses: this used to be a second hand-written copy, which had already
+        /// drifted (it dropped fields, and parsed the Newtonsoft-written JSON with JsonUtility,
+        /// so it threw on any real row).
+        /// </summary>
         public static Effect CreateEffectSO(EffectRow row)
         {
-            // Create runtime SO instance
             Effect effect = ScriptableObject.CreateInstance<Effect>();
-
-            effect.EffectID = row.effectID;
-            effect.EffectName = row.name;
-            effect.Description = row.description;
-            effect.BuyPrice = row.priceBuy;
-            effect.SellPrice = row.priceSell;
-            effect.Quality = (EffectQuality)row.quality;
-            effect.AvailableForShop = !row.availableForShop.HasValue || row.availableForShop.Value == 1;
-
-            // Load icon
-            if (!string.IsNullOrEmpty(row.iconKey))
-                effect.EffectIcon = Resources.Load<Sprite>($"Icons/{row.iconKey}");
-
-            // Deserialize stat modifiers
-            effect.StatModifiers = JsonUtility.FromJson<StatModifierList>(row.statModifiersJson).list;
-
-            // Deserialize behaviors
-            var behaviorIDs = JsonUtility.FromJson<BehaviorIDList>(row.behaviorsJson).ids;
-
-            effect.Behaviors = behaviorIDs
-                .Select(id => Resources.Load<EffectBehavior>($"Effects/EffectBehaviors/{id}"))
-                .Where(b => b != null)
-                .ToList();
-
+            effect.InitializeFromData(row);
             return effect;
         }
         public static void GenerateAndSaveAllEffects(string saveFolder)

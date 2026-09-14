@@ -95,6 +95,10 @@ namespace Game.Effects{
             Description = row.description;
             BuyPrice = row.priceBuy;
             SellPrice = row.priceSell;
+            // A row that predates this column reads back 0, and 0 would zero out the damage share
+            // of everything this effect spawns - so treat it as "not authored" and keep the full
+            // share, the same way a null availableForShop means "available".
+            ScalingValue = row.scalingValue > 0f ? row.scalingValue : 1f;
             UnlockedByDefault = row.unlockedByDefault == 1 ? true : false;
             Quality = (EffectQuality)row.quality;
             // null means the row predates this column - treat pre-existing effects as
