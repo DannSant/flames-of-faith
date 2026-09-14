@@ -12,6 +12,8 @@ namespace Game.Combat.Elemental
         [SerializeField] private float strengthStatScale = 1f;
         [Range(0f, 1f)]
         [SerializeField] private float chanceToApply = 1f;
+        [Tooltip("If an enemy has already a debuff of the same type, add this number to the chance to apply it again")]
+        [SerializeField] private float additionalChanceToReapply = 0f;
         [Tooltip("Seconds between damage-over-time ticks, for debuffs that tick.")]
         [SerializeField] private float tickInterval = 0.5f;
         [SerializeField] private GameObject vfx;
@@ -24,6 +26,7 @@ namespace Game.Combat.Elemental
         public float BaseStrength => baseStrength;
         public float StrengthStatScale => strengthStatScale;
         public float ChanceToApply => chanceToApply;
+        public float AdditionalChanceToReapply => additionalChanceToReapply;
         public float TickInterval => tickInterval;
         public GameObject VFX => vfx;
         public DebuffContactSpreadData ContactSpread => contactSpread;

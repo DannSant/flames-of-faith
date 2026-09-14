@@ -18,6 +18,7 @@ MonoBehaviour:
   baseStrength: 1
   strengthStatScale: 0.5
   chanceToApply: 0.25
+  additionalChanceToReapply: 0.75
   tickInterval: 0.5
   vfx: {fileID: 4750923977209644162, guid: 62eca7d4c850eb44a9dfa8af34d17b49, type: 3}
   contactSpread:

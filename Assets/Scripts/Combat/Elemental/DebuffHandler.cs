@@ -11,6 +11,9 @@ namespace Game.Combat.Elemental
 
         private EnemyHealth enemyHealth;
 
+        public event System.Action<ElementalType, int> onStackApplied;
+        public event System.Action<ElementalType> onStackRemoved;
+
         private void Awake()
         {
             enemyHealth = GetComponent<EnemyHealth>();
@@ -21,6 +24,16 @@ namespace Game.Combat.Elemental
             if (debuffData == null) return false;
 
             float chance = debuffData.ChanceToApply;
+
+            // Reapplying onto an already-affected target can be made easier (or harder, with a
+            // negative value) than the base landing chance, e.g. Bleed wants easier re-application
+            // to help it stack.
+            if (activeDebuffs.TryGetValue(debuffData.ElementalType, out DebuffBase existingDebuff) && existingDebuff != null)
+            {
+                chance += debuffData.AdditionalChanceToReapply;
+            }
+            chance = Mathf.Clamp01(chance);
+
             if (Random.value > chance)
             {
                 return false; // Debuff application failed
@@ -49,7 +62,12 @@ namespace Game.Combat.Elemental
             // The null check matters: an expired debuff Destroy()s itself, leaving a fake-null entry behind.
             if (activeDebuffs.TryGetValue(type, out DebuffBase existing) && existing != null)
             {
+                int stacksBefore = existing.Stacks;
                 existing.Apply(debuffData, duration, strength, generation);
+                if (existing.Stacks != stacksBefore)
+                {
+                    onStackApplied?.Invoke(type, existing.Stacks);
+                }
                 return;
             }
 
@@ -87,7 +105,14 @@ namespace Game.Combat.Elemental
             {
                 newDebuff.Apply(debuffData, duration, strength, generation);
                 activeDebuffs[type] = newDebuff;
+                onStackApplied?.Invoke(type, newDebuff.Stacks);
             }
+        }
+
+        /// <summary>Current stack count for the given element, or 0 if no live debuff of that type is active.</summary>
+        public int GetStacks(ElementalType type)
+        {
+            return activeDebuffs.TryGetValue(type, out DebuffBase debuff) && debuff != null ? debuff.Stacks : 0;
         }
 
         /// <summary>
@@ -102,6 +127,7 @@ namespace Game.Combat.Elemental
             if (activeDebuffs.TryGetValue(type, out DebuffBase current) && current == debuff)
             {
                 activeDebuffs.Remove(type);
+                onStackRemoved?.Invoke(type);
             }
         }
     }

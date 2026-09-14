@@ -21,6 +21,9 @@ namespace Game.Combat.Elemental
 
         public ElementalType ElementalType => data != null ? data.ElementalType : ElementalType.None;
 
+        /// <summary>Current stack count; always at least 1 once the debuff has been applied.</summary>
+        public int Stacks => stacks;
+
         protected virtual void Awake()
         {
             enemyHealth = GetComponent<EnemyHealth>();
