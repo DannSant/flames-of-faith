@@ -589,6 +589,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2164243721028737180, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 01d777043a93ef643922c13d4e3e277a, type: 2}
+    - target: {fileID: 2164243721028737180, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
       value: 0.3254902
       objectReference: {fileID: 0}
@@ -796,7 +800,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 4589891650837819230}
     - targetCorrespondingSourceObject: {fileID: 7372927498355548474, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       insertIndex: -1

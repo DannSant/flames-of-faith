@@ -511,8 +511,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actDefinitions:
-  - {fileID: 11400000, guid: 12177ff8c38e1d34dbbb510460d54a53, type: 2}
+  - {fileID: 11400000, guid: b6d914106fe7c3d418aac844498b8dd3, type: 2}
   - {fileID: 11400000, guid: e2dc62a3f2b351249922874754ad60fe, type: 2}
+  - {fileID: 11400000, guid: 12177ff8c38e1d34dbbb510460d54a53, type: 2}
   seed: 12345
   fadeDuration: 0.5
   mainMenuMusic: {fileID: 8300000, guid: 78793306b2a081846b9fac62b6bb25e3, type: 3}
