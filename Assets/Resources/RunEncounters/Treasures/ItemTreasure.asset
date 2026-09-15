@@ -17,7 +17,7 @@ MonoBehaviour:
   rewardTable:
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: c2e9646a08cb8c9429bafadb446829e3, type: 2}
+    item: {fileID: 11400000, guid: 1553ad9befb23ba4f9ca0489147f652f, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 1d4dc93e683c18d4e96aa1201f00d504, type: 2}
+    item: {fileID: 11400000, guid: a5dee07b6aac9ac4198d02f64964e652, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 24deba1b15afc6b498f32fc3f519c5ae, type: 2}
+    item: {fileID: 11400000, guid: 6ed4dae1151309643989d4ad721421bb, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 29f74251dba92e140a3c130e6dbefd0b, type: 2}
+    item: {fileID: 11400000, guid: cb9ff1b4e41389f45b97737cfebce787, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -82,6 +82,30 @@ MonoBehaviour:
   - rewardType: 0
     weight: 50
     item: {fileID: 11400000, guid: 11efb14754fda7c43a47350eb602165b, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: b45cd42e46365a7458b125a135ec83be, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: f6a1f3f99bc9a46469452d817cbb426d, type: 2}
+    itemCount: 1
+    minCurrency: 0
+    maxCurrency: 0
+    minExperience: 0
+    maxExperience: 0
+  - rewardType: 0
+    weight: 50
+    item: {fileID: 11400000, guid: d66d144393c8fde43905516e89d2f4f3, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0

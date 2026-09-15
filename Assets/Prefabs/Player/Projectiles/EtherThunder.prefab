@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3280603524707432037}
   - component: {fileID: -4457343864818819078}
-  - component: {fileID: -2379403813331236055}
   - component: {fileID: 4110729191943974511}
-  - component: {fileID: -2627870865411151769}
   - component: {fileID: 3647493418415671239}
+  - component: {fileID: 5450348944414034518}
   m_Layer: 0
-  m_Name: FireballExplotion
+  m_Name: EtherThunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,21 +63,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2379403813331236055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262266157608048503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5401637a4ffd0fc44b05ebe6a12c6d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
-  baseDurationTime: 3
-  durationScalingFactor: 1
-  durationStat: 16
 --- !u!114 &4110729191943974511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
-  baseDamage: 5
+  baseDamage: 10
   weaponClass: 3
   attackScale: 1
   effectID: 
@@ -103,27 +87,13 @@ MonoBehaviour:
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1
-  shouldStackDamage: 1
-  enablePierce: 1
+  shouldStackDamage: 0
+  enablePierce: 0
   pierceCount: 5
   applyKnockback: 0
   knockbackForce: 5
   canTriggerLifesteal: 1
-  directElementalDebuffData: {fileID: 11400000, guid: d14759c9cd789d541b8813542a28a43f, type: 2}
---- !u!114 &-2627870865411151769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262266157608048503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fbdfec7dbd6c6948b37d8e8fc4a91c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveHoming
-  speed: 5
-  turnSpeed: 180
+  directElementalDebuffData: {fileID: 11400000, guid: c4e18fd50c884bb7b647ef4ce79ce7fa, type: 2}
 --- !u!58 &3647493418415671239
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -160,6 +130,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1
+--- !u!114 &5450348944414034518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262266157608048503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f06fd0ff08a544eaf4463bfcac7dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Misc.DestroyAfterTime
+  timeToDestroy: 0.6
+  autoStartTimer: 1
 --- !u!1 &7423261959569150275
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +224,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1893570234, guid: 03129e45013afa14f9986e20fc58db27, type: 3}
+  m_Sprite: {fileID: -1250030478, guid: e3bb5e5d264dc9d418dde41a82361394, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -261,7 +245,7 @@ Animator:
   m_GameObject: {fileID: 7423261959569150275}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 94f87a707e83b214482a13b4dd8a9184, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33307f5cd1fc384468c1dc49804443d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

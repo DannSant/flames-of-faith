@@ -28,11 +28,14 @@ namespace Game.Combat
         [SerializeField] private float graceTier1Rate = 1f;
         [SerializeField] private float graceTier2Rate = 0.5f;
         [SerializeField] private int graceGeneratedAmount = 1;
+        [Tooltip("Minimum time, in seconds, between Grace gains from Retribution.")]
+        [SerializeField] private float graceGainCooldown = 20f;
 
         private PlayerHealth playerHealth;
         private PlayerProgression playerProgression;
         private PlayerGrace playerGrace;
         private WeaponBase subscribedWeapon;
+        private float nextGraceGainTime;
 
         private void Awake()
         {
@@ -112,12 +115,15 @@ namespace Game.Combat
             int retributionStat = playerProgression.GetStatTotal(StatType.Retribution);
             if (retributionStat <= 0) return;
 
+            if (Time.time < nextGraceGainTime) return;
+
             float graceChance = StatsCalculations.CalculateRetributionGraceChance(
                 retributionStat, graceTier1Cap, graceHardCap, graceTier1Rate, graceTier2Rate);
 
             if (Random.value <= graceChance)
             {
                 playerGrace.AddGrace(graceGeneratedAmount);
+                nextGraceGainTime = Time.time + graceGainCooldown;
             }
         }
     }

@@ -440,6 +440,18 @@ public class DeveloperCheats
 
     }
 
+        [MenuItem("DevTools/Items/Scroll of Ether Thunder")]
+    public static void GiveScrollOfEtherThunder()
+    {
+        var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        if (effectStore != null)
+        {
+            string effectId = "a07699b6-f08a-4a79-9d46-36c60f8c0259";
+            effectStore.AddEffect(EffectsDatabaseProvider.GetAvailableEffectById(effectId));
+        }
+
+    }
+
     [MenuItem("DevTools/Spawn Enemies/Flame Shooter")]
     public static void SpawnFlameShooter()
     {
