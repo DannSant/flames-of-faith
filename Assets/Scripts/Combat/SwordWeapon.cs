@@ -131,8 +131,7 @@ namespace Game.Combat
             if(playerController == null) return;
             if(weaponColliderObject == null) return;
           
-            Vector2 mousePosition = playerController.GetMouseWorldPosition();
-            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+            Vector2 direction = playerController.GetAimDirection();
 
             //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             //weaponColliderObject.transform.rotation = Quaternion.Euler(0, 0, angle);

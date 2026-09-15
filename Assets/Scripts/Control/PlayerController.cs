@@ -16,6 +16,8 @@ namespace Game.Control
         [SerializeField] private float defaultMoveSpeed = 1f;
         [SerializeField] private float baseMoveSpeed = 5f;
         [SerializeField] private float baseMoveScale = 0.25f;
+        [Tooltip("Right-stick magnitude needed before it overrides the facing direction.")]
+        [SerializeField] private float aimDeadzone = 0.25f;
 
         private float moveSpeed = 1f;
 
@@ -251,15 +253,57 @@ namespace Game.Control
                 }
             }
 
+            if (IsGamepadActive())
+            {
+                AdjustFacingFromGamepad();
+                return;
+            }
+
             // Default to mouse-based facing
             if (Camera.main == null) return;
-            if (playerDash.isDashActive()) return;
 
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             worldMousePosition.z = 0;
             Vector3 targetPosition = worldMousePosition - transform.position;           
             characterVisual?.SetFacingDirection(targetPosition.normalized);
+        }
+
+        // Twin-stick facing: right stick aims; with it idle, face the movement direction;
+        // with both idle, keep the last facing so a standing dash goes where the indicator points.
+        private void AdjustFacingFromGamepad()
+        {
+            Vector2 stick = ReadGamepadLook();
+            if (stick.magnitude > aimDeadzone)
+            {
+                characterVisual?.SetFacingDirection(stick.normalized);
+            }
+            else if (movement.sqrMagnitude > 0.0001f)
+            {
+                characterVisual?.SetFacingDirection(movement.normalized);
+            }
+        }
+
+        // Look is bound to both <Pointer>/position and <Gamepad>/rightStick. Reading the action
+        // directly lets the pointer's pixel position (huge magnitude) win the conflict
+        // resolution, so only read the gamepad controls bound to it.
+        private Vector2 ReadGamepadLook()
+        {
+            Vector2 best = Vector2.zero;
+            foreach (var control in inputHandler.Player.Look.controls)
+            {
+                if (control.device is Gamepad && control is InputControl<Vector2> vectorControl)
+                {
+                    Vector2 value = vectorControl.ReadValue();
+                    if (value.sqrMagnitude > best.sqrMagnitude) best = value;
+                }
+            }
+            return best;
+        }
+
+        private bool IsGamepadActive()
+        {
+            return InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
         }
 
         private float CalculateMoveSpeed()
@@ -280,6 +324,18 @@ namespace Game.Control
                 return Vector2.zero;
             }
             return Camera.main.ScreenToWorldPoint(mousePosition);
+        }
+
+        // World-space aim direction for the active input scheme. Prefer this over
+        // GetMouseWorldPosition: the Look action is also bound to the right stick, whose
+        // value is not a screen position.
+        public Vector2 GetAimDirection()
+        {
+            if (IsGamepadActive())
+            {
+                return characterVisual != null ? characterVisual.FacingDirection : Vector2.right;
+            }
+            return (GetMouseWorldPosition() - (Vector2)transform.position).normalized;
         }
 
         public void ChangeDashMultiplier(float multiplier)
