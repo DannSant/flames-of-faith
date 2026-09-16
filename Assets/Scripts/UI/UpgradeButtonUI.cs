@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
-    public class UpgradeButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    public class UpgradeButtonUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         private int upgradeAmount;
         private StatType statToUpgrade;
@@ -57,23 +58,43 @@ namespace Game.UI
 
         void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
+            HideTooltip();
+        }
+
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        {
+            ShowTooltip();
+        }
+
+        void ISelectHandler.OnSelect(BaseEventData eventData)
+        {
+            ShowTooltip();
+        }
+
+        void IDeselectHandler.OnDeselect(BaseEventData eventData)
+        {
+            HideTooltip();
+        }
+
+        private void ShowTooltip()
+        {
+            if (GeneralComponentsUI.Instance == null) {
+                return;
+            }
+
+            string statName = StatDisplayNameHelper.GetDisplayName(statToUpgrade);
+            string description = StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade);
+            generalTooltipPaneUI?.ShowTooltip(description, statName);
+        }
+
+        private void HideTooltip()
+        {
             if (GeneralComponentsUI.Instance == null)
             {
                 return;
             }
 
             generalTooltipPaneUI?.HideTooltip();
-        }
-
-        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-        {
-            if (GeneralComponentsUI.Instance == null) {
-                return;
-            }
-           
-            string statName = StatDisplayNameHelper.GetDisplayName(statToUpgrade);
-            string description = StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade);
-            generalTooltipPaneUI?.ShowTooltip(description, statName);
         }
     }
 

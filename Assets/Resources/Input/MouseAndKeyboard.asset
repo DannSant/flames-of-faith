@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b0f1a33543a304d8698e4409dd022b, type: 3}
+  m_Name: MouseAndKeyboard
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.InputPrompts.InputIconSet
+  entries:
+  - controlPath: leftButton
+    sprite: {fileID: 21300000, guid: ae9184dc17d51354fa323067b9f4e619, type: 3}
+  - controlPath: rightButton
+    sprite: {fileID: 21300000, guid: fa7e89013201d254a82eaff25831e471, type: 3}
+  - controlPath: space
+    sprite: {fileID: 21300000, guid: 30c2235d1f4bf3148a8ca2a559b0169c, type: 3}
+  - controlPath: escape
+    sprite: {fileID: 21300000, guid: d7d2b8345b64cb9439be3cffcbf79ffe, type: 3}
+  - controlPath: leftShift
+    sprite: {fileID: 21300000, guid: 8459f88e65a9e6e4a91dfb8d6591308f, type: 3}

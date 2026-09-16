@@ -12,6 +12,15 @@ namespace Game.Control
         Gamepad
     }
 
+    // Which glyph family prompts should show. PlayStation is detected from the device type;
+    // every other gamepad uses Xbox glyphs.
+    public enum InputDeviceFamily
+    {
+        KeyboardMouse,
+        Xbox,
+        PlayStation
+    }
+
     // Tracks which device the player is *currently using* (last device with meaningful
     // input), not merely whether a gamepad is plugged in - so moving the mouse flips back
     // to keyboard/mouse even with a gamepad connected, and touching the gamepad flips back.
@@ -23,11 +32,15 @@ namespace Game.Control
         [SerializeField] private float mouseMoveThreshold = 3f;
 
         private InputScheme currentScheme = InputScheme.KeyboardMouse;
+        private InputDeviceFamily currentDeviceFamily = InputDeviceFamily.KeyboardMouse;
+        private Gamepad lastUsedGamepad;
 
         public InputScheme CurrentScheme => currentScheme;
+        public InputDeviceFamily CurrentDeviceFamily => currentDeviceFamily;
         public bool IsGamepadActive => currentScheme == InputScheme.Gamepad;
 
         public event Action<InputScheme> OnInputSchemeChanged;
+        public event Action<InputDeviceFamily> OnDeviceFamilyChanged;
         public event Action<Gamepad> OnGamepadConnected;
         public event Action<Gamepad> OnGamepadDisconnected;
 
@@ -53,7 +66,15 @@ namespace Game.Control
         {
             if (currentScheme == InputScheme.Gamepad)
             {
-                if (WasKeyboardMouseUsed()) SetScheme(InputScheme.KeyboardMouse);
+                if (WasKeyboardMouseUsed())
+                {
+                    SetScheme(InputScheme.KeyboardMouse);
+                }
+                else if (WasGamepadUsed())
+                {
+                    // Covers swapping from one connected gamepad to another of a different family.
+                    RefreshDeviceFamily();
+                }
             }
             else
             {
@@ -93,9 +114,19 @@ namespace Game.Control
 
         private bool WasGamepadUsed()
         {
-            var gamepad = Gamepad.current;
-            if (gamepad == null) return false;
+            foreach (var gamepad in Gamepad.all)
+            {
+                if (IsGamepadActuated(gamepad))
+                {
+                    lastUsedGamepad = gamepad;
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        private bool IsGamepadActuated(Gamepad gamepad)
+        {
             if (gamepad.leftStick.ReadValue().magnitude > stickThreshold) return true;
             if (gamepad.rightStick.ReadValue().magnitude > stickThreshold) return true;
 
@@ -132,6 +163,23 @@ namespace Game.Control
             currentScheme = scheme;
             ApplyCursorVisibility();
             OnInputSchemeChanged?.Invoke(currentScheme);
+            RefreshDeviceFamily();
+        }
+
+        private void RefreshDeviceFamily()
+        {
+            InputDeviceFamily family = InputDeviceFamily.KeyboardMouse;
+            if (IsGamepadActive)
+            {
+                // DualShockGamepad is also the base layout for DualSense controllers.
+                family = lastUsedGamepad is UnityEngine.InputSystem.DualShock.DualShockGamepad
+                    ? InputDeviceFamily.PlayStation
+                    : InputDeviceFamily.Xbox;
+            }
+
+            if (family == currentDeviceFamily) return;
+            currentDeviceFamily = family;
+            OnDeviceFamilyChanged?.Invoke(currentDeviceFamily);
         }
 
         private void ApplyCursorVisibility()

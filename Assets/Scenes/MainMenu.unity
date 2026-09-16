@@ -1112,6 +1112,10 @@ PrefabInstance:
       propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8395025236264610895, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8395025236457800239, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1403,6 +1407,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252011734}
   m_CullTransparentMesh: 1
+--- !u!1001 &263548575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 373622624}
+    m_Modifications:
+    - target: {fileID: 4961095614189983262, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_Name
+      value: UISelectionMarkerUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2238
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.49951172
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+--- !u!224 &263548576 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5935041317321919213, guid: 56ecedba4c9a21d4c9498e899d6581f5, type: 3}
+  m_PrefabInstance: {fileID: 263548575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &277129362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +2056,7 @@ RectTransform:
   - {fileID: 1182116695}
   - {fileID: 822974457}
   - {fileID: 1908293349}
+  - {fileID: 263548576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1969,6 +2076,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bcc4ab7ae8e0741b24a84274a82213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPanelWindow: {fileID: 1182116698}
+  characterSelectWindow: {fileID: 822974460}
+  settingsWindow: {fileID: 1908293352}
   classNameText: {fileID: 772514414}
   classDescriptionText: {fileID: 277129364}
   itemNameText: {fileID: 699091546}
@@ -2594,6 +2704,10 @@ PrefabInstance:
     - target: {fileID: 6647598182306976836, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_Name
@@ -4033,6 +4147,8 @@ GameObject:
   - component: {fileID: 822974457}
   - component: {fileID: 822974459}
   - component: {fileID: 822974458}
+  - component: {fileID: 822974461}
+  - component: {fileID: 822974460}
   m_Layer: 5
   m_Name: CharacterSelect
   m_TagString: Untagged
@@ -4099,6 +4215,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822974456}
   m_CullTransparentMesh: 1
+--- !u!114 &822974460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822974456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928028ac2da4be4889ad0a70f26fc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindow
+  role: 0
+  openMode: 1
+  priority: 0
+  focusMode: 0
+  blocksGameplayInput: 0
+  releaseFocusOnCancel: 0
+  defaultSelectable: {fileID: 0}
+  onCancel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 373622620}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  focusFrame: {fileID: 0}
+  focusedFrameColor: {r: 1, g: 1, b: 1, a: 1}
+  unfocusedFrameColor: {r: 1, g: 1, b: 1, a: 0.3}
+  focusedOnlyObjects: []
+  overrideMarkerSettings: 1
+  markerPadding: {x: 8, y: 8}
+  markerOffset: {x: -50, y: 0}
+  markerMatchesSize: 0
+--- !u!225 &822974461
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822974456}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &835725179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4210,6 +4380,10 @@ PrefabInstance:
     - target: {fileID: 8395025236264610895, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
       propertyPath: m_WholeNumbers
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395025236264610895, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8395025236457800239, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4558,7 +4732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5001,7 +5175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5312,6 +5486,8 @@ GameObject:
   - component: {fileID: 1182116695}
   - component: {fileID: 1182116697}
   - component: {fileID: 1182116696}
+  - component: {fileID: 1182116699}
+  - component: {fileID: 1182116698}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -5377,6 +5553,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182116694}
   m_CullTransparentMesh: 1
+--- !u!114 &1182116698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182116694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928028ac2da4be4889ad0a70f26fc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindow
+  role: 0
+  openMode: 1
+  priority: 0
+  focusMode: 0
+  blocksGameplayInput: 0
+  releaseFocusOnCancel: 0
+  defaultSelectable: {fileID: 0}
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  focusFrame: {fileID: 0}
+  focusedFrameColor: {r: 1, g: 1, b: 1, a: 1}
+  unfocusedFrameColor: {r: 1, g: 1, b: 1, a: 0.3}
+  focusedOnlyObjects: []
+  overrideMarkerSettings: 1
+  markerPadding: {x: 8, y: 8}
+  markerOffset: {x: -50, y: 0}
+  markerMatchesSize: 0
+--- !u!225 &1182116699
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182116694}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1183068250
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,6 +6826,10 @@ PrefabInstance:
       propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8395025236264610895, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8395025236457800239, guid: 43e29144da9084842b11631c97ecb1e9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7062,6 +7284,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_Name
       value: vsyncToggle (1)
@@ -7225,7 +7451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8227,7 +8453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8321,7 +8547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8560,7 +8786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -9035,6 +9261,8 @@ GameObject:
   - component: {fileID: 1908293349}
   - component: {fileID: 1908293351}
   - component: {fileID: 1908293350}
+  - component: {fileID: 1908293353}
+  - component: {fileID: 1908293352}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -9118,6 +9346,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908293348}
   m_CullTransparentMesh: 1
+--- !u!114 &1908293352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908293348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928028ac2da4be4889ad0a70f26fc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindow
+  role: 0
+  openMode: 0
+  priority: 0
+  focusMode: 0
+  blocksGameplayInput: 0
+  releaseFocusOnCancel: 0
+  defaultSelectable: {fileID: 0}
+  onCancel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 373622625}
+        m_TargetAssemblyTypeName: Game.UI.MainMenuController, Assembly-CSharp
+        m_MethodName: CloseSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  focusFrame: {fileID: 0}
+  focusedFrameColor: {r: 1, g: 1, b: 1, a: 1}
+  unfocusedFrameColor: {r: 1, g: 1, b: 1, a: 0.3}
+  focusedOnlyObjects: []
+  overrideMarkerSettings: 1
+  markerPadding: {x: 8, y: 8}
+  markerOffset: {x: -50, y: 0}
+  markerMatchesSize: 0
+--- !u!225 &1908293353
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908293348}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1922158661
 GameObject:
   m_ObjectHideFlags: 0
@@ -9935,7 +10217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

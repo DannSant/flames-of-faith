@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 namespace Game.UI.RunEncounters
 {
-    public class ShopIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    public class ShopIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI costText;
@@ -36,6 +37,16 @@ namespace Game.UI.RunEncounters
         }
 
         public void OnPointerExit(PointerEventData eventData)
+        {
+            hideTooltipAction?.Invoke();
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            showTooltipAction?.Invoke(effect);
+        }
+
+        public void OnDeselect(BaseEventData eventData)
         {
             hideTooltipAction?.Invoke();
         }

@@ -4,7 +4,8 @@ using UnityEngine.EventSystems;
 
 namespace Game.UI.RunEncounters
 {
-    public class TreasureRewardIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    public class TreasureRewardIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         private Action showTooltipAction;
         private Action hideTooltipAction;
@@ -21,6 +22,16 @@ namespace Game.UI.RunEncounters
         }
 
         public void OnPointerExit(PointerEventData eventData)
+        {
+            hideTooltipAction?.Invoke();
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            showTooltipAction?.Invoke();
+        }
+
+        public void OnDeselect(BaseEventData eventData)
         {
             hideTooltipAction?.Invoke();
         }

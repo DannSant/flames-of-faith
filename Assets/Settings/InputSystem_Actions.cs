@@ -693,6 +693,33 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FocusNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3e1c6a2-5d47-4f0e-9a8b-2c61d7e4f901"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FocusPrevious"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4f2d7b3-6e58-4a1f-8b9c-3d72e8f5a012"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Browse"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5a3e8c4-7f69-4b20-9cad-4e83f9a6b123"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1146,6 +1173,61 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ShowStatSources"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6b4f9d5-8a70-4c31-8dbe-5f94a0b7c234"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ShowStatSources"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e47b921f-a883-4870-9d06-6a3a2f16f384"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowStatSources"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7c5a0e6-9b81-4d42-9ecf-6a05b1c8d345"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FocusNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8d6b1f7-0c92-4e53-afd0-7b16c2d9e456"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FocusPrevious"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9e7c2a8-1da3-4f64-b0e1-8c27d3eaf567"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Browse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1239,6 +1321,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_ShowStatSources = m_UI.FindAction("ShowStatSources", throwIfNotFound: true);
+        m_UI_FocusNext = m_UI.FindAction("FocusNext", throwIfNotFound: true);
+        m_UI_FocusPrevious = m_UI.FindAction("FocusPrevious", throwIfNotFound: true);
+        m_UI_Browse = m_UI.FindAction("Browse", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1527,6 +1612,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_ShowStatSources;
+    private readonly InputAction m_UI_FocusNext;
+    private readonly InputAction m_UI_FocusPrevious;
+    private readonly InputAction m_UI_Browse;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1586,6 +1674,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/ShowStatSources".
         /// </summary>
         public InputAction @ShowStatSources => m_Wrapper.m_UI_ShowStatSources;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/FocusNext".
+        /// </summary>
+        public InputAction @FocusNext => m_Wrapper.m_UI_FocusNext;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/FocusPrevious".
+        /// </summary>
+        public InputAction @FocusPrevious => m_Wrapper.m_UI_FocusPrevious;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Browse".
+        /// </summary>
+        public InputAction @Browse => m_Wrapper.m_UI_Browse;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1648,6 +1748,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ShowStatSources.started += instance.OnShowStatSources;
             @ShowStatSources.performed += instance.OnShowStatSources;
             @ShowStatSources.canceled += instance.OnShowStatSources;
+            @FocusNext.started += instance.OnFocusNext;
+            @FocusNext.performed += instance.OnFocusNext;
+            @FocusNext.canceled += instance.OnFocusNext;
+            @FocusPrevious.started += instance.OnFocusPrevious;
+            @FocusPrevious.performed += instance.OnFocusPrevious;
+            @FocusPrevious.canceled += instance.OnFocusPrevious;
+            @Browse.started += instance.OnBrowse;
+            @Browse.performed += instance.OnBrowse;
+            @Browse.canceled += instance.OnBrowse;
         }
 
         /// <summary>
@@ -1695,6 +1804,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ShowStatSources.started -= instance.OnShowStatSources;
             @ShowStatSources.performed -= instance.OnShowStatSources;
             @ShowStatSources.canceled -= instance.OnShowStatSources;
+            @FocusNext.started -= instance.OnFocusNext;
+            @FocusNext.performed -= instance.OnFocusNext;
+            @FocusNext.canceled -= instance.OnFocusNext;
+            @FocusPrevious.started -= instance.OnFocusPrevious;
+            @FocusPrevious.performed -= instance.OnFocusPrevious;
+            @FocusPrevious.canceled -= instance.OnFocusPrevious;
+            @Browse.started -= instance.OnBrowse;
+            @Browse.performed -= instance.OnBrowse;
+            @Browse.canceled -= instance.OnBrowse;
         }
 
         /// <summary>
@@ -1962,5 +2080,26 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShowStatSources(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FocusNext" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFocusNext(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FocusPrevious" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFocusPrevious(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Browse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBrowse(InputAction.CallbackContext context);
     }
 }

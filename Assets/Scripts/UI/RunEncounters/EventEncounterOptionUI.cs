@@ -9,7 +9,8 @@ using UnityEngine.EventSystems;
 
 namespace Game.UI.RunEncounters
 {
-    public class EventEncounterOptionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    public class EventEncounterOptionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private TextMeshProUGUI optionText;
 
@@ -25,6 +26,26 @@ namespace Game.UI.RunEncounters
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            ShowTooltip();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            HideTooltip();
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            ShowTooltip();
+        }
+
+        public void OnDeselect(BaseEventData eventData)
+        {
+            HideTooltip();
+        }
+
+        private void ShowTooltip()
+        {
             string tooltip = BuildTooltip();
             if (string.IsNullOrEmpty(tooltip))
             {
@@ -32,11 +53,6 @@ namespace Game.UI.RunEncounters
             }
 
             generalTooltipPaneUI?.ShowTooltip(tooltip);
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            HideTooltip();
         }
 
         public void HideTooltip()

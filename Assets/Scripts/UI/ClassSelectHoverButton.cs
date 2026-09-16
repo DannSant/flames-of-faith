@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 namespace Game.UI
 {
-    public class ClassSelectHoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so the class info also updates with gamepad navigation.
+    public class ClassSelectHoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private CharacterClassData classData;
 
@@ -18,6 +19,16 @@ namespace Game.UI
         }
 
         public void OnPointerExit(PointerEventData eventData)
+        {
+            OnHoverExit?.Invoke();
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            OnHoverEnter?.Invoke(classData);
+        }
+
+        public void OnDeselect(BaseEventData eventData)
         {
             OnHoverExit?.Invoke();
         }

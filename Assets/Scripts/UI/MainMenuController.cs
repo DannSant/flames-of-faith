@@ -2,6 +2,7 @@ using Game.Combat;
 using Game.Control;
 using Game.Effects;
 using Game.Scene;
+using Game.UI.Navigation;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,13 @@ namespace Game.UI
 {
     public class MainMenuController : MonoBehaviour
     {
+
+        [Header("Gamepad navigation")]
+        [Tooltip("UIWindows on the three panels, set to Manual open mode - the panels stay active and " +
+                 "animate off screen, so the focus system is told which one is showing.")]
+        [SerializeField] private UIWindow mainPanelWindow;
+        [SerializeField] private UIWindow characterSelectWindow;
+        [SerializeField] private UIWindow settingsWindow;
 
         [Header("Class Info Display")]
         [SerializeField] private TextMeshProUGUI classNameText;
@@ -33,6 +41,11 @@ namespace Game.UI
                 hoverButton.OnHoverEnter += ShowClassInfo;
                 hoverButton.OnHoverExit += HideClassInfo;
             }
+
+            // The menu opens on the main panel; the other two are off screen.
+            if (mainPanelWindow != null) mainPanelWindow.SetOpen(true);
+            if (characterSelectWindow != null) characterSelectWindow.SetOpen(false);
+            if (settingsWindow != null) settingsWindow.SetOpen(false);
         }
 
         private void OnDisable()
@@ -114,7 +127,7 @@ namespace Game.UI
             ToggleMainPanel(true);
         }
 
-        private void ToggleMainPanel(bool show) 
+        private void ToggleMainPanel(bool show)
         {
             if (show)
             {
@@ -124,8 +137,8 @@ namespace Game.UI
             {
                 animator.SetTrigger("MainPanelHide");
             }
-           
-           
+
+            if (mainPanelWindow != null) mainPanelWindow.SetOpen(show);
         }
 
         private void ToggleCharacterSelect(bool show)
@@ -138,6 +151,8 @@ namespace Game.UI
             {
                 animator.SetTrigger("CharacterSelectHide");
             }
+
+            if (characterSelectWindow != null) characterSelectWindow.SetOpen(show);
         }
 
         public void OpenSettings()
@@ -174,6 +189,8 @@ namespace Game.UI
             {
                 animator.SetTrigger("SettingsHide");
             }
+
+            if (settingsWindow != null) settingsWindow.SetOpen(show);
         }
 
         public void ExitGame()

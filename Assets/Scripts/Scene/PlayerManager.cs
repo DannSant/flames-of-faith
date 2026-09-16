@@ -27,7 +27,15 @@ namespace Game.Scene
         public GameObject CurrentPlayer => currentPlayer;
 
         private bool isPlayerOnMap = false;
-        public bool IsPlayerOnMap { get { return isPlayerOnMap; } set { isPlayerOnMap = value; } }
+        public bool IsPlayerOnMap
+        {
+            get { return isPlayerOnMap; }
+            set
+            {
+                isPlayerOnMap = value;
+                ApplyMapInputBlock();
+            }
+        }
 
         public event Action OnPlayerDisabledOnMap;
 
@@ -142,8 +150,27 @@ namespace Game.Scene
                 collider.enabled = false;
             }
 
+            ApplyMapInputBlock();
+
             //Call event for any additional logic that needs to happen when player is disabled on map
             OnPlayerDisabledOnMap?.Invoke();
+        }
+
+        // The overworld shares buttons with gameplay (A confirms a node but is also Dash), and the
+        // player can't act on the map anyway - so the whole Player map is off while the map is up.
+        private void ApplyMapInputBlock()
+        {
+            var inputHandler = GetPlayerComponent<PlayerInputHandler>();
+            if (inputHandler == null) return;
+
+            if (isPlayerOnMap)
+            {
+                inputHandler.AddGameplayBlock(this);
+            }
+            else
+            {
+                inputHandler.RemoveGameplayBlock(this);
+            }
         }
 
 

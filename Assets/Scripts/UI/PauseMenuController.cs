@@ -61,14 +61,14 @@ namespace Game.UI
 
             if (isPaused)
             {
-                inputHandler.Player.Disable();
+                inputHandler.AddGameplayBlock(this);
                 PauseManager.Instance.SetPause(true); // Pause the game
                 statsPaneUI?.ShowStatsWindow(null); // Show stats pane if available
                 inventoryControllerUI?.ShowInventoryWindow();
             }
             else
             {
-                inputHandler.Player.Enable();
+                inputHandler.RemoveGameplayBlock(this);
                 PauseManager.Instance.SetPause(false); // Resume the game
                 statsPaneUI?.HideStatsWindow(-1); // Hide stats pane if available
                 inventoryControllerUI?.HideInventoryWindow(0);

@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
-    public class EffectIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    // Needs a Selectable on the same GameObject to be reachable with the gamepad.
+    public class EffectIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI quantitytext;
@@ -50,6 +52,16 @@ namespace Game.UI
         }
 
         public void OnPointerExit(PointerEventData eventData)
+        {
+            hideTooltipAction?.Invoke();
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            showTooltipAction?.Invoke(effect);
+        }
+
+        public void OnDeselect(BaseEventData eventData)
         {
             hideTooltipAction?.Invoke();
         }

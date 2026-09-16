@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 namespace Game.UI
 {
-    public class StatRowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    // Needs a Selectable on the same GameObject to be reachable with the gamepad.
+    public class StatRowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private TextMeshProUGUI statNameText;
         [SerializeField] private TextMeshProUGUI statValueText;
@@ -47,6 +49,26 @@ namespace Game.UI
             }
 
             owner?.NotifyHover(statType);
+        }
+
+        void ISelectHandler.OnSelect(BaseEventData eventData)
+        {
+            if (GeneralComponentsUI.Instance == null)
+            {
+                return;
+            }
+
+            owner?.NotifyHover(statType);
+        }
+
+        void IDeselectHandler.OnDeselect(BaseEventData eventData)
+        {
+            if (GeneralComponentsUI.Instance == null)
+            {
+                return;
+            }
+
+            owner?.NotifyHoverEnded();
         }
 
         public void UpdateValue(int statValue, Color color)
