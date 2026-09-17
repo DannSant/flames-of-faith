@@ -47,3 +47,6 @@ Desktop.ini
 # Custom assets folder to ignore
 Assets/AssetPackages/
 Assets/ClassicPixelRPGUI/
+
+# Claude Code local files
+.claude/commands/
