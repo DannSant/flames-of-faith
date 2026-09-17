@@ -149,8 +149,10 @@ namespace Game.Boss
         }
 
         public void HandleFadeoutAnimationEnd() {
-            // SetVisible also drops the collider, so the player can't hit an invisible boss.
-            bossRenderer.SetVisible(false);
+            // The renderer decides, because a fade out can still be playing when phase one ends: it
+            // hides the boss (collider included, so the player can't hit an invisible boss) only
+            // while fading out is still something this boss is allowed to do.
+            bossRenderer.NotifyFadeOutCompleted();
         }
 
         private IEnumerator HandleAllAddsDeadRoutine()

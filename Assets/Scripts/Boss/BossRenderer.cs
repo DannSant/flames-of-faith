@@ -25,6 +25,11 @@ namespace Game.Boss
         private BossController bossController;
         private float defaultAlpha = 1f;
 
+        // Hiding the boss is a phase one behaviour. Once the fight becomes real the boss has to stay
+        // on screen, so fade outs are refused unless something deliberately re-allows one (the boss
+        // disappearing after the player dies).
+        private bool fadeOutAllowed = true;
+
         private void Awake()
         {
             if (spriteRenderer == null)
@@ -89,9 +94,48 @@ namespace Game.Boss
 
         private void HandleSecondPhaseEntered()
         {
+            // Immunity drops at this exact moment, so the boss has to be present at this exact
+            // moment too - an immunity flag that is off on a boss with no collider is just an
+            // unkillable fight.
+            SetVisible(true);
+
             if (!enableFirstPhaseTransparency) return;
 
             ApplyAlpha(defaultAlpha);
+        }
+
+        /// <summary>
+        /// Whether the boss may still vanish. Turned off for the phase two transition, which also
+        /// drops any fade out trigger that was already queued or playing.
+        /// </summary>
+        public void SetFadeOutAllowed(bool value)
+        {
+            fadeOutAllowed = value;
+
+            if (value) return;
+
+            string fadeOutAnimation = GetFadeOutAnimationName();
+            if (!string.IsNullOrEmpty(fadeOutAnimation))
+            {
+                ResetTrigger(fadeOutAnimation);
+            }
+        }
+
+        /// <summary>
+        /// Called from the fade out animation's end event. It hides the boss only if that fade out
+        /// is still what the boss wants - a fade already in flight when the phase changed must not
+        /// take the boss away again after the transition brought it back.
+        /// </summary>
+        public void NotifyFadeOutCompleted()
+        {
+            if (!fadeOutAllowed) return;
+
+            SetVisible(false);
+        }
+
+        private string GetFadeOutAnimationName()
+        {
+            return bossController != null ? bossController.GetFadeOutAnimationName() : null;
         }
 
         private void ApplyAlpha(float alpha)
@@ -140,6 +184,14 @@ namespace Game.Boss
                 Debug.LogWarning("Animator not found on BossRenderer.");
                 return;
             }
+
+            // Refused rather than played: the fade out transition has no exit time, so letting the
+            // trigger through would pull the boss straight out of its phase transition animation.
+            if (!fadeOutAllowed && animationName == GetFadeOutAnimationName())
+            {
+                return;
+            }
+
             animator.SetTrigger(animationName);
         }
 

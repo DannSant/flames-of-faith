@@ -86,12 +86,25 @@ namespace Game.Boss
             }
         }
 
+        // The running ability is nested inside the loop coroutine (AbilityLoop yields the ability's
+        // enumerator directly), so stopping the loop stops the ability mid-cast. That also means
+        // OnAbilityEnded never runs for it, so the state it would have cleaned up is cleared here -
+        // including its end animation, which for the phase one abilities is the fade out that used
+        // to hide the boss for good if it landed after the phase two transition.
         private void StopBossAbilities()
         {
             if (abilityLoopRoutine != null)
             {
                 StopCoroutine(abilityLoopRoutine);
+                abilityLoopRoutine = null;
             }
+
+            if (context != null)
+            {
+                context.currentAbility = null;
+            }
+
+            ClearAllBlockFlags();
         }
 
         // BossWaveHandler.OnBossFightEnded already exists for exactly this (FlameBarUI already
@@ -121,6 +134,9 @@ namespace Game.Boss
 
             StopBossAbilities();
             movement.SetCasting(true); // freeze in place instead of sliding away mid-fade
+            // The one fade out the boss is still allowed after the phase two transition:
+            // disappearing for good because the fight is over.
+            bossRenderer.SetFadeOutAllowed(true);
             bossRenderer.TriggerAnimation(behavior.GetFadeOutAnimationName());
         }
 
@@ -206,10 +222,7 @@ namespace Game.Boss
             // PhaseOneToTwoTransition, so the boss stays invulnerable for the duration of the
             // transition animation and becomes vulnerable and opaque at the same instant.
 
-            if (abilityLoopRoutine != null)
-            {
-                StopCoroutine(abilityLoopRoutine);
-            }
+            StopBossAbilities();
 
             StartCoroutine(PhaseOneToTwoTransition());
 
@@ -217,6 +230,13 @@ namespace Game.Boss
 
         private IEnumerator PhaseOneToTwoTransition()
         {
+            // Phase one is the only part of the fight where the boss hides itself, so from here on
+            // a fade out - one already playing, or one a phase one handler fires during the
+            // transition - must not be able to take the boss away again. Without this the boss can
+            // spend the whole second phase invisible and, because the collider follows the sprite,
+            // unhittable, while still casting its phase two abilities.
+            bossRenderer.SetFadeOutAllowed(false);
+
             // SetVisible (not just the sprite) because phase one usually ends while the boss is
             // faded out, and nothing in phase two plays the FadeIn whose animation event used to be
             // the only thing that re-enabled the collider - the boss would be visible but unhittable
@@ -245,11 +265,14 @@ namespace Game.Boss
             // Reset flags on components if needed
             movement.SetCasting(false);
 
-            abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
-
+            // Before the loop starts, not after: AbilityLoop runs its first selection pass
+            // synchronously, and every phase two ability blocks on AbilityBlockFlags.Everything, so
+            // leftover flags from the interrupted phase one cast would skip that pass.
             ClearAllBlockFlags();
 
             behavior.OnPhaseTwoStart();
+
+            abilityLoopRoutine = StartCoroutine(AbilityLoop(phaseTwoRuntimes));
 
 
         }
@@ -287,12 +310,17 @@ namespace Game.Boss
                 {
                     context.currentAbility = selected.GetBossAbility();
                     movement.SetCasting(true);
-                    yield return StartCoroutine(selected.Execute(
+                    // Yielded directly rather than through StartCoroutine: a coroutine started that
+                    // way is independent of this loop and survives StopCoroutine(abilityLoopRoutine),
+                    // so a phase one ability interrupted by the phase two transition kept running -
+                    // still spawning projectiles, and still firing its fade out end animation into
+                    // the second phase.
+                    yield return selected.Execute(
                         this,
                         context,
                         OnAbilityStarted,
                         OnAbilityEnded
-                    ));
+                    );
                     context.currentAbility = null;
                     movement.SetCasting(false);
                 }
@@ -353,6 +381,12 @@ namespace Game.Boss
         public Transform GetPlayer() => context.playerTransform;
 
         public BossRenderer GetBossRenderer() => bossRenderer;
+
+        /// <summary>
+        /// Name of the vanish animation for this boss, so the renderer can recognise (and refuse) a
+        /// fade out request without the name being duplicated in the inspector.
+        /// </summary>
+        public string GetFadeOutAnimationName() => behavior != null ? behavior.GetFadeOutAnimationName() : null;
 
         public int GetEnrageLevel() => enrageLevel;
 
