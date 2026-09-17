@@ -1352,6 +1352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792252050}
+  - component: {fileID: 792252051}
   m_Layer: 5
   m_Name: InputPrompts
   m_TagString: Untagged
@@ -1376,9 +1377,28 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.55, y: -307.48}
+  m_AnchoredPosition: {x: 140.54999, y: -307.48}
   m_SizeDelta: {x: 263.1, y: 264.95}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &792252051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792252049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d2d1a6970ac0049a4c501740dad617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.InputPrompts.InputPromptVisibilityUI
+  showOnKeyboardMouse: 0
+  showOnGamepad: 1
+  targets:
+  - {fileID: 1847236250}
+  window: {fileID: 0}
+  focusCondition: 0
+  globalRequirement: 0
 --- !u!1 &935194453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,7 +2714,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1847236251}
-  - component: {fileID: 1847236252}
   m_Layer: 5
   m_Name: Xbox
   m_TagString: Untagged
@@ -2725,25 +2744,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3.7049, y: 0.001503}
   m_SizeDelta: {x: 270.51, y: 264.95}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1847236252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847236250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41d2d1a6970ac0049a4c501740dad617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.InputPrompts.InputPromptVisibilityUI
-  showOnKeyboardMouse: 0
-  showOnGamepad: 1
-  targets:
-  - {fileID: 1847236250}
-  window: {fileID: 0}
-  focusCondition: 0
-  globalRequirement: 0
 --- !u!1 &2012178373
 GameObject:
   m_ObjectHideFlags: 0
