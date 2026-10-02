@@ -9,7 +9,6 @@ namespace Game.Waves
 {
     public class WaveEndSequenceController : MonoBehaviour
     {
-        private float graceRemovedPerWave;
         private EnemySpawnCoordinator enemySpawnCoordinator;
 
         private bool endingWave = false;
@@ -20,9 +19,8 @@ namespace Game.Waves
 
         public bool EndingWave => endingWave;
 
-        public void Initialize(float graceRemovedPerWave, EnemySpawnCoordinator enemySpawnCoordinator)
+        public void Initialize(EnemySpawnCoordinator enemySpawnCoordinator)
         {
-            this.graceRemovedPerWave = graceRemovedPerWave;
             this.enemySpawnCoordinator = enemySpawnCoordinator;
         }
 
@@ -64,13 +62,6 @@ namespace Game.Waves
 
             // Wait for the animation to finish playing
             yield return new WaitForSeconds(cleanseAnimationDuration);
-
-            // Reduce grace when wave ends
-            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
-            if (playerGrace != null)
-            {
-                playerGrace.RemoveGrace(graceRemovedPerWave); // Remove 1 grace point
-            }
 
             // Destroy all remaining enemies
             enemySpawnCoordinator.KillAllTrackedEnemiesWithEffects(playerVisual.transform);

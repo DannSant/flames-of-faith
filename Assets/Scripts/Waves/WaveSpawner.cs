@@ -17,7 +17,6 @@ namespace Game.Waves {
 
         [Header("Wave Settings")]
         [SerializeField] private WaveDatabase waveDatabase;
-        [SerializeField] private float graceRemovedPerWave = 1f;
         [SerializeField] private bool endImmediately = false;
 
         [Header("Spawn prefabs")]
@@ -69,7 +68,7 @@ namespace Game.Waves {
             enemySpawnCoordinator.Initialize(enemyPrefabs, spawnZones, minSpawnDistanceFromPlayer, spawnPortalPrefab, transform);
 
             waveEndSequenceController = gameObject.AddComponent<WaveEndSequenceController>();
-            waveEndSequenceController.Initialize(graceRemovedPerWave, enemySpawnCoordinator);
+            waveEndSequenceController.Initialize(enemySpawnCoordinator);
             waveEndSequenceController.OnWaveCompleteStarted += () => OnWaveCompleteStarted?.Invoke();
             waveEndSequenceController.OnWaveCompleteEnded += () => OnWaveCompleteEnded?.Invoke();
 

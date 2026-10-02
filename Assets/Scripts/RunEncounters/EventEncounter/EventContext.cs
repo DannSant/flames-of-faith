@@ -10,7 +10,6 @@ namespace Game.RunEncounters
     {
         public PlayerHealth playerHealth;
         public PlayerProgression playerProgression;
-        public PlayerCorruption playerCorruption;
         public PlayerGrace playerGrace;
         public CurrencyWallet playerWallet;
         public EffectStore playerEffectStore;

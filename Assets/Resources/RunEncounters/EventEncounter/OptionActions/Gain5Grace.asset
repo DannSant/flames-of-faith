@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c4c29c250bab7444adefb4caf8ec802, type: 3}
-  m_Name: Lose5Corruption
-  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.ChangePlayerCorruptionOption
-  resourceName: Corruption
-  amount: -5
+  m_Script: {fileID: 11500000, guid: 2dedc6aac0c7cd042b1d3511bfd9b412, type: 3}
+  m_Name: Gain5Grace
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.ChangeGraceOption
+  resourceName: Grace
+  amount: 5
   isPlainReward: 1
   amountRange: {x: 0, y: 0}
   baseChance: 0

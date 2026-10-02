@@ -15,7 +15,6 @@ namespace Game.Scene
 
         [Header("Gameplay Settings")]
         public LevelType type;
-        public float corruptionIncrease = 1f;
         public bool preventHealthRegen = false;
         public bool preventAttacks = false;
         public bool allowPause = true;
@@ -28,7 +27,7 @@ namespace Game.Scene
 
         public override string ToString()
         {
-            return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber}, corruptionIncrease: {corruptionIncrease})";
+            return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber})";
         }
 
     }

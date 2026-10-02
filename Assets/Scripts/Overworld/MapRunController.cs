@@ -171,27 +171,11 @@ namespace Game.Overworld
 
             node.state = RunNodeState.Cleared;
 
-            ApplyCorruption(node);
             RevealChildren(node);
 
             if (node.nodeType == LevelType.Boss)
             {
                 AdvanceToNextAct();
-            }
-        }
-
-        private void ApplyCorruption(RunNode node)
-        {
-            float corruption = node.levelData.corruptionIncrease;
-            var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
-            if (playerCorruption != null)
-            {
-                //Debug.Log($"Level Data {currentLevelData}");
-                playerCorruption.AddCorruption(corruption);
-            }
-            else
-            {
-                Debug.LogWarning("PlayerCorruption not assigned.");
             }
         }
 

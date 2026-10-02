@@ -155,16 +155,6 @@ namespace Game.Scene
             return playerData.playerExperienceData;
         }
 
-        public void SaveCorruptionLevel(float corruption)
-        {
-            playerData.corruptionLevel = corruption;
-        }
-
-        public float LoadCorruptionLevel()
-        {
-            
-            return playerData.corruptionLevel;
-        }
 
 
 

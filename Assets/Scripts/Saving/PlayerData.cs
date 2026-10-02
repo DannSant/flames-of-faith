@@ -15,7 +15,6 @@ namespace Game.Saving
         public PlayerExperienceData playerExperienceData = new PlayerExperienceData();
         public List<EffectInstance> savedEffects = new();
         public int currencyAmount = 0;    
-        public float corruptionLevel = 0f;
     }
 
 }
