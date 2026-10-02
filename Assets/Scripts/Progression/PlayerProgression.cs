@@ -22,7 +22,6 @@ namespace Game.Progression {
         private bool statsDirty = true;
 
         private EffectStore effectStore;
-        private PlayerCorruption playerCorruption;
         private PlayerGrace playerGrace;
 
         private void Awake()
@@ -30,11 +29,8 @@ namespace Game.Progression {
             effectStore = GetComponent<EffectStore>();
             effectStore.OnEffectsChanged += HandleEffectsChanged;
 
-            playerCorruption = GetComponent<PlayerCorruption>();
-            playerCorruption.OnCorruptionChanged += OnCorruptionChanged;
-
             playerGrace = GetComponent<PlayerGrace>();
-            //playerGrace.onGraceChanged += OnGraceChanged;
+            playerGrace.onGraceChanged += OnGraceChanged;
         }
 
         private void Start()
@@ -50,8 +46,7 @@ namespace Game.Progression {
         private void OnDisable()
         {
             effectStore.OnEffectsChanged -= HandleEffectsChanged;
-            playerCorruption.OnCorruptionChanged -= OnCorruptionChanged;
-            //playerGrace.onGraceChanged -= OnGraceChanged;
+            playerGrace.onGraceChanged -= OnGraceChanged;
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayStateResetRequested -= ResetProgression;
@@ -86,11 +81,11 @@ namespace Game.Progression {
 
                 float totalBeforeCorruption = (baseValue + flatBonus) * (1f + percentBonus);
 
-                // Handle corruption effects if applicable
+                // Negative Grace (Corrupted) reduces the stats flagged as affected by corruption
                 StatData statData = StatUpgradeDatabase.Instance.GetStatData(stat); // Exception is thrown inside this method
                 if(statData != null && statData.AffectedByCorruption)
                 {
-                    float corruptionLevel = playerCorruption.CalculateCorruptionEffectLevel();
+                    float corruptionLevel = playerGrace.CorruptedLevel;
                     float corruptionReduction = corruptionLevel * statData.CorruptionReduceFactor;
                     float finalValue = totalBeforeCorruption - corruptionReduction;
                     cachedFinalStats[stat] = finalValue;
@@ -155,13 +150,7 @@ namespace Game.Progression {
             return result;
         }
 
-        /*private void OnGraceChanged(float _, float __)
-        {
-            statsDirty = true;
-            onDerivedStatsChanged?.Invoke();
-        }*/
-
-        private void OnCorruptionChanged(float _, float __, float ___)
+        private void OnGraceChanged(float _, float __)
         {
             statsDirty = true;
             onDerivedStatsChanged?.Invoke();
@@ -204,14 +193,6 @@ namespace Game.Progression {
 
         public void SaveState()
         {
-            /*foreach (var stat in currentStats)
-            {
-                if(stat.Key == StatType.MaxGrace)
-                {
-                    Debug.Log($"Saving Stat {stat.Key} with value {stat.Value}");
-                    break;
-                }
-            }*/
             GameSession.Instance.SaveStats(currentStats);
         }
 
@@ -219,14 +200,6 @@ namespace Game.Progression {
         {
             statsDirty = true;
             currentStats = new Dictionary<StatType, int>(GameSession.Instance.PlayerData.savedStats);
-            /*foreach (var stat in currentStats)
-            {
-                if (stat.Key == StatType.MaxGrace)
-                {
-                    Debug.Log($"Loading Stat {stat.Key} with value {stat.Value}");
-                    break;
-                }
-            }*/
 
         }
     }

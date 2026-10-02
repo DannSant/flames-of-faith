@@ -54,7 +54,7 @@ public class Tester : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            playerProgression.UpdateStat(StatType.MaxGrace, 1);
+            playerProgression.UpdateStat(StatType.GracePerWave, 1);
         }
     }
 }

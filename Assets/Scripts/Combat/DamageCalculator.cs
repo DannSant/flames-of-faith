@@ -47,8 +47,6 @@ namespace Game.Combat
     {
         private static PlayerGrace playerGrace;
 
-        private static float graceDamageMultiplier = 0.1f;
-
         public static float CalculateTotalDamage(DamageCalculationRequest damageRequest)
         {
             if (playerGrace == null)
@@ -83,14 +81,12 @@ namespace Game.Combat
             var effectStore = damageRequest.EffectStore;
 
             float totalDamage = 0;
-            float graceDamage = 0;
             float finalDamage = 0;
             if (effectStore == null)
             {
                 totalDamage = (baseDamage + progressionStatDamage * damageRequest.WeaponScaleDamage)
                     * damageRequest.StackDamageMultiplier;
-                graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
-                finalDamage = totalDamage + graceDamage;
+                finalDamage = totalDamage * GetGraceDamageMultiplier();
                 if (finalDamage <= 0)
                 {
                     return 1f;
@@ -124,8 +120,7 @@ namespace Game.Combat
             totalDamage = Mathf.FloorToInt(
                 (baseDamage + progressionStatDamage * effectStatScale * damageRequest.WeaponScaleDamage)
                 * damageRequest.StackDamageMultiplier);
-            graceDamage = GetGraceDamage(totalDamage, playerGrace.CurrentGrace);
-            finalDamage = totalDamage + graceDamage;
+            finalDamage = totalDamage * GetGraceDamageMultiplier();
             if (finalDamage<=0)
             {
                 return 1f;
@@ -133,9 +128,10 @@ namespace Game.Combat
             return finalDamage;
         }
 
-        private static float GetGraceDamage(float damage, float grace)
+        // Positive Grace increases damage, negative Grace (Corrupted) reduces it down to a configured floor
+        private static float GetGraceDamageMultiplier()
         {
-            return damage * (graceDamageMultiplier * grace);
+            return playerGrace != null ? playerGrace.GetDamageMultiplier() : 1f;
         }
 
         private static void FindPlayerGrace()

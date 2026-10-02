@@ -145,13 +145,6 @@ namespace Game.Scene
             return playerData.currentGrace;
         }
 
-        public float LoadMaxGrace()
-        {
-            int maxGrace = 0;
-            playerData.savedStats.TryGetValue(StatType.MaxGrace, out maxGrace);
-            return maxGrace;
-        }
-
         public void SavePlayerExperienceState(PlayerExperienceData data)
         {
             playerData.playerExperienceData = data;
