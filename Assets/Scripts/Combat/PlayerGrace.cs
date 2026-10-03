@@ -87,6 +87,7 @@ namespace Game.Combat
             if (IsCorrupted != wasCorrupted)
             {
                 wasCorrupted = IsCorrupted;
+                CorruptedVisual.GetOrAdd(gameObject).SetCorrupted(wasCorrupted);
                 OnCorruptedStateChanged?.Invoke(wasCorrupted);
             }
         }

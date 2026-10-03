@@ -14,6 +14,7 @@ namespace Game.Waves
         public Quaternion SpawnRotation;
         public Transform WaveSpawnerTransform;
         public int WaveNumber;
+        public bool IsCorrupted;
 
     }
     public class EnemySpawnPortal : MonoBehaviour, ISceneCleanupHandler
@@ -56,7 +57,7 @@ namespace Game.Waves
             var enemyObj = Instantiate(spawnInfo.EnemyToSpawn, spawnInfo.SpawnPosition, spawnInfo.SpawnRotation, spawnInfo.WaveSpawnerTransform);
             Enemy enemyComponent = enemyObj.GetComponent<Enemy>();
             onEnemySpawnedEvent?.Invoke(this, enemyObj);
-            enemyComponent.Initialize(spawnInfo.WaveNumber);
+            enemyComponent.Initialize(spawnInfo.WaveNumber, spawnInfo.IsCorrupted);
             Destroy(gameObject, destroyDelay);
 
         }

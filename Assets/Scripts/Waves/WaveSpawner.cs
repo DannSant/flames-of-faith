@@ -186,6 +186,13 @@ namespace Game.Waves {
             waveTimer = waveData.waveDuration;
             waveInProgress = true;
 
+            // Corruption only lives for one wave
+            var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
+            if (playerCorruption != null)
+            {
+                playerCorruption.ResetCorruption();
+            }
+
             OnWaveStarted?.Invoke(currentWaveIndex + 1);
 
             enemySpawnCoordinator.StartSpawning(waveData, currentWaveIndex + 1);

@@ -19,6 +19,7 @@ namespace Game.Waves
 
         private readonly List<GameObject> activeEnemies = new List<GameObject>();
         private Coroutine spawnCoroutine;
+        private WaveData currentWaveData;
 
         public void Initialize(Dictionary<EnemyType, GameObject> enemyPrefabs, List<SpawnZone> spawnZones,
             float minSpawnDistanceFromPlayer, EnemySpawnPortal spawnPortalPrefab, Transform waveSpawnerTransform)
@@ -33,6 +34,7 @@ namespace Game.Waves
         public void StartSpawning(WaveData waveData, int waveNumber)
         {
             StopSpawning();
+            currentWaveData = waveData;
             spawnCoroutine = StartCoroutine(SpawnDuringWaveRoutine(waveData, waveNumber));
         }
 
@@ -108,9 +110,24 @@ namespace Game.Waves
                 SpawnPosition = spawnPos,
                 SpawnRotation = Quaternion.identity,
                 WaveSpawnerTransform = waveSpawnerTransform,
-                WaveNumber = waveNumber
+                WaveNumber = waveNumber,
+                IsCorrupted = RollCorrupted()
             });
             portal.onEnemySpawnedEvent += OnEnemySpawned;
+        }
+
+        // The lower the player's Grace goes below 0, the more likely each spawned enemy is Corrupted
+        private bool RollCorrupted()
+        {
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            if (playerGrace == null)
+            {
+                return false;
+            }
+
+            float waveMultiplier = currentWaveData != null ? currentWaveData.corruptedChanceMultiplier : 1f;
+            float chance = CorruptionSettings.Instance.GetCorruptedSpawnChance(playerGrace.CorruptedLevel, waveMultiplier);
+            return chance > 0f && UnityEngine.Random.value < chance;
         }
 
         private void OnEnemySpawned(EnemySpawnPortal portal, GameObject enemy)

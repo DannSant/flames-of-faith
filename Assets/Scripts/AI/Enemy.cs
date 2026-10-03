@@ -18,6 +18,9 @@ namespace Game.AI {
        
         private BehaviorController behaviorController;
         private EnemyData enemyData;
+        private bool isCorrupted;
+
+        public bool IsCorrupted => isCorrupted;
 
         private void Awake()
         {           
@@ -60,7 +63,7 @@ namespace Game.AI {
 
         }
 
-        public void Initialize(int waveNumber)
+        public void Initialize(int waveNumber, bool spawnCorrupted = false)
         {
             if (health == null)
             {
@@ -83,6 +86,8 @@ namespace Game.AI {
 
             health.SetMaxHealth(calculatedHealth);
 
+            SetCorrupted(spawnCorrupted || enemyData.alwaysCorrupted);
+
             var player = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
             if(player==null)
             {
@@ -100,10 +105,23 @@ namespace Game.AI {
                 waveNumber = waveNumber,
                 enemyAnimController = enemyAnimController,
                 navMeshAgent = agent,
-                aiFixedTarget = target
+                aiFixedTarget = target,
+                isCorrupted = isCorrupted
             };
 
             behaviorController.Initialize(context);
+        }
+
+        private void SetCorrupted(bool value)
+        {
+            isCorrupted = value;
+            if (!isCorrupted)
+            {
+                return;
+            }
+
+            CorruptedDamageSource.Mark(gameObject);
+            CorruptedVisual.GetOrAdd(gameObject).SetCorrupted(true);
         }
     }
 

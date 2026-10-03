@@ -24,6 +24,8 @@ namespace Game.AI.Behaviors
         public NavMeshAgent navMeshAgent;
         public AITarget aiFixedTarget;
         public bool diedSilently;
+        // Corrupted enemies deal extra damage, and everything they hit the player with counts as Corrupted Damage
+        public bool isCorrupted;
 
         //public Dictionary<ScriptableObject, float> cooldownTracker = new();
 

@@ -20,6 +20,8 @@ namespace Game.Enemies
         public int projectileDamagePerWave;
         public int healthPerWave = 30; // Base health increase per wave
         public int healthPerLevel = 40; // Health increase per level
+        [Tooltip("Always spawns Corrupted, regardless of the player's Grace (e.g. Corruptors).")]
+        public bool alwaysCorrupted = false;
     }
 
 }

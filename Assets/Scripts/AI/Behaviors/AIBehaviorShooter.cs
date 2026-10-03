@@ -66,6 +66,7 @@ namespace Game.AI.Behaviors
             if (projectilePrefab == null || firePoint == null || context.playerTransform == null) return;
 
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            MarkIfCorrupted(context, projectile);
             Vector2 direction = (context.playerTransform.position - firePoint.position).normalized;
 
             if (projectile.TryGetComponent(out ProjectileMovement movement))

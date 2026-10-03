@@ -33,6 +33,10 @@ namespace Game.Waves {
         [Tooltip("Normal cooldown time")]
         public float regularCooldown = 1f;
 
+        [Header("Corruption settings")]
+        [Tooltip("Multiplies the Corrupted enemy spawn chance for this wave (0 = no Corrupted enemies).")]
+        public float corruptedChanceMultiplier = 1f;
+
         [Serializable]
         public class EnemySpawnInfo
         {

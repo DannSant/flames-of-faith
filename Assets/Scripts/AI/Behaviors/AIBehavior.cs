@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Enemies;
 using Game.Scene;
 using UnityEngine;
@@ -18,20 +19,40 @@ namespace Game.AI.Behaviors
 
         protected int GetDamageAmount(BehaviorContext context)
         {
-            return EnemyDamageCalculator.Calculate(
+            return ApplyCorruptedMultiplier(context, EnemyDamageCalculator.Calculate(
                 context.enemyData,
                 context.waveNumber,
                 GameSession.Instance.LevelsBeaten,
-                EnemyDamageKind.Contact);
+                EnemyDamageKind.Contact));
         }
 
         protected int GetRangedDamageAmount(BehaviorContext context)
         {
-            return EnemyDamageCalculator.Calculate(
+            return ApplyCorruptedMultiplier(context, EnemyDamageCalculator.Calculate(
                 context.enemyData,
                 context.waveNumber,
                 GameSession.Instance.LevelsBeaten,
-                EnemyDamageKind.Projectile);
+                EnemyDamageKind.Projectile));
+        }
+
+        private int ApplyCorruptedMultiplier(BehaviorContext context, int damage)
+        {
+            if (!context.isCorrupted)
+            {
+                return damage;
+            }
+            return Mathf.RoundToInt(damage * CorruptionSettings.Instance.CorruptedDamageMultiplier);
+        }
+
+        /// <summary>
+        /// Flags a projectile/explosion spawned by a Corrupted enemy so the damage it deals counts as Corrupted Damage.
+        /// </summary>
+        protected void MarkIfCorrupted(BehaviorContext context, GameObject damageSource)
+        {
+            if (context.isCorrupted)
+            {
+                CorruptedDamageSource.Mark(damageSource);
+            }
         }
 
     }
