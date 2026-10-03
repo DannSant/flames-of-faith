@@ -17,4 +17,11 @@ MonoBehaviour:
   corruptedDamageMultiplier: 1.5
   corruptedDamagePerCorruption: 10
   maxCorruptionFromDamage: 5
+  corruptorSpawnTimeout: 3
+  corruptorPhaseDuration: 15
+  corruptorFastKillTime: 5
+  corruptorBaseCorruption: 1
+  corruptorSecondsPerExtraCorruption: 2
+  corruptorMaxCorruption: 5
+  corruptorEscapeCorruption: 5
   corruptedVfxPrefab: {fileID: 8726003427374054332, guid: cac3dcf66f2108c4b86869fe90d9bec0, type: 3}

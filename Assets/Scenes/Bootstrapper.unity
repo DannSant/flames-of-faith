@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84577473c0b0d694893832fb2203ebe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIFocusManager
+  logFocusChanges: 0
 --- !u!4 &1609278361
 Transform:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ namespace Game.Waves {
         private EnemySpawnCoordinator enemySpawnCoordinator;
         private WaveEndSequenceController waveEndSequenceController;
         private WaveLifecycleHandler waveLifecycleHandler;
+        private CorruptorPhaseController corruptorPhaseController;
 
         // Events
         public event Action<int> OnWaveStarted;               // Sends wave number
@@ -39,6 +40,10 @@ namespace Game.Waves {
         public event Action OnWaveCompleteEnded;               // Second part of wave complete process
         public event Action OnWaveGroupFinished;              // Triggered when all waves are complete
         public event Action OnAllLevelsFinished;               // Triggered when all waves are complete and the game should end
+        public event Action<float> OnCorruptorPhaseStarted;   // Sends the Corruptor phase duration
+        public event Action<float> OnCorruptorTimerUpdated;   // Sends the remaining Corruptor time
+        public event Action OnCorruptorPhaseEnded;
+        public event Action<WaveCorruptionResult> OnWaveCorruptionResolved;
 
 
         // Timers
@@ -71,9 +76,16 @@ namespace Game.Waves {
             waveEndSequenceController.Initialize(enemySpawnCoordinator);
             waveEndSequenceController.OnWaveCompleteStarted += () => OnWaveCompleteStarted?.Invoke();
             waveEndSequenceController.OnWaveCompleteEnded += () => OnWaveCompleteEnded?.Invoke();
+            waveEndSequenceController.OnWaveCorruptionResolved += result => OnWaveCorruptionResolved?.Invoke(result);
+
+            corruptorPhaseController = gameObject.AddComponent<CorruptorPhaseController>();
+            corruptorPhaseController.Initialize(enemySpawnCoordinator);
+            corruptorPhaseController.OnPhaseStarted += duration => OnCorruptorPhaseStarted?.Invoke(duration);
+            corruptorPhaseController.OnTimerUpdated += remaining => OnCorruptorTimerUpdated?.Invoke(remaining);
+            corruptorPhaseController.OnPhaseEnded += () => OnCorruptorPhaseEnded?.Invoke();
 
             waveLifecycleHandler = gameObject.AddComponent<WaveLifecycleHandler>();
-            waveLifecycleHandler.Initialize(enemySpawnCoordinator, waveEndSequenceController);
+            waveLifecycleHandler.Initialize(enemySpawnCoordinator, waveEndSequenceController, corruptorPhaseController);
         }
 
         private void Start()
@@ -203,7 +215,28 @@ namespace Game.Waves {
             waveInProgress = false;
 
             enemySpawnCoordinator.StopSpawning();
-            waveEndSequenceController.BeginEndSequence();
+
+            var waveData = waveDatabase.waves[currentWaveIndex];
+            if (waveData.spawnCorruptor)
+            {
+                var corruptorType = waveData.overrideCorruptor ? waveData.corruptorOverride : waveDatabase.corruptorType;
+                corruptorPhaseController.BeginPhase(corruptorType, currentWaveIndex + 1, OnCorruptorPhaseFinished);
+            }
+            else
+            {
+                waveEndSequenceController.BeginEndSequence(CorruptorResult.None);
+            }
+        }
+
+        private void OnCorruptorPhaseFinished(CorruptorResult result)
+        {
+            var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
+            if (playerCorruption != null)
+            {
+                playerCorruption.SetCorruptorCorruption(result.corruption);
+            }
+
+            waveEndSequenceController.BeginEndSequence(result);
         }
 
         public void InvokeOnWaveComplete()
@@ -231,6 +264,8 @@ namespace Game.Waves {
         {
             enemySpawnCoordinator.SpawnEnemy(type, currentWaveIndex + 1);
         }
+
+        public bool CorruptorPhaseInProgress => corruptorPhaseController != null && corruptorPhaseController.InProgress;
 
     }
 }

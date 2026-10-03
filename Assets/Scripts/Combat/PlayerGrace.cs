@@ -75,7 +75,18 @@ namespace Game.Combat
         /// </summary>
         public float ApplyWaveResolution(float gracePerWave, float corruption)
         {
+            float before = currentGrace;
             SetGrace(currentGrace + gracePerWave - corruption);
+
+            float change = currentGrace - before;
+            if (change > 0f)
+            {
+                DamageNumberSpawner.Instance.SpawnGraceGainedNumber(transform.position, change);
+            }
+            else if (change < 0f)
+            {
+                DamageNumberSpawner.Instance.SpawnGraceLostNumber(transform.position, -change);
+            }
             return currentGrace;
         }
 

@@ -2,6 +2,7 @@ using Game.AI;
 using Game.Combat;
 using Game.Misc;
 using Game.Scene;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,16 +59,20 @@ namespace Game.Waves
             }
         }
 
-        public void SpawnEnemy(EnemyType type, int waveNumber)
+        /// <summary>
+        /// Requests a spawn through a portal. Returns false when the spawn could not be requested.
+        /// onSpawned is called once the enemy comes out of the portal.
+        /// </summary>
+        public bool SpawnEnemy(EnemyType type, int waveNumber, Action<GameObject> onSpawned = null)
         {
             if (PlayerManager.Instance.IsPlayerOnMap)
             {
-                return;
+                return false;
             }
-            if (!enemyPrefabs.TryGetValue(type, out var prefab))
+            if (!enemyPrefabs.TryGetValue(type, out var prefab) || prefab == null)
             {
                 Debug.LogWarning($"No prefab found for enemy type: {type}");
-                return;
+                return false;
             }
 
             var validZones = spawnZones.Where(zone => !zone.IsPlayerInside).ToList();
@@ -75,7 +80,7 @@ namespace Game.Waves
             if (validZones.Count == 0)
             {
                 Debug.LogWarning("No valid spawn zones available!");
-                return;
+                return false;
             }
 
             Vector2 playerPos = PlayerManager.Instance.transform.position;
@@ -100,7 +105,7 @@ namespace Game.Waves
             if (!found)
             {
                 Debug.LogWarning("Could not find spawn point far enough from player. Skipping this spawn.");
-                return;
+                return false;
             }
 
             EnemySpawnPortal portal = Instantiate(spawnPortalPrefab, spawnPos, Quaternion.identity);
@@ -114,6 +119,18 @@ namespace Game.Waves
                 IsCorrupted = RollCorrupted()
             });
             portal.onEnemySpawnedEvent += OnEnemySpawned;
+
+            if (onSpawned != null)
+            {
+                Action<EnemySpawnPortal, GameObject> spawnedHandler = null;
+                spawnedHandler = (spawnPortal, enemy) =>
+                {
+                    spawnPortal.onEnemySpawnedEvent -= spawnedHandler;
+                    onSpawned(enemy);
+                };
+                portal.onEnemySpawnedEvent += spawnedHandler;
+            }
+            return true;
         }
 
         // The lower the player's Grace goes below 0, the more likely each spawned enemy is Corrupted

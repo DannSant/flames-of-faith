@@ -37,6 +37,13 @@ namespace Game.Waves {
         [Tooltip("Multiplies the Corrupted enemy spawn chance for this wave (0 = no Corrupted enemies).")]
         public float corruptedChanceMultiplier = 1f;
 
+        [Header("Corruptor settings")]
+        [Tooltip("Spawn a Corruptor when this wave's timer ends.")]
+        public bool spawnCorruptor = true;
+        [Tooltip("Use corruptorOverride instead of the Wave Database's Corruptor for this wave.")]
+        public bool overrideCorruptor = false;
+        public EnemyType corruptorOverride = EnemyType.CorruptorAct1;
+
         [Serializable]
         public class EnemySpawnInfo
         {

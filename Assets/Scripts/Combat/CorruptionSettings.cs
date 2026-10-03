@@ -26,6 +26,22 @@ namespace Game.Combat
         [Tooltip("Maximum Corruption gained per wave from Corrupted Damage.")]
         [SerializeField] private int maxCorruptionFromDamage = 5;
 
+        [Header("Corruptor")]
+        [Tooltip("Seconds to wait for the Corruptor to come out of its spawn portal before skipping the phase.")]
+        [SerializeField] private float corruptorSpawnTimeout = 3f;
+        [Tooltip("Seconds the player has to kill the Corruptor before it escapes.")]
+        [SerializeField] private float corruptorPhaseDuration = 15f;
+        [Tooltip("Killing the Corruptor within this many seconds only grants the base Corruption.")]
+        [SerializeField] private float corruptorFastKillTime = 5f;
+        [Tooltip("Corruption gained when the Corruptor is killed within the fast kill time.")]
+        [SerializeField] private int corruptorBaseCorruption = 1;
+        [Tooltip("After the fast kill time, +1 Corruption for every this many seconds (rounded up).")]
+        [SerializeField] private float corruptorSecondsPerExtraCorruption = 2f;
+        [Tooltip("Maximum Corruption the Corruptor can grant when killed.")]
+        [SerializeField] private int corruptorMaxCorruption = 5;
+        [Tooltip("Corruption gained when the Corruptor escapes (not killed in time).")]
+        [SerializeField] private int corruptorEscapeCorruption = 5;
+
         [Header("Visuals")]
         [Tooltip("Prefab spawned on top of anything Corrupted (enemies, the boss and the player).")]
         [SerializeField] private GameObject corruptedVfxPrefab;
@@ -34,6 +50,20 @@ namespace Game.Combat
         public float CorruptedDamagePerCorruption => corruptedDamagePerCorruption;
         public int MaxCorruptionFromDamage => maxCorruptionFromDamage;
         public GameObject CorruptedVfxPrefab => corruptedVfxPrefab;
+        public float CorruptorSpawnTimeout => corruptorSpawnTimeout;
+        public float CorruptorPhaseDuration => corruptorPhaseDuration;
+        public int CorruptorEscapeCorruption => corruptorEscapeCorruption;
+
+        public int GetCorruptorKillCorruption(float killTime)
+        {
+            if (killTime <= corruptorFastKillTime || corruptorSecondsPerExtraCorruption <= 0f)
+            {
+                return corruptorBaseCorruption;
+            }
+
+            int extra = Mathf.CeilToInt((killTime - corruptorFastKillTime) / corruptorSecondsPerExtraCorruption);
+            return Mathf.Min(corruptorMaxCorruption, corruptorBaseCorruption + extra);
+        }
 
         public float GetCorruptedSpawnChance(float corruptedLevel, float waveMultiplier)
         {
