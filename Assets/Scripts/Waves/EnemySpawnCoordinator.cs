@@ -2,6 +2,7 @@ using Game.AI;
 using Game.Combat;
 using Game.Misc;
 using Game.Scene;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Game.Waves
 
         private readonly List<GameObject> activeEnemies = new List<GameObject>();
         private Coroutine spawnCoroutine;
+        private WaveData currentWaveData;
 
         public void Initialize(Dictionary<EnemyType, GameObject> enemyPrefabs, List<SpawnZone> spawnZones,
             float minSpawnDistanceFromPlayer, EnemySpawnPortal spawnPortalPrefab, Transform waveSpawnerTransform)
@@ -33,6 +35,7 @@ namespace Game.Waves
         public void StartSpawning(WaveData waveData, int waveNumber)
         {
             StopSpawning();
+            currentWaveData = waveData;
             spawnCoroutine = StartCoroutine(SpawnDuringWaveRoutine(waveData, waveNumber));
         }
 
@@ -56,16 +59,20 @@ namespace Game.Waves
             }
         }
 
-        public void SpawnEnemy(EnemyType type, int waveNumber)
+        /// <summary>
+        /// Requests a spawn through a portal. Returns false when the spawn could not be requested.
+        /// onSpawned is called once the enemy comes out of the portal.
+        /// </summary>
+        public bool SpawnEnemy(EnemyType type, int waveNumber, Action<GameObject> onSpawned = null)
         {
             if (PlayerManager.Instance.IsPlayerOnMap)
             {
-                return;
+                return false;
             }
-            if (!enemyPrefabs.TryGetValue(type, out var prefab))
+            if (!enemyPrefabs.TryGetValue(type, out var prefab) || prefab == null)
             {
                 Debug.LogWarning($"No prefab found for enemy type: {type}");
-                return;
+                return false;
             }
 
             var validZones = spawnZones.Where(zone => !zone.IsPlayerInside).ToList();
@@ -73,7 +80,7 @@ namespace Game.Waves
             if (validZones.Count == 0)
             {
                 Debug.LogWarning("No valid spawn zones available!");
-                return;
+                return false;
             }
 
             Vector2 playerPos = PlayerManager.Instance.transform.position;
@@ -98,7 +105,7 @@ namespace Game.Waves
             if (!found)
             {
                 Debug.LogWarning("Could not find spawn point far enough from player. Skipping this spawn.");
-                return;
+                return false;
             }
 
             EnemySpawnPortal portal = Instantiate(spawnPortalPrefab, spawnPos, Quaternion.identity);
@@ -108,9 +115,36 @@ namespace Game.Waves
                 SpawnPosition = spawnPos,
                 SpawnRotation = Quaternion.identity,
                 WaveSpawnerTransform = waveSpawnerTransform,
-                WaveNumber = waveNumber
+                WaveNumber = waveNumber,
+                IsCorrupted = RollCorrupted()
             });
             portal.onEnemySpawnedEvent += OnEnemySpawned;
+
+            if (onSpawned != null)
+            {
+                Action<EnemySpawnPortal, GameObject> spawnedHandler = null;
+                spawnedHandler = (spawnPortal, enemy) =>
+                {
+                    spawnPortal.onEnemySpawnedEvent -= spawnedHandler;
+                    onSpawned(enemy);
+                };
+                portal.onEnemySpawnedEvent += spawnedHandler;
+            }
+            return true;
+        }
+
+        // The lower the player's Grace goes below 0, the more likely each spawned enemy is Corrupted
+        private bool RollCorrupted()
+        {
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            if (playerGrace == null)
+            {
+                return false;
+            }
+
+            float waveMultiplier = currentWaveData != null ? currentWaveData.corruptedChanceMultiplier : 1f;
+            float chance = CorruptionSettings.Instance.GetCorruptedSpawnChance(playerGrace.CorruptedLevel, waveMultiplier);
+            return chance > 0f && UnityEngine.Random.value < chance;
         }
 
         private void OnEnemySpawned(EnemySpawnPortal portal, GameObject enemy)
@@ -133,6 +167,26 @@ namespace Game.Waves
             }
 
             return pool[0].type; // fallback
+        }
+
+        /// <summary>
+        /// Removes an enemy through a spawn portal, e.g. when the Corruptor escapes.
+        /// </summary>
+        public void DespawnThroughPortal(GameObject enemy)
+        {
+            if (enemy == null)
+            {
+                return;
+            }
+
+            activeEnemies.Remove(enemy);
+            if (enemy.TryGetComponent(out Enemy enemyComponent))
+            {
+                enemyComponent.FreezeForDespawn();
+            }
+
+            EnemySpawnPortal portal = Instantiate(spawnPortalPrefab, enemy.transform.position, Quaternion.identity);
+            portal.InitializeDespawn(enemy);
         }
 
         public void KillAllTrackedEnemiesWithEffects(Transform knockbackOrigin)

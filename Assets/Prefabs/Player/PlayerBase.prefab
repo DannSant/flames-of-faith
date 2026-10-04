@@ -456,8 +456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98ab5559ab24994294c8fe0278951f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaxGrace: 10
+  minGrace: -50
+  maxGrace: 50
   defaultStartingGrace: 5
+  damagePerGracePoint: 0.1
+  minDamageMultiplier: 0.1
 --- !u!114 &5987711000833707507
 MonoBehaviour:
   m_ObjectHideFlags: 0

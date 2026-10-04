@@ -14,6 +14,7 @@ namespace Game.Waves
         public Quaternion SpawnRotation;
         public Transform WaveSpawnerTransform;
         public int WaveNumber;
+        public bool IsCorrupted;
 
     }
     public class EnemySpawnPortal : MonoBehaviour, ISceneCleanupHandler
@@ -45,6 +46,24 @@ namespace Game.Waves
             StopAllCoroutines();
         }
 
+        /// <summary>
+        /// Plays the portal in reverse: the enemy leaves through it instead of coming out of it.
+        /// </summary>
+        public void InitializeDespawn(GameObject enemy)
+        {
+            StartCoroutine(DespawnRoutine(enemy));
+        }
+
+        private IEnumerator DespawnRoutine(GameObject enemy)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+            Destroy(gameObject, destroyDelay);
+        }
+
         private IEnumerator SpawnRoutine(SpawnInfo spawnInfo)
         {
             yield return new WaitForSeconds(spawnDelay);
@@ -56,7 +75,7 @@ namespace Game.Waves
             var enemyObj = Instantiate(spawnInfo.EnemyToSpawn, spawnInfo.SpawnPosition, spawnInfo.SpawnRotation, spawnInfo.WaveSpawnerTransform);
             Enemy enemyComponent = enemyObj.GetComponent<Enemy>();
             onEnemySpawnedEvent?.Invoke(this, enemyObj);
-            enemyComponent.Initialize(spawnInfo.WaveNumber);
+            enemyComponent.Initialize(spawnInfo.WaveNumber, spawnInfo.IsCorrupted);
             Destroy(gameObject, destroyDelay);
 
         }

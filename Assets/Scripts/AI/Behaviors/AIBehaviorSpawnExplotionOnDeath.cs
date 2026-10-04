@@ -18,6 +18,7 @@ namespace Game.AI.Behaviors
             }
 
             var explotionObj = Instantiate(explosionPrefab, context.enemyGameObject.transform.position, Quaternion.identity);
+            MarkIfCorrupted(context, explotionObj.gameObject);
 
             explotionObj.Initialize(GetRangedDamageAmount(context));
         }

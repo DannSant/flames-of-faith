@@ -69,7 +69,6 @@ namespace Game.RunEncounters
             {
                 playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>(),
                 playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>(),
-                playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>(),
                 playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>(),
                 playerWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>(),
                 playerEffectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>(),

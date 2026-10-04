@@ -142,6 +142,7 @@ namespace Game.AI.Behaviors
                 context.enemyTransform.position,
                 Quaternion.identity
             );
+            MarkIfCorrupted(context, projectile);
 
             if (projectile.TryGetComponent(out ProjectileMovement movement))
             {

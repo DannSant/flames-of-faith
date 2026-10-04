@@ -55,6 +55,10 @@ namespace Game.AI
                 float rad = angle * Mathf.Deg2Rad;
                 Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
                 GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                if (CorruptedDamageSource.IsCorrupted(gameObject))
+                {
+                    CorruptedDamageSource.Mark(projectile);
+                }
               
                 var projectileDamage = projectile.GetComponent<EnemyTriggerDamage>();
                 if (projectileDamage != null)

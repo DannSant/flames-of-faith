@@ -9,25 +9,26 @@ namespace Game.Waves
 {
     public class WaveEndSequenceController : MonoBehaviour
     {
-        private float graceRemovedPerWave;
         private EnemySpawnCoordinator enemySpawnCoordinator;
+        private CorruptorResult corruptorResult;
 
         private bool endingWave = false;
         private Coroutine endSequenceCoroutine;
 
         public event Action OnWaveCompleteStarted;
         public event Action OnWaveCompleteEnded;
+        public event Action<WaveCorruptionResult> OnWaveCorruptionResolved;
 
         public bool EndingWave => endingWave;
 
-        public void Initialize(float graceRemovedPerWave, EnemySpawnCoordinator enemySpawnCoordinator)
+        public void Initialize(EnemySpawnCoordinator enemySpawnCoordinator)
         {
-            this.graceRemovedPerWave = graceRemovedPerWave;
             this.enemySpawnCoordinator = enemySpawnCoordinator;
         }
 
-        public void BeginEndSequence()
+        public void BeginEndSequence(CorruptorResult corruptorResult)
         {
+            this.corruptorResult = corruptorResult;
             if (endSequenceCoroutine != null)
             {
                 StopCoroutine(endSequenceCoroutine);
@@ -65,12 +66,7 @@ namespace Game.Waves
             // Wait for the animation to finish playing
             yield return new WaitForSeconds(cleanseAnimationDuration);
 
-            // Reduce grace when wave ends
-            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
-            if (playerGrace != null)
-            {
-                playerGrace.RemoveGrace(graceRemovedPerWave); // Remove 1 grace point
-            }
+            ResolveWaveCorruption();
 
             // Destroy all remaining enemies
             enemySpawnCoordinator.KillAllTrackedEnemiesWithEffects(playerVisual.transform);
@@ -92,6 +88,31 @@ namespace Game.Waves
             InvokeOnWaveComplete();
             endingWave = false;
             endSequenceCoroutine = null;
+        }
+
+        // Grace + Grace per wave - Corruption gathered this wave becomes the new Grace, then Corruption resets
+        private void ResolveWaveCorruption()
+        {
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
+            if (playerGrace == null || playerCorruption == null)
+            {
+                return;
+            }
+
+            var result = new WaveCorruptionResult
+            {
+                corruptor = corruptorResult,
+                corruptedDamageTaken = playerCorruption.CorruptedDamageTaken,
+                corruptionFromDamage = playerCorruption.CorruptionFromDamage,
+                totalCorruption = playerCorruption.CorruptionValue,
+                gracePerWave = playerGrace.GracePerWave,
+                graceBefore = playerGrace.CurrentGrace
+            };
+            result.graceAfter = playerGrace.ApplyWaveResolution(result.gracePerWave, result.totalCorruption);
+
+            playerCorruption.ResetCorruption();
+            OnWaveCorruptionResolved?.Invoke(result);
         }
 
         public void StopEndSequence()

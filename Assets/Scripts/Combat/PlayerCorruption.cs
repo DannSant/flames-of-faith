@@ -1,72 +1,65 @@
-using Game.Common;
-using Game.Scene;
-using Game.Utils;
+using System;
 using UnityEngine;
 
 namespace Game.Combat
 {
-    public class PlayerCorruption : MonoBehaviour, IInitializeAfterStateReady, IPrimaryStateLoader
+    /// <summary>
+    /// Corruption gathered during the current wave. It is not persisted: at the end of every wave it is
+    /// subtracted from Grace and reset to 0.
+    /// Corruption comes from Corrupted Damage taken (converted through CorruptionSettings) and from the Corruptor.
+    /// </summary>
+    public class PlayerCorruption : MonoBehaviour
     {
-        private float corruptionValue = 0f;
+        private float corruptedDamageTaken = 0f;
+        private int corruptorCorruption = 0;
 
-        public float CorruptionValue => corruptionValue;
+        private PlayerHealth playerHealth;
 
-        private PlayerGrace playerGrace;
-        public event System.Action<float, float, float> OnCorruptionChanged;
+        public float CorruptedDamageTaken => corruptedDamageTaken;
+        public int CorruptionFromDamage => CorruptionSettings.Instance.GetCorruptionFromDamage(corruptedDamageTaken);
+        public int CorruptorCorruption => corruptorCorruption;
+        public int CorruptionValue => CorruptionFromDamage + corruptorCorruption;
+
+        public event Action<float> OnCorruptionChanged;
 
         private void Awake()
         {
-            playerGrace = GetComponent<PlayerGrace>();
+            playerHealth = GetComponent<PlayerHealth>();
         }
 
-        public void AddCorruption(float amount)
+        private void OnEnable()
         {
-            corruptionValue += amount;
-            OnCorruptionChanged?.Invoke(corruptionValue, CalculateCorruptionEffectLevel(), playerGrace.MaxGrace);         
-          
+            playerHealth.onDamageTaken += HandleDamageTaken;
         }
 
-        /// <summary>
-        /// Calculates the total corruption level based on the current grace and corruption value.
-        /// This is calculated by subtracting the current grace from the corruption value,
-        /// </summary>
-        public float CalculateCorruptionEffectLevel()
+        private void OnDisable()
         {
-            float currentGrace = playerGrace.CurrentGrace;
-            float effectiveCorruption = corruptionValue - currentGrace;
-            //Debug.Log($"Calculating Corruption Effect Level: CorruptionValue={corruptionValue}, CurrentGrace={currentGrace}, EffectiveCorruption={effectiveCorruption}");
-            return Mathf.Max(0f, effectiveCorruption);
+            playerHealth.onDamageTaken -= HandleDamageTaken;
         }
 
-        public void ReduceCorruption(float amount)
+        // Damage reported here is already reduced by armor
+        private void HandleDamageTaken(float damage, GameObject attacker)
         {
-            corruptionValue -= amount;
-            if (corruptionValue < 0f)
+            if (!CorruptedDamageSource.IsCorrupted(attacker))
             {
-                corruptionValue = 0f;
+                return;
             }
-            OnCorruptionChanged?.Invoke(corruptionValue, CalculateCorruptionEffectLevel(), playerGrace.MaxGrace);
+
+            corruptedDamageTaken += damage;
+            OnCorruptionChanged?.Invoke(CorruptionValue);
         }
 
-        public void InitializeAfterStateReady()
+        public void SetCorruptorCorruption(int amount)
         {
-            
+            corruptorCorruption = Mathf.Max(0, amount);
+            OnCorruptionChanged?.Invoke(CorruptionValue);
         }
 
-        public void LoadState()
+        public void ResetCorruption()
         {
-            float loadedCorruption = GameSession.Instance.LoadCorruptionLevel();
-            AddCorruption(loadedCorruption); 
-        }
-
-        public void ResetState()
-        {
-            corruptionValue = 0f;
-        }
-
-        public void SaveState()
-        {
-           GameSession.Instance.SaveCorruptionLevel(corruptionValue);
+            corruptedDamageTaken = 0f;
+            corruptorCorruption = 0;
+            OnCorruptionChanged?.Invoke(CorruptionValue);
         }
     }
 }

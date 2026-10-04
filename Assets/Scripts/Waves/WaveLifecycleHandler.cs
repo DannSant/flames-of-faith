@@ -9,11 +9,14 @@ namespace Game.Waves
     {
         private EnemySpawnCoordinator enemySpawnCoordinator;
         private WaveEndSequenceController waveEndSequenceController;
+        private CorruptorPhaseController corruptorPhaseController;
 
-        public void Initialize(EnemySpawnCoordinator enemySpawnCoordinator, WaveEndSequenceController waveEndSequenceController)
+        public void Initialize(EnemySpawnCoordinator enemySpawnCoordinator, WaveEndSequenceController waveEndSequenceController,
+            CorruptorPhaseController corruptorPhaseController)
         {
             this.enemySpawnCoordinator = enemySpawnCoordinator;
             this.waveEndSequenceController = waveEndSequenceController;
+            this.corruptorPhaseController = corruptorPhaseController;
         }
 
         private void Start()
@@ -36,6 +39,7 @@ namespace Game.Waves
 
         private void OnPlayerDeathDisableWave()
         {
+            corruptorPhaseController.StopPhase();
             enemySpawnCoordinator.StopSpawning();
             enemySpawnCoordinator.DestroyAllTrackedEnemiesSilently();
         }
@@ -43,6 +47,7 @@ namespace Game.Waves
         public void Cleanup()
         {
             StopAllCoroutines();
+            corruptorPhaseController.StopPhase();
             enemySpawnCoordinator.StopAllSpawningAndTracking();
             waveEndSequenceController.StopEndSequence();
 

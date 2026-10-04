@@ -18,6 +18,9 @@ namespace Game.AI {
        
         private BehaviorController behaviorController;
         private EnemyData enemyData;
+        private bool isCorrupted;
+
+        public bool IsCorrupted => isCorrupted;
 
         private void Awake()
         {           
@@ -60,7 +63,7 @@ namespace Game.AI {
 
         }
 
-        public void Initialize(int waveNumber)
+        public void Initialize(int waveNumber, bool spawnCorrupted = false)
         {
             if (health == null)
             {
@@ -78,6 +81,13 @@ namespace Game.AI {
             int waveHealthBonus = (waveNumber - 1) * enemyData.healthPerWave;
            
             int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
+
+            SetCorrupted(spawnCorrupted || enemyData.alwaysCorrupted);
+            if (isCorrupted)
+            {
+                float healthBonus = enemyData.GetCorruptedHealthBonus(CorruptionSettings.Instance.CorruptedHealthBonus);
+                calculatedHealth = Mathf.RoundToInt(calculatedHealth * (1f + healthBonus));
+            }
             var enemyAnimController = GetComponent<EnemyAnimationController>();
             var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
@@ -100,10 +110,45 @@ namespace Game.AI {
                 waveNumber = waveNumber,
                 enemyAnimController = enemyAnimController,
                 navMeshAgent = agent,
-                aiFixedTarget = target
+                aiFixedTarget = target,
+                isCorrupted = isCorrupted
             };
 
             behaviorController.Initialize(context);
+        }
+
+        /// <summary>
+        /// Stops the enemy and makes it untouchable, e.g. while it leaves through a portal.
+        /// </summary>
+        public void FreezeForDespawn()
+        {
+            if (behaviorController != null)
+            {
+                behaviorController.enabled = false;
+            }
+
+            if (TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.simulated = false;
+            }
+
+            foreach (var col in GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = false;
+            }
+        }
+
+        private void SetCorrupted(bool value)
+        {
+            isCorrupted = value;
+            if (!isCorrupted)
+            {
+                return;
+            }
+
+            CorruptedDamageSource.Mark(gameObject);
+            CorruptedVisual.GetOrAdd(gameObject).SetCorrupted(true);
         }
     }
 

@@ -9,6 +9,8 @@ namespace Game.AI {
         LightDevourerAttacker,
         DrekoEye,
         SlimeExplosive,
-        Boss
+        Boss,
+        // Corruptors: always Corrupted, spawned at the end of every wave. One per act.
+        CorruptorAct1
     }
 }
