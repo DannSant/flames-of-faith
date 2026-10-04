@@ -39,13 +39,13 @@ namespace Game.Boss
 
             if (projectile.TryGetComponent(out EnemyDamage damage))
             {
-                int damageAmount = Mathf.RoundToInt(baseDamage);
+                int damageAmount = boss.GetAbilityDamage(baseDamage);
                 damage.SetDamageAmount(damageAmount);
             }
 
             if (projectile.TryGetComponent(out EnemyTriggerDamage damageTrigger))
             {
-                int damageAmount = Mathf.RoundToInt(baseDamage);
+                int damageAmount = boss.GetAbilityDamage(baseDamage);
                 damageTrigger.SetDamageAmount(damageAmount);
             }
         }

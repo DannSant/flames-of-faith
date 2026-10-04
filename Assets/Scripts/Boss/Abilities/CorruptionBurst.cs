@@ -100,7 +100,7 @@ namespace Game.Boss
 
                 if (projectile.TryGetComponent(out EnemyDamage enemyDamage))
                 {
-                    enemyDamage.SetDamageAmount(Mathf.RoundToInt(damage));
+                    enemyDamage.SetDamageAmount(boss.GetAbilityDamage(damage));
                 }
             }
 

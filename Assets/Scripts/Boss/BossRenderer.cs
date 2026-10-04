@@ -30,6 +30,9 @@ namespace Game.Boss
         // disappearing after the player dies).
         private bool fadeOutAllowed = true;
 
+        public bool IsVisible => spriteRenderer != null && spriteRenderer.enabled;
+        public event System.Action<bool> OnVisibilityChanged;
+
         private void Awake()
         {
             if (spriteRenderer == null)
@@ -164,6 +167,7 @@ namespace Game.Boss
             }
 
             SetTargetable(value);
+            OnVisibilityChanged?.Invoke(value);
         }
 
         /// <summary>

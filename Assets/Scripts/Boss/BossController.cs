@@ -20,6 +20,10 @@ namespace Game.Boss
         //[SerializeField] private Animator animator;  
 
 
+        [Header("Corruption")]
+        [Tooltip("A Corrupted boss deals extra damage with its abilities (CorruptionSettings) and shows the Corrupted VFX.")]
+        [SerializeField] private bool isCorrupted = true;
+
         [Header("Adds")]
         [Tooltip("If the boss summons any adds (additional minions) they will spawn from these transforms")]
         [SerializeField] private Transform[] addsSpawnPoints;
@@ -41,6 +45,7 @@ namespace Game.Boss
         private Enemy enemyComponent;
         private EnemyHealth health;
         private PlayerHealth playerHealth;
+        private CorruptedVisual corruptedVisual;
 
         //State
         private bool isPhaseOne = false;
@@ -126,6 +131,22 @@ namespace Game.Boss
             {
                 playerHealth.onDeath += HandlePlayerDeath;
             }
+
+            if (isCorrupted && bossRenderer != null)
+            {
+                corruptedVisual = CorruptedVisual.GetOrAdd(gameObject);
+                bossRenderer.OnVisibilityChanged += HandleVisibilityChanged;
+                HandleVisibilityChanged(bossRenderer.IsVisible);
+            }
+        }
+
+        // The Corrupted VFX follows the sprite, so it disappears with the boss during fades and phase transitions
+        private void HandleVisibilityChanged(bool visible)
+        {
+            if (corruptedVisual != null)
+            {
+                corruptedVisual.SetCorrupted(visible);
+            }
         }
 
         private void HandlePlayerDeath()
@@ -179,6 +200,11 @@ namespace Game.Boss
             {
                 health.onDeath -= StopBossAbilities;
                 health.onDeath -= HandleBossDefeated;
+            }
+
+            if (bossRenderer != null)
+            {
+                bossRenderer.OnVisibilityChanged -= HandleVisibilityChanged;
             }
 
             if (playerHealth != null)
@@ -389,6 +415,17 @@ namespace Game.Boss
         public string GetFadeOutAnimationName() => behavior != null ? behavior.GetFadeOutAnimationName() : null;
 
         public int GetEnrageLevel() => enrageLevel;
+
+        public bool IsCorrupted => isCorrupted;
+
+        /// <summary>
+        /// Final damage for an ability hit: the ability's own value, increased while the boss is Corrupted.
+        /// </summary>
+        public int GetAbilityDamage(float baseDamage)
+        {
+            float multiplier = isCorrupted ? CorruptionSettings.Instance.CorruptedDamageMultiplier : 1f;
+            return Mathf.RoundToInt(baseDamage * multiplier);
+        }
 
         public void IncreaseEnrageLevel()
         {
