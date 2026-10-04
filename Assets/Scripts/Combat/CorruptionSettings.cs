@@ -19,6 +19,8 @@ namespace Game.Combat
         [SerializeField] private float maxCorruptedChance = 0.5f;
         [Tooltip("Damage multiplier applied to everything a Corrupted enemy deals.")]
         [SerializeField] private float corruptedDamageMultiplier = 1.5f;
+        [Tooltip("Extra health for Corrupted enemies (1 = +100%). Enemies can override it in their EnemyData.")]
+        [SerializeField] private float corruptedHealthBonus = 1f;
 
         [Header("Corrupted Damage")]
         [Tooltip("Corrupted Damage the player must take to gain 1 Corruption.")]
@@ -30,13 +32,13 @@ namespace Game.Combat
         [Tooltip("Seconds to wait for the Corruptor to come out of its spawn portal before skipping the phase.")]
         [SerializeField] private float corruptorSpawnTimeout = 3f;
         [Tooltip("Seconds the player has to kill the Corruptor before it escapes.")]
-        [SerializeField] private float corruptorPhaseDuration = 15f;
+        [SerializeField] private float corruptorPhaseDuration = 25f;
         [Tooltip("Killing the Corruptor within this many seconds only grants the base Corruption.")]
-        [SerializeField] private float corruptorFastKillTime = 5f;
+        [SerializeField] private float corruptorFastKillTime = 8f;
         [Tooltip("Corruption gained when the Corruptor is killed within the fast kill time.")]
         [SerializeField] private int corruptorBaseCorruption = 1;
         [Tooltip("After the fast kill time, +1 Corruption for every this many seconds (rounded up).")]
-        [SerializeField] private float corruptorSecondsPerExtraCorruption = 2f;
+        [SerializeField] private float corruptorSecondsPerExtraCorruption = 3f;
         [Tooltip("Maximum Corruption the Corruptor can grant when killed.")]
         [SerializeField] private int corruptorMaxCorruption = 5;
         [Tooltip("Corruption gained when the Corruptor escapes (not killed in time).")]
@@ -47,6 +49,7 @@ namespace Game.Combat
         [SerializeField] private GameObject corruptedVfxPrefab;
 
         public float CorruptedDamageMultiplier => corruptedDamageMultiplier;
+        public float CorruptedHealthBonus => corruptedHealthBonus;
         public float CorruptedDamagePerCorruption => corruptedDamagePerCorruption;
         public int MaxCorruptionFromDamage => maxCorruptionFromDamage;
         public GameObject CorruptedVfxPrefab => corruptedVfxPrefab;

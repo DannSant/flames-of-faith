@@ -46,6 +46,24 @@ namespace Game.Waves
             StopAllCoroutines();
         }
 
+        /// <summary>
+        /// Plays the portal in reverse: the enemy leaves through it instead of coming out of it.
+        /// </summary>
+        public void InitializeDespawn(GameObject enemy)
+        {
+            StartCoroutine(DespawnRoutine(enemy));
+        }
+
+        private IEnumerator DespawnRoutine(GameObject enemy)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+            Destroy(gameObject, destroyDelay);
+        }
+
         private IEnumerator SpawnRoutine(SpawnInfo spawnInfo)
         {
             yield return new WaitForSeconds(spawnDelay);

@@ -169,6 +169,26 @@ namespace Game.Waves
             return pool[0].type; // fallback
         }
 
+        /// <summary>
+        /// Removes an enemy through a spawn portal, e.g. when the Corruptor escapes.
+        /// </summary>
+        public void DespawnThroughPortal(GameObject enemy)
+        {
+            if (enemy == null)
+            {
+                return;
+            }
+
+            activeEnemies.Remove(enemy);
+            if (enemy.TryGetComponent(out Enemy enemyComponent))
+            {
+                enemyComponent.FreezeForDespawn();
+            }
+
+            EnemySpawnPortal portal = Instantiate(spawnPortalPrefab, enemy.transform.position, Quaternion.identity);
+            portal.InitializeDespawn(enemy);
+        }
+
         public void KillAllTrackedEnemiesWithEffects(Transform knockbackOrigin)
         {
             foreach (var enemy in activeEnemies)

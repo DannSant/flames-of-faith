@@ -1,5 +1,6 @@
 using Game.AI;
 using Game.Combat;
+using Game.Scene;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Game.Waves
         private EnemyHealth corruptorHealth;
         private bool corruptorDied;
 
+        public event Action<Transform> OnCorruptorSpawned;
         public event Action<float> OnPhaseStarted;      // Sends the phase duration
         public event Action<float> OnTimerUpdated;      // Sends the remaining time
         public event Action OnPhaseEnded;
@@ -58,7 +60,7 @@ namespace Game.Waves
             corruptor = null;
             corruptorDied = false;
 
-            if (!enemySpawnCoordinator.SpawnEnemy(corruptorType, waveNumber, OnCorruptorSpawned))
+            if (!enemySpawnCoordinator.SpawnEnemy(corruptorType, waveNumber, HandleCorruptorSpawned))
             {
                 Finish(onFinished, CorruptorResult.None);
                 yield break;
@@ -68,6 +70,11 @@ namespace Game.Waves
             float waited = 0f;
             while (corruptor == null && waited < settings.CorruptorSpawnTimeout)
             {
+                if (IsPlayerDead())
+                {
+                    AbortPhase();
+                    yield break;
+                }
                 waited += Time.deltaTime;
                 yield return null;
             }
@@ -86,6 +93,11 @@ namespace Game.Waves
             // corruptor == null covers it being destroyed by something other than a kill
             while (!corruptorDied && corruptor != null && elapsed < duration)
             {
+                if (IsPlayerDead())
+                {
+                    AbortPhase();
+                    yield break;
+                }
                 elapsed += Time.deltaTime;
                 OnTimerUpdated?.Invoke(Mathf.Max(0f, duration - elapsed));
                 yield return null;
@@ -101,16 +113,13 @@ namespace Game.Waves
             else
             {
                 result.corruption = settings.CorruptorEscapeCorruption;
-                if (corruptor != null)
-                {
-                    Destroy(corruptor);
-                }
+                enemySpawnCoordinator.DespawnThroughPortal(corruptor);
             }
 
             Finish(onFinished, result);
         }
 
-        private void OnCorruptorSpawned(GameObject spawned)
+        private void HandleCorruptorSpawned(GameObject spawned)
         {
             corruptor = spawned;
             corruptorHealth = spawned.GetComponent<EnemyHealth>();
@@ -118,11 +127,27 @@ namespace Game.Waves
             {
                 corruptorHealth.onDeath += HandleCorruptorDeath;
             }
+            OnCorruptorSpawned?.Invoke(spawned.transform);
         }
 
         private void HandleCorruptorDeath()
         {
             corruptorDied = true;
+        }
+
+        // PlayerHealth.onDeath only fires after the death animation; checking IsDead stops the phase right away
+        private bool IsPlayerDead()
+        {
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            return playerHealth != null && playerHealth.IsDead();
+        }
+
+        // Ends the phase without reporting a result, so the wave never completes behind the death screen
+        private void AbortPhase()
+        {
+            phaseRoutine = null;
+            UnsubscribeFromCorruptor();
+            OnPhaseEnded?.Invoke();
         }
 
         private void Finish(Action<CorruptorResult> onFinished, CorruptorResult result)

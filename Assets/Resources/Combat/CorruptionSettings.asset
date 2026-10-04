@@ -15,13 +15,14 @@ MonoBehaviour:
   corruptedChancePerNegativeGrace: 0.1
   maxCorruptedChance: 0.5
   corruptedDamageMultiplier: 1.5
+  corruptedHealthBonus: 1
   corruptedDamagePerCorruption: 10
   maxCorruptionFromDamage: 5
   corruptorSpawnTimeout: 3
-  corruptorPhaseDuration: 15
-  corruptorFastKillTime: 5
+  corruptorPhaseDuration: 25
+  corruptorFastKillTime: 8
   corruptorBaseCorruption: 1
-  corruptorSecondsPerExtraCorruption: 2
+  corruptorSecondsPerExtraCorruption: 3
   corruptorMaxCorruption: 5
   corruptorEscapeCorruption: 5
   corruptedVfxPrefab: {fileID: 8726003427374054332, guid: cac3dcf66f2108c4b86869fe90d9bec0, type: 3}

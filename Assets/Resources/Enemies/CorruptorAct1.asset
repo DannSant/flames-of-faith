@@ -27,3 +27,5 @@ MonoBehaviour:
   healthPerWave: 5
   healthPerLevel: 20
   alwaysCorrupted: 1
+  overrideCorruptedHealthBonus: 1
+  corruptedHealthBonus: 0

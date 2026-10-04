@@ -81,12 +81,17 @@ namespace Game.AI {
             int waveHealthBonus = (waveNumber - 1) * enemyData.healthPerWave;
            
             int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
+
+            SetCorrupted(spawnCorrupted || enemyData.alwaysCorrupted);
+            if (isCorrupted)
+            {
+                float healthBonus = enemyData.GetCorruptedHealthBonus(CorruptionSettings.Instance.CorruptedHealthBonus);
+                calculatedHealth = Mathf.RoundToInt(calculatedHealth * (1f + healthBonus));
+            }
             var enemyAnimController = GetComponent<EnemyAnimationController>();
             var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
             health.SetMaxHealth(calculatedHealth);
-
-            SetCorrupted(spawnCorrupted || enemyData.alwaysCorrupted);
 
             var player = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
             if(player==null)
@@ -110,6 +115,28 @@ namespace Game.AI {
             };
 
             behaviorController.Initialize(context);
+        }
+
+        /// <summary>
+        /// Stops the enemy and makes it untouchable, e.g. while it leaves through a portal.
+        /// </summary>
+        public void FreezeForDespawn()
+        {
+            if (behaviorController != null)
+            {
+                behaviorController.enabled = false;
+            }
+
+            if (TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.simulated = false;
+            }
+
+            foreach (var col in GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = false;
+            }
         }
 
         private void SetCorrupted(bool value)

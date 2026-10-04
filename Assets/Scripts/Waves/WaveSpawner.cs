@@ -40,6 +40,7 @@ namespace Game.Waves {
         public event Action OnWaveCompleteEnded;               // Second part of wave complete process
         public event Action OnWaveGroupFinished;              // Triggered when all waves are complete
         public event Action OnAllLevelsFinished;               // Triggered when all waves are complete and the game should end
+        public event Action<Transform> OnCorruptorSpawned;    // Sends the Corruptor so the UI can point at it
         public event Action<float> OnCorruptorPhaseStarted;   // Sends the Corruptor phase duration
         public event Action<float> OnCorruptorTimerUpdated;   // Sends the remaining Corruptor time
         public event Action OnCorruptorPhaseEnded;
@@ -80,6 +81,7 @@ namespace Game.Waves {
 
             corruptorPhaseController = gameObject.AddComponent<CorruptorPhaseController>();
             corruptorPhaseController.Initialize(enemySpawnCoordinator);
+            corruptorPhaseController.OnCorruptorSpawned += corruptor => OnCorruptorSpawned?.Invoke(corruptor);
             corruptorPhaseController.OnPhaseStarted += duration => OnCorruptorPhaseStarted?.Invoke(duration);
             corruptorPhaseController.OnTimerUpdated += remaining => OnCorruptorTimerUpdated?.Invoke(remaining);
             corruptorPhaseController.OnPhaseEnded += () => OnCorruptorPhaseEnded?.Invoke();
@@ -133,6 +135,10 @@ namespace Game.Waves {
             if (testMode) return;
 
             if (!waveInProgress || currentWaveIndex >= waveDatabase.waves.Count)
+                return;
+
+            // PlayerHealth.onDeath only fires after the death animation, so stop the timer as soon as the player dies
+            if (IsPlayerDead())
                 return;
 
             waveTimer -= Time.deltaTime;
@@ -230,6 +236,11 @@ namespace Game.Waves {
 
         private void OnCorruptorPhaseFinished(CorruptorResult result)
         {
+            if (IsPlayerDead())
+            {
+                return;
+            }
+
             var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
             if (playerCorruption != null)
             {
@@ -263,6 +274,12 @@ namespace Game.Waves {
         public void SpawnEnemy(EnemyType type)
         {
             enemySpawnCoordinator.SpawnEnemy(type, currentWaveIndex + 1);
+        }
+
+        private bool IsPlayerDead()
+        {
+            var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+            return playerHealth != null && playerHealth.IsDead();
         }
 
         public bool CorruptorPhaseInProgress => corruptorPhaseController != null && corruptorPhaseController.InProgress;
