@@ -48,13 +48,28 @@ namespace Game.Control
         private void OnEnable()
         {
             inputActions.Enable();
+            GameplayFreeze.OnFreezeChanged += HandleGameplayFreezeChanged;
+            HandleGameplayFreezeChanged(GameplayFreeze.IsActive);
             ApplyGameplayBlocks();
             TrySubscribeToFocusManager();
+        }
+
+        private void HandleGameplayFreezeChanged(bool frozen)
+        {
+            if (frozen)
+            {
+                AddGameplayBlock(typeof(GameplayFreeze));
+            }
+            else
+            {
+                RemoveGameplayBlock(typeof(GameplayFreeze));
+            }
         }
 
         private void OnDisable()
         {
             inputActions.Disable();
+            GameplayFreeze.OnFreezeChanged -= HandleGameplayFreezeChanged;
             if (subscribedToFocusManager && UIFocusManager.Instance != null)
             {
                 UIFocusManager.Instance.OnGameplayInputBlockChanged -= HandleUIGameplayBlockChanged;

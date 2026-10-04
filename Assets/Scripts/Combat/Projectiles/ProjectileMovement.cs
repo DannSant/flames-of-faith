@@ -1,3 +1,4 @@
+using Game.Common;
 using UnityEngine;
 
 namespace Game.Combat {
@@ -13,6 +14,8 @@ namespace Game.Combat {
 
         private void Update()
         {
+            if (GameplayFreeze.IsActive) return;
+
             transform.position += (Vector3)(direction * speed * Time.deltaTime);
         }
     }

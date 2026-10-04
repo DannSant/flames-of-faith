@@ -7,6 +7,11 @@ namespace Game.AI.Behaviors
 {
     public abstract class AIBehavior : ScriptableObject
     {
+        [Tooltip("Suspend this behavior during a gameplay freeze (e.g. while the camera focuses on the Corruptor).")]
+        [SerializeField] private bool stopDuringGameplayFreeze = true;
+
+        public bool StopsDuringGameplayFreeze => stopDuringGameplayFreeze;
+
         public virtual void Initialize(BehaviorContext ctx) { }
 
         /// <summary>

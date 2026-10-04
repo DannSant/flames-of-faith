@@ -25,4 +25,9 @@ MonoBehaviour:
   corruptorSecondsPerExtraCorruption: 3
   corruptorMaxCorruption: 5
   corruptorEscapeCorruption: 5
+  focusCameraOnCorruptor: 1
+  focusZoomMultiplier: 0.7
+  focusPanInDuration: 0.6
+  focusHoldDuration: 1
+  focusPanOutDuration: 0.5
   corruptedVfxPrefab: {fileID: 8726003427374054332, guid: cac3dcf66f2108c4b86869fe90d9bec0, type: 3}

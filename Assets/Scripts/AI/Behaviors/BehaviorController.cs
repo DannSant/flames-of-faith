@@ -1,5 +1,6 @@
 
 using Game.Combat;
+using Game.Common;
 using Game.Control;
 using Game.Enemies;
 using Game.Misc;
@@ -44,6 +45,8 @@ namespace Game.AI.Behaviors
 
         private void OnEnable()
         {
+            GameplayFreeze.OnFreezeChanged += HandleGameplayFreezeChanged;
+
             if (stunHandler == null) return;
 
             stunHandler.OnStunStarted += HandleStunStarted;
@@ -53,6 +56,7 @@ namespace Game.AI.Behaviors
         private void OnDisable()
         {
             health.onDeath -= Die;
+            GameplayFreeze.OnFreezeChanged -= HandleGameplayFreezeChanged;
 
             if (stunHandler == null) return;
 
@@ -74,8 +78,12 @@ namespace Game.AI.Behaviors
         {
             if (IsStunned) return;
 
+            bool frozen = GameplayFreeze.IsActive;
             foreach (var behavior in updateBehaviors)
+            {
+                if (frozen && behavior.StopsDuringGameplayFreeze) continue;
                 behavior.Tick(context);
+            }
         }
 
         void FixedUpdate()
@@ -86,8 +94,17 @@ namespace Game.AI.Behaviors
                 return;
             }
 
+            bool frozen = GameplayFreeze.IsActive;
+            if (frozen)
+            {
+                HoldStillWhileStunned();
+            }
+
             foreach (var behavior in fixedUpdateBehaviors)
+            {
+                if (frozen && behavior.StopsDuringGameplayFreeze) continue;
                 behavior.FixedTick(context);
+            }
         }
 
         /// <summary>
@@ -107,14 +124,22 @@ namespace Game.AI.Behaviors
         {
             if (IsStunned && stunHandler.BlockContactDamageWhileStunned) return;
 
+            bool frozen = GameplayFreeze.IsActive;
             foreach (var behavior in collisionBehaviors)
+            {
+                if (frozen && behavior.StopsDuringGameplayFreeze) continue;
                 behavior.HandleCollision(collision,context);
+            }
         }
 
         void OnTriggerEnter2D(Collider2D collider)
         {
+            bool frozen = GameplayFreeze.IsActive;
             foreach (var behavior in triggerBehaviors)
+            {
+                if (frozen && behavior.StopsDuringGameplayFreeze) continue;
                 behavior.HandleCollisionTrigger(collider,context);
+            }
         }
 
         public void Die()
@@ -147,8 +172,12 @@ namespace Game.AI.Behaviors
             // End events are deliberately still dispatched below so in-flight actions can clean up.
             if (IsStunned) return;
 
+            // During a gameplay freeze the animator keeps running, so actions that start from animation
+            // events (slime hops, shots) have to be blocked here too. End events still go through below.
+            bool frozen = GameplayFreeze.IsActive;
             foreach (var receiver in GetAnimationEventReceivers())
             {
+                if (frozen && receiver is AIBehavior behavior && behavior.StopsDuringGameplayFreeze) continue;
                 receiver.OnAnimationEventStart(context, eventName);
             }
         }
@@ -172,6 +201,25 @@ namespace Game.AI.Behaviors
         public BehaviorContext GetBehaviorContext()
         {
             return context;
+        }
+
+        // A freeze cancels in-flight actions the same way a stun does (live melee hitboxes, shot bursts)
+        private void HandleGameplayFreezeChanged(bool frozen)
+        {
+            if (context == null) return;
+
+            if (frozen)
+            {
+                context.isMoving = false;
+            }
+
+            foreach (var behavior in GetAllBehaviors())
+            {
+                if (behavior.StopsDuringGameplayFreeze)
+                {
+                    behavior.OnStunStateChanged(context, frozen);
+                }
+            }
         }
 
         private void HandleStunStarted() => NotifyStunStateChanged(true);

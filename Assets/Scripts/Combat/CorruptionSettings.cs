@@ -44,6 +44,15 @@ namespace Game.Combat
         [Tooltip("Corruption gained when the Corruptor escapes (not killed in time).")]
         [SerializeField] private int corruptorEscapeCorruption = 5;
 
+        [Header("Corruptor Camera Focus")]
+        [Tooltip("Move the camera to the Corruptor when it spawns. Gameplay is frozen while the camera moves.")]
+        [SerializeField] private bool focusCameraOnCorruptor = true;
+        [Tooltip("Zoom while focused, as a multiplier of the current camera size (0.7 = 30% closer).")]
+        [SerializeField] private float focusZoomMultiplier = 0.7f;
+        [SerializeField] private float focusPanInDuration = 0.6f;
+        [SerializeField] private float focusHoldDuration = 1f;
+        [SerializeField] private float focusPanOutDuration = 0.5f;
+
         [Header("Visuals")]
         [Tooltip("Prefab spawned on top of anything Corrupted (enemies, the boss and the player).")]
         [SerializeField] private GameObject corruptedVfxPrefab;
@@ -53,6 +62,11 @@ namespace Game.Combat
         public float CorruptedDamagePerCorruption => corruptedDamagePerCorruption;
         public int MaxCorruptionFromDamage => maxCorruptionFromDamage;
         public GameObject CorruptedVfxPrefab => corruptedVfxPrefab;
+        public bool FocusCameraOnCorruptor => focusCameraOnCorruptor;
+        public float FocusZoomMultiplier => focusZoomMultiplier;
+        public float FocusPanInDuration => focusPanInDuration;
+        public float FocusHoldDuration => focusHoldDuration;
+        public float FocusPanOutDuration => focusPanOutDuration;
         public float CorruptorSpawnTimeout => corruptorSpawnTimeout;
         public float CorruptorPhaseDuration => corruptorPhaseDuration;
         public int CorruptorEscapeCorruption => corruptorEscapeCorruption;

@@ -1,5 +1,7 @@
 using Game.AI;
 using Game.Combat;
+using Game.Common;
+using Game.Level;
 using Game.Scene;
 using System;
 using System.Collections;
@@ -14,6 +16,7 @@ namespace Game.Waves
     public class CorruptorPhaseController : MonoBehaviour
     {
         private EnemySpawnCoordinator enemySpawnCoordinator;
+        private CameraFocusController cameraFocus;
         private Coroutine phaseRoutine;
 
         private GameObject corruptor;
@@ -30,6 +33,7 @@ namespace Game.Waves
         public void Initialize(EnemySpawnCoordinator enemySpawnCoordinator)
         {
             this.enemySpawnCoordinator = enemySpawnCoordinator;
+            cameraFocus = gameObject.AddComponent<CameraFocusController>();
         }
 
         public void BeginPhase(EnemyType corruptorType, int waveNumber, Action<CorruptorResult> onFinished)
@@ -50,8 +54,19 @@ namespace Game.Waves
 
             StopCoroutine(phaseRoutine);
             phaseRoutine = null;
+            EndFocus();
             UnsubscribeFromCorruptor();
             OnPhaseEnded?.Invoke();
+        }
+
+        // Always safe to call: releases the freeze and puts the camera back
+        private void EndFocus()
+        {
+            if (cameraFocus != null)
+            {
+                cameraFocus.Restore();
+            }
+            GameplayFreeze.End(this);
         }
 
         private IEnumerator PhaseRoutine(EnemyType corruptorType, int waveNumber, Action<CorruptorResult> onFinished)
@@ -84,6 +99,21 @@ namespace Game.Waves
                 Debug.LogWarning($"CorruptorPhaseController: {corruptorType} did not spawn in time, skipping the Corruptor phase.");
                 Finish(onFinished, CorruptorResult.None);
                 yield break;
+            }
+
+            // Show the player where the Corruptor is. Everything holds still meanwhile, and the timer only starts after
+            if (settings.FocusCameraOnCorruptor)
+            {
+                GameplayFreeze.Begin(this);
+                yield return cameraFocus.FocusRoutine(corruptor.transform, settings.FocusZoomMultiplier,
+                    settings.FocusPanInDuration, settings.FocusHoldDuration, settings.FocusPanOutDuration);
+                EndFocus();
+
+                if (corruptor == null || IsPlayerDead())
+                {
+                    AbortPhase();
+                    yield break;
+                }
             }
 
             float duration = settings.CorruptorPhaseDuration;
@@ -146,6 +176,7 @@ namespace Game.Waves
         private void AbortPhase()
         {
             phaseRoutine = null;
+            EndFocus();
             UnsubscribeFromCorruptor();
             OnPhaseEnded?.Invoke();
         }
@@ -170,6 +201,7 @@ namespace Game.Waves
 
         private void OnDisable()
         {
+            EndFocus();
             UnsubscribeFromCorruptor();
         }
     }

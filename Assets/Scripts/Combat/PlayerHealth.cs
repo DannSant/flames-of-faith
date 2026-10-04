@@ -288,6 +288,11 @@ namespace Game.Combat {
                 return; // Don't take damage during wave complete
             }
 
+            if (GameplayFreeze.IsActive)
+            {
+                return; // The player can't react during a gameplay freeze
+            }
+
             float finalDamage = ApplyArmor(amount);
             currentHealth -= finalDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
