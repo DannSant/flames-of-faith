@@ -1445,6 +1445,7 @@ MonoBehaviour:
   healToPlayerNumberPrefab: {fileID: 3171153609502651806, guid: f41859adccf56ce449a8c828b59ae6b2, type: 3}
   graceGainedNumberPrefab: {fileID: 3171153609502651806, guid: b7260be350e576b4a93df6508b10a59a, type: 3}
   graceLostNumberPrefab: {fileID: 3171153609502651806, guid: 57967cb8a08c4c547b058c5c027fd19d, type: 3}
+  corruptionGainedNumberPrefab: {fileID: 3171153609502651806, guid: 4c8e2a6f0b9d4e3a8f1c5b7d9e2a4c6f, type: 3}
   fireDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: 2717909dc38758d49beb8f8fcd5ebadf, type: 3}
   frostDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: 219508e3f28fb9b45bc16a94f1745288, type: 3}
   leyChargeDebuffDamageNumberPrefab: {fileID: 3171153609502651806, guid: e485636b1ea107f4e991e2efa10a3115, type: 3}

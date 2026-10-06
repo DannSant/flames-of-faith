@@ -14,6 +14,8 @@ namespace Game.Combat
         [Header("Corrupted Enemies")]
         [Tooltip("Chance for a spawned enemy to be Corrupted, per point of negative Grace (0.02 = 2% per point).")]
         [SerializeField] private float corruptedChancePerNegativeGrace = 0.02f;
+        [Tooltip("Base Corrupted spawn chance per Taint Level of the current level (0.05 = 5% per level).")]
+        [SerializeField] private float corruptedChancePerTaintLevel = 0.05f;
         [Tooltip("Upper limit for the Corrupted spawn chance.")]
         [Range(0f, 1f)]
         [SerializeField] private float maxCorruptedChance = 0.5f;
@@ -27,6 +29,16 @@ namespace Game.Combat
         [SerializeField] private float corruptedDamagePerCorruption = 10f;
         [Tooltip("Maximum Corruption gained per wave from Corrupted Damage.")]
         [SerializeField] private int maxCorruptionFromDamage = 5;
+
+        [Header("Grace Pickups")]
+        [Tooltip("Chance for a killed enemy to drop a Grace pickup with 0 Grace Affinity.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float gracePickupBaseChance = 0f;
+        [Tooltip("Extra Grace pickup drop chance per point of Grace Affinity (0.01 = 1% per point).")]
+        [SerializeField] private float gracePickupChancePerAffinity = 0.01f;
+        [Tooltip("Upper limit for the Grace pickup drop chance.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float gracePickupMaxChance = 0.2f;
 
         [Header("Corruptor")]
         [Tooltip("Seconds to wait for the Corruptor to come out of its spawn portal before skipping the phase.")]
@@ -53,6 +65,11 @@ namespace Game.Combat
         [SerializeField] private float focusHoldDuration = 1f;
         [SerializeField] private float focusPanOutDuration = 0.5f;
 
+        [Header("Wave Summary")]
+        [Tooltip("Longest time the end of wave sequence waits for the Corruption summary before moving on. " +
+            "0 = wait until the player closes it.")]
+        [SerializeField] private float waveSummaryMaxWait = 0f;
+
         [Header("Visuals")]
         [Tooltip("Prefab spawned on top of anything Corrupted (enemies, the boss and the player).")]
         [SerializeField] private GameObject corruptedVfxPrefab;
@@ -67,6 +84,7 @@ namespace Game.Combat
         public float FocusPanInDuration => focusPanInDuration;
         public float FocusHoldDuration => focusHoldDuration;
         public float FocusPanOutDuration => focusPanOutDuration;
+        public float WaveSummaryMaxWait => waveSummaryMaxWait;
         public float CorruptorSpawnTimeout => corruptorSpawnTimeout;
         public float CorruptorPhaseDuration => corruptorPhaseDuration;
         public int CorruptorEscapeCorruption => corruptorEscapeCorruption;
@@ -82,9 +100,20 @@ namespace Game.Combat
             return Mathf.Min(corruptorMaxCorruption, corruptorBaseCorruption + extra);
         }
 
-        public float GetCorruptedSpawnChance(float corruptedLevel, float waveMultiplier)
+        /// <summary>
+        /// Chance for a spawned enemy to be Corrupted: the level's Taint gives a base chance and every point of
+        /// negative Grace adds to it. The wave multiplier scales the total.
+        /// </summary>
+        public float GetCorruptedSpawnChance(float corruptedLevel, int taintLevel, float waveMultiplier)
         {
-            return Mathf.Clamp(corruptedLevel * corruptedChancePerNegativeGrace * waveMultiplier, 0f, maxCorruptedChance);
+            float chance = taintLevel * corruptedChancePerTaintLevel + corruptedLevel * corruptedChancePerNegativeGrace;
+            return Mathf.Clamp(chance * waveMultiplier, 0f, maxCorruptedChance);
+        }
+
+        public float GetGracePickupChance(float graceAffinity)
+        {
+            float chance = gracePickupBaseChance + Mathf.Max(0f, graceAffinity) * gracePickupChancePerAffinity;
+            return Mathf.Clamp(chance, 0f, gracePickupMaxChance);
         }
 
         public int GetCorruptionFromDamage(float corruptedDamage)

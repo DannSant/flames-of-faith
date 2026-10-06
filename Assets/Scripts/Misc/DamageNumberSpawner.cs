@@ -16,6 +16,7 @@ namespace Game.Misc
         [SerializeField] private DamageNumber healToPlayerNumberPrefab;
         [SerializeField] private DamageNumber graceGainedNumberPrefab;
         [SerializeField] private DamageNumber graceLostNumberPrefab;
+        [SerializeField] private DamageNumber corruptionGainedNumberPrefab;
         [SerializeField] private DamageNumber fireDebuffDamageNumberPrefab;
         [SerializeField] private DamageNumber frostDebuffDamageNumberPrefab;
         [FormerlySerializedAs("energyDebuffDamageNumberPrefab")]
@@ -90,6 +91,11 @@ namespace Game.Misc
         public void SpawnGraceLostNumber(Vector3 positionTospawn, float number)
         {
             graceLostNumberPrefab.Spawn(positionTospawn, number);
+        }
+        public void SpawnCorruptionGainedNumber(Vector3 positionTospawn, float number)
+        {
+            if (corruptionGainedNumberPrefab == null) return;
+            corruptionGainedNumberPrefab.Spawn(positionTospawn, number);
         }
     }
 

@@ -1,3 +1,4 @@
+using Game.Misc;
 using System;
 using UnityEngine;
 
@@ -45,13 +46,28 @@ namespace Game.Combat
                 return;
             }
 
+            int before = CorruptionValue;
             corruptedDamageTaken += damage;
-            OnCorruptionChanged?.Invoke(CorruptionValue);
+            NotifyCorruptionChanged(before);
         }
 
+        /// <summary>
+        /// Corruption coming from the Corruptor. Updated live while its timer runs, and set to the final value when the phase ends.
+        /// </summary>
         public void SetCorruptorCorruption(int amount)
         {
+            int before = CorruptionValue;
             corruptorCorruption = Mathf.Max(0, amount);
+            NotifyCorruptionChanged(before);
+        }
+
+        private void NotifyCorruptionChanged(int before)
+        {
+            int gained = CorruptionValue - before;
+            if (gained > 0 && DamageNumberSpawner.Instance != null)
+            {
+                DamageNumberSpawner.Instance.SpawnCorruptionGainedNumber(transform.position, gained);
+            }
             OnCorruptionChanged?.Invoke(CorruptionValue);
         }
 

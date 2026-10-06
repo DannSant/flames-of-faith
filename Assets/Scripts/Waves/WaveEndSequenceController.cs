@@ -17,7 +17,8 @@ namespace Game.Waves
 
         public event Action OnWaveCompleteStarted;
         public event Action OnWaveCompleteEnded;
-        public event Action<WaveCorruptionResult> OnWaveCorruptionResolved;
+        public event Action<WaveCorruptionResult, Action> OnWaveCorruptionResolved;
+        private bool corruptionResultPresented = true;
 
         public bool EndingWave => endingWave;
 
@@ -29,6 +30,7 @@ namespace Game.Waves
         public void BeginEndSequence(CorruptorResult corruptorResult)
         {
             this.corruptorResult = corruptorResult;
+            corruptionResultPresented = true;
             if (endSequenceCoroutine != null)
             {
                 StopCoroutine(endSequenceCoroutine);
@@ -84,13 +86,22 @@ namespace Game.Waves
             // Wait for the enemies to be fully destroyed
             yield return new WaitForSeconds(1f);
 
+            // Let the wave summary finish before moving on to rewards
+            float waitedForSummary = 0f;
+            float maxSummaryWait = CorruptionSettings.Instance.WaveSummaryMaxWait;
+            while (!corruptionResultPresented && (maxSummaryWait <= 0f || waitedForSummary < maxSummaryWait))
+            {
+                waitedForSummary += Time.deltaTime;
+                yield return null;
+            }
+
             //Invoke end wave complete event
             InvokeOnWaveComplete();
             endingWave = false;
             endSequenceCoroutine = null;
         }
 
-        // Grace + Grace per wave - Corruption gathered this wave becomes the new Grace, then Corruption resets
+        // Grace + Grace Affinity - Corruption gathered this wave becomes the new Grace, then Corruption resets
         private void ResolveWaveCorruption()
         {
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
@@ -106,13 +117,18 @@ namespace Game.Waves
                 corruptedDamageTaken = playerCorruption.CorruptedDamageTaken,
                 corruptionFromDamage = playerCorruption.CorruptionFromDamage,
                 totalCorruption = playerCorruption.CorruptionValue,
-                gracePerWave = playerGrace.GracePerWave,
+                graceAffinity = playerGrace.GraceAffinity,
                 graceBefore = playerGrace.CurrentGrace
             };
-            result.graceAfter = playerGrace.ApplyWaveResolution(result.gracePerWave, result.totalCorruption);
+            result.graceAfter = playerGrace.ApplyWaveResolution(result.graceAffinity, result.totalCorruption);
 
             playerCorruption.ResetCorruption();
-            OnWaveCorruptionResolved?.Invoke(result);
+
+            if (OnWaveCorruptionResolved != null)
+            {
+                corruptionResultPresented = false;
+                OnWaveCorruptionResolved.Invoke(result, () => corruptionResultPresented = true);
+            }
         }
 
         public void StopEndSequence()

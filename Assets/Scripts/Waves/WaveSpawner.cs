@@ -41,10 +41,12 @@ namespace Game.Waves {
         public event Action OnWaveGroupFinished;              // Triggered when all waves are complete
         public event Action OnAllLevelsFinished;               // Triggered when all waves are complete and the game should end
         public event Action<Transform> OnCorruptorSpawned;    // Sends the Corruptor so the UI can point at it
-        public event Action<float> OnCorruptorPhaseStarted;   // Sends the Corruptor phase duration
+        public event Action<float, Transform> OnCorruptorPhaseStarted;   // Sends the Corruptor phase duration and the player
+        public event Action<int> OnCorruptorCorruptionChanged;          // Corruption the Corruptor grants if killed now
         public event Action<float> OnCorruptorTimerUpdated;   // Sends the remaining Corruptor time
         public event Action OnCorruptorPhaseEnded;
-        public event Action<WaveCorruptionResult> OnWaveCorruptionResolved;
+        // The UI calls the Action once it finished presenting the result; the end of wave sequence waits for it
+        public event Action<WaveCorruptionResult, Action> OnWaveCorruptionResolved;
 
 
         // Timers
@@ -77,12 +79,23 @@ namespace Game.Waves {
             waveEndSequenceController.Initialize(enemySpawnCoordinator);
             waveEndSequenceController.OnWaveCompleteStarted += () => OnWaveCompleteStarted?.Invoke();
             waveEndSequenceController.OnWaveCompleteEnded += () => OnWaveCompleteEnded?.Invoke();
-            waveEndSequenceController.OnWaveCorruptionResolved += result => OnWaveCorruptionResolved?.Invoke(result);
+            waveEndSequenceController.OnWaveCorruptionResolved += (result, onPresented) =>
+            {
+                if (OnWaveCorruptionResolved != null)
+                {
+                    OnWaveCorruptionResolved.Invoke(result, onPresented);
+                }
+                else
+                {
+                    onPresented();
+                }
+            };
 
             corruptorPhaseController = gameObject.AddComponent<CorruptorPhaseController>();
             corruptorPhaseController.Initialize(enemySpawnCoordinator);
             corruptorPhaseController.OnCorruptorSpawned += corruptor => OnCorruptorSpawned?.Invoke(corruptor);
-            corruptorPhaseController.OnPhaseStarted += duration => OnCorruptorPhaseStarted?.Invoke(duration);
+            corruptorPhaseController.OnPhaseStarted += (duration, player) => OnCorruptorPhaseStarted?.Invoke(duration, player);
+            corruptorPhaseController.OnCorruptionChanged += corruption => OnCorruptorCorruptionChanged?.Invoke(corruption);
             corruptorPhaseController.OnTimerUpdated += remaining => OnCorruptorTimerUpdated?.Invoke(remaining);
             corruptorPhaseController.OnPhaseEnded += () => OnCorruptorPhaseEnded?.Invoke();
 

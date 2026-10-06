@@ -8,7 +8,7 @@ namespace Game.Progression {
         AttackSpeed, 
         MoveSpeed, 
         DashCooldown, 
-        GracePerWave, 
+        GraceAffinity, 
         Armor, 
         ExperienceToLevelUpReduction,
         Luck,

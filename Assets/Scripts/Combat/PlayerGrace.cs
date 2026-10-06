@@ -36,8 +36,9 @@ namespace Game.Combat
         public float CorruptedLevel => Mathf.Max(0f, -currentGrace);
         public bool IsCorrupted => currentGrace < 0f;
 
-        public float GracePerWave => playerProgression != null
-           ? playerProgression.GetFinalStat(StatType.GracePerWave)
+        // Grace Affinity: Grace gained at the end of every wave (also raises the Grace pickup drop chance)
+        public float GraceAffinity => playerProgression != null
+           ? playerProgression.GetFinalStat(StatType.GraceAffinity)
            : 0f;
 
         private PlayerProgression playerProgression;
@@ -70,13 +71,13 @@ namespace Game.Combat
         }
 
         /// <summary>
-        /// Resolves the end of a wave: Grace per wave is added and the Corruption gathered during the wave is subtracted.
+        /// Resolves the end of a wave: Grace Affinity is added and the Corruption gathered during the wave is subtracted.
         /// Returns the new Grace value.
         /// </summary>
-        public float ApplyWaveResolution(float gracePerWave, float corruption)
+        public float ApplyWaveResolution(float graceAffinity, float corruption)
         {
             float before = currentGrace;
-            SetGrace(currentGrace + gracePerWave - corruption);
+            SetGrace(currentGrace + graceAffinity - corruption);
 
             float change = currentGrace - before;
             if (change > 0f)

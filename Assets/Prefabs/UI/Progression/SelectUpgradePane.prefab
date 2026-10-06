@@ -901,9 +901,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindow
   role: 0
+  openMode: 0
   priority: 50
   focusMode: 0
   blocksGameplayInput: 0
+  releaseFocusOnCancel: 0
   defaultSelectable: {fileID: 0}
   onCancel:
     m_PersistentCalls:
@@ -990,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471649921272589556, guid: daac5b7179b66bb43bd754cb3bd53594, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -562.202
+      value: -607.7439
       objectReference: {fileID: 0}
     - target: {fileID: 471649921272589556, guid: daac5b7179b66bb43bd754cb3bd53594, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1194,7 +1196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 471649921272589556, guid: daac5b7179b66bb43bd754cb3bd53594, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -363.50165
+      value: -386.2726
       objectReference: {fileID: 0}
     - target: {fileID: 471649921272589556, guid: daac5b7179b66bb43bd754cb3bd53594, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

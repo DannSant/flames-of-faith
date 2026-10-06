@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Scene;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -20,6 +21,11 @@ namespace Game.Pickups
 
         [Header("Pickup Pool")]
         [SerializeField] private List<PickupEntry> pickups = new List<PickupEntry>();
+
+        [Header("Grace Pickup")]
+        [Tooltip("Rolled separately from the pool above, with a chance based on the player's Grace Affinity (see CorruptionSettings).")]
+        [SerializeField] private BasePickup gracePickupPrefab;
+        [SerializeField] private bool canDropGracePickup = true;
 
         [Header("Overlap Avoidance")]
         [Tooltip("Radius used to check whether a spot is already occupied by another pickup.")]
@@ -54,6 +60,12 @@ namespace Game.Pickups
 
         private void OnEnemyDeath()
         {
+            TrySpawnFromPool();
+            TrySpawnGracePickup();
+        }
+
+        private void TrySpawnFromPool()
+        {
             // Roll for spawn chance
             if (Random.value > spawnChance || pickups.Count == 0)
                 return;
@@ -64,6 +76,20 @@ namespace Game.Pickups
             if (selectedPickup != null)
             {
                 Instantiate(selectedPickup, FindSpawnPosition(), Quaternion.identity);
+            }
+        }
+
+        // Runs after the pool roll, so FindSpawnPosition steps aside if both drop on the same death
+        private void TrySpawnGracePickup()
+        {
+            if (!canDropGracePickup || gracePickupPrefab == null || PlayerManager.Instance == null)
+                return;
+
+            var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            float affinity = playerGrace != null ? playerGrace.GraceAffinity : 0f;
+            if (Random.value < CorruptionSettings.Instance.GetGracePickupChance(affinity))
+            {
+                Instantiate(gracePickupPrefab, FindSpawnPosition(), Quaternion.identity);
             }
         }
 

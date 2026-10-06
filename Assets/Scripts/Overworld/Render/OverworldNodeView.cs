@@ -1,19 +1,30 @@
+using TMPro;
 using UnityEngine;
 
 namespace Game.Overworld
 {
     public class OverworldNodeView : MonoBehaviour
     {
+        [Header("Taint")]
+        [Tooltip("Optional. Shows the level's Taint Level next to the node.")]
+        [SerializeField] private TMP_Text taintLabel;
+        [Tooltip("{0} is replaced with the Taint Level.")]
+        [SerializeField] private string taintFormat = "Taint {0}";
+        [SerializeField] private bool hideTaintWhenZero = true;
+
         public string NodeId { get; private set; }
 
         private SpriteRenderer spriteRenderer;
         private OverworldMapRenderer mapRenderer;
         private bool isDisabled = false;
 
+        private bool hasTaint;
+
         public void Initialize(
             string nodeId,
             Sprite sprite,
-            OverworldMapRenderer renderer
+            OverworldMapRenderer renderer,
+            int taintLevel = 0
         )
         {
             NodeId = nodeId;
@@ -21,6 +32,13 @@ namespace Game.Overworld
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.sprite = sprite;
             isDisabled = false;
+
+            hasTaint = taintLevel > 0 || !hideTaintWhenZero;
+            if (taintLabel != null)
+            {
+                taintLabel.text = string.Format(taintFormat, taintLevel);
+                taintLabel.gameObject.SetActive(hasTaint);
+            }
         }
 
         public void SetState(RunNodeState state)
@@ -40,6 +58,12 @@ namespace Game.Overworld
                 case RunNodeState.Blocked:
                     spriteRenderer.color = Color.black;
                     break;
+            }
+
+            // Hidden nodes keep their Taint secret too
+            if (taintLabel != null)
+            {
+                taintLabel.gameObject.SetActive(hasTaint && state != RunNodeState.LockedHidden);
             }
         }
 

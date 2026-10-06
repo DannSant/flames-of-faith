@@ -12,7 +12,7 @@ public static class StatDisplayNameHelper
             StatType.AttackSpeed => "Attack Speed",
             StatType.MoveSpeed => "Move Speed",
             StatType.DashCooldown => "Dash Recovery speed",
-            StatType.GracePerWave => "Grace per Wave",
+            StatType.GraceAffinity => "Grace Affinity",
             StatType.Armor => "Armor",
             StatType.ExperienceToLevelUpReduction => "Experience Reduction",
             StatType.Luck => "Luck",

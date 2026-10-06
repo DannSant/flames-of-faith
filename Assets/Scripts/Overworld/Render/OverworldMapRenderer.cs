@@ -92,7 +92,8 @@ namespace Game.Overworld
                 view.Initialize(
                     node.id,
                     GetSpriteForType(node.nodeType),
-                    this
+                    this,
+                    node.levelData != null ? node.levelData.taintLevel : 0
                 );
 
                 nodeViews[node.id] = view;
