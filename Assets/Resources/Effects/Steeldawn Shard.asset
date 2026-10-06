@@ -16,14 +16,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 702803f03aecfc040842d8bf5dc97cef, type: 3}
   effectName: Steeldawn Shard
   scalingValue: 1
-  description: Special and blessed material that increases your Max Grace
+  description: Special and blessed material that can be used to craft powerful and
+    blessed weapons
   buyPrice: 15
   sellPrice: 5
   effectStatModifiers:
   - stat: 5
-    value: 1
-    type: 0
-  - stat: 21
     value: 1
     type: 0
   behaviors: []
