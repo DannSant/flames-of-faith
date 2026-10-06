@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 7385579347816605688}
   - component: {fileID: 8402559711746060814}
   - component: {fileID: 1586910850913655837}
-  - component: {fileID: 9063479928330079949}
   m_Layer: 5
   m_Name: GraceCorruptionBars
   m_TagString: Untagged
@@ -766,21 +765,10 @@ MonoBehaviour:
   fillSpeed: 5
   graceText: {fileID: 3328209499879065352}
   graceFillImage: {fileID: 9023108704211897050}
---- !u!114 &9063479928330079949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418273319761106752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9972abfccae69aa49ba09e94807e317b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorruptionBar
-  fillSpeed: 5
-  corruptionText: {fileID: 6762665088654587252}
-  corruptionFillImage: {fileID: 2553333458357821649}
+  negativeGraceFillImage: {fileID: 2553333458357821649}
+  pendingCorruptionText: {fileID: 6762665088654587252}
+  positiveTextColor: {r: 1, g: 1, b: 1, a: 1}
+  negativeTextColor: {r: 0.75, g: 0.45, b: 1, a: 1}
 --- !u!1 &4540028662735504649
 GameObject:
   m_ObjectHideFlags: 0

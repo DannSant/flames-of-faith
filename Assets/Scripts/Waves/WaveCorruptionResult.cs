@@ -14,7 +14,7 @@ namespace Game.Waves
     }
 
     /// <summary>
-    /// Plain data describing the end of wave resolution (Grace + Grace per wave - Corruption), for the UI.
+    /// Plain data describing the end of wave resolution (Grace + Grace Affinity - Corruption), for the UI.
     /// </summary>
     public struct WaveCorruptionResult
     {
@@ -22,7 +22,7 @@ namespace Game.Waves
         public float corruptedDamageTaken;
         public int corruptionFromDamage;
         public int totalCorruption;
-        public float gracePerWave;
+        public float graceAffinity;
         public float graceBefore;
         public float graceAfter;
     }

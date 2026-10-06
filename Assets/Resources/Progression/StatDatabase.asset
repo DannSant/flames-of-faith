@@ -59,8 +59,9 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Grace gained at the end of every wave, offsetting the Corruption
-      gathered during that wave.
+    description: How much your body can control your inner holy power and protects
+      you from corruption each wave. You gain this amount each wave and increase chance
+      to find a Grace pickup
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 6

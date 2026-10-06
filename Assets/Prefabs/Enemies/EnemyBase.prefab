@@ -269,10 +269,10 @@ MonoBehaviour:
   pickups:
   - pickupPrefab: {fileID: 530062329195223839, guid: 582edfab8f10edc40b600de7e4fd9131, type: 3}
     weight: 0.1
-  - pickupPrefab: {fileID: 242527397130525024, guid: f15655290232db74cad9d9d5f3c35064, type: 3}
-    weight: 0.1
   - pickupPrefab: {fileID: 2148069401913672984, guid: 0fcfaddd5f19ea048926abd99c8a0833, type: 3}
     weight: 0.1
+  gracePickupPrefab: {fileID: 242527397130525024, guid: f15655290232db74cad9d9d5f3c35064, type: 3}
+  canDropGracePickup: 1
   occupiedCheckRadius: 0.5
   scatterRadius: 1
   maxPlacementAttempts: 3

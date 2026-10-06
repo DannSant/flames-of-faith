@@ -24,7 +24,8 @@ namespace Game.Waves
         private bool corruptorDied;
 
         public event Action<Transform> OnCorruptorSpawned;
-        public event Action<float> OnPhaseStarted;      // Sends the phase duration
+        public event Action<float, Transform> OnPhaseStarted;   // Sends the phase duration and the player (for UI anchored to them)
+        public event Action<int> OnCorruptionChanged;           // Corruption the Corruptor grants if killed now
         public event Action<float> OnTimerUpdated;      // Sends the remaining time
         public event Action OnPhaseEnded;
 
@@ -118,7 +119,9 @@ namespace Game.Waves
 
             float duration = settings.CorruptorPhaseDuration;
             float elapsed = 0f;
-            OnPhaseStarted?.Invoke(duration);
+            var playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
+            int currentCorruption = -1;
+            OnPhaseStarted?.Invoke(duration, playerCorruption != null ? playerCorruption.transform : null);
 
             // corruptor == null covers it being destroyed by something other than a kill
             while (!corruptorDied && corruptor != null && elapsed < duration)
@@ -128,6 +131,18 @@ namespace Game.Waves
                     AbortPhase();
                     yield break;
                 }
+                // The longer the Corruptor lives, the more Corruption it will grant - show it as it grows
+                int corruptionNow = settings.GetCorruptorKillCorruption(elapsed);
+                if (corruptionNow != currentCorruption)
+                {
+                    currentCorruption = corruptionNow;
+                    if (playerCorruption != null)
+                    {
+                        playerCorruption.SetCorruptorCorruption(currentCorruption);
+                    }
+                    OnCorruptionChanged?.Invoke(currentCorruption);
+                }
+
                 elapsed += Time.deltaTime;
                 OnTimerUpdated?.Invoke(Mathf.Max(0f, duration - elapsed));
                 yield return null;

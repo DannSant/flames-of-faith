@@ -15,6 +15,9 @@ namespace Game.Scene
 
         [Header("Gameplay Settings")]
         public LevelType type;
+        [Tooltip("How corrupted this level is. Each level adds a base chance for enemies to spawn Corrupted (see CorruptionSettings).")]
+        [Min(0)]
+        public int taintLevel = 0;
         public bool preventHealthRegen = false;
         public bool preventAttacks = false;
         public bool allowPause = true;
@@ -27,7 +30,7 @@ namespace Game.Scene
 
         public override string ToString()
         {
-            return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber})";
+            return $"{DisplayName} (Scene: {SceneName}, Type: {type}, Act: {actNumber}, Taint: {taintLevel})";
         }
 
     }

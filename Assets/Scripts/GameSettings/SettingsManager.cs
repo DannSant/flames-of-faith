@@ -1,5 +1,6 @@
 using Game.Audio;
 using Game.Common;
+using System;
 using UnityEngine;
 
 namespace Game.GameSettings
@@ -20,6 +21,7 @@ namespace Game.GameSettings
         private const string QualityLevelKey = "Settings.QualityLevel";
         private const string VsyncEnabledKey = "Settings.VsyncEnabled";
         private const string LanguageKeyKey = "Settings.LanguageKey";
+        private const string ShowTutorialHintsKey = "Settings.ShowTutorialHints";
 
         private const float defaultMasterVolume = 1f;
         private const float defaultMusicVolume = 0.7f;
@@ -35,6 +37,7 @@ namespace Game.GameSettings
         private int qualityLevel;
         private bool vsyncEnabled;
         private string languageKey;
+        private bool showTutorialHints;
 
         [Header("Developer Tools")]
         [SerializeField] private bool developerCheatsEnabled = true;
@@ -48,6 +51,9 @@ namespace Game.GameSettings
         public int QualityLevel => qualityLevel;
         public bool VsyncEnabled => vsyncEnabled;
         public string LanguageKey => languageKey;
+        public bool ShowTutorialHints => showTutorialHints;
+
+        public event Action<bool> OnShowTutorialHintsChanged;
         public bool DeveloperCheatsEnabled => developerCheatsEnabled;
 
         protected override void Awake()
@@ -81,6 +87,7 @@ namespace Game.GameSettings
                 qualityLevel = QualitySettings.GetQualityLevel();
                 vsyncEnabled = true;
                 languageKey = defaultLanguageKey;
+                showTutorialHints = true;
                 return;
             }
 
@@ -93,6 +100,7 @@ namespace Game.GameSettings
             qualityLevel = PlayerPrefs.GetInt(QualityLevelKey, QualitySettings.GetQualityLevel());
             vsyncEnabled = PlayerPrefs.GetInt(VsyncEnabledKey, 1) == 1;
             languageKey = PlayerPrefs.GetString(LanguageKeyKey, defaultLanguageKey);
+            showTutorialHints = PlayerPrefs.GetInt(ShowTutorialHintsKey, 1) == 1;
         }
 
         public void SaveState()
@@ -107,6 +115,7 @@ namespace Game.GameSettings
             PlayerPrefs.SetInt(QualityLevelKey, qualityLevel);
             PlayerPrefs.SetInt(VsyncEnabledKey, vsyncEnabled ? 1 : 0);
             PlayerPrefs.SetString(LanguageKeyKey, languageKey);
+            PlayerPrefs.SetInt(ShowTutorialHintsKey, showTutorialHints ? 1 : 0);
             PlayerPrefs.Save();
         }
 
@@ -175,6 +184,13 @@ namespace Game.GameSettings
         {
             languageKey = key;
             SaveState();
+        }
+
+        public void SetShowTutorialHints(bool enabled)
+        {
+            showTutorialHints = enabled;
+            SaveState();
+            OnShowTutorialHintsChanged?.Invoke(showTutorialHints);
         }
 
         private void ApplyAudio()

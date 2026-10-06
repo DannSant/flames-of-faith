@@ -133,7 +133,7 @@ namespace Game.Waves
             return true;
         }
 
-        // The lower the player's Grace goes below 0, the more likely each spawned enemy is Corrupted
+        // The level's Taint sets a base chance, and the lower the player's Grace goes below 0 the higher it gets
         private bool RollCorrupted()
         {
             var playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
@@ -143,7 +143,9 @@ namespace Game.Waves
             }
 
             float waveMultiplier = currentWaveData != null ? currentWaveData.corruptedChanceMultiplier : 1f;
-            float chance = CorruptionSettings.Instance.GetCorruptedSpawnChance(playerGrace.CorruptedLevel, waveMultiplier);
+            var currentLevel = GameSession.Instance != null ? GameSession.Instance.currentLevel : null;
+            int taintLevel = currentLevel != null ? currentLevel.taintLevel : 0;
+            float chance = CorruptionSettings.Instance.GetCorruptedSpawnChance(playerGrace.CorruptedLevel, taintLevel, waveMultiplier);
             return chance > 0f && UnityEngine.Random.value < chance;
         }
 

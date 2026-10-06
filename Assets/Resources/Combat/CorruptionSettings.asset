@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: CorruptionSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.CorruptionSettings
   corruptedChancePerNegativeGrace: 0.1
+  corruptedChancePerTaintLevel: 0.05
   maxCorruptedChance: 0.5
   corruptedDamageMultiplier: 1.5
   corruptedHealthBonus: 1
   corruptedDamagePerCorruption: 10
   maxCorruptionFromDamage: 5
+  gracePickupBaseChance: 0
+  gracePickupChancePerAffinity: 0.01
+  gracePickupMaxChance: 0.2
   corruptorSpawnTimeout: 3
   corruptorPhaseDuration: 25
   corruptorFastKillTime: 8
@@ -30,4 +34,5 @@ MonoBehaviour:
   focusPanInDuration: 0.6
   focusHoldDuration: 1
   focusPanOutDuration: 0.5
+  waveSummaryMaxWait: 0
   corruptedVfxPrefab: {fileID: 8726003427374054332, guid: cac3dcf66f2108c4b86869fe90d9bec0, type: 3}
