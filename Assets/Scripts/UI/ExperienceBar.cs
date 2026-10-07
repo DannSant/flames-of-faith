@@ -67,7 +67,7 @@ namespace Game.UI {
             }
         }
 
-        private void OnPlayerExperienceGain(int currentExperience, int maxExperience)
+        private void OnPlayerExperienceGain(float currentExperience, int maxExperience)
         {
            
             if (fillCoroutine != null)
@@ -76,7 +76,7 @@ namespace Game.UI {
             fillCoroutine = StartCoroutine(AnimateFill(currentExperience, maxExperience));
         }
 
-        private IEnumerator AnimateFill(int targetXP, int maxXP)
+        private IEnumerator AnimateFill(float targetXP, int maxXP)
         {
             experienceSlider.maxValue = maxXP;
             float targetValue = targetXP;

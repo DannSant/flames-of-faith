@@ -32,10 +32,14 @@ namespace Game.Waves
             this.waveSpawnerTransform = waveSpawnerTransform;
         }
 
+        // Enemies spawned by the wave routine since the wave started
+        public int SpawnedThisWave { get; private set; }
+
         public void StartSpawning(WaveData waveData, int waveNumber)
         {
             StopSpawning();
             currentWaveData = waveData;
+            SpawnedThisWave = 0;
             spawnCoroutine = StartCoroutine(SpawnDuringWaveRoutine(waveData, waveNumber));
         }
 
@@ -53,7 +57,10 @@ namespace Game.Waves
             while (true)
             {
                 var randomType = GetRandomEnemyFromPool(waveData.enemyPool);
-                SpawnEnemy(randomType, waveNumber);
+                if (SpawnEnemy(randomType, waveNumber))
+                {
+                    SpawnedThisWave++;
+                }
                 float spawnCooldown = activeEnemies.Count >= waveData.amountOfEnemiesWithLongCooldown ? waveData.regularCooldown : waveData.longCooldown;
                 yield return new WaitForSeconds(spawnCooldown);
             }

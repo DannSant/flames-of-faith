@@ -9,7 +9,7 @@ namespace Game.Progression
     public struct PlayerExperienceData
     {
         public int CurrentLevel;
-        public int CurrentXP;
+        public float CurrentXP;
         public int ExperienceReductionStat; 
     }
 
@@ -22,10 +22,10 @@ namespace Game.Progression
         [SerializeField] private float minGrowthRate = 1.01f; // Prevent flatline or regress
 
         [SerializeField] private int currentLevel = 1;
-        [SerializeField] private int currentXP = 0;
+        [SerializeField] private float currentXP = 0f;
 
         //events
-        public event Action<int,int> OnPlayerExperienceGainEvent;
+        public event Action<float,int> OnPlayerExperienceGainEvent;
         public delegate void OnLevelUp(int newLevel, int newXPRequired);
         public event OnLevelUp onLevelUp;
         private PlayerProgression playerProgression;
@@ -51,12 +51,12 @@ namespace Game.Progression
         private void ResetPlayerExperienceState()
         {
             currentLevel = 1;
-            currentXP = 0;
+            currentXP = 0f;
             OnPlayerExperienceGainEvent?.Invoke(currentXP, 10);            
             onLevelUp?.Invoke(currentLevel, 10);
         }
 
-        public void AddExperience(int amount)
+        public void AddExperience(float amount)
         {
             int xpToLevelUp = GetXPRequired(currentLevel);
           
@@ -72,11 +72,22 @@ namespace Game.Progression
             }
         }
 
-        public int GetCurrentXP() => currentXP;
+        public float GetCurrentXP() => currentXP;
         public int GetCurrentLevel() => currentLevel;
         public int GetXPRequired(int level)
         {
             float reductionStat = playerProgression.GetStatTotal(StatType.ExperienceToLevelUpReduction);
+            return CalculateXPRequired(level, reductionStat);
+        }
+
+        /// <summary>
+        /// XP required ignoring the XP-to-level-up reduction stat. Used to size experience drops,
+        /// so the reduction stat still makes the player level faster.
+        /// </summary>
+        public int GetUnreducedXPRequired(int level) => CalculateXPRequired(level, 0f);
+
+        private int CalculateXPRequired(int level, float reductionStat)
+        {
             float reduction = reductionStat * growthReductionPerPoint;
             float dynamicGrowth = baseGrowthRate - reduction;
 
@@ -95,11 +106,7 @@ namespace Game.Progression
             // Get the reduction stat from the state instead of the player progression because we don't know if player progression has loaded yet
             float reductionStat = playerExperienceData.ExperienceReductionStat;
 
-            // Calculate required experience normally
-            float reduction = reductionStat * growthReductionPerPoint;
-            float dynamicGrowth = baseGrowthRate - reduction;
-            dynamicGrowth = Mathf.Max(minGrowthRate, dynamicGrowth);
-            int requiredExperience = Mathf.CeilToInt(baseXPRequired * Mathf.Pow(dynamicGrowth, currentLevel - 1));
+            int requiredExperience = CalculateXPRequired(currentLevel, reductionStat);
 
             // Invoke events with loaded state
             OnPlayerExperienceGainEvent?.Invoke(currentXP, requiredExperience);

@@ -14,8 +14,9 @@ namespace Game.Enemies
         public int damagePerLevel = 2;
         public float speedBase = 1f;
         public float attackRangeBase = 1f;
-        public int xpBase = 1;
-        public int xpPerLevel = 1;
+        [Tooltip("Highest experience token denomination this enemy can drop (see ExperienceSettings). 1 = regular tokens only.")]
+        [Min(1)]
+        public int xpTier = 1;
         public int projectileDamageBase;
         public int projectileDamagePerWave;
         public int healthPerWave = 30; // Base health increase per wave

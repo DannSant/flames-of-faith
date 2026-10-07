@@ -1,8 +1,5 @@
-using Game.AI;
-using Game.AI.Behaviors;
-using Game.Enemies;
 using Game.Progression;
-using Game.Scene;
+using Game.Waves;
 using UnityEngine;
 
 namespace Game.AI.Behaviors
@@ -12,10 +9,7 @@ namespace Game.AI.Behaviors
     public class DropExperienceOnDeathBehavior : AIDeathBehavior
     {
         [SerializeField] private GameObject experienceTokenPrefab;
-        [SerializeField] private float dropChance = 0.8f;
 
-        
-       
         public override void OnDeath(BehaviorContext context)
         {
             if (!Application.isPlaying) return;
@@ -36,17 +30,32 @@ namespace Game.AI.Behaviors
                 return;
             }
 
-
-            if (Random.value <= dropChance)
+            var settings = ExperienceSettings.Instance;
+            if (Random.value > settings.DropChance)
             {
-                var token = Instantiate(experienceTokenPrefab, enemy.transform.position, Quaternion.identity);
-                var experience = token.GetComponent<ExperienceToken>();
-                int bonusXpPerLevel = GameSession.Instance.LevelsBeaten * enemyData.xpPerLevel;
+                return;
+            }
 
-                if (experience != null)
-                {
-                    experience.SetAmount(enemyData.xpBase + bonusXpPerLevel);
-                }
+            var token = Instantiate(experienceTokenPrefab, enemy.transform.position, Quaternion.identity);
+            var experience = token.GetComponent<ExperienceToken>();
+            if (experience == null)
+            {
+                return;
+            }
+
+            float baseXp = WaveSpawner.Instance != null && WaveSpawner.Instance.CurrentWaveBaseXp > 0f
+                ? WaveSpawner.Instance.CurrentWaveBaseXp
+                : settings.FallbackXp;
+
+            var denomination = WaveExperienceCalculator.RollDenomination(enemyData.xpTier, settings);
+            float multiplier = denomination != null ? denomination.multiplier : 1f;
+            Sprite sprite = denomination != null ? denomination.sprite : null;
+
+            experience.Setup(baseXp * multiplier, sprite);
+
+            if (WaveSpawner.Instance != null)
+            {
+                WaveSpawner.Instance.RegisterExperienceDrop(baseXp * multiplier);
             }
         }
     }

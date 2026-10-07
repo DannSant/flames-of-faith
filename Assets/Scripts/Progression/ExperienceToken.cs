@@ -9,29 +9,44 @@ namespace Game.Progression
 {
     public class ExperienceToken : MonoBehaviour, ISceneCleanupHandler, IWorldPickup
     {
-       
-        [SerializeField] private int testExtraExperience = 8;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
-        private int xpAmount = 1;      
-        
+        private float xpAmount = 1f;
 
-        public void SetAmount(int amount)
+        private void Awake()
+        {
+            if (spriteRenderer == null)
+            {
+                spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            }
+        }
+
+        public void SetAmount(float amount)
         {
             xpAmount = amount;
-        }            
+        }
+
+        /// <summary>
+        /// Sets the XP this token grants and its denomination sprite. A null sprite keeps the prefab's sprite.
+        /// </summary>
+        public void Setup(float amount, Sprite sprite)
+        {
+            xpAmount = amount;
+            if (sprite != null && spriteRenderer != null)
+            {
+                spriteRenderer.sprite = sprite;
+            }
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
-        {           
-            
+        {
             var playerXP = other.GetComponent<PlayerExperience>();
             if (playerXP != null)
             {
-               
-                playerXP.AddExperience(xpAmount + testExtraExperience);
+                playerXP.AddExperience(xpAmount);
                 Destroy(gameObject);
             }
-            
-        }        
+        }
 
         public void Cleanup()
         {

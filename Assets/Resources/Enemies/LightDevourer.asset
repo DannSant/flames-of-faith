@@ -20,8 +20,7 @@ MonoBehaviour:
   damagePerLevel: 1
   speedBase: 1
   attackRangeBase: 1
-  xpBase: 5
-  xpPerLevel: 3
+  xpTier: 3
   projectileDamageBase: 0
   projectileDamagePerWave: 0
   healthPerWave: 10

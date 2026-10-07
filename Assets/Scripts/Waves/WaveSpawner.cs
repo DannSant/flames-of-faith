@@ -2,6 +2,7 @@ using Game.AI;
 using Game.Combat;
 using Game.Common;
 using Game.Enemies;
+using Game.Progression;
 using Game.Scene;
 using System;
 using System.Collections.Generic;
@@ -55,9 +56,16 @@ namespace Game.Waves {
 
         private bool waveInProgress = false;
 
+        // Experience
+        private WaveExperienceEstimate currentWaveExperience;
+        private int experienceDropsThisWave;
+        private float experienceDroppedThisWave;
+
         public int CurrentWaveIndex => currentWaveIndex;
         public bool WaveInProgress => waveInProgress;
         public bool EndingWave => waveEndSequenceController != null && waveEndSequenceController.EndingWave;
+        // XP of a regular experience token during the current wave. 0 when no wave has started.
+        public float CurrentWaveBaseXp => currentWaveExperience.BaseXp;
 
         protected override void Awake()
         {
@@ -78,7 +86,12 @@ namespace Game.Waves {
             waveEndSequenceController = gameObject.AddComponent<WaveEndSequenceController>();
             waveEndSequenceController.Initialize(enemySpawnCoordinator);
             waveEndSequenceController.OnWaveCompleteStarted += () => OnWaveCompleteStarted?.Invoke();
-            waveEndSequenceController.OnWaveCompleteEnded += () => OnWaveCompleteEnded?.Invoke();
+            waveEndSequenceController.OnWaveCompleteEnded += () =>
+            {
+                // Logged here so it includes the Corruptor and the enemies killed by the end sequence
+                LogWaveExperience();
+                OnWaveCompleteEnded?.Invoke();
+            };
             waveEndSequenceController.OnWaveCorruptionResolved += (result, onPresented) =>
             {
                 if (OnWaveCorruptionResolved != null)
@@ -224,6 +237,8 @@ namespace Game.Waves {
                 playerCorruption.ResetCorruption();
             }
 
+            CalculateWaveExperience(waveData);
+
             OnWaveStarted?.Invoke(currentWaveIndex + 1);
 
             enemySpawnCoordinator.StartSpawning(waveData, currentWaveIndex + 1);
@@ -287,6 +302,40 @@ namespace Game.Waves {
         public void SpawnEnemy(EnemyType type)
         {
             enemySpawnCoordinator.SpawnEnemy(type, currentWaveIndex + 1);
+        }
+
+        private void CalculateWaveExperience(WaveData waveData)
+        {
+            experienceDropsThisWave = 0;
+            experienceDroppedThisWave = 0f;
+            currentWaveExperience = default;
+
+            var playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
+            if (playerExperience == null)
+            {
+                return;
+            }
+
+            currentWaveExperience = WaveExperienceCalculator.CalculateBaseXp(waveData, playerExperience.GetCurrentLevel(), playerExperience, ExperienceSettings.Instance);
+        }
+
+        public void RegisterExperienceDrop(float amount)
+        {
+            experienceDropsThisWave++;
+            experienceDroppedThisWave += amount;
+        }
+
+        private void LogWaveExperience()
+        {
+            if (!ExperienceSettings.Instance.LogWaveXpDebug)
+            {
+                return;
+            }
+
+            var e = currentWaveExperience;
+            Debug.Log($"[WaveXP] Wave {currentWaveIndex + 1}: expected spawns {e.ExpectedSpawns:F1} (actual {enemySpawnCoordinator.SpawnedThisWave}), " +
+                      $"expected drops {e.ExpectedDrops:F1} (actual {experienceDropsThisWave}), base XP {e.BaseXp:F2}, " +
+                      $"target XP {e.TargetXp:F1}, dropped XP {experienceDroppedThisWave:F1} ({experienceDroppedThisWave / Mathf.Max(1f, e.TargetXp):P0} of target)");
         }
 
         private bool IsPlayerDead()

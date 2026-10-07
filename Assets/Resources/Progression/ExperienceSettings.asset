@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1183f325f4ff2745a96cdf2fd528edb, type: 3}
+  m_Name: ExperienceSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Progression.ExperienceSettings
+  dropChance: 0.8
+  fallbackXp: 1
+  levelsPerWaveTarget: 1
+  expectedKillRatio: 0.9
+  cooldownBlend: 0.3
+  denominations:
+  - tier: 1
+    promoteChance: 1
+    multiplier: 1
+    sprite: {fileID: 8753283621101997260, guid: 8fb3781a391f5e140901af6825af8848, type: 3}
+  - tier: 2
+    promoteChance: 0.4
+    multiplier: 2
+    sprite: {fileID: -1302064381137182184, guid: 0d5946e1f96ab1848b4cf880d1ad7390, type: 3}
+  - tier: 3
+    promoteChance: 0.2
+    multiplier: 2.5
+    sprite: {fileID: 3496168210034931473, guid: 6cb27a04aa045084f890c101af3e5e0b, type: 3}
+  - tier: 4
+    promoteChance: 0.1
+    multiplier: 3
+    sprite: {fileID: -7792467675271380774, guid: f430b92a7a2f53543a67cd33cb672742, type: 3}
+  logWaveXpDebug: 0

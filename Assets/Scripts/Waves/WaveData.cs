@@ -33,6 +33,11 @@ namespace Game.Waves {
         [Tooltip("Normal cooldown time")]
         public float regularCooldown = 1f;
 
+        [Header("Experience settings")]
+        [Tooltip("Enemies expected to spawn this wave, used to size experience drops. 0 = estimate from the wave duration and cooldowns.")]
+        [Min(0)]
+        public int expectedEnemyCountOverride = 0;
+
         [Header("Corruption settings")]
         [Tooltip("Multiplies the Corrupted enemy spawn chance for this wave (0 = no Corrupted enemies).")]
         public float corruptedChanceMultiplier = 1f;
