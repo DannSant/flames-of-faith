@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
   baseDamage: 5
   weaponClass: 1
-  attackScale: 5
+  attackScale: 1
   effectID: 
   layerMaskName: Enemy
   enemyLayerMask:
