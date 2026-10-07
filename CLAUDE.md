@@ -52,6 +52,43 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 
 Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combines weapon class, active `Effect`/`EffectBehavior` modifiers via `IEffectMultiplier`, and player progression stats) → applied to `PlayerHealth`/`EnemyHealth`. Projectiles separate "what it is" (`ProjectileBase`, damage/effect) from "how it moves" (`ProjectileMovementBase` subclasses: linear/arc/homing/bounce/delayed-homing) — extend by composing a movement strategy rather than a new projectile subclass per behavior.
 
+### Corruption & Grace (reworked Oct 2026)
+
+The original spec is `Assets/Docs/corruption-rework.md`, but several decisions changed during implementation; this section is the source of truth. Every tunable lives in **`CorruptionSettings`** (`Assets/Resources/Combat/CorruptionSettings.asset`, loaded via `CorruptionSettings.Instance`) or on Inspector fields — never hardcode these numbers.
+
+- **Grace** (`PlayerGrace`) is a single signed value clamped to `minGrace..maxGrace` (−50..+50), saved per run. It changes only through `SetGrace`, which fires `onGraceChanged`, `OnCorruptedStateChanged` (only on flips) and `OnGraceStatusChanged`. Damage multiplier = `max(minDamageMultiplier, 1 + damagePerGracePoint × Grace)`, applied in `DamageCalculator`.
+- **Corrupted = Grace < 0.** `CorruptedLevel = max(0, −Grace)` reduces every stat flagged `affectedByCorruption` in `StatDatabase.asset` (Armor, HealingReceived) by `CorruptedLevel × corruptionReduceFactor`, through `PlayerProgression.GetCorruptionPenalty` (also used by the tooltip). Healing is reduced by a flat amount per heal, not zeroed. Corrupted players show the shared Corrupted VFX.
+- **Corruption** (`PlayerCorruption`) is **per wave only**, never saved, and reset when a wave starts. It comes from two sources:
+  - **Corrupted Damage:** post-armor damage taken from anything tagged with `CorruptedDamageSource`, converted at +1 per `corruptedDamagePerCorruption`, capped at `maxCorruptionFromDamage`.
+  - **The Corruptor:** see below.
+- **Wave end** (`WaveEndSequenceController.ResolveWaveCorruption`): `Grace = Grace + Grace Affinity − Corruption`, then Corruption resets. Grace no longer drains per wave, and levels/events no longer add Corruption. The Cursed Chest and Holy Altar events change Grace instead.
+- **Grace Affinity** (`StatType.GraceAffinity`, enum index 5, formerly MaxGrace/GracePerWave) adds Grace at every wave end and raises the Grace pickup drop chance. The Grace pickup is rolled separately from `PickupSpawner`'s weighted pool (`gracePickupBaseChance + affinity × perPoint`, capped).
+- **Corrupted enemies:**
+  - **Spawn chance**, rolled in `EnemySpawnCoordinator`: `(LevelData.taintLevel × chancePerTaint + CorruptedLevel × chancePerNegativeGrace) × WaveData.corruptedChanceMultiplier`, capped.
+  - **The flag** lives on `BehaviorContext.isCorrupted`. `AIBehavior.GetDamageAmount`/`GetRangedDamageAmount` apply the damage multiplier, so every attack path is covered in one place. Projectiles and explosions they spawn are tagged with `CorruptedDamageSource`.
+  - **Extra health:** global `corruptedHealthBonus`, overridable per `EnemyData`. `EnemyData.alwaysCorrupted` is set for Corruptors.
+- **Taint Level** (`LevelData.taintLevel`) is shown on overworld map nodes with a tooltip.
+- **Corruptor phase** (`CorruptorPhaseController`, driven by `WaveSpawner.EndCurrentWave`), running between the wave timer and the end sequence:
+  1. Spawning stops, but living enemies stay.
+  2. The level's Corruptor spawns (`WaveDatabase.corruptorType`, overridable per `WaveData`; one `EnemyType.CorruptorAct<N>` per act).
+  3. The camera focuses on it under a `GameplayFreeze`.
+  4. The timer starts. The Corruptor's Corruption grows with its lifetime (base value for a fast kill, then +1 per interval, capped). If it isn't killed in time it escapes through a portal and grants the escape value.
+- **Phase cancellation:** the phase is cancelled immediately on player death via `PlayerHealth.IsDead()`. Don't rely on `onDeath` here: it fires only after the death animation.
+- **Boss:** `BossController.isCorrupted` (default on). Ability damage goes through `BossController.GetAbilityDamage`. Boss damage is *not* converted into Corruption, because boss levels have no wave end. `BossWaveHandler` is unchanged.
+- **UI** (all fed by gameplay events, per the UI rule above):
+  - `GraceBar`: signed bar, pending wave Corruption label, tooltips.
+  - Corruptor bar: `CorruptorPhaseBarPresenter` attaches a world-space `CorruptorPhaseBarUI` to the player.
+  - Off-screen arrow: `TargetIndicatorUI`.
+  - Wave hints: `WaveHintUI`, toggled by `SettingsManager.ShowTutorialHints`.
+  - End-of-wave summary: `WaveCorruptionSummaryUI` waits for Submit. The end sequence waits on its callback; `waveSummaryMaxWait` 0 means no limit.
+  - Corruption numbers: `NumberCorruptionGainedVFX`.
+
+Reusable pieces that came out of this work:
+- **`GameplayFreeze`** (`Game.Common`): a semi-pause (time keeps running). Enemy behaviors with `stopDuringGameplayFreeze` skip ticks and animation-event starts, enemy projectiles stop, and player input and damage are blocked.
+- **`CameraFocusController`:** pan/zoom to a target and restore.
+- **`TooltipTriggerUI`:** a hover/select tooltip on `GeneralTooltipPaneUI`.
+- **`UIWindowOpenWhilePaused`:** an always-visible HUD panel that joins gamepad focus only while paused.
+
 ### Effect data pipeline — every field change touches 5 places
 
 `Effect` (`Assets/Scripts/Effects/Effect.cs`) is authored in a SQLite database (via `Tools/Effects/Effect Database`), not hand-edited as ScriptableObjects — the `.asset` files under `Assets/Resources/Effects/` are generated output, not source of truth. Whenever a field is added/changed/removed on `Effect`, update all of these together or the DB and the runtime SOs silently drift apart:
