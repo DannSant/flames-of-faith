@@ -82,19 +82,7 @@ namespace Game.Progression {
                 float totalBeforeCorruption = (baseValue + flatBonus) * (1f + percentBonus);
 
                 // Negative Grace (Corrupted) reduces the stats flagged as affected by corruption
-                StatData statData = StatUpgradeDatabase.Instance.GetStatData(stat); // Exception is thrown inside this method
-                if(statData != null && statData.AffectedByCorruption)
-                {
-                    float corruptionLevel = playerGrace.CorruptedLevel;
-                    float corruptionReduction = corruptionLevel * statData.CorruptionReduceFactor;
-                    float finalValue = totalBeforeCorruption - corruptionReduction;
-                    cachedFinalStats[stat] = finalValue;
-                    //Debug.Log($"Corrupted Stat {stat} finalValue {finalValue}");
-                }else
-                {
-                    cachedFinalStats[stat] = totalBeforeCorruption;
-                    
-                }
+                cachedFinalStats[stat] = totalBeforeCorruption - GetCorruptionPenalty(stat);
 
                
                 
@@ -104,6 +92,24 @@ namespace Game.Progression {
         }
 
        
+
+        /// <summary>
+        /// How much negative Grace (Corrupted) currently reduces a stat. 0 while Grace is 0 or above.
+        /// </summary>
+        public float GetCorruptionPenalty(StatType stat)
+        {
+            if (playerGrace == null || !playerGrace.IsCorrupted || StatUpgradeDatabase.Instance == null)
+            {
+                return 0f;
+            }
+
+            StatData statData = StatUpgradeDatabase.Instance.GetStatData(stat);
+            if (statData == null || !statData.AffectedByCorruption)
+            {
+                return 0f;
+            }
+            return playerGrace.CorruptedLevel * statData.CorruptionReduceFactor;
+        }
 
         private void ResetProgression()
         {

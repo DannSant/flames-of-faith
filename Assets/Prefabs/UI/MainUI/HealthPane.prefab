@@ -448,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveNumberText: {fileID: 2071029814997925995}
   waveTimeText: {fileID: 2664605847132313006}
+  corruptorTimeColor: {r: 0.75, g: 0.45, b: 1, a: 1}
 --- !u!1 &3763329704334481055
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +671,9 @@ GameObject:
   - component: {fileID: 7385579347816605688}
   - component: {fileID: 8402559711746060814}
   - component: {fileID: 1586910850913655837}
+  - component: {fileID: 840475261645044822}
+  - component: {fileID: 961360082738052484}
+  - component: {fileID: 2161824684534028980}
   m_Layer: 5
   m_Name: GraceCorruptionBars
   m_TagString: Untagged
@@ -696,7 +700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.2543507}
   m_AnchorMax: {x: 0.3733912, y: 0.5}
-  m_AnchoredPosition: {x: 14.638916, y: -1.676651}
+  m_AnchoredPosition: {x: 98.8, y: -7.399994}
   m_SizeDelta: {x: 38.4117, y: -4}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &8402559711746060814
@@ -769,6 +773,69 @@ MonoBehaviour:
   pendingCorruptionText: {fileID: 6762665088654587252}
   positiveTextColor: {r: 1, g: 1, b: 1, a: 1}
   negativeTextColor: {r: 0.75, g: 0.45, b: 1, a: 1}
+  hidePendingCorruptionWhenZero: 0
+  graceTooltipTitle: Grace
+  graceTooltip: Your Grace increases your total damage by {0}% and protects you from
+    Corruption.
+  corruptedTooltip: 'You are Corrupted: armor -{0}, damage -{1}%, healing received
+    -{2} per heal.'
+  corruptionTooltipTitle: Corruption
+  corruptionTooltip: Corruption gathered this wave. When the wave ends it is subtracted
+    from your Grace.
+--- !u!225 &840475261645044822
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418273319761106752}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &961360082738052484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418273319761106752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928028ac2da4be4889ad0a70f26fc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindow
+  role: 1
+  openMode: 1
+  priority: 0
+  focusMode: 0
+  blocksGameplayInput: 0
+  releaseFocusOnCancel: 0
+  defaultSelectable: {fileID: 0}
+  onCancel:
+    m_PersistentCalls:
+      m_Calls: []
+  focusFrame: {fileID: 0}
+  focusedFrameColor: {r: 1, g: 1, b: 1, a: 1}
+  unfocusedFrameColor: {r: 1, g: 1, b: 1, a: 0.3}
+  focusedOnlyObjects: []
+  overrideMarkerSettings: 0
+  markerPadding: {x: 8, y: 8}
+  markerOffset: {x: 0, y: 0}
+  markerMatchesSize: 1
+--- !u!114 &2161824684534028980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418273319761106752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8e0a2b4d6f4a8c9e1b3d5f7a9c1e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindowOpenWhilePaused
 --- !u!1 &4540028662735504649
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,10 +868,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1251934728845488898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 63.071045, y: 36.06964}
-  m_SizeDelta: {x: 193.4929, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 99, y: 20.9}
+  m_SizeDelta: {x: 50.184387, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3698386490146049220
 CanvasRenderer:
@@ -834,7 +901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Corruption: 0 (3)'
+  m_text: -50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
   m_sharedMaterial: {fileID: -3359197029103750868, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
@@ -868,7 +935,7 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -939,8 +1006,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 74.55188, y: 0}
+  m_SizeDelta: {x: -149.1037, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7019771993606631323
 CanvasRenderer:
@@ -1125,8 +1192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 63.067047, y: 71.969696}
-  m_SizeDelta: {x: 193.49, y: 20}
+  m_AnchoredPosition: {x: 75.3, y: 20.9}
+  m_SizeDelta: {x: 136.3712, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3540825579576604939
 CanvasRenderer:
@@ -1156,7 +1223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Grace: 10/10'
+  m_text: Grace +50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
   m_sharedMaterial: {fileID: -3359197029103750868, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
@@ -1261,8 +1328,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -79.517, y: 0}
+  m_SizeDelta: {x: -159.03, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8497463206727093190
 CanvasRenderer:
@@ -1299,7 +1366,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 0.33
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8861031980573276560

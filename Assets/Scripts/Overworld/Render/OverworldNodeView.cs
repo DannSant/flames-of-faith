@@ -1,3 +1,4 @@
+using Game.UI;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ namespace Game.Overworld
         [Tooltip("{0} is replaced with the Taint Level.")]
         [SerializeField] private string taintFormat = "Taint {0}";
         [SerializeField] private bool hideTaintWhenZero = true;
+        [Tooltip("Tooltip title when hovering the Taint label. {0} is replaced with the Taint Level.")]
+        [SerializeField] private string taintTooltipTitle = "Taint {0}";
+        [TextArea]
+        [SerializeField] private string taintTooltip = "Taint on this level, it increases the chance to spawn corrupted enemies";
 
         public string NodeId { get; private set; }
 
@@ -19,6 +24,7 @@ namespace Game.Overworld
         private bool isDisabled = false;
 
         private bool hasTaint;
+        private TooltipTriggerUI taintTooltipTrigger;
 
         public void Initialize(
             string nodeId,
@@ -38,6 +44,14 @@ namespace Game.Overworld
             {
                 taintLabel.text = string.Format(taintFormat, taintLevel);
                 taintLabel.gameObject.SetActive(hasTaint);
+
+                // The label lives on a world space canvas, so the regular UI tooltip trigger works on hover
+                if (hasTaint && !taintLabel.TryGetComponent(out taintTooltipTrigger))
+                {
+                    string title = string.Format(taintTooltipTitle, taintLevel);
+                    taintTooltipTrigger = taintLabel.gameObject.AddComponent<TooltipTriggerUI>();
+                    taintTooltipTrigger.Setup(title, () => taintTooltip);
+                }
             }
         }
 
@@ -64,6 +78,24 @@ namespace Game.Overworld
             if (taintLabel != null)
             {
                 taintLabel.gameObject.SetActive(hasTaint && state != RunNodeState.LockedHidden);
+            }
+        }
+
+        /// <summary>
+        /// Shows or hides this node's Taint tooltip without hovering (used for gamepad players standing on the node).
+        /// Does nothing for nodes without Taint.
+        /// </summary>
+        public void SetTaintTooltipShown(bool shown)
+        {
+            if (taintTooltipTrigger == null) return;
+
+            if (shown)
+            {
+                taintTooltipTrigger.ShowTooltip();
+            }
+            else
+            {
+                taintTooltipTrigger.HideTooltip();
             }
         }
 

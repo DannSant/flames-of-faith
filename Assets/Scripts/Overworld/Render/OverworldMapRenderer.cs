@@ -153,6 +153,11 @@ namespace Game.Overworld
             }
         }
 
+        public OverworldNodeView GetNodeView(string nodeId)
+        {
+            return nodeViews.TryGetValue(nodeId, out var view) ? view : null;
+        }
+
         public void OnNodeClicked(string nodeId)
         {
             var currentNode = mapController.CurrentNode;

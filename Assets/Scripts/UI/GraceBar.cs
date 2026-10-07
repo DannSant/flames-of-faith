@@ -24,10 +24,27 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI pendingCorruptionText;
         [SerializeField] private Color positiveTextColor = Color.white;
         [SerializeField] private Color negativeTextColor = new Color(0.75f, 0.45f, 1f);
+        [Tooltip("Hide the pending Corruption label while it is 0. Keep it visible so its tooltip can always be reached.")]
+        [SerializeField] private bool hidePendingCorruptionWhenZero = false;
+        [Tooltip("Hide the pending Corruption label on the overworld map, where there are no waves.")]
+        [SerializeField] private bool hidePendingCorruptionOnMap = true;
+
+        [Header("Tooltips")]
+        [SerializeField] private string graceTooltipTitle = "Grace";
+        [Tooltip("{0} = damage bonus in percent.")]
+        [TextArea]
+        [SerializeField] private string graceTooltip = "Your Grace increases your total damage by {0}% and protects you from Corruption.";
+        [Tooltip("{0} = armor lost, {1} = damage lost in percent, {2} = healing lost per heal.")]
+        [TextArea]
+        [SerializeField] private string corruptedTooltip = "You are Corrupted: armor -{0}, damage -{1}%, healing received -{2} per heal.";
+        [SerializeField] private string corruptionTooltipTitle = "Corruption";
+        [TextArea]
+        [SerializeField] private string corruptionTooltip = "Corruption gathered this wave. When the wave ends it is subtracted from your Grace.";
 
         private Coroutine currentRoutine;
         private PlayerGrace playerGrace;
         private PlayerCorruption playerCorruption;
+        private GraceStatus graceStatus;
 
         private void Start()
         {
@@ -40,8 +57,12 @@ namespace Game.UI
             if (playerGrace != null)
             {
                 playerGrace.onGraceChanged += UpdateGrace;
+                playerGrace.OnGraceStatusChanged += UpdateGraceStatus;
                 UpdateGrace(playerGrace.CurrentGrace, playerGrace.MaxGrace);
+                UpdateGraceStatus(playerGrace.GetStatus());
             }
+
+            SetupTooltips();
 
             playerCorruption = PlayerManager.Instance.GetPlayerComponent<PlayerCorruption>();
             if (playerCorruption != null)
@@ -56,6 +77,7 @@ namespace Game.UI
             if (playerGrace != null)
             {
                 playerGrace.onGraceChanged -= UpdateGrace;
+                playerGrace.OnGraceStatusChanged -= UpdateGraceStatus;
             }
             if (playerCorruption != null)
             {
@@ -88,12 +110,46 @@ namespace Game.UI
         {
             if (pendingCorruptionText == null) return;
 
-            bool hasCorruption = corruption > 0f;
-            pendingCorruptionText.gameObject.SetActive(hasCorruption);
-            if (hasCorruption)
+            bool onMap = PlayerManager.Instance != null && PlayerManager.Instance.IsPlayerOnMap;
+            if (onMap && hidePendingCorruptionOnMap)
             {
-                pendingCorruptionText.text = $"-{corruption:0}";
+                pendingCorruptionText.gameObject.SetActive(false);
+                return;
             }
+
+            bool hasCorruption = corruption > 0f;
+            pendingCorruptionText.gameObject.SetActive(hasCorruption || !hidePendingCorruptionWhenZero);
+            pendingCorruptionText.text = hasCorruption ? $"-{corruption:0}" : "0";
+        }
+
+        private void UpdateGraceStatus(GraceStatus status)
+        {
+            graceStatus = status;
+        }
+
+        // Hover (mouse) or select (gamepad, from the pause menu) the labels to explain what they mean
+        private void SetupTooltips()
+        {
+            if (graceText != null)
+            {
+                graceText.gameObject.AddComponent<TooltipTriggerUI>().Setup(graceTooltipTitle, BuildGraceTooltip);
+            }
+            if (pendingCorruptionText != null)
+            {
+                pendingCorruptionText.gameObject.AddComponent<TooltipTriggerUI>().Setup(corruptionTooltipTitle, () => corruptionTooltip);
+            }
+        }
+
+        private string BuildGraceTooltip()
+        {
+            if (graceStatus.isCorrupted)
+            {
+                return string.Format(corruptedTooltip,
+                    graceStatus.armorPenalty.ToString("0"),
+                    (-graceStatus.damagePercent).ToString("0"),
+                    graceStatus.healingPenalty.ToString("0"));
+            }
+            return string.Format(graceTooltip, graceStatus.damagePercent.ToString("0"));
         }
 
         private IEnumerator AnimateFills(float positiveTarget, float negativeTarget)

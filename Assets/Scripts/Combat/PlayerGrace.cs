@@ -8,6 +8,20 @@ using UnityEngine;
 
 namespace Game.Combat
 {
+    /// <summary>
+    /// What the current Grace does to the player, computed by gameplay so the UI never re-implements the formulas.
+    /// </summary>
+    public struct GraceStatus
+    {
+        public float grace;
+        public bool isCorrupted;
+        // Damage change in percent: positive with Grace above 0, negative while Corrupted
+        public float damagePercent;
+        // Flat reductions while Corrupted (0 otherwise)
+        public float armorPenalty;
+        public float healingPenalty;
+    }
+
     public class PlayerGrace : MonoBehaviour, IInitializeAfterStateReady, IDependentStateLoader
     {
         [Header("Limits")]
@@ -27,6 +41,7 @@ namespace Game.Combat
         public delegate void OnGraceChanged(float current, float max);
         public event OnGraceChanged onGraceChanged;
         public event Action<bool> OnCorruptedStateChanged;
+        public event Action<GraceStatus> OnGraceStatusChanged;
 
         public float CurrentGrace => currentGrace;
         public float MinGrace => minGrace;
@@ -102,6 +117,23 @@ namespace Game.Combat
                 CorruptedVisual.GetOrAdd(gameObject).SetCorrupted(wasCorrupted);
                 OnCorruptedStateChanged?.Invoke(wasCorrupted);
             }
+
+            if (OnGraceStatusChanged != null)
+            {
+                OnGraceStatusChanged.Invoke(GetStatus());
+            }
+        }
+
+        public GraceStatus GetStatus()
+        {
+            return new GraceStatus
+            {
+                grace = currentGrace,
+                isCorrupted = IsCorrupted,
+                damagePercent = (GetDamageMultiplier() - 1f) * 100f,
+                armorPenalty = playerProgression != null ? playerProgression.GetCorruptionPenalty(StatType.Armor) : 0f,
+                healingPenalty = playerProgression != null ? playerProgression.GetCorruptionPenalty(StatType.HealingReceived) : 0f
+            };
         }
 
         public void LoadState()
