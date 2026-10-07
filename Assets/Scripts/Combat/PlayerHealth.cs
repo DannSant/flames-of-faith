@@ -264,36 +264,47 @@ namespace Game.Combat {
 
         }
 
-        public void TakeDamage(float amount, GameObject attacker = null)
+        /// <summary>
+        /// Applies damage after armor and returns the amount actually subtracted from health
+        /// (0 when the hit was blocked). A non-lethal hit never takes the player below 1 HP,
+        /// for damage sources outside combat levels (e.g. run encounter events) where a death
+        /// isn't handled.
+        /// </summary>
+        public float TakeDamage(float amount, GameObject attacker = null, bool nonLethal = false)
         {
-            if (currentHealth <= 0) return;
+            if (currentHealth <= 0) return 0f;
             if (noDamage)
             {
                 DamageNumberSpawner.Instance.SpawnDamageToPlayerNumber(transform.position, amount);
-                return;
+                return 0f;
             }
 
             if (Time.time < invulnerableUntilTime)
-            {               
-                return;
+            {
+                return 0f;
             }
 
             if (isInvulnerable)
             {
-                return;
+                return 0f;
             }
 
             if(WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave)
             {
-                return; // Don't take damage during wave complete
+                return 0f; // Don't take damage during wave complete
             }
 
             if (GameplayFreeze.IsActive)
             {
-                return; // The player can't react during a gameplay freeze
+                return 0f; // The player can't react during a gameplay freeze
             }
 
             float finalDamage = ApplyArmor(amount);
+            if (nonLethal)
+            {
+                finalDamage = Mathf.Min(finalDamage, currentHealth - 1f);
+                if (finalDamage <= 0f) return 0f; // Already at 1 HP
+            }
             currentHealth -= finalDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
@@ -309,7 +320,8 @@ namespace Game.Combat {
             {
                 Die();
             }
-        }       
+            return finalDamage;
+        }
 
         public void Heal(float amount, bool applyHealingReceivedStat = true)
         {

@@ -139,7 +139,9 @@ namespace Game.Control
                 movement = Vector2.zero; // Prevent input during knockback
                 return;
             }
-            movement = inputHandler.Player.Move.ReadValue<Vector2>();
+            // The player is held in place while the wave ends, so drop the input too -
+            // otherwise the walk animation plays while standing still.
+            movement = IsWaveEnding() ? Vector2.zero : inputHandler.Player.Move.ReadValue<Vector2>();
 
             bool shouldMove = movement.magnitude > 0f;
             characterVisual?.PlayMoveAnimation(shouldMove);
@@ -147,7 +149,7 @@ namespace Game.Control
 
         private void AttackInput()
         {
-            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            if (IsWaveEnding())
             {
                 return;
             }
@@ -159,6 +161,11 @@ namespace Game.Control
             {
                 Attack();
             }
+        }
+
+        private bool IsWaveEnding()
+        {
+            return WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave;
         }
 
         // Some level types (shop, campfire, event, treasure...) have no combat and don't
@@ -181,7 +188,7 @@ namespace Game.Control
             {
                 return;
             }
-            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            if (IsWaveEnding())
             {
                 return;
             }
@@ -220,7 +227,7 @@ namespace Game.Control
                 return;
             }
             // Prevent movement if the wave is ending
-            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            if (IsWaveEnding())
             {
                 rb.linearVelocity = Vector2.zero; // Stop movement immediately
                 return;
@@ -236,7 +243,7 @@ namespace Game.Control
 
         private void AdjustPlayerFacingDirection()
         {
-            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
+            if (IsWaveEnding())
             {
                 return;
             }

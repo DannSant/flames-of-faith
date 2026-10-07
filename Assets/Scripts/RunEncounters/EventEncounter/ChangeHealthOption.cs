@@ -21,13 +21,13 @@ namespace Game.RunEncounters
             if (finalAmount >= 0)
             {
                 context.playerHealth.Heal(finalAmount);
-            }
-            else
-            {
-                context.playerHealth.TakeDamage(-finalAmount);
+                return $"Gained {finalAmount} {resourceName}";
             }
 
-            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
+            // Events happen outside combat levels, where a death isn't handled, so the hit is
+            // non-lethal. Report what was actually lost (after armor and the 1 HP floor).
+            float damageTaken = context.playerHealth.TakeDamage(-finalAmount, nonLethal: true);
+            return $"Lost {damageTaken} {resourceName}";
         }
     }
 

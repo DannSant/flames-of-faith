@@ -1,4 +1,5 @@
 
+using Game.Control;
 using Game.Currency;
 using Game.Effects;
 using Game.Progression;
@@ -44,6 +45,10 @@ namespace Game.RunEncounters
             {
                 MainSceneController.Instance.OnGameplayInitialSetup -= InitializeShopItems;
             }
+
+            // The shop only closes by leaving the level, and the player persists across levels,
+            // so the block must be released when this scene unloads.
+            SetPlayerInputBlocked(false);
         }
 
         private void InitializeShopItems()
@@ -94,6 +99,25 @@ namespace Game.RunEncounters
 
                 // Open (and refresh) the stats window so the player can see what they need.
                 statsPaneUI?.ShowStatsWindow(null);
+
+                // Browsing is modal until Continue: no walking or dashing around the shop.
+                SetPlayerInputBlocked(true);
+            }
+        }
+
+        private void SetPlayerInputBlocked(bool blocked)
+        {
+            if (PlayerManager.Instance == null) return;
+            var inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
+            if (inputHandler == null) return;
+
+            if (blocked)
+            {
+                inputHandler.AddGameplayBlock(this);
+            }
+            else
+            {
+                inputHandler.RemoveGameplayBlock(this);
             }
         }
 
