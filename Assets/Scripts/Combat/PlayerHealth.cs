@@ -1,3 +1,4 @@
+using Game.Saving;
 using Game.Audio;
 using Game.Common;
 using Game.Control;
@@ -382,6 +383,8 @@ namespace Game.Combat {
         private void Die()
         {
             isDead = true;
+            // Deleted right away, not on onDeath (after the animation), so quitting mid-animation can't keep the run
+            RunSaveService.DeleteSave();
            StartCoroutine(DeathRoutine());          
 
         }

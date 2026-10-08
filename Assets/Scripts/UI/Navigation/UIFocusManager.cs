@@ -30,6 +30,8 @@ namespace Game.UI.Navigation
         // returns focus to the Shop the player was browsing instead of dropping it.
         private readonly List<UIWindow> primaryFocusHistory = new();
         private readonly HashSet<UIWindow> warnedAboutEmptyWindows = new();
+        // Window that had no usable Selectable on its last selection attempt (see SelectDefault)
+        private UIWindow emptyOnFirstAttempt;
         private bool gameplayInputBlocked = false;
         private bool subscribedToDeviceManager = false;
 
@@ -172,6 +174,9 @@ namespace Game.UI.Navigation
                 }
             }
 
+            // A newly focused window gets its own first-attempt grace (see SelectDefault)
+            emptyOnFirstAttempt = null;
+
             // Interactability must be applied before selecting: non-interactable selectables can't be selected.
             ApplyInteractability();
             SelectDefault();
@@ -276,9 +281,24 @@ namespace Game.UI.Navigation
             Selectable selectable = focusedWindow.GetDefaultSelectable();
             eventSystem.SetSelectedGameObject(selectable != null ? selectable.gameObject : null);
 
+            if (selectable != null)
+            {
+                emptyOnFirstAttempt = null;
+                return;
+            }
+
+            // A window's OnEnable runs before its children's, so on the frame it opens its Selectables
+            // can still report a stale non-interactable state. EnsureSelectionInFocusedWindow retries
+            // next frame; only a window that is still empty then is a real problem.
+            if (emptyOnFirstAttempt != focusedWindow)
+            {
+                emptyOnFirstAttempt = focusedWindow;
+                return;
+            }
+
             // A window with nothing selectable can be focused but never navigated, and LB/RB skip it
             // afterwards - almost always a Selectable left on Navigation: None.
-            if (selectable == null && warnedAboutEmptyWindows.Add(focusedWindow))
+            if (warnedAboutEmptyWindows.Add(focusedWindow))
             {
                 Debug.LogWarning($"[UIFocusManager] {Describe(focusedWindow)} has no navigable Selectable. " +
                     "Check its buttons aren't set to Navigation: None.", focusedWindow);

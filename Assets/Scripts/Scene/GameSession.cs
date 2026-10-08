@@ -5,6 +5,7 @@ using Game.Metaprogression;
 using Game.Overworld;
 using Game.Progression;
 using Game.Saving;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -107,7 +108,8 @@ namespace Game.Scene
 
         public void SaveEffectStore(List<EffectInstance> effects)
         {
-            GameSession.Instance.playerData.savedEffects = effects;
+            // Copy so the snapshot can't change when the live store does
+            GameSession.Instance.playerData.savedEffects = new List<EffectInstance>(effects);
             //Debug.Log($"Saved {effects.Count} effects to player data store.");
         }
 
@@ -153,6 +155,104 @@ namespace Game.Scene
         public PlayerExperienceData LoadPlayerExperienceState()
         {
             return playerData.playerExperienceData;
+        }
+
+        /// <summary>
+        /// Starts a run with empty player data, so stale data from a previous run in this session can't be saved.
+        /// </summary>
+        public void ResetPlayerData()
+        {
+            playerData = new PlayerData();
+        }
+
+        public RunSaveData ToSaveData()
+        {
+            var data = new RunSaveData
+            {
+                selectedPlayerIndex = SelectedPlayerIndex,
+                difficulty = selectedDifficulty.ToString(),
+                levelsBeaten = levelsBeaten,
+                runStarted = !isNewRun,
+                currentHealth = playerData.currentHealth,
+                currentGrace = playerData.currentGrace,
+                currencyAmount = playerData.currencyAmount,
+                experience = playerData.playerExperienceData
+            };
+
+            foreach (var stat in playerData.savedStats)
+            {
+                data.stats.Add(new StatSaveEntry { stat = stat.Key.ToString(), value = stat.Value });
+            }
+
+            foreach (var effect in playerData.savedEffects)
+            {
+                if (effect.effect == null) continue;
+                data.effects.Add(new EffectSaveEntry { effectId = effect.effect.EffectID, count = effect.count });
+            }
+
+            return data;
+        }
+
+        /// <summary>
+        /// Checks that every saved effect and stat still exists in this build.
+        /// </summary>
+        public static bool CanApplySaveData(RunSaveData data)
+        {
+            foreach (var stat in data.stats)
+            {
+                if (!Enum.TryParse(stat.stat, out StatType _))
+                {
+                    Debug.LogWarning($"[RunSave] Unknown stat '{stat.stat}' in the save.");
+                    return false;
+                }
+            }
+
+            foreach (var effect in data.effects)
+            {
+                if (EffectsDatabaseProvider.GetEffectById(effect.effectId) == null)
+                {
+                    Debug.LogWarning($"[RunSave] Unknown effect '{effect.effectId}' in the save.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public void ApplySaveData(RunSaveData data)
+        {
+            SelectedPlayerIndex = data.selectedPlayerIndex;
+            if (Enum.TryParse(data.difficulty, out DifficultyLevel difficulty))
+            {
+                selectedDifficulty = difficulty;
+            }
+            levelsBeaten = data.levelsBeaten;
+            isNewRun = !data.runStarted;
+
+            playerData = new PlayerData
+            {
+                currentHealth = data.currentHealth,
+                currentGrace = data.currentGrace,
+                currencyAmount = data.currencyAmount,
+                playerExperienceData = data.experience
+            };
+
+            foreach (var stat in data.stats)
+            {
+                if (Enum.TryParse(stat.stat, out StatType statType))
+                {
+                    playerData.savedStats[statType] = stat.value;
+                }
+            }
+
+            foreach (var entry in data.effects)
+            {
+                var effect = EffectsDatabaseProvider.GetEffectById(entry.effectId);
+                if (effect != null)
+                {
+                    playerData.savedEffects.Add(new EffectInstance(effect, entry.count));
+                }
+            }
         }
 
 

@@ -83,6 +83,18 @@ namespace Game.Effects
             return Instance.availableEffects.FirstOrDefault(e => e != null && e.EffectID == id);
         }
 
+        /// <summary>
+        /// Searches every effect, available or not (e.g. to restore a saved run).
+        /// </summary>
+        public static Effect GetEffectById(string id)
+        {
+            if (string.IsNullOrEmpty(id) || Instance == null)
+                return null;
+
+            return Instance.availableEffects?.FirstOrDefault(e => e != null && e.EffectID == id)
+                ?? Instance.unlockableEffects?.FirstOrDefault(e => e != null && e.EffectID == id);
+        }
+
         public void LoadState(MetaState state)
         {
             //Initialize state from meta progression. This will be null if no progression has been made yet.

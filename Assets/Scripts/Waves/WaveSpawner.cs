@@ -1,3 +1,4 @@
+using Game.Saving;
 using Game.AI;
 using Game.Combat;
 using Game.Common;
@@ -194,6 +195,7 @@ namespace Game.Waves {
             if (waveDatabase!=null && waveDatabase.lastWave)
             {
                 //Show endscreen
+                RunSaveService.DeleteSave();
                 OnAllLevelsFinished?.Invoke();
             }else
             {

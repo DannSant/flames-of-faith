@@ -1,6 +1,7 @@
 using Game.Audio;
 using Game.Common;
 using Game.Overworld;
+using Game.Saving;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace Game.Scene
     {
         [Header("Map generation")]      
         [SerializeField] private List<MapDefinition> actDefinitions;
-        [SerializeField] private int seed = 12345;        
+        [Tooltip("Use the fixed seed below for every run instead of a random one (for testing).")]
+        [SerializeField] private bool useFixedSeed = false;
+        [SerializeField] private int seed = 12345;
 
         [Header("Loading Screen")]
         [SerializeField] private float fadeDuration = 0.5f;
@@ -86,7 +89,45 @@ namespace Game.Scene
         public void LoadLevelSelectorScene(bool newGame)
         {
             if (!BeginTransition()) return;
-            StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(newGame)));
+            StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(newGame, newGame ? RollSeed() : 0, null)));
+        }
+
+        /// <summary>
+        /// Continues the saved run. Returns false (and deletes the save) when the save can't be used
+        /// with this build, so the caller can refresh its UI.
+        /// </summary>
+        public bool ContinueRun()
+        {
+            if (!RunSaveService.TryLoad(out var data))
+            {
+                return false;
+            }
+
+            // The player never entered a level: start that run fresh with the same class and map
+            if (!data.runStarted)
+            {
+                if (!BeginTransition()) return true;
+                GameSession.Instance.ApplySaveData(data);
+                StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(true, data.map.seed, null)));
+                return true;
+            }
+
+            var regeneratedRun = OverworldMapGenerator.GenerateRun(actDefinitions, data.map.seed);
+            if (!GameSession.CanApplySaveData(data) || !MapRunController.CanRestore(regeneratedRun, data.map))
+            {
+                Debug.LogWarning("[RunSave] The saved run doesn't match this build, deleting it.");
+                RunSaveService.DeleteSave();
+                return false;
+            }
+
+            if (!BeginTransition()) return true;
+            StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(false, data.map.seed, data)));
+            return true;
+        }
+
+        private int RollSeed()
+        {
+            return useFixedSeed ? seed : UnityEngine.Random.Range(1, int.MaxValue / 2);
         }
 
         /// <summary>
@@ -119,10 +160,20 @@ namespace Game.Scene
             }
         }
 
-        private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame)
+        /// <param name="continueData">When set, the run is restored from this save instead of the session in memory.</param>
+        private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame, int runSeed, RunSaveData continueData)
         {
             //Debug.Log("LoadLevelSelectorSceneRoutine");
             yield return StartCoroutine(FadeIn());
+
+            if (newGame)
+            {
+                GameSession.Instance.ResetPlayerData();
+            }
+            else if (continueData != null)
+            {
+                GameSession.Instance.ApplySaveData(continueData);
+            }
 
             //unloads main menu scenes if coming from main menu
             yield return StartCoroutine(UnloadScenesByName(nonGameplaySceneNames));
@@ -143,9 +194,13 @@ namespace Game.Scene
             // If starting a new game, generate a new map per act
             if (newGame)
             {
-                var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions,seed);
-                MapRunController.Instance.Initialize(mapRunState);             
-                
+                var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, runSeed);
+                MapRunController.Instance.Initialize(mapRunState);
+            }
+            else if (continueData != null)
+            {
+                var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, runSeed);
+                MapRunController.Instance.RestoreFromSave(mapRunState, continueData.map);
             }
 
             yield return new WaitForSecondsRealtime(0.1f); // Wait for scene to be fully initialized
@@ -176,7 +231,22 @@ namespace Game.Scene
 
             PlayerManager.Instance.DisableComponentsForMap();
 
+            SaveRunOnMap(newGame);
+
             yield return StartCoroutine(FadeOut());
+        }
+
+        /// <summary>
+        /// Autosaves on map arrival. A new run hasn't written its player data yet, so snapshot the freshly
+        /// reset components first instead of saving whatever a previous run left in the session.
+        /// </summary>
+        private void SaveRunOnMap(bool newGame)
+        {
+            if (newGame)
+            {
+                PlayerManager.Instance.SaveAllPlayerComponentStates();
+            }
+            RunSaveService.SaveCurrentRun();
         }
 
         private IEnumerator LoadMainMenuRoutine()
@@ -318,6 +388,7 @@ namespace Game.Scene
             // Mark the session as a new run so future state resets correctly
             GameSession.Instance.SetIsNewRun(true);
             GameSession.Instance.Initialize();
+            GameSession.Instance.ResetPlayerData();
 
             // Fade to black before unloading
             yield return StartCoroutine(FadeIn());
@@ -340,7 +411,7 @@ namespace Game.Scene
             // Load Level Selector again (fresh run)
             yield return SceneManager.LoadSceneAsync(SceneNames.LevelSelector, LoadSceneMode.Additive);
 
-            var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, seed);
+            var mapRunState = OverworldMapGenerator.GenerateRun(actDefinitions, RollSeed());
             MapRunController.Instance.Initialize(mapRunState);
 
             yield return new WaitForSecondsRealtime(0.1f); // Wait for scene to be fully initialized
@@ -366,6 +437,8 @@ namespace Game.Scene
             OnGameplayInitialSetup?.Invoke();
 
             PlayerManager.Instance.DisableComponentsForMap();
+
+            SaveRunOnMap(true);
 
             yield return StartCoroutine(FadeOut());
         }

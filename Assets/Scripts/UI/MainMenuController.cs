@@ -1,6 +1,7 @@
 using Game.Combat;
 using Game.Control;
 using Game.Effects;
+using Game.Saving;
 using Game.Scene;
 using Game.UI.Navigation;
 using NUnit.Framework;
@@ -8,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
@@ -26,6 +28,15 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI classDescriptionText;
         [SerializeField] private TextMeshProUGUI itemNameText;
         [SerializeField] private TextMeshProUGUI itemDescriptionText;
+
+        [Header("Saved Run")]
+        [Tooltip("Continues the saved run. Disabled when there is no save.")]
+        [SerializeField] private Button loadGameButton;
+        [Tooltip("Tint of the Load Game button's image while there is no save, so it reads as grayed out.")]
+        [SerializeField] private Color loadGameDisabledTint = new Color32(82, 57, 57, 255);
+        [SerializeField] private ConfirmDialogUI confirmDialog;
+        [TextArea]
+        [SerializeField] private string newGameOverwriteWarning = "Starting a new game will delete your current run. Continue?";
 
         private Animator animator;
 
@@ -46,10 +57,19 @@ namespace Game.UI
             if (mainPanelWindow != null) mainPanelWindow.SetOpen(true);
             if (characterSelectWindow != null) characterSelectWindow.SetOpen(false);
             if (settingsWindow != null) settingsWindow.SetOpen(false);
+
+            RefreshLoadGameButton();
+        }
+
+        private void OnEnable()
+        {
+            RunSaveService.OnSaveChanged += RefreshLoadGameButton;
         }
 
         private void OnDisable()
         {
+            RunSaveService.OnSaveChanged -= RefreshLoadGameButton;
+
             foreach (var hoverButton in FindObjectsByType<ClassSelectHoverButton>(FindObjectsSortMode.None))
             {
                 hoverButton.OnHoverEnter -= ShowClassInfo;
@@ -82,7 +102,31 @@ namespace Game.UI
         public void StartNewGame() 
         { 
             //MainSceneController.Instance.LoadGameplay();
+            RunSaveService.DeleteSave();
             MainSceneController.Instance.LoadLevelSelectorScene(true);
+        }
+
+        public void LoadGame()
+        {
+            if (!MainSceneController.Instance.ContinueRun())
+            {
+                // The save couldn't be used and was deleted
+                RefreshLoadGameButton();
+            }
+        }
+
+        private void RefreshLoadGameButton()
+        {
+            if (loadGameButton != null)
+            {
+                bool hasSave = RunSaveService.HasSave;
+                loadGameButton.interactable = hasSave;
+
+                if (loadGameButton.targetGraphic != null)
+                {
+                    loadGameButton.targetGraphic.color = hasSave ? Color.white : loadGameDisabledTint;
+                }
+            }
         }
 
         public void SelectWarrior() 
@@ -105,6 +149,13 @@ namespace Game.UI
 
         public void SwitchFromMainPanelToCharacterSelect()
         {
+            // The save is only deleted once a class is picked, so backing out of class select keeps it
+            if (RunSaveService.HasSave && confirmDialog != null)
+            {
+                confirmDialog.Show(newGameOverwriteWarning, () => StartCoroutine(SwitchFromMainPanelToCharacterSelectRoutine()));
+                return;
+            }
+
             StartCoroutine(SwitchFromMainPanelToCharacterSelectRoutine());
         }
 

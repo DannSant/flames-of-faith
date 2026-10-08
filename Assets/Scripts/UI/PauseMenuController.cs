@@ -9,6 +9,9 @@ namespace Game.UI
     public class PauseMenuController : MonoBehaviour
     {
         [SerializeField] private GameObject pauseScreenPanel;
+        [SerializeField] private ConfirmDialogUI confirmDialog;
+        [TextArea]
+        [SerializeField] private string levelProgressLostWarning = "Your run is saved at the start of this level. Progress made in this level will be lost. Exit?";
         private PlayerInputHandler inputHandler;
         private bool isPaused = false;
         private StatsPaneUI statsPaneUI;
@@ -46,6 +49,13 @@ namespace Game.UI
 
         private void TogglePauseMenu(CallbackContext _)
         {
+            // Pause closes the Save & Exit dialog first instead of resuming behind it
+            if (confirmDialog != null && confirmDialog.IsOpen)
+            {
+                confirmDialog.Cancel();
+                return;
+            }
+
             if (!isPaused)
             {
                 var data = GetLevelData();
@@ -90,6 +100,20 @@ namespace Game.UI
         {
             PauseManager.Instance.SetPause(false);
             MainSceneController.Instance.LoadMainMenu();
+        }
+
+        /// <summary>
+        /// The run is autosaved on the map, so leaving a level only needs the player to accept losing this level's progress.
+        /// </summary>
+        public void SaveAndExit()
+        {
+            if (confirmDialog != null)
+            {
+                confirmDialog.Show(levelProgressLostWarning, ExitGame);
+                return;
+            }
+
+            ExitGame();
         }
 
     }

@@ -1,4 +1,5 @@
 using Game.GameSettings;
+using Game.Saving;
 using Game.Scene;
 using UnityEngine;
 
@@ -81,8 +82,10 @@ namespace Game.UI.Overworld
 
         }
 
+        // Save & Exit: the map autosaves already, saving again just makes sure the file is current
         public void ExitGame()
         {
+            RunSaveService.SaveCurrentRun();
             PauseManager.Instance.SetPause(false);
             MainSceneController.Instance.LoadMainMenu();
         }

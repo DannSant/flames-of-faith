@@ -1,5 +1,6 @@
 using Game.Control;
 using Game.Scene;
+using Game.UI.Navigation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,8 @@ namespace Game.Overworld
     // OnMouseDown, so there is nothing for uGUI navigation to select - instead a stick/d-pad/WASD/arrow push
     // steps the player to the neighbouring node in that direction (the same move a click performs).
     // On gamepad, Submit enters the level exactly as clicking the node the player stands on does.
+    // While a UI window has gamepad focus (e.g. the map's Exit button, entered with Browse) the map ignores
+    // input, so the stick and Submit only drive that window.
     public class OverworldGamepadNavigator : MonoBehaviour
     {
         [SerializeField] private OverworldMapRenderer mapRenderer;
@@ -52,7 +55,8 @@ namespace Game.Overworld
             UpdateNodeTooltip(gamepadActive && mapReady ? mapController.CurrentNode : null);
 
             bool canMove = gamepadActive || allowKeyboardMovement;
-            if (!canMove || !mapReady)
+            bool uiHasFocus = UIFocusManager.Instance != null && UIFocusManager.Instance.FocusedWindow != null;
+            if (!canMove || !mapReady || uiHasFocus)
             {
                 directionHeld = false;
                 return;

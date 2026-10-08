@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Common;
+using Game.Saving;
 using Game.Scene;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace Game.Overworld
             CurrentAct.nodes[CurrentAct.currentNodeId];
 
         public bool IsInitialized => runState != null;
+        // Set once the last act's boss is cleared, so the finished run isn't saved again
+        public bool IsRunComplete { get; private set; }
 
         protected override void Awake()
         {
@@ -33,8 +36,101 @@ namespace Game.Overworld
         public void Initialize(RunMapState state)
         {
             runState = state;
+            IsRunComplete = false;
 
             SetCurrentMapGraph(1);
+
+            RevealStartNodeIfNeeded();
+
+            OnRunMapInitialized?.Invoke();
+        }
+
+        // --- Save / load ---
+
+        public RunMapSaveData CaptureSaveData()
+        {
+            var data = new RunMapSaveData
+            {
+                seed = runState.seed,
+                actNumber = CurrentAct.actNumber,
+                mapId = CurrentAct.mapId,
+                currentNodeId = CurrentAct.currentNodeId
+            };
+
+            foreach (var node in CurrentAct.nodes.Values)
+            {
+                data.nodes.Add(new NodeSaveEntry { id = node.id, state = node.state.ToString() });
+                foreach (var edge in node.outgoingEdges)
+                {
+                    data.edges.Add(new EdgeSaveEntry { fromNodeId = edge.fromNodeId, toNodeId = edge.toNodeId, enabled = edge.enabled });
+                }
+            }
+
+            return data;
+        }
+
+        /// <summary>
+        /// Checks that a save matches a run regenerated from its seed (same act map and node ids).
+        /// </summary>
+        public static bool CanRestore(RunMapState state, RunMapSaveData save)
+        {
+            var graph = state?.acts?.Find(a => a.mapId == save.mapId && a.actNumber == save.actNumber);
+            if (graph == null)
+            {
+                Debug.LogWarning($"[RunSave] Map '{save.mapId}' (act {save.actNumber}) no longer exists.");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(save.currentNodeId) || !graph.nodes.ContainsKey(save.currentNodeId))
+            {
+                Debug.LogWarning($"[RunSave] Current node '{save.currentNodeId}' no longer exists.");
+                return false;
+            }
+
+            foreach (var node in save.nodes)
+            {
+                if (!graph.nodes.ContainsKey(node.id) || !Enum.TryParse(node.state, out RunNodeState _))
+                {
+                    Debug.LogWarning($"[RunSave] Node '{node.id}' no longer exists or has an unknown state.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Initializes the run from a regenerated RunMapState and applies the saved progress on top.
+        /// Call CanRestore first.
+        /// </summary>
+        public void RestoreFromSave(RunMapState state, RunMapSaveData save)
+        {
+            runState = state;
+            IsRunComplete = false;
+            currentRunMapState = runState.acts.Find(a => a.mapId == save.mapId && a.actNumber == save.actNumber);
+
+            foreach (var entry in save.nodes)
+            {
+                if (currentRunMapState.nodes.TryGetValue(entry.id, out RunNode node) &&
+                    Enum.TryParse(entry.state, out RunNodeState nodeState))
+                {
+                    node.state = nodeState;
+                }
+            }
+
+            foreach (var entry in save.edges)
+            {
+                if (!currentRunMapState.nodes.TryGetValue(entry.fromNodeId, out RunNode from))
+                    continue;
+
+                var edge = from.outgoingEdges.Find(e => e.toNodeId == entry.toNodeId);
+                if (edge != null)
+                {
+                    edge.enabled = entry.enabled;
+                }
+            }
+
+            currentRunMapState.currentNodeId = save.currentNodeId;
 
             RevealStartNodeIfNeeded();
 
@@ -129,6 +225,8 @@ namespace Game.Overworld
 
             CurrentAct.currentNodeId = target.id;
             OnCurrentNodeChanged?.Invoke(target);
+            // Moves only happen on the map, where the session is a clean snapshot
+            RunSaveService.SaveCurrentRun();
             return true;
         }
 
@@ -213,6 +311,8 @@ namespace Game.Overworld
             if (!runState.acts.Exists(a => a.actNumber == nextActNumber))
             {
                 Debug.Log("[MapRun] Run complete!");
+                IsRunComplete = true;
+                RunSaveService.DeleteSave();
                 return;
             }
 

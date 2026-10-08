@@ -1,3 +1,4 @@
+using Game.Saving;
 using Game.Combat;
 using Game.Scene;
 using Game.Waves;
@@ -178,6 +179,7 @@ namespace Game.Boss
         public void NotifyBossDied()
         {
             bossAlive = false;
+            RunSaveService.DeleteSave();
             OnBossFightEnded?.Invoke();
         }
 
