@@ -17,7 +17,9 @@ namespace Game.Progression
     /// </summary>
     public static class WaveExperienceCalculator
     {
-        public static WaveExperienceEstimate CalculateBaseXp(WaveData waveData, int playerLevel, PlayerExperience playerExperience, ExperienceSettings settings)
+        /// <param name="experienceReductionPoints">Total of the ExperienceToLevelUpReduction stat.</param>
+        public static WaveExperienceEstimate CalculateBaseXp(WaveData waveData, int playerLevel, float experienceReductionPoints,
+            PlayerExperience playerExperience, ExperienceSettings settings)
         {
             float expectedSpawns;
             if (waveData.expectedEnemyCountOverride > 0)
@@ -31,8 +33,10 @@ namespace Game.Progression
             }
 
             float expectedDrops = Mathf.Max(1f, expectedSpawns * settings.DropChance * settings.ExpectedKillRatio);
-            // Unreduced so the XP-to-level-up reduction stat still makes the player level faster
-            float targetXp = playerExperience.GetUnreducedXPRequired(playerLevel) * settings.LevelsPerWaveTarget;
+            // A flat bonus per point: the same extra share of a level at every level, unlike bending the XP curve,
+            // which grows exponentially with level
+            float reductionBonus = 1f + Mathf.Max(0f, experienceReductionPoints) * settings.XpBonusPerReductionPoint;
+            float targetXp = playerExperience.GetXPRequired(playerLevel) * settings.LevelsPerWaveTarget * reductionBonus;
 
             return new WaveExperienceEstimate
             {

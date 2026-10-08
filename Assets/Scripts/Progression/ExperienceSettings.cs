@@ -46,6 +46,9 @@ namespace Game.Progression
                  "Fast killers keep few enemies alive and stay on the long cooldown more often.")]
         [Range(0f, 1f)]
         [SerializeField] private float cooldownBlend = 0.3f;
+        [Tooltip("Extra XP per point of the Experience Reduction stat (0.1 = +10% per point), so each point makes the " +
+                 "player level the same amount faster at every level.")]
+        [SerializeField] private float xpBonusPerReductionPoint = 0.1f;
 
         [Header("Denominations")]
         [SerializeField] private List<ExperienceTokenDenomination> denominations = new()
@@ -64,6 +67,7 @@ namespace Game.Progression
         public float LevelsPerWaveTarget => levelsPerWaveTarget;
         public float ExpectedKillRatio => expectedKillRatio;
         public float CooldownBlend => cooldownBlend;
+        public float XpBonusPerReductionPoint => xpBonusPerReductionPoint;
         public bool LogWaveXpDebug => logWaveXpDebug;
 
         /// <summary>

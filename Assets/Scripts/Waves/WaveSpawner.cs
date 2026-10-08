@@ -318,7 +318,11 @@ namespace Game.Waves {
                 return;
             }
 
-            currentWaveExperience = WaveExperienceCalculator.CalculateBaseXp(waveData, playerExperience.GetCurrentLevel(), playerExperience, ExperienceSettings.Instance);
+            var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+            float reductionPoints = playerProgression != null ? playerProgression.GetStatTotal(StatType.ExperienceToLevelUpReduction) : 0f;
+
+            currentWaveExperience = WaveExperienceCalculator.CalculateBaseXp(waveData, playerExperience.GetCurrentLevel(), reductionPoints,
+                playerExperience, ExperienceSettings.Instance);
         }
 
         public void RegisterExperienceDrop(float amount)
