@@ -40,13 +40,20 @@ Code is organized by feature under `Assets/Scripts/<Area>/`, each area mapped to
   - Data model: `MapDefinition` (ScriptableObject, asset under `Assets/Resources/Overworld/`) → `NodeDefinition` → `ConnectionDefinition` (directional edges with RNG-gated optional paths for run variety).
   - Runtime: `OverworldMapGenerator` seeds a `RunMapState`/`RunMapGraph` (`RunNode`/`RunEdge`) from definitions; `MapRunController` (singleton) owns traversal, fog-of-war reveal, and act progression, and fires events the renderer subscribes to.
   - Rendering: `Scripts/Overworld/Render/` (`OverworldMapRenderer`, `OverworldNodeView`, `OverworldEdgeView`) draws the live graph in-scene.
-  - Authoring tool: `Scripts/Overworld/Editor/` — a custom `EditorWindow` (`MapEditorWindow`, menu `Tools/Flames of Faith/Map Editor`) built on UI Toolkit's `GraphView` (`MapGraphView`, `MapNodeView`, sizing constants in `MapEditorConstants`). Editor-authored node positions (`NodeDefinition.editorPosition`) are baked into normalized runtime `worldPosition` via `MapEditorWindow.BakeEditorPositionsToWorldPositions()` (divides by `MapEditorConstants.NodeSpacing`, inverts Y). Several toolbar actions (`AddNewNode`, `DeleteSelected`, `ValidateMap`) are still TODO stubs — check current state before assuming they're implemented.
+  - Authoring tool: `Scripts/Overworld/Editor/` — a custom `EditorWindow` (`MapEditorWindow`, menu `Tools/Flames of Faith/Map Editor`) built on UI Toolkit's `GraphView` (`MapGraphView`, `MapNodeView`, sizing constants in `MapEditorConstants`). Editor-authored node positions (`NodeDefinition.editorPosition`) are baked into normalized runtime `worldPosition` via `MapEditorWindow.BakeEditorPositionsToWorldPositions()` (divides by `MapEditorConstants.NodeSpacing`, inverts Y). Toolbar actions `AddNewNode`, `DeleteSelected` and `ValidateMap` are implemented (with Undo).
+  - Gamepad/keyboard: `OverworldGamepadNavigator` moves between nodes with the UI Navigate action and enters a level with Submit. It ignores input while any `UIWindow` has gamepad focus (e.g. the map's Exit button, reached with Browse/Y).
+  - Generation is deterministic from the seed and the `MapDefinition`s, except which map an act uses (`SetCurrentMapGraph` picks randomly among maps with the same `actNumber`), which is why saves store the `mapId`.
 
 When touching map/level-select logic, confirm whether you're in the legacy `Map/` system or the new `Overworld/` system — they don't share code paths.
 
 ### Scene bootstrapping flow
 
 `Bootstraper.cs` additively loads gameplay + UI scenes at startup → `MainSceneController` (singleton) generates the overworld run from act `MapDefinition`s and handles loading-screen transitions into gameplay levels via `LoadGameplay(levelData)` → `GameSession` (singleton) tracks the current run's selected character/difficulty/level and holds a `PlayerData` save-state container → `PlayerManager` (singleton) spawns and tracks the active player GameObject, exposing components via `GetPlayerComponent<T>()`.
+
+- **The player is respawned on every scene load** (`PlayerManager.SpawnSelectedPlayer`). State survives only through `GameSession.PlayerData`: components write to it in `SaveState()` and read it back in `LoadState()`.
+- **Player state is saved only when a level is finished.** Every level except the boss ends through the same path. That includes shop, campfire, treasure and event encounters (`Scripts/RunEncounters/`), which are their own scenes. The path is `WaveSpawner.GoToNextLevel` → `PlayerManager.HandleWaveGroupFinished`, which calls `MapRunController.OnLevelCleared`, `SaveAllPlayerComponentStates` and `LoadLevelSelectorScene(false)`. So while inside a level, `PlayerData` still holds the pre-level snapshot.
+- **`GameSession.IsNewRun`** decides whether entering a level resets the player components (new run) or loads them from `PlayerData`.
+- Meta-progression (unlocked effects) is separate and persisted by `MetaProgressionManager` to `persistentDataPath/<player>_meta.dat` through `IMetaProgressionStateLoader`.
 
 ### Combat/effect pipeline
 
@@ -89,6 +96,72 @@ Reusable pieces that came out of this work:
 - **`TooltipTriggerUI`:** a hover/select tooltip on `GeneralTooltipPaneUI`.
 - **`UIWindowOpenWhilePaused`:** an always-visible HUD panel that joins gamepad focus only while paused.
 
+### Experience & XP tokens (reworked Oct 2026)
+
+XP needed per level is a fixed curve, `PlayerExperience.GetXPRequired` = `10 × 1.2^(level−1)`. Drops are sized so that the base tokens give about `levelsPerWaveTarget` levels per wave at any level. All tunables live in **`ExperienceSettings`** (`Assets/Resources/Progression/ExperienceSettings.asset`, loaded via `ExperienceSettings.Instance`). XP values are `float`.
+
+- **Per-wave base XP** is computed once at wave start (`WaveSpawner.CalculateWaveExperience` → `WaveExperienceCalculator.CalculateBaseXp`) from the player's level at that moment:
+  - `expectedSpawns = waveDuration / lerp(regularCooldown, longCooldown, cooldownBlend)`, or `WaveData.expectedEnemyCountOverride` when it's > 0. The blend exists because `EnemySpawnCoordinator` uses the long cooldown while few enemies are alive, so fast killers get fewer spawns.
+  - `expectedDrops = expectedSpawns × dropChance × expectedKillRatio`.
+  - `targetXp = GetXPRequired(level) × levelsPerWaveTarget × (1 + ExperienceToLevelUpReduction points × xpBonusPerReductionPoint)`. The Experience Reduction stat is a flat XP bonus here and does **not** change the curve. Bending the curve made its effect grow exponentially with level.
+  - `baseXp = targetXp / expectedDrops`, exposed as `WaveSpawner.CurrentWaveBaseXp`.
+- **Denominations:** `DropExperienceOnDeathBehavior` rolls `dropChance`. The token starts at tier 1, then for each tier up to `EnemyData.xpTier` it rolls that tier's `promoteChance` and stops at the first failure. The token is worth `baseXp × multiplier` and uses the tier's sprite (`ExperienceToken.Setup`). Enhanced tokens are bonus XP on top of the target, which is deliberate.
+- `EnemyData.xpBase`/`xpPerLevel` are gone. `xpTier` (default 1) decides which denominations an enemy can drop.
+- Enemies still alive at wave end are killed by the end sequence and drop tokens too.
+- `logWaveXpDebug` logs expected vs actual spawns, drops and XP for every wave, after the end sequence.
+
+### Run save / load (single slot)
+
+Code is in `Scripts/Saving/`. `RunSaveService` (static) writes `RunSaveData` to `persistentDataPath/run.sav`: plain JSON in the Editor, XOR-obfuscated in builds, written to a temp file and then swapped in.
+
+- **When it writes:** autosave on every map arrival (end of `MainSceneController.LoadLevelSelectorSceneRoutine` and the Retry routine) and on every map move (`MapRunController.TryMoveTo`). It never writes from inside a level. The file always holds the pre-level snapshot, so Save & Exit, a crash or Alt-F4 inside a level all return the player to the map as it was before entering that level, standing on the uncleared node.
+- **When it deletes:**
+  - in `PlayerHealth.Die`, at the moment of death and not on `onDeath`, which fires after the animation;
+  - on boss kill (`BossWaveHandler.NotifyBossDied`), on `WaveSpawner.OnAllLevelsFinished` and when the last act is cleared (`MapRunController.IsRunComplete`, which also blocks re-saving);
+  - on New Game.
+- **What it stores:**
+  - session data: class, difficulty, `levelsBeaten`, and `runStarted = !IsNewRun`;
+  - `PlayerData`: effects by `EffectID`, stats and node states by enum **name**;
+  - the current act's map: seed, `mapId`, node states, edges and current node.
+- **Mapping lives with the owners:** `GameSession.ToSaveData`/`ApplySaveData`/`CanApplySaveData`, and `MapRunController.CaptureSaveData`/`CanRestore`/`RestoreFromSave`.
+- **Continue** (`MainSceneController.ContinueRun`):
+  - It validates first, by regenerating the map from the saved seed and checking that the effects, stats, `mapId` and node ids exist. An invalid save is deleted.
+  - It then restores through the normal non-new path (`LoadAllPlayerComponentStates`).
+  - A save with `runStarted == false` restarts that run fresh with the same class and seed.
+- **Seeds:** new runs and Retry roll a random seed. `MainSceneController.useFixedSeed` forces the Inspector seed for testing.
+- Bump `RunSaveData.CurrentVersion` when the save format changes incompatibly. Mismatched versions are ignored.
+- **When adding run state:** if it lives on a player component, saving it into `PlayerData` from `SaveState()` isn't enough. It also has to be added to `RunSaveData` and to the `GameSession` mapping, or it won't survive a restart.
+- **UI:**
+  - Main menu: Load Game is disabled and tinted when there's no save, and New Game warns before deleting the save.
+  - Pause menu: `SaveAndExit` warns that the level's progress is lost.
+  - Map: `ExitGame` saves, then goes to the main menu.
+  - The warnings use the reusable `ConfirmDialogUI` (`Show(message, onConfirm, onCancel)`, prefab `Prefabs/UI/Misc/ConfirmDialogUI.prefab`).
+
+### Gamepad & UI navigation
+
+Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
+
+- **`UIWindow`:** goes on the panel a controller shows or hides, and requires a CanvasGroup. Keep one per window and never nest them.
+  - **Role:** Primary (can take focus automatically) or Secondary (reached only with LB/RB).
+  - **Open Mode:** `GameObjectActive` for panels that are activated and deactivated. Use `Manual` for panels that stay active and slide off screen, whose controller must call `SetOpen`. The main-menu panels are Manual.
+  - **Focus Mode:** `AutoFocus` takes focus on open; `OnDemand` waits for Browse/Y, as in the Shop and the map's Exit button.
+  - **Priority:** a newly opened window takes focus only if its priority is *strictly higher* than the focused window's.
+  - **Default Selectable** and **OnCancel**.
+- **`UIFocusManager`** (singleton, Bootstrapper scene):
+  - It tracks open windows and moves focus. Unfocused windows get `CanvasGroup.interactable = false`, which shows their buttons in the Disabled state.
+  - It cycles windows with LB/RB.
+  - Cancel/B: a Secondary window returns focus to the previous window, an `OnDemand` window releases focus, and other windows invoke their OnCancel.
+  - `logFocusChanges` logs every change.
+- **`UIWindowOpenWhilePaused`:** lets an always-visible HUD panel join focus only while paused.
+- **`UISelectionMarkerUI`:** the visible gamepad highlight. Each scene needs one, drawn above its windows (last sibling).
+- **`InputDeviceManager`** (`Game.Control`): tracks keyboard/mouse vs gamepad (`IsGamepadActive`, `OnInputSchemeChanged`). With the mouse, nothing is focused and every window is interactable.
+- **Common pitfalls** (all hit in practice):
+  - **Selectables left on Navigation: None.** The gamepad can never reach them, and they're skipped when cycling windows.
+  - **Selectables outside the window's hierarchy.**
+  - **Manual panels set to `GameObjectActive`.** They count as permanently open and steal focus.
+  - **The selection marker drawn under a window.**
+- `PauseManager.SetPause` sets `timeScale` to 0. Upgrade selection, the item bag and the pause menu pause the game, but the wave-end sequence (including `WaveCorruptionSummaryUI`) does not. Anything time-based that must stop there checks `WaveSpawner.Instance.EndingWave` and/or `GameplayFreeze.IsActive`, as `HealthRegen` does.
+
 ### Effect data pipeline — every field change touches 5 places
 
 `Effect` (`Assets/Scripts/Effects/Effect.cs`) is authored in a SQLite database (via `Tools/Effects/Effect Database`), not hand-edited as ScriptableObjects — the `.asset` files under `Assets/Resources/Effects/` are generated output, not source of truth. Whenever a field is added/changed/removed on `Effect`, update all of these together or the DB and the runtime SOs silently drift apart:
@@ -98,6 +171,8 @@ Reusable pieces that came out of this work:
 3. **`EffectLoader.CreateEffectSO(EffectRow row)`** (`Assets/Scripts/Database/EffectLoader.cs`) — a second, separate row→SO mapper used by the DB window's "Test Load" button; easy to update `Effect.InitializeFromData` and forget this one exists.
 4. **`EffectLoader.GenerateAndSaveAllEffects`** — the actual DB→`.asset` generator (menu `Tools/Effects/Generate ScriptableObjects`), run after editing rows so the generated SOs pick up the change; it calls `InitializeFromData` under the hood, so it needs no edits itself, but you must re-run it.
 5. **`EffectDatabaseWindow`** (`Assets/Scripts/Editor/Database/EffectDatabaseWindow.cs`) — the custom `EditorWindow` (`Tools/Effects/Effect Database`) for authoring rows; add a control for the new field in `DrawEditPanel`, mirroring its existing `unlockedByDefault`/`quality` fields.
+
+At runtime, look effects up through **`EffectsDatabaseProvider`**. It loads every `Effect` from `Resources/Effects`, and `GetEffectById` searches available and unlockable effects. The static `EffectsDatabase` class is legacy: the `Resources/Effects/EffectsDatabase` asset it loads doesn't exist, so its lookups return null.
 
 ## Coding conventions
 
