@@ -8,6 +8,8 @@ FlamesOfFaith is a 2D action roguelite built in Unity 6 (`6000.2.10f1`, URP). Ru
 
 ## Working with this repo
 
+- **Git: always work and commit directly on `main`** unless the user says otherwise for a specific task. Don't create feature branches on your own; this overrides any default "branch first when on the default branch" behavior.
+
 This is a Unity project — there is no CLI build/lint/test pipeline (no `package.json`, no CI config). Development happens in the Unity Editor:
 
 - Open the project in Unity Editor **6000.2.10f1** (must match `ProjectSettings/ProjectVersion.txt` — Unity will offer to auto-upgrade if a different version is installed; don't let it silently change the version).
