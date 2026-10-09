@@ -18,6 +18,13 @@ namespace Game.Control
         [SerializeField] protected float dashDuration = .2f;
         [SerializeField] protected int maxCharges = 1;
 
+        [Header("Steering")]
+        [Tooltip("Lets the move input change the dash direction while dashing. With no move input the dash " +
+            "keeps its last direction, so dashing from a standstill still goes where the player faces.")]
+        [SerializeField] protected bool allowSteering = false;
+        [Tooltip("Max degrees per second the dash can turn while steering. 0 = instant (snaps to the move input).")]
+        [SerializeField] protected float steeringTurnRate = 0f;
+
         public Action<float, float> OnDashTimerUpdated;
         public Action<int, int> OnChargesUpdated;
         public event Action onDashStarted;
@@ -39,9 +46,9 @@ namespace Game.Control
 
         public int MaxCharges => maxCharges;
         public int CurrentCharges => currentCharges;
-        // Direction captured once when the dash starts: the current move input if any,
-        // otherwise wherever the player is currently facing (mouse today, potentially a
-        // gamepad look direction later) - so dashing without a move input doesn't dash in place.
+        // Direction captured when the dash starts: the current move input if any, otherwise
+        // wherever the player is currently facing - so dashing without a move input doesn't
+        // dash in place. With allowSteering, the move input keeps updating it mid-dash.
         public Vector2 DashDirection => dashDirection;
 
         private Action<InputAction.CallbackContext> dashInputCallback;
@@ -92,9 +99,30 @@ namespace Game.Control
             dashUpdateTimer.UpdateEvent();
             dashCooldownTimer.UpdateEvent();
             ManageDashTimerEvent();
+            UpdateSteering();
 
             // Check if dashing so we set direction in dash direction
             CheckDashDirection();
+        }
+
+        // Only a non-zero move input steers: releasing the keys mid-dash keeps the current
+        // direction instead of stopping in place (the bug the start-of-dash capture fixed).
+        private void UpdateSteering()
+        {
+            if (!allowSteering || !dashUpdateTimer.GetIsEventActive()) return;
+
+            Vector2 moveInput = inputHandler.Player.Move.ReadValue<Vector2>();
+            if (moveInput.sqrMagnitude <= 0.0001f) return;
+
+            Vector2 desired = moveInput.normalized;
+            if (steeringTurnRate <= 0f)
+            {
+                dashDirection = desired;
+                return;
+            }
+
+            dashDirection = ((Vector2)Vector3.RotateTowards(
+                dashDirection, desired, steeringTurnRate * Mathf.Deg2Rad * Time.deltaTime, 0f)).normalized;
         }
 
         private void OnDashCooldownUpdated()

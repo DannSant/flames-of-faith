@@ -381,6 +381,8 @@ MonoBehaviour:
   dashSpeed: 3
   dashDuration: 0.3
   maxCharges: 2
+  allowSteering: 1
+  steeringTurnRate: 0
   passThroughDetectionRadius: 3
   enemyLayerMask:
     serializedVersion: 2
