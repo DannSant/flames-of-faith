@@ -20,6 +20,13 @@ MonoBehaviour:
     weight: 6
   - type: 1
     weight: 1
-  longCooldown: 5
-  amountOfEnemiesWithLongCooldown: 3
+  - type: 0
+    weight: 1
+  longCooldown: 2
+  amountOfEnemiesWithLongCooldown: 2
   regularCooldown: 1
+  expectedEnemyCountOverride: 0
+  corruptedChanceMultiplier: 1
+  spawnCorruptor: 1
+  overrideCorruptor: 0
+  corruptorOverride: 7

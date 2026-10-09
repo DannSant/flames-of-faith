@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94530a1c67df426fae7930e21f4ad789, type: 3}
   m_Name: CorruptionSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.CorruptionSettings
-  corruptedChancePerNegativeGrace: 0.1
+  corruptedChancePerNegativeGrace: 0.01
   corruptedChancePerTaintLevel: 0.05
   maxCorruptedChance: 0.5
   corruptedDamageMultiplier: 1.5

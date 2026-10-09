@@ -444,6 +444,7 @@ MonoBehaviour:
   baseMoveSpeed: 3.5
   baseMoveScale: 0.01
   aimDeadzone: 0.25
+  logAttackBlocks: 0
 --- !u!114 &3109023086003309007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +460,7 @@ MonoBehaviour:
   minGrace: -50
   maxGrace: 50
   defaultStartingGrace: 5
-  damagePerGracePoint: 0.1
+  damagePerGracePoint: 0.02
   minDamageMultiplier: 0.1
 --- !u!114 &5987711000833707507
 MonoBehaviour:
@@ -517,8 +518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseXPRequired: 10
   baseGrowthRate: 1.2
-  growthReductionPerPoint: 0.02
-  minGrowthRate: 1.01
   currentLevel: 1
   currentXP: 0
 --- !u!114 &7478699227682328664
@@ -548,6 +547,8 @@ MonoBehaviour:
   startingWeapon: {fileID: 0}
   autoAttackEnabled: 1
   characterVisual: {fileID: 0}
+  aimAssistAngleGamepad: 20
+  aimAssistAngleMouse: 8
 --- !u!114 &3511806836168854284
 MonoBehaviour:
   m_ObjectHideFlags: 0

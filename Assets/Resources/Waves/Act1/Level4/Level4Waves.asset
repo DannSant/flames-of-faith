@@ -15,4 +15,5 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 21e8367d6229d1c40a6eaf26115e2d1b, type: 2}
   - {fileID: 11400000, guid: 9a99e1190fda6b046abd4f151b90cb81, type: 2}
-  - {fileID: 11400000, guid: 6d35c83debe232c4088168f9d3fdc3f2, type: 2}
+  lastWave: 0
+  corruptorType: 7

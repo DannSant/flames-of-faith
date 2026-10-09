@@ -22,6 +22,11 @@ MonoBehaviour:
   enemyPool:
   - type: 0
     weight: 10
-  longCooldown: 5
-  amountOfEnemiesWithLongCooldown: 3
+  longCooldown: 2
+  amountOfEnemiesWithLongCooldown: 1
   regularCooldown: 1
+  expectedEnemyCountOverride: 0
+  corruptedChanceMultiplier: 1
+  spawnCorruptor: 1
+  overrideCorruptor: 0
+  corruptorOverride: 7

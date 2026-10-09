@@ -24,4 +24,7 @@ MonoBehaviour:
   projectileDamageBase: 0
   projectileDamagePerWave: 0
   healthPerWave: 5
-  healthPerLevel: 20
+  healthPerLevel: 10
+  alwaysCorrupted: 0
+  overrideCorruptedHealthBonus: 0
+  corruptedHealthBonus: 1
