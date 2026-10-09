@@ -13,6 +13,12 @@ namespace Game.Combat
     {
         [SerializeField] protected WeaponData weaponData;
         [SerializeField] protected WeaponData specialWeaponData;
+
+        [Header("Free Aim")]
+        [Tooltip("A primary shot fired with no target travels GetWeaponRange() x this before vanishing, " +
+            "so free aim can't out-range auto-targeting. Only used by projectile weapons.")]
+        [SerializeField] protected float freeAimRangeMultiplier = 1f;
+
         protected EnemyHealth currentTarget;
 
         protected CharacterVisual characterVisual;
@@ -161,6 +167,22 @@ namespace Game.Combat
 
             return range;
         }
+
+        /// <summary>
+        /// Direction a primary shot without a target goes: the mouse or the right stick/facing,
+        /// whichever input is active. Read when the projectile is released, not when the button
+        /// is pressed, so aiming during the wind-up still counts.
+        /// </summary>
+        protected Vector2 GetFreeAimDirection()
+        {
+            if (playerController == null) return Vector2.right;
+
+            Vector2 direction = playerController.GetAimDirection();
+            return direction.sqrMagnitude > 0.0001f ? direction.normalized : Vector2.right;
+        }
+
+        /// <summary>How far a primary shot without a target may travel. See <see cref="freeAimRangeMultiplier"/>.</summary>
+        protected float GetFreeAimMaxDistance() => GetWeaponRange() * freeAimRangeMultiplier;
         /// <summary>
         /// Whether this weapon's target acquisition should count a large enemy's visible body as
         /// part of its reach. Exposed here so callers don't have to reach through to WeaponData.

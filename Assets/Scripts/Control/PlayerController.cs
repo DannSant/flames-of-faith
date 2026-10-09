@@ -18,8 +18,11 @@ namespace Game.Control
         [SerializeField] private float baseMoveScale = 0.25f;
         [Tooltip("Right-stick magnitude needed before it overrides the facing direction.")]
         [SerializeField] private float aimDeadzone = 0.25f;
+        [Tooltip("Debug: while attack is held, logs whatever is stopping the primary attack each time it changes.")]
+        [SerializeField] private bool logAttackBlocks = false;
 
         private float moveSpeed = 1f;
+        private string lastAttackBlockReason;
 
         private DashBase playerDash;
         private CharacterVisual characterVisual;
@@ -33,6 +36,7 @@ namespace Game.Control
 
         private Vector2 defaultPosition;
         private bool attackButtonDown = false;
+        private InputAction toggleAutoAttackAction;
 
         public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
         public float DashMultiplier { get; private set; }
@@ -73,10 +77,26 @@ namespace Game.Control
             inputHandler.Player.Attack.performed += ctx => StartAttacking();
             inputHandler.Player.Attack.canceled += ctx => StopAttacking();
             inputHandler.Player.Special.performed += ctx => StartSpecialAttack();
+
+            // Looked up by name so this doesn't depend on the generated wrapper having been
+            // regenerated with the action yet.
+            toggleAutoAttackAction = inputHandler.Player.Get().FindAction("ToggleAutoAttack", throwIfNotFound: false);
+            if (toggleAutoAttackAction != null)
+            {
+                toggleAutoAttackAction.performed += HandleToggleAutoAttack;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerController: no Player/ToggleAutoAttack input action, the auto-attack hotkey is disabled.");
+            }
         }
 
         private void OnDisable()
         {
+            if (toggleAutoAttackAction != null)
+            {
+                toggleAutoAttackAction.performed -= HandleToggleAutoAttack;
+            }
             playerProgression.onDerivedStatsChanged -= PlayerController_onStatUpdatedEvent;
             if (MainSceneController.Instance != null)
             {
@@ -114,9 +134,28 @@ namespace Game.Control
             attackButtonDown = true;
         }
 
+        // Also fires when the Player map is disabled while attack is held (menus, GameplayFreeze...).
+        // The Attack action has initialStateCheck on, so a button still held when the map comes
+        // back is picked up again without a re-press.
         private void StopAttacking()
         {
+            if (logAttackBlocks && attackButtonDown)
+            {
+                Debug.Log($"[PlayerController] Primary attack released (map enabled: {inputHandler.Player.enabled})", this);
+            }
             attackButtonDown = false;
+        }
+
+        // Ctrl / RT. Goes through SettingsManager so the choice persists and the settings menu,
+        // WeaponManager and the HUD indicator all hear about it from the one place.
+        private void HandleToggleAutoAttack(InputAction.CallbackContext ctx)
+        {
+            if (disabledInput) return;
+            if (playerHealth != null && playerHealth.IsDead()) return;
+            if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
+            if (SettingsManager.Instance == null) return;
+
+            SettingsManager.Instance.SetAutoAttackEnabled(!SettingsManager.Instance.AutoAttackEnabled);
         }
 
         private void PlayerController_onStatUpdatedEvent()
@@ -151,15 +190,36 @@ namespace Game.Control
         {
             if (IsWaveEnding())
             {
+                LogAttackBlock(attackButtonDown ? "wave ending" : null);
                 return;
             }
             if (IsAttacksPreventedByLevel())
             {
+                LogAttackBlock(attackButtonDown ? "level prevents attacks" : null);
                 return;
             }
-            if (attackButtonDown && CanAttack())
+            if (!attackButtonDown)
+            {
+                lastAttackBlockReason = null;
+                return;
+            }
+
+            string blockReason = GetAttackBlockReason();
+            if (blockReason == null)
             {
                 Attack();
+            }
+            LogAttackBlock(blockReason);
+        }
+
+        private void LogAttackBlock(string reason)
+        {
+            if (!logAttackBlocks || reason == lastAttackBlockReason) return;
+            lastAttackBlockReason = reason;
+            // The attack timer is the normal gap between shots, so it's not worth a line.
+            if (reason != null && reason != AttackTimerReason)
+            {
+                Debug.Log($"[PlayerController] Primary attack held but blocked: {reason}", this);
             }
         }
 
@@ -207,16 +267,22 @@ namespace Game.Control
             weaponManager.SpecialAttack();
         }
 
-        private bool CanAttack() 
+        private const string AttackTimerReason = "attack cooldown";
+
+        // Null when the primary attack may fire, otherwise why not (for logAttackBlocks).
+        private string GetAttackBlockReason()
         {
-            if (playerHealth != null && playerHealth.IsDead())
-            {
-                return false; // Prevent attack if the player is dead
-            }
-            if (weaponManager == null) return false;
+            if (playerHealth != null && playerHealth.IsDead()) return "player dead";
+            if (weaponManager == null) return "no WeaponManager";
             var currentWeapon = weaponManager.GetCurrentWeapon();
-            bool canAttack = !(currentWeapon.IsAttackTimerActive() || currentWeapon.IsSpecialAttackTimerActive());
-            return canAttack;
+            if (currentWeapon == null) return "no weapon equipped";
+            if (currentWeapon.IsAttackTimerActive()) return AttackTimerReason;
+            // Only the special's animation blocks, not its cooldown (that used to lock the primary
+            // out for the whole special cooldown). The animation still has to: an Attack trigger
+            // would cut it before its end event, which spawns the special's projectiles and ends
+            // its invulnerability. Same rule as WeaponManager.ManageAutoAttack.
+            if (characterVisual != null && characterVisual.IsSpecialAttackAnimationPlaying) return "special attack animation playing";
+            return null;
         }
 
         private void Move()
@@ -248,7 +314,9 @@ namespace Game.Control
                 return;
             }
             if (playerDash.isDashActive()) return;
-            if (weaponManager != null && weaponManager.IsAutoAttackEnabled)
+            // With auto-attack off, only face the target while an attack on it is playing (an
+            // aim-assisted manual shot); otherwise the player's own aim drives facing.
+            if (weaponManager != null && (weaponManager.IsAutoAttackEnabled || IsAttackInProgress()))
             {
                 EnemyHealth target = weaponManager.GetCurrentTarget();
                 if (target != null)
@@ -308,6 +376,12 @@ namespace Game.Control
             return best;
         }
 
+        private bool IsAttackInProgress()
+        {
+            var weapon = weaponManager != null ? weaponManager.GetCurrentWeapon() : null;
+            return weapon != null && weapon.IsAttackTimerActive();
+        }
+
         private bool IsGamepadActive()
         {
             return InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
@@ -340,6 +414,12 @@ namespace Game.Control
         {
             if (IsGamepadActive())
             {
+                // Read the live input before falling back to facing: while a manual attack is
+                // locked onto a target, facing is held on it, and aiming from facing would keep
+                // re-locking the same enemy however the stick is pushed.
+                Vector2 stick = ReadGamepadLook();
+                if (stick.magnitude > aimDeadzone) return stick.normalized;
+                if (movement.sqrMagnitude > 0.0001f) return movement.normalized;
                 return characterVisual != null ? characterVisual.FacingDirection : Vector2.right;
             }
             return (GetMouseWorldPosition() - (Vector2)transform.position).normalized;

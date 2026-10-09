@@ -23,3 +23,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d7d2b8345b64cb9439be3cffcbf79ffe, type: 3}
   - controlPath: leftShift
     sprite: {fileID: 21300000, guid: 8459f88e65a9e6e4a91dfb8d6591308f, type: 3}
+  - controlPath: ctrl
+    sprite: {fileID: 21300000, guid: 608b7f35c4641c640803486ce2a46858, type: 3}

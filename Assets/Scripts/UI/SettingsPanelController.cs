@@ -20,6 +20,10 @@ namespace Game.UI
         [SerializeField] private TMP_Dropdown qualityDropdown;
         [SerializeField] private Toggle vsyncToggle;
 
+        [Header("Gameplay")]
+        [Tooltip("Optional. Mirrors SettingsManager.AutoAttackEnabled, which the Ctrl / RT hotkey also toggles.")]
+        [SerializeField] private Toggle autoAttackToggle;
+
         [Header("Language")]
         [SerializeField] private TMP_Dropdown languageDropdown;
 
@@ -85,6 +89,7 @@ namespace Game.UI
             fullscreenToggle.SetIsOnWithoutNotify(settings.FullscreenMode != FullScreenMode.Windowed);
             qualityDropdown.SetValueWithoutNotify(settings.QualityLevel);
             vsyncToggle.SetIsOnWithoutNotify(settings.VsyncEnabled);
+            if (autoAttackToggle != null) autoAttackToggle.SetIsOnWithoutNotify(settings.AutoAttackEnabled);
 
             // Only "English" exists today, so this always resolves to index 0.
             languageDropdown.SetValueWithoutNotify(0);
@@ -99,6 +104,7 @@ namespace Game.UI
             fullscreenToggle.onValueChanged.AddListener(OnFullscreenChanged);
             qualityDropdown.onValueChanged.AddListener(OnQualityChanged);
             vsyncToggle.onValueChanged.AddListener(OnVsyncChanged);
+            if (autoAttackToggle != null) autoAttackToggle.onValueChanged.AddListener(OnAutoAttackChanged);
             languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
         }
 
@@ -111,6 +117,7 @@ namespace Game.UI
             fullscreenToggle.onValueChanged.RemoveListener(OnFullscreenChanged);
             qualityDropdown.onValueChanged.RemoveListener(OnQualityChanged);
             vsyncToggle.onValueChanged.RemoveListener(OnVsyncChanged);
+            if (autoAttackToggle != null) autoAttackToggle.onValueChanged.RemoveListener(OnAutoAttackChanged);
             languageDropdown.onValueChanged.RemoveListener(OnLanguageChanged);
         }
 
@@ -148,6 +155,11 @@ namespace Game.UI
         private void OnVsyncChanged(bool enabled)
         {
             SettingsManager.Instance?.SetVsync(enabled);
+        }
+
+        private void OnAutoAttackChanged(bool enabled)
+        {
+            SettingsManager.Instance?.SetAutoAttackEnabled(enabled);
         }
 
         private void OnLanguageChanged(int index)

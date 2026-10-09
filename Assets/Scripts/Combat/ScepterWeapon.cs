@@ -29,7 +29,7 @@ namespace Game.Combat
         {
             if (!attackTimer.GetIsEventActive())
             {
-                if (currentTarget == null) return;
+                // May be null: the fireball is then fired along the aim instead (see OnAttackAnimationPlayed).
                 pendingAttackTarget = currentTarget;
                 PlayRandomScepterSound();
                 characterVisual.PlayAttackAnimation();
@@ -49,16 +49,27 @@ namespace Game.Combat
 
         protected override void OnAttackAnimationPlayed()
         {
-            if (pendingAttackTarget == null || pendingAttackTarget.IsDead()) return;
+            // A target that died during the wind-up no longer drops the shot: it goes out along the aim.
+            bool hasTarget = pendingAttackTarget != null && !pendingAttackTarget.IsDead();
 
             Vector2 spawnPos = projectileSpawnTransform.position;
-            Vector2 direction = ((Vector2)pendingAttackTarget.transform.position - spawnPos).normalized;
+            Vector2 direction = hasTarget
+                ? ((Vector2)pendingAttackTarget.transform.position - spawnPos).normalized
+                : GetFreeAimDirection();
 
             var go = Instantiate(weaponData.projectilePrefab, spawnPos, Quaternion.identity);
 
             var move = go.GetComponent<ProjectileMovementBase>();
             move.Initialize(direction);
-            move.SetTarget(pendingAttackTarget.transform);
+            if (hasTarget)
+            {
+                move.SetTarget(pendingAttackTarget.transform);
+            }
+            else
+            {
+                // With no target the homing movement flies straight, so cap it to the range.
+                move.SetMaxTravelDistance(GetFreeAimMaxDistance());
+            }
 
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass, weaponData);

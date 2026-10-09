@@ -24,13 +24,18 @@ namespace Game.Combat
         public event System.Action<DamageSourceBase> onBowSpecialAttackLaunched;
 
         private Vector3 targetPosition;
+        private bool hasPendingTarget;
 
         public override void Attack()
         {
             if (!attackTimer.GetIsEventActive())
             {
-                if(currentTarget == null) return;
-                targetPosition = currentTarget.transform.position;
+                // No target is fine: the arrow is fired along the aim instead (see OnAttackAnimationPlayed).
+                hasPendingTarget = currentTarget != null;
+                if (hasPendingTarget)
+                {
+                    targetPosition = currentTarget.transform.position;
+                }
                 PlayRandomArrowSound();
                 characterVisual.PlayAttackAnimation();
                 attackTimer.StartEvent();
@@ -50,17 +55,22 @@ namespace Game.Combat
         protected override void OnAttackAnimationPlayed()
         {
           
-            //if (currentTarget == null) return;
             Vector2 spawnPos = projectileSpawnTransform.position;
-            Vector2 targetPos = targetPosition;//currentTarget.transform.position;
-            Vector2 direction = (targetPos - spawnPos).normalized;
-            
+            Vector2 direction = hasPendingTarget
+                ? ((Vector2)targetPosition - spawnPos).normalized
+                : GetFreeAimDirection();
+
             int pierceAmount = weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
 
             var go = Instantiate(weaponData.projectilePrefab, spawnPos, Quaternion.identity);
 
             var move = go.GetComponent<ProjectileMovementBase>();
             move.Initialize(direction);
+            if (!hasPendingTarget)
+            {
+                // Targeted arrows keep the prefab's lifetime; only free-aim ones are capped to the range.
+                move.SetMaxTravelDistance(GetFreeAimMaxDistance());
+            }
 
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(weaponData.baseDamage, pierceAmount, null, weaponData.weaponClass,weaponData);

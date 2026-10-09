@@ -96,6 +96,54 @@ namespace Game.Combat
         }
 
         /// <summary>
+        /// Aim assist for manual attacks: among the live, non-immune enemies whose body is within
+        /// <paramref name="range"/>, the one whose direction is closest to
+        /// <paramref name="aimDirection"/>, as long as it is within <paramref name="maxAngleDeg"/>
+        /// of it. Returns null when nothing is inside the cone (or the angle is 0), so the caller
+        /// fires freely along the aim instead.
+        /// </summary>
+        public static EnemyHealth FindInAimCone(
+            Vector2 origin,
+            float range,
+            bool compensateForBodySize,
+            Vector2 aimDirection,
+            float maxAngleDeg)
+        {
+            if (range <= 0f || maxAngleDeg <= 0f || aimDirection.sqrMagnitude < 0.0001f) return null;
+
+            EnsureContactFilter();
+
+            float queryRadius = range + (compensateForBodySize ? MaxTargetingBodyRadius : 0f);
+
+            overlapResults.Clear();
+            Physics2D.OverlapCircle(origin, queryRadius, contactFilter, overlapResults);
+
+            EnemyHealth best = null;
+            float bestAngle = maxAngleDeg;
+
+            foreach (var hit in overlapResults)
+            {
+                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
+
+                if (enemy == null || enemy.IsImmune() || enemy.IsDead()) continue;
+
+                float distance = EffectiveDistance(origin, hit, enemy, compensateForBodySize);
+                if (distance > range) continue;
+
+                Vector2 toEnemy = (Vector2)enemy.transform.position - origin;
+                // Standing inside the enemy: any aim counts as aiming at it.
+                float angle = toEnemy.sqrMagnitude < 0.0001f ? 0f : Vector2.Angle(aimDirection, toEnemy);
+                if (angle <= bestAngle)
+                {
+                    best = enemy;
+                    bestAngle = angle;
+                }
+            }
+
+            return best;
+        }
+
+        /// <summary>
         /// How far <paramref name="origin"/> is from the enemy's body, taking the nearer of its
         /// collider outline and its declared visible body.
         /// </summary>

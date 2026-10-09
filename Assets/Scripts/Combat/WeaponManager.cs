@@ -11,10 +11,19 @@ namespace Game.Combat
     public class WeaponManager :MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
     {
         [SerializeField] private WeaponBase startingWeapon;
+        [Tooltip("Fallback only: the live value comes from SettingsManager.AutoAttackEnabled when it exists.")]
         [SerializeField] private bool autoAttackEnabled = false;
         [SerializeField] private CharacterVisual characterVisual;
+
+        [Header("Manual Aim Assist (auto-attack off)")]
+        [Tooltip("Half-angle, in degrees, of the cone around the right stick's aim that snaps a manual attack onto an enemy in range. 0 = pure free aim.")]
+        [SerializeField] private float aimAssistAngleGamepad = 20f;
+        [Tooltip("Same as above for mouse aim, which is precise enough to need less help. 0 = pure free aim.")]
+        [SerializeField] private float aimAssistAngleMouse = 8f;
+
         private WeaponBase currentWeapon;
         private PlayerHealth playerHealth;
+        private PlayerController playerController;
 
 
         public event Action<float, float> OnAttackTimerUpdated;
@@ -25,6 +34,7 @@ namespace Game.Combat
         private void Awake()
         {
             playerHealth = GetComponent<PlayerHealth>();
+            playerController = GetComponent<PlayerController>();
             if (startingWeapon != null)
             {
                 EquipWeapon(startingWeapon);
@@ -37,6 +47,26 @@ namespace Game.Combat
             {
                 currentWeapon.Initialize(GetComponentInChildren<CharacterVisual>());
             }
+
+            if (SettingsManager.Instance != null)
+            {
+                autoAttackEnabled = SettingsManager.Instance.AutoAttackEnabled;
+                SettingsManager.Instance.OnAutoAttackChanged -= HandleAutoAttackChanged;
+                SettingsManager.Instance.OnAutoAttackChanged += HandleAutoAttackChanged;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (SettingsManager.Instance != null)
+            {
+                SettingsManager.Instance.OnAutoAttackChanged -= HandleAutoAttackChanged;
+            }
+        }
+
+        private void HandleAutoAttackChanged(bool enabled)
+        {
+            autoAttackEnabled = enabled;
         }
 
         private void Update()
@@ -96,6 +126,19 @@ namespace Game.Combat
                 currentWeapon != null && currentWeapon.ShouldCompensateForEnemyBodySize);
         }
 
+        private EnemyHealth FindEnemyInAimCone(float range)
+        {
+            if (playerController == null) return null;
+
+            bool gamepad = InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
+            return EnemyTargeting.FindInAimCone(
+                transform.position,
+                range,
+                currentWeapon != null && currentWeapon.ShouldCompensateForEnemyBodySize,
+                playerController.GetAimDirection(),
+                gamepad ? aimAssistAngleGamepad : aimAssistAngleMouse);
+        }
+
         public void EquipWeapon(WeaponBase weapon)
         {
             currentWeapon = weapon;
@@ -120,7 +163,11 @@ namespace Game.Combat
 
             // Re-resolve the target every manual attack so a stale in-range target
             // from auto-attack can't be used once the enemy is out of range.
-            var target = FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange());
+            // With auto-attack off the player is aiming, so only an enemy near the aim counts;
+            // with none, the target is null and ranged weapons fire freely along the aim.
+            var target = autoAttackEnabled
+                ? FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange())
+                : FindEnemyInAimCone(currentWeapon.GetWeaponRange());
             currentWeapon.SetTarget(target);
             currentWeapon.Attack();
         }

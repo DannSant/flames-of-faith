@@ -22,6 +22,7 @@ namespace Game.GameSettings
         private const string VsyncEnabledKey = "Settings.VsyncEnabled";
         private const string LanguageKeyKey = "Settings.LanguageKey";
         private const string ShowTutorialHintsKey = "Settings.ShowTutorialHints";
+        private const string AutoAttackEnabledKey = "Settings.AutoAttackEnabled";
 
         private const float defaultMasterVolume = 1f;
         private const float defaultMusicVolume = 0.7f;
@@ -38,6 +39,7 @@ namespace Game.GameSettings
         private bool vsyncEnabled;
         private string languageKey;
         private bool showTutorialHints;
+        private bool autoAttackEnabled;
 
         [Header("Developer Tools")]
         [SerializeField] private bool developerCheatsEnabled = true;
@@ -54,6 +56,8 @@ namespace Game.GameSettings
         public bool ShowTutorialHints => showTutorialHints;
 
         public event Action<bool> OnShowTutorialHintsChanged;
+        public bool AutoAttackEnabled => autoAttackEnabled;
+        public event Action<bool> OnAutoAttackChanged;
         public bool DeveloperCheatsEnabled => developerCheatsEnabled;
 
         protected override void Awake()
@@ -88,6 +92,7 @@ namespace Game.GameSettings
                 vsyncEnabled = true;
                 languageKey = defaultLanguageKey;
                 showTutorialHints = true;
+                autoAttackEnabled = true;
                 return;
             }
 
@@ -101,6 +106,7 @@ namespace Game.GameSettings
             vsyncEnabled = PlayerPrefs.GetInt(VsyncEnabledKey, 1) == 1;
             languageKey = PlayerPrefs.GetString(LanguageKeyKey, defaultLanguageKey);
             showTutorialHints = PlayerPrefs.GetInt(ShowTutorialHintsKey, 1) == 1;
+            autoAttackEnabled = PlayerPrefs.GetInt(AutoAttackEnabledKey, 1) == 1;
         }
 
         public void SaveState()
@@ -116,6 +122,7 @@ namespace Game.GameSettings
             PlayerPrefs.SetInt(VsyncEnabledKey, vsyncEnabled ? 1 : 0);
             PlayerPrefs.SetString(LanguageKeyKey, languageKey);
             PlayerPrefs.SetInt(ShowTutorialHintsKey, showTutorialHints ? 1 : 0);
+            PlayerPrefs.SetInt(AutoAttackEnabledKey, autoAttackEnabled ? 1 : 0);
             PlayerPrefs.Save();
         }
 
@@ -191,6 +198,14 @@ namespace Game.GameSettings
             showTutorialHints = enabled;
             SaveState();
             OnShowTutorialHintsChanged?.Invoke(showTutorialHints);
+        }
+
+        public void SetAutoAttackEnabled(bool enabled)
+        {
+            if (autoAttackEnabled == enabled) return;
+            autoAttackEnabled = enabled;
+            SaveState();
+            OnAutoAttackChanged?.Invoke(autoAttackEnabled);
         }
 
         private void ApplyAudio()
