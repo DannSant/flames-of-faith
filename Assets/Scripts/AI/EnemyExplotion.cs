@@ -63,7 +63,7 @@ namespace Game.AI
                 var projectileDamage = projectile.GetComponent<EnemyTriggerDamage>();
                 if (projectileDamage != null)
                 {
-                    projectileDamage.SetDamageAmount(Mathf.CeilToInt(damage));
+                    projectileDamage.SetDamageAmount(damage);
                 }
                 if (projectile.TryGetComponent(out ProjectileMovement movement)) {
                     movement.SetDirection(direction);

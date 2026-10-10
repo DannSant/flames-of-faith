@@ -60,7 +60,10 @@ namespace Game.Misc
 
         public void SpawnDamageToPlayerNumber(Vector3 positionTospawn, float number)
         {
-            damageToPlayerNumberPrefab.Spawn(positionTospawn, number);
+            // Damage to the player is fractional, but it's shown as a whole number. Any hit that
+            // lands shows at least 1, so a small hit never reads as 0.
+            float shown = number > 0f ? Mathf.Max(1f, Mathf.Round(number)) : 0f;
+            damageToPlayerNumberPrefab.Spawn(positionTospawn, shown);
         }
         public void SpawnHealToPlayerNumber(Vector3 positionTospawn, float number)
         {

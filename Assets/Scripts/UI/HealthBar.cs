@@ -78,7 +78,7 @@ namespace Game.UI {
             if (instant)
             {
                 healthSlider.value = targetValue;
-                healthText.text = $"{current:0}/{max:0}";
+                healthText.text = FormatHealth(current, max);
             }
             else
             {
@@ -91,12 +91,19 @@ namespace Game.UI {
             while (Mathf.Abs(healthSlider.value - target) > 0.01f)
             {
                 healthSlider.value = Mathf.Lerp(healthSlider.value, target, Time.deltaTime * fillSpeed);
-                healthText.text = $"{healthSlider.value:0}/{healthSlider.maxValue:0}";
+                healthText.text = FormatHealth(healthSlider.value, healthSlider.maxValue);
                 yield return null;
             }
 
             healthSlider.value = target; // Final snap
-            healthText.text = $"{target:0}/{healthSlider.maxValue:0}";
+            healthText.text = FormatHealth(target, healthSlider.maxValue);
+        }
+
+        // Health can be fractional; round up so the player never reads 0 while still alive.
+        // The small tolerance keeps float error like 10.00001 from showing as 11.
+        private static string FormatHealth(float current, float max)
+        {
+            return $"{Mathf.Max(0, Mathf.CeilToInt(current - 0.001f))}/{max:0}";
         }
 
     }

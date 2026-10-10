@@ -10,9 +10,9 @@ namespace Game.Combat {
         [SerializeField] private bool shouldApplyKnockback = true;
         [SerializeField] private float knockbackForce = 15f;
 
-        private int damageAmount = 1;
+        private float damageAmount = 1f;
 
-        public void SetDamageAmount(int amount)
+        public void SetDamageAmount(float amount)
         {
             damageAmount = amount;
         }

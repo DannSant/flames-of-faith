@@ -5,11 +5,11 @@ namespace Game.Combat {
     public class EnemyTriggerDamage : MonoBehaviour
     {
 
-       private int damageAmount = 1; 
+       private float damageAmount = 1f;
         
-        public void SetDamageAmount(int value)
+        public void SetDamageAmount(float value)
         {
-            damageAmount = Mathf.Max(1, value); // Ensure it's always at least 1
+            damageAmount = Mathf.Max(0f, value);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

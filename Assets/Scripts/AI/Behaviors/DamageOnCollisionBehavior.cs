@@ -31,7 +31,7 @@ namespace Game.AI.Behaviors
 
             if (Time.time - lastTime >= cooldownDuration)
             {
-                int damageAmount = GetDamageAmount(context);
+                float damageAmount = GetDamageAmount(context);
                 health.TakeDamage(damageAmount, enemyObject);
 
                 state.lastDamageTime = Time.time;

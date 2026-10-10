@@ -14,7 +14,11 @@ This is a Unity project — there is no CLI build/lint/test pipeline (no `packag
 
 - Open the project in Unity Editor **6000.2.10f1** (must match `ProjectSettings/ProjectVersion.txt` — Unity will offer to auto-upgrade if a different version is installed; don't let it silently change the version).
 - There is no headless build script or Makefile in the repo. Compilation errors surface in the Editor Console; there is no `dotnet build` step that mirrors Unity's compile (the generated `.csproj`/`.sln` files are for IDE intellisense only, not authoritative builds).
-- `com.unity.test-framework` is a declared package dependency, but `Assets/Scripts/Tests/` only contains a debug helper (`LevelTreeDebugger.cs`), not actual EditMode/PlayMode test suites. Treat this project as having no automated test coverage today — verify changes by running the game in the Editor (Bootstrapper scene) rather than expecting tests to catch regressions.
+- **Tests.** The only automated tests are the EditMode tests in `Assets/Scripts/Tests/Editor/`, which cover enemy damage (see "Enemy damage" below).
+  - They need no asmdef: the default `Assembly-CSharp-Editor` already references NUnit (test-framework 1.6.0), so any test under an `Editor/` folder is picked up.
+  - Run them from Window → General → Test Runner → EditMode. With the Editor closed, use `Unity.exe -batchmode -projectPath . -runTests -testPlatform EditMode -testResults results.xml`.
+  - Everything else has no coverage, so verify it by running the game in the Editor (Bootstrapper scene).
+  - `Assets/Scripts/Tests/LevelTreeDebugger.cs` is a debug helper, not a test.
 - All first-party code compiles into the default `Assembly-CSharp` assembly — there are no custom `.asmdef` files under `Assets/Scripts/`, so any script can reference any other without assembly-reference wiring.
 - Third-party/vendored code lives under `Assets/AssetPackages/` (ClassicPixelRPGUI, DamageNumbersPro, NavMeshPlus, WalldoffStudios Indicators) and should generally be left alone rather than modified in place.
 - Key packages: URP 17.2.0, new Input System 1.14.2, Cinemachine 3.1.3, `com.unity.ai.navigation` (NavMesh) plus the vendored NavMeshPlus for 2D nav, Timeline, Visual Scripting.
@@ -111,6 +115,29 @@ XP needed per level is a fixed curve, `PlayerExperience.GetXPRequired` = `10 × 
 - `EnemyData.xpBase`/`xpPerLevel` are gone. `xpTier` (default 1) decides which denominations an enemy can drop.
 - Enemies still alive at wave end are killed by the end sequence and drop tokens too.
 - `logWaveXpDebug` logs expected vs actual spawns, drops and XP for every wave, after the end sequence.
+
+### Enemy damage (reworked Oct 2026)
+
+Enemy → player damage is sized against an *expected* player, never the real one. That way a player with above-expected health or armor really does outscale enemies. Player → enemy damage and enemy health are unchanged.
+
+- **Tunables** live in **`EnemyDamageSettings`** (`Assets/Resources/Combat/EnemyDamageSettings.asset`, loaded via `EnemyDamageSettings.Instance`):
+  - `expectedCurve`: expected max health and armor by levels beaten, interpolated between rows.
+  - `waveProgressStep`: how much each wave inside a level counts as progress.
+  - `tierHitsToKill`: hits per tier.
+  - The armor constants.
+- **Each `EnemyData`** has `contactDamageTier` and `projectileDamageTier`. Projectile covers projectiles and explosions. Fractional tiers interpolate; 0 means no damage. Tier N kills a player with the expected stats in `tierHitsToKill[N-1]` hits.
+- **`EnemyDamageCalculator`** (pure and static, no `GameSession`) holds the formula: `raw = expectedHP / hits / armorMultiplier(expectedArmor)`. `AIBehavior.GetDamageAmount`/`GetRangedDamageAmount` call it and then apply the corrupted multiplier.
+- **Damage is fractional end to end.**
+  - `EnemyDamage`/`EnemyTriggerDamage` take a `float`.
+  - `PlayerHealth.ApplyArmor` no longer rounds.
+  - The damage-to-player number is rounded for display only (minimum 1), in `DamageNumberSpawner.SpawnDamageToPlayerNumber`.
+  - `HealthBar` rounds health up for display.
+- **Armor math** lives in **`ArmorMitigation`** and is shared by `PlayerHealth` and the calculator. Negative armor increases damage taken, mirroring the positive curve: −5 = +17%, −25 = +50%, never +100%. Corruption lowers armor, so it can push the player below 0. Its constants moved from `PlayerHealth`'s Inspector to `EnemyDamageSettings`.
+- **Tuning:**
+  - `Tools/Flames of Faith/Enemy Damage Preview` shows raw damage and hits-to-die per tier or per enemy at every point of the run. It can compare against a custom player's health and armor.
+  - `EnemyDamageTuningTests` guard the real asset: the curve is sorted and never gets weaker, tiers are strictly stronger, and every enemy attack takes 1–60 hits.
+  - `EnemyDamageCalculatorTests` cover the formula with their own settings.
+- Boss abilities still use their own damage (`BossController.GetAbilityDamage`) and aren't part of this system.
 
 ### Run save / load (single slot)
 

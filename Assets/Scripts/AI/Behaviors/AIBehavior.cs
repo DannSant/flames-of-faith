@@ -22,7 +22,7 @@ namespace Game.AI.Behaviors
         /// </summary>
         public virtual void OnStunStateChanged(BehaviorContext ctx, bool isStunned) { }
 
-        protected int GetDamageAmount(BehaviorContext context)
+        protected float GetDamageAmount(BehaviorContext context)
         {
             return ApplyCorruptedMultiplier(context, EnemyDamageCalculator.Calculate(
                 context.enemyData,
@@ -31,7 +31,7 @@ namespace Game.AI.Behaviors
                 EnemyDamageKind.Contact));
         }
 
-        protected int GetRangedDamageAmount(BehaviorContext context)
+        protected float GetRangedDamageAmount(BehaviorContext context)
         {
             return ApplyCorruptedMultiplier(context, EnemyDamageCalculator.Calculate(
                 context.enemyData,
@@ -40,13 +40,13 @@ namespace Game.AI.Behaviors
                 EnemyDamageKind.Projectile));
         }
 
-        private int ApplyCorruptedMultiplier(BehaviorContext context, int damage)
+        private float ApplyCorruptedMultiplier(BehaviorContext context, float damage)
         {
             if (!context.isCorrupted)
             {
                 return damage;
             }
-            return Mathf.RoundToInt(damage * CorruptionSettings.Instance.CorruptedDamageMultiplier);
+            return damage * CorruptionSettings.Instance.CorruptedDamageMultiplier;
         }
 
         /// <summary>

@@ -44,7 +44,7 @@ namespace Game.AI.Behaviors
                     state.meleeCollider.enabled = false;
                     if (colliderObj.TryGetComponent(out EnemyDamage damage))
                     {
-                        int damageAmount = GetDamageAmount(context);
+                        float damageAmount = GetDamageAmount(context);
                         damage.SetDamageAmount(damageAmount);
                     }
                 }

@@ -150,13 +150,13 @@ namespace Game.AI.Behaviors
             }
             if (projectile.TryGetComponent(out EnemyDamage damage))
             {
-                int damageAmount = GetRangedDamageAmount(context);
+                float damageAmount = GetRangedDamageAmount(context);
                 damage.SetDamageAmount(damageAmount);
             }
 
             if (projectile.TryGetComponent(out EnemyTriggerDamage damageTrigger))
             {
-                int damageAmount = GetRangedDamageAmount(context);
+                float damageAmount = GetRangedDamageAmount(context);
                 damageTrigger.SetDamageAmount(damageAmount);
             }
         }

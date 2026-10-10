@@ -15,14 +15,11 @@ MonoBehaviour:
   enemyType: 7
   enemyPrefab: {fileID: 4302877176766348490, guid: 3edb99d521e7e184ea28db2cd7dfdb20, type: 3}
   healthBase: 100
-  damageBase: 5
-  damagePerWave: 1
-  damagePerLevel: 2
+  contactDamageTier: 2.5
+  projectileDamageTier: 2
   speedBase: 2.5
   attackRangeBase: 1
   xpTier: 3
-  projectileDamageBase: 2
-  projectileDamagePerWave: 2
   healthPerWave: 5
   healthPerLevel: 10
   alwaysCorrupted: 1
