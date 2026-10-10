@@ -6,6 +6,8 @@ namespace Game.Combat.Projectiles
     {
         [SerializeField] private float speed = 5f;
         [SerializeField] private float turnSpeed = 180f;
+        [Tooltip("Rotate the projectile to face where it's flying (arrows). Off for round projectiles.")]
+        [SerializeField] private bool rotateTowardsDirection = false;
 
         private Transform target;
 
@@ -19,6 +21,7 @@ namespace Game.Combat.Projectiles
             if (target == null)
             {
                 rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+                FaceDirection();
                 return;
             }
 
@@ -34,6 +37,14 @@ namespace Game.Combat.Projectiles
             );
 
             rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+            FaceDirection();
+        }
+
+        private void FaceDirection()
+        {
+            if (!rotateTowardsDirection) return;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
 }

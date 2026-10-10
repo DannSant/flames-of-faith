@@ -81,6 +81,11 @@ MonoBehaviour:
   projectileSpawnTransform: {fileID: 7543756988473416086}
   specialProjectileOffset: 0.75
   specialAttackTargetSearchRadius: 15
+  targetExplosionPrefab: {fileID: 5262266157608048503, guid: f32a8f266e6f9e64e998173e20f553f1, type: 3}
+  targetExplosionInterval: 2.5
+  targetExplosionDurationBase: 3
+  targetExplosionDurationPerSkillDuration: 1
+  targetExplosionDamageMultiplier: 0.5
 --- !u!1 &9093325744024226945
 GameObject:
   m_ObjectHideFlags: 0

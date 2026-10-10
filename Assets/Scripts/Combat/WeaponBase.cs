@@ -143,6 +143,22 @@ namespace Game.Combat
 
         public virtual EnemyHealth GetTarget() => currentTarget;
 
+        // The player's marked target (lock-on / nearest), owned by WeaponManager. Unlike
+        // currentTarget it isn't tied to a single shot, so specials can follow it over time.
+        private Func<EnemyHealth> targetProvider;
+
+        public void SetTargetProvider(Func<EnemyHealth> provider)
+        {
+            targetProvider = provider;
+        }
+
+        /// <summary>The marked target if it can still be hit, else null.</summary>
+        protected EnemyHealth GetMarkedTarget()
+        {
+            var target = targetProvider?.Invoke();
+            return EnemyTargeting.IsTargetable(target) ? target : null;
+        }
+
         public abstract void Attack();
         public abstract void SpecialAttack();
 

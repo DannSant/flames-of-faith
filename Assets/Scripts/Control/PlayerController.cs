@@ -37,6 +37,7 @@ namespace Game.Control
         private Vector2 defaultPosition;
         private bool attackButtonDown = false;
         private InputAction toggleAutoAttackAction;
+        private InputAction lockTargetAction;
 
         public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
         public float DashMultiplier { get; private set; }
@@ -89,6 +90,31 @@ namespace Game.Control
             {
                 Debug.LogWarning("PlayerController: no Player/ToggleAutoAttack input action, the auto-attack hotkey is disabled.");
             }
+
+            // Lock-on (F / LT). Toggle mode reacts to presses; hold mode is polled in Update.
+            lockTargetAction = inputHandler.Player.Get().FindAction("LockTarget", throwIfNotFound: false);
+            if (lockTargetAction != null)
+            {
+                lockTargetAction.performed += HandleLockTargetPressed;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerController: no Player/LockTarget input action, target lock is disabled.");
+            }
+        }
+
+        private static bool IsLockOnToggleMode()
+        {
+            return SettingsManager.Instance == null || SettingsManager.Instance.LockOnToggleMode;
+        }
+
+        private void HandleLockTargetPressed(InputAction.CallbackContext context)
+        {
+            if (!IsLockOnToggleMode()) return;
+            if (playerHealth.IsDead() || disabledInput) return;
+            if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
+
+            weaponManager?.ToggleLock();
         }
 
         private void OnDisable()
@@ -96,6 +122,10 @@ namespace Game.Control
             if (toggleAutoAttackAction != null)
             {
                 toggleAutoAttackAction.performed -= HandleToggleAutoAttack;
+            }
+            if (lockTargetAction != null)
+            {
+                lockTargetAction.performed -= HandleLockTargetPressed;
             }
             playerProgression.onDerivedStatsChanged -= PlayerController_onStatUpdatedEvent;
             if (MainSceneController.Instance != null)
@@ -109,11 +139,19 @@ namespace Game.Control
         private void Update()
         {
             if (playerHealth.IsDead()) return;
-            if (disabledInput) {return;}
+            if (disabledInput)
+            {
+                if (!IsLockOnToggleMode()) weaponManager?.SetLockHeld(false);
+                return;
+            }
             // Update() still runs while Time.timeScale is 0, so pause must be checked
             // explicitly - otherwise mouse-look keeps working while everything else freezes.
             if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
+            if (!IsLockOnToggleMode())
+            {
+                weaponManager?.SetLockHeld(lockTargetAction != null && lockTargetAction.IsPressed());
+            }
             MovementInput();
             AttackInput();
             AdjustPlayerFacingDirection();          

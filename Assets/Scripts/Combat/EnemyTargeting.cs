@@ -144,6 +144,30 @@ namespace Game.Combat
         }
 
         /// <summary>
+        /// Whether an enemy can be targeted at all: alive and not immune. Also false for a
+        /// destroyed enemy.
+        /// </summary>
+        public static bool IsTargetable(EnemyHealth enemy)
+        {
+            return enemy != null && !enemy.IsImmune() && !enemy.IsDead();
+        }
+
+        /// <summary>
+        /// Whether an already chosen enemy is within range, measured the same way as FindClosest
+        /// (to the body, not the centre).
+        /// </summary>
+        public static bool IsWithinRange(Vector2 origin, EnemyHealth enemy, float range, bool compensateForBodySize)
+        {
+            if (!IsTargetable(enemy)) return false;
+
+            var collider = enemy.GetComponent<Collider2D>();
+            float distance = collider != null
+                ? EffectiveDistance(origin, collider, enemy, compensateForBodySize)
+                : Vector2.Distance(origin, enemy.transform.position);
+            return distance <= range;
+        }
+
+        /// <summary>
         /// How far <paramref name="origin"/> is from the enemy's body, taking the nearer of its
         /// collider outline and its declared visible body.
         /// </summary>

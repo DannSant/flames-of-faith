@@ -62,6 +62,7 @@ namespace Game.Combat
         // sync with it instead of duplicating the serialized fields on their own inspector.
         public WeaponClass WeaponClass => weaponClass;
         public bool CanTriggerLifesteal => canTriggerLifesteal;
+        public int PierceCount => pierceCount;
 
         // In case something external wants to know when we dealt damage
         public event Action<float, GameObject> OnDamageDealtEvent;

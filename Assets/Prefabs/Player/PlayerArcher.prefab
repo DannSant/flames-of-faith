@@ -80,6 +80,12 @@ MonoBehaviour:
   bowAttackSounds:
   - {fileID: 8300000, guid: b445488ea1f0ac343ad1848beca6b4d9, type: 3}
   projectileSpawnTransform: {fileID: 7543756988473416086}
+  barrageArrowCount: 6
+  barrageInterval: 0.06
+  barrageSpreadAngle: 15
+  barrageDamageMultiplier: 0.5
+  barragePierce: 0
+  barrageArrowPrefab: {fileID: 1399671665664677946, guid: 01c292a0112c47b791f73714ebdf1e67, type: 3}
 --- !u!1 &9093325744024226945
 GameObject:
   m_ObjectHideFlags: 0

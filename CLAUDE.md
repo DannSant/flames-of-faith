@@ -139,6 +139,24 @@ Enemy → player damage is sized against an *expected* player, never the real on
   - `EnemyDamageCalculatorTests` cover the formula with their own settings.
 - Boss abilities still use their own damage (`BossController.GetAbilityDamage`) and aren't part of this system.
 
+### Targeting & lock-on
+
+`WeaponManager` owns the player's **marked target** (`CurrentTarget`, `OnTargetChanged`). This is separate from the weapon's per-shot target (`WeaponBase.currentTarget` / `GetCurrentTarget()`), which manual aim assist can set without marking anything. Player facing and the Sword orbit use the per-shot target.
+
+- **Lock-on input:** the `LockTarget` action (F / gamepad LT; Left Shift is taken by `ShowStatSources` and the Ctrl+Shift+D cheat window), read by `PlayerController`. Its mode is `SettingsManager.LockOnToggleMode`, saved in PlayerPrefs and shown in `SettingsPanelController.lockOnToggleModeToggle`.
+  - **Toggle mode (default):** each press calls `WeaponManager.ToggleLock`. It locks the current target, or the nearest one in `weapon range × lockOnRangeMultiplier`, and does nothing if there is none. Pressing again unlocks. The lock also ends when that enemy dies.
+  - **Hold mode:** `SetLockHeld` every frame. While held, a dead target is replaced by the nearest one in lock range.
+- **Rules**, applied every frame in `UpdateCurrentTarget`:
+  1. **Locked:** the target never changes, even out of range.
+  2. **Auto-attack on:** the nearest enemy in weapon range, or none.
+  3. **Otherwise:** no target.
+- **Attacks:** auto-attack, and manual attacks while locked, fire at the marked target only while it's in weapon range (`EnemyTargeting.IsWithinRange`).
+- **Specials** read the marked target through `WeaponBase.GetMarkedTarget()`:
+  - The Archer's barrage (`BowWeapon`, `BarrageArrow.prefab`, homing).
+  - The Augur's timed explosions on the target (`ScepterWeapon`, `FireballExplotion.prefab`, damage initialized as a % of the special's damage).
+  - All tunables are on those weapon components.
+- **Marker:** `TargetMarkerUI` is a triangle on the enemy's world-space canvas, added once in `EnemyBase.prefab` (plus `BossAct1`). It shows **only on a locked target**, so the player can see the lock. `WeaponManager.RefreshLockMarker` shows and hides it directly; gameplay pushes to UI.
+
 ### Run save / load (single slot)
 
 Code is in `Scripts/Saving/`. `RunSaveService` (static) writes `RunSaveData` to `persistentDataPath/run.sav`: plain JSON in the Editor, XOR-obfuscated in builds, written to a temp file and then swapped in.

@@ -23,6 +23,7 @@ namespace Game.GameSettings
         private const string LanguageKeyKey = "Settings.LanguageKey";
         private const string ShowTutorialHintsKey = "Settings.ShowTutorialHints";
         private const string AutoAttackEnabledKey = "Settings.AutoAttackEnabled";
+        private const string LockOnToggleModeKey = "Settings.LockOnToggleMode";
 
         private const float defaultMasterVolume = 1f;
         private const float defaultMusicVolume = 0.7f;
@@ -40,6 +41,7 @@ namespace Game.GameSettings
         private string languageKey;
         private bool showTutorialHints;
         private bool autoAttackEnabled;
+        private bool lockOnToggleMode;
 
         [Header("Developer Tools")]
         [SerializeField] private bool developerCheatsEnabled = true;
@@ -58,6 +60,9 @@ namespace Game.GameSettings
         public event Action<bool> OnShowTutorialHintsChanged;
         public bool AutoAttackEnabled => autoAttackEnabled;
         public event Action<bool> OnAutoAttackChanged;
+        /// <summary>True: the lock-on input toggles the lock (default). False: hold it to lock.</summary>
+        public bool LockOnToggleMode => lockOnToggleMode;
+        public event Action<bool> OnLockOnToggleModeChanged;
         public bool DeveloperCheatsEnabled => developerCheatsEnabled;
 
         protected override void Awake()
@@ -107,6 +112,7 @@ namespace Game.GameSettings
             languageKey = PlayerPrefs.GetString(LanguageKeyKey, defaultLanguageKey);
             showTutorialHints = PlayerPrefs.GetInt(ShowTutorialHintsKey, 1) == 1;
             autoAttackEnabled = PlayerPrefs.GetInt(AutoAttackEnabledKey, 1) == 1;
+            lockOnToggleMode = PlayerPrefs.GetInt(LockOnToggleModeKey, 1) == 1;
         }
 
         public void SaveState()
@@ -123,6 +129,7 @@ namespace Game.GameSettings
             PlayerPrefs.SetString(LanguageKeyKey, languageKey);
             PlayerPrefs.SetInt(ShowTutorialHintsKey, showTutorialHints ? 1 : 0);
             PlayerPrefs.SetInt(AutoAttackEnabledKey, autoAttackEnabled ? 1 : 0);
+            PlayerPrefs.SetInt(LockOnToggleModeKey, lockOnToggleMode ? 1 : 0);
             PlayerPrefs.Save();
         }
 
@@ -206,6 +213,14 @@ namespace Game.GameSettings
             autoAttackEnabled = enabled;
             SaveState();
             OnAutoAttackChanged?.Invoke(autoAttackEnabled);
+        }
+
+        public void SetLockOnToggleMode(bool toggleMode)
+        {
+            if (lockOnToggleMode == toggleMode) return;
+            lockOnToggleMode = toggleMode;
+            SaveState();
+            OnLockOnToggleModeChanged?.Invoke(lockOnToggleMode);
         }
 
         private void ApplyAudio()

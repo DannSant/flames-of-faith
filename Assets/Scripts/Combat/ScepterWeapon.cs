@@ -1,6 +1,9 @@
 using Game.Audio;
 using Game.Combat.Projectiles;
+using Game.Common;
 using Game.Progression;
+using Game.Waves;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +22,20 @@ namespace Game.Combat
         [SerializeField] private float specialProjectileOffset = 0.75f;
         [Tooltip("Radius used to find the closest target for each special projectile, relative to that projectile's own spawn position.")]
         [SerializeField] private float specialAttackTargetSearchRadius = 15f;
+
+        [Header("Special: Explosions On Target")]
+        [Tooltip("Explosion spawned on the marked target during the special. Default: FireballExplotion.")]
+        [SerializeField] private GameObject targetExplosionPrefab;
+        [Tooltip("Seconds between explosions. The first one goes off as soon as the special is cast.")]
+        [SerializeField] private float targetExplosionInterval = 2.5f;
+        [Tooltip("Seconds the explosions keep going after the special is cast.")]
+        [SerializeField] private float targetExplosionDurationBase = 3f;
+        [Tooltip("Extra seconds per point of the Skill Duration stat (same idea as the tornado's LifetimeByStat).")]
+        [SerializeField] private float targetExplosionDurationPerSkillDuration = 1f;
+        [Tooltip("Explosion damage as a fraction of the special's base damage.")]
+        [SerializeField] private float targetExplosionDamageMultiplier = 0.5f;
+
+        private Coroutine targetExplosionsRoutine;
 
         public event System.Action<DamageSourceBase> onScepterAttackLaunched;
         public event System.Action<DamageSourceBase> onScepterSpecialAttackLaunched;
@@ -88,6 +105,56 @@ namespace Game.Combat
             SpawnSpecialProjectile(originPos + Vector2.down * specialProjectileOffset);
             SpawnSpecialProjectile(originPos + Vector2.left * specialProjectileOffset);
             SpawnSpecialProjectile(originPos + Vector2.right * specialProjectileOffset);
+
+            if (targetExplosionPrefab != null)
+            {
+                if (targetExplosionsRoutine != null) StopCoroutine(targetExplosionsRoutine);
+                targetExplosionsRoutine = StartCoroutine(TargetExplosionsRoutine());
+            }
+        }
+
+        /// <summary>
+        /// Every interval, for a fixed duration, explodes on whatever the marked target is at that
+        /// moment (it follows target changes). Ticks with no target are skipped. Time doesn't
+        /// count during a gameplay freeze or the wave-end sequence.
+        /// </summary>
+        private IEnumerator TargetExplosionsRoutine()
+        {
+            float duration = targetExplosionDurationBase
+                + playerProgression.GetStatTotal(StatType.SkillDuration) * targetExplosionDurationPerSkillDuration;
+            float elapsed = 0f;
+            float untilNext = 0f;
+
+            while (elapsed < duration)
+            {
+                bool frozen = GameplayFreeze.IsActive || (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave);
+                if (!frozen)
+                {
+                    if (untilNext <= 0f)
+                    {
+                        SpawnTargetExplosion();
+                        untilNext = targetExplosionInterval;
+                    }
+                    elapsed += Time.deltaTime;
+                    untilNext -= Time.deltaTime;
+                }
+                yield return null;
+            }
+            targetExplosionsRoutine = null;
+        }
+
+        private void SpawnTargetExplosion()
+        {
+            var target = GetMarkedTarget();
+            if (target == null) return;
+
+            var go = Instantiate(targetExplosionPrefab, target.transform.position, Quaternion.identity);
+            var damage = go.GetComponent<DamageSourceBase>();
+            if (damage == null) return;
+
+            int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialWeaponData.baseDamage * targetExplosionDamageMultiplier));
+            damage.Initialize(damageAmount, damage.PierceCount, null, specialWeaponData.weaponClass, specialWeaponData);
+            damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
         }
 
         private void SpawnSpecialProjectile(Vector2 spawnPos)

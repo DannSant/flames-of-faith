@@ -23,6 +23,8 @@ namespace Game.UI
         [Header("Gameplay")]
         [Tooltip("Optional. Mirrors SettingsManager.AutoAttackEnabled, which the Ctrl / RT hotkey also toggles.")]
         [SerializeField] private Toggle autoAttackToggle;
+        [Tooltip("Optional. On: the lock-on input (F / LT) toggles the lock. Off: hold it to lock. Mirrors SettingsManager.LockOnToggleMode.")]
+        [SerializeField] private Toggle lockOnToggleModeToggle;
 
         [Header("Language")]
         [SerializeField] private TMP_Dropdown languageDropdown;
@@ -90,6 +92,7 @@ namespace Game.UI
             qualityDropdown.SetValueWithoutNotify(settings.QualityLevel);
             vsyncToggle.SetIsOnWithoutNotify(settings.VsyncEnabled);
             if (autoAttackToggle != null) autoAttackToggle.SetIsOnWithoutNotify(settings.AutoAttackEnabled);
+            if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.SetIsOnWithoutNotify(settings.LockOnToggleMode);
 
             // Only "English" exists today, so this always resolves to index 0.
             languageDropdown.SetValueWithoutNotify(0);
@@ -105,6 +108,7 @@ namespace Game.UI
             qualityDropdown.onValueChanged.AddListener(OnQualityChanged);
             vsyncToggle.onValueChanged.AddListener(OnVsyncChanged);
             if (autoAttackToggle != null) autoAttackToggle.onValueChanged.AddListener(OnAutoAttackChanged);
+            if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.onValueChanged.AddListener(OnLockOnToggleModeChanged);
             languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
         }
 
@@ -118,6 +122,7 @@ namespace Game.UI
             qualityDropdown.onValueChanged.RemoveListener(OnQualityChanged);
             vsyncToggle.onValueChanged.RemoveListener(OnVsyncChanged);
             if (autoAttackToggle != null) autoAttackToggle.onValueChanged.RemoveListener(OnAutoAttackChanged);
+            if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.onValueChanged.RemoveListener(OnLockOnToggleModeChanged);
             languageDropdown.onValueChanged.RemoveListener(OnLanguageChanged);
         }
 
@@ -160,6 +165,11 @@ namespace Game.UI
         private void OnAutoAttackChanged(bool enabled)
         {
             SettingsManager.Instance?.SetAutoAttackEnabled(enabled);
+        }
+
+        private void OnLockOnToggleModeChanged(bool toggleMode)
+        {
+            SettingsManager.Instance?.SetLockOnToggleMode(toggleMode);
         }
 
         private void OnLanguageChanged(int index)

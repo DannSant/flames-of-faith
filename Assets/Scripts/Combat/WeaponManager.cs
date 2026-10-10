@@ -6,6 +6,7 @@ using Game.Utils;
 using Game.Waves;
 using Game.GameSettings;
 using Game.Scene;
+using Game.UI;
 namespace Game.Combat
 {
     public class WeaponManager :MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady
@@ -21,15 +22,32 @@ namespace Game.Combat
         [Tooltip("Same as above for mouse aim, which is precise enough to need less help. 0 = pure free aim.")]
         [SerializeField] private float aimAssistAngleMouse = 8f;
 
+        [Header("Target Lock")]
+        [Tooltip("Search range when the lock input is pressed with no target, as a multiple of the weapon range.")]
+        [SerializeField] private float lockOnRangeMultiplier = 1f;
+
         private WeaponBase currentWeapon;
         private PlayerHealth playerHealth;
         private PlayerController playerController;
 
+        // The marked target (triangle marker, lock-on, special attacks). Separate from the
+        // weapon's own per-shot target, which manual aim assist can set without marking anything.
+        private EnemyHealth currentTarget;
+        private bool lockActive;
+        // How the current lock was made: toggled locks end when their target dies, held locks
+        // move on to the nearest enemy while the input is still held.
+        private bool lockIsToggled;
+        // The enemy currently showing the lock marker (only a locked target shows it).
+        private EnemyHealth markedEnemy;
 
         public event Action<float, float> OnAttackTimerUpdated;
         public event Action<float, float> OnSpecialAttackTimerUpdated;
+        public event Action<EnemyHealth> OnTargetChanged;
+        public event Action<bool> OnLockChanged;
 
         public bool IsAutoAttackEnabled  { get { return autoAttackEnabled; } private set { autoAttackEnabled = value; } }
+        public EnemyHealth CurrentTarget => currentTarget;
+        public bool IsLockActive => lockActive;
 
         private void Awake()
         {
@@ -73,10 +91,127 @@ namespace Game.Combat
         {
             if (playerHealth != null && playerHealth.IsDead())
             {
+                SetLockActive(false, false);
+                SetCurrentTarget(null);
+                RefreshLockMarker();
                 return;
             }
             ManageAttackTimer();
+            UpdateCurrentTarget();
+            RefreshLockMarker();
             ManageAutoAttack();
+        }
+
+        /// <summary>
+        /// Hold mode: held state of the lock-on input, pushed by PlayerController every frame.
+        /// </summary>
+        public void SetLockHeld(bool held)
+        {
+            if (held == lockActive && !lockIsToggled) return;
+            SetLockActive(held, false);
+        }
+
+        /// <summary>
+        /// Toggle mode: one press of the lock-on input. Locks the current target, or the nearest
+        /// enemy in lock range; does nothing if there's none. Pressed again, it unlocks.
+        /// </summary>
+        public void ToggleLock()
+        {
+            if (lockActive)
+            {
+                SetLockActive(false, false);
+                return;
+            }
+            if (currentWeapon == null) return;
+
+            var target = EnemyTargeting.IsTargetable(currentTarget)
+                ? currentTarget
+                : FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange() * lockOnRangeMultiplier);
+            if (target == null) return;
+
+            SetCurrentTarget(target);
+            SetLockActive(true, true);
+        }
+
+        private void SetLockActive(bool active, bool toggled)
+        {
+            lockIsToggled = active && toggled;
+            if (lockActive == active) return;
+            lockActive = active;
+            OnLockChanged?.Invoke(lockActive);
+        }
+
+        /// <summary>
+        /// Locked: keep the target, even out of range. If it dies, a toggled lock ends and a held
+        /// lock moves to the nearest enemy in lock range.
+        /// Not locked: with auto-attack on the target is the nearest enemy in range (or none),
+        /// and with auto-attack off there is no target.
+        /// </summary>
+        private void UpdateCurrentTarget()
+        {
+            if (currentWeapon == null)
+            {
+                SetCurrentTarget(null);
+                return;
+            }
+
+            float range = currentWeapon.GetWeaponRange();
+            if (lockActive)
+            {
+                if (EnemyTargeting.IsTargetable(currentTarget)) return;
+
+                if (!lockIsToggled)
+                {
+                    SetCurrentTarget(FindClosestEnemyWithinRange(range * lockOnRangeMultiplier));
+                    return;
+                }
+                SetLockActive(false, false);
+            }
+
+            SetCurrentTarget(autoAttackEnabled ? FindClosestEnemyWithinRange(range) : null);
+        }
+
+        private void SetCurrentTarget(EnemyHealth target)
+        {
+            // Unity's null: a destroyed enemy compares equal to null. Normalise it, and compare by
+            // reference so a destroyed current target is still replaced (and the event fires).
+            if (target == null) target = null;
+            if (ReferenceEquals(target, currentTarget)) return;
+
+            currentTarget = target;
+            OnTargetChanged?.Invoke(currentTarget);
+        }
+
+        /// <summary>The marker only shows on a locked target, so the player can see the lock.</summary>
+        private void RefreshLockMarker()
+        {
+            EnemyHealth shouldShow = lockActive ? currentTarget : null;
+            if (shouldShow == null) shouldShow = null;
+            if (ReferenceEquals(shouldShow, markedEnemy)) return;
+
+            SetMarkerVisible(markedEnemy, false);
+            markedEnemy = shouldShow;
+            SetMarkerVisible(markedEnemy, true);
+        }
+
+        private static void SetMarkerVisible(EnemyHealth enemy, bool visible)
+        {
+            if (enemy == null) return;
+            var marker = enemy.GetComponentInChildren<TargetMarkerUI>(true);
+            if (marker == null) return;
+            if (visible) marker.Show(); else marker.Hide();
+        }
+
+        /// <summary>
+        /// The marked target if it can be attacked right now (within weapon range), else null.
+        /// </summary>
+        private EnemyHealth GetMarkedTargetInRange()
+        {
+            if (currentWeapon == null) return null;
+            return EnemyTargeting.IsWithinRange(transform.position, currentTarget, currentWeapon.GetWeaponRange(),
+                currentWeapon.ShouldCompensateForEnemyBodySize)
+                ? currentTarget
+                : null;
         }
 
         private void ManageAutoAttack()
@@ -100,8 +235,9 @@ namespace Game.Combat
                 return;
             }   
             if (autoAttackEnabled && currentWeapon != null && !currentWeapon.IsAttackTimerActive())
-            {               
-                var target = FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange());
+            {
+                // Attacks the marked target, so a locked enemy is the one shot at.
+                var target = GetMarkedTargetInRange();
                 if (target != null)
                 {                    
                     currentWeapon.SetTarget(target);
@@ -142,6 +278,7 @@ namespace Game.Combat
         public void EquipWeapon(WeaponBase weapon)
         {
             currentWeapon = weapon;
+            currentWeapon?.SetTargetProvider(() => currentTarget);
         }
 
         private void ManageAttackTimer()
@@ -165,9 +302,14 @@ namespace Game.Combat
             // from auto-attack can't be used once the enemy is out of range.
             // With auto-attack off the player is aiming, so only an enemy near the aim counts;
             // with none, the target is null and ranged weapons fire freely along the aim.
-            var target = autoAttackEnabled
-                ? FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange())
-                : FindEnemyInAimCone(currentWeapon.GetWeaponRange());
+            // A locked target in range always wins.
+            var target = lockActive ? GetMarkedTargetInRange() : null;
+            if (target == null)
+            {
+                target = autoAttackEnabled
+                    ? FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange())
+                    : FindEnemyInAimCone(currentWeapon.GetWeaponRange());
+            }
             currentWeapon.SetTarget(target);
             currentWeapon.Attack();
         }
