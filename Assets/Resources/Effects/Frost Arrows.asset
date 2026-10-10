@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: 50% chance to inflict Frost in the target which makes them move slower
     and take more damage. Scales with Mastow Affinity(damage and duration)
-  buyPrice: 50
-  sellPrice: 10
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 10
     value: 1

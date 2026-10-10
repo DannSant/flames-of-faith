@@ -18,13 +18,13 @@ MonoBehaviour:
   scalingValue: 1
   description: Special and blessed material that can be used to craft powerful and
     blessed weapons
-  buyPrice: 15
-  sellPrice: 5
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 5
-    value: 1
+    value: 2
     type: 0
   behaviors: []
-  unlockedByDefault: 1
-  quality: 0
+  unlockedByDefault: 0
+  quality: 2
   availableForShop: 1

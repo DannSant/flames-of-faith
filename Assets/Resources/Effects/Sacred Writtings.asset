@@ -20,20 +20,20 @@ MonoBehaviour:
     Crescent Darkness Empire
 
 '
-  buyPrice: 50
-  sellPrice: 15
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers:
   - stat: 0
     value: 0.1
     type: 1
   - stat: 5
-    value: 3
+    value: 2
     type: 0
   - stat: 7
     value: 3
     type: 0
   - stat: 14
-    value: 3
+    value: 1
     type: 0
   behaviors: []
   unlockedByDefault: 0

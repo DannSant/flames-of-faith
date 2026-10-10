@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: Ancient talisman crafted by the army who fough against the Drekos
     during the Dark Age
-  buyPrice: 50
-  sellPrice: 10
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers:
   - stat: 1
     value: 2
@@ -32,5 +32,5 @@ MonoBehaviour:
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 1
+  quality: 3
   availableForShop: 1

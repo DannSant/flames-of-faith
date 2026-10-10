@@ -17,8 +17,8 @@ MonoBehaviour:
   effectName: Malien Blessing Of Protection
   scalingValue: 1
   description: A scroll with ancient holy writtings blessed by the god of light Malien
-  buyPrice: 25
-  sellPrice: 10
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 0
     value: 5

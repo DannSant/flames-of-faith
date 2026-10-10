@@ -20,14 +20,14 @@ MonoBehaviour:
   buyPrice: 25
   sellPrice: 10
   effectStatModifiers:
-  - stat: 3
-    value: 5
-    type: 0
   - stat: 8
     value: 2
     type: 0
   - stat: 18
     value: 3
+    type: 0
+  - stat: 12
+    value: -3
     type: 0
   behaviors: []
   unlockedByDefault: 1

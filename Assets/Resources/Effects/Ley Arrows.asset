@@ -17,7 +17,7 @@ MonoBehaviour:
   effectName: Ley Arrows
   scalingValue: 1
   description: Arrows infused with Ley Energy. Inflict the debuff Energy to the target
-  buyPrice: 50
+  buyPrice: 75
   sellPrice: 15
   effectStatModifiers:
   - stat: 9

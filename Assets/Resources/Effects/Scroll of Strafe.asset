@@ -15,13 +15,13 @@ MonoBehaviour:
   effectID: f432e5fc-d77c-4ced-aef7-e4f17ba18f56
   icon: {fileID: 21300000, guid: b223170de10937143b3d52b7e7cfb899, type: 3}
   effectName: Scroll of Strafe
-  scalingValue: 1
+  scalingValue: 2
   description: 'Skill item. When Dashing you will shoot arrows in random directions
     dealing _ranged_damage_. Skil Duration will increase the reach of the arrows
 
 '
-  buyPrice: 75
-  sellPrice: 25
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: e518b45e6c1ca2a4cb3d3c3b9e0c8b80, type: 2}

@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: ScepterSpecial
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.WeaponData
   attackCooldownBase: 6
-  baseDamage: 20
+  baseDamage: 40
   attackScale: 2
   attackSpeedScale: 0.075
   weaponClass: 3
   rangeBase: 2
+  isRangeBased: 1
+  rangeScale: 0.2
   compensateForEnemyBodySize: 1
   projectilePrefab: {fileID: 5262266157608048503, guid: 5ee4b015a13b18e419212ccd008a63f9, type: 3}
   pierceAmount: 0
@@ -26,5 +28,3 @@ MonoBehaviour:
   graceGenerated: 1
   elementalDebuffData: {fileID: 11400000, guid: d14759c9cd789d541b8813542a28a43f, type: 2}
   projectileAmount: 4
-  isRangeBased: 1
-  rangeScale: 0.2

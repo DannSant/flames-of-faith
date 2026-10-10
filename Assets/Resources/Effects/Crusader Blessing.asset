@@ -17,8 +17,8 @@ MonoBehaviour:
   effectName: Crusader Blessing
   scalingValue: 1
   description: A poweful blessing bested upon your weapon.
-  buyPrice: 50
-  sellPrice: 10
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers:
   - stat: 1
     value: 5
@@ -37,5 +37,5 @@ MonoBehaviour:
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 2
+  quality: 3
   availableForShop: 1

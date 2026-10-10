@@ -17,16 +17,16 @@ MonoBehaviour:
   effectName: Holy Candle
   scalingValue: 1
   description: A candle blessed by the White Church of Ashemdrek
-  buyPrice: 15
-  sellPrice: 5
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers:
   - stat: 6
-    value: 1
+    value: 2
     type: 0
   - stat: 5
     value: 1
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 0
+  quality: 3
   availableForShop: 1

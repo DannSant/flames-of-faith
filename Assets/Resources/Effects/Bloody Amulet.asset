@@ -19,10 +19,8 @@ MonoBehaviour:
   description: 'Powerful amulet created by the Primordials and imbued with forbidden
     blood magic.
 
-    Gives your weapon a chance to inflict Bleed. Bleed causes damage
-    overtime and can stack. When the effect ends, a burst of damage is inflicted
-    to the target'
-  buyPrice: 50
+    Gives your weapon a chance to inflict Bleed.'
+  buyPrice: 75
   sellPrice: 10
   effectStatModifiers:
   - stat: 19

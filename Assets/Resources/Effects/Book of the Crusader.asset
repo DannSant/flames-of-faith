@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: A holy book written in the times of the Chaos Age by the Glenian Crusaders,
     still used today for meditation and holy studies
-  buyPrice: 50
-  sellPrice: 10
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 0
     value: 5

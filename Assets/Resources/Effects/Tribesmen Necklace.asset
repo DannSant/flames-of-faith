@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: Necklace bless by Omiara, crafted by the tribes of the frozen wastes
     of Fara Uf'clario
-  buyPrice: 25
-  sellPrice: 10
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers:
   - stat: 16
     value: 3
@@ -31,9 +31,9 @@ MonoBehaviour:
     value: -5
     type: 0
   - stat: 5
-    value: 2
+    value: 1
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 2
+  quality: 3
   availableForShop: 1

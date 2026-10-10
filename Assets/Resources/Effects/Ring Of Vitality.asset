@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: Blessed ring, it was used by the Paladins of the Order of Light from
     Ashemdrek
-  buyPrice: 50
+  buyPrice: 75
   sellPrice: 15
   effectStatModifiers:
   - stat: 0
@@ -29,5 +29,5 @@ MonoBehaviour:
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 2
+  quality: 3
   availableForShop: 1

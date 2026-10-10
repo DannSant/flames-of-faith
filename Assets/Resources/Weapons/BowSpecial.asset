@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: BowSpecial
   m_EditorClassIdentifier: 
   attackCooldownBase: 4
-  baseDamage: 15
+  baseDamage: 30
   attackScale: 2
   attackSpeedScale: 0.075
   weaponClass: 2
   rangeBase: 10
+  isRangeBased: 1
+  rangeScale: 0.4
   compensateForEnemyBodySize: 1
   projectilePrefab: {fileID: 1399671665664677946, guid: 48af545d34ba78046be1637164035508, type: 3}
   pierceAmount: 10
@@ -26,5 +28,3 @@ MonoBehaviour:
   graceGenerated: 0
   elementalDebuffData: {fileID: 0}
   projectileAmount: 16
-  isRangeBased: 1
-  rangeScale: 0.4

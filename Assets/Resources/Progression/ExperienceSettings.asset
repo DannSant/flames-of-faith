@@ -15,8 +15,9 @@ MonoBehaviour:
   dropChance: 0.8
   fallbackXp: 1
   levelsPerWaveTarget: 1
-  expectedKillRatio: 0.9
+  expectedKillRatio: 0.7
   cooldownBlend: 0.3
+  xpBonusPerReductionPoint: 0.1
   denominations:
   - tier: 1
     promoteChance: 1

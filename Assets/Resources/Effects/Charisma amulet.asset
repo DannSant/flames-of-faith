@@ -18,8 +18,8 @@ MonoBehaviour:
   scalingValue: 1
   description: An elegant jewel, made by the craftsmen of For Shandor in the distant
     south
-  buyPrice: 25
-  sellPrice: 10
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 8
     value: 2
@@ -29,5 +29,5 @@ MonoBehaviour:
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 1
+  quality: 2
   availableForShop: 0

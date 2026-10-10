@@ -28,6 +28,9 @@ MonoBehaviour:
   - stat: 9
     value: 1
     type: 0
+  - stat: 21
+    value: -2
+    type: 0
   behaviors: []
   unlockedByDefault: 1
   quality: 0

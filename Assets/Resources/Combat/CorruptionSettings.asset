@@ -17,14 +17,14 @@ MonoBehaviour:
   maxCorruptedChance: 0.5
   corruptedDamageMultiplier: 1.5
   corruptedHealthBonus: 1
-  corruptedDamagePerCorruption: 10
+  corruptedDamagePerCorruption: 5
   maxCorruptionFromDamage: 5
   gracePickupBaseChance: 0
   gracePickupChancePerAffinity: 0.01
   gracePickupMaxChance: 0.2
   corruptorSpawnTimeout: 3
-  corruptorPhaseDuration: 25
-  corruptorFastKillTime: 8
+  corruptorPhaseDuration: 30
+  corruptorFastKillTime: 15
   corruptorBaseCorruption: 1
   corruptorSecondsPerExtraCorruption: 3
   corruptorMaxCorruption: 5

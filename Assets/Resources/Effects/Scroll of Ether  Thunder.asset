@@ -21,8 +21,8 @@ MonoBehaviour:
 
     More item
     will increase damage done by the thunder'
-  buyPrice: 75
-  sellPrice: 25
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers: []
   behaviors:
   - {fileID: 11400000, guid: faa4dd516a4fd764880afe4835226ef7, type: 2}

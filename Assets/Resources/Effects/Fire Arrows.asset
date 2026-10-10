@@ -18,7 +18,7 @@ MonoBehaviour:
   scalingValue: 1
   description: 50% chance to inflict Fire, which cause damage over time. This scales
     with Mastow Afinity (damage and duration)
-  buyPrice: 50
+  buyPrice: 75
   sellPrice: 15
   effectStatModifiers:
   - stat: 9

@@ -17,8 +17,8 @@ MonoBehaviour:
   effectName: Flaming Skull of Endurance
   scalingValue: 1
   description: A strange ornament that emanates mystic energy.
-  buyPrice: 50
-  sellPrice: 10
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 12
     value: 3

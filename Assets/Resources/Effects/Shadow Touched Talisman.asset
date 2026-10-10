@@ -24,10 +24,13 @@ MonoBehaviour:
     value: 15
     type: 0
   - stat: 6
-    value: -5
+    value: -2
     type: 0
   - stat: 0
-    value: -10
+    value: -5
+    type: 0
+  - stat: 5
+    value: -1
     type: 0
   behaviors: []
   unlockedByDefault: 1

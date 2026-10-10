@@ -26,6 +26,12 @@ MonoBehaviour:
   - stat: 17
     value: 1
     type: 0
+  - stat: 1
+    value: -2
+    type: 0
+  - stat: 19
+    value: -3
+    type: 0
   behaviors: []
   unlockedByDefault: 1
   quality: 1

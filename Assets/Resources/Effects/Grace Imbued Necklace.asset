@@ -17,19 +17,19 @@ MonoBehaviour:
   effectName: Grace Imbued Necklace
   scalingValue: 1
   description: 'An object that has been imbued with Grace. '
-  buyPrice: 50
-  sellPrice: 15
+  buyPrice: 150
+  sellPrice: 50
   effectStatModifiers:
   - stat: 5
-    value: 2
+    value: 1
     type: 0
   - stat: 21
-    value: 4
+    value: 2
     type: 0
   - stat: 2
     value: -3
     type: 0
   behaviors: []
   unlockedByDefault: 1
-  quality: 2
+  quality: 3
   availableForShop: 1

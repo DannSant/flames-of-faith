@@ -19,8 +19,8 @@ MonoBehaviour:
   description: 'Arrows blessed by a poweful spell.
 
 '
-  buyPrice: 50
-  sellPrice: 10
+  buyPrice: 75
+  sellPrice: 15
   effectStatModifiers:
   - stat: 9
     value: 3
