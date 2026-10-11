@@ -15,6 +15,6 @@ MonoBehaviour:
   shootTimes: 3
   projectilesPerShot: 3
   spreadAngle: 90
-  delayBetweenShots: 1.1
+  delayBetweenShots: 1.5
   projectilePrefab: {fileID: 4655842776331200841, guid: 69a64f11f975f6a4993883ef4f461fe5, type: 3}
   sharedStateGroup: {fileID: 11400000, guid: de1b80723b0624d4daf4bce1abfc4ba9, type: 2}

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3280603524707432037}
   - component: {fileID: -4457343864818819078}
-  - component: {fileID: -2379403813331236055}
   - component: {fileID: 4110729191943974511}
   - component: {fileID: -2627870865411151769}
   - component: {fileID: 3647493418415671239}
+  - component: {fileID: -5520533895042943839}
   m_Layer: 0
   m_Name: FireballExplotion
   m_TagString: Untagged
@@ -64,21 +64,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2379403813331236055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5262266157608048503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5401637a4ffd0fc44b05ebe6a12c6d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
-  baseDurationTime: 3
-  durationScalingFactor: 1
-  durationStat: 16
 --- !u!114 &4110729191943974511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveHoming
   speed: 5
   turnSpeed: 180
+  rotateTowardsDirection: 0
 --- !u!58 &3647493418415671239
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -160,6 +146,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1
+--- !u!114 &-5520533895042943839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262266157608048503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f06fd0ff08a544eaf4463bfcac7dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Misc.DestroyAfterTime
+  timeToDestroy: 0.5
+  autoStartTimer: 1
 --- !u!1 &7423261959569150275
 GameObject:
   m_ObjectHideFlags: 0

@@ -85,7 +85,7 @@ MonoBehaviour:
   targetExplosionInterval: 2.5
   targetExplosionDurationBase: 3
   targetExplosionDurationPerSkillDuration: 1
-  targetExplosionDamageMultiplier: 0.5
+  targetExplosionDamageMultiplier: 0.35
 --- !u!1 &9093325744024226945
 GameObject:
   m_ObjectHideFlags: 0
