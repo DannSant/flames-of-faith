@@ -139,6 +139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveLinear
   speed: 10
   rotateTowardsDirection: 1
+  steerTowardsTarget: 1
+  steerTurnRate: 120
+  steerMaxAngleToTarget: 90
 --- !u!114 &-3600171168619345857
 MonoBehaviour:
   m_ObjectHideFlags: 0

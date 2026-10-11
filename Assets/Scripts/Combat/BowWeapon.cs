@@ -42,6 +42,7 @@ namespace Game.Combat
 
         private Vector3 targetPosition;
         private bool hasPendingTarget;
+        private EnemyHealth pendingTarget;
 
         public override void Attack()
         {
@@ -49,6 +50,7 @@ namespace Game.Combat
             {
                 // No target is fine: the arrow is fired along the aim instead (see OnAttackAnimationPlayed).
                 hasPendingTarget = currentTarget != null;
+                pendingTarget = currentTarget;
                 if (hasPendingTarget)
                 {
                     targetPosition = currentTarget.transform.position;
@@ -73,6 +75,14 @@ namespace Game.Combat
         {
           
             Vector2 spawnPos = projectileSpawnTransform.position;
+
+            // Aim where the target is now (it moved during the wind-up); the arrow then steers
+            // toward it in flight. A target that died meanwhile: aim at its last known position.
+            bool targetAlive = hasPendingTarget && EnemyTargeting.IsTargetable(pendingTarget);
+            if (targetAlive)
+            {
+                targetPosition = pendingTarget.transform.position;
+            }
             Vector2 direction = hasPendingTarget
                 ? ((Vector2)targetPosition - spawnPos).normalized
                 : GetFreeAimDirection();
@@ -83,6 +93,11 @@ namespace Game.Combat
 
             var move = go.GetComponent<ProjectileMovementBase>();
             move.Initialize(direction);
+            if (targetAlive)
+            {
+                // Course correction (only if the arrow prefab has steering enabled).
+                move.SetTarget(pendingTarget.transform);
+            }
             if (!hasPendingTarget)
             {
                 // Targeted arrows keep the prefab's lifetime; only free-aim ones are capped to the range.
