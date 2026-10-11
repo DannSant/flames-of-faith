@@ -28,6 +28,8 @@ public static class StatDisplayNameHelper
             StatType.MastowAffinity => "Mastow Affinity",
             StatType.ShopItemDiscount => "Shop Discount",
             StatType.Retribution => "Retribution",
+            StatType.Cleave => "Cleave",
+            StatType.Evasion => "Evasion",
             _ => statType.ToString()
         };
     }

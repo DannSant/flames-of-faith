@@ -65,6 +65,21 @@ namespace Game.Enemies
         [Range(0f, 1f)]
         [SerializeField] private float minDamagePercent = 0.15f;
 
+        [Header("Evasion")]
+        [Tooltip("Evasion points up to which each point gives Per Point Before Soft Cap.")]
+        [Min(0)]
+        [SerializeField] private int evasionSoftCapPoints = 50;
+        [Tooltip("Dodge chance per Evasion point up to the soft cap (0.005 = 0.5%).")]
+        [SerializeField] private float evasionPerPointBeforeSoftCap = 0.005f;
+        [Tooltip("Dodge chance per Evasion point past the soft cap (0.001 = 0.1%).")]
+        [SerializeField] private float evasionPerPointAfterSoftCap = 0.001f;
+        [Tooltip("Highest dodge chance Evasion can reach (0.3 = 30%).")]
+        [Range(0f, 1f)]
+        [SerializeField] private float evasionMaxChance = 0.3f;
+        [Tooltip("Seconds of invulnerability after a dodge, so one dodge isn't followed by an immediate hit.")]
+        [Min(0f)]
+        [SerializeField] private float dodgeInvulnerabilityDuration = 0.3f;
+
         [Header("Limits")]
         [Tooltip("Smallest raw damage an enemy attack with a tier above 0 can deal.")]
         [Min(0f)]
@@ -78,6 +93,23 @@ namespace Game.Enemies
         public float ArmorEffectivenessConstant => armorEffectivenessConstant;
         public float MinDamagePercent => minDamagePercent;
         public float MinDamage => minDamage;
+        public float DodgeInvulnerabilityDuration => dodgeInvulnerabilityDuration;
+
+        /// <summary>Dodge chance (0-1) for an Evasion stat total, using this asset's curve.</summary>
+        public float GetEvasionChance(int evasionStat)
+        {
+            return StatsCalculations.CalculateEvasionChance(evasionStat, evasionSoftCapPoints,
+                evasionPerPointBeforeSoftCap, evasionPerPointAfterSoftCap, evasionMaxChance);
+        }
+
+        /// <summary>Test/tooling hook: replaces the Evasion curve.</summary>
+        public void ConfigureEvasion(int softCapPoints, float perPointBefore, float perPointAfter, float maxChance)
+        {
+            evasionSoftCapPoints = softCapPoints;
+            evasionPerPointBeforeSoftCap = perPointBefore;
+            evasionPerPointAfterSoftCap = perPointAfter;
+            evasionMaxChance = maxChance;
+        }
 
         public static EnemyDamageSettings Instance
         {

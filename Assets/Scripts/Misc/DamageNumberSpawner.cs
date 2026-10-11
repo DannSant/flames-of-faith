@@ -14,6 +14,9 @@ namespace Game.Misc
         [SerializeField] private DamageNumber damageToEnemyMagicNumberPrefab;
         [SerializeField] private DamageNumber damageToPlayerNumberPrefab;
         [SerializeField] private DamageNumber healToPlayerNumberPrefab;
+        [Tooltip("Optional. Shown when the player dodges a hit (Evasion). Falls back to the damage-to-player style.")]
+        [SerializeField] private DamageNumber dodgeNumberPrefab;
+        [SerializeField] private string dodgeText = "Dodge";
         [SerializeField] private DamageNumber graceGainedNumberPrefab;
         [SerializeField] private DamageNumber graceLostNumberPrefab;
         [SerializeField] private DamageNumber corruptionGainedNumberPrefab;
@@ -65,6 +68,13 @@ namespace Game.Misc
             float shown = number > 0f ? Mathf.Max(1f, Mathf.Round(number)) : 0f;
             damageToPlayerNumberPrefab.Spawn(positionTospawn, shown);
         }
+        public void SpawnDodgeNumber(Vector3 positionTospawn)
+        {
+            var prefab = dodgeNumberPrefab != null ? dodgeNumberPrefab : damageToPlayerNumberPrefab;
+            if (prefab == null) return;
+            prefab.Spawn(positionTospawn, dodgeText);
+        }
+
         public void SpawnHealToPlayerNumber(Vector3 positionTospawn, float number)
         {
             healToPlayerNumberPrefab.Spawn(positionTospawn, number);

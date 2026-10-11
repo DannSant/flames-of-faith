@@ -37,4 +37,9 @@ MonoBehaviour:
   - 2
   armorEffectivenessConstant: 25
   minDamagePercent: 0.15
+  evasionSoftCapPoints: 50
+  evasionPerPointBeforeSoftCap: 0.005
+  evasionPerPointAfterSoftCap: 0.001
+  evasionMaxChance: 0.3
+  dodgeInvulnerabilityDuration: 0.3
   minDamage: 0.1

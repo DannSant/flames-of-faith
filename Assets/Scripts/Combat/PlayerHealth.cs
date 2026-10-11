@@ -285,6 +285,14 @@ namespace Game.Combat {
                 return 0f; // The player can't react during a gameplay freeze
             }
 
+            // Evasion: the whole hit is avoided. Returns before onDamageTaken on purpose, so a
+            // dodged hit adds no Corruption, reflects no Retribution and triggers no on-damage
+            // effects. Non-lethal damage (run encounter events) can't be dodged.
+            if (!nonLethal && amount > 0f && TryDodge())
+            {
+                return 0f;
+            }
+
             float finalDamage = ApplyArmor(amount);
             if (finalDamage <= 0f) return 0f; // e.g. an attack with damage tier 0
             if (nonLethal)
@@ -308,6 +316,19 @@ namespace Game.Combat {
                 Die();
             }
             return finalDamage;
+        }
+
+        private bool TryDodge()
+        {
+            if (playerProgression == null) return false;
+
+            var settings = EnemyDamageSettings.Instance;
+            float chance = settings.GetEvasionChance(playerProgression.GetStatTotal(StatType.Evasion));
+            if (chance <= 0f || UnityEngine.Random.value >= chance) return false;
+
+            invulnerableUntilTime = Time.time + settings.DodgeInvulnerabilityDuration;
+            DamageNumberSpawner.Instance?.SpawnDodgeNumber(transform.position);
+            return true;
         }
 
         public void Heal(float amount, bool applyHealingReceivedStat = true)

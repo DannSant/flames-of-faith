@@ -139,6 +139,18 @@ Enemy → player damage is sized against an *expected* player, never the real on
   - `EnemyDamageCalculatorTests` cover the formula with their own settings.
 - Boss abilities still use their own damage (`BossController.GetAbilityDamage`) and aren't part of this system.
 
+### Adding a player stat
+
+- **Append to `StatType`, never insert.** Effect assets, the effects DB (`statModifiersJson`), CharacterData `mainStat` and event `biasStat` store stats by **index**. Run saves store them by **name**, so a rename needs an alias in the load path or saves get deleted.
+- **Add an entry to `Resources/Progression/StatDatabase.asset`.** A stat without one stays at 0, items included. `EvasionAndStatTests` guards this.
+- **Add a display name** in `StatDisplayNameHelper`.
+- **Put the formula in `StatsCalculations`** as a pure function that takes its tunables as parameters. The settings live on an SO; for example, Evasion reads `EnemyDamageSettings.GetEvasionChance`.
+- **Old saves:** `PlayerProgression.LoadState` fills stats missing from a save with their initial value (`StatBackfill`).
+- **Evasion** (index 22) is rolled in `PlayerHealth.TakeDamage` before armor.
+  - Non-lethal event damage can't be dodged.
+  - A dodge returns before `onDamageTaken`, so it adds no Corruption and triggers no Retribution or on-damage effects.
+  - It grants `dodgeInvulnerabilityDuration` and shows `DamageNumberSpawner.SpawnDodgeNumber`.
+
 ### Targeting & lock-on
 
 `WeaponManager` owns the player's **marked target** (`CurrentTarget`, `OnTargetChanged`). This is separate from the weapon's per-shot target (`WeaponBase.currentTarget` / `GetCurrentTarget()`), which manual aim assist can set without marking anything. Player facing and the Sword orbit use the per-shot target.

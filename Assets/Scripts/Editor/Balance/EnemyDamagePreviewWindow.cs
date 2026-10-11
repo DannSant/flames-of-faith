@@ -24,6 +24,7 @@ namespace Game.Editor.Balance
         private bool showCustomPlayer;
         private float customMaxHealth = 60f;
         private float customArmor = 5f;
+        private int customEvasion = 0;
         private Vector2 scroll;
 
         private readonly List<(string label, EnemyData enemy, EnemyDamageKind kind)> enemyColumns = new();
@@ -80,6 +81,8 @@ namespace Game.Editor.Balance
                 EditorGUI.indentLevel++;
                 customMaxHealth = EditorGUILayout.FloatField("Max health", customMaxHealth);
                 customArmor = EditorGUILayout.FloatField("Armor", customArmor);
+                customEvasion = EditorGUILayout.IntField("Evasion", customEvasion);
+                EditorGUILayout.LabelField(" ", $"Dodge chance {settings.GetEvasionChance(customEvasion):P1} (hits survived on average)");
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.HelpBox(
@@ -154,7 +157,8 @@ namespace Game.Editor.Balance
             if (showCustomPlayer)
             {
                 int customHits = EnemyDamageCalculator.SimulateHitsToDie(customMaxHealth, customArmor, raw, settings);
-                text += $" · {customHits}";
+                float dodge = settings.GetEvasionChance(customEvasion);
+                text += dodge > 0f ? $" · {customHits / (1f - dodge):0.#}" : $" · {customHits}";
             }
             GUILayout.Label(text, GUILayout.Width(CellWidth));
         }

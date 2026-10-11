@@ -90,6 +90,26 @@ public static class StatsCalculations
     }
 
     /**
+         * Chance (0-1) to avoid all of an incoming hit, from the Evasion stat. Two linear rates:
+         * perPointBeforeSoftCap for the first softCapPoints, then perPointAfterSoftCap, never
+         * above maxChance. With the defaults: 1 point = 0.5%, 50 = 25%, 100+ = 30%.
+         *
+         * @param evasionStat The player's current Evasion stat total. 0 or less = no chance.
+         * @return The probability that a hit is dodged.
+         */
+    public static float CalculateEvasionChance(int evasionStat, int softCapPoints = 50,
+        float perPointBeforeSoftCap = 0.005f, float perPointAfterSoftCap = 0.001f, float maxChance = 0.3f)
+    {
+        if (evasionStat <= 0) return 0f;
+
+        int beforeSoftCap = Mathf.Min(evasionStat, Mathf.Max(0, softCapPoints));
+        int afterSoftCap = evasionStat - beforeSoftCap;
+        float chance = beforeSoftCap * perPointBeforeSoftCap + afterSoftCap * perPointAfterSoftCap;
+
+        return Mathf.Clamp(chance, 0f, Mathf.Clamp01(maxChance));
+    }
+
+    /**
          * Piecewise reflect-percent curve for the Retribution stat: tier1Rate% per point up to
          * tier1Cap, then tier2Rate% per point up to tier2Cap, then tier3Rate% per point up to the
          * hard cap. Same shape as CalculateShopDiscountMultiplier, extended to three tiers.

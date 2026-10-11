@@ -60,8 +60,8 @@ MonoBehaviour:
     tierValues: 01000000020000000300000004000000
     category: 0
     description: How much your body can control your inner holy power and protects
-      you from corruption each wave. You gain this amount each wave and increase chance
-      to find a Grace pickup
+      you from corruption each wave. You gain this amount each wave and increase
+      chance to find a Grace pickup
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 6
@@ -156,7 +156,7 @@ MonoBehaviour:
     initialValue: 0
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
-    category: 0
+    category: 1
     description: Increases the duration of item skills
     affectedByCorruption: 0
     corruptionReduceFactor: 0
@@ -200,5 +200,14 @@ MonoBehaviour:
     description: Holy force that reflects damage to enemies when they hit you. Deals
       _melee_damage_. Also adds a chance to generate Grace when striking with your
       weapon, primary or secondary attacks
+    affectedByCorruption: 0
+    corruptionReduceFactor: 0
+  - statType: 22
+    initialValue: 0
+    allowLevelUpgrades: 1
+    tierValues: 01000000020000000300000004000000
+    category: 0
+    description: Chance to avoid all damage from a hit. 0.5% per point up to 50 points,
+      then 0.1% per point, up to 30%
     affectedByCorruption: 0
     corruptionReduceFactor: 0

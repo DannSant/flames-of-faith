@@ -190,6 +190,16 @@ public class DeveloperCheats
         }
     }
 
+    [MenuItem("DevTools/Stats/Increase Evasion +10")]
+    public static void IncreaseEvasion()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+        if (playerProgression != null)
+        {
+            playerProgression.UpdateStat(StatType.Evasion, 10);
+        }
+    }
+
     [MenuItem("DevTools/Items/Give Concecrate")]
     public static void GiveholyCross()
     {

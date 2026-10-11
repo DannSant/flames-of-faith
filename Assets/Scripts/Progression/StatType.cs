@@ -25,6 +25,7 @@ namespace Game.Progression {
         MastowAffinity,
         ShopItemDiscount,
         Retribution,
+        Evasion,
     }
 
 }

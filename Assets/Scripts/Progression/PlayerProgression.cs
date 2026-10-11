@@ -6,6 +6,7 @@ using Game.Scene;
 using Game.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Progression {
@@ -206,6 +207,13 @@ namespace Game.Progression {
         {
             statsDirty = true;
             currentStats = new Dictionary<StatType, int>(GameSession.Instance.PlayerData.savedStats);
+
+            // A run saved before a stat existed (e.g. Evasion) lacks it; give it its initial value.
+            if (StatUpgradeDatabase.Instance != null)
+            {
+                StatBackfill.FillMissing(currentStats, StatUpgradeDatabase.Instance.GetStatsConfig()
+                    .Select(s => new KeyValuePair<StatType, int>(s.StatType, s.InitialValue)));
+            }
 
         }
     }
