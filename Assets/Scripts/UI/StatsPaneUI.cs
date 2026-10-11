@@ -160,10 +160,24 @@ namespace Game.UI
             OnStatHovered?.Invoke(stat, shiftHeld);
         }
 
-        private static string FormatEffectSourceLine(Effect effect, int count, StatType stat)
+        private string FormatEffectSourceLine(Effect effect, int count, StatType stat)
         {
             string hex = ColorUtility.ToHtmlStringRGB(EffectQualityDisplayHelper.GetQualityColor(effect.Quality));
             string contribution = FormatStatContribution(effect, count, stat);
+
+            // Stat dependency rules: "+3 from Retribution", using the bonus they give right now.
+            if (effect.HasStatDependencies && playerProgression != null)
+            {
+                var sources = effect.StatDependencies
+                    .Where(r => r != null && r.targetStat == stat)
+                    .Select(r => r.sourceStat)
+                    .Distinct()
+                    .Select(StatDisplayNameHelper.GetDisplayName);
+                float bonus = playerProgression.GetStatDependencyBonus(effect, count, stat);
+                string ruleText = $"{FormatSignedNumber(bonus)} from {string.Join(", ", sources)}";
+                contribution = contribution == "0" ? ruleText : $"{contribution}, {ruleText}";
+            }
+
             return $"<color=#{hex}>{effect.EffectName}</color> ({contribution})";
         }
 

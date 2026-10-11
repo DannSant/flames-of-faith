@@ -23,6 +23,9 @@ namespace Game.Effects{
         [SerializeField] private int sellPrice = 0;
         [Header("Stat Modifiers")]
         [SerializeField] private List<StatModifier> effectStatModifiers = new();
+        [Header("Stat Bonuses")]
+        [Tooltip("Stats that grow with another stat (e.g. every Retribution point: +1 Armor). Starting items only; items with rules never appear in shops or rewards.")]
+        [SerializeField] private List<StatDependencyRule> statDependencies = new();
         [Header("Behaviors")]
         [SerializeField] private List<EffectBehavior> behaviors = new();
         [SerializeField] private bool unlockedByDefault = false;
@@ -41,6 +44,9 @@ namespace Game.Effects{
         public int SellPrice { get => sellPrice; set => sellPrice = value; }
         public List<StatModifier> StatModifiers { get => effectStatModifiers; set => effectStatModifiers = value; }
         public List<EffectBehavior> Behaviors { get => behaviors; set => behaviors = value; }
+        public List<StatDependencyRule> StatDependencies { get => statDependencies; set => statDependencies = value ?? new List<StatDependencyRule>(); }
+        /// <summary>Items with stat dependency rules are starting items only: never sold or rewarded.</summary>
+        public bool HasStatDependencies => statDependencies != null && statDependencies.Count > 0;
         public bool UnlockedByDefault { get => unlockedByDefault; set => unlockedByDefault = value; }
         public EffectQuality Quality { get => quality; set => quality = value; }
         public bool AvailableForShop { get => availableForShop; set => availableForShop = value; }
@@ -112,6 +118,11 @@ namespace Game.Effects{
             // Deserialize stat modifiers           
             StatModifiers = Newtonsoft.Json.JsonConvert.DeserializeObject<List<StatModifier>>(row.statModifiersJson);
 
+            // Null/empty: the row has no rules (or predates the column).
+            StatDependencies = string.IsNullOrEmpty(row.statDependenciesJson)
+                ? new List<StatDependencyRule>()
+                : Newtonsoft.Json.JsonConvert.DeserializeObject<List<StatDependencyRule>>(row.statDependenciesJson);
+
             // Deserialize behaviors
             var behaviorIDs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(row.behaviorsJson);
 
@@ -135,7 +146,37 @@ namespace Game.Effects{
                 result += "\n" + string.Join("\n", modifierLines);
             }
 
+            if (HasStatDependencies)
+            {
+                var ruleLines = statDependencies.Where(r => r != null).Select(BuildDependencyLine);
+                result += "\n" + string.Join("\n", ruleLines);
+            }
+
             return result;
+        }
+
+        // "+1 Armor per Retribution point" / "-1 Attack Speed per 5 Evasion"
+        private static string BuildDependencyLine(StatDependencyRule rule)
+        {
+            string sign = rule.amount >= 0 ? "+" : "";
+            string formattedValue = rule.amount % 1 == 0
+                ? ((int)rule.amount).ToString()
+                : rule.amount.ToString("0.##");
+
+            string target = ColorizeStat(rule.targetStat);
+            string source = ColorizeStat(rule.sourceStat);
+            string per = rule.perPoints <= 1 ? $"per {source} point" : $"per {rule.perPoints} {source}";
+            return $"{sign}{formattedValue} {target} {per}";
+        }
+
+        private static string ColorizeStat(Game.Progression.StatType stat)
+        {
+            string label = StatDisplayNameHelper.GetDisplayName(stat);
+            if (DamageTypeColorHelper.TryGetWeaponClass(stat, out WeaponClass weaponClass))
+            {
+                label = $"<color=#{DamageTypeColorHelper.GetHex(weaponClass)}>{label}</color>";
+            }
+            return label;
         }
 
         private static string BuildModifierLine(StatModifier modifier)

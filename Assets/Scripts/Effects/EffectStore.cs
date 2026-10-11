@@ -232,7 +232,23 @@ namespace Game.Effects
         public IEnumerable<EffectInstance> GetEffectInstancesGrantingStat(StatType statType)
         {
             return activeEffects
-                .Where(ei => ei.effect.StatModifiers.Any(m => m.stat == statType));
+                .Where(ei => ei.effect.StatModifiers.Any(m => m.stat == statType)
+                    || (ei.effect.HasStatDependencies && ei.effect.StatDependencies.Any(r => r != null && r.targetStat == statType)));
+        }
+
+        /// <summary>Every stat dependency rule of the active effects, with how many times each item is owned.</summary>
+        public List<(StatDependencyRule rule, int count)> GetAllStatDependencies()
+        {
+            var list = new List<(StatDependencyRule rule, int count)>();
+            foreach (var ei in activeEffects)
+            {
+                if (!ei.effect.HasStatDependencies) continue;
+                foreach (var rule in ei.effect.StatDependencies)
+                {
+                    if (rule != null) list.Add((rule, ei.count));
+                }
+            }
+            return list;
         }
 
         public List<StatModifier> GetAllStatModifiers()

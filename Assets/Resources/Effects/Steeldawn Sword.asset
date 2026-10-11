@@ -35,6 +35,19 @@ MonoBehaviour:
   - stat: 3
     value: -2
     type: 0
+  statDependencies:
+  - sourceStat: 21
+    perPoints: 1
+    targetStat: 0
+    amount: 1
+  - sourceStat: 21
+    perPoints: 1
+    targetStat: 6
+    amount: 1
+  - sourceStat: 21
+    perPoints: 1
+    targetStat: 3
+    amount: -1
   behaviors: []
   unlockedByDefault: 0
   quality: 4

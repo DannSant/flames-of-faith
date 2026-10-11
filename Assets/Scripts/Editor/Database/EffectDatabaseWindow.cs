@@ -17,6 +17,7 @@ namespace Game.Editor.Database
         private Sprite iconSprite;
         private List<StatModifier> statModifiers = new List<StatModifier>();
         private List<EffectBehavior> behaviors = new List<EffectBehavior>();
+        private List<StatDependencyRule> statDependencies = new List<StatDependencyRule>();
 
         [MenuItem("Tools/Effects/Effect Database")]
         public static void Open()
@@ -48,6 +49,7 @@ namespace Game.Editor.Database
                 selectedRow = new EffectRow();
                 iconSprite = null;
                 statModifiers = new List<StatModifier>();
+                statDependencies = new List<StatDependencyRule>();
                 behaviors = new List<EffectBehavior>();
             }
             GUILayout.EndHorizontal();
@@ -91,7 +93,8 @@ namespace Game.Editor.Database
                             priceSell = row.priceSell,
                             iconKey = row.iconKey,
                             statModifiersJson = row.statModifiersJson,
-                            behaviorsJson = row.behaviorsJson
+                            behaviorsJson = row.behaviorsJson,
+                            statDependenciesJson = row.statDependenciesJson
                         };
                         SelectEffect(row);
                     }
@@ -160,6 +163,21 @@ namespace Game.Editor.Database
             else
             {
                 behaviors = new List<EffectBehavior>();
+            }
+
+            statDependencies = new List<StatDependencyRule>();
+            if (!string.IsNullOrEmpty(selectedRow.statDependenciesJson))
+            {
+                try
+                {
+                    statDependencies = Newtonsoft.Json.JsonConvert
+                        .DeserializeObject<List<StatDependencyRule>>(selectedRow.statDependenciesJson)
+                        ?? new List<StatDependencyRule>();
+                }
+                catch
+                {
+                    statDependencies = new List<StatDependencyRule>();
+                }
             }
 
             Repaint();
@@ -255,6 +273,42 @@ namespace Game.Editor.Database
             EditorGUILayout.SelectableLabel(selectedRow.statModifiersJson, EditorStyles.textArea);
             EditorGUILayout.Space();
 
+            /*Stat bonuses (stat dependency rules)*/
+            GUILayout.Label("Stat Bonuses (every N points of a stat give another stat)", EditorStyles.boldLabel);
+            if (statDependencies.Count > 0)
+            {
+                EditorGUILayout.HelpBox("Items with stat bonuses are starting items only: they never appear in shops, treasures, events or drops.", MessageType.Info);
+            }
+            for (int i = 0; i < statDependencies.Count; i++)
+            {
+                var rule = statDependencies[i];
+                EditorGUILayout.BeginHorizontal("box");
+
+                GUILayout.Label("Every", GUILayout.Width(38));
+                rule.perPoints = Mathf.Max(1, EditorGUILayout.IntField(rule.perPoints, GUILayout.Width(35)));
+                rule.sourceStat = (StatType)EditorGUILayout.EnumPopup(rule.sourceStat, GUILayout.Width(120));
+                GUILayout.Label("→", GUILayout.Width(18));
+                rule.amount = EditorGUILayout.FloatField(rule.amount, GUILayout.Width(50));
+                rule.targetStat = (StatType)EditorGUILayout.EnumPopup(rule.targetStat, GUILayout.Width(120));
+
+                GUI.backgroundColor = Color.red;
+                if (GUILayout.Button("X", GUILayout.Width(25)))
+                {
+                    statDependencies.RemoveAt(i);
+                    GUI.backgroundColor = Color.white;
+                    break;
+                }
+                GUI.backgroundColor = Color.white;
+
+                EditorGUILayout.EndHorizontal();
+            }
+            if (GUILayout.Button("Add Stat Bonus"))
+            {
+                statDependencies.Add(new StatDependencyRule());
+            }
+            EditorGUILayout.SelectableLabel(selectedRow.statDependenciesJson, EditorStyles.textArea);
+            EditorGUILayout.Space();
+
             /*Behaviors data*/
             GUILayout.Label("Behaviors", EditorStyles.boldLabel);
             // Draw the list
@@ -312,6 +366,11 @@ namespace Game.Editor.Database
             }
             selectedRow.behaviorsJson =
                 Newtonsoft.Json.JsonConvert.SerializeObject(behaviorIDs, Formatting.None);
+
+            // Stat bonuses; empty list stored as null so rows without rules stay unchanged.
+            selectedRow.statDependenciesJson = statDependencies.Count > 0
+                ? Newtonsoft.Json.JsonConvert.SerializeObject(statDependencies, Formatting.None)
+                : null;
 
             // Save to DB
             if (selectedRow.id == 0)

@@ -232,6 +232,11 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 4. **`EffectLoader.GenerateAndSaveAllEffects`** — the actual DB→`.asset` generator (menu `Tools/Effects/Generate ScriptableObjects`), run after editing rows so the generated SOs pick up the change; it calls `InitializeFromData` under the hood, so it needs no edits itself, but you must re-run it.
 5. **`EffectDatabaseWindow`** (`Assets/Scripts/Editor/Database/EffectDatabaseWindow.cs`) — the custom `EditorWindow` (`Tools/Effects/Effect Database`) for authoring rows; add a control for the new field in `DrawEditPanel`, mirroring its existing `unlockedByDefault`/`quality` fields.
 
+**Stat bonuses (stat dependency rules, `StatDependencyRule`):** "every N points of stat X give ±amount of stat Y", stored in `EffectRow.statDependenciesJson` and edited under "Stat Bonuses" in the window.
+- `PlayerProgression.RecalculateFinalStats` applies them in a second pass, from the totals before any bonus (corruption included), through the pure `StatDependencyCalculator`. Rules never chain, and one that feeds its own stat just doubles it.
+- Items with rules are **starting items only**: `ShopKeeper` filters them out, and `StatDependencyTests` guards the hand-authored treasure, event and drop lists.
+- The stats pane's Shift view shows them as "(+N from Retribution)".
+
 At runtime, look effects up through **`EffectsDatabaseProvider`**. It loads every `Effect` from `Resources/Effects`, and `GetEffectById` searches available and unlockable effects. The static `EffectsDatabase` class is legacy: the `Resources/Effects/EffectsDatabase` asset it loads doesn't exist, so its lookups return null.
 
 ## Coding conventions

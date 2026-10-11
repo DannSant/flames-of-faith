@@ -31,6 +31,10 @@ namespace Game.Database
 
         // JSON with behaviors list (list of SO GUIDs)
         public string behaviorsJson { get; set; }
+
+        // JSON list of StatDependencyRule (stat bonuses that grow with another stat).
+        // null/empty = no rules, which is also what rows read back before this column existed.
+        public string statDependenciesJson { get; set; }
     }
 
 }

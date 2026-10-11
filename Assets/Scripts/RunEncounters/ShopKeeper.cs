@@ -62,8 +62,9 @@ namespace Game.RunEncounters
 
         private void BuildItemList()
         {
+            // Items with stat dependency rules are starting items only, never sold.
             var availableEffects = EffectsDatabaseProvider.Instance.GetAvailableEffects()
-                .Where(e => e.AvailableForShop)
+                .Where(e => e.AvailableForShop && !e.HasStatDependencies)
                 .ToList();
 
             int luck = playerProgression != null ? playerProgression.GetStatTotal(StatType.Luck) : 0;

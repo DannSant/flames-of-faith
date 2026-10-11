@@ -29,6 +29,7 @@ MonoBehaviour:
   - stat: 6
     value: -2
     type: 0
+  statDependencies: []
   behaviors:
   - {fileID: 11400000, guid: 7d2f4a8c1e9b3054b8a7c2d6f1e05b39, type: 2}
   unlockedByDefault: 1

@@ -33,6 +33,19 @@ MonoBehaviour:
   - stat: 6
     value: -3
     type: 0
+  statDependencies:
+  - sourceStat: 19
+    perPoints: 1
+    targetStat: 16
+    amount: 1
+  - sourceStat: 19
+    perPoints: 1
+    targetStat: 4
+    amount: 1
+  - sourceStat: 19
+    perPoints: 1
+    targetStat: 6
+    amount: -1
   behaviors: []
   unlockedByDefault: 0
   quality: 4

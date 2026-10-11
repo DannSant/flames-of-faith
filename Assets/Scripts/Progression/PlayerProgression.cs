@@ -20,6 +20,8 @@ namespace Game.Progression {
         public event Action onDerivedStatsChanged;
 
         private Dictionary<StatType, float> cachedFinalStats = new();
+        // Stat totals before stat dependency rules: what the rules read from.
+        private readonly Dictionary<StatType, float> preBonusStats = new();
         private bool statsDirty = true;
 
         private EffectStore effectStore;
@@ -84,12 +86,42 @@ namespace Game.Progression {
 
                 // Negative Grace (Corrupted) reduces the stats flagged as affected by corruption
                 cachedFinalStats[stat] = totalBeforeCorruption - GetCorruptionPenalty(stat);
+            }
 
-               
-                
+            // Second pass: stat dependency rules (e.g. every Retribution point: +1 Armor), read
+            // against the totals above. One pass, so a rule never feeds another rule.
+            preBonusStats.Clear();
+            foreach (var pair in cachedFinalStats) preBonusStats[pair.Key] = pair.Value;
+
+            var bonuses = StatDependencyCalculator.CalculateBonuses(preBonusStats, effectStore.GetAllStatDependencies());
+            foreach (var bonus in bonuses)
+            {
+                if (cachedFinalStats.ContainsKey(bonus.Key))
+                {
+                    cachedFinalStats[bonus.Key] += bonus.Value;
+                }
             }
 
             statsDirty = false;
+        }
+
+        /// <summary>
+        /// How much one item's stat dependency rules currently add to <paramref name="stat"/>
+        /// (for the stats pane's sources view). Uses the same pre-bonus totals as the real stat.
+        /// </summary>
+        public float GetStatDependencyBonus(Effect effect, int count, StatType stat)
+        {
+            if (effect == null || !effect.HasStatDependencies) return 0f;
+            if (statsDirty) RecalculateFinalStats();
+
+            float total = 0f;
+            foreach (var rule in effect.StatDependencies)
+            {
+                if (rule == null || rule.targetStat != stat) continue;
+                preBonusStats.TryGetValue(rule.sourceStat, out float source);
+                total += StatDependencyCalculator.CalculateRuleBonus(rule, source, count);
+            }
+            return total;
         }
 
        

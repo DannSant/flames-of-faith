@@ -25,6 +25,7 @@ MonoBehaviour:
   buyPrice: 150
   sellPrice: 50
   effectStatModifiers: []
+  statDependencies: []
   behaviors:
   - {fileID: 11400000, guid: 38c9af3fb2337fe45be3675292059e5e, type: 2}
   unlockedByDefault: 1
