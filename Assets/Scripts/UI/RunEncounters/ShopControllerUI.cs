@@ -26,6 +26,12 @@ namespace Game.UI.RunEncounters
         [Header("Prefab Settings")]
         [SerializeField] private ShopIconUI shopIconPrefab;
 
+        [Header("Leave Confirmation")]
+        [Tooltip("Asks before leaving, since the shop can't be revisited. Without one, Continue leaves directly.")]
+        [SerializeField] private ConfirmDialogUI confirmDialog;
+        [TextArea]
+        [SerializeField] private string leaveShopWarning = "Are you sure you want to leave? You cannot go back to this shop";
+
         private ShopKeeper shopKeeper;
 
         private void Start()
@@ -127,6 +133,18 @@ namespace Game.UI.RunEncounters
         }
 
         public void OnContinueButtonclicked()
+        {
+            if (confirmDialog == null)
+            {
+                LeaveShop();
+                return;
+            }
+            if (confirmDialog.IsOpen) return;
+
+            confirmDialog.Show(leaveShopWarning, LeaveShop);
+        }
+
+        private void LeaveShop()
         {
             WaveSpawner.Instance.GoToNextLevel();
         }

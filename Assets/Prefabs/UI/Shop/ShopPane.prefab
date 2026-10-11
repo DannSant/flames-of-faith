@@ -426,6 +426,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5023040741104249823}
+  - {fileID: 393490502844365023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37367088, y: 0.23900001}
@@ -459,6 +460,8 @@ MonoBehaviour:
   effectNameText: {fileID: 1344897252700653386}
   effectDescriptionText: {fileID: 2471449846821498460}
   shopIconPrefab: {fileID: 7611171358737864847, guid: 71dc9458b75865b4f9b1140dc78729cd, type: 3}
+  confirmDialog: {fileID: 2978266636016006171}
+  leaveShopWarning: Are you sure you want to leave? You cannot go back to this shop
 --- !u!1 &1348997722809810411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Navigation.UIWindow
   role: 0
+  openMode: 0
   priority: 10
   focusMode: 0
   blocksGameplayInput: 1
@@ -2100,6 +2104,119 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 425223727744121445, guid: 71dc9458b75865b4f9b1140dc78729cd, type: 3}
   m_PrefabInstance: {fileID: 221330679932408535}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &630658613473467309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8357046227063843304}
+    m_Modifications:
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 904.5396
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 277.319
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -141
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 183
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395805549177619993, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+      propertyPath: m_Name
+      value: ConfirmDialogUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+--- !u!224 &393490502844365023 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 987828931386631026, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+  m_PrefabInstance: {fileID: 630658613473467309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2978266636016006171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2419665634850893750, guid: 70270e48a059f9f48bf007626e802a86, type: 3}
+  m_PrefabInstance: {fileID: 630658613473467309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c23bf5086ba2b249938c5323c34e8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.ConfirmDialogUI
 --- !u!1001 &2169249298085327929
 PrefabInstance:
   m_ObjectHideFlags: 0
