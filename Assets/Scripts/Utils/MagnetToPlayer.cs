@@ -14,14 +14,35 @@ namespace Game.Utils {
         private Transform playerTransform;
         private PlayerProgression playerProgression;
         private BasePickup pickupObject;
+        private bool forceAttract;
+        private float forcedSpeed;
+
         private void Start()
-        {         
+        {
             playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             pickupObject = GetComponent<BasePickup>();
         }
+
+        /// <summary>
+        /// From now on, fly to the player at <paramref name="speed"/> from any distance
+        /// (e.g. collecting every XP gem at the end of a level).
+        /// </summary>
+        public void ForceAttract(float speed)
+        {
+            forceAttract = true;
+            forcedSpeed = Mathf.Max(moveSpeed, speed);
+        }
+
         private void Update()
         {
+            if (forceAttract)
+            {
+                if (playerTransform == null) return;
+                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, forcedSpeed * Time.deltaTime);
+                return;
+            }
+
             if (!ShouldPullTowardsPlayer()) return;
 
             float distance = Vector2.Distance(transform.position, playerTransform.position);

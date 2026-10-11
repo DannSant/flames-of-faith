@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Control;
+using Game.Progression;
 using Game.Scene;
 using System;
 using System.Collections;
@@ -9,6 +10,12 @@ namespace Game.Waves
 {
     public class WaveEndSequenceController : MonoBehaviour
     {
+        [Header("Last Wave: Collect Experience")]
+        [Tooltip("On the level's last wave, every XP gem left flies to the player at this speed before the summary.")]
+        [SerializeField] private float xpCollectSpeed = 18f;
+        [Tooltip("Longest the gems get to reach the player. Any still out after this are granted instantly.")]
+        [SerializeField] private float xpCollectMaxDuration = 1.2f;
+
         private EnemySpawnCoordinator enemySpawnCoordinator;
         private CorruptorResult corruptorResult;
 
@@ -83,8 +90,17 @@ namespace Game.Waves
                 Destroy(proj.gameObject);
             }
 
-            // Wait for the enemies to be fully destroyed
-            yield return new WaitForSeconds(1f);
+            // Last wave of the level: the gems would be lost with the level, so collect them all
+            // as a reward. The killed enemies' gems exist by now. Other waves keep their gems.
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.IsLastWaveOfLevel)
+            {
+                yield return CollectAllExperienceRoutine();
+            }
+            else
+            {
+                // Wait for the enemies to be fully destroyed
+                yield return new WaitForSeconds(1f);
+            }
 
             // Let the wave summary finish before moving on to rewards
             float waitedForSummary = 0f;
@@ -99,6 +115,24 @@ namespace Game.Waves
             InvokeOnWaveComplete();
             endingWave = false;
             endSequenceCoroutine = null;
+        }
+
+        private IEnumerator CollectAllExperienceRoutine()
+        {
+            ExperienceToken.AttractAll(xpCollectSpeed);
+
+            float elapsed = 0f;
+            // At least a short beat even with no gems, like the wait this replaces.
+            float minDuration = Mathf.Min(0.5f, xpCollectMaxDuration);
+            while (elapsed < xpCollectMaxDuration && (elapsed < minDuration || ExperienceToken.CountInScene() > 0))
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            // Anything that didn't make it (blocked, or the player can't collect right now) is granted anyway.
+            var playerXP = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<PlayerExperience>() : null;
+            ExperienceToken.CollectAllInstantly(playerXP);
         }
 
         // Grace + Grace Affinity - Corruption gathered this wave becomes the new Grace, then Corruption resets

@@ -114,6 +114,7 @@ XP needed per level is a fixed curve, `PlayerExperience.GetXPRequired` = `10 × 
 - **Denominations:** `DropExperienceOnDeathBehavior` rolls `dropChance`. The token starts at tier 1, then for each tier up to `EnemyData.xpTier` it rolls that tier's `promoteChance` and stops at the first failure. The token is worth `baseXp × multiplier` and uses the tier's sprite (`ExperienceToken.Setup`). Enhanced tokens are bonus XP on top of the target, which is deliberate.
 - `EnemyData.xpBase`/`xpPerLevel` are gone. `xpTier` (default 1) decides which denominations an enemy can drop.
 - Enemies still alive at wave end are killed by the end sequence and drop tokens too.
+- **Last wave of a level** (`WaveSpawner.IsLastWaveOfLevel`, not `WaveDatabase.lastWave`, which marks the game's last level): `WaveEndSequenceController.CollectAllExperienceRoutine` pulls every token to the player (`MagnetToPlayer.ForceAttract`) before the summary. Tokens still out after `xpCollectMaxDuration` are granted instantly. On other waves, tokens stay into the next wave.
 - `logWaveXpDebug` logs expected vs actual spawns, drops and XP for every wave, after the end sequence.
 
 ### Enemy damage (reworked Oct 2026)

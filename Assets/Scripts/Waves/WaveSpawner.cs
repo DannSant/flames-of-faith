@@ -63,6 +63,8 @@ namespace Game.Waves {
         private float experienceDroppedThisWave;
 
         public int CurrentWaveIndex => currentWaveIndex;
+        /// <summary>The current wave is the level's last one (not the game's last level; see WaveDatabase.lastWave).</summary>
+        public bool IsLastWaveOfLevel => waveDatabase != null && WaveProgress.IsLastWave(currentWaveIndex, waveDatabase.waves.Count);
         public bool WaveInProgress => waveInProgress;
         public bool EndingWave => waveEndSequenceController != null && waveEndSequenceController.EndingWave;
         // XP of a regular experience token during the current wave. 0 when no wave has started.
