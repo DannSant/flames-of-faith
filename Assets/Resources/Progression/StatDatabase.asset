@@ -18,7 +18,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 050000000a0000000f00000014000000
     category: 0
-    description: Max amount of health points of the player
+    description: "Your maximum health."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: _melee_damage_ caused by Melee weapons or some skills
+    description: "Adds _melee_damage_ to melee weapons, melee skills and Retribution."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 2
@@ -34,8 +34,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases cooldown reduction of your auto attack and special attack
-      (R Click)
+    description: "Shortens the cooldown of your basic attack and your special attack. Negative values make them slower."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 3
@@ -43,7 +42,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Max speed which you can move
+    description: "How fast you move."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 4
@@ -51,7 +50,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases cooldown reduction of your Dash skill
+    description: "Makes your dash recharge faster."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 5
@@ -59,9 +58,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: How much your body can control your inner holy power and protects
-      you from corruption each wave. You gain this amount each wave and increase
-      chance to find a Grace pickup
+    description: "Your bond with holy power. At the end of every wave you gain this much Grace, and enemies are more likely to drop Grace pickups."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 6
@@ -69,9 +66,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Reduces all damage received by a percentage, with each point worth
-      slightly less than the last. Damage can never be reduced below 15% of its original
-      amount.
+    description: "Reduces all damage you take. Each point is worth slightly less than the last, and a hit can never be reduced below a minimum. Negative Armor makes you take more damage."
     affectedByCorruption: 1
     corruptionReduceFactor: 1
   - statType: 7
@@ -79,7 +74,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Reduces the required experience to level up
+    description: "Enemies drop more experience, so you level up faster."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 8
@@ -87,9 +82,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases the chance to find higher tier upgrades when leveling
-      up. Also increases chance to find objects on enemies and improves the quality
-      of items you can find in the shop
+    description: "Improves your odds: better upgrade tiers when you level up, more and better items in the shop, and better outcomes in events."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 9
@@ -97,8 +90,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: _ranged_damage_ increases damage of projectile weapons and skills
-      that spawn projectiles.
+    description: "Adds _ranged_damage_ to projectile weapons and to skills that shoot projectiles."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 10
@@ -106,8 +98,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases range in which you detect enemies. Only works for Range
-      based weapons
+    description: "How far your weapon reaches and targets enemies. Only affects weapons that use Attack Range."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 11
@@ -115,8 +106,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Lets your projectiles pierce more enemies before they break. Arrows
-      also get a chance to split on hit into a weaker arrow
+    description: "Lets your projectiles pass through more enemies before they break. Arrows also get a chance to split on hit into a weaker arrow."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 12
@@ -124,7 +114,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: _magic_damage_ increases damage done by Magic weapons and some skills.
+    description: "Adds _magic_damage_ to magic weapons and some skills."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 13
@@ -132,8 +122,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Causes damage to enemies around you when you use your auto attack.
-      Only affects Melee weapons.
+    description: "Each basic attack also hits every enemy around you for this much damage. Melee weapons only."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 14
@@ -141,7 +130,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Regenerates health over time.
+    description: "Heals you over time. Not affected by Healing Received."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 15
@@ -149,7 +138,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: 'Chance to heal 1 health when dealing damage. '
+    description: "Gives your hits a chance to heal you. More points raise both the chance and the amount healed."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 16
@@ -157,7 +146,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Increases the duration of item skills
+    description: "Makes skills and item effects (tornados, flames, explosions...) last longer."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 18
@@ -165,7 +154,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Increases the range to pickup items
+    description: "Pickups start flying to you from further away."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 19
@@ -173,7 +162,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Increases the strength and duration of debuffs and conditions
+    description: "Makes the elemental debuffs you inflict (Fire, Frost, Bleed, Ley Charge) stronger and last longer."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 17
@@ -181,7 +170,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Increases the healing amount received. Does not work on regeneration
+    description: "Adds this much health to every heal you receive, except regeneration."
     affectedByCorruption: 1
     corruptionReduceFactor: 1
   - statType: 20
@@ -189,7 +178,7 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Decrease price of items in the shop
+    description: "Lowers shop prices. Points past the soft cap are worth half as much."
     affectedByCorruption: 0
     corruptionReduceFactor: 1
   - statType: 21
@@ -197,9 +186,7 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Holy force that reflects damage to enemies when they hit you. Deals
-      _melee_damage_. Also adds a chance to generate Grace when striking with your
-      weapon, primary or secondary attacks
+    description: "Holy force that reflects part of the damage you take back at the attacker as _melee_damage_. Your hits also have a chance to give you Grace, with a cooldown."
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 22
@@ -207,7 +194,6 @@ MonoBehaviour:
     allowLevelUpgrades: 1
     tierValues: 01000000020000000300000004000000
     category: 0
-    description: Chance to avoid all damage from a hit. 0.5% per point up to 50 points,
-      then 0.1% per point, up to 30%
+    description: "Chance to avoid all damage from a hit. Points past 50 are worth less."
     affectedByCorruption: 0
     corruptionReduceFactor: 0

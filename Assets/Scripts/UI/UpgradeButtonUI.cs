@@ -12,6 +12,8 @@ namespace Game.UI
     {
         private int upgradeAmount;
         private StatType statToUpgrade;
+        // "Now / After" text pushed by the selection UI (computed by gameplay); null if none.
+        private string benefitPreview;
         private Button upgradeButton;
         private GeneralTooltipPaneUI generalTooltipPaneUI;
 
@@ -30,10 +32,11 @@ namespace Game.UI
             OnUpgradeSelected = null;
         }
 
-        public void Initialize(int amount, StatType stat)
+        public void Initialize(int amount, StatType stat, string benefitPreview = null)
         {
             this.upgradeAmount = amount;
             this.statToUpgrade = stat;
+            this.benefitPreview = benefitPreview;
             SetupUI();
 
             generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
@@ -84,7 +87,9 @@ namespace Game.UI
 
             string statName = StatDisplayNameHelper.GetDisplayName(statToUpgrade);
             string description = StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade);
-            generalTooltipPaneUI?.ShowTooltip(description, statName);
+            // The "Now / After" preview goes in the tooltip's second panel, like the stats pane's benefit line.
+            string preview = string.IsNullOrEmpty(benefitPreview) ? null : $"<color=#F2C14E>{benefitPreview}</color>";
+            generalTooltipPaneUI?.ShowTooltip(description, statName, preview);
         }
 
         private void HideTooltip()

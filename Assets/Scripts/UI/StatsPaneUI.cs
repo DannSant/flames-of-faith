@@ -30,6 +30,9 @@ namespace Game.UI
         [SerializeField] private Color selectedStatColor;       
 
         private PlayerProgression playerProgression;
+
+        // Color of the computed stat benefit line in the tooltip.
+        private const string BenefitColorHex = "F2C14E";
         private PlayerInputHandler inputHandler;
         private GeneralTooltipPaneUI generalTooltipPaneUI;
 
@@ -66,7 +69,7 @@ namespace Game.UI
             UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
             {
-                upgradeManager.OnUpgradeOptionsAvailable += ShowStatsWindow;
+                upgradeManager.OnUpgradeOptionsAvailable += HandleUpgradeOptionsAvailable;
             }
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if ((waveSpawner!=null))
@@ -97,7 +100,7 @@ namespace Game.UI
             UpgradeManager upgradeManager = UpgradeManager.Instance;
             if (upgradeManager != null)
             {
-                upgradeManager.OnUpgradeOptionsAvailable -= ShowStatsWindow;
+                upgradeManager.OnUpgradeOptionsAvailable -= HandleUpgradeOptionsAvailable;
 
             }
             WaveSpawner waveSpawner = WaveSpawner.Instance;
@@ -146,8 +149,19 @@ namespace Game.UI
             string statName = StatDisplayNameHelper.GetDisplayName(stat);
             string description = StatUpgradeDatabase.Instance.GetStatDescription(stat);
 
+            // The second panel shows one of two things: the concrete benefit right now ("17% less
+            // damage taken", same formulas as gameplay) by default, or, while Shift is held, the
+            // items granting the stat. The benefit isn't available on the overworld map.
             string sourcesText = null;
-            if (shiftHeld)
+            if (!shiftHeld)
+            {
+                string benefit = playerProgression != null ? playerProgression.GetStatBenefitText(stat) : null;
+                if (!string.IsNullOrEmpty(benefit))
+                {
+                    sourcesText = $"<color=#{BenefitColorHex}>{benefit}</color>";
+                }
+            }
+            else
             {
                 var effectStore = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<EffectStore>() : null;
                 var grantingEffects = effectStore != null ? effectStore.GetEffectInstancesGrantingStat(stat).ToList() : new List<EffectInstance>();
@@ -287,6 +301,8 @@ namespace Game.UI
             displayCategory = category;
             ShowStatsWindow(null);
         }
+
+        private void HandleUpgradeOptionsAvailable(List<List<StatValuePair>> choices, Func<StatType, int, string> _) => ShowStatsWindow(choices);
 
         public void ShowStatsWindow(List<List<StatValuePair>> _)
         {

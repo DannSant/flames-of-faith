@@ -4,6 +4,7 @@ using Game.GameSettings;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI coinsGainedText;
 
         private List<List<StatValuePair>> upgradeChoiceGroups;
+        // Pushed by UpgradeManager with the choices: (stat, amount) -> benefit preview text.
+        private Func<StatType, int, string> upgradePreviewProvider;
         private int currentChoiceIndex = 0;
 
         private PlayerProgression playerProgression;
@@ -75,10 +78,11 @@ namespace Game.UI
             mainPanel.SetActive(value);
         }
 
-        private void ShowUpgradeChoices(List<List<StatValuePair>> choices)
+        private void ShowUpgradeChoices(List<List<StatValuePair>> choices, Func<StatType, int, string> previewProvider)
         {
           
             upgradeChoiceGroups = choices;
+            upgradePreviewProvider = previewProvider;
             currentChoiceIndex = 0;
             TogglePanel(true);
             ShowCurrentChoice();
@@ -101,7 +105,8 @@ namespace Game.UI
             foreach (StatValuePair statPair in upgradeChoiceGroups[currentChoiceIndex])
             {
                 UpgradeButtonUI button = Instantiate(upgradeButtonPrefab, mainPanel.transform);
-                button.Initialize(statPair.value, statPair.statType);
+                string preview = upgradePreviewProvider?.Invoke(statPair.statType, statPair.value);
+                button.Initialize(statPair.value, statPair.statType, preview);
                 button.OnUpgradeSelected += HandleUpgradeSelected;
             }
         }

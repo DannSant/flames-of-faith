@@ -129,6 +129,71 @@ namespace Game.Progression {
         /// <summary>
         /// How much negative Grace (Corrupted) currently reduces a stat. 0 while Grace is 0 or above.
         /// </summary>
+        /// <summary>
+        /// What the stat gives right now ("17% less damage taken"), or null for stats with nothing
+        /// to compute. Pass <paramref name="points"/> to preview another value (level-up choices).
+        /// </summary>
+        public string GetStatBenefitText(StatType stat, int? points = null)
+        {
+            return StatBenefitDescriber.Describe(stat, points ?? GetStatTotal(stat), BuildStatBenefitContext());
+        }
+
+        /// <summary>
+        /// The settings and player components behind the stat formulas, so the descriptions use
+        /// exactly the numbers gameplay uses.
+        /// </summary>
+        public StatBenefitContext BuildStatBenefitContext()
+        {
+            var ctx = new StatBenefitContext
+            {
+                damageSettings = Game.Enemies.EnemyDamageSettings.Instance,
+                pierceSettings = PierceSettings.Instance,
+                statSettings = PlayerStatSettings.Instance,
+                experienceSettings = ExperienceSettings.Instance,
+                corruptionSettings = CorruptionSettings.Instance,
+                meleeDamage = GetStatTotal(StatType.MeleeDamage),
+            };
+
+            var weapon = GetComponent<WeaponManager>()?.GetCurrentWeapon();
+            var weaponData = weapon != null ? weapon.GetWeaponData() : null;
+            if (weaponData != null)
+            {
+                ctx.hasWeapon = true;
+                ctx.attackCooldownBase = weaponData.attackCooldownBase;
+                ctx.attackSpeedScale = weaponData.attackSpeedScale;
+                ctx.weaponUsesRange = weaponData.isRangeBased;
+                ctx.rangeBase = weaponData.rangeBase;
+                ctx.rangeScale = weaponData.rangeScale;
+
+                var specialData = weapon.GetSpecialWeaponData();
+                if (specialData != null)
+                {
+                    ctx.hasSpecial = true;
+                    ctx.specialCooldownBase = specialData.attackCooldownBase;
+                    ctx.specialAttackSpeedScale = specialData.attackSpeedScale;
+                }
+            }
+
+            var dash = GetComponent<Game.Control.DashBase>();
+            if (dash != null) ctx.dashCooldownBase = dash.DashCooldownBase;
+
+            var controller = GetComponent<Game.Control.PlayerController>();
+            if (controller != null)
+            {
+                ctx.moveSpeedBase = controller.BaseMoveSpeed;
+                ctx.moveSpeedScale = controller.BaseMoveScale;
+            }
+
+            var retribution = GetComponent<RetributionHandler>();
+            if (retribution != null)
+            {
+                ctx.hasRetribution = true;
+                ctx.retribution = retribution.Curve;
+            }
+
+            return ctx;
+        }
+
         public float GetCorruptionPenalty(StatType stat)
         {
             if (playerGrace == null || !playerGrace.IsCorrupted || StatUpgradeDatabase.Instance == null)

@@ -94,6 +94,7 @@ namespace Game.Enemies
         public float MinDamagePercent => minDamagePercent;
         public float MinDamage => minDamage;
         public float DodgeInvulnerabilityDuration => dodgeInvulnerabilityDuration;
+        public float EvasionMaxChance => evasionMaxChance;
 
         /// <summary>Dodge chance (0-1) for an Evasion stat total, using this asset's curve.</summary>
         public float GetEvasionChance(int evasionStat)

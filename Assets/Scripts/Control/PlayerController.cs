@@ -16,6 +16,8 @@ namespace Game.Control
         [SerializeField] private float defaultMoveSpeed = 1f;
         [SerializeField] private float baseMoveSpeed = 5f;
         [SerializeField] private float baseMoveScale = 0.25f;
+        public float BaseMoveSpeed => baseMoveSpeed;
+        public float BaseMoveScale => baseMoveScale;
         [Tooltip("Right-stick magnitude needed before it overrides the facing direction.")]
         [SerializeField] private float aimDeadzone = 0.25f;
         [Tooltip("Debug: while attack is held, logs whatever is stopping the primary attack each time it changes.")]

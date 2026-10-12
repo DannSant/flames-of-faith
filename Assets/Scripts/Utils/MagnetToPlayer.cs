@@ -8,8 +8,6 @@ namespace Game.Utils {
     public class MagnetToPlayer : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 5f;
-        [SerializeField] private float baseRange = 2f;
-        [SerializeField] private float statScale = 0.1f;
 
         private Transform playerTransform;
         private PlayerProgression playerProgression;
@@ -46,8 +44,8 @@ namespace Game.Utils {
             if (!ShouldPullTowardsPlayer()) return;
 
             float distance = Vector2.Distance(transform.position, playerTransform.position);
-            float additionalRange = playerProgression.GetStatTotal(StatType.PickupRange) * statScale;
-            float totalRange = baseRange + additionalRange;
+            // Range numbers live on PlayerStatSettings (shared with the Pickup Range tooltip).
+            float totalRange = PlayerStatSettings.Instance.GetPickupRange(playerProgression.GetStatTotal(StatType.PickupRange));
             if (distance <= totalRange)
             {
                 Vector2 direction = (playerTransform.position - transform.position).normalized;

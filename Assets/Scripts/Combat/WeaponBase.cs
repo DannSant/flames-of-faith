@@ -211,6 +211,7 @@ namespace Game.Combat
             specialWeaponData != null && specialWeaponData.compensateForEnemyBodySize;
 
         public WeaponData GetWeaponData() => weaponData;
+        public WeaponData GetSpecialWeaponData() => specialWeaponData;
 
         public virtual bool IsAttackTimerActive() => attackTimer.GetIsEventActive();
         public virtual bool IsSpecialAttackTimerActive() => specialAttackTimer.GetIsEventActive();

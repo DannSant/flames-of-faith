@@ -147,6 +147,16 @@ Enemy → player damage is sized against an *expected* player, never the real on
 - **Add a display name** in `StatDisplayNameHelper`.
 - **Put the formula in `StatsCalculations`** as a pure function that takes its tunables as parameters. The settings live on an SO; for example, Evasion reads `EnemyDamageSettings.GetEvasionChance`.
 - **Old saves:** `PlayerProgression.LoadState` fills stats missing from a save with their initial value (`StatBackfill`).
+- **Add a benefit line** in `StatBenefitDescriber`, or list the stat in `StatBenefitTests.StatsWithoutComputedBenefit`; a guard test fails otherwise.
+  - The tooltip shows the static description from `StatDatabase` plus that computed line, e.g. "Take 28.6% less damage".
+  - Keep numbers out of the static text, so it can't drift from the formulas.
+
+**Stat descriptions:** `StatBenefitDescriber.Describe(stat, points, StatBenefitContext)` is pure and uses the same formulas as gameplay.
+- The context is built on the gameplay side by `PlayerProgression.BuildStatBenefitContext` from the settings SOs and player components (weapon data, dash, movement, `RetributionHandler.Curve`).
+- `StatsPaneUI` shows the line in the tooltip's second panel (`GeneralTooltipPaneUI` sources section). While Shift is held, that panel shows the items granting the stat instead.
+- Level-up choices show "Now / After": `UpgradeManager.OnUpgradeOptionsAvailable` pushes a preview function along with the choices, per the UI rule.
+- **Formerly hardcoded numbers live on `PlayerStatSettings`** (`Resources/Progression/PlayerStatSettings.asset`): Health Regen, Life Steal, dash recovery scale, shop discount caps, pickup range, and the level-up tier weights for Luck.
+- **Negative speed stats:** attack and dash speed divide by at least 0.1 (`StatsCalculations.SafeSpeedDivisor`). Large negative Attack Speed used to wrap around into near-instant attacks; it now slows them down by at most 10×.
 - **Evasion** (index 22) is rolled in `PlayerHealth.TakeDamage` before armor.
   - Non-lethal event damage can't be dodged.
   - A dodge returns before `onDamageTaken`, so it adds no Corruption and triggers no Retribution or on-damage effects.

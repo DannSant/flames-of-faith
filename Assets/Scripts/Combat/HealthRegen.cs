@@ -39,10 +39,10 @@ namespace Game.Combat
             bool waveEnding = WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave;
             if (waveEnding || GameplayFreeze.IsActive) return;
            
-            float hpRegen = playerProgression.GetStatTotal(StatType.HealthRegen);
-            if (hpRegen <= 0f) return;
+            int hpRegen = playerProgression.GetStatTotal(StatType.HealthRegen);
+            if (hpRegen <= 0) return;
 
-            float interval = CalculateHealInterval(hpRegen);
+            float interval = PlayerStatSettings.Instance.GetRegenInterval(hpRegen);
             regenTimer += Time.deltaTime;
 
             if (regenTimer >= interval)
@@ -67,12 +67,6 @@ namespace Game.Combat
                 return levelSettings.LevelData;
             }
             return null;
-        }
-
-        private float CalculateHealInterval(float hpRegen)
-        {
-            if (hpRegen <= 0f) return Mathf.Infinity;
-            return 5f / (1f + ((hpRegen - 1f) / 2.25f));
         }
     }
         

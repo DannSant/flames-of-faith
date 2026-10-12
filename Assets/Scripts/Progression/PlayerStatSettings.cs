@@ -1,0 +1,113 @@
+using UnityEngine;
+
+namespace Game.Progression
+{
+    /// <summary>
+    /// Tunable numbers behind player stats that used to be hardcoded in gameplay scripts. Gameplay
+    /// and the stat tooltips (StatBenefitDescriber) read the same values, so they can't drift.
+    /// Loaded from Resources/Progression/PlayerStatSettings.
+    /// </summary>
+    [CreateAssetMenu(fileName = "PlayerStatSettings", menuName = "Progression/Player Stat Settings")]
+    public class PlayerStatSettings : ScriptableObject
+    {
+        private const string ResourcePath = "Progression/PlayerStatSettings";
+
+        [Header("Health Regen")]
+        [Tooltip("Seconds between each 1 HP healed at 1 point of Health Regen.")]
+        [Min(0.01f)]
+        [SerializeField] private float regenBaseInterval = 5f;
+        [Tooltip("Interval = base / (1 + (points - 1) / this). Lower = each point speeds regen up more.")]
+        [Min(0.01f)]
+        [SerializeField] private float regenIntervalDivisor = 2.25f;
+
+        [Header("Life Steal")]
+        [Tooltip("Chance to heal on a hit with 1+ Life Steal, before the per-point bonus (0.2 = 20%).")]
+        [Range(0f, 1f)]
+        [SerializeField] private float lifestealBaseChance = 0.2f;
+        [Tooltip("Extra chance per Life Steal point (0.01 = 1%).")]
+        [SerializeField] private float lifestealChancePerPoint = 0.01f;
+        [Tooltip("Health healed per Life Steal point, clamped between the min and max below.")]
+        [SerializeField] private float lifestealHealPerPoint = 0.1f;
+        [SerializeField] private float lifestealMinHeal = 1f;
+        [SerializeField] private float lifestealMaxHeal = 20f;
+
+        [Header("Dash Recovery")]
+        [Tooltip("Dash cooldown = base / (1 + points × this).")]
+        [Min(0f)]
+        [SerializeField] private float dashCooldownScalePerPoint = 0.08f;
+
+        [Header("Shop Discount")]
+        [Tooltip("1% off per point up to this many points, then 0.5% per point.")]
+        [Min(0)]
+        [SerializeField] private int shopDiscountSoftCap = 50;
+        [Tooltip("Points beyond this give no more discount.")]
+        [Min(0)]
+        [SerializeField] private int shopDiscountHardCap = 80;
+
+        [Header("Pickup Range")]
+        [Tooltip("Distance at which pickups start flying to the player, with 0 Pickup Range.")]
+        [Min(0f)]
+        [SerializeField] private float pickupBaseRange = 2f;
+        [Tooltip("Extra pickup distance per Pickup Range point.")]
+        [Min(0f)]
+        [SerializeField] private float pickupRangePerPoint = 0.1f;
+
+        [Header("Luck: Level-up Upgrade Tiers")]
+        [Tooltip("Base chance weight of each upgrade tier (1-4). Each Luck point moves 1 from tier 1, split evenly over tiers 2-4.")]
+        [SerializeField] private float[] upgradeTierBaseChances = { 80f, 10f, 8f, 2f };
+
+        private static PlayerStatSettings instance;
+
+        public float RegenBaseInterval => regenBaseInterval;
+        public float RegenIntervalDivisor => regenIntervalDivisor;
+        public float LifestealBaseChance => lifestealBaseChance;
+        public float LifestealChancePerPoint => lifestealChancePerPoint;
+        public float LifestealHealPerPoint => lifestealHealPerPoint;
+        public float LifestealMinHeal => lifestealMinHeal;
+        public float LifestealMaxHeal => lifestealMaxHeal;
+        public float DashCooldownScalePerPoint => dashCooldownScalePerPoint;
+        public int ShopDiscountSoftCap => shopDiscountSoftCap;
+        public int ShopDiscountHardCap => shopDiscountHardCap;
+        public float PickupBaseRange => pickupBaseRange;
+        public float PickupRangePerPoint => pickupRangePerPoint;
+        public float[] UpgradeTierBaseChances => upgradeTierBaseChances;
+
+        public static PlayerStatSettings Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = Resources.Load<PlayerStatSettings>(ResourcePath);
+                    if (instance == null)
+                    {
+                        Debug.LogWarning($"PlayerStatSettings not found at Resources/{ResourcePath}. Falling back to default values.");
+                        instance = CreateInstance<PlayerStatSettings>();
+                    }
+                }
+                return instance;
+            }
+        }
+
+        public float GetRegenInterval(int points) =>
+            StatsCalculations.CalculateHealthRegenInterval(points, regenBaseInterval, regenIntervalDivisor);
+
+        public float GetLifestealChance(int points) =>
+            StatsCalculations.CalculateLifestealChance(points, lifestealBaseChance, lifestealChancePerPoint);
+
+        public float GetLifestealHeal(int points) =>
+            StatsCalculations.CalculateLifestealHeal(points, lifestealHealPerPoint, lifestealMinHeal, lifestealMaxHeal);
+
+        public float GetDashCooldown(int points, float baseCooldown) =>
+            StatsCalculations.CalculateDashCooldown(points, baseCooldown, dashCooldownScalePerPoint);
+
+        public float GetShopDiscountMultiplier(int points) =>
+            StatsCalculations.CalculateShopDiscountMultiplier(points, shopDiscountSoftCap, shopDiscountHardCap);
+
+        public float GetPickupRange(int points) =>
+            StatsCalculations.CalculatePickupRange(points, pickupBaseRange, pickupRangePerPoint);
+
+        public float[] GetUpgradeTierChances(int luck) =>
+            StatsCalculations.CalculateUpgradeTierChances(luck, upgradeTierBaseChances);
+    }
+}

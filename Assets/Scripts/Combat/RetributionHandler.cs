@@ -10,6 +10,23 @@ namespace Game.Combat
     /// the attacker, and rolling a chance to generate Grace whenever the equipped weapon lands a
     /// hit. See <see cref="PlayerHealth.onDamageTaken"/> and <see cref="WeaponBase.OnWeaponDamageDealt"/>.
     /// </summary>
+    /// <summary>The numbers behind Retribution, for the stat tooltip (same values gameplay uses).</summary>
+    public struct RetributionCurve
+    {
+        public float damageTier1Cap, damageTier2Cap, damageHardCap;
+        public float damageTier1Rate, damageTier2Rate, damageTier3Rate;
+        public float meleeDamageScaling;
+        public float graceTier1Cap, graceHardCap, graceTier1Rate, graceTier2Rate;
+        public int graceGeneratedAmount;
+        public float graceGainCooldown;
+
+        public float GetReflectPercent(int points) => StatsCalculations.CalculateRetributionDamagePercent(
+            points, damageTier1Cap, damageTier2Cap, damageHardCap, damageTier1Rate, damageTier2Rate, damageTier3Rate);
+
+        public float GetGraceChance(int points) => StatsCalculations.CalculateRetributionGraceChance(
+            points, graceTier1Cap, graceHardCap, graceTier1Rate, graceTier2Rate);
+    }
+
     public class RetributionHandler : MonoBehaviour
     {
         [Header("Damage Reflection")]
@@ -33,6 +50,17 @@ namespace Game.Combat
 
         private PlayerHealth playerHealth;
         private PlayerProgression playerProgression;
+
+        public RetributionCurve Curve => new RetributionCurve
+        {
+            damageTier1Cap = damageTier1Cap, damageTier2Cap = damageTier2Cap, damageHardCap = damageHardCap,
+            damageTier1Rate = damageTier1Rate, damageTier2Rate = damageTier2Rate, damageTier3Rate = damageTier3Rate,
+            meleeDamageScaling = meleeDamageScaling,
+            graceTier1Cap = graceTier1Cap, graceHardCap = graceHardCap,
+            graceTier1Rate = graceTier1Rate, graceTier2Rate = graceTier2Rate,
+            graceGeneratedAmount = graceGeneratedAmount,
+            graceGainCooldown = graceGainCooldown,
+        };
         private PlayerGrace playerGrace;
         private WeaponBase subscribedWeapon;
         private float nextGraceGainTime;

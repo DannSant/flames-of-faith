@@ -11,10 +11,10 @@ public static class StatDisplayNameHelper
             StatType.MeleeDamage => "Melee Damage",
             StatType.AttackSpeed => "Attack Speed",
             StatType.MoveSpeed => "Move Speed",
-            StatType.DashCooldown => "Dash Recovery speed",
+            StatType.DashCooldown => "Dash Recovery",
             StatType.GraceAffinity => "Grace Affinity",
             StatType.Armor => "Armor",
-            StatType.ExperienceToLevelUpReduction => "Experience Reduction",
+            StatType.ExperienceToLevelUpReduction => "Experience Gain", // makes drops bigger, see WaveExperienceCalculator
             StatType.Luck => "Luck",
             StatType.RangedDamage => "Ranged Damage",
             StatType.MagicDamage => "Magic Damage",

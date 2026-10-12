@@ -17,7 +17,8 @@ namespace Game.Progression
         private int lastRecordedLevel = 1;
         private int levelsGainedThisWave = 0;
 
-        public event Action<List<List<StatValuePair>>> OnUpgradeOptionsAvailable;
+        // The second argument previews a choice: (stat, amount) -> "Now: ... / After: ..." text, or null.
+        public event Action<List<List<StatValuePair>>, Func<StatType, int, string>> OnUpgradeOptionsAvailable;
         public event Action OnNoUpgradeAvailable;       
 
         private PlayerProgression playerProgression;
@@ -85,19 +86,9 @@ namespace Game.Progression
 
         private int RollUpgradeTier(StatType stat)
         {
-            float[] baseChances = new float[] { 80f, 10f, 8f, 2f }; // Tiers 1–4
-
+            // Tier weights shifted by Luck; numbers live on PlayerStatSettings (shared with the tooltip).
             int luck = playerProgression.GetStatTotal(StatType.Luck);
-
-            // Adjust tier 1
-            baseChances[0] = Mathf.Max(0f, baseChances[0] - luck);
-
-            // Distribute the subtracted % across tiers 2–4
-            float gainPerTier = luck / 3f;
-            for (int i = 1; i < baseChances.Length; i++)
-            {
-                baseChances[i] += gainPerTier;
-            }
+            float[] baseChances = PlayerStatSettings.Instance.GetUpgradeTierChances(luck);
 
             // Build cumulative weights
             float total = baseChances.Sum();
@@ -154,7 +145,23 @@ namespace Game.Progression
                 upgradeChoiceGroups.Add(upgradeOptions);
             }
 
-            OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups);
+            OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups, GetUpgradePreview);
+        }
+
+        /// <summary>
+        /// "Now / After" benefit text for picking +amount of a stat, or null for stats with nothing
+        /// to compute. Evaluated when the choice is shown, so earlier picks are already included.
+        /// The preview adds the points directly; % item bonuses and stat bonus rules aren't applied.
+        /// </summary>
+        private string GetUpgradePreview(StatType stat, int amount)
+        {
+            if (playerProgression == null) return null;
+
+            int current = playerProgression.GetStatTotal(stat);
+            string now = playerProgression.GetStatBenefitText(stat, current);
+            string after = playerProgression.GetStatBenefitText(stat, current + amount);
+            if (string.IsNullOrEmpty(now) || string.IsNullOrEmpty(after)) return null;
+            return $"Now: {now}\nAfter: {after}";
         }
 
         public void OnNoUpgradeOptionAvailable()

@@ -125,7 +125,7 @@ namespace Game.RunEncounters
         public int GetDiscountedPrice(Effect effect)
         {
             int discountStat = playerProgression != null ? playerProgression.GetStatTotal(StatType.ShopItemDiscount) : 0;
-            float multiplier = StatsCalculations.CalculateShopDiscountMultiplier(discountStat);
+            float multiplier = PlayerStatSettings.Instance.GetShopDiscountMultiplier(discountStat);
             return Mathf.Max(0, Mathf.RoundToInt(effect.BuyPrice * multiplier));
         }
 

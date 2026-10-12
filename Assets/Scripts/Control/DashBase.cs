@@ -14,6 +14,7 @@ namespace Game.Control
     public abstract class DashBase : MonoBehaviour, IDependentStateLoader
     {
         [SerializeField] protected float dashCooldownBase = 2f;
+        public float DashCooldownBase => dashCooldownBase;
         [SerializeField] protected float dashSpeed = 3f;
         [SerializeField] protected float dashDuration = .2f;
         [SerializeField] protected int maxCharges = 1;
@@ -196,7 +197,7 @@ namespace Game.Control
 
         protected virtual void RecalculateCooldownDuration()
         {
-            float dashCooldown = StatsCalculations.CalculateDashCooldown(playerProgression.GetStatTotal(StatType.DashCooldown), dashCooldownBase);
+            float dashCooldown = PlayerStatSettings.Instance.GetDashCooldown(playerProgression.GetStatTotal(StatType.DashCooldown), dashCooldownBase);
             dashCooldownTimer.SetEventDuration(dashCooldown);
         }
 

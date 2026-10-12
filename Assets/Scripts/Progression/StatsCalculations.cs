@@ -30,10 +30,19 @@ public static class StatsCalculations
          */
     public static float CalculateAttackDelay(int attackSpeed, float baseAttackDelay, float scale)
     {
-
-        float delay = baseAttackDelay / (1f + (attackSpeed * scale));
+        float delay = baseAttackDelay / SafeSpeedDivisor(attackSpeed * scale);
         return Mathf.Max(delay, MIN_ATTACK_DELAY);
     }
+
+    // 1 + bonus, but never below 0.1: with enough negative stat the divisor used to hit 0 or go
+    // negative, which turned a huge slowdown into an (almost) instant attack/dash. Now negative
+    // stats slow things down by at most 10x.
+    private static float SafeSpeedDivisor(float bonus)
+    {
+        return Mathf.Max(MIN_SPEED_DIVISOR, 1f + bonus);
+    }
+
+    private const float MIN_SPEED_DIVISOR = 0.1f;
 
     /**
      * Calculates the move speed based on the move speed stat and base move speed.
@@ -52,9 +61,64 @@ public static class StatsCalculations
 
     public static float CalculateDashCooldown(int dashCooldownStat, float baseDashCooldown, float scale=0.08f)
     {
-
-        float cooldown = baseDashCooldown / (1f + (dashCooldownStat * scale));
+        float cooldown = baseDashCooldown / SafeSpeedDivisor(dashCooldownStat * scale);
         return Mathf.Max(cooldown, MIN_ATTACK_DELAY);
+    }
+
+    /**
+         * Seconds between each 1 HP healed by Health Regen: base / (1 + (points - 1) / divisor).
+         * 0 or less = no regen (infinity). Defaults: 1 point = 5 s, 3 = 3.1 s, 5 = 2.2 s.
+         */
+    public static float CalculateHealthRegenInterval(int regenStat, float baseInterval = 5f, float divisor = 2.25f)
+    {
+        if (regenStat <= 0) return Mathf.Infinity;
+        return baseInterval / (1f + (regenStat - 1f) / Mathf.Max(0.01f, divisor));
+    }
+
+    /** Chance (0-1) that a hit heals, from Life Steal. 0 points = never. */
+    public static float CalculateLifestealChance(int lifestealStat, float baseChance = 0.2f, float chancePerPoint = 0.01f)
+    {
+        if (lifestealStat <= 0) return 0f;
+        return Mathf.Clamp01(baseChance + chancePerPoint * lifestealStat);
+    }
+
+    /** Health healed by one Life Steal proc: points × healPerPoint, clamped to [min, max]. */
+    public static float CalculateLifestealHeal(int lifestealStat, float healPerPoint = 0.1f, float minHeal = 1f, float maxHeal = 20f)
+    {
+        if (lifestealStat <= 0) return 0f;
+        return Mathf.Clamp(lifestealStat * healPerPoint, minHeal, maxHeal);
+    }
+
+    /** Distance at which pickups fly to the player: base + points × perPoint (never below 0). */
+    public static float CalculatePickupRange(int pickupRangeStat, float baseRange = 2f, float rangePerPoint = 0.1f)
+    {
+        return Mathf.Max(0f, baseRange + pickupRangeStat * rangePerPoint);
+    }
+
+    /**
+         * Chance (0-100) of each level-up upgrade tier. Each Luck point moves 1 from tier 1 to the
+         * other tiers, split evenly; the result is normalized to 100.
+         */
+    public static float[] CalculateUpgradeTierChances(int luck, float[] baseChances)
+    {
+        if (baseChances == null || baseChances.Length == 0) return new float[0];
+
+        // Same as the original UpgradeManager roll: tier 1 loses `luck` (not below 0) and every
+        // other tier gains luck / (tiers - 1), even once tier 1 is empty.
+        var chances = (float[])baseChances.Clone();
+        float luckPoints = Mathf.Max(0, luck);
+        chances[0] = Mathf.Max(0f, chances[0] - luckPoints);
+        if (chances.Length > 1)
+        {
+            float perTier = luckPoints / (chances.Length - 1);
+            for (int i = 1; i < chances.Length; i++) chances[i] += perTier;
+        }
+
+        float total = 0f;
+        foreach (float c in chances) total += Mathf.Max(0f, c);
+        if (total <= 0f) return chances;
+        for (int i = 0; i < chances.Length; i++) chances[i] = Mathf.Max(0f, chances[i]) / total * 100f;
+        return chances;
     }
 
     /**
