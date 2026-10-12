@@ -200,7 +200,7 @@ namespace Game.Scene
         {
             foreach (var stat in data.stats)
             {
-                if (!Enum.TryParse(stat.stat, out StatType _))
+                if (!StatTypeNames.TryParse(stat.stat, out StatType _))
                 {
                     Debug.LogWarning($"[RunSave] Unknown stat '{stat.stat}' in the save.");
                     return false;
@@ -239,7 +239,7 @@ namespace Game.Scene
 
             foreach (var stat in data.stats)
             {
-                if (Enum.TryParse(stat.stat, out StatType statType))
+                if (StatTypeNames.TryParse(stat.stat, out StatType statType))
                 {
                     playerData.savedStats[statType] = stat.value;
                 }

@@ -5,6 +5,7 @@ using Game.Misc;
 using Game.Progression;
 using Game.Scene;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Combat
@@ -122,7 +123,8 @@ namespace Game.Combat
 
         private void TryApplyDamage(Collider2D collision)
         {
-            if (collision == null) return;          
+            if (collision == null) return;
+            if (ignoredTargets != null && ignoredTargets.Contains(collision.gameObject)) return;
 
             // IDamageable check (enemy, etc.)
             IDamageable damageable = collision.GetComponent<IDamageable>();
@@ -256,6 +258,18 @@ namespace Game.Combat
         public void SetElementalDebuffData(ElementalDebuffData debuffData) => directElementalDebuffData = debuffData;
 
         public void SetBaseDamage(int value) => baseDamage = value;
+        public int BaseDamage => baseDamage;
+
+        // Targets this source never damages, e.g. the enemy a split arrow broke off from (it spawns
+        // inside that enemy's collider and would otherwise hit it again immediately).
+        private HashSet<GameObject> ignoredTargets;
+
+        public void IgnoreTarget(GameObject target)
+        {
+            if (target == null) return;
+            ignoredTargets ??= new HashSet<GameObject>();
+            ignoredTargets.Add(target);
+        }
         public void SetWeaponClass(WeaponClass wc) => weaponClass = wc;
         public void SetAttackScale(float scale) => attackScale = scale;
         public void EnableTriggerEnter(bool enabled) => useTriggerEnter = enabled;

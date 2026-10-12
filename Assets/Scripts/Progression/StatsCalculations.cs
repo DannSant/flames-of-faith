@@ -110,6 +110,27 @@ public static class StatsCalculations
     }
 
     /**
+         * Extra enemies a projectile pierces from the Pierce stat: points × perPoint, rounded down
+         * (default 0.25 = one more enemy every 4 points). 0 or less = none.
+         */
+    public static int CalculateExtraPierce(int pierceStat, float extraPiercePerPoint = 0.25f)
+    {
+        if (pierceStat <= 0 || extraPiercePerPoint <= 0f) return 0;
+        // Small epsilon so 4 × 0.25 can't land on 0.99999 and round down to 0.
+        return Mathf.FloorToInt(pierceStat * extraPiercePerPoint + 0.0001f);
+    }
+
+    /**
+         * Chance (0-1) for a linear arrow to split when it hits, from the Pierce stat:
+         * points × chancePerPoint, never above maxChance.
+         */
+    public static float CalculateSplitChance(int pierceStat, float chancePerPoint = 0.03f, float maxChance = 0.4f)
+    {
+        if (pierceStat <= 0) return 0f;
+        return Mathf.Clamp(pierceStat * chancePerPoint, 0f, Mathf.Clamp01(maxChance));
+    }
+
+    /**
          * Piecewise reflect-percent curve for the Retribution stat: tier1Rate% per point up to
          * tier1Cap, then tier2Rate% per point up to tier2Cap, then tier3Rate% per point up to the
          * hard cap. Same shape as CalculateShopDiscountMultiplier, extended to three tiers.

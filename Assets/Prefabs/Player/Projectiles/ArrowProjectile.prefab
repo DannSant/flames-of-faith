@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3907891743662037269}
   - component: {fileID: -3600171168619345857}
   - component: {fileID: -9035687851212520077}
+  - component: {fileID: 7311908642113207301}
   m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Untagged
@@ -274,3 +275,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7311908642113207301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399671665664677946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931b3632c7e24967b819ca7ed4041a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileSplitOnHit

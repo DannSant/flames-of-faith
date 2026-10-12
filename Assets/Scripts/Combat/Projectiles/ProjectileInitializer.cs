@@ -34,7 +34,7 @@ namespace Game.Combat.Projectiles
             //int statDamage =  playerProgression.GetStatTotal(StatType.RangedDamage);
 
             //int damage = statDamage;         
-            int pierce = infinitePierce ? 9999 :  playerProgression.GetStatTotal(StatType.PierceAmount);
+            int pierce = infinitePierce ? 9999 :  PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
 
 
             // Initialize and launch

@@ -159,7 +159,7 @@ namespace Game.Combat
 
         private void SpawnSpecialProjectile(Vector2 spawnPos)
         {
-            int pierceAmount = specialWeaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
+            int pierceAmount = specialWeaponData.pierceAmount + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
             EnemyHealth target = EnemyTargeting.FindClosest(
                 spawnPos, specialAttackTargetSearchRadius, ShouldSpecialCompensateForEnemyBodySize);
             Vector2 direction = target != null

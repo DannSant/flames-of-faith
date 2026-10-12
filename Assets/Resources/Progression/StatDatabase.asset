@@ -115,8 +115,8 @@ MonoBehaviour:
     allowLevelUpgrades: 0
     tierValues: 01000000020000000300000004000000
     category: 1
-    description: Increases the amount of targets that your weapon projectiles can
-      pierce before they are destroyed
+    description: Lets your projectiles pierce more enemies before they break. Arrows
+      also get a chance to split on hit into a weaker arrow
     affectedByCorruption: 0
     corruptionReduceFactor: 0
   - statType: 12

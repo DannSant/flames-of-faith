@@ -152,6 +152,14 @@ Enemy → player damage is sized against an *expected* player, never the real on
   - A dodge returns before `onDamageTaken`, so it adds no Corruption and triggers no Retribution or on-damage effects.
   - It grants `dodgeInvulnerabilityDuration` and shows `DamageNumberSpawner.SpawnDodgeNumber`.
 
+### Pierce (reworked Oct 2026)
+
+`StatType.Pierce` (index 11, formerly `PierceAmount`; old saves load through `StatTypeNames`). Tunables are on `PierceSettings` (`Resources/Combat/PierceSettings.asset`).
+- **Extra targets:** `floor(points × 0.25)`, added to the weapon's own `pierceAmount`. Used by Bow primary/special/barrage and the Scepter special. The Augur's basic fireball ignores the stat.
+- **Split arrows:** `ProjectileSplitOnHit`, only on linear arrow prefabs (`ArrowProjectile`, `ArrowEffectProjectile`).
+  - Each enemy hit has a 3%-per-point chance (capped at 40%) to clone the arrow at half damage, in a random direction.
+  - The clone has a single hit, a capped travel distance, no steering, and ignores the enemy it split from (`DamageSourceBase.IgnoreTarget`). Split arrows never split again.
+
 ### Targeting & lock-on
 
 `WeaponManager` owns the player's **marked target** (`CurrentTarget`, `OnTargetChanged`). This is separate from the weapon's per-shot target (`WeaponBase.currentTarget` / `GetCurrentTarget()`), which manual aim assist can set without marking anything. Player facing and the Sword orbit use the per-shot target.

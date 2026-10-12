@@ -18,7 +18,7 @@ public static class StatDisplayNameHelper
             StatType.Luck => "Luck",
             StatType.RangedDamage => "Ranged Damage",
             StatType.MagicDamage => "Magic Damage",
-            StatType.PierceAmount => "Pierce Targets",
+            StatType.Pierce => "Pierce",
             StatType.HealthRegen => "Health Regen",
             StatType.LifeSteal => "Life Steal",
             StatType.SkillDuration => "Skill Duration",

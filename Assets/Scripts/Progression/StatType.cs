@@ -14,7 +14,7 @@ namespace Game.Progression {
         Luck,
         RangedDamage,
         Range,
-        PierceAmount,
+        Pierce, // was PierceAmount (saves map the old name via StatTypeNames)
         MagicDamage,
         Cleave,
         HealthRegen,

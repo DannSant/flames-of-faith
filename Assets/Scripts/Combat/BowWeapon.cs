@@ -87,7 +87,7 @@ namespace Game.Combat
                 ? ((Vector2)targetPosition - spawnPos).normalized
                 : GetFreeAimDirection();
 
-            int pierceAmount = weaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
+            int pierceAmount = weaponData.pierceAmount + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
 
             var go = Instantiate(weaponData.projectilePrefab, spawnPos, Quaternion.identity);
 
@@ -121,7 +121,7 @@ namespace Game.Combat
             Vector2 spawnPos = transform.position;
 
             //int damageAmount = specialWeaponData.baseDamage + playerProgression.GetStatTotal(StatType.RangedDamage) * specialWeaponData.attackScale;
-            int pierceAmount = specialWeaponData.pierceAmount + playerProgression.GetStatTotal(StatType.PierceAmount);
+            int pierceAmount = specialWeaponData.pierceAmount + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
 
             for (int i = 0; i < numProjectiles; i++)
             {
@@ -154,7 +154,7 @@ namespace Game.Combat
         private IEnumerator BarrageRoutine(EnemyHealth target)
         {
             int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialWeaponData.baseDamage * barrageDamageMultiplier));
-            int pierceAmount = barragePierce + playerProgression.GetStatTotal(StatType.PierceAmount);
+            int pierceAmount = barragePierce + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
             Vector2 lastTargetPosition = target.transform.position;
 
             for (int i = 0; i < barrageArrowCount; i++)
