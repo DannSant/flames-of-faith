@@ -244,4 +244,15 @@ public static class StatsCalculations
 
         return percent / 100f;
     }
+
+    /// <summary>
+    /// Main stat points earned going from <paramref name="previousLevel"/> to <paramref name="newLevel"/>
+    /// at +1 every <paramref name="levelsPerPoint"/> levels. Counts by level number rather than by
+    /// level-ups seen, so the cadence holds whatever level it starts observing from.
+    /// </summary>
+    public static int CalculateMainStatPointsEarned(int previousLevel, int newLevel, int levelsPerPoint)
+    {
+        if (levelsPerPoint <= 0 || newLevel <= previousLevel) return 0;
+        return newLevel / levelsPerPoint - previousLevel / levelsPerPoint;
+    }
 }

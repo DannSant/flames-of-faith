@@ -142,7 +142,7 @@ Enemy → player damage is sized against an *expected* player, never the real on
 
 ### Adding a player stat
 
-- **Append to `StatType`, never insert.** Effect assets, the effects DB (`statModifiersJson`), CharacterData `mainStat` and event `biasStat` store stats by **index**. Run saves store them by **name**, so a rename needs an alias in the load path or saves get deleted.
+- **Append to `StatType`, never insert.** Effect assets, the effects DB (`statModifiersJson`), the Emblem level-up behaviors (`MainStatOnLevelUpBehavior.stat`) and event `biasStat` store stats by **index**. Run saves store them by **name**, so a rename needs an alias in the load path or saves get deleted.
 - **Add an entry to `Resources/Progression/StatDatabase.asset`.** A stat without one stays at 0, items included. `EvasionAndStatTests` guards this.
 - **Add a display name** in `StatDisplayNameHelper`.
 - **Put the formula in `StatsCalculations`** as a pure function that takes its tunables as parameters. The settings live on an SO; for example, Evasion reads `EnemyDamageSettings.GetEvasionChance`.

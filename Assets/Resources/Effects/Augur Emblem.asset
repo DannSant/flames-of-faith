@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Augur Emblem
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 870718d3-9567-4d83-bd8e-6f2fa62b3f10
+  icon: {fileID: 21300000, guid: 917c46c67b3f5aa41b173a3001cd70a1, type: 3}
+  effectName: Augur Emblem
+  scalingValue: 1
+  description: 'Emblem of the Augurs of Akeros. Every level gained grants +1 _magic_damage_.
+
+'
+  buyPrice: 0
+  sellPrice: 0
+  effectStatModifiers: []
+  statDependencies:
+  - sourceStat: 19
+    perPoints: 1
+    targetStat: 16
+    amount: 1
+  - sourceStat: 19
+    perPoints: 1
+    targetStat: 4
+    amount: 1
+  - sourceStat: 19
+    perPoints: 1
+    targetStat: 6
+    amount: -1
+  behaviors:
+  - {fileID: 11400000, guid: a1a3769affb3437780e84abc4f36185a, type: 2}
+  unlockedByDefault: 0
+  quality: 4
+  availableForShop: 0
+  tier: 0
+  startingOnly: 1
