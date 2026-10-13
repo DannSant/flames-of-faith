@@ -38,6 +38,13 @@ namespace Game.Combat
         [Header("Pierce")]
         [SerializeField] private bool enablePierce = false;
         [SerializeField] private int pierceCount = 1;
+        [Tooltip("Add the Pierce stat's extra targets to Pierce Count when spawned. For projectiles " +
+            "spawned straight from a prefab (e.g. Strafe arrows); weapons pass their own pierce through Initialize.")]
+        [SerializeField] private bool addPierceStat = false;
+
+        // Set when a spawner sets the pierce itself (Initialize, ConfigurePierce), so the Pierce
+        // stat isn't added on top of a value that already includes it (or a split arrow's single hit).
+        private bool pierceSetExplicitly;
 
         [Header("Knockback")]
         [SerializeField] private bool applyKnockback = false;
@@ -75,12 +82,18 @@ namespace Game.Combat
         {
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
+
+            if (addPierceStat && enablePierce && !pierceSetExplicitly && playerProgression != null && PierceSettings.Instance != null)
+            {
+                pierceCount += PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
+            }
         }
 
         public void Initialize(int baseDamage, int pierceAmount, string effectId, WeaponClass weaponClass, WeaponData weaponData)
         {
             this.baseDamage = baseDamage;
             this.pierceCount = pierceAmount;
+            pierceSetExplicitly = true;
             this.effectID = effectId;
             this.weaponClass = weaponClass;
             this.weaponData = weaponData;
@@ -286,6 +299,7 @@ namespace Game.Combat
         {
             enablePierce = enabled;
             pierceCount = count;
+            pierceSetExplicitly = true;
         }
 
     }

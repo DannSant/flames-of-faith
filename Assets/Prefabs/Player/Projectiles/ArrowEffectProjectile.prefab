@@ -169,6 +169,7 @@ MonoBehaviour:
   shouldStackDamage: 1
   enablePierce: 1
   pierceCount: 2
+  addPierceStat: 1
   applyKnockback: 0
   knockbackForce: 5
   canTriggerLifesteal: 1
