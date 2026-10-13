@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6beadb1a9e6f90c49a9ccd622647e752, type: 2}
   specialWeaponData: {fileID: 11400000, guid: 6d2c29f05439ee14d86b11530064ef35, type: 2}
+  freeAimRangeMultiplier: 1
   weaponColliderObject: {fileID: 3880400851706861701}
   pivotPoint: {fileID: 2839436811405689589}
   orbitRadius: 0.5
@@ -642,12 +643,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: startingEffects.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: 'startingEffects.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 448a3ecdad82052408cc1dd84906808c, type: 2}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'startingEffects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6230fcb138d7af54f9120865e180296f, type: 2}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'startingEffects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76140128cd6f6314b9b858423daccfa4, type: 2}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'startingEffects.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0483cad4d46110044a24b29c4eb9a52c, type: 2}
+    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
+      propertyPath: 'startingEffects.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 50795ddf641cc364fa9427e9ca7ce22c, type: 2}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Size.x
       value: 3
@@ -836,6 +853,8 @@ MonoBehaviour:
   dashSpeed: 3
   dashDuration: 0.3
   maxCharges: 1
+  allowSteering: 0
+  steeringTurnRate: 0
   dashHitbox: {fileID: 1038054260044299398}
 --- !u!4 &2839436811405689589 stripped
 Transform:

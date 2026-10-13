@@ -1,5 +1,6 @@
 using Game.Control;
 using Game.Effects;
+using Game.Effects.Abilities;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -70,6 +71,39 @@ namespace Game.Combat
 
             characterVisual.OnSpecialAttackStartAnimEvent += OnSpecialAttackAnimationStarted;
             characterVisual.OnSpecialAttackEndAnimEvent += OnSpecialAttackAnimationPlayed;
+
+            var store = GetEffectStore();
+            if (store != null)
+            {
+                store.OnEffectsChanged += ApplyAbilityItems;
+            }
+            ApplyAbilityItems();
+        }
+
+        /// <summary>
+        /// Reads this class's ability items (Scrolls) from the EffectStore. Called on initialize and
+        /// whenever the owned items change. Without an item, a weapon keeps its own data.
+        /// </summary>
+        protected virtual void ApplyAbilityItems() { }
+
+        // Initialize can run before Start, which is where effectStore is normally fetched.
+        protected EffectStore GetEffectStore()
+        {
+            if (effectStore == null && PlayerManager.Instance != null)
+            {
+                effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            }
+            return effectStore;
+        }
+
+        /// <summary>The tier values of the owned ability <typeparamref name="TAbility"/>, or null without the item.</summary>
+        protected TValues GetAbilityValues<TAbility, TValues>()
+            where TAbility : AbilityBehavior<TValues>
+            where TValues : class, new()
+        {
+            var store = GetEffectStore();
+            if (store == null || !store.TryGetAbility(out TAbility ability, out int tier)) return null;
+            return ability.GetTier(tier);
         }
 
         protected virtual void Update()
@@ -92,7 +126,12 @@ namespace Game.Combat
                 characterVisual.OnSpecialAttackEndAnimEvent -= OnSpecialAttackAnimationPlayed;
                 characterVisual.OnSpecialAttackStartAnimEvent -= OnSpecialAttackAnimationStarted;
             }
-            
+
+            if (effectStore != null)
+            {
+                effectStore.OnEffectsChanged -= ApplyAbilityItems;
+            }
+
         }
 
         public virtual void SetupAttackSpeedVariables()

@@ -17,23 +17,14 @@ MonoBehaviour:
   effectName: Steeldawn Sword
   scalingValue: 1
   description: 'Powerful sword created by a Seared Soul, a person with an excess
-    of Grace. May inflict Bleed on attack.
+    of Grace.
 
 '
   buyPrice: 0
   sellPrice: 0
   effectStatModifiers:
-  - stat: 0
-    value: 10
-    type: 0
   - stat: 1
     value: 5
-    type: 0
-  - stat: 6
-    value: 1
-    type: 0
-  - stat: 3
-    value: -2
     type: 0
   statDependencies:
   - sourceStat: 21
@@ -51,6 +42,6 @@ MonoBehaviour:
   behaviors: []
   unlockedByDefault: 0
   quality: 4
-  availableForShop: 1
+  availableForShop: 0
   tier: 0
   startingOnly: 1

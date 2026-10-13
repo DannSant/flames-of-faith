@@ -1,4 +1,6 @@
 using Game.Control;
+using Game.Effects;
+using Game.Effects.Abilities;
 using Game.UI;
 using Game.Utils;
 using UnityEngine;
@@ -36,9 +38,31 @@ namespace Game.Progression
             var abilityIcons = FindAnyObjectByType<IconCooldownDisplay>();
             if (abilityIcons!=null)
             {
-                abilityIcons.SetIcons(classData.abilityIcons[0], classData.abilityIcons[1], classData.abilityIcons[2]);
-                abilityIcons.SetDashTooltip(classData.dashName, classData.dashDescription);
+                // The class's Scroll items drive the icons and the dash tooltip; the class data is
+                // the fallback for a kit without them.
+                var effectStore = GetComponent<EffectStore>();
+                Effect dashItem = null;
+                effectStore?.TryGetAbilityItem(AbilitySlot.Dash, out dashItem);
+
+                abilityIcons.SetIcons(
+                    GetAbilityIcon(effectStore, AbilitySlot.Primary, 0),
+                    GetAbilityIcon(effectStore, AbilitySlot.Special, 1),
+                    GetAbilityIcon(effectStore, AbilitySlot.Dash, 2));
+                abilityIcons.SetDashTooltip(
+                    dashItem != null ? dashItem.EffectName : classData.dashName,
+                    dashItem != null ? dashItem.Description : classData.dashDescription);
             }
+        }
+
+        private Sprite GetAbilityIcon(EffectStore effectStore, AbilitySlot slot, int fallbackIndex)
+        {
+            if (effectStore != null && effectStore.TryGetAbilityItem(slot, out Effect item) && item.EffectIcon != null)
+            {
+                return item.EffectIcon;
+            }
+            return classData.abilityIcons != null && fallbackIndex < classData.abilityIcons.Count
+                ? classData.abilityIcons[fallbackIndex]
+                : null;
         }
     }
 }

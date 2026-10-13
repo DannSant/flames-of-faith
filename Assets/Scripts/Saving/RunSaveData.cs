@@ -13,7 +13,8 @@ namespace Game.Saving
     [Serializable]
     public class RunSaveData
     {
-        public const int CurrentVersion = 1;
+        // 2: class kits became several items (weapon, off-hand, Emblem, Scrolls); older runs lack them.
+        public const int CurrentVersion = 2;
 
         public int saveVersion = CurrentVersion;
 

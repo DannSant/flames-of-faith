@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8e5c7ec6d1d8f489cef610cfe3f7ae, type: 3}
+  m_Name: CrusaderStrikeAbility
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Abilities.CrusaderStrikeAbility
+  behaviorId: CrusaderStrikeAbility
+  stackScaling: []
+  tiers:
+  - baseDamage: 10
+    bleedChanceBonus: 0

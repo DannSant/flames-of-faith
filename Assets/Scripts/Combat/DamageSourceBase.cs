@@ -64,6 +64,9 @@ namespace Game.Combat
         public WeaponClass WeaponClass => weaponClass;
         public bool CanTriggerLifesteal => canTriggerLifesteal;
         public int PierceCount => pierceCount;
+        public float KnockbackForce => knockbackForce;
+
+        public void SetKnockbackForce(float value) => knockbackForce = value;
 
         // In case something external wants to know when we dealt damage
         public event Action<float, GameObject> OnDamageDealtEvent;

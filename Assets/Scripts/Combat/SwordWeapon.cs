@@ -1,5 +1,6 @@
 using Game.Audio;
 using Game.Control;
+using Game.Effects.Abilities;
 using Game.Misc;
 using Game.Progression;
 using Game.Scene;
@@ -40,9 +41,23 @@ namespace Game.Combat
             
         }
 
+        // Scroll of Crusader Strike sets the basic attack's damage and bleed chance; Scroll of
+        // Whirlwind sets the special's damage. Without them the WeaponData values are used.
+        protected override void ApplyAbilityItems()
+        {
+            if (mainDamageSource == null || specialDamageSource == null) return;
+
+            var strike = GetAbilityValues<CrusaderStrikeAbility, CrusaderStrikeAbility.Values>();
+            mainDamageSource.BaseDamageOverride = strike?.baseDamage;
+            mainDamageSource.DebuffChanceBonus = strike != null ? strike.bleedChanceBonus : 0f;
+
+            var whirlwind = GetAbilityValues<WhirlwindAbility, WhirlwindAbility.Values>();
+            specialDamageSource.BaseDamageOverride = whirlwind?.baseDamage;
+        }
+
         protected override void OnDisable()
         {
-            base.OnDisable();            
+            base.OnDisable();
             mainDamageSource.OnDamageDealt -= OnDamageDealt;
             specialDamageSource.OnDamageDealt -= OnSpecialDamageDealt;
         }
