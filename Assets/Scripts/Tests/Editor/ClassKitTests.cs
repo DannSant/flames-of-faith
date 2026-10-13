@@ -19,6 +19,7 @@ namespace Game.Tests
     public class ClassKitTests
     {
         private const string WarriorPrefab = "Assets/Prefabs/Player/PlayerWarrior.prefab";
+        private const string ArcherPrefab = "Assets/Prefabs/Player/PlayerArcher.prefab";
 
         private static GameObject LoadPrefab(string path)
         {
@@ -65,6 +66,13 @@ namespace Game.Tests
             return ability;
         }
 
+        private static SerializedProperty GetSerializedProperty(Object owner, string field)
+        {
+            var property = new SerializedObject(owner).FindProperty(field);
+            Assert.IsNotNull(property, $"{owner.name} has no field {field}");
+            return property;
+        }
+
         private static T GetSerializedReference<T>(Object owner, string field) where T : Object
         {
             var value = new SerializedObject(owner).FindProperty(field)?.objectReferenceValue as T;
@@ -75,6 +83,7 @@ namespace Game.Tests
         // --- Every class -------------------------------------------------------------------
 
         [TestCase(WarriorPrefab)]
+        [TestCase(ArcherPrefab)]
         public void Kit_HasExactlyOneAbilityPerSlot(string prefabPath)
         {
             var abilities = GetAuthoredAbilities(LoadPrefab(prefabPath));
@@ -87,6 +96,7 @@ namespace Game.Tests
         }
 
         [TestCase(WarriorPrefab)]
+        [TestCase(ArcherPrefab)]
         public void Kit_ItemsAreStartingOnly(string prefabPath)
         {
             var prefab = LoadPrefab(prefabPath);
@@ -99,6 +109,7 @@ namespace Game.Tests
         }
 
         [TestCase(WarriorPrefab)]
+        [TestCase(ArcherPrefab)]
         public void Kit_AbilityTablesHaveABaseTier(string prefabPath)
         {
             foreach (var ability in GetAuthoredAbilities(LoadPrefab(prefabPath)))
@@ -142,6 +153,46 @@ namespace Game.Tests
             var charge = GetAbility<CrusaderChargeAbility>(abilities).GetTier(0);
             Assert.AreEqual(hitbox.BaseDamage, charge.damage, "Crusader Charge base damage");
             Assert.AreEqual(hitbox.KnockbackForce, charge.knockbackForce, 0.0001f, "Crusader Charge base knockback");
+        }
+
+        // --- Archer ------------------------------------------------------------------------
+
+        [Test]
+        public void Archer_BaseTierMatchesTheBow()
+        {
+            var prefab = LoadPrefab(ArcherPrefab);
+            var abilities = GetAuthoredAbilities(prefab);
+            var bow = prefab.GetComponentInChildren<BowWeapon>(true);
+            Assert.IsNotNull(bow, "PlayerArcher has no BowWeapon");
+
+            var weaponData = GetSerializedReference<WeaponData>(bow, "weaponData");
+            var specialData = GetSerializedReference<WeaponData>(bow, "specialWeaponData");
+
+            var holyShot = GetAbility<HolyShotAbility>(abilities).GetTier(0);
+            Assert.AreEqual(weaponData.baseDamage, holyShot.baseDamage, "Holy Shot base damage");
+            Assert.AreEqual(0, holyShot.extraArrows, "Holy Shot base extra arrows");
+
+            var barrage = GetAbility<BarrageAbility>(abilities).GetTier(0);
+            Assert.AreEqual(specialData.baseDamage, barrage.baseDamage, "Barrage base damage");
+            Assert.AreEqual(specialData.projectileAmount, barrage.ringArrowCount, "Barrage ring arrows");
+            Assert.AreEqual(GetSerializedProperty(bow, "barrageArrowCount").intValue, barrage.targetArrowCount, "Barrage target arrows");
+        }
+
+        [Test]
+        public void Archer_BaseTierMatchesTheDash()
+        {
+            var prefab = LoadPrefab(ArcherPrefab);
+            var abilities = GetAuthoredAbilities(prefab);
+            var dash = prefab.GetComponent<ArcherDash>();
+            Assert.IsNotNull(dash, "PlayerArcher has no ArcherDash");
+
+            var trap = GetSerializedReference<GameObject>(dash, "trapPrefab").GetComponentInChildren<DamageSourceBase>(true);
+            Assert.IsNotNull(trap, "The trap prefab has no DamageSourceBase");
+
+            var trapStep = GetAbility<TrapStepAbility>(abilities).GetTier(0);
+            Assert.AreEqual(GetSerializedProperty(dash, "dashDuration").floatValue, trapStep.dashDuration, 0.0001f, "Trap Step dash duration");
+            Assert.AreEqual(trap.BaseDamage, trapStep.trapDamage, "Trap Step trap damage");
+            Assert.AreEqual(GetSerializedProperty(dash, "maxActiveTraps").intValue, trapStep.maxTraps, "Trap Step max traps");
         }
     }
 }

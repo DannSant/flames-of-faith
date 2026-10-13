@@ -2,6 +2,7 @@ using Game.Audio;
 using Game.Combat.Projectiles;
 using Game.Control;
 using Game.Effects;
+using Game.Effects.Abilities;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -22,7 +23,7 @@ namespace Game.Combat
         [SerializeField] private Transform projectileSpawnTransform;
 
         [Header("Special: Barrage On Target")]
-        [Tooltip("Extra arrows fired at the marked target after the special's burst. Nothing extra without a target.")]
+        [Tooltip("Extra arrows fired at the marked target after the special's burst. Nothing extra without a target. Scroll of Barrage overrides this.")]
         [SerializeField] private int barrageArrowCount = 6;
         [Tooltip("Seconds between barrage arrows.")]
         [SerializeField] private float barrageInterval = 0.06f;
@@ -36,6 +37,10 @@ namespace Game.Combat
         [SerializeField] private GameObject barrageArrowPrefab;
 
         private Coroutine barrageRoutine;
+
+        // Scroll of Holy Shot / Scroll of Barrage, read when firing. Null = the bow's own data.
+        private HolyShotAbility.Values HolyShot => GetAbilityValues<HolyShotAbility, HolyShotAbility.Values>();
+        private BarrageAbility.Values Barrage => GetAbilityValues<BarrageAbility, BarrageAbility.Values>();
 
         public event System.Action<DamageSourceBase> onBowAttackLaunched;
         public event System.Action<DamageSourceBase> onBowSpecialAttackLaunched;
@@ -105,7 +110,8 @@ namespace Game.Combat
             }
 
             var damage = go.GetComponent<DamageSourceBase>();
-            damage.Initialize(weaponData.baseDamage, pierceAmount, null, weaponData.weaponClass,weaponData);
+            int baseDamage = HolyShot?.baseDamage ?? weaponData.baseDamage;
+            damage.Initialize(baseDamage, pierceAmount, null, weaponData.weaponClass,weaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onBowAttackLaunched?.Invoke(damage);
@@ -114,7 +120,10 @@ namespace Game.Combat
         protected override void OnSpecialAttackAnimationPlayed()
         {
             playerHealth.ToggleIsInvulnerable(false);
-            int numProjectiles = specialWeaponData.projectileAmount;
+            var barrage = Barrage;
+            int numProjectiles = barrage?.ringArrowCount ?? specialWeaponData.projectileAmount;
+            int specialBaseDamage = barrage?.baseDamage ?? specialWeaponData.baseDamage;
+            int targetArrowCount = barrage?.targetArrowCount ?? barrageArrowCount;
             //int numProjectiles = Random.Range(6, 11);
             float angleStep = 360f / numProjectiles;
             float randomOffset = Random.Range(0f, 360f);
@@ -135,15 +144,15 @@ namespace Game.Combat
                 move.Initialize(direction);
 
                 var damage = go.GetComponent<DamageSourceBase>();
-                damage.Initialize(specialWeaponData.baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
+                damage.Initialize(specialBaseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
                 damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
             }
 
             var target = GetMarkedTarget();
-            if (target != null && barrageArrowPrefab != null && barrageArrowCount > 0)
+            if (target != null && barrageArrowPrefab != null && targetArrowCount > 0)
             {
                 if (barrageRoutine != null) StopCoroutine(barrageRoutine);
-                barrageRoutine = StartCoroutine(BarrageRoutine(target));
+                barrageRoutine = StartCoroutine(BarrageRoutine(target, specialBaseDamage, targetArrowCount));
             }
         }
 
@@ -151,13 +160,13 @@ namespace Game.Combat
         /// Fires the barrage at the target captured when the special went off, even if the
         /// marked target changes meanwhile. Arrows left after it dies fly straight.
         /// </summary>
-        private IEnumerator BarrageRoutine(EnemyHealth target)
+        private IEnumerator BarrageRoutine(EnemyHealth target, int specialBaseDamage, int arrowCount)
         {
-            int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialWeaponData.baseDamage * barrageDamageMultiplier));
+            int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialBaseDamage * barrageDamageMultiplier));
             int pierceAmount = barragePierce + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
             Vector2 lastTargetPosition = target.transform.position;
 
-            for (int i = 0; i < barrageArrowCount; i++)
+            for (int i = 0; i < arrowCount; i++)
             {
                 bool targetAlive = EnemyTargeting.IsTargetable(target);
                 if (targetAlive) lastTargetPosition = target.transform.position;

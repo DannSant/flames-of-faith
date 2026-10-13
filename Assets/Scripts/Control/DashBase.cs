@@ -1,5 +1,7 @@
 using Game.Combat;
 using Game.Common;
+using Game.Effects;
+using Game.Effects.Abilities;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
@@ -131,8 +133,27 @@ namespace Game.Control
             RecalculateCooldownDuration();
         }
 
+        /// <summary>
+        /// Reads this class's dash ability item (Scroll) before each dash, so an upgrade applies
+        /// from the next dash. Runs before the dash timer starts, so a new duration counts for this
+        /// dash. Without the item, a dash keeps its own values.
+        /// </summary>
+        protected virtual void ApplyAbilityItems() { }
+
+        /// <summary>The tier values of the owned ability <typeparamref name="TAbility"/>, or null without the item.</summary>
+        protected TValues GetAbilityValues<TAbility, TValues>()
+            where TAbility : AbilityBehavior<TValues>
+            where TValues : class, new()
+        {
+            var store = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<EffectStore>() : null;
+            if (store == null || !store.TryGetAbility(out TAbility ability, out int tier)) return null;
+            return ability.GetTier(tier);
+        }
+
         protected virtual void StartDashEvent()
         {
+            ApplyAbilityItems();
+
             if (playerHealth != null && playerHealth.IsDead())
             {
                 return;

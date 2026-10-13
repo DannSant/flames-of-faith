@@ -27,12 +27,6 @@ MonoBehaviour:
   - stat: 2
     value: 2
     type: 0
-  - stat: 10
-    value: 1
-    type: 0
-  - stat: 0
-    value: -5
-    type: 0
   statDependencies:
   - sourceStat: 22
     perPoints: 1
@@ -49,6 +43,6 @@ MonoBehaviour:
   behaviors: []
   unlockedByDefault: 0
   quality: 4
-  availableForShop: 1
+  availableForShop: 0
   tier: 0
   startingOnly: 1
