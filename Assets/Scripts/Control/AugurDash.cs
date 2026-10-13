@@ -1,3 +1,5 @@
+using Game.Combat;
+using Game.Effects.Abilities;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +15,35 @@ namespace Game.Control
         [Header("Augur Dash - Flame Trail")]
         [Tooltip("Prefab with a trigger Collider2D + DamageSourceBase (directElementalDebuffData = Fire) + DestroyAfterTime.")]
         [SerializeField] private GameObject flameTrailSegmentPrefab;
+        [Tooltip("Seconds between flames while dashing. Scroll of Flame Dash overrides this.")]
         [SerializeField] private float trailSpawnInterval = 0.05f;
 
         private readonly List<Collider2D> ignoredEnemyColliders = new();
         private float trailSpawnTimer;
+
+        // The dash's own values, used when the player has no Scroll of Flame Dash.
+        private float defaultDashDuration;
+        private int defaultMaxCharges;
+        private float currentTrailSpawnInterval;
+        // Null = keep the flame prefab's own damage.
+        private int? flameDamageOverride;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            defaultDashDuration = dashDuration;
+            defaultMaxCharges = maxCharges;
+            currentTrailSpawnInterval = trailSpawnInterval;
+        }
+
+        protected override void ApplyAbilityItems()
+        {
+            var flameDash = GetAbilityValues<FlameDashAbility, FlameDashAbility.Values>();
+            SetDashDuration(flameDash != null ? flameDash.dashDuration : defaultDashDuration);
+            SetMaxCharges(flameDash != null ? flameDash.maxCharges : defaultMaxCharges);
+            currentTrailSpawnInterval = flameDash != null ? flameDash.flameSpawnInterval : trailSpawnInterval;
+            flameDamageOverride = flameDash?.flameDamage;
+        }
 
         protected override void Update()
         {
@@ -25,7 +52,7 @@ namespace Game.Control
             if (dashUpdateTimer.GetIsEventActive())
             {
                 trailSpawnTimer += Time.deltaTime;
-                if (trailSpawnTimer >= trailSpawnInterval)
+                if (trailSpawnTimer >= currentTrailSpawnInterval)
                 {
                     trailSpawnTimer = 0f;
                     SpawnFlameTrailSegment();
@@ -51,7 +78,12 @@ namespace Game.Control
         {
             if (flameTrailSegmentPrefab != null)
             {
-                Instantiate(flameTrailSegmentPrefab, transform.position, Quaternion.identity);
+                var flame = Instantiate(flameTrailSegmentPrefab, transform.position, Quaternion.identity);
+                if (flameDamageOverride.HasValue)
+                {
+                    var damage = flame.GetComponentInChildren<DamageSourceBase>();
+                    if (damage != null) damage.SetBaseDamage(flameDamageOverride.Value);
+                }
             }
         }
 

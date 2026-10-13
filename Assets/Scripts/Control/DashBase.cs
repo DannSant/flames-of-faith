@@ -40,6 +40,7 @@ namespace Game.Control
         protected CharacterVisual characterVisual;
         protected Collider2D characterCollider;
         protected PlayerHealth playerHealth;
+        private EffectStore effectStore;
 
         protected UpdateTimer dashUpdateTimer;
         protected UpdateTimer dashCooldownTimer;
@@ -82,6 +83,14 @@ namespace Game.Control
             playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
 
             playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+
+            // Also re-read the dash scroll when the owned items change (run start, load, upgrades),
+            // so values that show before the first dash (charges) are right from the start.
+            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            if (effectStore != null)
+            {
+                effectStore.OnEffectsChanged += ApplyAbilityItems;
+            }
         }
 
         protected virtual void OnDisable()
@@ -94,6 +103,11 @@ namespace Game.Control
             if (inputHandler != null && dashInputCallback != null)
             {
                 inputHandler.Player.Jump.performed -= dashInputCallback;
+            }
+
+            if (effectStore != null)
+            {
+                effectStore.OnEffectsChanged -= ApplyAbilityItems;
             }
         }
 
@@ -145,8 +159,11 @@ namespace Game.Control
             where TAbility : AbilityBehavior<TValues>
             where TValues : class, new()
         {
-            var store = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<EffectStore>() : null;
-            if (store == null || !store.TryGetAbility(out TAbility ability, out int tier)) return null;
+            if (effectStore == null && PlayerManager.Instance != null)
+            {
+                effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+            }
+            if (effectStore == null || !effectStore.TryGetAbility(out TAbility ability, out int tier)) return null;
             return ability.GetTier(tier);
         }
 
@@ -251,13 +268,17 @@ namespace Game.Control
         }
 
         /// <summary>
-        /// Changes the number of dash charges (e.g. from an ability item). Extra charges arrive
-        /// through the normal recharge; spare charges above the new max are dropped.
+        /// Changes the number of dash charges (e.g. from an ability item). Raising the max grants
+        /// the new charges at once; lowering it drops the charges above the new max.
         /// </summary>
         public void SetMaxCharges(int charges)
         {
-            maxCharges = Mathf.Max(1, charges);
-            currentCharges = Mathf.Min(currentCharges, maxCharges);
+            int newMax = Mathf.Max(1, charges);
+            if (newMax == maxCharges) return;
+
+            int gained = Mathf.Max(0, newMax - maxCharges);
+            maxCharges = newMax;
+            currentCharges = Mathf.Min(currentCharges + gained, maxCharges);
 
             if (currentCharges < maxCharges && dashCooldownTimer != null && !dashCooldownTimer.GetIsEventActive())
             {

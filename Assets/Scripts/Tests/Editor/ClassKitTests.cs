@@ -20,6 +20,7 @@ namespace Game.Tests
     {
         private const string WarriorPrefab = "Assets/Prefabs/Player/PlayerWarrior.prefab";
         private const string ArcherPrefab = "Assets/Prefabs/Player/PlayerArcher.prefab";
+        private const string AugurPrefab = "Assets/Prefabs/Player/PlayerAugur.prefab";
 
         private static GameObject LoadPrefab(string path)
         {
@@ -84,6 +85,7 @@ namespace Game.Tests
 
         [TestCase(WarriorPrefab)]
         [TestCase(ArcherPrefab)]
+        [TestCase(AugurPrefab)]
         public void Kit_HasExactlyOneAbilityPerSlot(string prefabPath)
         {
             var abilities = GetAuthoredAbilities(LoadPrefab(prefabPath));
@@ -97,6 +99,7 @@ namespace Game.Tests
 
         [TestCase(WarriorPrefab)]
         [TestCase(ArcherPrefab)]
+        [TestCase(AugurPrefab)]
         public void Kit_ItemsAreStartingOnly(string prefabPath)
         {
             var prefab = LoadPrefab(prefabPath);
@@ -110,6 +113,7 @@ namespace Game.Tests
 
         [TestCase(WarriorPrefab)]
         [TestCase(ArcherPrefab)]
+        [TestCase(AugurPrefab)]
         public void Kit_AbilityTablesHaveABaseTier(string prefabPath)
         {
             foreach (var ability in GetAuthoredAbilities(LoadPrefab(prefabPath)))
@@ -193,6 +197,47 @@ namespace Game.Tests
             Assert.AreEqual(GetSerializedProperty(dash, "dashDuration").floatValue, trapStep.dashDuration, 0.0001f, "Trap Step dash duration");
             Assert.AreEqual(trap.BaseDamage, trapStep.trapDamage, "Trap Step trap damage");
             Assert.AreEqual(GetSerializedProperty(dash, "maxActiveTraps").intValue, trapStep.maxTraps, "Trap Step max traps");
+        }
+
+        // --- Augur -------------------------------------------------------------------------
+
+        [Test]
+        public void Augur_BaseTierMatchesTheScepter()
+        {
+            var prefab = LoadPrefab(AugurPrefab);
+            var abilities = GetAuthoredAbilities(prefab);
+            var scepter = prefab.GetComponentInChildren<ScepterWeapon>(true);
+            Assert.IsNotNull(scepter, "PlayerAugur has no ScepterWeapon");
+
+            var weaponData = GetSerializedReference<WeaponData>(scepter, "weaponData");
+            var specialData = GetSerializedReference<WeaponData>(scepter, "specialWeaponData");
+
+            var fireball = GetAbility<FireballAbility>(abilities).GetTier(0);
+            Assert.AreEqual(weaponData.baseDamage, fireball.baseDamage, "Fireball base damage");
+            Assert.AreEqual(0, fireball.impactExplosionDamage, "Fireball base impact explosion");
+
+            var tornadoes = GetAbility<FireTornadoesAbility>(abilities).GetTier(0);
+            Assert.AreEqual(specialData.baseDamage, tornadoes.baseDamage, "Fire Tornadoes base damage");
+            // The scepter used to spawn exactly 4 (N/E/S/W).
+            Assert.AreEqual(4, tornadoes.tornadoCount, "Fire Tornadoes base count");
+        }
+
+        [Test]
+        public void Augur_BaseTierMatchesTheDash()
+        {
+            var prefab = LoadPrefab(AugurPrefab);
+            var abilities = GetAuthoredAbilities(prefab);
+            var dash = prefab.GetComponent<AugurDash>();
+            Assert.IsNotNull(dash, "PlayerAugur has no AugurDash");
+
+            var flame = GetSerializedReference<GameObject>(dash, "flameTrailSegmentPrefab").GetComponentInChildren<DamageSourceBase>(true);
+            Assert.IsNotNull(flame, "The flame prefab has no DamageSourceBase");
+
+            var flameDash = GetAbility<FlameDashAbility>(abilities).GetTier(0);
+            Assert.AreEqual(GetSerializedProperty(dash, "dashDuration").floatValue, flameDash.dashDuration, 0.0001f, "Flame Dash dash duration");
+            Assert.AreEqual(GetSerializedProperty(dash, "maxCharges").intValue, flameDash.maxCharges, "Flame Dash charges");
+            Assert.AreEqual(GetSerializedProperty(dash, "trailSpawnInterval").floatValue, flameDash.flameSpawnInterval, 0.0001f, "Flame Dash flame interval");
+            Assert.AreEqual(flame.BaseDamage, flameDash.flameDamage, "Flame Dash flame damage");
         }
     }
 }

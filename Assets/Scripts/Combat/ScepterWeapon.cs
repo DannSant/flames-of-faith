@@ -1,6 +1,7 @@
 using Game.Audio;
 using Game.Combat.Projectiles;
 using Game.Common;
+using Game.Effects.Abilities;
 using Game.Progression;
 using Game.Waves;
 using System.Collections;
@@ -18,7 +19,7 @@ namespace Game.Combat
         [SerializeField] private Transform projectileSpawnTransform;
 
         [Header("Special Attack")]
-        [Tooltip("Distance from the player each of the 4 special projectiles (N/S/E/W) spawns at.")]
+        [Tooltip("Distance from the player the special's tornadoes spawn at, spread evenly around it.")]
         [SerializeField] private float specialProjectileOffset = 0.75f;
         [Tooltip("Radius used to find the closest target for each special projectile, relative to that projectile's own spawn position.")]
         [SerializeField] private float specialAttackTargetSearchRadius = 15f;
@@ -36,6 +37,10 @@ namespace Game.Combat
         [SerializeField] private float targetExplosionDamageMultiplier = 0.5f;
 
         private Coroutine targetExplosionsRoutine;
+
+        // Scroll of Fireball / Scroll of Fire Tornadoes, read when casting. Null = the scepter's own data.
+        private FireballAbility.Values Fireball => GetAbilityValues<FireballAbility, FireballAbility.Values>();
+        private FireTornadoesAbility.Values FireTornadoes => GetAbilityValues<FireTornadoesAbility, FireTornadoesAbility.Values>();
 
         public event System.Action<DamageSourceBase> onScepterAttackLaunched;
         public event System.Action<DamageSourceBase> onScepterSpecialAttackLaunched;
@@ -89,7 +94,8 @@ namespace Game.Combat
             }
 
             var damage = go.GetComponent<DamageSourceBase>();
-            damage.Initialize(weaponData.baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass, weaponData);
+            int baseDamage = Fireball?.baseDamage ?? weaponData.baseDamage;
+            damage.Initialize(baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass, weaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onScepterAttackLaunched?.Invoke(damage);
@@ -101,15 +107,23 @@ namespace Game.Combat
 
             Vector2 originPos = transform.position;
 
-            SpawnSpecialProjectile(originPos + Vector2.up * specialProjectileOffset);
-            SpawnSpecialProjectile(originPos + Vector2.down * specialProjectileOffset);
-            SpawnSpecialProjectile(originPos + Vector2.left * specialProjectileOffset);
-            SpawnSpecialProjectile(originPos + Vector2.right * specialProjectileOffset);
+            var tornadoes = FireTornadoes;
+            int specialBaseDamage = tornadoes?.baseDamage ?? specialWeaponData.baseDamage;
+            int tornadoCount = Mathf.Max(1, tornadoes?.tornadoCount ?? specialWeaponData.projectileAmount);
+
+            // Evenly around the player; 4 gives the original N/E/S/W layout.
+            float angleStep = 360f / tornadoCount;
+            for (int i = 0; i < tornadoCount; i++)
+            {
+                float rad = (90f + i * angleStep) * Mathf.Deg2Rad;
+                Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * specialProjectileOffset;
+                SpawnSpecialProjectile(originPos + offset, specialBaseDamage);
+            }
 
             if (targetExplosionPrefab != null)
             {
                 if (targetExplosionsRoutine != null) StopCoroutine(targetExplosionsRoutine);
-                targetExplosionsRoutine = StartCoroutine(TargetExplosionsRoutine());
+                targetExplosionsRoutine = StartCoroutine(TargetExplosionsRoutine(specialBaseDamage));
             }
         }
 
@@ -118,7 +132,7 @@ namespace Game.Combat
         /// moment (it follows target changes). Ticks with no target are skipped. Time doesn't
         /// count during a gameplay freeze or the wave-end sequence.
         /// </summary>
-        private IEnumerator TargetExplosionsRoutine()
+        private IEnumerator TargetExplosionsRoutine(int specialBaseDamage)
         {
             float duration = targetExplosionDurationBase
                 + playerProgression.GetStatTotal(StatType.SkillDuration) * targetExplosionDurationPerSkillDuration;
@@ -132,7 +146,7 @@ namespace Game.Combat
                 {
                     if (untilNext <= 0f)
                     {
-                        SpawnTargetExplosion();
+                        SpawnTargetExplosion(specialBaseDamage);
                         untilNext = targetExplosionInterval;
                     }
                     elapsed += Time.deltaTime;
@@ -143,7 +157,7 @@ namespace Game.Combat
             targetExplosionsRoutine = null;
         }
 
-        private void SpawnTargetExplosion()
+        private void SpawnTargetExplosion(int specialBaseDamage)
         {
             var target = GetMarkedTarget();
             if (target == null) return;
@@ -152,12 +166,12 @@ namespace Game.Combat
             var damage = go.GetComponent<DamageSourceBase>();
             if (damage == null) return;
 
-            int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialWeaponData.baseDamage * targetExplosionDamageMultiplier));
+            int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialBaseDamage * targetExplosionDamageMultiplier));
             damage.Initialize(damageAmount, damage.PierceCount, null, specialWeaponData.weaponClass, specialWeaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
         }
 
-        private void SpawnSpecialProjectile(Vector2 spawnPos)
+        private void SpawnSpecialProjectile(Vector2 spawnPos, int baseDamage)
         {
             int pierceAmount = specialWeaponData.pierceAmount + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
             EnemyHealth target = EnemyTargeting.FindClosest(
@@ -176,7 +190,7 @@ namespace Game.Combat
             }
 
             var damage = go.GetComponent<DamageSourceBase>();
-            damage.Initialize(specialWeaponData.baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
+            damage.Initialize(baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onScepterSpecialAttackLaunched?.Invoke(damage);

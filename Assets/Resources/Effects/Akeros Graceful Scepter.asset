@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 00430cf71c033434f9f3f83ecc6636a9, type: 3}
   effectName: Akeros Graceful Scepter
   scalingValue: 1
-  description: Powerful scepter that let's human channel their Grace into deathly
-    flames. May inflict Fire condition
+  description: Powerful scepter that lets humans channel their Grace into deathly
+    flames.
   buyPrice: 0
   sellPrice: 0
   effectStatModifiers:
@@ -26,12 +26,6 @@ MonoBehaviour:
     type: 0
   - stat: 16
     value: 1
-    type: 0
-  - stat: 19
-    value: 2
-    type: 0
-  - stat: 6
-    value: -3
     type: 0
   statDependencies:
   - sourceStat: 19
@@ -49,6 +43,6 @@ MonoBehaviour:
   behaviors: []
   unlockedByDefault: 0
   quality: 4
-  availableForShop: 1
+  availableForShop: 0
   tier: 0
   startingOnly: 1
