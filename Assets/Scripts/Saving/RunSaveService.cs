@@ -2,7 +2,6 @@ using Game.Overworld;
 using Game.Scene;
 using System;
 using System.IO;
-using System.Text;
 using UnityEngine;
 
 namespace Game.Saving
@@ -16,10 +15,7 @@ namespace Game.Saving
     public static class RunSaveService
     {
         private const string FileName = "run.sav";
-        private const string EncryptionKey = "FlamesOfFaith2025!";
-
         private static string SaveFilePath => Path.Combine(Application.persistentDataPath, FileName);
-        private static string TempFilePath => SaveFilePath + ".tmp";
 
         public static event Action OnSaveChanged;
 
@@ -52,16 +48,12 @@ namespace Game.Saving
         public static bool TryLoad(out RunSaveData data)
         {
             data = null;
-            if (!File.Exists(SaveFilePath))
-            {
-                return false;
-            }
-
             try
             {
-                string contents = File.ReadAllText(SaveFilePath);
-                // Editor saves are plain JSON so they can be inspected; builds are obfuscated
-                string json = contents.TrimStart().StartsWith("{") ? contents : XOR(contents, EncryptionKey);
+                if (!SaveFileIO.TryReadJson(SaveFilePath, out string json))
+                {
+                    return false;
+                }
                 data = JsonUtility.FromJson<RunSaveData>(json);
             }
             catch (Exception ex)
@@ -101,35 +93,13 @@ namespace Game.Saving
         {
             try
             {
-                string json = JsonUtility.ToJson(data, Application.isEditor);
-                string contents = Application.isEditor ? json : XOR(json, EncryptionKey);
-
-                // Write to a temp file first so a crash mid-write can't corrupt the existing save
-                File.WriteAllText(TempFilePath, contents, Encoding.UTF8);
-                if (File.Exists(SaveFilePath))
-                {
-                    File.Replace(TempFilePath, SaveFilePath, null);
-                }
-                else
-                {
-                    File.Move(TempFilePath, SaveFilePath);
-                }
+                SaveFileIO.WriteAtomically(SaveFilePath, JsonUtility.ToJson(data, Application.isEditor));
                 OnSaveChanged?.Invoke();
             }
             catch (Exception ex)
             {
                 Debug.LogError($"[RunSave] Failed to save the run: {ex}");
             }
-        }
-
-        private static string XOR(string input, string key)
-        {
-            var output = new StringBuilder(input.Length);
-            for (int i = 0; i < input.Length; i++)
-            {
-                output.Append((char)(input[i] ^ key[i % key.Length]));
-            }
-            return output.ToString();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.Saving;
 using Game.Combat;
 using Game.Scene;
@@ -180,6 +181,11 @@ namespace Game.Boss
         {
             bossAlive = false;
             RunSaveService.DeleteSave();
+            if (MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.AddRunFavors(MetaProgressionSettings.Instance.FavorsPerBossKill);
+                MetaProgressionManager.Instance.BankRunFavors();
+            }
             OnBossFightEnded?.Invoke();
         }
 

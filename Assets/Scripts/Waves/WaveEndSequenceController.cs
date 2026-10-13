@@ -1,3 +1,5 @@
+using Game.Misc;
+using Game.Metaprogression;
 using Game.Combat;
 using Game.Control;
 using Game.Progression;
@@ -155,6 +157,16 @@ namespace Game.Waves
                 graceBefore = playerGrace.CurrentGrace
             };
             result.graceAfter = playerGrace.ApplyWaveResolution(result.graceAffinity, result.totalCorruption);
+
+            result.favorsEarned = MetaProgressionSettings.Instance.GetWaveFavors(result.graceAfter);
+            if (result.favorsEarned > 0 && MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.AddRunFavors(result.favorsEarned);
+                if (DamageNumberSpawner.Instance != null)
+                {
+                    DamageNumberSpawner.Instance.SpawnFavorGainedNumber(playerGrace.transform.position, result.favorsEarned);
+                }
+            }
 
             playerCorruption.ResetCorruption();
 

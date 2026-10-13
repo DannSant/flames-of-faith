@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.Saving;
 using Game.Audio;
 using Game.Common;
@@ -385,6 +386,8 @@ namespace Game.Combat {
             isDead = true;
             // Deleted right away, not on onDeath (after the animation), so quitting mid-animation can't keep the run
             RunSaveService.DeleteSave();
+            // The run is over: keep the Favors earned in this level
+            MetaProgressionManager.Instance?.BankRunFavors();
            StartCoroutine(DeathRoutine());          
 
         }

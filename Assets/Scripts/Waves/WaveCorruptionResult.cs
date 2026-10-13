@@ -25,5 +25,7 @@ namespace Game.Waves
         public float graceAffinity;
         public float graceBefore;
         public float graceAfter;
+        /// <summary>Favors earned by this wave (Grace ended above 0).</summary>
+        public int favorsEarned;
     }
 }

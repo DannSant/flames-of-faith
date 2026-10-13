@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.Saving;
 using Game.AI;
 using Game.Combat;
@@ -198,6 +199,7 @@ namespace Game.Waves {
             {
                 //Show endscreen
                 RunSaveService.DeleteSave();
+                MetaProgressionManager.Instance?.BankRunFavors();
                 OnAllLevelsFinished?.Invoke();
             }else
             {

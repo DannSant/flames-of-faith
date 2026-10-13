@@ -16,6 +16,8 @@ namespace Game.Progression
 
         private CharacterVisual characterVisual;
 
+        public CharacterClass CharacterClass => classData != null ? classData.characterClass : CharacterClass.None;
+
         private void Awake()
         {
             if (classData == null)

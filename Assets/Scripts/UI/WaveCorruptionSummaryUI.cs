@@ -28,6 +28,9 @@ namespace Game.UI
         [FormerlySerializedAs("gracePerWaveRowText")]
         [SerializeField] private TextMeshProUGUI graceAffinityRowText;
         [SerializeField] private TextMeshProUGUI totalCorruptionRowText;
+        [Tooltip("Optional. Favors earned this wave (shown after the Grace result).")]
+        [SerializeField] private TextMeshProUGUI favorsRowText;
+        [SerializeField] private Color favorsColor = new Color(1f, 0.85f, 0.35f);
 
         [Header("Result")]
         [Tooltip("Shows the subtraction, e.g. 'Grace 5 + 1 - 6 = 0'.")]
@@ -112,6 +115,7 @@ namespace Game.UI
             HideRow(corruptedDamageRowText);
             HideRow(graceAffinityRowText);
             HideRow(totalCorruptionRowText);
+            HideRow(favorsRowText);
             if (formulaText != null) formulaText.text = string.Empty;
             if (continuePrompt != null) continuePrompt.SetActive(false);
 
@@ -163,6 +167,12 @@ namespace Game.UI
                     yield return null;
                 }
                 SetFormula(left, result.graceAfter);
+            }
+
+            // Favors only come from a wave that ends with Grace above 0
+            if (result.favorsEarned > 0)
+            {
+                yield return RevealRow(favorsRowText, "Favor earned", result.favorsEarned, favorsColor);
             }
 
             // 4. Wait for the player (a press used to skip the animation doesn't also close it)

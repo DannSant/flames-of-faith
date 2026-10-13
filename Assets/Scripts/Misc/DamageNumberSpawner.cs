@@ -16,6 +16,9 @@ namespace Game.Misc
         [SerializeField] private DamageNumber healToPlayerNumberPrefab;
         [Tooltip("Optional. Shown when the player dodges a hit (Evasion). Falls back to the damage-to-player style.")]
         [SerializeField] private DamageNumber dodgeNumberPrefab;
+        [Tooltip("Optional. Shown when the player earns Favors. Falls back to the Grace-gained style.")]
+        [SerializeField] private DamageNumber favorNumberPrefab;
+        [SerializeField] private Color favorColor = new Color(1f, 0.85f, 0.35f);
         [SerializeField] private string dodgeText = "Dodge";
         [SerializeField] private DamageNumber graceGainedNumberPrefab;
         [SerializeField] private DamageNumber graceLostNumberPrefab;
@@ -68,6 +71,14 @@ namespace Game.Misc
             float shown = number > 0f ? Mathf.Max(1f, Mathf.Round(number)) : 0f;
             damageToPlayerNumberPrefab.Spawn(positionTospawn, shown);
         }
+        public void SpawnFavorGainedNumber(Vector3 positionTospawn, int amount)
+        {
+            var prefab = favorNumberPrefab != null ? favorNumberPrefab : graceGainedNumberPrefab;
+            if (prefab == null || amount == 0) return;
+            string text = $"{(amount > 0 ? "+" : "")}{amount} {(Mathf.Abs(amount) == 1 ? "Favor" : "Favors")}";
+            prefab.Spawn(positionTospawn, text).SetColor(favorColor);
+        }
+
         public void SpawnDodgeNumber(Vector3 positionTospawn)
         {
             var prefab = dodgeNumberPrefab != null ? dodgeNumberPrefab : damageToPlayerNumberPrefab;

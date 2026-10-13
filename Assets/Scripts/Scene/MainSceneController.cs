@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.Audio;
 using Game.Common;
 using Game.Overworld;
@@ -82,6 +83,8 @@ namespace Game.Scene
         public void LoadGameplay(LevelData levelData)
         {
             if (!BeginTransition()) return;
+            // Favors from a level that was left without finishing it (Save & Exit, quit) don't count
+            MetaProgressionManager.Instance?.DiscardRunFavors();
             bool shouldReset = GameSession.Instance.IsNewRun;
             StartCoroutine(RunTransition(LoadGameplayRoutine(levelData, shouldReset)));
         }

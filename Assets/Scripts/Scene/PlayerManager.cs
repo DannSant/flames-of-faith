@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.Common;
 using Game.Control;
 using Game.Misc;
@@ -126,6 +127,9 @@ namespace Game.Scene
             MapRunController.Instance.OnLevelCleared();
 
             SaveAllPlayerComponentStates();
+
+            // The level counts: keep the Favors earned in it
+            MetaProgressionManager.Instance?.BankRunFavors();
 
             // Mark level as beaten to keep count of levels beaten in this run
             GameSession.Instance.MarkLevelBeaten(GameSession.Instance.currentLevel);            
