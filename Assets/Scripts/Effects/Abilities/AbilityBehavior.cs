@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,13 @@ namespace Game.Effects.Abilities
         /// <summary>The row for <paramref name="tier"/>, or null when the table is empty.</summary>
         public TTier GetTier(int tier) => AbilityTiers.Get(tiers, tier);
     }
+
+    /// <summary>
+    /// Marks a tier-table field where a smaller value is the stronger one (e.g. a spawn interval).
+    /// Guard tests check that every tier is at least as strong as the one before it.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field)]
+    public class LowerIsBetterAttribute : Attribute { }
 
     public static class AbilityTiers
     {

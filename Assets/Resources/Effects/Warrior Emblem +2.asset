@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Warrior Emblem +2
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 1d4f6f17-f204-4388-ba1d-a7c5250d72b8
+  icon: {fileID: 21300000, guid: 13ac302214510864bb2df768b8ce91c3, type: 3}
+  effectName: Warrior Emblem +2
+  scalingValue: 1
+  description: 'Emblem of the Crusaders of the Faith. Every level gained grants +1
+    _melee_damage_.
+
+'
+  buyPrice: 0
+  sellPrice: 0
+  effectStatModifiers:
+  - stat: 21
+    value: 2
+    type: 0
+  statDependencies:
+  - sourceStat: 21
+    perPoints: 1
+    targetStat: 0
+    amount: 1
+  - sourceStat: 21
+    perPoints: 1
+    targetStat: 6
+    amount: 1
+  - sourceStat: 21
+    perPoints: 1
+    targetStat: 3
+    amount: -1
+  behaviors:
+  - {fileID: 11400000, guid: 40d7be8328ce4ce09652347b2b3e262a, type: 2}
+  unlockedByDefault: 0
+  quality: 4
+  availableForShop: 0
+  tier: 2
+  startingOnly: 1

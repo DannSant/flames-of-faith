@@ -1,5 +1,6 @@
 using Game.Effects;
 using Game.GameSettings;
+using Game.Metaprogression;
 using Game.Scene;
 using Game.Waves;
 using System.Collections.Generic;
@@ -103,7 +104,13 @@ namespace Game.UI
 
             var selected = allEffects[effectDropdown.value];
             var effectStore = PlayerManager.Instance?.GetPlayerComponent<EffectStore>();
-            effectStore?.AddEffect(selected);
+            if (effectStore == null) return;
+
+            // A class kit item (e.g. "Scroll of Whirlwind +2") replaces the owned tier of its line.
+            if (!SkillTrees.EquipTier(effectStore, selected))
+            {
+                effectStore.AddEffect(selected);
+            }
         }
     }
 }

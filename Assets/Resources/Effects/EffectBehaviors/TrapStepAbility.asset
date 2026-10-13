@@ -18,3 +18,12 @@ MonoBehaviour:
   - dashDuration: 0.15
     trapDamage: 2
     maxTraps: 3
+  - dashDuration: 0.17
+    trapDamage: 3
+    maxTraps: 4
+  - dashDuration: 0.19
+    trapDamage: 4
+    maxTraps: 4
+  - dashDuration: 0.21
+    trapDamage: 5
+    maxTraps: 5

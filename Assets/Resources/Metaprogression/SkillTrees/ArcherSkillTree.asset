@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6391d03e1960c4e942805970b0a974, type: 3}
+  m_Name: ArcherSkillTree
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.SkillTreeDefinition
+  characterClass: 3
+  nodes:
+  - nodeId: weapon
+    tiers:
+    - {fileID: 11400000, guid: 197446a422933054d9d5c7fd08a32579, type: 2}
+    - {fileID: 11400000, guid: cc9916b12ecfd0d49a1862ab392335f2, type: 2}
+    - {fileID: 11400000, guid: 70dd16227878b1b42b4f288af9cf2ccd, type: 2}
+    - {fileID: 11400000, guid: cc25520afe2cdf740bd91e72a7fce6a5, type: 2}
+  - nodeId: offhand
+    tiers:
+    - {fileID: 11400000, guid: 93d9e43ef36fce644a9a00dea4f81ef7, type: 2}
+    - {fileID: 11400000, guid: 711dbef16008e5b4989bbb1df29c689d, type: 2}
+    - {fileID: 11400000, guid: 8a3e0dbbc9226d146854268b02341b51, type: 2}
+    - {fileID: 11400000, guid: 8824a28fd060b7d4ab55c374a873c999, type: 2}
+  - nodeId: emblem
+    tiers:
+    - {fileID: 11400000, guid: e64be1d9e16fae7459ee8c372057d832, type: 2}
+    - {fileID: 11400000, guid: 264ba12fda6f14446a4027a6b2e46ce3, type: 2}
+    - {fileID: 11400000, guid: 2ba246a5779ae564f9cb4b42f6a6a3cd, type: 2}
+    - {fileID: 11400000, guid: eab69054fdc91b243be41b5b36579415, type: 2}
+  - nodeId: primary
+    tiers:
+    - {fileID: 11400000, guid: 9a140f93f893dc449b011aec1e522e41, type: 2}
+    - {fileID: 11400000, guid: efd0fd3174b3e2f40a5702ec0138d09c, type: 2}
+    - {fileID: 11400000, guid: f919b7348fa1c8e43bbc2053280df3b4, type: 2}
+    - {fileID: 11400000, guid: dbf4218c891cbf34f8c9800ed6c5cae0, type: 2}
+  - nodeId: special
+    tiers:
+    - {fileID: 11400000, guid: fcdfd47448cb550429818945235ba952, type: 2}
+    - {fileID: 11400000, guid: ad6949be709e0c546a58c5a9533e282e, type: 2}
+    - {fileID: 11400000, guid: 8958c0b4fd6e5024098c076e8858d8ef, type: 2}
+    - {fileID: 11400000, guid: 0df7234d79bb1bb46801413c2e144071, type: 2}
+  - nodeId: dash
+    tiers:
+    - {fileID: 11400000, guid: 4b35d2aeae87e81408e3c2a579b66388, type: 2}
+    - {fileID: 11400000, guid: 822b7c9dbee15f14db4e391e9ae6b21a, type: 2}
+    - {fileID: 11400000, guid: c432973bb40f5064f8e2df9b6ad7ec89, type: 2}
+    - {fileID: 11400000, guid: 396d7349af7706f47a63060dbf90682a, type: 2}

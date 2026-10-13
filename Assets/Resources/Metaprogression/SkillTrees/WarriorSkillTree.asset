@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6391d03e1960c4e942805970b0a974, type: 3}
+  m_Name: WarriorSkillTree
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.SkillTreeDefinition
+  characterClass: 1
+  nodes:
+  - nodeId: weapon
+    tiers:
+    - {fileID: 11400000, guid: 448a3ecdad82052408cc1dd84906808c, type: 2}
+    - {fileID: 11400000, guid: 44c8b35113292cd47ac0de65d8c24336, type: 2}
+    - {fileID: 11400000, guid: 6270d00421bb58242995f16ca373a0c8, type: 2}
+    - {fileID: 11400000, guid: 99793e6a3ec9fbf4ab46f07d87bddc4c, type: 2}
+  - nodeId: offhand
+    tiers:
+    - {fileID: 11400000, guid: 6230fcb138d7af54f9120865e180296f, type: 2}
+    - {fileID: 11400000, guid: f4726f46d7efcb641960526e695c61ce, type: 2}
+    - {fileID: 11400000, guid: f9fe4858d38db804eab255f5d333822a, type: 2}
+    - {fileID: 11400000, guid: 51aa3a1007462514b8e0af74752b73a4, type: 2}
+  - nodeId: emblem
+    tiers:
+    - {fileID: 11400000, guid: d3b40034cb9c6ba4e93175ea8fe88b62, type: 2}
+    - {fileID: 11400000, guid: fd3f88d5c1f424941b529905221c54a3, type: 2}
+    - {fileID: 11400000, guid: 62b11035fe062b6449900b8b7685bde4, type: 2}
+    - {fileID: 11400000, guid: 14e66d064a7ad4442af92dc6a3706625, type: 2}
+  - nodeId: primary
+    tiers:
+    - {fileID: 11400000, guid: 76140128cd6f6314b9b858423daccfa4, type: 2}
+    - {fileID: 11400000, guid: c38c6bca67de61145a646f34ebb7a611, type: 2}
+    - {fileID: 11400000, guid: 5d801bca0f82a37408b3e0ed7588e7cd, type: 2}
+    - {fileID: 11400000, guid: da73f8e3fb740c54a967ff3e2426f6c7, type: 2}
+  - nodeId: special
+    tiers:
+    - {fileID: 11400000, guid: 0483cad4d46110044a24b29c4eb9a52c, type: 2}
+    - {fileID: 11400000, guid: 5edf8615f6c08454e918448044e99093, type: 2}
+    - {fileID: 11400000, guid: 1711d411736ac2645b59b9fb6b682b24, type: 2}
+    - {fileID: 11400000, guid: 82539789b8a28be468d1158fa22ebbcc, type: 2}
+  - nodeId: dash
+    tiers:
+    - {fileID: 11400000, guid: 50795ddf641cc364fa9427e9ca7ce22c, type: 2}
+    - {fileID: 11400000, guid: 45b41e3fde628114d8889b39b4b0023d, type: 2}
+    - {fileID: 11400000, guid: 7a351f81027f9154ebb236699c63e6f3, type: 2}
+    - {fileID: 11400000, guid: 81786ce09818bac4e93670faff30fce0, type: 2}

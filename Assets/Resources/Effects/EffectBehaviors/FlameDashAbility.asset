@@ -19,3 +19,15 @@ MonoBehaviour:
     flameDamage: 2
     maxCharges: 2
     flameSpawnInterval: 0.05
+  - dashDuration: 0.32
+    flameDamage: 3
+    maxCharges: 2
+    flameSpawnInterval: 0.045
+  - dashDuration: 0.34
+    flameDamage: 3
+    maxCharges: 3
+    flameSpawnInterval: 0.04
+  - dashDuration: 0.36
+    flameDamage: 4
+    maxCharges: 3
+    flameSpawnInterval: 0.035

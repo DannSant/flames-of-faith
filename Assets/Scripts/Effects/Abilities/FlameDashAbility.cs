@@ -20,7 +20,7 @@ namespace Game.Effects.Abilities
             [Tooltip("Dash charges.")]
             [Min(1)] public int maxCharges = 2;
             [Tooltip("Seconds between flames while dashing (lower = more flames).")]
-            [Min(0.01f)] public float flameSpawnInterval = 0.05f;
+            [LowerIsBetter, Min(0.01f)] public float flameSpawnInterval = 0.05f;
         }
 
         public override AbilitySlot Slot => AbilitySlot.Dash;
