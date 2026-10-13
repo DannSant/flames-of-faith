@@ -2,6 +2,7 @@
 using Game.Combat;
 using Game.Common;
 using Game.Effects;
+using Game.Effects.Abilities;
 using Game.Effects.EffectBehaviors;
 using Game.Progression;
 using Game.Scene;
@@ -148,6 +149,49 @@ namespace Game.Effects
         public bool HasEffect<T>() where T : Effect
         {
             return activeEffects.Any(ei => ei.effect is T);
+        }
+
+        /// <summary>
+        /// The first owned ability of type <typeparamref name="T"/>, with the tier of the item
+        /// carrying it. Reads the tier from the item itself, never from the behavior asset, which is
+        /// shared by every tier of the item.
+        /// </summary>
+        public bool TryGetAbility<T>(out T ability, out int tier) where T : AbilityBehavior
+        {
+            foreach (var instance in activeEffects)
+            {
+                if (instance.effect == null) continue;
+                foreach (var behavior in instance.effect.Behaviors)
+                {
+                    if (behavior is T match)
+                    {
+                        ability = match;
+                        tier = instance.effect.Tier;
+                        return true;
+                    }
+                }
+            }
+
+            ability = null;
+            tier = 0;
+            return false;
+        }
+
+        /// <summary>The item carrying the ability for <paramref name="slot"/>, if any (for icons and tooltips).</summary>
+        public bool TryGetAbilityItem(AbilitySlot slot, out Effect item)
+        {
+            foreach (var instance in activeEffects)
+            {
+                if (instance.effect == null) continue;
+                if (instance.effect.Behaviors.Any(b => b is AbilityBehavior a && a.Slot == slot))
+                {
+                    item = instance.effect;
+                    return true;
+                }
+            }
+
+            item = null;
+            return false;
         }
 
         public EffectMultiplierConfig GetEffectMultiplierConfig(string effectID)

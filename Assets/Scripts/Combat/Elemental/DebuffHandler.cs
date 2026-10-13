@@ -19,11 +19,13 @@ namespace Game.Combat.Elemental
             enemyHealth = GetComponent<EnemyHealth>();
         }
 
-        public bool TryToApplyDebuff(ElementalDebuffData debuffData, int debuffStrengthStat)
+        /// <param name="chanceBonus">Added to the asset's landing chance (e.g. an ability's extra bleed
+        /// chance). Passed per hit because the debuff asset is shared and must never be modified.</param>
+        public bool TryToApplyDebuff(ElementalDebuffData debuffData, int debuffStrengthStat, float chanceBonus = 0f)
         {
             if (debuffData == null) return false;
 
-            float chance = debuffData.ChanceToApply;
+            float chance = debuffData.ChanceToApply + chanceBonus;
 
             // Reapplying onto an already-affected target can be made easier (or harder, with a
             // negative value) than the base landing chance, e.g. Bleed wants easier re-application

@@ -178,34 +178,34 @@ namespace Game.Tests
         }
 
         [Test]
-        public void TreasureTables_NeverRewardItemsWithStatBonuses()
+        public void TreasureTables_NeverRewardStartingOnlyItems()
         {
             foreach (var data in LoadAll<TreasureEncounterData>("t:TreasureEncounterData"))
             {
                 if (data.rewardTable == null) continue;
                 foreach (var entry in data.rewardTable)
                 {
-                    Assert.IsFalse(entry.item != null && entry.item.HasStatDependencies,
-                        $"{data.name} rewards {entry.item?.name}, which has stat bonuses (starting items only)");
+                    Assert.IsFalse(entry.item != null && entry.item.IsStartingOnly,
+                        $"{data.name} rewards {entry.item?.name}, which is a starting-only item");
                 }
             }
         }
 
         [Test]
-        public void EventOptions_NeverGiveItemsWithStatBonuses()
+        public void EventOptions_NeverGiveStartingOnlyItems()
         {
             foreach (var action in LoadAll<GiveRandomItemOptionAction>("t:GiveRandomItemOptionAction"))
             {
                 foreach (var entry in action.PossibleItems)
                 {
-                    Assert.IsFalse(entry.item != null && entry.item.HasStatDependencies,
-                        $"{action.name} can give {entry.item?.name}, which has stat bonuses (starting items only)");
+                    Assert.IsFalse(entry.item != null && entry.item.IsStartingOnly,
+                        $"{action.name} can give {entry.item?.name}, which is a starting-only item");
                 }
             }
         }
 
         [Test]
-        public void RandomItemDrops_NeverDropItemsWithStatBonuses()
+        public void RandomItemDrops_NeverDropStartingOnlyItems()
         {
             foreach (var prefab in LoadAll<GameObject>("t:Prefab", "Assets/Prefabs"))
             {
@@ -216,8 +216,8 @@ namespace Game.Tests
                     for (int i = 0; i < list.arraySize; i++)
                     {
                         var effect = list.GetArrayElementAtIndex(i).FindPropertyRelative("itemEffect").objectReferenceValue as Effect;
-                        Assert.IsFalse(effect != null && effect.HasStatDependencies,
-                            $"{prefab.name} can drop {effect?.name}, which has stat bonuses (starting items only)");
+                        Assert.IsFalse(effect != null && effect.IsStartingOnly,
+                            $"{prefab.name} can drop {effect?.name}, which is a starting-only item");
                     }
                 }
             }

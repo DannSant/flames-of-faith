@@ -24,6 +24,14 @@ namespace Game.Combat
             set => weaponData = value;
         }
 
+        /// <summary>Base damage to use instead of <see cref="WeaponData"/>'s (set by an ability item). Null = the weapon's own.</summary>
+        public int? BaseDamageOverride { get; set; }
+
+        /// <summary>Added to the weapon debuff's landing chance (e.g. an ability's extra bleed chance).</summary>
+        public float DebuffChanceBonus { get; set; }
+
+        private int BaseDamage => BaseDamageOverride ?? weaponData.baseDamage;
+
         private void Start()
         {
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
@@ -56,7 +64,7 @@ namespace Game.Combat
             {
 
               
-                var damageRequest = new DamageCalculationRequest(weaponData.baseDamage, null, "", WeaponClass.Melee, playerProgression, weaponData.attackScale);
+                var damageRequest = new DamageCalculationRequest(BaseDamage, null, "", WeaponClass.Melee, playerProgression, weaponData.attackScale);
                 float damageAmount = DamageCalculator.CalculateTotalDamage(damageRequest);
                 damageableObject.TakeDamage(new DamageRequest(damageAmount, weaponData.weaponClass, true));
 
@@ -90,7 +98,7 @@ namespace Game.Combat
             if (weaponData.elementalDebuffData != null && weaponData.elementalDebuffData.ElementalType != ElementalType.None)
             {
                 int debuffStrengthStat = playerProgression.GetStatTotal(StatType.MastowAffinity);
-                debuffHandler.TryToApplyDebuff(weaponData.elementalDebuffData, debuffStrengthStat);
+                debuffHandler.TryToApplyDebuff(weaponData.elementalDebuffData, debuffStrengthStat, DebuffChanceBonus);
             }
 
             //Effect debuff check

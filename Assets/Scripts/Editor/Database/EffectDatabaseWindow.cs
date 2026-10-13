@@ -241,6 +241,12 @@ namespace Game.Editor.Database
             availableForShop = EditorGUILayout.Toggle("Available For Shop", availableForShop);
             selectedRow.availableForShop = availableForShop ? 1 : 0;
 
+            // null (never saved) means tier 0 / not starting-only - see EffectRow.tier/startingOnly
+            selectedRow.tier = Mathf.Max(0, EditorGUILayout.IntField("Tier", selectedRow.tier ?? 0));
+            bool startingOnly = selectedRow.startingOnly.HasValue && selectedRow.startingOnly.Value == 1;
+            startingOnly = EditorGUILayout.Toggle(new GUIContent("Starting Only", "Class kit item: never sold, dropped or rewarded."), startingOnly);
+            selectedRow.startingOnly = startingOnly ? 1 : 0;
+
             EditorGUILayout.Space();
 
             /*Stat modifiers data*/

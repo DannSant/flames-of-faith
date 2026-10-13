@@ -222,6 +222,29 @@ namespace Game.Control
             }
         }
 
+        /// <summary>Changes how long a dash lasts (e.g. from an ability item). Applies from the next dash.</summary>
+        public void SetDashDuration(float duration)
+        {
+            dashDuration = Mathf.Max(0.01f, duration);
+            dashUpdateTimer?.SetEventDuration(dashDuration);
+        }
+
+        /// <summary>
+        /// Changes the number of dash charges (e.g. from an ability item). Extra charges arrive
+        /// through the normal recharge; spare charges above the new max are dropped.
+        /// </summary>
+        public void SetMaxCharges(int charges)
+        {
+            maxCharges = Mathf.Max(1, charges);
+            currentCharges = Mathf.Min(currentCharges, maxCharges);
+
+            if (currentCharges < maxCharges && dashCooldownTimer != null && !dashCooldownTimer.GetIsEventActive())
+            {
+                dashCooldownTimer.StartEvent();
+            }
+            OnChargesUpdated?.Invoke(currentCharges, maxCharges);
+        }
+
         public bool isDashActive()
         {
             return dashUpdateTimer.GetIsEventActive();

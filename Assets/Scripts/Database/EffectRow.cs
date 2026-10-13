@@ -26,6 +26,14 @@ namespace Game.Database
         // try to write a null into a non-nullable int and throw on load.
         public int? availableForShop { get; set; }
 
+        // Upgrade tier of a class kit item (0 = base, 1 = "+1", ...). Picks the row of the item's
+        // ability tier tables. null = column didn't exist yet = tier 0.
+        public int? tier { get; set; }
+
+        // 0 = false, 1 = true. Starting items (class kits) are never sold, dropped or rewarded.
+        // null = column didn't exist yet = false.
+        public int? startingOnly { get; set; }
+
         // JSON with stat modifiers
         public string statModifiersJson { get; set; }
 
