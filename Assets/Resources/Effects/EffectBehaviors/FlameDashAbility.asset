@@ -17,7 +17,7 @@ MonoBehaviour:
   tiers:
   - dashDuration: 0.3
     flameDamage: 2
-    maxCharges: 2
+    maxCharges: 1
     flameSpawnInterval: 0.05
   - dashDuration: 0.32
     flameDamage: 3

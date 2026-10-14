@@ -17,9 +17,9 @@ MonoBehaviour:
   tiers:
   - damage: 2
     knockbackForce: 10
-  - damage: 3
-    knockbackForce: 12
   - damage: 4
+    knockbackForce: 12
+  - damage: 6
     knockbackForce: 14
-  - damage: 5
+  - damage: 10
     knockbackForce: 16

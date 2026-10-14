@@ -20,14 +20,14 @@ MonoBehaviour:
     coneAngle: 15
     extraArrowDamageMultiplier: 1
   - baseDamage: 16
-    extraArrows: 1
-    coneAngle: 15
-    extraArrowDamageMultiplier: 1
-  - baseDamage: 17
     extraArrows: 2
     coneAngle: 15
     extraArrowDamageMultiplier: 1
+  - baseDamage: 17
+    extraArrows: 4
+    coneAngle: 20
+    extraArrowDamageMultiplier: 1
   - baseDamage: 18
-    extraArrows: 3
-    coneAngle: 15
+    extraArrows: 6
+    coneAngle: 30
     extraArrowDamageMultiplier: 1

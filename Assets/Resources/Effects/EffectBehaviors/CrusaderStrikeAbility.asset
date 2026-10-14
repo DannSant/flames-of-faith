@@ -17,9 +17,9 @@ MonoBehaviour:
   tiers:
   - baseDamage: 10
     bleedChanceBonus: 0
-  - baseDamage: 11
-    bleedChanceBonus: 0.05
   - baseDamage: 12
+    bleedChanceBonus: 0.05
+  - baseDamage: 14
     bleedChanceBonus: 0.1
-  - baseDamage: 13
+  - baseDamage: 18
     bleedChanceBonus: 0.15

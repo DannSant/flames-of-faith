@@ -19,11 +19,11 @@ MonoBehaviour:
     shieldDuration: 0
     absorbHealFraction: 0.5
   - baseDamage: 23
-    shieldDuration: 0
-    absorbHealFraction: 0.5
-  - baseDamage: 26
     shieldDuration: 1
     absorbHealFraction: 0.5
+  - baseDamage: 26
+    shieldDuration: 1.5
+    absorbHealFraction: 0.6
   - baseDamage: 30
     shieldDuration: 1.5
-    absorbHealFraction: 0.5
+    absorbHealFraction: 0.7

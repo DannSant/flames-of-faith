@@ -17,13 +17,13 @@ MonoBehaviour:
   tiers:
   - baseDamage: 30
     ringArrowCount: 16
-    targetArrowCount: 6
+    targetArrowCount: 3
   - baseDamage: 33
     ringArrowCount: 18
-    targetArrowCount: 7
+    targetArrowCount: 4
   - baseDamage: 36
     ringArrowCount: 20
-    targetArrowCount: 8
+    targetArrowCount: 5
   - baseDamage: 40
     ringArrowCount: 22
-    targetArrowCount: 9
+    targetArrowCount: 8

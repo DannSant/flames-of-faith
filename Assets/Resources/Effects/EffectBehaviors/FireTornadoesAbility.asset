@@ -16,14 +16,14 @@ MonoBehaviour:
   stackScaling: []
   tiers:
   - baseDamage: 30
-    tornadoCount: 4
+    tornadoCount: 2
     tornadoExplosionDamage: 5
   - baseDamage: 33
-    tornadoCount: 5
+    tornadoCount: 3
     tornadoExplosionDamage: 6
   - baseDamage: 36
-    tornadoCount: 6
+    tornadoCount: 4
     tornadoExplosionDamage: 7
   - baseDamage: 40
-    tornadoCount: 7
+    tornadoCount: 5
     tornadoExplosionDamage: 8

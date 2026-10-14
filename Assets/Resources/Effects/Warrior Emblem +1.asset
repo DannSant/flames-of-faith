@@ -36,7 +36,7 @@ MonoBehaviour:
     targetStat: 6
     amount: 1
   - sourceStat: 21
-    perPoints: 1
+    perPoints: 2
     targetStat: 3
     amount: -1
   behaviors:

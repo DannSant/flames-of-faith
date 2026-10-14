@@ -16,14 +16,14 @@ MonoBehaviour:
   stackScaling: []
   tiers:
   - dashDuration: 0.15
-    trapDamage: 2
+    trapDamage: 4
     maxTraps: 3
   - dashDuration: 0.17
-    trapDamage: 3
+    trapDamage: 6
     maxTraps: 4
   - dashDuration: 0.19
-    trapDamage: 4
-    maxTraps: 4
+    trapDamage: 8
+    maxTraps: 5
   - dashDuration: 0.21
-    trapDamage: 5
+    trapDamage: 12
     maxTraps: 5
