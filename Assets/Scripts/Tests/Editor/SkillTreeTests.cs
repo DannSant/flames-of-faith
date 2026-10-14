@@ -103,6 +103,21 @@ namespace Game.Tests
         }
 
         [Test]
+        public void OnlyTheWarriorStartsUnlocked_OthersCostFavors()
+        {
+            foreach (var (characterClass, _) in Classes)
+            {
+                var tree = GetTree(characterClass);
+                bool shouldStartUnlocked = characterClass == CharacterClass.Warrior;
+                Assert.AreEqual(shouldStartUnlocked, tree.UnlockedByDefault, $"{tree.name}: unlocked by default");
+                if (!shouldStartUnlocked)
+                {
+                    Assert.Greater(tree.UnlockCost, 0, $"{tree.name}: a locked class must cost Favors");
+                }
+            }
+        }
+
+        [Test]
         public void Nodes_HaveACostForEveryUpgrade()
         {
             foreach (var (characterClass, _) in Classes)

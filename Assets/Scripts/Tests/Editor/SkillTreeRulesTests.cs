@@ -41,6 +41,15 @@ namespace Game.Tests
             Assert.AreEqual(-1, SkillTreeRules.GetUpgradeCost(Costs, 1, 0));
         }
 
+        [TestCase(true, false, false, true)]
+        [TestCase(false, true, false, true)]
+        [TestCase(false, false, true, true)]
+        [TestCase(false, false, false, false)]
+        public void ClassUnlocked_ByDefaultBoughtOrDeveloperSetting(bool byDefault, bool bought, bool unlockAll, bool expected)
+        {
+            Assert.AreEqual(expected, SkillTreeRules.IsClassUnlocked(byDefault, bought, unlockAll));
+        }
+
         [TestCase(0, 3, true)]
         [TestCase(0, 2, false)]
         [TestCase(2, 10, true)]

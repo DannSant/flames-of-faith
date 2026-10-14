@@ -16,9 +16,17 @@ namespace Game.Metaprogression
     public class SkillTreeDefinition : ScriptableObject
     {
         [SerializeField] private CharacterClass characterClass = CharacterClass.Warrior;
+        [Header("Class Unlock (the tree's root)")]
+        [Tooltip("Playable from the start, without buying it.")]
+        [SerializeField] private bool unlockedByDefault = false;
+        [Tooltip("Favors to unlock the class. Paid from every class's Favors combined (a locked class can't earn its own).")]
+        [Min(0)]
+        [SerializeField] private int unlockCost = 15;
         [SerializeField] private List<SkillTreeNode> nodes = new();
 
         public CharacterClass CharacterClass => characterClass;
+        public bool UnlockedByDefault => unlockedByDefault;
+        public int UnlockCost => unlockCost;
         public IReadOnlyList<SkillTreeNode> Nodes => nodes;
 
         /// <summary>The node whose tiers contain <paramref name="item"/>, and that item's tier in it.</summary>

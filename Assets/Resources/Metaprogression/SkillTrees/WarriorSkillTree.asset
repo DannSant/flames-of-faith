@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: WarriorSkillTree
   m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.SkillTreeDefinition
   characterClass: 1
+  unlockedByDefault: 1
+  unlockCost: 0
   nodes:
   - nodeId: weapon
     tiers:

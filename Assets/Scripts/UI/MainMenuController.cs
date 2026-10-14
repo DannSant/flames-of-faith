@@ -38,6 +38,10 @@ namespace Game.UI
         [SerializeField] private ConfirmDialogUI confirmDialog;
         [TextArea]
         [SerializeField] private string newGameOverwriteWarning = "Starting a new game will delete your current run. Continue?";
+        [Tooltip("Shown when a locked class is picked. {0} = class name, {1} = unlock cost in Favors.")]
+        [SerializeField] private string classLockedMessage = "{0} is locked. Unlock it in the skill tree for {1} Favors.";
+        [Tooltip("Added to a locked class's description. {0} = unlock cost in Favors.")]
+        [SerializeField] private string classLockedInfo = "<color=#B0B0B0>Locked. Unlock it in the skill tree for {0} Favors.</color>";
 
         private Animator animator;
 
@@ -60,6 +64,12 @@ namespace Game.UI
             if (settingsWindow != null) settingsWindow.SetOpen(false);
 
             RefreshLoadGameButton();
+            RefreshClassLocks();
+
+            if (MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.OnClassUnlocked += HandleClassUnlocked;
+            }
         }
 
         private void OnEnable()
@@ -70,6 +80,11 @@ namespace Game.UI
         private void OnDisable()
         {
             RunSaveService.OnSaveChanged -= RefreshLoadGameButton;
+
+            if (MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.OnClassUnlocked -= HandleClassUnlocked;
+            }
 
             foreach (var hoverButton in FindObjectsByType<ClassSelectHoverButton>(FindObjectsSortMode.None))
             {
@@ -84,6 +99,10 @@ namespace Game.UI
 
             classNameText.text = classData.characterName;
             classDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(classData.classDescription);
+            if (!IsClassPlayable(classData.characterClass))
+            {
+                classDescriptionText.text += "\n\n" + string.Format(classLockedInfo, GetUnlockCost(classData.characterClass));
+            }
 
             // The class's weapon at the tier bought in its skill tree
             var weapon = ClassKits.GetWeapon(classData.characterClass);
@@ -132,22 +151,45 @@ namespace Game.UI
             }
         }
 
-        public void SelectWarrior() 
+        public void SelectWarrior() => SelectClass(0, CharacterClass.Warrior, "Warrior");
+
+        public void SelectArcher() => SelectClass(1, CharacterClass.Archer, "Archer");
+
+        public void SelectAugur() => SelectClass(2, CharacterClass.Mage, "Augur");
+
+        private void SelectClass(int playerIndex, CharacterClass characterClass, string className)
         {
-            GameSession.Instance.SelectedPlayerIndex = 0;
+            if (!IsClassPlayable(characterClass))
+            {
+                if (confirmDialog != null)
+                {
+                    confirmDialog.Show(string.Format(classLockedMessage, className, GetUnlockCost(characterClass)), null);
+                }
+                return;
+            }
+
+            GameSession.Instance.SelectedPlayerIndex = playerIndex;
             StartNewGame();
         }
 
-        public void SelectArcher()
-        {
-            GameSession.Instance.SelectedPlayerIndex = 1;
-            StartNewGame();
-        }
+        // Without the meta manager (e.g. the menu scene played on its own) every class is playable.
+        private static bool IsClassPlayable(CharacterClass characterClass) =>
+            MetaProgressionManager.Instance == null || MetaProgressionManager.Instance.IsClassUnlocked(characterClass);
 
-        public void SelectAugur()
+        private static int GetUnlockCost(CharacterClass characterClass) =>
+            SkillTrees.Get(characterClass)?.UnlockCost ?? 0;
+
+        private void HandleClassUnlocked(CharacterClass characterClass) => RefreshClassLocks();
+
+        private void RefreshClassLocks()
         {
-            GameSession.Instance.SelectedPlayerIndex = 2;
-            StartNewGame();
+            foreach (var hoverButton in FindObjectsByType<ClassSelectHoverButton>(FindObjectsSortMode.None))
+            {
+                if (hoverButton.ClassData != null)
+                {
+                    hoverButton.SetLocked(!IsClassPlayable(hoverButton.ClassData.characterClass));
+                }
+            }
         }
 
         public void SwitchFromMainPanelToCharacterSelect()

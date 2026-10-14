@@ -28,6 +28,10 @@ namespace Game.Metaprogression
             return upgradeCosts[tier] < 0 ? 0 : upgradeCosts[tier];
         }
 
+        /// <summary>A class is playable when it starts unlocked, was bought, or the developer setting unlocks every class.</summary>
+        public static bool IsClassUnlocked(bool unlockedByDefault, bool bought, bool unlockAllClasses) =>
+            unlockedByDefault || bought || unlockAllClasses;
+
         public static bool CanUpgrade(IReadOnlyList<int> upgradeCosts, int tierCount, int currentTier, int spendableFavors)
         {
             int cost = GetUpgradeCost(upgradeCosts, tierCount, currentTier);

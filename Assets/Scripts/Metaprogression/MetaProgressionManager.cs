@@ -77,6 +77,8 @@ namespace Game.Metaprogression
         public event Action OnFavorsChanged;
         /// <summary>A skill tree node changed tier (class, node id).</summary>
         public event Action<CharacterClass, string> OnNodeTierChanged;
+        /// <summary>A class was unlocked with Favors.</summary>
+        public event Action<CharacterClass> OnClassUnlocked;
         /// <summary>Favors earned in the current level (amount gained), not banked yet.</summary>
         public event Action<int> OnRunFavorsGained;
 
@@ -259,6 +261,48 @@ namespace Game.Metaprogression
             pendingRunFavorsClass = CharacterClass.None;
         }
 
+        // --- Class unlocks ----------------------------------------------------------------------
+
+        /// <summary>Whether the class can be played (and its tree upgraded).</summary>
+        public bool IsClassUnlocked(CharacterClass characterClass)
+        {
+            var tree = SkillTrees.Get(characterClass);
+            return SkillTreeRules.IsClassUnlocked(
+                tree != null && tree.UnlockedByDefault,
+                m_MetaState != null && m_MetaState.unlockedClasses.Contains(characterClass.ToString()),
+                MetaProgressionSettings.Instance.UnlockAllClasses);
+        }
+
+        /// <summary>Whether the class was bought or starts unlocked, ignoring the developer setting.</summary>
+        private bool IsClassOwned(CharacterClass characterClass)
+        {
+            var tree = SkillTrees.Get(characterClass);
+            return (tree != null && tree.UnlockedByDefault)
+                || (m_MetaState != null && m_MetaState.unlockedClasses.Contains(characterClass.ToString()));
+        }
+
+        /// <summary>Favors available to unlock a class: every class's Favors combined.</summary>
+        public int GetFavorsForClassUnlock() =>
+            FavorRules.CalculateSpendable(favorsByClass, string.Empty, true);
+
+        /// <summary>
+        /// Buys the class with Favors from every class's pool. Returns false (and changes nothing)
+        /// when it's already owned, has no tree, or there aren't enough Favors.
+        /// </summary>
+        public bool TryUnlockClass(CharacterClass characterClass)
+        {
+            var tree = SkillTrees.Get(characterClass);
+            if (tree == null || IsClassOwned(characterClass)) return false;
+            if (!FavorRules.TrySpend(favorsByClass, characterClass.ToString(), tree.UnlockCost, true)) return false;
+
+            m_MetaState.unlockedClasses.Add(characterClass.ToString());
+            SaveMetaProgression();
+
+            OnFavorsChanged?.Invoke();
+            OnClassUnlocked?.Invoke(characterClass);
+            return true;
+        }
+
         // --- Skill tree -------------------------------------------------------------------------
 
         /// <summary>The tier of a skill tree node the player has bought (0 = base item), clamped to the node.</summary>
@@ -274,7 +318,7 @@ namespace Game.Metaprogression
             node == null ? -1 : node.GetUpgradeCost(GetNodeTier(characterClass, node));
 
         public bool CanUpgradeNode(CharacterClass characterClass, SkillTreeNode node) =>
-            node != null && SkillTreeRules.CanUpgrade(node.upgradeCosts, node.tiers.Count,
+            node != null && IsClassUnlocked(characterClass) && SkillTreeRules.CanUpgrade(node.upgradeCosts, node.tiers.Count,
                 GetNodeTier(characterClass, node), GetSpendableFavors(characterClass));
 
         /// <summary>
@@ -331,15 +375,26 @@ namespace Game.Metaprogression
                 : $"[Meta] Can't upgrade {debugClass}/{debugNodeId}: tier {GetNodeTier(debugClass, node)}, cost {GetUpgradeCost(debugClass, node)}, spendable {GetSpendableFavors(debugClass)}.");
         }
 
+        [ContextMenu("Debug: Unlock Debug Class")]
+        private void DebugUnlockClass()
+        {
+            if (!IsDebugAllowed()) return;
+            bool unlocked = TryUnlockClass(debugClass);
+            Debug.Log(unlocked
+                ? $"[Meta] Unlocked {debugClass}."
+                : $"[Meta] Can't unlock {debugClass}: owned {IsClassOwned(debugClass)}, cost {SkillTrees.Get(debugClass)?.UnlockCost}, Favors {GetFavorsForClassUnlock()}.");
+        }
+
         [ContextMenu("Debug: Reset Favors and Skill Trees")]
         private void DebugResetSkillTrees()
         {
             if (!IsDebugAllowed()) return;
             favorsByClass.Clear();
             nodeTiers.Clear();
+            m_MetaState.unlockedClasses.Clear();
             SaveMetaProgression();
             OnFavorsChanged?.Invoke();
-            Debug.Log("[Meta] Favors and skill tree tiers reset.");
+            Debug.Log("[Meta] Favors, skill tree tiers and class unlocks reset.");
         }
 
         // The meta file is only loaded in Awake, so outside Play mode these would work on an empty state.

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ArcherSkillTree
   m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.SkillTreeDefinition
   characterClass: 3
+  unlockedByDefault: 0
+  unlockCost: 15
   nodes:
   - nodeId: weapon
     tiers:

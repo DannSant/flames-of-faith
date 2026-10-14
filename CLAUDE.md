@@ -240,6 +240,40 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
   - **The selection marker drawn under a window.**
 - `PauseManager.SetPause` sets `timeScale` to 0. Upgrade selection, the item bag and the pause menu pause the game, but the wave-end sequence (including `WaveCorruptionSummaryUI`) does not. Anything time-based that must stop there checks `WaveSpawner.Instance.EndingWave` and/or `GameplayFreeze.IsActive`, as `HealthRegen` does.
 
+### Class kits, skill trees & Favors (reworked Oct 2026)
+
+Each class's abilities and bonuses are **items** (its kit), and each item has **tiers** bought with **Favors** in a per-class skill tree.
+
+- **Kit:** 6 starting-only items per class (`Effect.startingOnly`): weapon, off-hand, Emblem, and 3 Scrolls.
+  - **Scrolls carry an ability** (`Scripts/Effects/Abilities/`): `AbilityBehavior<TValues>` is a data-only `EffectBehavior` with a per-tier table, one per slot (`AbilitySlot` Primary/Special/Dash).
+  - **The class components still perform the ability** and read their numbers with `EffectStore.TryGetAbility<T>`: `SwordWeapon`/`BowWeapon`/`ScepterWeapon` and the `*Dash` classes.
+  - **Hooks:** `WeaponBase.ApplyAbilityItems` (on initialize and on item changes); `DashBase.ApplyAbilityItems` (before each dash and on item changes, so a new duration counts for that dash and charges are right from the start).
+  - **Without the item**, each falls back to its own `WeaponData`/Inspector values.
+  - **Emblem:** `MainStatOnLevelUpBehavior` (+1 main stat per level, baseline = level when the item is added) plus the class's stat bonus rules.
+- **Tiers:** each tier is its own DB row (`"<item> +N"`, `Effect.tier` = N, own `EffectID`).
+  - Every tier of a Scroll uses the **same** ability asset; `Effect.tier` picks the table row (a tier past the table uses the last row).
+  - Mark fields where smaller is stronger with `[LowerIsBetter]`.
+- **Skill trees:** `SkillTreeDefinition`, one per class in `Resources/Metaprogression/SkillTrees`, read through `SkillTrees`.
+  - Root: `unlockedByDefault` (Warrior only) and `unlockCost`.
+  - Nodes (`weapon`, `offhand`, `emblem`, `primary`, `special`, `dash`) list their tier items and `upgradeCosts`. Node ids are saved, so don't rename them.
+  - Each node is a linear path: tier N is bought from tier N-1 (`SkillTreeRules`).
+- **Starting kit:** the skill tree is the **only** source of starting items. `ClassKits.Resolve(class)` takes each node at its bought tier, and `PlayerManager.ResetAllPlayerComponentStates` pushes it into `EffectStore.SetStartingKit` before every new-run reset. Upgrades apply from the next new run.
+- **Favors** (`MetaProgressionManager`, saved per class in `<player>_meta.dat` through `SaveFileIO`):
+  - **Earned:** +1 per wave that ends with Grace > 0, +5 for the boss kill, and from events via `ChangeFavorsOption`. Values on `MetaProgressionSettings` (`Resources/Metaprogression/`).
+  - **Banking:** Favors earned in a level stay pending (`AddRunFavors`) and are banked by `BankRunFavors` when the level is finished (`PlayerManager.HandleWaveGroupFinished`), on death, on the boss kill and on the last level. `LoadGameplay` discards them, so leaving a level any other way (Save & Exit, quitting) drops them, and replaying from the pre-level save can't farm Favors.
+  - **Spending:** node upgrades spend the class's own Favors, or all classes' when the developer toggle `sharedFavorPool` is on (`FavorRules`). Class unlocks always spend from all classes combined, because a locked class can't earn its own.
+- **Developer:**
+  - `MetaProgressionSettings.unlockAllClasses` (on for tester builds) makes every class playable.
+  - The debug cheat window swaps an owned kit item for another tier of its line (`SkillTrees.EquipTier`).
+  - `MetaProgressionManager`'s Inspector context menu (Play mode only) adds Favors, upgrades a node, unlocks a class or resets everything.
+- **Main menu:** locked classes are tinted (`ClassSelectHoverButton.SetLocked`), show their unlock cost, and can't start a run. The class panel shows the weapon at its bought tier.
+- **Tests:** `ClassKitTests`, `SkillTreeTests`, `SkillTreeRulesTests`, `FavorTests`, `AbilityTierTests`.
+- **Adding kit content:**
+  1. Add the DB rows: tier 0 with Starting Only, then `+1..+N` with `tier` set.
+  2. Generate ScriptableObjects.
+  3. Add the items to the class's tree node.
+  4. For a Scroll, give its ability asset at least as many table rows as the node has tiers (a test checks this).
+
 ### Effect data pipeline — every field change touches 5 places
 
 `Effect` (`Assets/Scripts/Effects/Effect.cs`) is authored in a SQLite database (via `Tools/Effects/Effect Database`), not hand-edited as ScriptableObjects — the `.asset` files under `Assets/Resources/Effects/` are generated output, not source of truth. Whenever a field is added/changed/removed on `Effect`, update all of these together or the DB and the runtime SOs silently drift apart:
