@@ -45,7 +45,8 @@ namespace Game.Effects
     public class EffectStore : MonoBehaviour, IDependentStateLoader
     {
 
-        [SerializeField] private List<Effect> startingEffects = new();
+        // Pushed in before every new-run reset (PlayerManager, from the class's skill tree).
+        private readonly List<Effect> startingKit = new();
 
         private List<EffectInstance> activeEffects = new();
         public event Action<Effect> OnEffectAdded;
@@ -72,10 +73,17 @@ namespace Game.Effects
             // stale cached reference) survives from the previous one.
             context = new EffectBehaviorContext { ownerObject = gameObject, storeOwner = this };
 
-            foreach (var effect in startingEffects)
+            foreach (var effect in startingKit)
             {
-                AddEffect(effect);
+                if (effect != null) AddEffect(effect);
             }
+        }
+
+        /// <summary>The items a new run starts with. Applied on the next ResetState.</summary>
+        public void SetStartingKit(IEnumerable<Effect> kit)
+        {
+            startingKit.Clear();
+            if (kit != null) startingKit.AddRange(kit);
         }
 
         public void AddEffect(Effect effect)

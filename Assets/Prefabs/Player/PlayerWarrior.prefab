@@ -641,34 +641,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: startingEffects.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: 'startingEffects.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 448a3ecdad82052408cc1dd84906808c, type: 2}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: 'startingEffects.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6230fcb138d7af54f9120865e180296f, type: 2}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: 'startingEffects.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 76140128cd6f6314b9b858423daccfa4, type: 2}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: 'startingEffects.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0483cad4d46110044a24b29c4eb9a52c, type: 2}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: 'startingEffects.Array.data[4]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 50795ddf641cc364fa9427e9ca7ce22c, type: 2}
-    - target: {fileID: 3511806836168854284, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
-      propertyPath: 'startingEffects.Array.data[5]'
-      value: 
-      objectReference: {fileID: 11400000, guid: d3b40034cb9c6ba4e93175ea8fe88b62, type: 2}
     - target: {fileID: 4466767103082562775, guid: 39d9183ac64d79f4bb999873480bc2c1, type: 3}
       propertyPath: m_Size.x
       value: 3

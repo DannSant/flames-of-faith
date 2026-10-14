@@ -52,8 +52,14 @@ namespace Game.Metaprogression
         public string nodeId;
         [Tooltip("The item at each tier: element 0 is the base item, element 1 is \"+1\", ...")]
         public List<Effect> tiers = new();
+        [Tooltip("Favors to upgrade to each next tier: element 0 buys tier 1, element 1 buys tier 2, ... " +
+            "Tiers are bought in order, so each one requires the one before it.")]
+        public List<int> upgradeCosts = new();
 
         public int MaxTier => tiers.Count - 1;
+
+        /// <summary>Favors to go from <paramref name="currentTier"/> to the next tier, or -1 at the top.</summary>
+        public int GetUpgradeCost(int currentTier) => SkillTreeRules.GetUpgradeCost(upgradeCosts, tiers.Count, currentTier);
 
         public Effect GetTier(int tier) => tier >= 0 && tier < tiers.Count ? tiers[tier] : null;
 

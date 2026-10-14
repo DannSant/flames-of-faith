@@ -3,6 +3,7 @@ using Game.Control;
 using Game.Effects;
 using Game.Effects.Abilities;
 using Game.Effects.EffectBehaviors;
+using Game.Metaprogression;
 using Game.Progression;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -32,21 +33,17 @@ namespace Game.Tests
             return prefab;
         }
 
+        /// <summary>The class's base kit: tier 0 of every node of its skill tree.</summary>
         private static List<Effect> GetStartingItems(GameObject prefab)
         {
-            var store = prefab.GetComponent<EffectStore>();
-            Assert.IsNotNull(store, $"{prefab.name} has no EffectStore");
+            var classManager = prefab.GetComponentInChildren<PlayerClassManager>(true);
+            Assert.IsNotNull(classManager, $"{prefab.name} has no PlayerClassManager");
 
-            var list = new SerializedObject(store).FindProperty("startingEffects");
-            var items = new List<Effect>();
-            for (int i = 0; i < list.arraySize; i++)
-            {
-                if (list.GetArrayElementAtIndex(i).objectReferenceValue is Effect effect)
-                {
-                    items.Add(effect);
-                }
-            }
-            return items;
+            var tree = Resources.LoadAll<SkillTreeDefinition>(SkillTrees.ResourcesPath)
+                .FirstOrDefault(t => t.CharacterClass == classManager.CharacterClass);
+            Assert.IsNotNull(tree, $"No skill tree for {classManager.CharacterClass} ({prefab.name})");
+
+            return tree.Nodes.Select(n => n.GetTier(0)).Where(e => e != null).ToList();
         }
 
         private static List<AbilityBehavior> GetAbilities(List<Effect> items) =>

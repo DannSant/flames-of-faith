@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.Combat;
 using Game.Control;
 using Game.Effects;
@@ -84,11 +85,13 @@ namespace Game.UI
             classNameText.text = classData.characterName;
             classDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(classData.classDescription);
 
-            if (classData.startingItem != null)
+            // The class's weapon at the tier bought in its skill tree
+            var weapon = ClassKits.GetWeapon(classData.characterClass);
+            if (weapon != null)
             {
-                itemNameText.text = classData.startingItem.EffectName;
-                itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(classData.startingItem.Quality);
-                itemDescriptionText.text = classData.startingItem.GetFormattedDescription();
+                itemNameText.text = weapon.EffectName;
+                itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(weapon.Quality);
+                itemDescriptionText.text = weapon.GetFormattedDescription();
             }
         }
 

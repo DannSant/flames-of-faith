@@ -31,18 +31,6 @@ namespace Game.Tests
             return tree;
         }
 
-        private static List<Effect> GetStartingItems(string prefabPath)
-        {
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-            Assert.IsNotNull(prefab, $"Missing prefab {prefabPath}");
-            var list = new SerializedObject(prefab.GetComponent<EffectStore>()).FindProperty("startingEffects");
-            var items = new List<Effect>();
-            for (int i = 0; i < list.arraySize; i++)
-            {
-                if (list.GetArrayElementAtIndex(i).objectReferenceValue is Effect effect) items.Add(effect);
-            }
-            return items;
-        }
 
         // --- Trees -------------------------------------------------------------------------
 
@@ -101,15 +89,38 @@ namespace Game.Tests
         }
 
         [Test]
-        public void StartingKit_IsTheBaseTierOfEveryNode()
+        public void ClassPrefabs_MatchTheirTreeClass()
         {
             foreach (var (characterClass, prefabPath) in Classes)
             {
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+                Assert.IsNotNull(prefab, $"Missing prefab {prefabPath}");
+                var classManager = prefab.GetComponentInChildren<Game.Progression.PlayerClassManager>(true);
+                Assert.IsNotNull(classManager, $"{prefabPath} has no PlayerClassManager");
+                Assert.AreEqual(characterClass, classManager.CharacterClass, $"{prefabPath} plays the wrong class");
+                GetTree(characterClass);
+            }
+        }
+
+        [Test]
+        public void Nodes_HaveACostForEveryUpgrade()
+        {
+            foreach (var (characterClass, _) in Classes)
+            {
                 var tree = GetTree(characterClass);
-                var kit = GetStartingItems(prefabPath).Select(e => e.EffectID).OrderBy(id => id).ToList();
-                var baseTiers = tree.Nodes.Select(n => n.GetTier(0)).Where(e => e != null)
-                    .Select(e => e.EffectID).OrderBy(id => id).ToList();
-                CollectionAssert.AreEqual(baseTiers, kit, $"{prefabPath}: the starting kit must be exactly the tree's tier-0 items");
+                foreach (var node in tree.Nodes)
+                {
+                    string where = $"{tree.name}/{node.nodeId}";
+                    Assert.AreEqual(node.tiers.Count - 1, node.upgradeCosts.Count, $"{where}: one cost per upgrade");
+                    for (int i = 0; i < node.upgradeCosts.Count; i++)
+                    {
+                        Assert.Greater(node.upgradeCosts[i], 0, $"{where}: upgrade to tier {i + 1} is free");
+                        if (i > 0)
+                        {
+                            Assert.GreaterOrEqual(node.upgradeCosts[i], node.upgradeCosts[i - 1], $"{where}: tier {i + 1} is cheaper than tier {i}");
+                        }
+                    }
+                }
             }
         }
 

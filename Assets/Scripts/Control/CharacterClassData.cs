@@ -21,7 +21,6 @@ namespace Game.Control
 
         [Header("Menu Display")]
         [TextArea] public string classDescription;
-        public Effect startingItem;
     }
 
     public enum CharacterClass

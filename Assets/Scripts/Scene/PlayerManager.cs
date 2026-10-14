@@ -1,4 +1,6 @@
+using Game.Effects;
 using Game.Metaprogression;
+using Game.Progression;
 using Game.Common;
 using Game.Control;
 using Game.Misc;
@@ -208,6 +210,14 @@ namespace Game.Scene
 
         public void ResetAllPlayerComponentStates()
         {
+            // The class's starting items: its skill tree at the tiers bought with Favors
+            var classManager = currentPlayer.GetComponent<PlayerClassManager>();
+            var effectStore = currentPlayer.GetComponent<EffectStore>();
+            if (classManager != null && effectStore != null)
+            {
+                effectStore.SetStartingKit(ClassKits.Resolve(classManager.CharacterClass));
+            }
+
             foreach (var component in currentPlayer.GetComponentsInChildren<IPrimaryStateLoader>())
             {
                 component.ResetState();
