@@ -109,12 +109,51 @@ namespace Game.Combat
                 move.SetMaxTravelDistance(GetFreeAimMaxDistance());
             }
 
+            var holyShot = HolyShot;
             var damage = go.GetComponent<DamageSourceBase>();
-            int baseDamage = HolyShot?.baseDamage ?? weaponData.baseDamage;
+            int baseDamage = holyShot?.baseDamage ?? weaponData.baseDamage;
             damage.Initialize(baseDamage, pierceAmount, null, weaponData.weaponClass,weaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onBowAttackLaunched?.Invoke(damage);
+
+            if (holyShot != null && holyShot.extraArrows > 0)
+            {
+                int extraDamage = Mathf.Max(1, Mathf.RoundToInt(baseDamage * holyShot.extraArrowDamageMultiplier));
+                for (int i = 1; i <= holyShot.extraArrows; i++)
+                {
+                    float angle = GetConeAngle(i, holyShot.coneAngle);
+                    FireConeArrow(spawnPos, Quaternion.Euler(0f, 0f, angle) * direction, extraDamage, pierceAmount);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Angle of the <paramref name="index"/>-th extra arrow (1-based) of an upgraded Holy Shot:
+        /// alternating sides of the main arrow, one more step out every two arrows (+1, -1, +2, -2...).
+        /// </summary>
+        public static float GetConeAngle(int index, float step)
+        {
+            if (index <= 0) return 0f;
+            int side = index % 2 == 1 ? 1 : -1;
+            int ring = (index + 1) / 2;
+            return side * ring * step;
+        }
+
+        // An extra Holy Shot arrow: same damage and pierce as the main one, but it flies straight
+        // (no steering) for the weapon's range, and doesn't count as an attack for on-hit items
+        // (onBowAttackLaunched), so those trigger once per volley.
+        private void FireConeArrow(Vector2 spawnPos, Vector2 direction, int baseDamage, int pierceAmount)
+        {
+            var go = Instantiate(weaponData.projectilePrefab, spawnPos, Quaternion.identity);
+
+            var move = go.GetComponent<ProjectileMovementBase>();
+            move.Initialize(direction.normalized);
+            move.SetMaxTravelDistance(GetFreeAimMaxDistance());
+
+            var damage = go.GetComponent<DamageSourceBase>();
+            damage.Initialize(baseDamage, pierceAmount, null, weaponData.weaponClass, weaponData);
+            damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
         }
 
         protected override void OnSpecialAttackAnimationPlayed()

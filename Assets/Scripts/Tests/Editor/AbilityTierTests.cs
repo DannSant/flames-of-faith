@@ -44,6 +44,19 @@ namespace Game.Tests
             Assert.IsNull(AbilityTiers.Get<Row>(null, 0));
         }
 
+        // --- Holy Shot cone ----------------------------------------------------------------
+
+        [TestCase(1, 15f, 15f)]
+        [TestCase(2, 15f, -15f)]
+        [TestCase(3, 15f, 30f)]
+        [TestCase(4, 15f, -30f)]
+        [TestCase(5, 10f, 30f)]
+        [TestCase(0, 15f, 0f)]
+        public void ConeAngle_AlternatesSidesGoingOutward(int index, float step, float expected)
+        {
+            Assert.AreEqual(expected, Game.Combat.BowWeapon.GetConeAngle(index, step), 0.0001f);
+        }
+
         // --- Starting-only items -----------------------------------------------------------
 
         [Test]
