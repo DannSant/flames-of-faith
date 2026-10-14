@@ -15,8 +15,7 @@ namespace Game.Effects.Abilities
         {
             [Tooltip("Replaces the scepter WeaponData's base damage.")]
             public int baseDamage = 12;
-            [Tooltip("Base damage of an explosion where the fireball lands. 0 = no explosion. " +
-                "Not implemented yet (class kits step 7).")]
+            [Tooltip("Base damage of the explosion where the fireball hits an enemy. 0 = no explosion.")]
             public int impactExplosionDamage = 0;
         }
 

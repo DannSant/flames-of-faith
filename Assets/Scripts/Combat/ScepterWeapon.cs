@@ -36,6 +36,11 @@ namespace Game.Combat
         [Tooltip("Explosion damage as a fraction of the special's base damage.")]
         [SerializeField] private float targetExplosionDamageMultiplier = 0.5f;
 
+        [Header("Basic Attack: Impact Explosion")]
+        [Tooltip("Explosion where a fireball hits an enemy, once the Scroll of Fireball's tier gives it damage. " +
+            "Empty = the Target Explosion Prefab (FireballExplotion, the same as the tornadoes').")]
+        [SerializeField] private GameObject impactExplosionPrefab;
+
         private Coroutine targetExplosionsRoutine;
 
         // Scroll of Fireball / Scroll of Fire Tornadoes, read when casting. Null = the scepter's own data.
@@ -94,9 +99,23 @@ namespace Game.Combat
             }
 
             var damage = go.GetComponent<DamageSourceBase>();
-            int baseDamage = Fireball?.baseDamage ?? weaponData.baseDamage;
+            var fireball = Fireball;
+            int baseDamage = fireball?.baseDamage ?? weaponData.baseDamage;
             damage.Initialize(baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass, weaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
+
+            // Upgraded Scroll of Fireball: the first enemy hit sets off an explosion
+            int impactDamage = fireball != null ? fireball.impactExplosionDamage : 0;
+            if (impactDamage > 0)
+            {
+                bool exploded = false;
+                damage.OnDamageDealtEvent += (_, target) =>
+                {
+                    if (exploded || target == null) return;
+                    exploded = true;
+                    SpawnImpactExplosion(target.transform.position, impactDamage);
+                };
+            }
 
             onScepterAttackLaunched?.Invoke(damage);
         }
@@ -168,6 +187,19 @@ namespace Game.Combat
 
             int damageAmount = Mathf.Max(1, Mathf.RoundToInt(specialBaseDamage * targetExplosionDamageMultiplier));
             damage.Initialize(damageAmount, damage.PierceCount, null, specialWeaponData.weaponClass, specialWeaponData);
+            damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
+        }
+
+        private void SpawnImpactExplosion(Vector3 position, int baseDamage)
+        {
+            var prefab = impactExplosionPrefab != null ? impactExplosionPrefab : targetExplosionPrefab;
+            if (prefab == null) return;
+
+            var go = Instantiate(prefab, position, Quaternion.identity);
+            var damage = go.GetComponent<DamageSourceBase>();
+            if (damage == null) return;
+
+            damage.Initialize(baseDamage, damage.PierceCount, null, weaponData.weaponClass, weaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
         }
 
