@@ -24,9 +24,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6270d00421bb58242995f16ca373a0c8, type: 2}
     - {fileID: 11400000, guid: 99793e6a3ec9fbf4ab46f07d87bddc4c, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: offhand
     title: Off-hand
     tiers:
@@ -35,9 +35,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f9fe4858d38db804eab255f5d333822a, type: 2}
     - {fileID: 11400000, guid: 51aa3a1007462514b8e0af74752b73a4, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: emblem
     title: Emblem
     tiers:
@@ -46,9 +46,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 62b11035fe062b6449900b8b7685bde4, type: 2}
     - {fileID: 11400000, guid: 14e66d064a7ad4442af92dc6a3706625, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: primary
     title: Basic Attack
     tiers:
@@ -57,9 +57,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5d801bca0f82a37408b3e0ed7588e7cd, type: 2}
     - {fileID: 11400000, guid: da73f8e3fb740c54a967ff3e2426f6c7, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: special
     title: Special
     tiers:
@@ -68,9 +68,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1711d411736ac2645b59b9fb6b682b24, type: 2}
     - {fileID: 11400000, guid: 82539789b8a28be468d1158fa22ebbcc, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: dash
     title: Dash
     tiers:
@@ -79,6 +79,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7a351f81027f9154ebb236699c63e6f3, type: 2}
     - {fileID: 11400000, guid: 81786ce09818bac4e93670faff30fce0, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20

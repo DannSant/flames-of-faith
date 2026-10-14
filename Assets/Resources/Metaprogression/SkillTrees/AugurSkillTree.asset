@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.SkillTreeDefinition
   characterClass: 2
   unlockedByDefault: 0
-  unlockCost: 15
+  unlockCost: 50
   nodes:
   - nodeId: weapon
     title: Weapon
@@ -24,9 +24,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ec753c62db57a5644ab398e6a7fcb284, type: 2}
     - {fileID: 11400000, guid: 46ec903d07995b6408d1b267d752948a, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: offhand
     title: Off-hand
     tiers:
@@ -35,9 +35,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e4f4d2eec196fe7498e4d93987469943, type: 2}
     - {fileID: 11400000, guid: f7b686589a58cfe439c5dc61250fe238, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: emblem
     title: Emblem
     tiers:
@@ -46,9 +46,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a26222bf07a95fc4fb91e75133bbd98d, type: 2}
     - {fileID: 11400000, guid: 8c76fd28307723f4fa6cec182d2e51bf, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: primary
     title: Basic Attack
     tiers:
@@ -57,9 +57,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3a0e0878bb8c65e4cbb6902c4d73c300, type: 2}
     - {fileID: 11400000, guid: 73472b8b2ba54834d8d3714dea0e2f42, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: special
     title: Special
     tiers:
@@ -68,9 +68,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a01fb25a62f2bc54c891e2bd174d9c06, type: 2}
     - {fileID: 11400000, guid: 102f9c655513b094b84cd82ced71390d, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20
   - nodeId: dash
     title: Dash
     tiers:
@@ -79,6 +79,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8d8368d7ca53d4e4690bd53b8b488bee, type: 2}
     - {fileID: 11400000, guid: 80c41e8be2f69624cb2a0dda512cf7ed, type: 2}
     upgradeCosts:
-    - 3
-    - 6
     - 10
+    - 15
+    - 20

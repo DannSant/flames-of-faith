@@ -21,7 +21,7 @@ namespace Game.Metaprogression
         [SerializeField] private bool unlockedByDefault = false;
         [Tooltip("Favors to unlock the class. Paid from every class's Favors combined (a locked class can't earn its own).")]
         [Min(0)]
-        [SerializeField] private int unlockCost = 15;
+        [SerializeField] private int unlockCost = 50;
         [SerializeField] private List<SkillTreeNode> nodes = new();
 
         public CharacterClass CharacterClass => characterClass;
