@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a85150d68ac4840aea51fef9aa67e7, type: 3}
   m_Name: Act1MapC
   m_EditorClassIdentifier: Assembly-CSharp::Game.Overworld.MapDefinition
-  mapId: act1B
+  mapId: act1C
   displayName: Jesterwoods
   startNodeId: level1
   nodes:
