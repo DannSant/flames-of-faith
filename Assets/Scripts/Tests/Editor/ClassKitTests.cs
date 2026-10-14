@@ -108,6 +108,18 @@ namespace Game.Tests
             }
         }
 
+        // DashBase finds the EffectStore with GetComponent in OnEnable (the player isn't
+        // registered with PlayerManager yet then), so they must share a GameObject.
+        [TestCase(WarriorPrefab)]
+        [TestCase(ArcherPrefab)]
+        [TestCase(AugurPrefab)]
+        public void Dash_SitsNextToTheEffectStore(string prefabPath)
+        {
+            var dash = LoadPrefab(prefabPath).GetComponentInChildren<DashBase>(true);
+            Assert.IsNotNull(dash, $"{prefabPath} has no dash");
+            Assert.IsNotNull(dash.GetComponent<EffectStore>(), $"{prefabPath}: the dash must be on the same GameObject as the EffectStore");
+        }
+
         [TestCase(WarriorPrefab)]
         [TestCase(ArcherPrefab)]
         [TestCase(AugurPrefab)]

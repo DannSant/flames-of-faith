@@ -83,12 +83,16 @@ namespace Game.Control
             playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
 
             playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
+        }
 
-            // Also re-read the dash scroll when the owned items change (run start, load, upgrades),
-            // so values that show before the first dash (charges) are right from the start.
-            effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
+        // Subscribed in OnEnable, not Start: the kit is reset or loaded right after the player is
+        // spawned, before Start runs, and the charges must be right from the start of the level.
+        protected virtual void OnEnable()
+        {
+            if (effectStore == null) effectStore = GetComponent<EffectStore>();
             if (effectStore != null)
             {
+                effectStore.OnEffectsChanged -= ApplyAbilityItems;
                 effectStore.OnEffectsChanged += ApplyAbilityItems;
             }
         }
