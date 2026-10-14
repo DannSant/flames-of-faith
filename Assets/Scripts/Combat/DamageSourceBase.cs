@@ -28,7 +28,8 @@ namespace Game.Combat
         [Tooltip("If true, we deal damage periodically while something STAYS in the trigger.")]
         [SerializeField] private bool useTriggerStay = false;
 
-        [Tooltip("Interval in seconds for OnTriggerStay ticks.")]
+        [Tooltip("Seconds between hits on the same target while it stays inside. Each target has its " +
+            "own timer and is hit as soon as it enters, so a target that only passes through still takes a hit.")]
         [SerializeField] private float tickInterval = 1f;
 
         [Tooltip("If true, multiple overlapping instances can each tick damage. " +
@@ -61,7 +62,9 @@ namespace Game.Combat
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
         private float stackDamageMultiplier = 1f;
-        private float stayTimer = 0f;
+        // Trigger-stay mode: when each target can be hit next. Per target, so several targets
+        // inside don't share (and split) one timer, and a quick pass still lands the first hit.
+        private readonly Dictionary<Collider2D, float> nextStayHitTime = new();
         private WeaponData weaponData;
         
         public DamageOriginType OriginType => originType;
@@ -109,6 +112,12 @@ namespace Game.Combat
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (useTriggerStay)
+            {
+                // Stay mode hits on contact too (see TryApplyStayDamage)
+                TryApplyStayDamage(other);
+            }
+
             if (!useTriggerEnter) return;
 
             if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
@@ -121,20 +130,20 @@ namespace Game.Combat
         private void OnTriggerStay2D(Collider2D other)
         {
             if (!useTriggerStay) return;
+            TryApplyStayDamage(other);
+        }
 
-            // Basic per-instance tick timer
-            stayTimer += Time.deltaTime;
-            if (stayTimer < tickInterval) return;
+        // shouldStackDamage is still only a config hint: every instance ticks on its own, so
+        // overlapping sources (e.g. several flame segments) each hit.
+        private void TryApplyStayDamage(Collider2D other)
+        {
+            if (other == null || ((1 << other.gameObject.layer) & enemyLayerMask) == 0) return;
 
-            stayTimer = 0f;
+            float now = Time.time;
+            if (nextStayHitTime.TryGetValue(other, out float nextHit) && now < nextHit) return;
 
-            // For now, shouldStackDamage is just a config hint; we always allow
-            // each instance to tick independently like your current ContinuousDamageSource.
-            // Later we can centralize stacking per-target if you want.
-            if (((1 << other.gameObject.layer) & enemyLayerMask) != 0)
-            {
-                TryApplyDamage(other);
-            }
+            nextStayHitTime[other] = now + tickInterval;
+            TryApplyDamage(other);
         }
 
         private void TryApplyDamage(Collider2D collision)
