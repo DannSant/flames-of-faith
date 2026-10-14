@@ -130,8 +130,16 @@ namespace Game.Scene
 
             SaveAllPlayerComponentStates();
 
-            // The level counts: keep the Favors earned in it
-            MetaProgressionManager.Instance?.BankRunFavors();
+            // The level counts: its Favors join the run's total (banked when the run ends)
+            if (MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.CommitLevelFavors();
+                // Clearing the last act ends the run (OnLevelCleared above sets it)
+                if (MapRunController.Instance != null && MapRunController.Instance.IsRunComplete)
+                {
+                    MetaProgressionManager.Instance.BankRunFavors();
+                }
+            }
 
             // Mark level as beaten to keep count of levels beaten in this run
             GameSession.Instance.MarkLevelBeaten(GameSession.Instance.currentLevel);            

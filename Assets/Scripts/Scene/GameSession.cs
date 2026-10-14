@@ -36,6 +36,24 @@ namespace Game.Scene
         public PlayerData PlayerData => playerData;
         public int LevelsBeaten => levelsBeaten;
 
+        // Favors earned in this run's finished levels. Saved with the run; they only reach the
+        // meta progression when the run ends (death or victory), see MetaProgressionManager.
+        private int runFavors = 0;
+        public int RunFavors => runFavors;
+
+        public void AddRunFavors(int amount)
+        {
+            runFavors = Mathf.Max(0, runFavors + amount);
+        }
+
+        /// <summary>Returns the run's Favors and clears them (when they're banked).</summary>
+        public int TakeRunFavors()
+        {
+            int amount = runFavors;
+            runFavors = 0;
+            return amount;
+        }
+
 
         protected override void Awake()
         {
@@ -51,7 +69,8 @@ namespace Game.Scene
 
         public void Initialize()
         {
-            levelsBeaten = 0;           
+            levelsBeaten = 0;
+            runFavors = 0;
             //LevelSelectionController.Instance.InitialSetup();            
         }
 
@@ -172,6 +191,7 @@ namespace Game.Scene
                 selectedPlayerIndex = SelectedPlayerIndex,
                 difficulty = selectedDifficulty.ToString(),
                 levelsBeaten = levelsBeaten,
+                runFavors = runFavors,
                 runStarted = !isNewRun,
                 currentHealth = playerData.currentHealth,
                 currentGrace = playerData.currentGrace,
@@ -227,6 +247,7 @@ namespace Game.Scene
                 selectedDifficulty = difficulty;
             }
             levelsBeaten = data.levelsBeaten;
+            runFavors = data.runFavors;
             isNewRun = !data.runStarted;
 
             playerData = new PlayerData

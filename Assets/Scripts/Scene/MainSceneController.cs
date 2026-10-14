@@ -84,7 +84,7 @@ namespace Game.Scene
         {
             if (!BeginTransition()) return;
             // Favors from a level that was left without finishing it (Save & Exit, quit) don't count
-            MetaProgressionManager.Instance?.DiscardRunFavors();
+            MetaProgressionManager.Instance?.DiscardLevelFavors();
             bool shouldReset = GameSession.Instance.IsNewRun;
             StartCoroutine(RunTransition(LoadGameplayRoutine(levelData, shouldReset)));
         }

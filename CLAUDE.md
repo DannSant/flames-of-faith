@@ -198,7 +198,7 @@ Code is in `Scripts/Saving/`. `RunSaveService` (static) writes `RunSaveData` to 
   - on boss kill (`BossWaveHandler.NotifyBossDied`), on `WaveSpawner.OnAllLevelsFinished` and when the last act is cleared (`MapRunController.IsRunComplete`, which also blocks re-saving);
   - on New Game.
 - **What it stores:**
-  - session data: class, difficulty, `levelsBeaten`, and `runStarted = !IsNewRun`;
+  - session data: class, difficulty, `levelsBeaten`, the run's unbanked Favors (`runFavors`), and `runStarted = !IsNewRun`;
   - `PlayerData`: effects by `EffectID`, stats and node states by enum **name**;
   - the current act's map: seed, `mapId`, node states, edges and current node.
 - **Mapping lives with the owners:** `GameSession.ToSaveData`/`ApplySaveData`/`CanApplySaveData`, and `MapRunController.CaptureSaveData`/`CanRestore`/`RestoreFromSave`.
@@ -265,7 +265,10 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
 - **Starting kit:** the skill tree is the **only** source of starting items. `ClassKits.Resolve(class)` takes each node at its bought tier, and `PlayerManager.ResetAllPlayerComponentStates` pushes it into `EffectStore.SetStartingKit` before every new-run reset. Upgrades apply from the next new run.
 - **Favors** (`MetaProgressionManager`, saved per class in `<player>_meta.dat` through `SaveFileIO`):
   - **Earned:** +1 per wave that ends with Grace > 0, +5 for the boss kill, and from events via `ChangeFavorsOption`. Values on `MetaProgressionSettings` (`Resources/Metaprogression/`).
-  - **Banking:** Favors earned in a level stay pending (`AddRunFavors`) and are banked by `BankRunFavors` when the level is finished (`PlayerManager.HandleWaveGroupFinished`), on death, on the boss kill and on the last level. `LoadGameplay` discards them, so leaving a level any other way (Save & Exit, quitting) drops them, and replaying from the pre-level save can't farm Favors.
+  - **Three stages, so Favors can only be spent between runs:**
+    1. **Level:** `AddRunFavors` adds to the current level's Favors. `LoadGameplay` discards them (`DiscardLevelFavors`), so leaving a level without finishing it (Save & Exit, quitting) drops them, and replaying from the pre-level save can't farm Favors.
+    2. **Run:** a finished level adds them to the run's total (`CommitLevelFavors` in `PlayerManager.HandleWaveGroupFinished` → `GameSession.RunFavors`). The total is saved with the run (`RunSaveData.runFavors`), so Save & Exit on the map and Continue keep it.
+    3. **Banked:** only when the run ends does `BankRunFavors` move the run's total, plus the current level's Favors, to the class being played and save it. That happens on death (`PlayerHealth.Die`), the boss kill, the last level, and clearing the last act. Abandoning a run (New Game over a save) loses its Favors.
   - **Spending:** node upgrades spend the class's own Favors, or all classes' when the developer toggle `sharedFavorPool` is on (`FavorRules`). Class unlocks always spend from all classes combined, because a locked class can't earn its own.
 - **Developer:**
   - `MetaProgressionSettings.unlockAllClasses` (on for tester builds) makes every class playable.

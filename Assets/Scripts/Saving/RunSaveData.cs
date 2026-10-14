@@ -22,6 +22,9 @@ namespace Game.Saving
         public int selectedPlayerIndex;
         public string difficulty;
         public int levelsBeaten;
+        // Favors earned in the run's finished levels, banked when the run ends. Missing from older
+        // saves, which then read 0 (no version bump needed).
+        public int runFavors;
         // False while the player hasn't entered a level yet; continuing then starts the run fresh
         public bool runStarted;
 

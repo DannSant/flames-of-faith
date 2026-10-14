@@ -68,10 +68,12 @@ namespace Game.Metaprogression
         private readonly Dictionary<string, int> favorsByClass = new();
         private readonly Dictionary<(string characterClass, string nodeId), int> nodeTiers = new();
 
-        // Favors earned inside the current level. They are only banked when the level ends (finished,
-        // death, boss kill), so quitting mid-level and replaying it from the pre-level save can't farm them.
-        private int pendingRunFavors;
-        private CharacterClass pendingRunFavorsClass = CharacterClass.None;
+        // Favors earned inside the current level. A finished level adds them to the run's total
+        // (GameSession.RunFavors, saved with the run); leaving a level any other way drops them, so
+        // replaying it from the pre-level save can't farm Favors. The run's total is banked into the
+        // meta progression only when the run ends (death or victory), so Favors can't be spent on
+        // the skill tree in the middle of a run.
+        private int levelFavors;
 
         /// <summary>Banked Favors changed (any class).</summary>
         public event Action OnFavorsChanged;
@@ -82,7 +84,8 @@ namespace Game.Metaprogression
         /// <summary>Favors earned in the current level (amount gained), not banked yet.</summary>
         public event Action<int> OnRunFavorsGained;
 
-        public int PendingRunFavors => pendingRunFavors;
+        /// <summary>Favors earned in the current level, not added to the run yet.</summary>
+        public int PendingLevelFavors => levelFavors;
 
         private string SaveFilePath =>
              Path.Combine(Application.persistentDataPath, $"{GetPlayerName()}_meta.dat");
@@ -216,49 +219,56 @@ namespace Game.Metaprogression
             FavorRules.CalculateSpendable(favorsByClass, characterClass.ToString(), MetaProgressionSettings.Instance.SharedFavorPool);
 
         /// <summary>
-        /// Adds Favors earned (or lost, if negative) in the current level for the class being played.
-        /// They count once <see cref="BankRunFavors"/> runs at the end of the level.
+        /// Adds Favors earned (or lost, if negative) in the current level. They join the run's total
+        /// when the level is finished (<see cref="CommitLevelFavors"/>).
         /// </summary>
         public void AddRunFavors(int amount)
         {
             if (amount == 0) return;
+            levelFavors += amount;
+            OnRunFavorsGained?.Invoke(amount);
+        }
+
+        /// <summary>The level was finished: its Favors join the run's total (saved with the run).</summary>
+        public void CommitLevelFavors()
+        {
+            if (levelFavors != 0 && GameSession.Instance != null)
+            {
+                GameSession.Instance.AddRunFavors(levelFavors);
+            }
+            levelFavors = 0;
+        }
+
+        /// <summary>
+        /// The run is over (death or victory): the run's Favors, plus the current level's, go to the
+        /// class being played and are saved. Only then can they be spent.
+        /// </summary>
+        public void BankRunFavors()
+        {
+            int amount = levelFavors + (GameSession.Instance != null ? GameSession.Instance.TakeRunFavors() : 0);
+            levelFavors = 0;
+            if (amount <= 0) return;
 
             var playerClass = GetPlayedClass();
             if (playerClass == CharacterClass.None)
             {
-                Debug.LogWarning("[Meta] No player class to earn Favors for.");
+                Debug.LogWarning($"[Meta] No player class to bank {amount} Favors for; they're lost.");
                 return;
             }
 
-            pendingRunFavorsClass = playerClass;
-            pendingRunFavors += amount;
-            OnRunFavorsGained?.Invoke(amount);
-        }
-
-        /// <summary>Saves the Favors earned in the current level. Call when the level ends (finished, death, boss kill).</summary>
-        public void BankRunFavors()
-        {
-            if (pendingRunFavors == 0 || pendingRunFavorsClass == CharacterClass.None)
-            {
-                DiscardRunFavors();
-                return;
-            }
-
-            string key = pendingRunFavorsClass.ToString();
+            string key = playerClass.ToString();
             favorsByClass.TryGetValue(key, out int current);
-            favorsByClass[key] = Mathf.Max(0, current + pendingRunFavors);
-            Debug.Log($"[Meta] Banked {pendingRunFavors} Favors for {key} (now {favorsByClass[key]}).");
+            favorsByClass[key] = Mathf.Max(0, current + amount);
+            Debug.Log($"[Meta] Banked {amount} Favors for {key} (now {favorsByClass[key]}).");
 
-            DiscardRunFavors();
             SaveMetaProgression();
             OnFavorsChanged?.Invoke();
         }
 
         /// <summary>Drops the Favors earned in the current level (it was left without finishing it).</summary>
-        public void DiscardRunFavors()
+        public void DiscardLevelFavors()
         {
-            pendingRunFavors = 0;
-            pendingRunFavorsClass = CharacterClass.None;
+            levelFavors = 0;
         }
 
         // --- Class unlocks ----------------------------------------------------------------------
