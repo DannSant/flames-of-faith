@@ -23,6 +23,12 @@ namespace Game.Combat
 
         [Header("Visual Effects")]
         [SerializeField] private GameObject specialAttackVFXPrefab;
+        [Tooltip("Shown around the player while an upgraded Scroll of Whirlwind's holy shield is up.")]
+        [SerializeField] private GameObject projectileShieldVFXPrefab;
+        [Tooltip("Where the shield effect sits relative to the player's position (at the feet). Raise Y to center it on the body.")]
+        [SerializeField] private Vector3 projectileShieldVFXOffset = new Vector3(0f, 0.3f, 0f);
+
+        private GameObject activeShieldVfx;
 
         [Header("Sound Effects")]
         [SerializeField] private List<AudioClip> swordAttackSounds = new();        
@@ -95,7 +101,23 @@ namespace Game.Combat
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             specialAttackCollider.SetActive(true);
+            RaiseProjectileShield();
             effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
+        }
+
+        // Upgraded Scroll of Whirlwind: a holy shield that absorbs enemy projectiles (PlayerHealth)
+        private void RaiseProjectileShield()
+        {
+            var whirlwind = GetAbilityValues<WhirlwindAbility, WhirlwindAbility.Values>();
+            if (whirlwind == null || whirlwind.shieldDuration <= 0f || playerHealth == null) return;
+
+            playerHealth.ActivateProjectileShield(whirlwind.shieldDuration, whirlwind.absorbHealFraction);
+
+            if (projectileShieldVFXPrefab == null) return;
+            if (activeShieldVfx != null) Destroy(activeShieldVfx);
+            activeShieldVfx = Instantiate(projectileShieldVFXPrefab, playerHealth.transform);
+            activeShieldVfx.transform.localPosition = projectileShieldVFXOffset;
+            Destroy(activeShieldVfx, whirlwind.shieldDuration);
         }
 
         protected override void OnAttackAnimationStarted()

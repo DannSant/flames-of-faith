@@ -1,6 +1,7 @@
 using Game.Metaprogression;
 using Game.Saving;
 using Game.Audio;
+using Game.Combat.Projectiles;
 using Game.Common;
 using Game.Control;
 using Game.Enemies;
@@ -27,6 +28,13 @@ namespace Game.Combat {
         private float pendingSavedHealth = -1f;
         private bool isDead = false;
         private bool isInvulnerable = false;
+
+        // Projectile shield (upgraded Scroll of Whirlwind): enemy projectiles are absorbed and
+        // heal a fraction of their damage instead of hurting.
+        private float projectileShieldUntilTime;
+        private float projectileShieldHealFraction;
+
+        public bool IsProjectileShieldActive => Time.time < projectileShieldUntilTime;
 
         public delegate void OnHealthChanged(float current, float max);
         public event OnHealthChanged onHealthChanged;
@@ -237,6 +245,37 @@ namespace Game.Combat {
             return ArmorMitigation.Apply(amount, armor, settings.ArmorEffectivenessConstant, settings.MinDamagePercent);
         }
 
+        /// <summary>
+        /// For <paramref name="duration"/> seconds, enemy projectiles that hit the player are
+        /// absorbed: no damage, and they heal <paramref name="healFraction"/> of the damage they
+        /// would have dealt (through the normal healing path). Melee and contact hits still land.
+        /// </summary>
+        public void ActivateProjectileShield(float duration, float healFraction)
+        {
+            if (duration <= 0f) return;
+            projectileShieldUntilTime = Mathf.Max(projectileShieldUntilTime, Time.time + duration);
+            projectileShieldHealFraction = Mathf.Max(0f, healFraction);
+        }
+
+        /// <summary>An enemy projectile (not an enemy's body): it moves as a projectile and has no health.</summary>
+        public static bool IsEnemyProjectile(GameObject source)
+        {
+            if (source == null || source.GetComponent<EnemyHealth>() != null) return false;
+            return source.GetComponent<ProjectileMovementBase>() != null || source.GetComponent<ProjectileMovement>() != null;
+        }
+
+        private bool TryAbsorbProjectile(float amount, GameObject attacker, bool nonLethal)
+        {
+            if (nonLethal || amount <= 0f || !IsProjectileShieldActive || !IsEnemyProjectile(attacker)) return false;
+            // No healing while the wave ends or the game is frozen; the normal checks block the hit
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave) return false;
+            if (GameplayFreeze.IsActive) return false;
+
+            Heal(amount * projectileShieldHealFraction);
+            Destroy(attacker);
+            return true;
+        }
+
         public void ToggleIsInvulnerable(bool value)
         {
             /*if(WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave)
@@ -263,6 +302,14 @@ namespace Game.Combat {
             if (noDamage)
             {
                 DamageNumberSpawner.Instance.SpawnDamageToPlayerNumber(transform.position, amount);
+                return 0f;
+            }
+
+            // Before the invulnerability checks: shots absorbed during the Whirlwind spin heal too.
+            // Before Evasion, onDamageTaken and armor: an absorbed shot adds no Corruption and
+            // triggers no Retribution or on-damage effects.
+            if (TryAbsorbProjectile(amount, attacker, nonLethal))
+            {
                 return 0f;
             }
 

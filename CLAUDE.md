@@ -249,6 +249,11 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   - **The class components still perform the ability** and read their numbers with `EffectStore.TryGetAbility<T>`: `SwordWeapon`/`BowWeapon`/`ScepterWeapon` and the `*Dash` classes.
   - **Hooks:** `WeaponBase.ApplyAbilityItems` (on initialize and on item changes); `DashBase.ApplyAbilityItems` (before each dash and on item changes, so a new duration counts for that dash and charges are right from the start).
   - **Without the item**, each falls back to its own `WeaponData`/Inspector values.
+  - **Upgrade-only mechanics** (tier 0 has none):
+    - Holy Shot extra cone arrows; they don't raise `onBowAttackLaunched`, so on-hit spawn items trigger once per volley.
+    - Fireball impact explosion.
+    - Fire Tornado explosion damage.
+    - Whirlwind holy shield: `PlayerHealth.ActivateProjectileShield`. While it's up, enemy projectiles (`PlayerHealth.IsEnemyProjectile`) are absorbed in `TakeDamage` before invulnerability, Evasion and `onDamageTaken`, destroyed, and heal a fraction of their damage. Melee and contact hits still land.
   - **Emblem:** `MainStatOnLevelUpBehavior` (+1 main stat per level, baseline = level when the item is added) plus the class's stat bonus rules.
 - **Tiers:** each tier is its own DB row (`"<item> +N"`, `Effect.tier` = N, own `EffectID`).
   - Every tier of a Scroll uses the **same** ability asset; `Effect.tier` picks the table row (a tier past the table uses the last row).

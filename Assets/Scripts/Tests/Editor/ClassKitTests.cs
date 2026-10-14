@@ -150,6 +150,7 @@ namespace Game.Tests
 
             var whirlwind = GetAbility<WhirlwindAbility>(abilities).GetTier(0);
             Assert.AreEqual(specialData.baseDamage, whirlwind.baseDamage, "Whirlwind base damage");
+            Assert.AreEqual(0f, whirlwind.shieldDuration, "The base Whirlwind raises no shield");
         }
 
         [Test]
