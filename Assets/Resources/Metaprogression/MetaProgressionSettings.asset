@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.MetaProgressionSettings
   favorsPerPositiveGraceWave: 1
   favorsPerBossKill: 5
-  sharedFavorPool: 0
-  unlockAllClasses: 1
+  sharedFavorPool: 1
+  unlockAllClasses: 0

@@ -17,6 +17,7 @@ MonoBehaviour:
   unlockCost: 15
   nodes:
   - nodeId: weapon
+    title: Weapon
     tiers:
     - {fileID: 11400000, guid: 197446a422933054d9d5c7fd08a32579, type: 2}
     - {fileID: 11400000, guid: cc9916b12ecfd0d49a1862ab392335f2, type: 2}
@@ -27,6 +28,7 @@ MonoBehaviour:
     - 6
     - 10
   - nodeId: offhand
+    title: Off-hand
     tiers:
     - {fileID: 11400000, guid: 93d9e43ef36fce644a9a00dea4f81ef7, type: 2}
     - {fileID: 11400000, guid: 711dbef16008e5b4989bbb1df29c689d, type: 2}
@@ -37,6 +39,7 @@ MonoBehaviour:
     - 6
     - 10
   - nodeId: emblem
+    title: Emblem
     tiers:
     - {fileID: 11400000, guid: e64be1d9e16fae7459ee8c372057d832, type: 2}
     - {fileID: 11400000, guid: 264ba12fda6f14446a4027a6b2e46ce3, type: 2}
@@ -47,6 +50,7 @@ MonoBehaviour:
     - 6
     - 10
   - nodeId: primary
+    title: Basic Attack
     tiers:
     - {fileID: 11400000, guid: 9a140f93f893dc449b011aec1e522e41, type: 2}
     - {fileID: 11400000, guid: efd0fd3174b3e2f40a5702ec0138d09c, type: 2}
@@ -57,6 +61,7 @@ MonoBehaviour:
     - 6
     - 10
   - nodeId: special
+    title: Special
     tiers:
     - {fileID: 11400000, guid: fcdfd47448cb550429818945235ba952, type: 2}
     - {fileID: 11400000, guid: ad6949be709e0c546a58c5a9533e282e, type: 2}
@@ -67,6 +72,7 @@ MonoBehaviour:
     - 6
     - 10
   - nodeId: dash
+    title: Dash
     tiers:
     - {fileID: 11400000, guid: 4b35d2aeae87e81408e3c2a579b66388, type: 2}
     - {fileID: 11400000, guid: 822b7c9dbee15f14db4e391e9ae6b21a, type: 2}

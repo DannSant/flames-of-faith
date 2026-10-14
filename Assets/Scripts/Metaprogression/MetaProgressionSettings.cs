@@ -22,7 +22,7 @@ namespace Game.Metaprogression
         [Header("Developer")]
         [Tooltip("Developer setting. On: Favors earned with any class can be spent on any class. " +
             "Off: each class spends only the Favors it earned. Favors are always stored per class, so switching loses nothing.")]
-        [SerializeField] private bool sharedFavorPool = false;
+        [SerializeField] private bool sharedFavorPool = true;
         [Tooltip("Developer setting. Every class is playable without being unlocked (for tester builds).")]
         [SerializeField] private bool unlockAllClasses = true;
 

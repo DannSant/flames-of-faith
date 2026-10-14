@@ -58,6 +58,8 @@ namespace Game.Metaprogression
     {
         [Tooltip("Stable id of this node; saved progress refers to it, so don't rename it once used.")]
         public string nodeId;
+        [Tooltip("Label shown in the skill tree, e.g. \"Basic Attack\".")]
+        public string title;
         [Tooltip("The item at each tier: element 0 is the base item, element 1 is \"+1\", ...")]
         public List<Effect> tiers = new();
         [Tooltip("Favors to upgrade to each next tier: element 0 buys tier 1, element 1 buys tier 2, ... " +
