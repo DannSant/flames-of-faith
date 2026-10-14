@@ -13,6 +13,8 @@ namespace Game.Control
         public CharacterClass characterClass;
         public RuntimeAnimatorController animatorController;
         public Sprite defaultSprite;
+        [Tooltip("Shown for the class in menus (e.g. the skill tree). Falls back to Default Sprite.")]
+        public Sprite icon;
         public List<Sprite> abilityIcons;
 
         [Header("Dash Ability")]

@@ -16,12 +16,11 @@ MonoBehaviour:
   characterClass: 2
   animatorController: {fileID: 9100000, guid: c393c834190ebdc363a8b1d4194370a5, type: 2}
   defaultSprite: {fileID: 21300000, guid: 41aca6795290d486aa661b867d2f8548, type: 3}
+  icon: {fileID: 4150113478575889403, guid: d311aad819c922144b9d5074c8a22080, type: 3}
   abilityIcons:
   - {fileID: 21300000, guid: 3475591a070c0af44812fbc0a4c52450, type: 3}
   - {fileID: 21300000, guid: 6cbb867442c968a44961e5dae369e7de, type: 3}
   - {fileID: 21300000, guid: c578f422b4abf6d478bf63c50d97fd85, type: 3}
-  mainStat: 12
-  levelsPerMainStatPoint: 1
   dashName: Flame Dash
   dashDescription: 'A Dash skill with two charges. Allows you to pass through the
     enemies and leave a trail of flames behind that deal _magic_damage_.
@@ -39,4 +38,3 @@ MonoBehaviour:
 
     Duration of the flames increases with the stat Skill
     Duration'
-  startingItem: {fileID: 11400000, guid: 139c5f168ac7e434583e6252795794cc, type: 2}

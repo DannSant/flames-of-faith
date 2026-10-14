@@ -120,7 +120,7 @@ namespace Game.Metaprogression
                 selectedTab = selectedTab,
                 className = classData.characterName,
                 classDescription = classData.classDescription,
-                classIcon = classData.defaultSprite,
+                classIcon = classData.icon != null ? classData.icon : classData.defaultSprite,
                 classUnlocked = meta == null || meta.IsClassUnlocked(characterClass),
                 classUnlockCost = tree != null ? tree.UnlockCost : 0,
                 favorsForUnlock = meta != null ? meta.GetFavorsForClassUnlock() : 0,

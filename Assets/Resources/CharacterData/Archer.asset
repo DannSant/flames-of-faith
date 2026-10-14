@@ -16,12 +16,11 @@ MonoBehaviour:
   characterClass: 3
   animatorController: {fileID: 9100000, guid: 281fe65995468ba46bfa19316915ef72, type: 2}
   defaultSprite: {fileID: 21300000, guid: 41aca6795290d486aa661b867d2f8548, type: 3}
+  icon: {fileID: 4150113478575889403, guid: f732a64a7e50ba14d9ef03fb13237edd, type: 3}
   abilityIcons:
   - {fileID: 21300000, guid: e2f7cf4dcbe48ed43a010d3cf95019c5, type: 3}
   - {fileID: 21300000, guid: d45fd7b28cb3d404a94f1eb721fbec6a, type: 3}
   - {fileID: 21300000, guid: 4f8a44a7dec1b4647aefb81fe8c0de10, type: 3}
-  mainStat: 9
-  levelsPerMainStatPoint: 1
   dashName: Trap Step
   dashDescription: Quick Dash that leaves a trap behind for a few seconds. Deals
     _ranged_damage_ to an enemy who steps on it. Duration scales with Skill Duration
@@ -29,4 +28,3 @@ MonoBehaviour:
     \nMain stat: _ranged_damage_\nDash skill: Trap Step. Quick Dash that leaves a
     trap behind for a few seconds. Deals _ranged_damage_ to an enemy who steps on
     it. Duration scales with Skill Duration"
-  startingItem: {fileID: 11400000, guid: 197446a422933054d9d5c7fd08a32579, type: 2}
