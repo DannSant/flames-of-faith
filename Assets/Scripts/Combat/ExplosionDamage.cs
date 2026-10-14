@@ -14,6 +14,11 @@ namespace Game.Combat
 
         private DamageSourceBase damageSource;
         private bool hasExploded = false;
+        // Null = the explosion prefab's own damage
+        private int? explosionDamageOverride;
+
+        /// <summary>Base damage of the explosion this spawns (e.g. from an ability item's tier).</summary>
+        public void SetExplosionDamage(int baseDamage) => explosionDamageOverride = baseDamage;
 
         private void Awake()
         {
@@ -48,6 +53,10 @@ namespace Game.Combat
             if (explosionDamagePrefab == null) return;
 
             var explosionInstance = Instantiate(explosionDamagePrefab, position, Quaternion.identity);
+            if (explosionDamageOverride.HasValue && explosionInstance.TryGetComponent<DamageSourceBase>(out var explosionDamage))
+            {
+                explosionDamage.SetBaseDamage(explosionDamageOverride.Value);
+            }
             if (explosionInstance.TryGetComponent<DestroyAfterTime>(out var destroyAfterTime))
             {
                 destroyAfterTime.StartDestroyTimer(explosionDamageLifetime);

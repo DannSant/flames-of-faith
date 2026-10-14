@@ -18,8 +18,7 @@ namespace Game.Effects.Abilities
             public int baseDamage = 30;
             [Tooltip("Tornadoes spawned evenly around the player (replaces the special WeaponData's projectileAmount).")]
             [Min(1)] public int tornadoCount = 4;
-            [Tooltip("Base damage of each tornado's own explosion. Not implemented yet (class kits step 7): " +
-                "the tornado prefab's fixed damage is used.")]
+            [Tooltip("Base damage of the explosion each tornado sets off on its first hit (replaces the explosion prefab's damage).")]
             public int tornadoExplosionDamage = 5;
         }
 

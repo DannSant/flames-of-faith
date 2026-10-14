@@ -117,7 +117,7 @@ namespace Game.Combat
             {
                 float rad = (90f + i * angleStep) * Mathf.Deg2Rad;
                 Vector2 offset = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * specialProjectileOffset;
-                SpawnSpecialProjectile(originPos + offset, specialBaseDamage);
+                SpawnSpecialProjectile(originPos + offset, specialBaseDamage, tornadoes?.tornadoExplosionDamage);
             }
 
             if (targetExplosionPrefab != null)
@@ -171,7 +171,7 @@ namespace Game.Combat
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
         }
 
-        private void SpawnSpecialProjectile(Vector2 spawnPos, int baseDamage)
+        private void SpawnSpecialProjectile(Vector2 spawnPos, int baseDamage, int? explosionDamage)
         {
             int pierceAmount = specialWeaponData.pierceAmount + PierceSettings.Instance.GetExtraPierce(playerProgression.GetStatTotal(StatType.Pierce));
             EnemyHealth target = EnemyTargeting.FindClosest(
@@ -191,6 +191,12 @@ namespace Game.Combat
 
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
+
+            // The tornado's own explosion on its first hit (the prefab's damage without the scroll)
+            if (explosionDamage.HasValue && go.TryGetComponent<ExplosionDamage>(out var explosion))
+            {
+                explosion.SetExplosionDamage(explosionDamage.Value);
+            }
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
             onScepterSpecialAttackLaunched?.Invoke(damage);

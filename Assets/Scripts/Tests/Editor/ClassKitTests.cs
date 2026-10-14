@@ -229,6 +229,11 @@ namespace Game.Tests
             Assert.AreEqual(specialData.baseDamage, tornadoes.baseDamage, "Fire Tornadoes base damage");
             // The scepter used to spawn exactly 4 (N/E/S/W).
             Assert.AreEqual(4, tornadoes.tornadoCount, "Fire Tornadoes base count");
+
+            var explosion = specialData.projectilePrefab.GetComponent<ExplosionDamage>();
+            Assert.IsNotNull(explosion, "The tornado prefab has no ExplosionDamage");
+            var explosionPrefab = GetSerializedReference<GameObject>(explosion, "explosionDamagePrefab");
+            Assert.AreEqual(explosionPrefab.GetComponent<DamageSourceBase>().BaseDamage, tornadoes.tornadoExplosionDamage, "Fire Tornadoes base explosion damage");
         }
 
         [Test]
