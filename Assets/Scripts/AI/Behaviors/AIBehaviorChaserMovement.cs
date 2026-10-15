@@ -1,3 +1,4 @@
+using Game.AI.Steering;
 using Game.Misc;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Fixed Update/ChaserMovement")]
     public class AIBehaviorChaserMovement : AIFixedUpdateBehavior
     {
+        [Tooltip("Steer around obstacles (trees) instead of pressing into them. Tuned in ObstacleAvoidanceSettings.")]
+        [SerializeField] private bool avoidObstacles = true;
+
         public override void FixedTick(BehaviorContext context)
         {
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
@@ -26,7 +30,12 @@ namespace Game.AI.Behaviors
             }
 
             float speed = context.enemyData.speedBase * context.speedMultiplier;
-            rb.linearVelocity = context.moveDirection * speed;
+            // context.moveDirection stays the logic's wanted direction (it also drives facing);
+            // only the applied velocity goes around obstacles.
+            Vector2 direction = avoidObstacles
+                ? ObstacleSteering.SteerAroundObstacles(context, rb, context.moveDirection, speed, Time.fixedDeltaTime)
+                : context.moveDirection;
+            rb.linearVelocity = direction * speed;
         }
     }
 

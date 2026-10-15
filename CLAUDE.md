@@ -15,7 +15,7 @@ This is a Unity project — there is no CLI build/lint/test pipeline (no `packag
 - Open the project in Unity Editor **6000.2.10f1** (must match `ProjectSettings/ProjectVersion.txt` — Unity will offer to auto-upgrade if a different version is installed; don't let it silently change the version).
 - There is no headless build script or Makefile in the repo. Compilation errors surface in the Editor Console; there is no `dotnet build` step that mirrors Unity's compile (the generated `.csproj`/`.sln` files are for IDE intellisense only, not authoritative builds).
 - **Tests.** The only automated tests are the EditMode tests in `Assets/Scripts/Tests/Editor/`. They come in two kinds:
-  - **Pure tests** of the math (static functions with their tunables passed in): enemy damage, stats and stat bonuses, Pierce, projectile steering, wave progress, Favors, skill tree rules, ability tiers.
+  - **Pure tests** of the math (static functions with their tunables passed in): enemy damage, stats and stat bonuses, Pierce, projectile steering, enemy obstacle steering, wave progress, Favors, skill tree rules, ability tiers.
   - **Guard tests over the real assets:** enemy damage tuning, class kits and skill trees, ability descriptions, unique map ids, starting-only items never sold or rewarded.
   - They need no asmdef: the default `Assembly-CSharp-Editor` already references NUnit (test-framework 1.6.0), so any test under an `Editor/` folder is picked up.
   - Run them from Window → General → Test Runner → EditMode. With the Editor closed, use `Unity.exe -batchmode -projectPath . -runTests -testPlatform EditMode -testResults results.xml`.
@@ -23,7 +23,7 @@ This is a Unity project — there is no CLI build/lint/test pipeline (no `packag
   - `Assets/Scripts/Tests/LevelTreeDebugger.cs` is a debug helper, not a test.
 - All first-party code compiles into the default `Assembly-CSharp` assembly — there are no custom `.asmdef` files under `Assets/Scripts/`, so any script can reference any other without assembly-reference wiring.
 - Third-party/vendored code lives under `Assets/AssetPackages/` (ClassicPixelRPGUI, DamageNumbersPro, NavMeshPlus, WalldoffStudios Indicators) and should generally be left alone rather than modified in place.
-- Key packages: URP 17.2.0, new Input System 1.14.2, Cinemachine 3.1.3, `com.unity.ai.navigation` (NavMesh) plus the vendored NavMeshPlus for 2D nav, Timeline, Visual Scripting.
+- Key packages: URP 17.2.0, new Input System 1.14.2, Cinemachine 3.1.3, `com.unity.ai.navigation` (NavMesh) plus the vendored NavMeshPlus for 2D nav (both currently unused: enemies use local steering, see "Enemy obstacle avoidance"), Timeline, Visual Scripting.
 
 ## Architecture
 
@@ -40,6 +40,17 @@ Code is organized by feature under `Assets/Scripts/<Area>/`, each area mapped to
 - **Data-driven ScriptableObjects**: most content (weapons, enemies, boss abilities, effects/relics, elemental debuffs, wave compositions, map/level definitions) is authored as ScriptableObject assets under `Assets/Resources/`, loaded at runtime via `Resources.Load` through a `*DatabaseProvider` singleton (e.g. `EnemyDatabaseProvider`, `EffectsDatabaseProvider`). When adding new content types, prefer this ScriptableObject + database-provider pattern over hardcoding.
 - **Behavior composition over inheritance**: enemy AI (`Scripts/AI/Behaviors/`) and boss abilities (`Scripts/Boss/Abilities/` + `Conditions/`) are built from small, pluggable ScriptableObject "behavior" pieces attached/driven by a runtime controller (`BehaviorController`, `BossController`), rather than one monolithic script per enemy/boss. Follow this pattern when adding new enemy or boss behavior rather than subclassing a base AI class.
 - **UI stays decoupled from game logic**: scripts under `Scripts/UI/` should never call `FindAnyObjectByType<T>()` (or hold a discovered reference) to reach into a gameplay class for data or to trigger a calculation — they should only receive plain data and delegates that gameplay pushes to them, the same way `items` already flowed from `ShopKeeper` into `ShopControllerUI`. When a UI layer needs something new from gameplay (a computed price, a reference to act on later), extend the *existing* event/callback the gameplay class already fires rather than adding a lookup on the UI side. Concrete precedent: `ShopKeeper.onShopWindowToggle` is `Action<bool, List<Effect>, ShopKeeper>` — it pushes the `ShopKeeper` reference itself alongside the items, so `ShopControllerUI` never searches the scene for it, and `ShopKeeper.GetDiscountedPrice(effect)` (not the UI) is the one place price gets computed, so display and the actual charge can never drift. `ShopIconUI`/`ItemBagControllerUI` go further and never reference a gameplay class type at all — they only take primitives (`Effect`, `int`, `Action`s) in their `Setup`/`Select` methods. The exception is a one-time `FindAnyObjectByType` purely to attach/detach an event subscription (e.g. `ShopControllerUI.SubscribeToEvents`) — that's wiring, not a data query, and isn't what this rule is about. **Known, accepted exception:** `StatsPaneUI` still reads `PlayerProgression` and `EffectStore` directly (it predates the rule, and pushing every stat change through events was judged too much wiring at the time). Leave it as is unless a refactor is scheduled; don't copy the pattern.
+
+### Enemy obstacle avoidance (Oct 2026)
+
+Levels have only a few small, convex obstacles (tree trunks on the `Obstacle` layer, there to block enemy projectiles), so enemies don't use a NavMesh. They use local **context steering**, in `Scripts/AI/Steering/ObstacleSteering`. The vendored NavMeshPlus is unused.
+- **How it works:** a movement behavior passes its wanted direction to `ObstacleSteering.SteerAroundObstacles(context, rb, desired, expectedSpeed, dt)`. It scores the wanted direction and a ring of candidates as `dot(dir, wanted) − dangerWeight × danger(dir)`. Danger comes from `Obstacle` colliders within `lookAhead` of the enemy's collider.
+- **Side commitment:** the enemy keeps the side it chose for `sideCommitTime`, so it doesn't flip-flop.
+- **Stuck recovery:** if over a `stuckCheckWindow` it covers less than `stuckSpeedRatio` of the expected distance next to an obstacle, it switches sides.
+- **Wired into:** `AIBehaviorChaserMovement` (chasers and the Corruptor's flee), `AIBehaviorMoveToSnapshot`, `AIBehaviorMoveToObject` and `AIBehaviorChaseOnAnimIntervals` (per hop, no stuck check). Each has an `avoidObstacles` toggle. Roamers already bounce off collisions.
+- **`context.moveDirection` stays the wanted direction,** because it drives facing. Only the applied velocity is steered.
+- **Tunables:** `ObstacleAvoidanceSettings` (`Resources/AI/ObstacleAvoidanceSettings.asset`), including `debugDraw` (white = wanted, cyan = steered) and a master switch.
+- **New movement behaviors** should route their final direction through it. The math is pure and covered by `ObstacleSteeringTests`.
 
 ### Two parallel map systems — know which one you're touching
 

@@ -89,7 +89,6 @@ namespace Game.AI {
                 calculatedHealth = Mathf.RoundToInt(calculatedHealth * (1f + healthBonus));
             }
             var enemyAnimController = GetComponent<EnemyAnimationController>();
-            var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
             health.SetMaxHealth(calculatedHealth);
 
@@ -109,7 +108,6 @@ namespace Game.AI {
                 enemyData = enemyData,
                 waveNumber = waveNumber,
                 enemyAnimController = enemyAnimController,
-                navMeshAgent = agent,
                 aiFixedTarget = target,
                 isCorrupted = isCorrupted
             };

@@ -1,7 +1,6 @@
 using Game.Enemies;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Game.AI.Behaviors
 {
@@ -21,7 +20,6 @@ namespace Game.AI.Behaviors
         // spawned by its animation event always agree on the same direction.
         public Vector2 facingDirection;
         public float speedMultiplier = 1f;
-        public NavMeshAgent navMeshAgent;
         public AITarget aiFixedTarget;
         public bool diedSilently;
         // Corrupted enemies deal extra damage, and everything they hit the player with counts as Corrupted Damage

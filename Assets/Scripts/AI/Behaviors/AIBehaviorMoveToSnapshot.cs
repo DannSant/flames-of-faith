@@ -1,4 +1,5 @@
-﻿using Game.Misc;
+﻿using Game.AI.Steering;
+using Game.Misc;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Game.AI.Behaviors
         [SerializeField] private float speed = 2f;
         [SerializeField] private float arrivalThreshold = 0.3f;
         [SerializeField] private BehaviorSharedStateGroup sharedStateGroup;
+        [Tooltip("Steer around obstacles (trees) instead of pressing into them. Tuned in ObstacleAvoidanceSettings.")]
+        [SerializeField] private bool avoidObstacles = true;
         public override void Tick(BehaviorContext context)
         {
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
@@ -58,7 +61,10 @@ namespace Game.AI.Behaviors
             // persist forever and stack with the next one.
             context.isMoving = true;
             context.moveDirection = dir.normalized;
-            rb.linearVelocity = context.moveDirection * speed;
+            Vector2 direction = avoidObstacles
+                ? ObstacleSteering.SteerAroundObstacles(context, rb, context.moveDirection, speed, Time.deltaTime)
+                : context.moveDirection;
+            rb.linearVelocity = direction * speed;
         }
     }
 }
