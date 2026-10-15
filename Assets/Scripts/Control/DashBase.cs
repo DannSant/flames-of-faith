@@ -179,6 +179,12 @@ namespace Game.Control
             {
                 return;
             }
+            // On the overworld map, Submit (A) also triggers Jump: without this the dash fires
+            // when entering a level, and the Augur's flame dash leaves flames on the map.
+            if (playerController != null && playerController.IsInputDisabled)
+            {
+                return;
+            }
             if (WaveSpawner.Instance != null && WaveSpawner.Instance.EndingWave == true)
             {
                 return;

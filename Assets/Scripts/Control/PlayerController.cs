@@ -288,6 +288,10 @@ namespace Game.Control
             {
                 return;
             }
+            if (disabledInput)
+            {
+                return;
+            }
             if (IsWaveEnding())
             {
                 return;
@@ -489,6 +493,10 @@ namespace Game.Control
         {
             moveSpeed = defaultMoveSpeed;
         }
+
+        // True on the overworld map (and while the boss altar holds the player): event-driven
+        // inputs like the dash must check it too, since they don't go through Update().
+        public bool IsInputDisabled => disabledInput;
 
         public void DisableComponentsOnMap()
         {
