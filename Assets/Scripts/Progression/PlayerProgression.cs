@@ -58,51 +58,32 @@ namespace Game.Progression {
 
         private void RecalculateFinalStats()
         {
-            cachedFinalStats.Clear();
-
-            float flatBonus;
-            float percentBonus;
-
-            var allModifiers = effectStore.GetAllStatModifiers();
-           
-            foreach (var stat in currentStats.Keys)
-            {
-                float baseValue = currentStats[stat];
-                flatBonus = 0f;
-                percentBonus = 0f;
-
-                foreach (var m in allModifiers)
-                {
-                    if (m.stat != stat)
-                        continue;
-
-                    if (m.type == ModifierType.Flat)
-                        flatBonus += m.value;
-                    else if (m.type == ModifierType.PercentAdd)
-                        percentBonus += m.value;
-                }
-
-                float totalBeforeCorruption = (baseValue + flatBonus) * (1f + percentBonus);
-
-                // Negative Grace (Corrupted) reduces the stats flagged as affected by corruption
-                cachedFinalStats[stat] = totalBeforeCorruption - GetCorruptionPenalty(stat);
-            }
-
-            // Second pass: stat dependency rules (e.g. every Retribution point: +1 Armor), read
-            // against the totals above. One pass, so a rule never feeds another rule.
-            preBonusStats.Clear();
-            foreach (var pair in cachedFinalStats) preBonusStats[pair.Key] = pair.Value;
-
-            var bonuses = StatDependencyCalculator.CalculateBonuses(preBonusStats, effectStore.GetAllStatDependencies());
-            foreach (var bonus in bonuses)
-            {
-                if (cachedFinalStats.ContainsKey(bonus.Key))
-                {
-                    cachedFinalStats[bonus.Key] += bonus.Value;
-                }
-            }
+            cachedFinalStats = FinalStatsCalculator.Calculate(
+                currentStats,
+                effectStore.GetAllStatModifiers(),
+                GetCorruptionPenalty,
+                effectStore.GetAllStatDependencies(),
+                preBonusStats);
 
             statsDirty = false;
+        }
+
+        /// <summary>
+        /// The final stat totals as they would be with <paramref name="extraPoints"/> more points
+        /// of <paramref name="stat"/> (e.g. a level-up choice), through the same math as the real
+        /// stats: % item bonuses, corruption and stat bonus rules included. Changes nothing.
+        /// </summary>
+        public Dictionary<StatType, float> PreviewFinalStats(StatType stat, int extraPoints)
+        {
+            var baseStats = new Dictionary<StatType, int>(currentStats);
+            baseStats.TryGetValue(stat, out int current);
+            baseStats[stat] = current + extraPoints;
+
+            return FinalStatsCalculator.Calculate(
+                baseStats,
+                effectStore.GetAllStatModifiers(),
+                GetCorruptionPenalty,
+                effectStore.GetAllStatDependencies());
         }
 
         /// <summary>

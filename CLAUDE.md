@@ -163,6 +163,8 @@ Enemy → player damage is sized against an *expected* player, never the real on
 - The context is built on the gameplay side by `PlayerProgression.BuildStatBenefitContext` from the settings SOs and player components (weapon data, dash, movement, `RetributionHandler.Curve`).
 - `StatsPaneUI` shows the line in the tooltip's second panel (`GeneralTooltipPaneUI` sources section). While Shift is held, that panel shows the items granting the stat instead.
 - Level-up choices show "Now / After": `UpgradeManager.OnUpgradeOptionsAvailable` pushes a preview function along with the choices, per the UI rule.
+  - "After" comes from `PlayerProgression.PreviewFinalStats`, which runs the same pure math as the real stats (`FinalStatsCalculator`: flat and % item bonuses, corruption, then stat bonus rules). It can't disagree with the result.
+  - An "Also:" line lists other stats the pick changes through stat bonus rules (e.g. the Archer Emblem: Evasion also adds Pierce).
 - **Formerly hardcoded numbers live on `PlayerStatSettings`** (`Resources/Progression/PlayerStatSettings.asset`): Health Regen, Life Steal, dash recovery scale, shop discount caps, pickup range, and the level-up tier weights for Luck.
 - **Negative speed stats:** attack and dash speed divide by at least 0.1 (`StatsCalculations.SafeSpeedDivisor`). Large negative Attack Speed used to wrap around into near-instant attacks; it now slows them down by at most 10×.
 - **Evasion** (index 22) is rolled in `PlayerHealth.TakeDamage` before armor.

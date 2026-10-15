@@ -149,19 +149,50 @@ namespace Game.Progression
         }
 
         /// <summary>
-        /// "Now / After" benefit text for picking +amount of a stat, or null for stats with nothing
-        /// to compute. Evaluated when the choice is shown, so earlier picks are already included.
-        /// The preview adds the points directly; % item bonuses and stat bonus rules aren't applied.
+        /// "Now / After" benefit text for picking +amount of a stat, plus any other stat the pick
+        /// changes through stat bonus rules ("Also: +2 Pierce"). Evaluated when the choice is shown,
+        /// so earlier picks are already included. "After" goes through the same math as the real
+        /// stats (PlayerProgression.PreviewFinalStats): % item bonuses, corruption and stat bonus
+        /// rules included. Null when there's nothing to show.
         /// </summary>
         private string GetUpgradePreview(StatType stat, int amount)
         {
             if (playerProgression == null) return null;
 
+            var preview = playerProgression.PreviewFinalStats(stat, amount);
             int current = playerProgression.GetStatTotal(stat);
-            string now = playerProgression.GetStatBenefitText(stat, current);
-            string after = playerProgression.GetStatBenefitText(stat, current + amount);
-            if (string.IsNullOrEmpty(now) || string.IsNullOrEmpty(after)) return null;
-            return $"Now: {now}\nAfter: {after}";
+            int after = preview.TryGetValue(stat, out float afterValue) ? Mathf.FloorToInt(afterValue) : current + amount;
+
+            var lines = new List<string>();
+            string nowText = playerProgression.GetStatBenefitText(stat, current);
+            string afterText = playerProgression.GetStatBenefitText(stat, after);
+            if (!string.IsNullOrEmpty(nowText) && !string.IsNullOrEmpty(afterText))
+            {
+                lines.Add($"Now: {nowText}");
+                lines.Add($"After: {afterText}");
+            }
+
+            string also = DescribeOtherChanges(stat, preview);
+            if (!string.IsNullOrEmpty(also)) lines.Add($"Also: {also}");
+
+            return lines.Count > 0 ? string.Join("\n", lines) : null;
+        }
+
+        // Other stats a pick changes through stat bonus rules, e.g. "+2 Pierce, -1 Health Regen".
+        private string DescribeOtherChanges(StatType pickedStat, Dictionary<StatType, float> preview)
+        {
+            var changes = new List<string>();
+            foreach (var pair in preview)
+            {
+                if (pair.Key == pickedStat) continue;
+
+                int difference = Mathf.FloorToInt(pair.Value) - playerProgression.GetStatTotal(pair.Key);
+                if (difference == 0) continue;
+
+                string sign = difference > 0 ? "+" : "";
+                changes.Add($"{sign}{difference} {StatDisplayNameHelper.GetDisplayName(pair.Key)}");
+            }
+            return changes.Count > 0 ? string.Join(", ", changes) : null;
         }
 
         public void OnNoUpgradeOptionAvailable()
