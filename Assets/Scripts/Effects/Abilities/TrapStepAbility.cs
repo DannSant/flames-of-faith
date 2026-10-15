@@ -21,6 +21,9 @@ namespace Game.Effects.Abilities
             [Min(1)] public int maxTraps = 3;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Traps deal {v.trapDamage} base damage, up to {v.maxTraps} at once");
+
         public override AbilitySlot Slot => AbilitySlot.Dash;
     }
 }

@@ -19,6 +19,9 @@ namespace Game.Effects.Abilities
             public float knockbackForce = 10f;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Deals {v.damage} base damage and knocks enemies back");
+
         public override AbilitySlot Slot => AbilitySlot.Dash;
     }
 }

@@ -19,6 +19,10 @@ namespace Game.Effects.Abilities
             public float bleedChanceBonus = 0f;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Base damage {v.baseDamage}",
+            v.bleedChanceBonus > 0f ? $"+{AbilityTiers.Percent(v.bleedChanceBonus)} Bleed chance" : null);
+
         public override AbilitySlot Slot => AbilitySlot.Primary;
     }
 }

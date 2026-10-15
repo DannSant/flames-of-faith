@@ -23,6 +23,10 @@ namespace Game.Effects.Abilities
             [LowerIsBetter, Min(0.01f)] public float flameSpawnInterval = 0.05f;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"{AbilityTiers.Count(v.maxCharges, "dash charge", "dash charges")}",
+            $"Flames deal {v.flameDamage} base damage");
+
         public override AbilitySlot Slot => AbilitySlot.Dash;
     }
 }

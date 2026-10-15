@@ -22,6 +22,11 @@ namespace Game.Effects.Abilities
             [Min(0)] public int targetArrowCount = 6;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Base damage {v.baseDamage}",
+            $"{AbilityTiers.Count(v.ringArrowCount, "arrow", "arrows")} around you" +
+                (v.targetArrowCount > 0 ? $", then {AbilityTiers.Count(v.targetArrowCount, "homing arrow", "homing arrows")} at your locked target" : ""));
+
         public override AbilitySlot Slot => AbilitySlot.Special;
     }
 }

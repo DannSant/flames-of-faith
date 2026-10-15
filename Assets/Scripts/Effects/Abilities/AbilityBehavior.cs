@@ -26,6 +26,13 @@ namespace Game.Effects.Abilities
         public abstract AbilitySlot Slot { get; }
 
         public abstract int TierCount { get; }
+
+        /// <summary>
+        /// What the ability does at <paramref name="tier"/>, built from that tier's numbers (one line
+        /// per fact, damage-type tags like _magic_damage_ allowed). Shown under the item's description,
+        /// so tooltips can't drift from the real values. Null = nothing to add.
+        /// </summary>
+        public virtual string DescribeTier(int tier) => null;
     }
 
     /// <summary><see cref="AbilityBehavior"/> with its per-tier table of <typeparamref name="TTier"/> rows.</summary>
@@ -41,6 +48,15 @@ namespace Game.Effects.Abilities
 
         /// <summary>The row for <paramref name="tier"/>, or null when the table is empty.</summary>
         public TTier GetTier(int tier) => AbilityTiers.Get(tiers, tier);
+
+        public override string DescribeTier(int tier)
+        {
+            var row = GetTier(tier);
+            return row == null ? null : Describe(row);
+        }
+
+        /// <summary>The description lines for one tier row. See <see cref="AbilityBehavior.DescribeTier"/>.</summary>
+        protected virtual string Describe(TTier row) => null;
     }
 
     /// <summary>
@@ -52,6 +68,25 @@ namespace Game.Effects.Abilities
 
     public static class AbilityTiers
     {
+        /// <summary>A number for descriptions: no trailing zeros ("1.5", "2").</summary>
+        public static string Number(float value) => value.ToString("0.##", System.Globalization.CultureInfo.InvariantCulture);
+
+        /// <summary>A fraction as a percentage ("50%").</summary>
+        public static string Percent(float fraction) => Number(fraction * 100f) + "%";
+
+        /// <summary>"1 arrow" / "3 arrows".</summary>
+        public static string Count(int count, string singular, string plural) => $"{count} {(count == 1 ? singular : plural)}";
+
+        public static string Lines(params string[] lines)
+        {
+            var kept = new List<string>();
+            foreach (var line in lines)
+            {
+                if (!string.IsNullOrEmpty(line)) kept.Add(line);
+            }
+            return kept.Count == 0 ? null : string.Join("\n", kept);
+        }
+
         /// <summary>Clamps a tier into a table of <paramref name="count"/> rows; -1 when the table is empty.</summary>
         public static int ClampIndex(int tier, int count)
         {

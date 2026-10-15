@@ -152,6 +152,20 @@ namespace Game.Effects{
         {
             string result = DamageTypeColorHelper.ColorizeMetaTags(description);
 
+            // Abilities describe the tier this item is (e.g. the Fireball's explosion from +1)
+            if (behaviors != null)
+            {
+                var abilityLines = behaviors
+                    .OfType<Game.Effects.Abilities.AbilityBehavior>()
+                    .Select(a => a.DescribeTier(tier))
+                    .Where(line => !string.IsNullOrEmpty(line))
+                    .ToList();
+                if (abilityLines.Count > 0)
+                {
+                    result += "\n" + DamageTypeColorHelper.ColorizeMetaTags(string.Join("\n", abilityLines));
+                }
+            }
+
             if (effectStatModifiers != null && effectStatModifiers.Count > 0)
             {
                 var modifierLines = effectStatModifiers.Select(BuildModifierLine);

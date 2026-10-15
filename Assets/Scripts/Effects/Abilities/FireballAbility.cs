@@ -19,6 +19,10 @@ namespace Game.Effects.Abilities
             public int impactExplosionDamage = 0;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Base damage {v.baseDamage}",
+            v.impactExplosionDamage > 0 ? $"Explodes on impact for {v.impactExplosionDamage} base damage" : null);
+
         public override AbilitySlot Slot => AbilitySlot.Primary;
     }
 }

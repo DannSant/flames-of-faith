@@ -24,6 +24,13 @@ namespace Game.Effects.Abilities
             [Min(0f)] public float extraArrowDamageMultiplier = 1f;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Base damage {v.baseDamage}",
+            v.extraArrows > 0
+                ? $"Fires {AbilityTiers.Count(v.extraArrows, "extra arrow", "extra arrows")} in a cone" +
+                  (v.extraArrowDamageMultiplier < 1f ? $" at {AbilityTiers.Percent(v.extraArrowDamageMultiplier)} damage" : "")
+                : null);
+
         public override AbilitySlot Slot => AbilitySlot.Primary;
     }
 }

@@ -22,6 +22,12 @@ namespace Game.Effects.Abilities
             [Min(0f)] public float absorbHealFraction = 0.5f;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Base damage {v.baseDamage}",
+            v.shieldDuration > 0f
+                ? $"Raises a holy shield for {AbilityTiers.Number(v.shieldDuration)}s: enemy projectiles are absorbed and heal {AbilityTiers.Percent(v.absorbHealFraction)} of their damage"
+                : null);
+
         public override AbilitySlot Slot => AbilitySlot.Special;
     }
 }

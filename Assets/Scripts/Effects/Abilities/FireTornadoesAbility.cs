@@ -22,6 +22,10 @@ namespace Game.Effects.Abilities
             public int tornadoExplosionDamage = 5;
         }
 
+        protected override string Describe(Values v) => AbilityTiers.Lines(
+            $"Base damage {v.baseDamage}",
+            $"{AbilityTiers.Count(v.tornadoCount, "tornado", "tornadoes")}, each exploding for {v.tornadoExplosionDamage} base damage on its first hit");
+
         public override AbilitySlot Slot => AbilitySlot.Special;
     }
 }

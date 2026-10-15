@@ -17,8 +17,9 @@ namespace Game.Tests
     /// Guards each class prefab's starting kit: 3 ability scrolls (one per slot), an Emblem, all
     /// starting-only. A missing piece fails the test; it never skips.
     ///
-    /// The "base tier matches" tests pin tier 0 to the values the class had before its abilities
-    /// became items. They change on purpose when the base tiers get their new balance values.
+    /// The per-class tests check that each prefab still has the parts its abilities drive, and that
+    /// tier 0 is sane. The values themselves are balance and live on the ability assets; the base
+    /// tier only keeps the spec's rules (no upgrade-only mechanics at tier 0).
     /// </summary>
     public class ClassKitTests
     {
@@ -134,125 +135,113 @@ namespace Game.Tests
         // --- Warrior -----------------------------------------------------------------------
 
         [Test]
-        public void Warrior_BaseTierMatchesTheSword()
+        public void Warrior_SwordHasWhatItsScrollsDrive()
         {
             var prefab = LoadPrefab(WarriorPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var sword = prefab.GetComponentInChildren<SwordWeapon>(true);
             Assert.IsNotNull(sword, "PlayerWarrior has no SwordWeapon");
-
-            var weaponData = GetSerializedReference<WeaponData>(sword, "weaponData");
-            var specialData = GetSerializedReference<WeaponData>(sword, "specialWeaponData");
+            GetSerializedReference<WeaponDamageSource>(sword, "mainDamageSource");
+            GetSerializedReference<WeaponDamageSource>(sword, "specialDamageSource");
+            GetSerializedReference<GameObject>(sword, "projectileShieldVFXPrefab");
 
             var strike = GetAbility<CrusaderStrikeAbility>(abilities).GetTier(0);
-            Assert.AreEqual(weaponData.baseDamage, strike.baseDamage, "Crusader Strike base damage");
-            Assert.AreEqual(0f, strike.bleedChanceBonus, "Crusader Strike base bleed bonus");
+            Assert.Greater(strike.baseDamage, 0, "Crusader Strike base damage");
 
             var whirlwind = GetAbility<WhirlwindAbility>(abilities).GetTier(0);
-            Assert.AreEqual(specialData.baseDamage, whirlwind.baseDamage, "Whirlwind base damage");
+            Assert.Greater(whirlwind.baseDamage, 0, "Whirlwind base damage");
             Assert.AreEqual(0f, whirlwind.shieldDuration, "The base Whirlwind raises no shield");
         }
 
         [Test]
-        public void Warrior_BaseTierMatchesTheDashHitbox()
+        public void Warrior_DashHasAHitbox()
         {
             var prefab = LoadPrefab(WarriorPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var dash = prefab.GetComponent<WarriorDash>();
             Assert.IsNotNull(dash, "PlayerWarrior has no WarriorDash");
-
             var hitbox = GetSerializedReference<GameObject>(dash, "dashHitbox").GetComponent<DamageSourceBase>();
             Assert.IsNotNull(hitbox, "The dash hitbox has no DamageSourceBase");
 
             var charge = GetAbility<CrusaderChargeAbility>(abilities).GetTier(0);
-            Assert.AreEqual(hitbox.BaseDamage, charge.damage, "Crusader Charge base damage");
-            Assert.AreEqual(hitbox.KnockbackForce, charge.knockbackForce, 0.0001f, "Crusader Charge base knockback");
+            Assert.Greater(charge.damage, 0, "Crusader Charge base damage");
         }
 
         // --- Archer ------------------------------------------------------------------------
 
         [Test]
-        public void Archer_BaseTierMatchesTheBow()
+        public void Archer_BowHasWhatItsScrollsDrive()
         {
             var prefab = LoadPrefab(ArcherPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var bow = prefab.GetComponentInChildren<BowWeapon>(true);
             Assert.IsNotNull(bow, "PlayerArcher has no BowWeapon");
-
-            var weaponData = GetSerializedReference<WeaponData>(bow, "weaponData");
-            var specialData = GetSerializedReference<WeaponData>(bow, "specialWeaponData");
+            GetSerializedReference<WeaponData>(bow, "weaponData");
+            GetSerializedReference<GameObject>(bow, "barrageArrowPrefab");
 
             var holyShot = GetAbility<HolyShotAbility>(abilities).GetTier(0);
-            Assert.AreEqual(weaponData.baseDamage, holyShot.baseDamage, "Holy Shot base damage");
-            Assert.AreEqual(0, holyShot.extraArrows, "Holy Shot base extra arrows");
+            Assert.Greater(holyShot.baseDamage, 0, "Holy Shot base damage");
+            Assert.AreEqual(0, holyShot.extraArrows, "The base Holy Shot fires a single arrow");
 
             var barrage = GetAbility<BarrageAbility>(abilities).GetTier(0);
-            Assert.AreEqual(specialData.baseDamage, barrage.baseDamage, "Barrage base damage");
-            Assert.AreEqual(specialData.projectileAmount, barrage.ringArrowCount, "Barrage ring arrows");
-            Assert.AreEqual(GetSerializedProperty(bow, "barrageArrowCount").intValue, barrage.targetArrowCount, "Barrage target arrows");
+            Assert.Greater(barrage.baseDamage, 0, "Barrage base damage");
+            Assert.Greater(barrage.ringArrowCount, 0, "Barrage ring arrows");
         }
 
         [Test]
-        public void Archer_BaseTierMatchesTheDash()
+        public void Archer_DashSetsDamagingTraps()
         {
             var prefab = LoadPrefab(ArcherPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var dash = prefab.GetComponent<ArcherDash>();
             Assert.IsNotNull(dash, "PlayerArcher has no ArcherDash");
-
             var trap = GetSerializedReference<GameObject>(dash, "trapPrefab").GetComponentInChildren<DamageSourceBase>(true);
             Assert.IsNotNull(trap, "The trap prefab has no DamageSourceBase");
 
             var trapStep = GetAbility<TrapStepAbility>(abilities).GetTier(0);
-            Assert.AreEqual(GetSerializedProperty(dash, "dashDuration").floatValue, trapStep.dashDuration, 0.0001f, "Trap Step dash duration");
-            Assert.AreEqual(trap.BaseDamage, trapStep.trapDamage, "Trap Step trap damage");
-            Assert.AreEqual(GetSerializedProperty(dash, "maxActiveTraps").intValue, trapStep.maxTraps, "Trap Step max traps");
+            Assert.Greater(trapStep.trapDamage, 0, "Trap Step trap damage");
+            Assert.Greater(trapStep.maxTraps, 0, "Trap Step max traps");
+            Assert.Greater(trapStep.dashDuration, 0f, "Trap Step dash duration");
         }
 
         // --- Augur -------------------------------------------------------------------------
 
         [Test]
-        public void Augur_BaseTierMatchesTheScepter()
+        public void Augur_ScepterHasWhatItsScrollsDrive()
         {
             var prefab = LoadPrefab(AugurPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var scepter = prefab.GetComponentInChildren<ScepterWeapon>(true);
             Assert.IsNotNull(scepter, "PlayerAugur has no ScepterWeapon");
-
-            var weaponData = GetSerializedReference<WeaponData>(scepter, "weaponData");
             var specialData = GetSerializedReference<WeaponData>(scepter, "specialWeaponData");
-
-            var fireball = GetAbility<FireballAbility>(abilities).GetTier(0);
-            Assert.AreEqual(weaponData.baseDamage, fireball.baseDamage, "Fireball base damage");
-            Assert.AreEqual(0, fireball.impactExplosionDamage, "Fireball base impact explosion");
-
-            var tornadoes = GetAbility<FireTornadoesAbility>(abilities).GetTier(0);
-            Assert.AreEqual(specialData.baseDamage, tornadoes.baseDamage, "Fire Tornadoes base damage");
-            // The scepter used to spawn exactly 4 (N/E/S/W).
-            Assert.AreEqual(4, tornadoes.tornadoCount, "Fire Tornadoes base count");
+            // The Fireball's impact explosion falls back to this one
+            GetSerializedReference<GameObject>(scepter, "targetExplosionPrefab");
 
             var explosion = specialData.projectilePrefab.GetComponent<ExplosionDamage>();
-            Assert.IsNotNull(explosion, "The tornado prefab has no ExplosionDamage");
-            var explosionPrefab = GetSerializedReference<GameObject>(explosion, "explosionDamagePrefab");
-            Assert.AreEqual(explosionPrefab.GetComponent<DamageSourceBase>().BaseDamage, tornadoes.tornadoExplosionDamage, "Fire Tornadoes base explosion damage");
+            Assert.IsNotNull(explosion, "The tornado prefab has no ExplosionDamage (the scroll sets its damage)");
+
+            var fireball = GetAbility<FireballAbility>(abilities).GetTier(0);
+            Assert.Greater(fireball.baseDamage, 0, "Fireball base damage");
+            Assert.AreEqual(0, fireball.impactExplosionDamage, "The base Fireball doesn't explode");
+
+            var tornadoes = GetAbility<FireTornadoesAbility>(abilities).GetTier(0);
+            Assert.Greater(tornadoes.baseDamage, 0, "Fire Tornadoes base damage");
+            Assert.Greater(tornadoes.tornadoCount, 0, "Fire Tornadoes count");
         }
 
         [Test]
-        public void Augur_BaseTierMatchesTheDash()
+        public void Augur_DashLeavesDamagingFlames()
         {
             var prefab = LoadPrefab(AugurPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var dash = prefab.GetComponent<AugurDash>();
             Assert.IsNotNull(dash, "PlayerAugur has no AugurDash");
-
             var flame = GetSerializedReference<GameObject>(dash, "flameTrailSegmentPrefab").GetComponentInChildren<DamageSourceBase>(true);
             Assert.IsNotNull(flame, "The flame prefab has no DamageSourceBase");
 
             var flameDash = GetAbility<FlameDashAbility>(abilities).GetTier(0);
-            Assert.AreEqual(GetSerializedProperty(dash, "dashDuration").floatValue, flameDash.dashDuration, 0.0001f, "Flame Dash dash duration");
-            Assert.AreEqual(GetSerializedProperty(dash, "maxCharges").intValue, flameDash.maxCharges, "Flame Dash charges");
-            Assert.AreEqual(GetSerializedProperty(dash, "trailSpawnInterval").floatValue, flameDash.flameSpawnInterval, 0.0001f, "Flame Dash flame interval");
-            Assert.AreEqual(flame.BaseDamage, flameDash.flameDamage, "Flame Dash flame damage");
+            Assert.Greater(flameDash.flameDamage, 0, "Flame Dash flame damage");
+            Assert.Greater(flameDash.maxCharges, 0, "Flame Dash charges");
         }
 
         // --- Emblems -----------------------------------------------------------------------

@@ -14,10 +14,12 @@ This is a Unity project — there is no CLI build/lint/test pipeline (no `packag
 
 - Open the project in Unity Editor **6000.2.10f1** (must match `ProjectSettings/ProjectVersion.txt` — Unity will offer to auto-upgrade if a different version is installed; don't let it silently change the version).
 - There is no headless build script or Makefile in the repo. Compilation errors surface in the Editor Console; there is no `dotnet build` step that mirrors Unity's compile (the generated `.csproj`/`.sln` files are for IDE intellisense only, not authoritative builds).
-- **Tests.** The only automated tests are the EditMode tests in `Assets/Scripts/Tests/Editor/`, which cover enemy damage (see "Enemy damage" below).
+- **Tests.** The only automated tests are the EditMode tests in `Assets/Scripts/Tests/Editor/`. They come in two kinds:
+  - **Pure tests** of the math (static functions with their tunables passed in): enemy damage, stats and stat bonuses, Pierce, projectile steering, wave progress, Favors, skill tree rules, ability tiers.
+  - **Guard tests over the real assets:** enemy damage tuning, class kits and skill trees, ability descriptions, unique map ids, starting-only items never sold or rewarded.
   - They need no asmdef: the default `Assembly-CSharp-Editor` already references NUnit (test-framework 1.6.0), so any test under an `Editor/` folder is picked up.
   - Run them from Window → General → Test Runner → EditMode. With the Editor closed, use `Unity.exe -batchmode -projectPath . -runTests -testPlatform EditMode -testResults results.xml`.
-  - Everything else has no coverage, so verify it by running the game in the Editor (Bootstrapper scene).
+  - Gameplay itself (feel, timing, visuals) has no coverage, so verify it by running the game in the Editor (Bootstrapper scene).
   - `Assets/Scripts/Tests/LevelTreeDebugger.cs` is a debug helper, not a test.
 - All first-party code compiles into the default `Assembly-CSharp` assembly — there are no custom `.asmdef` files under `Assets/Scripts/`, so any script can reference any other without assembly-reference wiring.
 - Third-party/vendored code lives under `Assets/AssetPackages/` (ClassicPixelRPGUI, DamageNumbersPro, NavMeshPlus, WalldoffStudios Indicators) and should generally be left alone rather than modified in place.
@@ -49,6 +51,7 @@ Code is organized by feature under `Assets/Scripts/<Area>/`, each area mapped to
   - Authoring tool: `Scripts/Overworld/Editor/` — a custom `EditorWindow` (`MapEditorWindow`, menu `Tools/Flames of Faith/Map Editor`) built on UI Toolkit's `GraphView` (`MapGraphView`, `MapNodeView`, sizing constants in `MapEditorConstants`). Editor-authored node positions (`NodeDefinition.editorPosition`) are baked into normalized runtime `worldPosition` via `MapEditorWindow.BakeEditorPositionsToWorldPositions()` (divides by `MapEditorConstants.NodeSpacing`, inverts Y). Toolbar actions `AddNewNode`, `DeleteSelected` and `ValidateMap` are implemented (with Undo).
   - Gamepad/keyboard: `OverworldGamepadNavigator` moves between nodes with the UI Navigate action and enters a level with Submit. It ignores input while any `UIWindow` has gamepad focus (e.g. the map's Exit button, reached with Browse/Y).
   - Generation is deterministic from the seed and the `MapDefinition`s, except which map an act uses (`SetCurrentMapGraph` picks randomly among maps with the same `actNumber`), which is why saves store the `mapId`.
+  - **Every map needs a unique `mapId`** (`MapDefinitionTests`). Continue looks the map up by it, so a copied map that keeps its source's id restores the wrong map, and the save is deleted as "doesn't match this build".
 
 When touching map/level-select logic, confirm whether you're in the legacy `Map/` system or the new `Overworld/` system — they don't share code paths.
 
@@ -59,11 +62,16 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 - **The player is respawned on every scene load** (`PlayerManager.SpawnSelectedPlayer`). State survives only through `GameSession.PlayerData`: components write to it in `SaveState()` and read it back in `LoadState()`.
 - **Player state is saved only when a level is finished.** Every level except the boss ends through the same path. That includes shop, campfire, treasure and event encounters (`Scripts/RunEncounters/`), which are their own scenes. The path is `WaveSpawner.GoToNextLevel` → `PlayerManager.HandleWaveGroupFinished`, which calls `MapRunController.OnLevelCleared`, `SaveAllPlayerComponentStates` and `LoadLevelSelectorScene(false)`. So while inside a level, `PlayerData` still holds the pre-level snapshot.
 - **`GameSession.IsNewRun`** decides whether entering a level resets the player components (new run) or loads them from `PlayerData`.
-- Meta-progression (unlocked effects) is separate and persisted by `MetaProgressionManager` to `persistentDataPath/<player>_meta.dat` through `IMetaProgressionStateLoader`.
+- Meta-progression is separate from the run and persisted by `MetaProgressionManager` to `persistentDataPath/<player>_meta.dat` (through `SaveFileIO`). It holds unlocked effects (through `IMetaProgressionStateLoader`), Favors, class unlocks and skill tree tiers; see "Class kits, skill trees & Favors".
 
 ### Combat/effect pipeline
 
 Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combines weapon class, active `Effect`/`EffectBehavior` modifiers via `IEffectMultiplier`, and player progression stats) → applied to `PlayerHealth`/`EnemyHealth`. Projectiles separate "what it is" (`ProjectileBase`, damage/effect) from "how it moves" (`ProjectileMovementBase` subclasses: linear/arc/homing/bounce/delayed-homing) — extend by composing a movement strategy rather than a new projectile subclass per behavior.
+
+- **`DamageSourceBase` hit modes:**
+  - **Trigger enter:** one hit on contact.
+  - **Trigger stay** (e.g. the Augur's flame trail): each target has its own timer, is hit on contact, then every `tickInterval` while it stays inside. One shared timer used to need 0.4 s of contact, so fleeing enemies such as the Corruptor never got hit.
+- **Explosions:** `ExplosionDamage.SetExplosionDamage` lets a spawner set the damage of the explosion it sets off; without it the explosion prefab's own damage is used.
 
 ### Corruption & Grace (reworked Oct 2026)
 
@@ -255,6 +263,9 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
     - Fire Tornado explosion damage.
     - Whirlwind holy shield: `PlayerHealth.ActivateProjectileShield`. While it's up, enemy projectiles (`PlayerHealth.IsEnemyProjectile`) are absorbed in `TakeDamage` before invulnerability, Evasion and `onDamageTaken`, destroyed, and heal a fraction of their damage. Melee and contact hits still land.
   - **Emblem:** `MainStatOnLevelUpBehavior` (+1 main stat per level, baseline = level when the item is added) plus the class's stat bonus rules.
+  - **Tooltips describe the owned tier:** each ability overrides `Describe(row)` (`AbilityBehavior.DescribeTier`), and `Effect.GetFormattedDescription` adds those lines under the item's text, next to the stat lines.
+    - The text comes from the tier's own numbers, so it can't drift: e.g. "Explodes on impact for 4 base damage" appears from Fireball +1 only.
+    - Keep the DB descriptions generic: no numbers, nothing that only some tiers have. `AbilityDescriptionTests` guards this.
 - **Tiers:** each tier is its own DB row (`"<item> +N"`, `Effect.tier` = N, own `EffectID`).
   - Every tier of a Scroll uses the **same** ability asset; `Effect.tier` picks the table row (a tier past the table uses the last row).
   - Mark fields where smaller is stronger with `[LowerIsBetter]`.
@@ -275,18 +286,21 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   - The debug cheat window swaps an owned kit item for another tier of its line (`SkillTrees.EquipTier`).
   - `MetaProgressionManager`'s Inspector context menu (Play mode only) adds Favors, upgrades a node, unlocks a class or resets everything.
 - **Main menu:** locked classes are tinted (`ClassSelectHoverButton.SetLocked`), show their unlock cost, and can't start a run. The class panel shows the weapon at its bought tier.
+- **Class icon:** `CharacterClassData.icon` is the class's menu icon (skill tree root). Don't reuse `defaultSprite` for it: `CharacterVisual` assigns that one to the player's SpriteRenderer on spawn.
 - **Skill tree screen** (main menu, prefab `Prefabs/UI/Menus/SkillTreePanel.prefab`):
   - `SkillTreeController` (gameplay side, on the always-active prefab root) builds a plain `SkillTreeView` and handles upgrade and unlock requests.
   - `SkillTreeUI` / `SkillTreeNodeUI` (`Scripts/UI/SkillTree/`) only render it and report clicks.
   - Clicking a node buys its next tier; clicking the class root unlocks the class; both go through the scene's `ConfirmDialogUI`. It's a `UIWindow` with priority 10.
   - The prefab is generated by `Tools/Flames of Faith/Build Skill Tree Panel Prefab` (`SkillTreePanelBuilder`). Rebuilding overwrites hand edits, so make layout changes in the builder.
 - **The shared Favor pool is on:** players see and spend one total, which is less confusing than per-class pools.
-- **Tests:** `ClassKitTests`, `SkillTreeTests`, `SkillTreeRulesTests`, `FavorTests`, `AbilityTierTests`.
+- **Tests:** `ClassKitTests`, `SkillTreeTests`, `SkillTreeRulesTests`, `FavorTests`, `AbilityTierTests`, `AbilityDescriptionTests`, `ProjectileShieldTests`.
+- **Current costs:** each node's tiers cost 10 / 15 / 20 Favors; Archer and Augur unlocks cost 50. A normal lost run earns about 12–18 Favors.
 - **Adding kit content:**
   1. Add the DB rows: tier 0 with Starting Only, then `+1..+N` with `tier` set.
   2. Generate ScriptableObjects.
   3. Add the items to the class's tree node.
   4. For a Scroll, give its ability asset at least as many table rows as the node has tiers (a test checks this).
+  5. A new ability type also needs a `Describe(row)` override, or its tooltips show no tier line (`AbilityDescriptionTests` fails).
 
 ### Effect data pipeline — every field change touches 5 places
 
