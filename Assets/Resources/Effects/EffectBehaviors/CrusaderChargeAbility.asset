@@ -15,7 +15,7 @@ MonoBehaviour:
   behaviorId: CrusaderChargeAbility
   stackScaling: []
   tiers:
-  - damage: 2
+  - damage: 3
     knockbackForce: 10
   - damage: 4
     knockbackForce: 12

@@ -16,14 +16,14 @@ MonoBehaviour:
   stackScaling: []
   tiers:
   - baseDamage: 30
-    ringArrowCount: 16
+    ringArrowCount: 10
     targetArrowCount: 3
   - baseDamage: 33
-    ringArrowCount: 18
+    ringArrowCount: 13
     targetArrowCount: 4
   - baseDamage: 36
-    ringArrowCount: 20
+    ringArrowCount: 16
     targetArrowCount: 5
   - baseDamage: 40
-    ringArrowCount: 22
+    ringArrowCount: 20
     targetArrowCount: 8

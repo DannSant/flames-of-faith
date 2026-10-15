@@ -67,7 +67,7 @@ See the new items for this class
     - This includes the +1 Melee Damage the warrior gains when leveling up
   - Scroll of Whirlwind (Skill item) - Current special ability of the Warrior will be moved into this item
     - Base damage 20, will be upgradable.
-    - Upon using it, a holy shield will be created for a few seconds. While it is up, enemy projectiles are absorbed: they deal no damage and heal the player for a fraction of the damage they would have dealt (through the normal healing path, so Healing Received and the Corrupted penalty apply). Melee and contact hits still land. The base scroll and +1 don't create the shield; from +2 it lasts 1 second, and its duration is upgradable. (Changed from reflecting projectiles: absorbing fits the tanky Warrior better and is far less risky to build.)
+    - Upon using it, a holy shield will be created for a few seconds. While it is up, enemy projectiles are absorbed: they deal no damage and heal the player for a fraction of the damage they would have dealt (through the normal healing path, so Healing Received and the Corrupted penalty apply). Melee and contact hits still land. The base scroll doesn't create the shield; from +1 it lasts 1 second, and its duration is upgradable. (Changed from reflecting projectiles: absorbing fits the tanky Warrior better and is far less risky to build.)
   - Scroll of Crusader strike (Skill item) - Current basic attack of the Warrior will be moved into this item.
     - Base damage 10, upgradable
     - Have a chance to inflict bleed. Chance will start at the base bleed debuff chance (25%) and this ability will add additional percentage per upgrade
