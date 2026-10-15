@@ -16,7 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 917c46c67b3f5aa41b173a3001cd70a1, type: 3}
   effectName: Augur Emblem +3
   scalingValue: 1
-  description: 'Emblem of the Augurs of Akeros. Every level gained grants +1 _magic_damage_.
+  description: 'Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every
+    level gained grants +1 _magic_damage_.
 
 '
   buyPrice: 0
@@ -35,7 +36,7 @@ MonoBehaviour:
     targetStat: 4
     amount: 1
   - sourceStat: 19
-    perPoints: 1
+    perPoints: 4
     targetStat: 6
     amount: -1
   behaviors:
