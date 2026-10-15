@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Map;
 using Game.Overworld.Render;
 using Game.Scene;
@@ -60,6 +61,11 @@ namespace Game.Overworld
             {
                 HandleMapInitialized();
             }
+
+            if (PlayerManager.Instance != null)
+            {
+                PlayerManager.Instance.OnPlayerDisabledOnMap += AttachCorruptedVisualToMarker;
+            }
         }
 
         private void OnDisable()
@@ -68,6 +74,19 @@ namespace Game.Overworld
             mapController.OnCurrentNodeChanged -= OnCurrentNodeChanged;
             mapController.OnActChanged -= OnActChanged;
             mapController.OnRunMapInitialized -= HandleMapInitialized;
+            if (PlayerManager.Instance != null)
+            {
+                PlayerManager.Instance.OnPlayerDisabledOnMap -= AttachCorruptedVisualToMarker;
+            }
+        }
+
+        // On the map the player is hidden where it spawned and the marker is what moves, so the
+        // Corrupted VFX has to follow the marker. The player is respawned on the next scene load.
+        private void AttachCorruptedVisualToMarker()
+        {
+            var grace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>();
+            if (grace == null) return;
+            CorruptedVisual.GetOrAdd(grace.gameObject).SetAnchor(playerMarker);
         }
 
         private void HandleMapInitialized()

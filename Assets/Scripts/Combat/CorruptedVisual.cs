@@ -24,6 +24,20 @@ namespace Game.Combat
             return visual;
         }
 
+        /// <summary>
+        /// Moves the VFX to another transform, now and for later instances. Used on the overworld map,
+        /// where the player is hidden in place and a separate marker is what moves.
+        /// </summary>
+        public void SetAnchor(Transform newAnchor)
+        {
+            anchor = newAnchor;
+            if (vfxInstance != null)
+            {
+                vfxInstance.transform.SetParent(anchor != null ? anchor : transform, false);
+                vfxInstance.transform.localPosition = Vector3.zero;
+            }
+        }
+
         public void SetCorrupted(bool isCorrupted)
         {
             if (isCorrupted && vfxInstance == null)
