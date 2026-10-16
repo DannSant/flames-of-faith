@@ -1,4 +1,3 @@
-using Game.Map;
 using UnityEngine;
 
 namespace Game.Scene

@@ -4,7 +4,6 @@ using Game.AI;
 using Game.Combat;
 using Game.Effects;
 using Game.GameSettings;
-using Game.Map;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
