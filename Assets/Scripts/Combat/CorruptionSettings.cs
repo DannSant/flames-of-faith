@@ -1,7 +1,15 @@
+using Game.Common;
 using UnityEngine;
 
 namespace Game.Combat
 {
+    public enum CorruptedVisualMode
+    {
+        Outline,
+        Vfx,
+        Both
+    }
+
     /// <summary>
     /// Tunable values for the Corruption mechanic: Corrupted enemies, Corrupted Damage and the shared Corrupted visual.
     /// Loaded from Resources/Combat/CorruptionSettings.
@@ -71,14 +79,30 @@ namespace Game.Combat
         [SerializeField] private float waveSummaryMaxWait = 0f;
 
         [Header("Visuals")]
-        [Tooltip("Prefab spawned on top of anything Corrupted (enemies, the boss and the player).")]
+        [Tooltip("How anything Corrupted (enemies, the boss and the player) is marked. The outline stays " +
+            "readable with many corrupted enemies on screen; the VFX is the original look.")]
+        [SerializeField] private CorruptedVisualMode corruptedVisualMode = CorruptedVisualMode.Outline;
+        [Tooltip("Prefab spawned on top of anything Corrupted, in the VFX and Both modes.")]
         [SerializeField] private GameObject corruptedVfxPrefab;
+        [Tooltip("Material with the Game/Sprites/CorruptionOutline shader, in the Outline and Both modes.")]
+        [SerializeField] private Material corruptedOutlineMaterial;
+        [SerializeField] private SpriteOutlineStyle corruptedOutlineStyle = new SpriteOutlineStyle
+        {
+            color = new Color(0.72f, 0.3f, 1f, 1f),
+            thickness = 1f,
+            pulseSpeed = 2.5f,
+            pulseMinAlpha = 0.55f,
+            sortingOrderOffset = 1,
+        };
 
         public float CorruptedDamageMultiplier => corruptedDamageMultiplier;
         public float CorruptedHealthBonus => corruptedHealthBonus;
         public float CorruptedDamagePerCorruption => corruptedDamagePerCorruption;
         public int MaxCorruptionFromDamage => maxCorruptionFromDamage;
         public GameObject CorruptedVfxPrefab => corruptedVfxPrefab;
+        public CorruptedVisualMode CorruptedVisualMode => corruptedVisualMode;
+        public Material CorruptedOutlineMaterial => corruptedOutlineMaterial;
+        public SpriteOutlineStyle CorruptedOutlineStyle => corruptedOutlineStyle;
         public bool FocusCameraOnCorruptor => focusCameraOnCorruptor;
         public float FocusZoomMultiplier => focusZoomMultiplier;
         public float FocusPanInDuration => focusPanInDuration;

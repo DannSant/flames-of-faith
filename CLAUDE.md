@@ -98,7 +98,7 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
 The original spec is `Assets/Docs/corruption-rework.md`, but several decisions changed during implementation; this section is the source of truth. Every tunable lives in **`CorruptionSettings`** (`Assets/Resources/Combat/CorruptionSettings.asset`, loaded via `CorruptionSettings.Instance`) or on Inspector fields — never hardcode these numbers.
 
 - **Grace** (`PlayerGrace`) is a single signed value clamped to `minGrace..maxGrace` (−50..+50), saved per run. It changes only through `SetGrace`, which fires `onGraceChanged`, `OnCorruptedStateChanged` (only on flips) and `OnGraceStatusChanged`. Damage multiplier = `max(minDamageMultiplier, 1 + damagePerGracePoint × Grace)`, applied in `DamageCalculator`.
-- **Corrupted = Grace < 0.** `CorruptedLevel = max(0, −Grace)` reduces every stat flagged `affectedByCorruption` in `StatDatabase.asset` (Armor, HealingReceived) by `CorruptedLevel × corruptionReduceFactor`, through `PlayerProgression.GetCorruptionPenalty` (also used by the tooltip). Healing is reduced by a flat amount per heal, not zeroed. Corrupted players show the shared Corrupted VFX.
+- **Corrupted = Grace < 0.** `CorruptedLevel = max(0, −Grace)` reduces every stat flagged `affectedByCorruption` in `StatDatabase.asset` (Armor, HealingReceived) by `CorruptedLevel × corruptionReduceFactor`, through `PlayerProgression.GetCorruptionPenalty` (also used by the tooltip). Healing is reduced by a flat amount per heal, not zeroed. Corrupted players, enemies and the boss are marked by `CorruptedVisual` (see Corrupted outline below).
 - **Corruption** (`PlayerCorruption`) is **per wave only**, never saved, and reset when a wave starts. It comes from two sources:
   - **Corrupted Damage:** post-armor damage taken from anything tagged with `CorruptedDamageSource`, converted at +1 per `corruptedDamagePerCorruption`, capped at `maxCorruptionFromDamage`.
   - **The Corruptor:** see below.
@@ -123,6 +123,13 @@ The original spec is `Assets/Docs/corruption-rework.md`, but several decisions c
   - Wave hints: `WaveHintUI`, toggled by `SettingsManager.ShowTutorialHints`.
   - End-of-wave summary: `WaveCorruptionSummaryUI` waits for Submit. The end sequence waits on its callback; `waveSummaryMaxWait` 0 means no limit.
   - Corruption numbers: `NumberCorruptionGainedVFX`.
+
+**Corrupted outline** (Oct 2026): many VFX on screen got noisy, so Corrupted things get a pulsing purple outline instead.
+- **Mode:** `CorruptionSettings.corruptedVisualMode` is Outline (default), Vfx or Both. The material, color, thickness, pulse and draw order are on the same asset.
+- **How it's drawn:** `SpriteOutlineRenderer` (`Game.Common`, reusable) adds a child SpriteRenderer that copies the body sprite (sprite, flip through scale, sorting + offset, visibility, alpha). It draws that sprite with `Shaders/CorruptionOutline.shader` (unlit, ring only, values in a MaterialPropertyBlock). The body keeps its own 2D-lit material.
+- **Which sprite:** the one on the root, else the `CharacterVisual` one, else the highest sorting order (`CorruptedVisual.FindMainSpriteRenderer`). On the map, `SetAnchor` rebuilds it on the marker's sprite.
+- **Sprite margin:** the ring is drawn outside the silhouette, so the sprite mesh needs that much empty margin. A 1 texel ring fits Tight meshes with the default Extrude Edges of 1.
+- **Tests:** `CorruptionOutlineTests`.
 
 Reusable pieces that came out of this work:
 - **`GameplayFreeze`** (`Game.Common`): a semi-pause (time keeps running). Enemy behaviors with `stopDuringGameplayFreeze` skip ticks and animation-event starts, enemy projectiles stop, and player input and damage are blocked.

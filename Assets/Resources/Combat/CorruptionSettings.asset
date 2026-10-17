@@ -35,4 +35,12 @@ MonoBehaviour:
   focusHoldDuration: 1
   focusPanOutDuration: 0.5
   waveSummaryMaxWait: 0
+  corruptedVisualMode: 0
   corruptedVfxPrefab: {fileID: 8726003427374054332, guid: cac3dcf66f2108c4b86869fe90d9bec0, type: 3}
+  corruptedOutlineMaterial: {fileID: 2100000, guid: 0e0c822a05944f7e80b4b72440766447, type: 2}
+  corruptedOutlineStyle:
+    color: {r: 0.72, g: 0.3, b: 1, a: 1}
+    thickness: 1
+    pulseSpeed: 2.5
+    pulseMinAlpha: 0.55
+    sortingOrderOffset: 1
