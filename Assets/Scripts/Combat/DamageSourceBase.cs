@@ -297,6 +297,7 @@ namespace Game.Combat
         }
         public void SetWeaponClass(WeaponClass wc) => weaponClass = wc;
         public void SetAttackScale(float scale) => attackScale = scale;
+        public float AttackScale => attackScale;
         public void EnableTriggerEnter(bool enabled) => useTriggerEnter = enabled;
         public void EnableTriggerStay(bool enabled, float interval = 1f)
         {

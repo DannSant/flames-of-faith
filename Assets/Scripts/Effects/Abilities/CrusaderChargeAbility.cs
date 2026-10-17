@@ -17,10 +17,12 @@ namespace Game.Effects.Abilities
             public int damage = 2;
             [Tooltip("Knockback force the dash hitbox applies.")]
             public float knockbackForce = 10f;
+            [Tooltip("Share of the Melee Damage stat added to each hit (1.5 = 150%).")]
+            public float meleeDamageScale = 1.5f;
         }
 
         protected override string Describe(Values v) => AbilityTiers.Lines(
-            $"Deals {v.damage} base damage and knocks enemies back");
+            $"Deals {v.damage} base damage plus {AbilityTiers.Percent(v.meleeDamageScale)} of Melee Damage and knocks enemies back");
 
         public override AbilitySlot Slot => AbilitySlot.Dash;
     }

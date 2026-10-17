@@ -67,9 +67,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
+  m_Offset: {x: -0.023, y: -0.123}
+  m_Size: {x: 1, y: 0.7}
+  m_Direction: 1
 --- !u!114 &2904758571941983776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
   baseDamage: 2
-  weaponClass: 0
-  attackScale: 1
+  weaponClass: 1
+  attackScale: 1.5
   effectID: 
   layerMaskName: Enemy
   enemyLayerMask:

@@ -17,9 +17,13 @@ MonoBehaviour:
   tiers:
   - damage: 3
     knockbackForce: 10
+    meleeDamageScale: 1.5
   - damage: 4
     knockbackForce: 12
+    meleeDamageScale: 1.5
   - damage: 6
     knockbackForce: 14
+    meleeDamageScale: 1.5
   - damage: 10
     knockbackForce: 16
+    meleeDamageScale: 1.5
