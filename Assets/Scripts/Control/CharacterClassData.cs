@@ -23,6 +23,12 @@ namespace Game.Control
 
         [Header("Menu Display")]
         [TextArea] public string classDescription;
+
+        [Header("Stat Guide")]
+        [Tooltip("Stats that matter most for this class: one Key stat (gold star) and its Complementary stats " +
+            "(silver star), in display order. They go on top of the Stats pane's first tab and are marked on " +
+            "the upgrade choices; the justification shows in their tooltip.")]
+        public List<ClassStatPriority> statPriorities = new();
     }
 
     public enum CharacterClass

@@ -183,6 +183,14 @@ Enemy → player damage is sized against an *expected* player, never the real on
   - A dodge returns before `onDamageTaken`, so it adds no Corruption and triggers no Retribution or on-damage effects.
   - It grants `dodgeInvulnerabilityDuration` and shows `DamageNumberSpawner.SpawnDodgeNumber`.
 
+**Class stat guide** (Oct 2026), so new players know what to pick:
+- **Data:** `CharacterClassData.statPriorities`, a list of `{stat, role (Key / Complementary), justification}`. Each class has one Key stat.
+- **Rules:** the pure `ClassStatGuide` (`Scripts/Progression/`) handles role lookup, display order and tab, and the tooltip line ("Key stat for the Warrior: ...").
+- **Stats pane:** `StatsPaneUI.ArrangeRows` puts the Key stat and then the Complementary ones on top of the **Primary** tab, even when their category is Secondary (Pierce, Skill Duration). It re-sorts on every show, because the pane outlives a run.
+- **Stars:** a gold (Key) or silver (Complementary) star (`StatRoleStar`, sprite `Sprites/UI/StatRoleStar.png`, colors on the prefabs). The justification goes in the row's existing tooltip.
+- **Upgrade choices:** the same star and tooltip line. `UpgradeManager.OnUpgradeOptionsAvailable` now pushes one `UpgradeChoices` object (groups, preview, first level, class stats, class name).
+- **Tests:** `ClassStatGuideTests` guard each class's list.
+
 ### Pierce (reworked Oct 2026)
 
 `StatType.Pierce` (index 11, formerly `PierceAmount`; old saves load through `StatTypeNames`). Tunables are on `PierceSettings` (`Resources/Combat/PierceSettings.asset`).

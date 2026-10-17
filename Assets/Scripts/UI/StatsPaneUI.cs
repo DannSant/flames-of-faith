@@ -38,6 +38,11 @@ namespace Game.UI
 
         private readonly Dictionary<StatType, StatRowUI> rows = new();
 
+        // The played class's recommended stats (stars, order, tab). Read on every show: this pane
+        // outlives a run and the next run can be another class.
+        private IReadOnlyList<ClassStatPriority> classStats = Array.Empty<ClassStatPriority>();
+        private string className;
+
         private StatCategory displayCategory = StatCategory.Primary;
 
         private bool shiftHeld;
@@ -147,7 +152,11 @@ namespace Game.UI
 
             StatType stat = hoveredStat.Value;
             string statName = StatDisplayNameHelper.GetDisplayName(stat);
-            string description = StatUpgradeDatabase.Instance.GetStatDescription(stat);
+            var classStat = ClassStatGuide.Find(classStats, stat);
+            string description = StatRoleStar.AppendRoleLine(
+                StatUpgradeDatabase.Instance.GetStatDescription(stat),
+                ClassStatGuide.DescribeRole(classStat, className),
+                classStat?.role == StatRole.Key ? statRowPrefab.KeyStatColor : statRowPrefab.ComplementaryStatColor);
 
             // The second panel shows one of two things: the concrete benefit right now ("17% less
             // damage taken", same formulas as gameplay) by default, or, while Shift is held, the
@@ -257,6 +266,8 @@ namespace Game.UI
 
                 rows[kvp.Key] = row;
             }
+            RefreshClassStats();
+            ArrangeRows();
         }
 
         private void BuildStatRows()
@@ -302,7 +313,7 @@ namespace Game.UI
             ShowStatsWindow(null);
         }
 
-        private void HandleUpgradeOptionsAvailable(List<List<StatValuePair>> choices, Func<StatType, int, string> _, int __) => ShowStatsWindow(choices);
+        private void HandleUpgradeOptionsAvailable(UpgradeChoices choices) => ShowStatsWindow(choices.Groups);
 
         public void ShowStatsWindow(List<List<StatValuePair>> _)
         {
@@ -312,6 +323,8 @@ namespace Game.UI
             {
                 BuildStatRows();
             }
+            RefreshClassStats();
+            ArrangeRows();
 
             if (displayCategory == StatCategory.Primary)
             {               
@@ -332,6 +345,37 @@ namespace Game.UI
             backgroundPanel.SetActive(true);
 
             RefreshVisibleStats();
+        }
+
+        private void RefreshClassStats()
+        {
+            var classData = PlayerManager.Instance != null
+                ? PlayerManager.Instance.GetPlayerComponent<PlayerClassManager>()?.ClassData
+                : null;
+            classStats = classData != null && classData.statPriorities != null
+                ? classData.statPriorities
+                : (IReadOnlyList<ClassStatPriority>)Array.Empty<ClassStatPriority>();
+            className = classData != null ? classData.characterName : null;
+        }
+
+        // The class's Key stat, then its Complementary stats, go on top of the Primary tab (even
+        // stats whose category is Secondary); every other row keeps its tab and stat order.
+        private void ArrangeRows()
+        {
+            var ordered = ClassStatGuide.SortForDisplay(rows.Keys.OrderBy(s => (int)s), classStats);
+            foreach (var stat in ordered)
+            {
+                var row = rows[stat];
+                StatRole role = ClassStatGuide.GetRole(classStats, stat);
+                var category = StatUpgradeDatabase.Instance.GetStatData(stat).Category;
+                Transform panel = ClassStatGuide.ShowsOnPrimaryTab(category, role)
+                    ? primaryContentPanel.transform
+                    : secondaryContentPanel.transform;
+
+                if (row.transform.parent != panel) row.transform.SetParent(panel, false);
+                row.transform.SetAsLastSibling();
+                row.SetRole(role);
+            }
         }
 
         private Dictionary<StatType,int> GetStatsByCategory(Dictionary<StatType, int>  allStats,StatCategory category)

@@ -2,6 +2,7 @@ using Game.Progression;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
@@ -11,6 +12,17 @@ namespace Game.UI
     {
         [SerializeField] private TextMeshProUGUI statNameText;
         [SerializeField] private TextMeshProUGUI statValueText;
+
+        [Header("Class stat star")]
+        [Tooltip("Shown for the class's Key (gold) and Complementary (silver) stats.")]
+        [SerializeField] private Image roleStar;
+        [SerializeField] private Color keyStatColor = new Color(0.95f, 0.76f, 0.31f);
+        [SerializeField] private Color complementaryStatColor = new Color(0.78f, 0.82f, 0.86f);
+
+        public Color KeyStatColor => keyStatColor;
+        public Color ComplementaryStatColor => complementaryStatColor;
+
+        public void SetRole(StatRole role) => StatRoleStar.Apply(roleStar, role, keyStatColor, complementaryStatColor);
 
         private StatType statType;
         private StatsPaneUI owner;

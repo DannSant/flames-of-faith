@@ -10,16 +10,29 @@ using Game.Items;
 
 namespace Game.Progression
 {
+    /// <summary>Everything the upgrade choice UI needs, pushed by <see cref="UpgradeManager"/> (gameplay pushes, UI renders).</summary>
+    public class UpgradeChoices
+    {
+        /// <summary>One group of choices per level gained, in level order.</summary>
+        public List<List<StatValuePair>> Groups;
+        /// <summary>(stat, amount) -> "Now: ... / After: ..." text, or null.</summary>
+        public Func<StatType, int, string> Preview;
+        /// <summary>The level the first group belongs to; each next group is one level higher.</summary>
+        public int FirstLevel;
+        /// <summary>The class's recommended stats (gold/silver stars); empty when unknown.</summary>
+        public IReadOnlyList<ClassStatPriority> ClassStats = Array.Empty<ClassStatPriority>();
+        /// <summary>For the tooltip line ("Key stat for the Warrior").</summary>
+        public string ClassName;
+    }
+
     public class UpgradeManager : Singleton<UpgradeManager>, ISceneCleanupHandler
     {
-        private List<StatType> eligibleUpgradeStats = new();       
+        private List<StatType> eligibleUpgradeStats = new();
 
         private int lastRecordedLevel = 1;
         private int levelsGainedThisWave = 0;
 
-        // The second argument previews a choice: (stat, amount) -> "Now: ... / After: ..." text, or null.
-        // The third is the level the first choice group belongs to; each next group is one level higher.
-        public event Action<List<List<StatValuePair>>, Func<StatType, int, string>, int> OnUpgradeOptionsAvailable;
+        public event Action<UpgradeChoices> OnUpgradeOptionsAvailable;
         public event Action OnNoUpgradeAvailable;       
 
         private PlayerProgression playerProgression;
@@ -146,8 +159,19 @@ namespace Game.Progression
                 upgradeChoiceGroups.Add(upgradeOptions);
             }
 
-            int firstLevel = UpgradeLevels.FirstLevel(playerExperience.GetCurrentLevel(), levelsGainedThisWave);
-            OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups, GetUpgradePreview, firstLevel);
+            var classData = PlayerManager.Instance != null
+                ? PlayerManager.Instance.GetPlayerComponent<PlayerClassManager>()?.ClassData
+                : null;
+            OnUpgradeOptionsAvailable?.Invoke(new UpgradeChoices
+            {
+                Groups = upgradeChoiceGroups,
+                Preview = GetUpgradePreview,
+                FirstLevel = UpgradeLevels.FirstLevel(playerExperience.GetCurrentLevel(), levelsGainedThisWave),
+                ClassStats = classData != null && classData.statPriorities != null
+                    ? classData.statPriorities
+                    : (IReadOnlyList<ClassStatPriority>)Array.Empty<ClassStatPriority>(),
+                ClassName = classData != null ? classData.characterName : null,
+            });
         }
 
         /// <summary>

@@ -24,12 +24,9 @@ namespace Game.UI
         [Tooltip("Title while choosing; {0} is the level the current choice belongs to.")]
         [SerializeField] private string titleFormat = "You are now Level {0}, pick an upgrade";
 
-        private List<List<StatValuePair>> upgradeChoiceGroups;
-        // Pushed by UpgradeManager with the choices: (stat, amount) -> benefit preview text.
-        private Func<StatType, int, string> upgradePreviewProvider;
+        // Pushed by UpgradeManager: the choice groups, preview, first level and the class's stat guide.
+        private UpgradeChoices choices;
         private int currentChoiceIndex = 0;
-        // Pushed by UpgradeManager: the level of the first choice group.
-        private int firstChoiceLevel = 1;
 
         private PlayerProgression playerProgression;
 
@@ -84,11 +81,9 @@ namespace Game.UI
             mainPanel.SetActive(value);
         }
 
-        private void ShowUpgradeChoices(List<List<StatValuePair>> choices, Func<StatType, int, string> previewProvider, int firstLevel)
+        private void ShowUpgradeChoices(UpgradeChoices upgradeChoices)
         {
-            upgradeChoiceGroups = choices;
-            upgradePreviewProvider = previewProvider;
-            firstChoiceLevel = firstLevel;
+            choices = upgradeChoices;
             currentChoiceIndex = 0;
             TogglePanel(true);
             ShowCurrentChoice();
@@ -100,20 +95,22 @@ namespace Game.UI
         {
             ClearUpgradeOptions();
 
-            if (upgradeChoiceGroups == null || currentChoiceIndex >= upgradeChoiceGroups.Count)
+            if (choices?.Groups == null || currentChoiceIndex >= choices.Groups.Count)
             {
                 ShowContinueButton();
                 return;
             }
 
             continueButton.gameObject.SetActive(false);
-            SetTitle(string.Format(titleFormat, UpgradeLevels.LevelForChoice(firstChoiceLevel, currentChoiceIndex)));
+            SetTitle(string.Format(titleFormat, UpgradeLevels.LevelForChoice(choices.FirstLevel, currentChoiceIndex)));
 
-            foreach (StatValuePair statPair in upgradeChoiceGroups[currentChoiceIndex])
+            foreach (StatValuePair statPair in choices.Groups[currentChoiceIndex])
             {
                 UpgradeButtonUI button = Instantiate(upgradeButtonPrefab, mainPanel.transform);
-                string preview = upgradePreviewProvider?.Invoke(statPair.statType, statPair.value);
-                button.Initialize(statPair.value, statPair.statType, preview);
+                string preview = choices.Preview?.Invoke(statPair.statType, statPair.value);
+                var classStat = ClassStatGuide.Find(choices.ClassStats, statPair.statType);
+                button.Initialize(statPair.value, statPair.statType, preview,
+                    classStat?.role ?? StatRole.None, ClassStatGuide.DescribeRole(classStat, choices.ClassName));
                 button.OnUpgradeSelected += HandleUpgradeSelected;
             }
         }

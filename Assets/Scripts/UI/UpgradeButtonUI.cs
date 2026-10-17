@@ -19,6 +19,16 @@ namespace Game.UI
 
         [SerializeField] private TextMeshProUGUI upgradeText;
 
+        [Header("Class stat star")]
+        [Tooltip("Shown for the class's Key (gold) and Complementary (silver) stats.")]
+        [SerializeField] private Image roleStar;
+        [SerializeField] private Color keyStatColor = new Color(0.95f, 0.76f, 0.31f);
+        [SerializeField] private Color complementaryStatColor = new Color(0.78f, 0.82f, 0.86f);
+
+        // "Key stat for the Warrior: ..." pushed by the selection UI; null for other stats.
+        private string roleDescription;
+        private StatRole role;
+
         public event Action<StatType, int> OnUpgradeSelected;
 
         private void Awake()
@@ -32,12 +42,16 @@ namespace Game.UI
             OnUpgradeSelected = null;
         }
 
-        public void Initialize(int amount, StatType stat, string benefitPreview = null)
+        public void Initialize(int amount, StatType stat, string benefitPreview = null,
+            StatRole role = StatRole.None, string roleDescription = null)
         {
             this.upgradeAmount = amount;
             this.statToUpgrade = stat;
             this.benefitPreview = benefitPreview;
+            this.roleDescription = roleDescription;
+            this.role = role;
             SetupUI();
+            StatRoleStar.Apply(roleStar, role, keyStatColor, complementaryStatColor);
 
             generalTooltipPaneUI = FindAnyObjectByType<GeneralTooltipPaneUI>();
         }
@@ -86,7 +100,9 @@ namespace Game.UI
             }
 
             string statName = StatDisplayNameHelper.GetDisplayName(statToUpgrade);
-            string description = StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade);
+            string description = StatRoleStar.AppendRoleLine(
+                StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade), roleDescription,
+                role == StatRole.Key ? keyStatColor : complementaryStatColor);
             // The "Now / After" preview goes in the tooltip's second panel, like the stats pane's benefit line.
             string preview = string.IsNullOrEmpty(benefitPreview) ? null : $"<color=#F2C14E>{benefitPreview}</color>";
             generalTooltipPaneUI?.ShowTooltip(description, statName, preview);
