@@ -32,6 +32,12 @@ namespace Game.UI.RunEncounters
         [TextArea]
         [SerializeField] private string leaveShopWarning = "Are you sure you want to leave? You cannot go back to this shop";
 
+        [Header("Buy Confirmation")]
+        [Tooltip("Asks before buying, on the same dialog. {0} = item name (in its quality color), {1} = price. " +
+            "Items the player can't afford skip the question and show the error right away.")]
+        [TextArea]
+        [SerializeField] private string buyItemQuestion = "Buy {0} for {1} coins?";
+
         private ShopKeeper shopKeeper;
 
         private void Start()
@@ -86,7 +92,33 @@ namespace Game.UI.RunEncounters
 
         }
 
+        // Clicking an item asks first; only an affordable item gets the question, so a "Yes" can't fail.
         private void BuyItem(Effect effect)
+        {
+            if (shopKeeper == null || effect == null)
+            {
+                return;
+            }
+
+            if (confirmDialog == null)
+            {
+                ConfirmBuyItem(effect);
+                return;
+            }
+            if (confirmDialog.IsOpen) return;
+
+            if (!shopKeeper.CanAfford(effect))
+            {
+                errorTextUI.gameObject.SetActive(true);
+                return;
+            }
+
+            string itemName = $"<color=#{ColorUtility.ToHtmlStringRGB(EffectQualityDisplayHelper.GetQualityColor(effect.Quality))}>{effect.effectName}</color>";
+            confirmDialog.Show(string.Format(buyItemQuestion, itemName, shopKeeper.GetDiscountedPrice(effect)),
+                () => ConfirmBuyItem(effect));
+        }
+
+        private void ConfirmBuyItem(Effect effect)
         {
             if (shopKeeper == null)
             {

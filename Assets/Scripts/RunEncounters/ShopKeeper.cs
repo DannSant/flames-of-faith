@@ -129,6 +129,10 @@ namespace Game.RunEncounters
             return Mathf.Max(0, Mathf.RoundToInt(effect.BuyPrice * multiplier));
         }
 
+        /// <summary>Whether the player has enough coins for the item at its discounted price.</summary>
+        public bool CanAfford(Effect effect) =>
+            playerWallet != null && effect != null && playerWallet.CurrencyAmount >= GetDiscountedPrice(effect);
+
         public bool BuyItem(Effect effect)
         {
             if(playerWallet == null)
@@ -137,13 +141,12 @@ namespace Game.RunEncounters
                 return false;
             }
 
-            int finalPrice = GetDiscountedPrice(effect);
-            if (playerWallet.CurrencyAmount < finalPrice)
+            if (!CanAfford(effect))
             {
                 return false;
             }
 
-            playerWallet.RemoveCurrency(finalPrice);
+            playerWallet.RemoveCurrency(GetDiscountedPrice(effect));
             items.Remove(effect);
 
             if(effectStore != null)
