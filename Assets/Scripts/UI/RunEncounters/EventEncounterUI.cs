@@ -10,6 +10,8 @@ namespace Game.UI.RunEncounters
     {
         [SerializeField] private GameObject mainPanel;
         [SerializeField] private Image backgroundImage;
+        [Tooltip("Shown behind every event: events no longer have their own background art.")]
+        [SerializeField] private Sprite genericBackground;
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private Transform optionsContainer;
@@ -54,7 +56,7 @@ namespace Game.UI.RunEncounters
             ShowPanel();
             titleText.text = data.title;
             descriptionText.text = data.fullText;
-            backgroundImage.sprite = data.backgroundArt;
+            if (genericBackground != null) backgroundImage.sprite = genericBackground;
             foreach (Transform child in optionsContainer)
             {
                 Destroy(child.gameObject);
@@ -80,7 +82,6 @@ namespace Game.UI.RunEncounters
         {
             titleText.text ="";
             descriptionText.text = "";
-            backgroundImage.sprite = null;
 
             if(optionsContainer == null) return;
 

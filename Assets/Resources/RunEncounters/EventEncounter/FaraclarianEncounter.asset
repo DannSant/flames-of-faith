@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861bc016933547642bf2de40bc14f38c, type: 3}
+  m_Name: FaraclarianEncounter
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
+  eventName: faraclarianClan
+  title: "The Faraclarian Clan"
+  fullText: "Warriors of a Faraclarian clan surround you, their faces painted with ash. Their chieftain steps forward: \"We seek the Forger, the one who walks between fire and iron.\" You have never heard the name. Every spear waits for your answer.\n\nWhat will you do?"
+  options:
+  - {fileID: 11400000, guid: feb26ac040774d478b128563c6ad878d, type: 2}
+  - {fileID: 11400000, guid: 2def52f5e5cc41c587340626262351d3, type: 2}

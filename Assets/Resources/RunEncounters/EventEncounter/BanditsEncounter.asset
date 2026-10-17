@@ -13,17 +13,9 @@ MonoBehaviour:
   m_Name: BanditsEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: bandits
-  title: You ran into some people
-  fullText: 'Their clothes look odd. You glance some northern features in their faces,
-    maybe their are from Gracoy. Surely, with everything that it is going on in the
-    continent they wouldn''t...
-
-    oh no, they are coming your way. With weapons.
-    They are bandits
-
-    What will you do?'
+  title: "Raiders from Gracoy"
+  fullText: "Figures step out from the treeline, northern faces hardened by the long war. Gracoy raiders, far from home and hungry for coin. Their leader draws a notched blade and smiles.\n\n\"Your purse or your blood, pilgrim.\""
   options:
   - {fileID: 11400000, guid: b5875c1d1dc814e4d9db0f6b4f42b8a4, type: 2}
   - {fileID: 11400000, guid: 09ee9b88d5abd784e914b4c951c530f8, type: 2}
   - {fileID: 11400000, guid: ac07705f2e8631945b0494aa23944fe4, type: 2}
-  backgroundArt: {fileID: -8813968004377192924, guid: 06549a1ac018d244180553b3269fc8da, type: 3}

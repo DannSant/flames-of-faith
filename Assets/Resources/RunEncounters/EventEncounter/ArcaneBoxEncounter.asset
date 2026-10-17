@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861bc016933547642bf2de40bc14f38c, type: 3}
   m_Name: ArcaneBoxEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
-  eventName: ArcaneBox
-  title: You find a strange box
-  fullText: "This box looks like something an elf created. There is a legend that
-    reads \"Property of the Vega Unit\" whatever that is. \nWhat will you do?"
+  eventName: arcaneBox
+  title: "The Vega Casket"
+  fullText: "Half-buried in the moss lies a casket of elven make, its seams humming with a cold blue light. Faded runes along the lid read: Property of the Vega Unit. Whatever slumbers inside was never meant for human hands.\n\nWhat will you do?"
   options:
   - {fileID: 11400000, guid: ec8682424ed327544a9cddefd61d6043, type: 2}
   - {fileID: 11400000, guid: 43076ba2944edc5458f1876f073fa512, type: 2}
-  - {fileID: 11400000, guid: 9cea3c4f445872244bc8e357f9528665, type: 2}
-  backgroundArt: {fileID: -5855524350875041806, guid: e13e46f0182f7d84d95bb7732436f724, type: 3}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ArcaneBoxDestroyOption
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventOptionsList
   optionActionsList:
-  - {fileID: 11400000, guid: 3f508013f52f81a4d95deab53ec227e7, type: 2}
+  - {fileID: 11400000, guid: cb323fc9a01a4849921b4b2c479726e4, type: 2}
   - {fileID: 11400000, guid: ba94b9df464170246891d8350aaf281d, type: 2}
-  optionDescription: Destroy the box
+  optionDescription: "Smash it open"

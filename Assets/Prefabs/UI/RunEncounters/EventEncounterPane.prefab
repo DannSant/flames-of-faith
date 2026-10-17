@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.RunEncounters.EventEncounterUI
   mainPanel: {fileID: 8304475546482056546}
   backgroundImage: {fileID: 5238276552601174490}
+  genericBackground: {fileID: 252768029780725340, guid: fad8a0901ff5edc47b76beb65e498784, type: 3}
   titleText: {fileID: 3917131445365386350}
   descriptionText: {fileID: 6163093448048112961}
   optionsContainer: {fileID: 3095347846537090516}

@@ -75,6 +75,15 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 - **`GameSession.IsNewRun`** decides whether entering a level resets the player components (new run) or loads them from `PlayerData`.
 - Meta-progression is separate from the run and persisted by `MetaProgressionManager` to `persistentDataPath/<player>_meta.dat` (through `SaveFileIO`). It holds unlocked effects (through `IMetaProgressionStateLoader`), Favors, class unlocks and skill tree tiers; see "Class kits, skill trees & Favors".
 
+### Run encounter events
+
+The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncounterData` (title, text, options) lists `EventOptionsList` assets (a label plus actions). The actions (`OptionActions/`) are `Change{Currency,Grace,Health,Favors}Option` and `GiveRandomItemOptionAction`.
+- **Random pool:** `encountersList` on `Prefabs/RunEncounters/EventEncounter.prefab` holds the Arcane Box, Bandits, Cursed Chest, Faraclarian Clan and House of Stars. The Holy Altar has its own map node and scene, which overrides the list.
+- **No Ignore options** (reworked Oct 2026): every event has 2–3 options, and each one costs and gives something.
+- **Action names:** an action is named `Lose…` or `Gain…`, and it must lose or gain accordingly. `EventEncounterTests` checks this; the lever's "Lose1To5Grace" used to give +3.
+- **Rolls:** ranged rolls (`StatBiasedRoll`) lean toward the range's high end with Luck. For losses, that means losing less.
+- **Background:** one generic background, `EventEncounterUI.genericBackground` on `EventEncounterPane.prefab`. Events have no art of their own.
+
 ### Combat/effect pipeline
 
 Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combines weapon class, active `Effect`/`EffectBehavior` modifiers via `IEffectMultiplier`, and player progression stats) → applied to `PlayerHealth`/`EnemyHealth`. Projectiles separate "what it is" (`ProjectileBase`, damage/effect) from "how it moves" (`ProjectileMovementBase` subclasses: linear/arc/homing/bounce/delayed-homing) — extend by composing a movement strategy rather than a new projectile subclass per behavior.

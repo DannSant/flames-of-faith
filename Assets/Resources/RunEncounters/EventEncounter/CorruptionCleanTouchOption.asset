@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CorruptionCleanTouchOption
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventOptionsList
   optionActionsList:
-  - {fileID: 11400000, guid: 12c1f84a81a351b4bbe92e9290b94ee0, type: 2}
-  optionDescription: Touch, gain 5 Grace
+  - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+  optionDescription: "Kneel and pray"

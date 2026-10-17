@@ -13,7 +13,5 @@ namespace Game.RunEncounters
         public string fullText;
 
         public List<EventOptionsList> options;
-                
-        public Sprite backgroundArt;
     }
 }

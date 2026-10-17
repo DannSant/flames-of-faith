@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventOptionsList
   optionActionsList:
   - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
-  - {fileID: 11400000, guid: 9277803f33aafaf45a4043126a934273, type: 2}
-  optionDescription: 'Fight! '
+  - {fileID: 11400000, guid: 03805acd63b542e69a624ede56a1f8f9, type: 2}
+  optionDescription: "Draw your weapon"

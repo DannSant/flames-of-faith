@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861bc016933547642bf2de40bc14f38c, type: 3}
+  m_Name: HouseOfStarsEncounter
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
+  eventName: houseOfStars
+  title: "Gift of the House of Stars"
+  fullText: "Elves of the House of Stars bar the road, their cloaks shimmering like the night sky. Their lady holds out a small box wrapped in silver thread. \"A gift, traveller. From the stars to you.\" Her smile does not reach her eyes.\n\nWhat will you do?"
+  options:
+  - {fileID: 11400000, guid: f2c362a938b8478da456bd04bb360892, type: 2}
+  - {fileID: 11400000, guid: 37cb9ad191af4f84b779a337896d1228, type: 2}
+  - {fileID: 11400000, guid: d894b9112b7349da89bacdd927cb34e6, type: 2}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ArcaneBoxOperateOption
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventOptionsList
   optionActionsList:
-  - {fileID: 11400000, guid: a66ed8805687a1f41ab8e00c71d187cc, type: 2}
   - {fileID: 11400000, guid: 03c70a8d3cb870a4facde4b254dcdd3c, type: 2}
-  optionDescription: Pull a lever
+  - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+  optionDescription: "Pull the silver lever"

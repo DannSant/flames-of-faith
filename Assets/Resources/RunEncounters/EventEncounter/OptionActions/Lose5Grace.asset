@@ -15,6 +15,6 @@ MonoBehaviour:
   resourceName: Grace
   amount: -5
   isPlainReward: 1
-  amountRange: {x: 1, y: 5}
-  baseChance: 1
+  amountRange: {x: -5, y: -5}
+  baseChance: 0
   biasStat: 8
