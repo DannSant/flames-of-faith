@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Glyph of Ether  Thunder
+  m_Name: Glyph of Vengeance Daggers
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: a07699b6-f08a-4a79-9d46-36c60f8c0259
-  icon: {fileID: 21300000, guid: 02f3b7bf3e695e845a867acf1e416474, type: 3}
-  effectName: Glyph of Ether  Thunder
-  scalingValue: 1
-  description: 'Skill item. Summons an Ether Thunder every 10 seconds over a random
-    nearby enemy dealing _magic_damage_. Inflicts Ley Charge debuff,
+  effectID: cfc621a3-c452-497f-ad24-a61f5fb60c22
+  icon: {fileID: 21300000, guid: 3850c097fc5cdc549892aeb984b4db07, type: 3}
+  effectName: Glyph of Vengeance Daggers
+  scalingValue: 2
+  description: 'Skill item. When hit have a chance to spawn up to 5 daggers and throw
+    them in random directions.
 
-    More item
-    will increase damage done by the thunder'
+    Damage scales with _melee_damage_ and how far
+    they travel with Skill Duration. May inflict Bleed on enemies'
   buyPrice: 150
   sellPrice: 50
   effectStatModifiers: []
   statDependencies: []
   behaviors:
-  - {fileID: 11400000, guid: faa4dd516a4fd764880afe4835226ef7, type: 2}
+  - {fileID: 11400000, guid: ee62e472750dd5d4bac52530f35e3939, type: 2}
   unlockedByDefault: 1
   quality: 3
   availableForShop: 1

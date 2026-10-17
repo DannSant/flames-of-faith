@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Glyph of Holy missiles
+  m_Name: Glyph of Ether Thunder
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: 2bf80c37-2cb1-4792-b7b1-39ff7ac47490
-  icon: {fileID: 21300000, guid: 239d6bf243f66914aaef83720f8a73fb, type: 3}
-  effectName: Glyph of Holy missiles
-  scalingValue: 0.2
-  description: 'Skill Item. Spawns a holy projectile that deals _magic_damage_ when
-    dealing any kind of damage. Additional items increase the number of missiles
-    spawned.
+  effectID: a07699b6-f08a-4a79-9d46-36c60f8c0259
+  icon: {fileID: 21300000, guid: 02f3b7bf3e695e845a867acf1e416474, type: 3}
+  effectName: Glyph of Ether Thunder
+  scalingValue: 1
+  description: 'Skill item. Summons an Ether Thunder every 10 seconds over a random
+    nearby enemy dealing _magic_damage_. Inflicts Ley Charge debuff,
 
-    Skill Duration makes the missile reach further'
+    More item
+    will increase damage done by the thunder'
   buyPrice: 150
   sellPrice: 50
   effectStatModifiers: []
   statDependencies: []
   behaviors:
-  - {fileID: 11400000, guid: d4dfd011e34c32144a74935735d5b476, type: 2}
+  - {fileID: 11400000, guid: faa4dd516a4fd764880afe4835226ef7, type: 2}
   unlockedByDefault: 1
   quality: 3
   availableForShop: 1

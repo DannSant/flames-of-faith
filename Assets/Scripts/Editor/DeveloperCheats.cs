@@ -199,7 +199,7 @@ public class DeveloperCheats
         }
     }
 
-    [MenuItem("DevTools/Items/Give Concecrate")]
+    [MenuItem("DevTools/Items/Give Glyph of Consecrate")]
     public static void GiveholyCross()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
@@ -223,7 +223,7 @@ public class DeveloperCheats
 
     }
 
-    [MenuItem("DevTools/Items/Holy Missiles")]
+    [MenuItem("DevTools/Items/Glyph of Holy Missiles")]
     public static void GiveHolyMissiles()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
@@ -425,7 +425,7 @@ public class DeveloperCheats
     }
 
     
-    [MenuItem("DevTools/Items/Glyph of Vengance Daggers")]
+    [MenuItem("DevTools/Items/Glyph of Vengeance Daggers")]
     public static void GiveGlyphOfVengeanceDaggers()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
