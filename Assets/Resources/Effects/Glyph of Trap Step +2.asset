@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Glyph of Trap Step +2
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 83bf0292-e71f-419f-aef4-274bc8c0f277
+  icon: {fileID: 21300000, guid: 4f8a44a7dec1b4647aefb81fe8c0de10, type: 3}
+  effectName: Glyph of Trap Step +2
+  scalingValue: 1
+  description: 'Skill item. Your dash leaves a trap behind that damages the first
+    enemy to step on it. Setting too many traps removes the oldest.
+
+'
+  buyPrice: 0
+  sellPrice: 0
+  effectStatModifiers: []
+  statDependencies: []
+  behaviors:
+  - {fileID: 11400000, guid: 15094b7f48f44047ac37a803225c4e5a, type: 2}
+  unlockedByDefault: 0
+  quality: 4
+  availableForShop: 0
+  tier: 2
+  startingOnly: 1

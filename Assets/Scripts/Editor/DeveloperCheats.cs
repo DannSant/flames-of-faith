@@ -425,8 +425,8 @@ public class DeveloperCheats
     }
 
     
-    [MenuItem("DevTools/Items/Scroll of Vengance Daggers")]
-    public static void GiveScrollOfVengeanceDaggers()
+    [MenuItem("DevTools/Items/Glyph of Vengance Daggers")]
+    public static void GiveGlyphOfVengeanceDaggers()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         if (effectStore != null)
@@ -437,8 +437,8 @@ public class DeveloperCheats
 
     }
 
-    [MenuItem("DevTools/Items/Scroll of Strafe")]
-    public static void GiveScrollOfStrafe()
+    [MenuItem("DevTools/Items/Glyph of Strafe")]
+    public static void GiveGlyphOfStrafe()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         if (effectStore != null)
@@ -449,8 +449,8 @@ public class DeveloperCheats
 
     }
 
-        [MenuItem("DevTools/Items/Scroll of Ether Thunder")]
-    public static void GiveScrollOfEtherThunder()
+        [MenuItem("DevTools/Items/Glyph of Ether Thunder")]
+    public static void GiveGlyphOfEtherThunder()
     {
         var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         if (effectStore != null)

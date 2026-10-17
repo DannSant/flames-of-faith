@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Warrior's special (Scroll of Whirlwind), performed by <see cref="Game.Combat.SwordWeapon"/>.
+    /// The Warrior's special (Glyph of Whirlwind), performed by <see cref="Game.Combat.SwordWeapon"/>.
     /// Without this item the sword uses its own special WeaponData.
     /// </summary>
     [CreateAssetMenu(menuName = "Effects/Abilities/Warrior/Whirlwind")]

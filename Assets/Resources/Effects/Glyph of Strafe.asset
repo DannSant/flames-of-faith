@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Glyph of Strafe
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: f432e5fc-d77c-4ced-aef7-e4f17ba18f56
+  icon: {fileID: 21300000, guid: b223170de10937143b3d52b7e7cfb899, type: 3}
+  effectName: Glyph of Strafe
+  scalingValue: 2
+  description: 'Skill item. When Dashing you will shoot arrows in random directions
+    dealing _ranged_damage_. Skil Duration will increase the reach of the arrows
+
+'
+  buyPrice: 150
+  sellPrice: 50
+  effectStatModifiers: []
+  statDependencies: []
+  behaviors:
+  - {fileID: 11400000, guid: e518b45e6c1ca2a4cb3d3c3b9e0c8b80, type: 2}
+  unlockedByDefault: 1
+  quality: 3
+  availableForShop: 1
+  tier: 0
+  startingOnly: 0

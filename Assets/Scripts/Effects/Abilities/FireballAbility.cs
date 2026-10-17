@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Augur's basic attack (Scroll of Fireball), performed by <see cref="Game.Combat.ScepterWeapon"/>.
+    /// The Augur's basic attack (Glyph of Fireball), performed by <see cref="Game.Combat.ScepterWeapon"/>.
     /// Without this item the scepter uses its own WeaponData.
     /// </summary>
     [CreateAssetMenu(menuName = "Effects/Abilities/Augur/Fireball")]

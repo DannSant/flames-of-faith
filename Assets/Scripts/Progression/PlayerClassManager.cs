@@ -38,7 +38,7 @@ namespace Game.Progression
             var abilityIcons = FindAnyObjectByType<IconCooldownDisplay>();
             if (abilityIcons!=null)
             {
-                // The class's Scroll items drive the icons and the dash tooltip; the class data is
+                // The class's Glyph items drive the icons and the dash tooltip; the class data is
                 // the fallback for a kit without them.
                 var effectStore = GetComponent<EffectStore>();
                 Effect dashItem = null;

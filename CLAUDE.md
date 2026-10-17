@@ -265,8 +265,8 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 Each class's abilities and bonuses are **items** (its kit), and each item has **tiers** bought with **Favors** in a per-class skill tree.
 
-- **Kit:** 6 starting-only items per class (`Effect.startingOnly`): weapon, off-hand, Emblem, and 3 Scrolls.
-  - **Scrolls carry an ability** (`Scripts/Effects/Abilities/`): `AbilityBehavior<TValues>` is a data-only `EffectBehavior` with a per-tier table, one per slot (`AbilitySlot` Primary/Special/Dash).
+- **Kit:** 6 starting-only items per class (`Effect.startingOnly`): weapon, off-hand, Emblem, and 3 Glyphs.
+  - **Glyphs carry an ability** (`Scripts/Effects/Abilities/`): `AbilityBehavior<TValues>` is a data-only `EffectBehavior` with a per-tier table, one per slot (`AbilitySlot` Primary/Special/Dash).
   - **The class components still perform the ability** and read their numbers with `EffectStore.TryGetAbility<T>`: `SwordWeapon`/`BowWeapon`/`ScepterWeapon` and the `*Dash` classes.
   - **Hooks:** `WeaponBase.ApplyAbilityItems` (on initialize and on item changes); `DashBase.ApplyAbilityItems` (before each dash and on item changes, so a new duration counts for that dash and charges are right from the start).
   - **Without the item**, each falls back to its own `WeaponData`/Inspector values.
@@ -280,7 +280,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
     - The text comes from the tier's own numbers, so it can't drift: e.g. "Explodes on impact for 4 base damage" appears from Fireball +1 only.
     - Keep the DB descriptions generic: no numbers, nothing that only some tiers have. `AbilityDescriptionTests` guards this.
 - **Tiers:** each tier is its own DB row (`"<item> +N"`, `Effect.tier` = N, own `EffectID`).
-  - Every tier of a Scroll uses the **same** ability asset; `Effect.tier` picks the table row (a tier past the table uses the last row).
+  - Every tier of a Glyph uses the **same** ability asset; `Effect.tier` picks the table row (a tier past the table uses the last row).
   - Mark fields where smaller is stronger with `[LowerIsBetter]`.
 - **Skill trees:** `SkillTreeDefinition`, one per class in `Resources/Metaprogression/SkillTrees`, read through `SkillTrees`.
   - Root: `unlockedByDefault` (Warrior only) and `unlockCost`.
@@ -312,7 +312,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   1. Add the DB rows: tier 0 with Starting Only, then `+1..+N` with `tier` set.
   2. Generate ScriptableObjects.
   3. Add the items to the class's tree node.
-  4. For a Scroll, give its ability asset at least as many table rows as the node has tiers (a test checks this).
+  4. For a Glyph, give its ability asset at least as many table rows as the node has tiers (a test checks this).
   5. A new ability type also needs a `Describe(row)` override, or its tooltips show no tier line (`AbilityDescriptionTests` fails).
 
 ### Effect data pipeline — every field change touches 5 places

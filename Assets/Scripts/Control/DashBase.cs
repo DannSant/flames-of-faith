@@ -152,7 +152,7 @@ namespace Game.Control
         }
 
         /// <summary>
-        /// Reads this class's dash ability item (Scroll) before each dash, so an upgrade applies
+        /// Reads this class's dash ability item (Glyph) before each dash, so an upgrade applies
         /// from the next dash. Runs before the dash timer starts, so a new duration counts for this
         /// dash. Without the item, a dash keeps its own values.
         /// </summary>

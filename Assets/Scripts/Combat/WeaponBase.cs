@@ -81,7 +81,7 @@ namespace Game.Combat
         }
 
         /// <summary>
-        /// Reads this class's ability items (Scrolls) from the EffectStore. Called on initialize and
+        /// Reads this class's ability items (Glyphs) from the EffectStore. Called on initialize and
         /// whenever the owned items change. Without an item, a weapon keeps its own data.
         /// </summary>
         protected virtual void ApplyAbilityItems() { }

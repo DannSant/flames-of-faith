@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Augur's special (Scroll of Fire Tornadoes), performed by <see cref="Game.Combat.ScepterWeapon"/>:
+    /// The Augur's special (Glyph of Fire Tornadoes), performed by <see cref="Game.Combat.ScepterWeapon"/>:
     /// tornadoes around the player, then timed explosions on the marked target.
     /// Without this item the scepter uses its own special WeaponData.
     /// </summary>

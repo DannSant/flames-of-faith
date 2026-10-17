@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Archer's special (Scroll of Barrage), performed by <see cref="Game.Combat.BowWeapon"/>: a
+    /// The Archer's special (Glyph of Barrage), performed by <see cref="Game.Combat.BowWeapon"/>: a
     /// ring of arrows around the player, then homing arrows at the marked target.
     /// Without this item the bow uses its own special WeaponData and Inspector values.
     /// </summary>

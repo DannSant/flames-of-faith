@@ -37,13 +37,13 @@ namespace Game.Combat
         [SerializeField] private float targetExplosionDamageMultiplier = 0.5f;
 
         [Header("Basic Attack: Impact Explosion")]
-        [Tooltip("Explosion where a fireball hits an enemy, once the Scroll of Fireball's tier gives it damage. " +
+        [Tooltip("Explosion where a fireball hits an enemy, once the Glyph of Fireball's tier gives it damage. " +
             "Empty = the Target Explosion Prefab (FireballExplotion, the same as the tornadoes').")]
         [SerializeField] private GameObject impactExplosionPrefab;
 
         private Coroutine targetExplosionsRoutine;
 
-        // Scroll of Fireball / Scroll of Fire Tornadoes, read when casting. Null = the scepter's own data.
+        // Glyph of Fireball / Glyph of Fire Tornadoes, read when casting. Null = the scepter's own data.
         private FireballAbility.Values Fireball => GetAbilityValues<FireballAbility, FireballAbility.Values>();
         private FireTornadoesAbility.Values FireTornadoes => GetAbilityValues<FireTornadoesAbility, FireTornadoesAbility.Values>();
 
@@ -104,7 +104,7 @@ namespace Game.Combat
             damage.Initialize(baseDamage, weaponData.pierceAmount, null, weaponData.weaponClass, weaponData);
             damage.OnDamageDealtEvent += HandleProjectileDamageDealt;
 
-            // Upgraded Scroll of Fireball: the first enemy hit sets off an explosion
+            // Upgraded Glyph of Fireball: the first enemy hit sets off an explosion
             int impactDamage = fireball != null ? fireball.impactExplosionDamage : 0;
             if (impactDamage > 0)
             {
@@ -224,7 +224,7 @@ namespace Game.Combat
             var damage = go.GetComponent<DamageSourceBase>();
             damage.Initialize(baseDamage, pierceAmount, null, specialWeaponData.weaponClass, specialWeaponData);
 
-            // The tornado's own explosion on its first hit (the prefab's damage without the scroll)
+            // The tornado's own explosion on its first hit (the prefab's damage without the glyph)
             if (explosionDamage.HasValue && go.TryGetComponent<ExplosionDamage>(out var explosion))
             {
                 explosion.SetExplosionDamage(explosionDamage.Value);

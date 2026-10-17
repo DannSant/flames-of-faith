@@ -14,7 +14,7 @@ using UnityEngine;
 namespace Game.Tests
 {
     /// <summary>
-    /// Guards each class prefab's starting kit: 3 ability scrolls (one per slot), an Emblem, all
+    /// Guards each class prefab's starting kit: 3 ability glyphs (one per slot), an Emblem, all
     /// starting-only. A missing piece fails the test; it never skips.
     ///
     /// The per-class tests check that each prefab still has the parts its abilities drive, and that
@@ -135,7 +135,7 @@ namespace Game.Tests
         // --- Warrior -----------------------------------------------------------------------
 
         [Test]
-        public void Warrior_SwordHasWhatItsScrollsDrive()
+        public void Warrior_SwordHasWhatItsGlyphsDrive()
         {
             var prefab = LoadPrefab(WarriorPrefab);
             var abilities = GetAuthoredAbilities(prefab);
@@ -170,7 +170,7 @@ namespace Game.Tests
         // --- Archer ------------------------------------------------------------------------
 
         [Test]
-        public void Archer_BowHasWhatItsScrollsDrive()
+        public void Archer_BowHasWhatItsGlyphsDrive()
         {
             var prefab = LoadPrefab(ArcherPrefab);
             var abilities = GetAuthoredAbilities(prefab);
@@ -207,7 +207,7 @@ namespace Game.Tests
         // --- Augur -------------------------------------------------------------------------
 
         [Test]
-        public void Augur_ScepterHasWhatItsScrollsDrive()
+        public void Augur_ScepterHasWhatItsGlyphsDrive()
         {
             var prefab = LoadPrefab(AugurPrefab);
             var abilities = GetAuthoredAbilities(prefab);
@@ -218,7 +218,7 @@ namespace Game.Tests
             GetSerializedReference<GameObject>(scepter, "targetExplosionPrefab");
 
             var explosion = specialData.projectilePrefab.GetComponent<ExplosionDamage>();
-            Assert.IsNotNull(explosion, "The tornado prefab has no ExplosionDamage (the scroll sets its damage)");
+            Assert.IsNotNull(explosion, "The tornado prefab has no ExplosionDamage (the glyph sets its damage)");
 
             var fireball = GetAbility<FireballAbility>(abilities).GetTier(0);
             Assert.Greater(fireball.baseDamage, 0, "Fireball base damage");

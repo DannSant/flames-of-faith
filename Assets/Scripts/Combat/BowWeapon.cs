@@ -23,7 +23,7 @@ namespace Game.Combat
         [SerializeField] private Transform projectileSpawnTransform;
 
         [Header("Special: Barrage On Target")]
-        [Tooltip("Extra arrows fired at the marked target after the special's burst. Nothing extra without a target. Scroll of Barrage overrides this.")]
+        [Tooltip("Extra arrows fired at the marked target after the special's burst. Nothing extra without a target. Glyph of Barrage overrides this.")]
         [SerializeField] private int barrageArrowCount = 6;
         [Tooltip("Seconds between barrage arrows.")]
         [SerializeField] private float barrageInterval = 0.06f;
@@ -38,7 +38,7 @@ namespace Game.Combat
 
         private Coroutine barrageRoutine;
 
-        // Scroll of Holy Shot / Scroll of Barrage, read when firing. Null = the bow's own data.
+        // Glyph of Holy Shot / Glyph of Barrage, read when firing. Null = the bow's own data.
         private HolyShotAbility.Values HolyShot => GetAbilityValues<HolyShotAbility, HolyShotAbility.Values>();
         private BarrageAbility.Values Barrage => GetAbilityValues<BarrageAbility, BarrageAbility.Values>();
 

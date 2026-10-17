@@ -123,7 +123,7 @@ namespace Game.Tests
             var damage = hitbox.GetComponent<DamageSourceBase>();
             Assert.IsNotNull(damage, "The dash hitbox has no DamageSourceBase");
             Assert.AreEqual(WeaponClass.Melee, damage.WeaponClass, "The dash scales with Melee Damage only as WeaponClass.Melee");
-            Assert.Greater(damage.AttackScale, 0f, "The hitbox's own Melee Damage share (used without the Scroll)");
+            Assert.Greater(damage.AttackScale, 0f, "The hitbox's own Melee Damage share (used without the Glyph)");
         }
 
         [Test]

@@ -23,7 +23,7 @@ namespace Game.Combat
 
         [Header("Visual Effects")]
         [SerializeField] private GameObject specialAttackVFXPrefab;
-        [Tooltip("Shown around the player while an upgraded Scroll of Whirlwind's holy shield is up.")]
+        [Tooltip("Shown around the player while an upgraded Glyph of Whirlwind's holy shield is up.")]
         [SerializeField] private GameObject projectileShieldVFXPrefab;
         [Tooltip("Where the shield effect sits relative to the player's position (at the feet). Raise Y to center it on the body.")]
         [SerializeField] private Vector3 projectileShieldVFXOffset = new Vector3(0f, 0.3f, 0f);
@@ -47,7 +47,7 @@ namespace Game.Combat
             
         }
 
-        // Scroll of Crusader Strike sets the basic attack's damage and bleed chance; Scroll of
+        // Glyph of Crusader Strike sets the basic attack's damage and bleed chance; Glyph of
         // Whirlwind sets the special's damage. Without them the WeaponData values are used.
         protected override void ApplyAbilityItems()
         {
@@ -105,7 +105,7 @@ namespace Game.Combat
             effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
         }
 
-        // Upgraded Scroll of Whirlwind: a holy shield that absorbs enemy projectiles (PlayerHealth)
+        // Upgraded Glyph of Whirlwind: a holy shield that absorbs enemy projectiles (PlayerHealth)
         private void RaiseProjectileShield()
         {
             var whirlwind = GetAbilityValues<WhirlwindAbility, WhirlwindAbility.Values>();

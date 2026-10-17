@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Archer's basic attack (Scroll of Holy Shot), performed by <see cref="Game.Combat.BowWeapon"/>.
+    /// The Archer's basic attack (Glyph of Holy Shot), performed by <see cref="Game.Combat.BowWeapon"/>.
     /// Without this item the bow uses its own WeaponData.
     /// </summary>
     [CreateAssetMenu(menuName = "Effects/Abilities/Archer/Holy Shot")]

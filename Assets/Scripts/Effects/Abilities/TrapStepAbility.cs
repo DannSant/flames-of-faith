@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Archer's dash (Scroll of Trap Step), performed by <see cref="Game.Control.ArcherDash"/>.
+    /// The Archer's dash (Glyph of Trap Step), performed by <see cref="Game.Control.ArcherDash"/>.
     /// Without this item the dash keeps its prefab values.
     /// </summary>
     [CreateAssetMenu(menuName = "Effects/Abilities/Archer/Trap Step")]

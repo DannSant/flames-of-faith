@@ -15,13 +15,13 @@ namespace Game.Control
         [Header("Augur Dash - Flame Trail")]
         [Tooltip("Prefab with a trigger Collider2D + DamageSourceBase (directElementalDebuffData = Fire) + DestroyAfterTime.")]
         [SerializeField] private GameObject flameTrailSegmentPrefab;
-        [Tooltip("Seconds between flames while dashing. Scroll of Flame Dash overrides this.")]
+        [Tooltip("Seconds between flames while dashing. Glyph of Flame Dash overrides this.")]
         [SerializeField] private float trailSpawnInterval = 0.05f;
 
         private readonly List<Collider2D> ignoredEnemyColliders = new();
         private float trailSpawnTimer;
 
-        // The dash's own values, used when the player has no Scroll of Flame Dash.
+        // The dash's own values, used when the player has no Glyph of Flame Dash.
         private float defaultDashDuration;
         private int defaultMaxCharges;
         private float currentTrailSpawnInterval;

@@ -10,13 +10,13 @@ namespace Game.Control
         [Header("Archer Dash - Trap")]
         [Tooltip("Prefab with a trigger Collider2D + DamageSourceBase + TriggerAnimationOnDamage + DestroyObjectOnDamage, spawned at the dash's start position. Traps don't expire; they break when triggered.")]
         [SerializeField] private GameObject trapPrefab;
-        [Tooltip("Most traps that can be set at once. Setting another one removes the oldest. Scroll of Trap Step overrides this.")]
+        [Tooltip("Most traps that can be set at once. Setting another one removes the oldest. Glyph of Trap Step overrides this.")]
         [Min(1)]
         [SerializeField] private int maxActiveTraps = 3;
 
         private SpawnedObjectLimiter trapLimiter;
 
-        // The dash's own values, used when the player has no Scroll of Trap Step.
+        // The dash's own values, used when the player has no Glyph of Trap Step.
         private float defaultDashDuration;
         // Null = keep the trap prefab's own damage.
         private int? trapDamageOverride;

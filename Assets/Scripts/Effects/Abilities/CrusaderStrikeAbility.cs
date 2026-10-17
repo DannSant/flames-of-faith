@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Warrior's basic attack (Scroll of Crusader Strike), performed by <see cref="Game.Combat.SwordWeapon"/>.
+    /// The Warrior's basic attack (Glyph of Crusader Strike), performed by <see cref="Game.Combat.SwordWeapon"/>.
     /// Without this item the sword uses its own WeaponData.
     /// </summary>
     [CreateAssetMenu(menuName = "Effects/Abilities/Warrior/Crusader Strike")]

@@ -13,13 +13,13 @@ namespace Game.Effects.Abilities
     }
 
     /// <summary>
-    /// A class ability carried by an item (a Scroll). It is data only: the class's weapon or dash
+    /// A class ability carried by an item (a Glyph). It is data only: the class's weapon or dash
     /// component still performs the ability, and reads its numbers from here through
     /// <see cref="EffectStore.TryGetAbility{T}"/>. Without the item, those components fall back
     /// to their own values.
     ///
     /// The numbers live in a per-tier table. The owning item's <see cref="Effect.Tier"/> picks the
-    /// row, so "Scroll of Whirlwind +2" is a separate item row that reuses this same asset.
+    /// row, so "Glyph of Whirlwind +2" is a separate item row that reuses this same asset.
     /// </summary>
     public abstract class AbilityBehavior : EffectBehavior
     {

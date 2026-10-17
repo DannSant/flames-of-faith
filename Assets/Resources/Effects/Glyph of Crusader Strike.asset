@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
+  m_Name: Glyph of Crusader Strike
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
+  effectID: 01c60b6f-9e70-4cb9-a666-b10dfe1ff2ed
+  icon: {fileID: 21300000, guid: e44a37b9d876f644792a649eb2c0a9fc, type: 3}
+  effectName: Glyph of Crusader Strike
+  scalingValue: 1
+  description: 'Skill item. Your basic attack swings the sword dealing _melee_damage_.
+    May inflict Bleed.
+
+'
+  buyPrice: 0
+  sellPrice: 0
+  effectStatModifiers: []
+  statDependencies: []
+  behaviors:
+  - {fileID: 11400000, guid: b2bd551dea8e413f85a6ce7315aa0968, type: 2}
+  unlockedByDefault: 0
+  quality: 4
+  availableForShop: 0
+  tier: 0
+  startingOnly: 1

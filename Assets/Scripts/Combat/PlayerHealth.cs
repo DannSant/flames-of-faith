@@ -29,7 +29,7 @@ namespace Game.Combat {
         private bool isDead = false;
         private bool isInvulnerable = false;
 
-        // Projectile shield (upgraded Scroll of Whirlwind): enemy projectiles are absorbed and
+        // Projectile shield (upgraded Glyph of Whirlwind): enemy projectiles are absorbed and
         // heal a fraction of their damage instead of hurting.
         private float projectileShieldUntilTime;
         private float projectileShieldHealFraction;

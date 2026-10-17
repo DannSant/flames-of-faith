@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Augur's dash (Scroll of Flame Dash), performed by <see cref="Game.Control.AugurDash"/>.
+    /// The Augur's dash (Glyph of Flame Dash), performed by <see cref="Game.Control.AugurDash"/>.
     /// Without this item the dash keeps its prefab values.
     /// </summary>
     [CreateAssetMenu(menuName = "Effects/Abilities/Augur/Flame Dash")]

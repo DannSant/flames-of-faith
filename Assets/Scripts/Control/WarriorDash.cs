@@ -13,7 +13,7 @@ namespace Game.Control
         [SerializeField] private GameObject dashHitbox;
 
         private DamageSourceBase hitboxDamage;
-        // The hitbox's own values, used when the player has no Scroll of Crusader Charge.
+        // The hitbox's own values, used when the player has no Glyph of Crusader Charge.
         private int defaultDamage;
         private float defaultKnockback;
         private float defaultAttackScale;

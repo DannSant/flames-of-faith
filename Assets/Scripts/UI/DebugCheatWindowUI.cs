@@ -106,7 +106,7 @@ namespace Game.UI
             var effectStore = PlayerManager.Instance?.GetPlayerComponent<EffectStore>();
             if (effectStore == null) return;
 
-            // A class kit item (e.g. "Scroll of Whirlwind +2") replaces the owned tier of its line.
+            // A class kit item (e.g. "Glyph of Whirlwind +2") replaces the owned tier of its line.
             if (!SkillTrees.EquipTier(effectStore, selected))
             {
                 effectStore.AddEffect(selected);
