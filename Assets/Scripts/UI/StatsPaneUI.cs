@@ -302,7 +302,7 @@ namespace Game.UI
             ShowStatsWindow(null);
         }
 
-        private void HandleUpgradeOptionsAvailable(List<List<StatValuePair>> choices, Func<StatType, int, string> _) => ShowStatsWindow(choices);
+        private void HandleUpgradeOptionsAvailable(List<List<StatValuePair>> choices, Func<StatType, int, string> _, int __) => ShowStatsWindow(choices);
 
         public void ShowStatsWindow(List<List<StatValuePair>> _)
         {

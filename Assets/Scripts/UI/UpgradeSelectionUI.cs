@@ -19,11 +19,17 @@ namespace Game.UI
         [SerializeField] private UpgradeButtonUI upgradeButtonPrefab;
         [SerializeField] private Button continueButton;
         [SerializeField] private TextMeshProUGUI coinsGainedText;
+        [Tooltip("Title above the choices. Kept when the choices are cleared.")]
+        [SerializeField] private TextMeshProUGUI titleText;
+        [Tooltip("Title while choosing; {0} is the level the current choice belongs to.")]
+        [SerializeField] private string titleFormat = "You are now Level {0}, pick an upgrade";
 
         private List<List<StatValuePair>> upgradeChoiceGroups;
         // Pushed by UpgradeManager with the choices: (stat, amount) -> benefit preview text.
         private Func<StatType, int, string> upgradePreviewProvider;
         private int currentChoiceIndex = 0;
+        // Pushed by UpgradeManager: the level of the first choice group.
+        private int firstChoiceLevel = 1;
 
         private PlayerProgression playerProgression;
 
@@ -78,11 +84,11 @@ namespace Game.UI
             mainPanel.SetActive(value);
         }
 
-        private void ShowUpgradeChoices(List<List<StatValuePair>> choices, Func<StatType, int, string> previewProvider)
+        private void ShowUpgradeChoices(List<List<StatValuePair>> choices, Func<StatType, int, string> previewProvider, int firstLevel)
         {
-          
             upgradeChoiceGroups = choices;
             upgradePreviewProvider = previewProvider;
+            firstChoiceLevel = firstLevel;
             currentChoiceIndex = 0;
             TogglePanel(true);
             ShowCurrentChoice();
@@ -101,6 +107,7 @@ namespace Game.UI
             }
 
             continueButton.gameObject.SetActive(false);
+            SetTitle(string.Format(titleFormat, UpgradeLevels.LevelForChoice(firstChoiceLevel, currentChoiceIndex)));
 
             foreach (StatValuePair statPair in upgradeChoiceGroups[currentChoiceIndex])
             {
@@ -124,13 +131,23 @@ namespace Game.UI
             PauseManager.Instance.SetPause(true); // Pause the game when showing the continue panel
             TogglePanel(true);
             continueButton.gameObject.SetActive(true);
+            SetTitle(null);
+        }
+
+        // Null hides the title (e.g. when only the Continue button is left).
+        private void SetTitle(string text)
+        {
+            if (titleText == null) return;
+            titleText.gameObject.SetActive(!string.IsNullOrEmpty(text));
+            if (!string.IsNullOrEmpty(text)) titleText.text = text;
         }
 
         private void ClearUpgradeOptions()
         {
             foreach (Transform child in mainPanel.transform)
             {
-                if (child.gameObject != continueButton.gameObject)
+                if (child.gameObject != continueButton.gameObject
+                    && (titleText == null || child.gameObject != titleText.gameObject))
                 {
                     Destroy(child.gameObject);
                 }

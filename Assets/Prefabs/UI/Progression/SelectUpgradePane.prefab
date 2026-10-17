@@ -327,6 +327,8 @@ MonoBehaviour:
   upgradeButtonPrefab: {fileID: 1423675858371730342, guid: daac5b7179b66bb43bd754cb3bd53594, type: 3}
   continueButton: {fileID: 8154595748454267072}
   coinsGainedText: {fileID: 1872577323657023385}
+  titleText: {fileID: 5423951528130509986}
+  titleFormat: You are now Level {0}, pick an upgrade
 --- !u!1 &1214770940608840088
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,10 +608,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7471004887813549313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 4, y: -97.9}
-  m_SizeDelta: {x: 320.43, y: 44}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -84}
+  m_SizeDelta: {x: -32, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7353325773277476753
 CanvasRenderer:

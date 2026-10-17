@@ -18,7 +18,8 @@ namespace Game.Progression
         private int levelsGainedThisWave = 0;
 
         // The second argument previews a choice: (stat, amount) -> "Now: ... / After: ..." text, or null.
-        public event Action<List<List<StatValuePair>>, Func<StatType, int, string>> OnUpgradeOptionsAvailable;
+        // The third is the level the first choice group belongs to; each next group is one level higher.
+        public event Action<List<List<StatValuePair>>, Func<StatType, int, string>, int> OnUpgradeOptionsAvailable;
         public event Action OnNoUpgradeAvailable;       
 
         private PlayerProgression playerProgression;
@@ -145,7 +146,8 @@ namespace Game.Progression
                 upgradeChoiceGroups.Add(upgradeOptions);
             }
 
-            OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups, GetUpgradePreview);
+            int firstLevel = UpgradeLevels.FirstLevel(playerExperience.GetCurrentLevel(), levelsGainedThisWave);
+            OnUpgradeOptionsAvailable?.Invoke(upgradeChoiceGroups, GetUpgradePreview, firstLevel);
         }
 
         /// <summary>
