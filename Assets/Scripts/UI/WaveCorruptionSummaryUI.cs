@@ -12,8 +12,8 @@ namespace Game.UI
 {
     /// <summary>
     /// End of wave summary: lists where this wave's Corruption came from, then animates
-    /// Grace + Grace Affinity - Corruption = new Grace. Waits for the player to press Submit (Enter / A) before
-    /// closing; pressing it during the animation skips straight to the result. Tells the wave sequence when it's done.
+    /// Grace + Grace Affinity - Corruption = new Grace. Waits for the player to press Submit (Enter / A) or click
+    /// before closing; pressing it during the animation skips straight to the result. Tells the wave sequence when it's done.
     /// </summary>
     public class WaveCorruptionSummaryUI : MonoBehaviour
     {
@@ -30,7 +30,8 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI totalCorruptionRowText;
         [Tooltip("Optional. Favors earned this wave (shown after the Grace result).")]
         [SerializeField] private TextMeshProUGUI favorsRowText;
-        [SerializeField] private Color favorsColor = new Color(1f, 0.85f, 0.35f);
+        [Tooltip("Blue like Grace, so Favors don't read as more Grace (golden).")]
+        [SerializeField] private Color favorsColor = new Color(0.45f, 0.75f, 1f);
 
         [Header("Result")]
         [Tooltip("Shows the subtraction, e.g. 'Grace 5 + 1 - 6 = 0'.")]
@@ -40,9 +41,9 @@ namespace Game.UI
         [SerializeField] private Color corruptionColor = new Color(0.75f, 0.45f, 1f);
 
         [Header("Continue")]
-        [Tooltip("Wait for Submit (Enter / A) before closing. When off, the summary closes after Hold Duration.")]
+        [Tooltip("Wait for Submit (Enter / A) or a mouse click before closing. When off, the summary closes after Hold Duration.")]
         [SerializeField] private bool waitForConfirm = true;
-        [Tooltip("Shown once the result is on screen, e.g. a Submit button icon + 'Continue'.")]
+        [Tooltip("Shown once the result is on screen: 'Click (mouse icon) to continue' on keyboard/mouse, 'Press (A) to continue' on gamepad.")]
         [SerializeField] private GameObject continuePrompt;
         [Tooltip("Only used when Wait For Confirm is off.")]
         [SerializeField] private float holdDuration = 1.5f;
@@ -219,15 +220,27 @@ namespace Game.UI
             if (inputHandler == null) return;
 
             inputHandler.UI.Submit.performed -= HandleSubmit;
+            inputHandler.UI.Click.performed -= HandleClick;
             if (listen)
             {
                 inputHandler.UI.Submit.performed += HandleSubmit;
+                inputHandler.UI.Click.performed += HandleClick;
             }
         }
 
         private void HandleSubmit(InputAction.CallbackContext _)
         {
             submitPressed = true;
+        }
+
+        // Click is a PassThrough action: it performs on release too. Only a press counts, or the release
+        // of the click that skipped the animation would also close the summary.
+        private void HandleClick(InputAction.CallbackContext context)
+        {
+            if (context.ReadValueAsButton())
+            {
+                submitPressed = true;
+            }
         }
 
         private void SetFormula(string left, float value)
