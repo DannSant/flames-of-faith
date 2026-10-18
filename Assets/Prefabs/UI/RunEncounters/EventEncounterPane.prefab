@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.83137256}
+  m_Color: {r: 0.15, g: 0.12, b: 0.1, a: 0.9}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8813968004377192924, guid: 06549a1ac018d244180553b3269fc8da, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -509,7 +509,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.RunEncounters.EventEncounterUI
   mainPanel: {fileID: 8304475546482056546}
   backgroundImage: {fileID: 5238276552601174490}
-  genericBackground: {fileID: 252768029780725340, guid: fad8a0901ff5edc47b76beb65e498784, type: 3}
+  genericBackground: {fileID: 0}
+  plainBackgroundColor: {r: 0.15, g: 0.12, b: 0.1, a: 0.9}
   titleText: {fileID: 3917131445365386350}
   descriptionText: {fileID: 6163093448048112961}
   optionsContainer: {fileID: 3095347846537090516}

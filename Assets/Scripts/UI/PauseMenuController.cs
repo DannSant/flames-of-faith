@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Control;
 using Game.GameSettings;
 using Game.Scene;
@@ -49,6 +50,13 @@ namespace Game.UI
 
         private void TogglePauseMenu(CallbackContext _)
         {
+            // The UI map stays on after death (for the death screen), but there's nothing to pause then
+            var playerHealth = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<PlayerHealth>() : null;
+            if (!isPaused && playerHealth != null && playerHealth.IsDead())
+            {
+                return;
+            }
+
             // Pause closes the Save & Exit dialog first instead of resuming behind it
             if (confirmDialog != null && confirmDialog.IsOpen)
             {

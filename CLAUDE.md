@@ -87,7 +87,7 @@ The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncount
 - **No Ignore options** (reworked Oct 2026): every event has 2–3 options, and each one costs and gives something.
 - **Action names:** an action is named `Lose…` or `Gain…`, and it must lose or gain accordingly. `EventEncounterTests` checks this; the lever's "Lose1To5Grace" used to give +3.
 - **Rolls:** ranged rolls (`StatBiasedRoll`) lean toward the range's high end with Luck. For losses, that means losing less.
-- **Background:** one generic background, `EventEncounterUI.genericBackground` on `EventEncounterPane.prefab`. Events have no art of their own.
+- **Background:** a plain color like the other windows (`EventEncounterUI.plainBackgroundColor` on `EventEncounterPane.prefab`). An optional `genericBackground` sprite replaces it. Events have no art of their own.
 
 ### Combat/effect pipeline
 
@@ -154,7 +154,8 @@ XP needed per level is a fixed curve, `PlayerExperience.GetXPRequired` = `10 × 
 - **Denominations:** `DropExperienceOnDeathBehavior` rolls `dropChance`. The token starts at tier 1, then for each tier up to `EnemyData.xpTier` it rolls that tier's `promoteChance` and stops at the first failure. The token is worth `baseXp × multiplier` and uses the tier's sprite (`ExperienceToken.Setup`). Enhanced tokens are bonus XP on top of the target, which is deliberate.
 - `EnemyData.xpBase`/`xpPerLevel` are gone. `xpTier` (default 1) decides which denominations an enemy can drop.
 - Enemies still alive at wave end are killed by the end sequence and drop tokens too.
-- **Last wave of a level** (`WaveSpawner.IsLastWaveOfLevel`, not `WaveDatabase.lastWave`, which marks the game's last level): `WaveEndSequenceController.CollectAllExperienceRoutine` pulls every token to the player (`MagnetToPlayer.ForceAttract`) before the summary. Tokens still out after `xpCollectMaxDuration` are granted instantly. On other waves, tokens stay into the next wave.
+- **Last wave of a level** (`WaveSpawner.IsLastWaveOfLevel`, not `WaveDatabase.lastWave`, which marks the game's last level): `WaveEndSequenceController.CollectAllExperienceRoutine` pulls every token to the player (`MagnetToPlayer.ForceAttract`). Tokens still out after `xpCollectMaxDuration` are granted instantly, and one more instant sweep runs after the summary closes. On other waves, tokens stay into the next wave.
+- **End sequence order:** cleanse, kill the remaining enemies, collect the gems (last wave only), then resolve Corruption and open the summary. The summary opens last so that closing it quickly can't end the level before the gems are collected.
 - `logWaveXpDebug` logs expected vs actual spawns, drops and XP for every wave, after the end sequence.
 
 ### Enemy damage (reworked Oct 2026)
@@ -288,6 +289,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
   - **Selectables outside the window's hierarchy.**
   - **Manual panels set to `GameObjectActive`.** They count as permanently open and steal focus.
   - **The selection marker drawn under a window.**
+- **Player death** blocks only the Player action map (`PlayerInputHandler` gameplay block). The UI map stays on, so the death screen's Stats pane and Inventory still get Shift, LB/RB and gamepad navigation. `PauseMenuController` ignores Pause while dead.
 - `PauseManager.SetPause` sets `timeScale` to 0. Upgrade selection, the item bag and the pause menu pause the game, but the wave-end sequence (including `WaveCorruptionSummaryUI`) does not. Anything time-based that must stop there checks `WaveSpawner.Instance.EndingWave` and/or `GameplayFreeze.IsActive`, as `HealthRegen` does.
 
 ### Class kits, skill trees & Favors (reworked Oct 2026)

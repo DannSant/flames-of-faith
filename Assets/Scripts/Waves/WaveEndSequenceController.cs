@@ -77,8 +77,6 @@ namespace Game.Waves
             // Wait for the animation to finish playing
             yield return new WaitForSeconds(cleanseAnimationDuration);
 
-            ResolveWaveCorruption();
-
             // Destroy all remaining enemies
             enemySpawnCoordinator.KillAllTrackedEnemiesWithEffects(playerVisual.transform);
 
@@ -104,6 +102,11 @@ namespace Game.Waves
                 yield return new WaitForSeconds(1f);
             }
 
+            // The summary opens only now, after the kills and the last wave's gem collection: it used to
+            // open right after the cleanse, and closing it quickly ended the level before late gems
+            // were collected.
+            ResolveWaveCorruption();
+
             // Let the wave summary finish before moving on to rewards
             float waitedForSummary = 0f;
             float maxSummaryWait = CorruptionSettings.Instance.WaveSummaryMaxWait;
@@ -111,6 +114,13 @@ namespace Game.Waves
             {
                 waitedForSummary += Time.deltaTime;
                 yield return null;
+            }
+
+            // Last wave: one more sweep for any gem that dropped while the summary was open.
+            if (WaveSpawner.Instance != null && WaveSpawner.Instance.IsLastWaveOfLevel)
+            {
+                var playerXP = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<PlayerExperience>() : null;
+                ExperienceToken.CollectAllInstantly(playerXP);
             }
 
             //Invoke end wave complete event

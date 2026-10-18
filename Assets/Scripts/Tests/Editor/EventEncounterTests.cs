@@ -105,14 +105,18 @@ namespace Game.Tests
         }
 
         [Test]
-        public void EventPane_HasAGenericBackground()
+        public void EventPane_HasAPlainBackground()
         {
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(EventPanePrefab);
             Assert.IsNotNull(prefab, $"Missing prefab {EventPanePrefab}");
             var ui = prefab.GetComponentInChildren<EventEncounterUI>(true);
             Assert.IsNotNull(ui, "The event pane has no EventEncounterUI");
-            Assert.IsNotNull(new SerializedObject(ui).FindProperty("genericBackground")?.objectReferenceValue,
-                "EventEncounterUI.genericBackground is not set");
+
+            var so = new SerializedObject(ui);
+            Assert.IsNull(so.FindProperty("genericBackground")?.objectReferenceValue,
+                "Events use a plain background, like the other windows (no art)");
+            Color plain = so.FindProperty("plainBackgroundColor").colorValue;
+            Assert.Greater(plain.a, 0.5f, "The plain background should be mostly opaque so the text reads");
         }
     }
 }

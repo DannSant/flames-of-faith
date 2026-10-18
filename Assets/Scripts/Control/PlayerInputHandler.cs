@@ -19,6 +19,8 @@ namespace Game.Control
         // so two overlapping blockers can't re-enable input early.
         private readonly HashSet<object> gameplayBlocks = new();
         private bool subscribedToFocusManager = false;
+        // Gameplay block held once the player is dead (until the next respawn, a new handler).
+        private static readonly object DeathBlock = new object();
 
         public InputSystem_Actions.PlayerActions Player => inputActions.Player;
         public InputSystem_Actions.UIActions UI => inputActions.UI;
@@ -34,7 +36,7 @@ namespace Game.Control
             var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.onDeath += DisableInput;
+                playerHealth.onDeath += HandlePlayerDied;
             }
 
             if (MainSceneController.Instance != null)
@@ -78,12 +80,19 @@ namespace Game.Control
             var playerHealth = PlayerManager.Instance.GetPlayerComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.onDeath -= DisableInput;
+                playerHealth.onDeath -= HandlePlayerDied;
             }
             if (MainSceneController.Instance != null)
             {
                 MainSceneController.Instance.OnGameplayInitialSetup -= EnableInput;
             }
+        }
+
+        // Death stops gameplay input only. The UI map stays on, so the death screen's review panes
+        // still get Shift (stat sources), LB/RB (switch window) and gamepad navigation.
+        private void HandlePlayerDied()
+        {
+            AddGameplayBlock(DeathBlock);
         }
 
         public void DisableInput()
