@@ -62,6 +62,11 @@ Levels have only a few small, convex obstacles (tree trunks on the `Obstacle` la
   - Authoring tool: `Scripts/Overworld/Editor/` — a custom `EditorWindow` (`MapEditorWindow`, menu `Tools/Flames of Faith/Map Editor`) built on UI Toolkit's `GraphView` (`MapGraphView`, `MapNodeView`, sizing constants in `MapEditorConstants`). Editor-authored node positions (`NodeDefinition.editorPosition`) are baked into normalized runtime `worldPosition` via `MapEditorWindow.BakeEditorPositionsToWorldPositions()` (divides by `MapEditorConstants.NodeSpacing`, inverts Y). Toolbar actions `AddNewNode`, `DeleteSelected` and `ValidateMap` are implemented (with Undo).
   - Gamepad/keyboard: `OverworldGamepadNavigator` moves between nodes with the UI Navigate action and enters a level with Submit. It ignores input while any `UIWindow` has gamepad focus (e.g. the map's Exit button, reached with Browse/Y).
   - Generation is deterministic from the seed and the `MapDefinition`s, except which map an act uses (`SetCurrentMapGraph` picks randomly among maps with the same `actNumber`), which is why saves store the `mapId`.
+  - **Developer map cheats:**
+    - **Where:** the Ctrl+Shift+D window, whose prefab is also in `LevelSelector.unity` because UIMain is unloaded on the map, and `DevTools/Map`.
+    - **What:** reveal the full map, free travel to any revealed node, beat the current node (a real clear: reveals its children, a boss advances the act, it counts toward `levelsBeaten` only for fights), and go to act N.
+    - **Code:** `MapRunController.Debug*` / `FreeTravel`, with the pure rules in `MapTravelRules` (`MapTravelRulesTests`). They fire `OnMapStateChanged` so the renderer redraws, and they autosave.
+    - **Window buttons:** the map buttons are cloned from the Skip button at runtime. The level-only buttons (skip, add item) are disabled on the map.
   - **Every map needs a unique `mapId`** (`MapDefinitionTests`). Continue looks the map up by it, so a copied map that keeps its source's id restores the wrong map, and the save is deleted as "doesn't match this build".
 
 When touching map/level-select logic, confirm whether you're in the legacy `Map/` system or the new `Overworld/` system — they don't share code paths.

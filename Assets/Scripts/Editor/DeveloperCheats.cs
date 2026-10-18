@@ -2,6 +2,7 @@
 using Codice.Client.BaseCommands;
 using Game.AI;
 using Game.Combat;
+using Game.Currency;
 using Game.Effects;
 using Game.GameSettings;
 using Game.Progression;
@@ -35,6 +36,16 @@ public class DeveloperCheats
         if (playerProgression != null)
         {
             playerProgression.AddExperience(5);
+        }
+    }
+
+        [MenuItem("DevTools/Progression/Give 1000 Coins")]
+    public static void IncreaseGive1000Coins()
+    {
+        var playerProgression = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
+        if (playerProgression != null)
+        {
+            playerProgression.AddCurrency(1000);
         }
     }
 
@@ -558,4 +569,45 @@ public class DeveloperCheats
             Debug.LogError("PlayerHealth instance not found.");
         }
     }
+
+    // --- Overworld map (Play mode, on the map). Same actions as the Ctrl+Shift+D cheat window. ---
+
+    private static Game.Overworld.MapRunController MapForCheats =>
+        Application.isPlaying && Game.Overworld.MapRunController.Instance != null
+        && Game.Overworld.MapRunController.Instance.IsInitialized
+            ? Game.Overworld.MapRunController.Instance
+            : null;
+
+    [MenuItem("DevTools/Map/Reveal full map")]
+    public static void RevealFullMap() => MapForCheats?.DebugRevealAll();
+
+    [MenuItem("DevTools/Map/Toggle free travel")]
+    public static void ToggleFreeTravel()
+    {
+        var map = MapForCheats;
+        if (map == null) return;
+        map.FreeTravel = !map.FreeTravel;
+        Debug.Log($"[DevTools] Free travel {(map.FreeTravel ? "ON" : "OFF")}");
+    }
+
+    [MenuItem("DevTools/Map/Beat current node")]
+    public static void BeatCurrentNode() => MapForCheats?.DebugBeatCurrentNode();
+
+    [MenuItem("DevTools/Map/Go to Act 1")]
+    public static void GoToAct1() => MapForCheats?.DebugGoToAct(1);
+
+    [MenuItem("DevTools/Map/Go to Act 2")]
+    public static void GoToAct2() => MapForCheats?.DebugGoToAct(2);
+
+    [MenuItem("DevTools/Map/Go to Act 3")]
+    public static void GoToAct3() => MapForCheats?.DebugGoToAct(3);
+
+    [MenuItem("DevTools/Map/Reveal full map", true)]
+    [MenuItem("DevTools/Map/Toggle free travel", true)]
+    [MenuItem("DevTools/Map/Beat current node", true)]
+    [MenuItem("DevTools/Map/Go to Act 1", true)]
+    [MenuItem("DevTools/Map/Go to Act 2", true)]
+    [MenuItem("DevTools/Map/Go to Act 3", true)]
+    private static bool ValidateMapCheats() =>
+        MapForCheats != null && PlayerManager.Instance != null && PlayerManager.Instance.IsPlayerOnMap;
 }

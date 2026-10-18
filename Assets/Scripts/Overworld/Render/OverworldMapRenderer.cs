@@ -49,6 +49,7 @@ namespace Game.Overworld
             mapController.OnCurrentNodeChanged += OnCurrentNodeChanged;
             mapController.OnActChanged += OnActChanged;
             mapController.OnRunMapInitialized += HandleMapInitialized;
+            mapController.OnMapStateChanged += HandleMapStateChanged;
 
             //Generate icon sprite dictionary
             foreach (var iconSprite in iconSprites)
@@ -73,6 +74,7 @@ namespace Game.Overworld
             mapController.OnCurrentNodeChanged -= OnCurrentNodeChanged;
             mapController.OnActChanged -= OnActChanged;
             mapController.OnRunMapInitialized -= HandleMapInitialized;
+            mapController.OnMapStateChanged -= HandleMapStateChanged;
             if (PlayerManager.Instance != null)
             {
                 PlayerManager.Instance.OnPlayerDisabledOnMap -= AttachCorruptedVisualToMarker;
@@ -199,6 +201,13 @@ namespace Game.Overworld
         {
             MovePlayerMarker(node.worldPosition);
             RefreshVisuals();
+        }
+
+        // A developer cheat changed the map (revealed it, cleared a node, switched act).
+        private void HandleMapStateChanged()
+        {
+            RefreshVisuals();
+            MovePlayerMarker(mapController.CurrentNode.worldPosition);
         }
 
         private void OnActChanged(int actIndex)

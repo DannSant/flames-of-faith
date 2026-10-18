@@ -18,6 +18,8 @@ namespace Game.Overworld
         public event Action<RunNode> OnNodeRevealed;
         public event Action<int> OnActChanged;
         public event Action OnRunMapInitialized;
+        // Fired after a developer cheat changes the map, so the view redraws and moves the marker.
+        public event Action OnMapStateChanged;
 
         public RunMapGraph CurrentAct => currentRunMapState;
 
@@ -27,6 +29,9 @@ namespace Game.Overworld
         public bool IsInitialized => runState != null;
         // Set once the last act's boss is cleared, so the finished run isn't saved again
         public bool IsRunComplete { get; private set; }
+
+        /// <summary>Developer cheat: move to any revealed node, ignoring paths (MapTravelRules.CanTravel).</summary>
+        public bool FreeTravel { get; set; }
 
         protected override void Awake()
         {
@@ -230,33 +235,7 @@ namespace Game.Overworld
             return true;
         }
 
-        private bool CanTravel(RunNode from, RunNode to)
-        {
-            if (to.state != RunNodeState.Revealed &&
-                to.state != RunNodeState.Cleared)
-                return false;
-
-            // forward
-            if (HasEnabledEdge(from.id, to.id))
-                return true;
-
-            // backward (implicit)
-            if (HasEnabledEdge(to.id, from.id))
-                return true;
-
-            return false;
-        }
-
-        private bool HasEnabledEdge(string fromId, string toId)
-        {
-            var fromNode = CurrentAct.nodes[fromId];
-            foreach (var edge in fromNode.outgoingEdges)
-            {
-                if (edge.enabled && edge.toNodeId == toId)
-                    return true;
-            }
-            return false;
-        }
+        private bool CanTravel(RunNode from, RunNode to) => MapTravelRules.CanTravel(CurrentAct, from, to, FreeTravel);
 
         // --- Level resolution ---
 
@@ -300,6 +279,69 @@ namespace Game.Overworld
 
             if (start.state == RunNodeState.LockedHidden)
                 start.state = RunNodeState.Revealed;
+        }
+
+        // --- Developer cheats (DebugCheatWindowUI, DevTools menu) ---
+
+        /// <summary>The act numbers this run has, in order.</summary>
+        public List<int> GetActNumbers()
+        {
+            var acts = new List<int>();
+            if (runState?.acts == null) return acts;
+            foreach (var act in runState.acts)
+            {
+                if (!acts.Contains(act.actNumber)) acts.Add(act.actNumber);
+            }
+            acts.Sort();
+            return acts;
+        }
+
+        /// <summary>Reveals every node of the current act still under the fog of war.</summary>
+        public void DebugRevealAll()
+        {
+            if (!IsInitialized) return;
+            foreach (var node in MapTravelRules.RevealAll(CurrentAct))
+            {
+                OnNodeRevealed?.Invoke(node);
+            }
+            NotifyMapChangedAndSave();
+        }
+
+        /// <summary>
+        /// Clears the node the player stands on as if its level was finished: reveals what it leads to,
+        /// moves on to the next act after a boss, and counts toward run progression like a real clear
+        /// (GameSession.MarkLevelBeaten only counts fights).
+        /// </summary>
+        public void DebugBeatCurrentNode()
+        {
+            if (!IsInitialized || CurrentNode.state == RunNodeState.Cleared) return;
+
+            var levelData = CurrentNode.levelData;
+            OnLevelCleared();
+            if (GameSession.Instance != null)
+            {
+                GameSession.Instance.MarkLevelBeaten(levelData);
+            }
+            if (IsRunComplete)
+            {
+                Debug.Log("[MapRun] Cheat: the last act's boss was beaten, the run is complete.");
+                return;
+            }
+            NotifyMapChangedAndSave();
+        }
+
+        /// <summary>Switches to another act's map (a random one of that act, as in a real run).</summary>
+        public void DebugGoToAct(int actNumber)
+        {
+            if (!IsInitialized || !runState.acts.Exists(a => a.actNumber == actNumber)) return;
+            ChangeAct(actNumber);
+            NotifyMapChangedAndSave();
+        }
+
+        private void NotifyMapChangedAndSave()
+        {
+            OnMapStateChanged?.Invoke();
+            RunSaveService.SaveCurrentRun();
         }
 
         // --- Act progression ---
