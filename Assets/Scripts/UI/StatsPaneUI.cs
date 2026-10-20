@@ -3,6 +3,7 @@ using Game.Effects;
 using Game.Progression;
 using Game.Scene;
 using Game.UI.Style;
+using Game.UI.Navigation;
 using Game.Waves;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace Game.UI
         [SerializeField] private Button secondaryButton;
         [Header("Prefabs")]
         [SerializeField] private StatRowUI statRowPrefab;
+        [Tooltip("Scrolls the visible tab's rows. Its content is switched to the active panel on every show.")]
+        [SerializeField] private ScrollRect scrollRect;
 
         private PlayerProgression playerProgression;
 
@@ -323,23 +326,12 @@ namespace Game.UI
             RefreshClassStats();
             ArrangeRows();
 
-            if (displayCategory == StatCategory.Primary)
-            {               
-                primaryTitle.color = UISettings.Instance.HighlightColor;
-                secondaryTitle.color = UISettings.Instance.TextColor;
-                primaryContentPanel.SetActive(true);
-                secondaryContentPanel.SetActive(false);
-            }
-            else
-            {               
-                primaryTitle.color = UISettings.Instance.TextColor;
-                secondaryTitle.color = UISettings.Instance.HighlightColor;
-                primaryContentPanel.SetActive(false);
-                secondaryContentPanel.SetActive(true);
-            }
-
-           
+            bool primary = displayCategory == StatCategory.Primary;
+            primaryContentPanel.SetActive(primary);
+            secondaryContentPanel.SetActive(!primary);
+            ApplyTabs();
             backgroundPanel.SetActive(true);
+            ShowListFromTop(primary ? primaryContentPanel : secondaryContentPanel);
 
             RefreshVisibleStats();
         }
@@ -404,17 +396,58 @@ namespace Game.UI
                 kvp.Value.UpdateValue(value, GetValueColor(value, UISettings.Instance));
             }
 
-            if(displayCategory == StatCategory.Primary)
-            {
-                primaryTitle.color = UISettings.Instance.HighlightColor;
-                secondaryTitle.color = UISettings.Instance.TextColor;
-            }
-            else
-            {
-                primaryTitle.color = UISettings.Instance.TextColor;
-                secondaryTitle.color = UISettings.Instance.HighlightColor;
-            }
+            ApplyTabs();
+        }
 
+        // The selected tab uses the picked tab art and a yellow label (UISettings)
+        private void ApplyTabs()
+        {
+            bool primary = displayCategory == StatCategory.Primary;
+            var settings = UISettings.Instance;
+            primaryTitle.color = primary ? settings.HighlightColor : settings.TextColor;
+            secondaryTitle.color = primary ? settings.TextColor : settings.HighlightColor;
+            SetTabSprite(primaryButton, settings.GetTabSprite(primary));
+            SetTabSprite(secondaryButton, settings.GetTabSprite(!primary));
+        }
+
+        private static void SetTabSprite(Button tab, Sprite sprite)
+        {
+            if (tab == null || sprite == null) return;
+            if (tab.targetGraphic is Image image) image.sprite = sprite;
+        }
+
+        // The list scrolls the visible tab's rows; each tab starts at the top
+        private void ShowListFromTop(GameObject panel)
+        {
+            if (scrollRect == null) return;
+            scrollRect.content = (RectTransform)panel.transform;
+            Canvas.ForceUpdateCanvases();
+            scrollRect.StopMovement();
+            scrollRect.verticalNormalizedPosition = 1f;
+        }
+
+        /// <summary>
+        /// A row got selected: with the gamepad, scroll so the whole row is visible (the mouse scrolls by itself).
+        /// </summary>
+        public void NotifySelected(StatRowUI row)
+        {
+            if (scrollRect == null || scrollRect.content == null || row == null) return;
+            if (InputDeviceManager.Instance == null || !InputDeviceManager.Instance.IsGamepadActive) return;
+            if (row.transform.parent != scrollRect.content) return;
+
+            var content = scrollRect.content;
+            var viewport = scrollRect.viewport != null ? scrollRect.viewport : (RectTransform)scrollRect.transform;
+            var corners = new Vector3[4];
+            ((RectTransform)row.transform).GetWorldCorners(corners);
+            float rowTop = content.InverseTransformPoint(corners[1]).y;
+            float rowBottom = content.InverseTransformPoint(corners[0]).y;
+            float contentTop = content.rect.yMax;
+
+            scrollRect.StopMovement();
+            scrollRect.verticalNormalizedPosition = ScrollRectMath.NormalizedPositionToShow(
+                content.rect.height, viewport.rect.height,
+                contentTop - rowTop, contentTop - rowBottom,
+                scrollRect.verticalNormalizedPosition, UISettings.Instance.Spacing);
         }
 
 

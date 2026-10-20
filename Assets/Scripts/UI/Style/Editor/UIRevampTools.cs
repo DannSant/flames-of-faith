@@ -165,6 +165,8 @@ namespace Game.UI.Style.Editor
             FillReference(so, "slotFrame", LoadFrameSprite("SlotFrame.png"), log);
             FillReference(so, "buttonSprite", LoadFrameSprite("Button.png"), log);
             FillReference(so, "buttonPressedSprite", LoadFrameSprite("ButtonPressed.png"), log);
+            FillReference(so, "tabSprite", LoadFrameSprite("Tab.png"), log);
+            FillReference(so, "tabSelectedSprite", LoadFrameSprite("TabSelected.png"), log);
             FillReference(so, "barFill", LoadFrameSprite("BarFillNeutral.png"), log);
             FillReference(so, "solidFill", LoadFrameSprite("SolidSquare.png"), log);
             FillReference(so, "selectionFrame", LoadFrameSprite("SelectionFrame.png"), log);

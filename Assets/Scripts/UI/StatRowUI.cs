@@ -1,4 +1,5 @@
 using Game.Progression;
+using Game.UI.Style;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,7 +8,8 @@ using UnityEngine.UI;
 namespace Game.UI
 {
     // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
-    // Needs a Selectable on the same GameObject to be reachable with the gamepad.
+    // Needs a Selectable on the same GameObject to be reachable with the gamepad. The row is a full-width
+    // band; selecting it also asks the pane to scroll it into view.
     public class StatRowUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private TextMeshProUGUI statNameText;
@@ -33,8 +35,9 @@ namespace Game.UI
             this.owner = owner;
             if (statNameText != null)
             {
+                // Only the value is green/red; the name stays plain text
                 statNameText.text = statName;
-                statNameText.color = color;
+                statNameText.color = UISettings.Instance.TextColor;
             }
             if (statValueText != null)
             {
@@ -65,6 +68,8 @@ namespace Game.UI
 
         void ISelectHandler.OnSelect(BaseEventData eventData)
         {
+            owner?.NotifySelected(this);
+
             if (GeneralComponentsUI.Instance == null)
             {
                 return;

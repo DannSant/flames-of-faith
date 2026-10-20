@@ -95,6 +95,9 @@ namespace Game.UI.Style
         [Tooltip("Button art (9-sliced), and the sprite shown while pressed.")]
         [SerializeField] private Sprite buttonSprite;
         [SerializeField] private Sprite buttonPressedSprite;
+        [Tooltip("Tabs (Stats pane, skill tree...), 9-sliced: the plain tab and the selected one.")]
+        [SerializeField] private Sprite tabSprite;
+        [SerializeField] private Sprite tabSelectedSprite;
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]
         [Min(0.01f)]
         [SerializeField] private float framePixelsPerUnitMultiplier = 1f;
@@ -135,6 +138,10 @@ namespace Game.UI.Style
         public Color NegativeColor => negativeColor;
         public Sprite ButtonSprite => buttonSprite;
         public Sprite ButtonPressedSprite => buttonPressedSprite;
+        public Sprite TabSprite => tabSprite;
+        public Sprite TabSelectedSprite => tabSelectedSprite;
+
+        public Sprite GetTabSprite(bool selected) => selected && tabSelectedSprite != null ? tabSelectedSprite : tabSprite;
         public Sprite PanelFrame => panelFrame;
         public Sprite BarFrame => barFrame;
         public Sprite SlotFrame => slotFrame;
