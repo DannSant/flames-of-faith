@@ -17,5 +17,13 @@ namespace Game.Effects
                 _ => Color.white
             };
         }
+
+        /// <summary>The item's name in its quality color, as TMP rich text (tooltip titles, reward lines).</summary>
+        public static string ColorizeName(Effect effect)
+        {
+            if (effect == null) return string.Empty;
+            string hex = ColorUtility.ToHtmlStringRGB(GetQualityColor(effect.Quality));
+            return $"<color=#{hex}>{effect.EffectName}</color>";
+        }
     }
 }

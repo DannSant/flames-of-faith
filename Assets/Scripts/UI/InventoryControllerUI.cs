@@ -18,13 +18,11 @@ namespace Game.UI
         [SerializeField] private GameObject titleObject;
         [SerializeField] private GameObject mainPanel;
         [SerializeField] private Image backgroundImage;
+        [Tooltip("Where the item slots are spawned (the grid). Falls back to the main panel.")]
+        [SerializeField] private Transform iconContainer;
 
         [Header("Currency UI Elements")]
         [SerializeField] private TextMeshProUGUI currencyText;
-
-        [Header("Effects Tooltip UI Elements")]
-        [SerializeField] private TextMeshProUGUI effectNameText;
-        [SerializeField] private TextMeshProUGUI effectDescriptionText;
 
         [Header("Prefab Settings")]
         [SerializeField] private EffectIconUI effectIconPrefab;
@@ -33,6 +31,11 @@ namespace Game.UI
         private CurrencyWallet currencyWallet;
         private StatsPaneUI statsPaneUI;
         private readonly List<EffectIconUI> spawnedIcons = new();
+        // Item tooltips use the scene's shared tooltip pane, like the other windows
+        private GeneralTooltipPaneUI tooltipPane;
+        private bool showingTooltip;
+
+        private Transform IconContainer => iconContainer != null ? iconContainer : mainPanel.transform;
 
         private void Start()
         {
@@ -208,7 +211,7 @@ namespace Game.UI
         private void UpdateEffectsDisplay()
         {
             //Clear previous effect display
-            foreach (Transform child in mainPanel.transform)
+            foreach (Transform child in IconContainer)
             {
                 var layoutElement = child.GetComponent<LayoutElement>();
                 if(layoutElement!=null && layoutElement.ignoreLayout)
@@ -218,8 +221,6 @@ namespace Game.UI
                 Destroy(child.gameObject);
             }
             spawnedIcons.Clear();
-            effectNameText.text = string.Empty;
-            effectDescriptionText.text = string.Empty;
 
             var effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             if (effectStore == null)
@@ -232,7 +233,7 @@ namespace Game.UI
 
             foreach(var effectInstance in effects)
             {
-                EffectIconUI iconUI = Instantiate(effectIconPrefab, mainPanel.transform);
+                EffectIconUI iconUI = Instantiate(effectIconPrefab, IconContainer);
                 iconUI.Setup(effectInstance.effect, effectInstance.effect.EffectIcon, effectInstance.count, ShowEffectTooltip, HideEffectTooltip);
                 spawnedIcons.Add(iconUI);
             }
@@ -240,27 +241,36 @@ namespace Game.UI
         }
 
         private void ShowEffectTooltip(Effect effect)
-        {          
+        {
             if (effect == null)
             {
-                effectNameText.text = string.Empty;
-                effectDescriptionText.text = string.Empty;
+                HideEffectTooltip();
                 return;
             }
-            effectNameText.text = effect.effectName;
-            effectNameText.color = EffectQualityDisplayHelper.GetQualityColor(effect.Quality);
-            effectDescriptionText.text = effect.GetFormattedDescription();
+
+            // UI to UI lookup (the pane lives in the same scene), cached after the first time
+            if (tooltipPane == null)
+            {
+                tooltipPane = FindAnyObjectByType<GeneralTooltipPaneUI>();
+                if (tooltipPane == null) return;
+            }
+
+            tooltipPane.ShowTooltip(effect.GetFormattedDescription(), EffectQualityDisplayHelper.ColorizeName(effect));
+            showingTooltip = true;
         }
 
+        // Only closes the tooltip if the inventory opened it, so a stat tooltip shown meanwhile stays
         private void HideEffectTooltip()
-        {           
-            effectNameText.text = string.Empty;
-            effectDescriptionText.text = string.Empty;
+        {
+            if (!showingTooltip || tooltipPane == null) return;
+            tooltipPane.HideTooltip();
+            showingTooltip = false;
         }
 
         public void HideInventoryWindow(int _)
         {
             // Hide the inventory panel
+            HideEffectTooltip();
             TogglePanel(false);
         }
     }

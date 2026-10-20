@@ -111,11 +111,7 @@ namespace Game.UI.RunEncounters
             };
         }
 
-        private string ColorizeItemName(Effect item)
-        {
-            string hex = ColorUtility.ToHtmlStringRGB(EffectQualityDisplayHelper.GetQualityColor(item.Quality));
-            return $"<color=#{hex}>{item.EffectName}</color>";
-        }
+        private static string ColorizeItemName(Effect item) => EffectQualityDisplayHelper.ColorizeName(item);
     }
 
 }

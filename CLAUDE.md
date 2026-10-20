@@ -294,23 +294,28 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation and the gameplay HUD.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD and the Inventory.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
-  - **Fonts:** Small 12 and Big 20, nothing else. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
+  - **Fonts:** Small 12 and Big 20, nothing else. Titles are Big and bold. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
   - **Icons:** Small 50, Medium 80, plus Prompt 28 for input glyphs (sized like text).
   - **Buttons:** Small (32 high, small font) and Big (48 high, big font). Not tuned on a real window yet.
   - **Layout:** `margin` 15 (screen edge to window, frame to content), `spacing` 8.
   - **Colors:** Grace cyan, Corruption purple, Favors gold, text white, muted grey.
-  - **Art:** panel frame, bar frame, neutral bar fill (tinted with the colors above), selection frame. These are 9-sliced copies in `Sprites/UI/Frames/`; the vendored packs stay untouched.
+  - **Art:** panel frame, bar frame, item slot frame, neutral bar fill (tinted with the colors above), solid fill (cooldown sweeps), selection frame. These are 9-sliced copies in `Sprites/UI/Frames/`; the vendored packs stay untouched.
 - **Canvases** (Bootstrapper, MainMenu, UIMain, LevelSelector) scale with the screen from 1920×1080, match 0.5. All sizes are canvas units at that resolution.
-- **Style components** (`UIStyleText`, `UIStyleIcon`, `UIStyleButton`, `UIStyleFrame`) mark an element's role (Small/Big text, Medium icon, Panel/Bar frame...) and apply `UISettings` in `Awake`, so the asset stays the source of truth.
-  - `UIStyleText` with color role None leaves the color to a script (e.g. `GraceBar`). It also turns off TMP vertex gradients, which tint whatever color a script sets.
+- **Style components** (`UIStyleText`, `UIStyleIcon`, `UIStyleButton`, `UIStyleFrame`, `UIStyleGrid`) mark an element's role (Small/Big text, Medium icon, Panel/Bar/Slot frame, a grid of Small cells...) and apply `UISettings` in `Awake`, so the asset stays the source of truth.
+  - `UIStyleText` with color role None leaves the color to a script (e.g. `GraceBar`). It also turns off TMP vertex gradients, which tint whatever color a script sets. Its `bold` flag only touches the Bold bit.
+  - `UIStyleGrid` sets a GridLayoutGroup's cells to an icon size and its spacing to `UISettings.Spacing`.
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restyle HUD** (`HudRestyler`): owns the HUD layout. Make HUD layout changes there, not by hand, or a re-run overwrites them.
-  - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `HudRestyler.Restyle`).
+  - **Restyle HUD** (`HudRestyler`) and **Restyle Inventory** (`InventoryRestyler`) own those windows' layout. Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
+    - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
+    - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
+    - `SceneInstanceLayout.AssertMatchesPrefab` (tests) guards it.
+  - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `HudRestyler.Restyle`, `InventoryRestyler.Restyle`).
   - **Helpers:** `UIBuildHelpers` has find-or-create, place/stretch and style helpers for the next windows' restylers.
 - **Gamepad selection frame:** `UISelectionMarkerUI` wraps the selected element. The frame's position is computed in its parent's local space from the element's corners (`SelectionFrameMath`), so it works at any canvas scale and on Screen Space Camera canvases. It slides between elements and pulses.
   - A `UIWindow` can only override the padding now. The old per-window arrow offsets are gone.
@@ -321,7 +326,17 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - **Grace bar:** split at 50% by anchors. Fills use the neutral sprite tinted by `GraceBar` from `UISettings`.
   - **Grace label:** cyan at 0 and above, purple below 0 (`GraceBar.GetLabelColor`). The pending label reads "Corruption -N".
   - **Ability slots:** Medium icons. Each slot's input glyph is its child, centered on the bottom edge.
-- **Tests:** `UISettingsTests` (the standard, sliced art, canvas scalers, marker) and `HudStyleTests` (every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins).
+- **Inventory** (`InventoryPane`, `InventoryControllerUI`, `EffectIconUI`):
+  - **Window:** framed, on the left between the HUD's top-left stack and IconsPane. The title row has "Inventory" (Big, bold) and the coins (Small, 28px icon).
+  - **Grid:** a `Grid` child holds 8 columns × 10 rows of Small slots, and icons spawn there (`iconContainer`).
+  - **Slots:** each slot is a Slot frame tinted by item quality, the icon inside it, and a count badge shown only above 1.
+  - **Tooltip:** item tooltips use the scene's shared `GeneralTooltipPane`. The title is the quality-colored name (`EffectQualityDisplayHelper.ColorizeName`, also used by `TreasureUI`).
+  - **Hiding:** `EffectIconUI.OnDisable` hides its tooltip, because icons are destroyed on refresh and hidden with the window without a pointer exit. The controller only hides a tooltip it opened.
+- **Tests:**
+  - `UISettingsTests`: the standard, sliced art, canvas scalers, marker.
+  - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
+  - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
+  - `CooldownSweepTests`.
 - **Next windows** follow the same recipe: a restyler entry, style components and a guard test.
   - **Wave results:** the standard says Favors are gold, but on an earlier request they were made blue `#73BFFF`. `WaveSummaryUITests` also requires those rows to be bigger than the others, which breaks the two-size rule. Decide both with the user.
 
