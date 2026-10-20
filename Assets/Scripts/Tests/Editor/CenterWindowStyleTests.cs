@@ -43,6 +43,19 @@ namespace Game.Tests
                 titleSize = UIFontSize.Big, titleColor = UIColorRole.Text,
                 progressButton = "ContinueButton", otherButtons = new string[0], inUIMain = true,
             };
+            yield return new WindowCase
+            {
+                prefab = "Assets/Prefabs/UI/Systems/PauseMenu.prefab", frame = "MainPanel", title = "Title",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
+                progressButton = "ResumeButton", otherButtons = new[] { "ExitButton" }, inUIMain = true,
+            };
+            yield return new WindowCase
+            {
+                // YOU DIED is the agreed headline exception: Display size, red
+                prefab = "Assets/Prefabs/UI/Systems/DeathscreenPane.prefab", frame = "MainPanel", title = "Title",
+                titleSize = UIFontSize.Display, titleColor = UIColorRole.Negative,
+                progressButton = "RetryButton", otherButtons = new[] { "ExitButton" }, inUIMain = true,
+            };
         }
 
         private static UISettings Settings()
@@ -142,6 +155,8 @@ namespace Game.Tests
             {
                 if (PrefabUtility.IsPartOfPrefabInstance(uiWindow)) continue; // nested windows (confirm dialog) have their own step
                 Assert.IsFalse(uiWindow.OverrideMarkerSettings, $"{uiWindow.name}: old arrow-era marker override");
+                var focusFrame = new SerializedObject(uiWindow).FindProperty("focusFrame").objectReferenceValue;
+                Assert.IsNull(focusFrame, $"{uiWindow.name}: the focus tint would fade the window frame");
             }
         }
 

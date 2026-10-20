@@ -85,12 +85,17 @@ namespace Game.UI.Style.Editor
             style.Apply(s);
         }
 
-        /// <summary>The window no longer needs the arrow-era marker padding override.</summary>
+        /// <summary>
+        /// The window no longer needs the arrow-era marker padding override, and no longer tints its frame
+        /// to show focus (it faded the frame to 8% while another window had focus); the gamepad selection
+        /// frame shows where focus is.
+        /// </summary>
         public static void UseStandardMarker(UIWindow window)
         {
             if (window == null) return;
             var so = new SerializedObject(window);
             so.FindProperty("overrideMarkerSettings").boolValue = false;
+            so.FindProperty("focusFrame").objectReferenceValue = null;
             so.ApplyModifiedPropertiesWithoutUndo();
         }
 
