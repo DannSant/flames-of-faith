@@ -47,7 +47,7 @@ namespace Game.Tests
             {
                 prefab = "Assets/Prefabs/UI/Systems/PauseMenu.prefab", frame = "MainPanel", title = "Title",
                 titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
-                progressButton = "ResumeButton", otherButtons = new[] { "ExitButton" }, inUIMain = true,
+                progressButton = "ResumeButton", otherButtons = new[] { "ExitButton", "SettingsButton" }, inUIMain = true,
             };
             yield return new WindowCase
             {
@@ -55,6 +55,12 @@ namespace Game.Tests
                 prefab = "Assets/Prefabs/UI/Systems/DeathscreenPane.prefab", frame = "MainPanel", title = "Title",
                 titleSize = UIFontSize.Display, titleColor = UIColorRole.Negative,
                 progressButton = "RetryButton", otherButtons = new[] { "ExitButton" }, inUIMain = true,
+            };
+            yield return new WindowCase
+            {
+                prefab = "Assets/Prefabs/UI/Menus/SettingsPanel.prefab", frame = "SettingsPanel", title = "Title",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Text,
+                progressButton = "BackButton", otherButtons = new string[0], inUIMain = true,
             };
         }
 

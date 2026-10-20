@@ -5600,11 +5600,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129741780997318515, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 534.80005
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 4129741780997318515, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 645
       objectReference: {fileID: 0}
     - target: {fileID: 4129741780997318515, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5640,7 +5640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129741780997318515, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.49951172
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4129741780997318515, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5802,10 +5802,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7404149487844305774, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 373622625}
     - target: {fileID: 7752960781847155647, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5894,10 +5890,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8798793397546127272, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
-      propertyPath: onCancel.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 373622625}
     - target: {fileID: 8839965641892952816, guid: f5dbf9c56afe361409ba50cb0d864305, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

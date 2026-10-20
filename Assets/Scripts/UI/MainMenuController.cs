@@ -44,6 +44,7 @@ namespace Game.UI
         [SerializeField] private string classLockedInfo = "<color=#B0B0B0>Locked. Unlock it in the skill tree for {0} Favors.</color>";
 
         private Animator animator;
+        private SettingsPanelController settingsPanel;
 
         private void Awake()
         {
@@ -63,6 +64,10 @@ namespace Game.UI
             if (characterSelectWindow != null) characterSelectWindow.SetOpen(false);
             if (settingsWindow != null) settingsWindow.SetOpen(false);
 
+            // The settings panel's Back button / Cancel ask whoever opened it to close it
+            settingsPanel = settingsWindow != null ? settingsWindow.GetComponentInChildren<SettingsPanelController>(true) : null;
+            if (settingsPanel != null) settingsPanel.OnCloseRequested += CloseSettings;
+
             RefreshLoadGameButton();
             RefreshClassLocks();
 
@@ -80,6 +85,7 @@ namespace Game.UI
         private void OnDisable()
         {
             RunSaveService.OnSaveChanged -= RefreshLoadGameButton;
+            if (settingsPanel != null) settingsPanel.OnCloseRequested -= CloseSettings;
 
             if (MetaProgressionManager.Instance != null)
             {

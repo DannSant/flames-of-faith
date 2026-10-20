@@ -98,6 +98,8 @@ namespace Game.GameSettings
                 languageKey = defaultLanguageKey;
                 showTutorialHints = true;
                 autoAttackEnabled = true;
+                // Same default as a saved game without the key: toggle (press to lock / unlock)
+                lockOnToggleMode = true;
                 return;
             }
 

@@ -294,28 +294,33 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD and the Inventory.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, and the center windows (level-up, pause, death screen, Settings).
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
-  - **Fonts:** Small 12 and Big 20, nothing else. Titles are Big and bold. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
-  - **Icons:** Small 50, Medium 80, plus Prompt 28 for input glyphs (sized like text).
-  - **Buttons:** Small (32 high, small font) and Big (48 high, big font). Not tuned on a real window yet.
+  - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
+  - **Icons:** Small 50, Medium 80, Tiny 28 (input glyphs, the coin next to a number, stars in small buttons).
+  - **Buttons:** Small (32 high, small font) and Big (48 high, big font). `UIStyleButton` also applies the 9-sliced button art and its sprite-swap states.
   - **Layout:** `margin` 15 (screen edge to window, frame to content), `spacing` 8.
-  - **Colors:** Grace cyan, Corruption purple, Favors gold, text white, muted grey.
-  - **Art:** panel frame, bar frame, item slot frame, neutral bar fill (tinted with the colors above), solid fill (cooldown sweeps), selection frame. These are 9-sliced copies in `Sprites/UI/Frames/`; the vendored packs stay untouched.
+  - **Colors:** Grace cyan, Corruption purple, Favors gold, text white, muted grey, and three UI roles. Rich text uses `UISettings.ToHex(role)`.
+    - **Highlight (yellow):** neutral highlights such as PAUSE, section headers and previews.
+    - **Positive (light green):** improved stats and gains not related to Grace.
+    - **Negative (red):** negative stats, warnings, YOU DIED and auto-attack OFF.
+  - **Art:** panel frame, bar frame, item slot frame, button and pressed button, neutral bar fill (tinted with the colors above), solid fill (cooldown sweeps), selection frame. These are 9-sliced copies in `Sprites/UI/Frames/`; the vendored packs stay untouched.
 - **Canvases** (Bootstrapper, MainMenu, UIMain, LevelSelector) scale with the screen from 1920×1080, match 0.5. All sizes are canvas units at that resolution.
 - **Style components** (`UIStyleText`, `UIStyleIcon`, `UIStyleButton`, `UIStyleFrame`, `UIStyleGrid`) mark an element's role (Small/Big text, Medium icon, Panel/Bar/Slot frame, a grid of Small cells...) and apply `UISettings` in `Awake`, so the asset stays the source of truth.
   - `UIStyleText` with color role None leaves the color to a script (e.g. `GraceBar`). It also turns off TMP vertex gradients, which tint whatever color a script sets. Its `bold` flag only touches the Bold bit.
   - `UIStyleGrid` sets a GridLayoutGroup's cells to an icon size and its spacing to `UISettings.Spacing`.
+  - `UIStyleColor` applies only a color role, for texts in windows not restyled yet (e.g. the shop's "Not enough Golden Chronos"; `Tools/.../Apply Color Roles`).
+  - Scripts that color text at runtime read `UISettings` too: `GraceBar`, `WaveUI`, `AutoAttackIndicatorUI`, `StatsPaneUI` (values and the selected tab), the skill tree (MAX, next tier, pips) and the upgrade preview.
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restyle HUD** (`HudRestyler`) and **Restyle Inventory** (`InventoryRestyler`) own those windows' layout. Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`) and Restyle Settings (`SettingsRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
     - `SceneInstanceLayout.AssertMatchesPrefab` (tests) guards it.
-  - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `HudRestyler.Restyle`, `InventoryRestyler.Restyle`).
+  - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `<Restyler>.Restyle`).
   - **Helpers:** `UIBuildHelpers` has find-or-create, place/stretch and style helpers for the next windows' restylers.
 - **Gamepad selection frame:** `UISelectionMarkerUI` wraps the selected element. The frame's position is computed in its parent's local space from the element's corners (`SelectionFrameMath`), so it works at any canvas scale and on Screen Space Camera canvases. It slides between elements and pulses.
   - A `UIWindow` can only override the padding now. The old per-window arrow offsets are gone.
@@ -332,8 +337,29 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - **Slots:** each slot is a Slot frame tinted by item quality, the icon inside it, and a count badge shown only above 1.
   - **Tooltip:** item tooltips use the scene's shared `GeneralTooltipPane`. The title is the quality-colored name (`EffectQualityDisplayHelper.ColorizeName`, also used by `TreasureUI`).
   - **Hiding:** `EffectIconUI.OnDisable` hides its tooltip, because icons are destroyed on refresh and hidden with the window without a pointer exit. The controller only hides a tooltip it opened.
+- **Center windows** (`CenterWindowLayout`): level-up, pause, death screen and Settings.
+  - **Size and position:** the Inventory's height (645) and vertical position, centered, 400 wide (Settings 640). The tops and bottoms line up with the Inventory.
+  - **Title row:** centered, Big and bold.
+  - **Progress button** (Continue, Resume, Retry, Back): a Small 160×32 button at the bottom center. It is the same spot in every window; other buttons stack above it.
+  - **Focus:** the windows don't tint their frame for focus (`UIWindow.focusFrame` is cleared); the selection frame shows focus.
+- **Level-up:**
+  - **Header:** "Select an upgrade", then a yellow "You are now Level N" line (`levelText`), then green "Coins gained".
+  - **Choices:** spawn in an `Options` column as Small full-width buttons, with the role star Tiny.
+- **Pause:**
+  - PAUSE is yellow.
+  - Buttons from the bottom: Resume, Save & Exit, Settings.
+  - **Settings:** `PauseMenuController.OpenSettings` hides the pause panel, Stats and Inventory, then opens the scene's SettingsPanel (`SetActive` + `SetOpen`, priority 102). Back, Cancel or Pause close it back to the pause menu.
+- **Death screen:** YOU DIED in Display red; Retry, then Exit above it.
+- **Settings** (`SettingsPanel.prefab`, used in MainMenu and UIMain):
+  - **Layout:** two columns.
+    - Left: Gameplay (auto-attack, lock-on mode, tutorial hints) and Audio.
+    - Right: Graphics and Language.
+  - **Close:** Back and Cancel call `SettingsPanelController.RequestClose`. Whoever opened it subscribes to `OnCloseRequested` (`MainMenuController`, `PauseMenuController`), so neither scene wires it.
+  - **Main menu:** it still slides in with the MainMenu Animator. The clip's shown x is −(15 + width/2), and `SettingsRestyler` keeps it in step with the width.
 - **Tests:**
-  - `UISettingsTests`: the standard, sliced art, canvas scalers, marker.
+  - `UISettingsTests`: the standard, colors, sliced art, canvas scalers, marker.
+  - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement and the level-up header.
+  - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.

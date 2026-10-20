@@ -2,6 +2,7 @@ using Game.Combat;
 using Game.Control;
 using Game.GameSettings;
 using Game.Scene;
+using Game.UI.Navigation;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -13,6 +14,10 @@ namespace Game.UI
         [SerializeField] private ConfirmDialogUI confirmDialog;
         [TextArea]
         [SerializeField] private string levelProgressLostWarning = "Your run is saved at the start of this level. Progress made in this level will be lost. Exit?";
+        [Tooltip("Optional. The scene's Settings panel window, opened from the pause menu's Settings button.")]
+        [SerializeField] private UIWindow settingsWindow;
+        private SettingsPanelController settingsPanel;
+        private bool settingsOpen;
         private PlayerInputHandler inputHandler;
         private bool isPaused = false;
         private StatsPaneUI statsPaneUI;
@@ -28,11 +33,19 @@ namespace Game.UI
 
             statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
             inventoryControllerUI = FindAnyObjectByType<InventoryControllerUI>();
+
+            if (settingsWindow != null)
+            {
+                settingsWindow.gameObject.SetActive(false);
+                settingsPanel = settingsWindow.GetComponentInChildren<SettingsPanelController>(true);
+                if (settingsPanel != null) settingsPanel.OnCloseRequested += CloseSettings;
+            }
         }
 
         private void OnDestroy()
         {
             inputHandler.UI.Pause.performed -= TogglePauseMenu;
+            if (settingsPanel != null) settingsPanel.OnCloseRequested -= CloseSettings;
         }
 
         private LevelData GetLevelData()
@@ -61,6 +74,13 @@ namespace Game.UI
             if (confirmDialog != null && confirmDialog.IsOpen)
             {
                 confirmDialog.Cancel();
+                return;
+            }
+
+            // ...and Settings, back to the pause menu
+            if (settingsOpen)
+            {
+                CloseSettings();
                 return;
             }
 
@@ -97,11 +117,35 @@ namespace Game.UI
         public void ResumeGame()
         {
             TogglePauseMenu(default);
-            //isPaused = false;
-            //pauseScreenPanel.SetActive(isPaused);
-            //inputHandler.Player.Enable();
-            //Time.timeScale = 1f; // Resume the game
-            //statsPaneUI?.HideStatsWindow(-1); // Hide stats pane if available
+        }
+
+        /// <summary>
+        /// Opens the Settings panel in place of the pause menu (Stats and Inventory hide too, the panel takes
+        /// their room). Shown with SetActive/SetOpen only: the game is paused, so nothing may wait on scaled time.
+        /// </summary>
+        public void OpenSettings()
+        {
+            if (settingsWindow == null || settingsOpen) return;
+
+            settingsOpen = true;
+            pauseScreenPanel.SetActive(false);
+            statsPaneUI?.HideStatsWindow(-1);
+            inventoryControllerUI?.HideInventoryWindow(0);
+            settingsWindow.gameObject.SetActive(true);
+            settingsWindow.SetOpen(true);
+        }
+
+        /// <summary>Back, Cancel (B) or Pause (Esc / Start) while Settings is open: back to the pause menu.</summary>
+        public void CloseSettings()
+        {
+            if (!settingsOpen) return;
+
+            settingsOpen = false;
+            settingsWindow.SetOpen(false);
+            settingsWindow.gameObject.SetActive(false);
+            pauseScreenPanel.SetActive(true);
+            statsPaneUI?.ShowStatsWindow(null);
+            inventoryControllerUI?.ShowInventoryWindow();
         }
 
         public void ExitGame()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.GameSettings;
@@ -25,6 +26,8 @@ namespace Game.UI
         [SerializeField] private Toggle autoAttackToggle;
         [Tooltip("Optional. On: the lock-on input (F / LT) toggles the lock. Off: hold it to lock. Mirrors SettingsManager.LockOnToggleMode.")]
         [SerializeField] private Toggle lockOnToggleModeToggle;
+        [Tooltip("Optional. Shows the wave hints (WaveHintUI). Mirrors SettingsManager.ShowTutorialHints.")]
+        [SerializeField] private Toggle tutorialHintsToggle;
 
         [Header("Language")]
         [SerializeField] private TMP_Dropdown languageDropdown;
@@ -32,6 +35,14 @@ namespace Game.UI
         private static readonly string[] languageOptions = { "English" };
 
         private List<(int width, int height)> availableResolutions;
+
+        /// <summary>
+        /// Back button or Cancel (B). Whoever opened the panel (main menu, pause menu) closes it, so the
+        /// prefab needs no scene-specific wiring.
+        /// </summary>
+        public event Action OnCloseRequested;
+
+        public void RequestClose() => OnCloseRequested?.Invoke();
 
         private void OnEnable()
         {
@@ -93,6 +104,7 @@ namespace Game.UI
             vsyncToggle.SetIsOnWithoutNotify(settings.VsyncEnabled);
             if (autoAttackToggle != null) autoAttackToggle.SetIsOnWithoutNotify(settings.AutoAttackEnabled);
             if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.SetIsOnWithoutNotify(settings.LockOnToggleMode);
+            if (tutorialHintsToggle != null) tutorialHintsToggle.SetIsOnWithoutNotify(settings.ShowTutorialHints);
 
             // Only "English" exists today, so this always resolves to index 0.
             languageDropdown.SetValueWithoutNotify(0);
@@ -109,6 +121,7 @@ namespace Game.UI
             vsyncToggle.onValueChanged.AddListener(OnVsyncChanged);
             if (autoAttackToggle != null) autoAttackToggle.onValueChanged.AddListener(OnAutoAttackChanged);
             if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.onValueChanged.AddListener(OnLockOnToggleModeChanged);
+            if (tutorialHintsToggle != null) tutorialHintsToggle.onValueChanged.AddListener(OnTutorialHintsChanged);
             languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
         }
 
@@ -123,6 +136,7 @@ namespace Game.UI
             vsyncToggle.onValueChanged.RemoveListener(OnVsyncChanged);
             if (autoAttackToggle != null) autoAttackToggle.onValueChanged.RemoveListener(OnAutoAttackChanged);
             if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.onValueChanged.RemoveListener(OnLockOnToggleModeChanged);
+            if (tutorialHintsToggle != null) tutorialHintsToggle.onValueChanged.RemoveListener(OnTutorialHintsChanged);
             languageDropdown.onValueChanged.RemoveListener(OnLanguageChanged);
         }
 
@@ -170,6 +184,11 @@ namespace Game.UI
         private void OnLockOnToggleModeChanged(bool toggleMode)
         {
             SettingsManager.Instance?.SetLockOnToggleMode(toggleMode);
+        }
+
+        private void OnTutorialHintsChanged(bool enabled)
+        {
+            SettingsManager.Instance?.SetShowTutorialHints(enabled);
         }
 
         private void OnLanguageChanged(int index)
