@@ -19,10 +19,16 @@ namespace Game.UI
         [SerializeField] private UpgradeButtonUI upgradeButtonPrefab;
         [SerializeField] private Button continueButton;
         [SerializeField] private TextMeshProUGUI coinsGainedText;
-        [Tooltip("Title above the choices. Kept when the choices are cleared.")]
+        [Tooltip("Title above the choices (\"Select an upgrade\"). Shown while choosing.")]
         [SerializeField] private TextMeshProUGUI titleText;
-        [Tooltip("Title while choosing; {0} is the level the current choice belongs to.")]
-        [SerializeField] private string titleFormat = "You are now Level {0}, pick an upgrade";
+        [Tooltip("Line under the title while choosing: the level the current choice belongs to.")]
+        [SerializeField] private TextMeshProUGUI levelText;
+        [Tooltip("{0} is the level the current choice belongs to.")]
+        [SerializeField] private string levelFormat = "You are now Level {0}";
+        [Tooltip("{0} is the coins gained this wave.")]
+        [SerializeField] private string coinsGainedFormat = "Coins gained: {0}";
+        [Tooltip("Where the upgrade buttons are spawned. Only its children are cleared between choices.")]
+        [SerializeField] private Transform optionsContainer;
 
         // Pushed by UpgradeManager: the choice groups, preview, first level and the class's stat guide.
         private UpgradeChoices choices;
@@ -102,11 +108,11 @@ namespace Game.UI
             }
 
             continueButton.gameObject.SetActive(false);
-            SetTitle(string.Format(titleFormat, UpgradeLevels.LevelForChoice(choices.FirstLevel, currentChoiceIndex)));
+            SetHeader(FormatLevelLine(levelFormat, UpgradeLevels.LevelForChoice(choices.FirstLevel, currentChoiceIndex)));
 
             foreach (StatValuePair statPair in choices.Groups[currentChoiceIndex])
             {
-                UpgradeButtonUI button = Instantiate(upgradeButtonPrefab, mainPanel.transform);
+                UpgradeButtonUI button = Instantiate(upgradeButtonPrefab, OptionsContainer);
                 string preview = choices.Preview?.Invoke(statPair.statType, statPair.value);
                 var classStat = ClassStatGuide.Find(choices.ClassStats, statPair.statType);
                 button.Initialize(statPair.value, statPair.statType, preview,
@@ -128,26 +134,35 @@ namespace Game.UI
             PauseManager.Instance.SetPause(true); // Pause the game when showing the continue panel
             TogglePanel(true);
             continueButton.gameObject.SetActive(true);
-            SetTitle(null);
+            SetHeader(null);
         }
 
-        // Null hides the title (e.g. when only the Continue button is left).
-        private void SetTitle(string text)
+        /// <summary>The level line, e.g. "You are now Level 3".</summary>
+        public static string FormatLevelLine(string format, int level) => string.Format(format, level);
+
+        // Null hides the title and the level line (e.g. when only the Continue button is left).
+        private void SetHeader(string levelLine)
         {
-            if (titleText == null) return;
-            titleText.gameObject.SetActive(!string.IsNullOrEmpty(text));
-            if (!string.IsNullOrEmpty(text)) titleText.text = text;
+            bool show = !string.IsNullOrEmpty(levelLine);
+            if (titleText != null) titleText.gameObject.SetActive(show);
+            if (levelText != null)
+            {
+                levelText.gameObject.SetActive(show);
+                if (show) levelText.text = levelLine;
+            }
         }
+
+        // Falls back to the main panel for prefabs without an options container
+        private Transform OptionsContainer => optionsContainer != null ? optionsContainer : mainPanel.transform;
 
         private void ClearUpgradeOptions()
         {
-            foreach (Transform child in mainPanel.transform)
+            foreach (Transform child in OptionsContainer)
             {
-                if (child.gameObject != continueButton.gameObject
-                    && (titleText == null || child.gameObject != titleText.gameObject))
-                {
-                    Destroy(child.gameObject);
-                }
+                if (child.gameObject == continueButton.gameObject) continue;
+                if (titleText != null && child.gameObject == titleText.gameObject) continue;
+                if (levelText != null && child.gameObject == levelText.gameObject) continue;
+                Destroy(child.gameObject);
             }
         }
 
@@ -157,7 +172,7 @@ namespace Game.UI
             {
                 TogglePanel(true);
             }*/
-            coinsGainedText.text = $"Coins Gained: {coinsGained}";
+            coinsGainedText.text = string.Format(coinsGainedFormat, coinsGained);
         }
     }
 
