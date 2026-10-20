@@ -152,6 +152,15 @@ namespace Game.Tests
             Assert.AreEqual(settings.CorruptionColor, GraceBar.GetLabelColor(-50f, settings));
         }
 
+        // Panes placed on their own must show in UIMain where their prefab puts them
+        [TestCase("IconsPane.prefab")]
+        [TestCase("ExperiencePane.prefab")]
+        [TestCase("FlameProgressionBar.prefab")]
+        public void UIMainInstances_UseThePrefabsLayout(string prefab)
+        {
+            SceneInstanceLayout.AssertMatchesPrefab("Assets/Scenes/UIMain.unity", MainUI + prefab);
+        }
+
         [Test]
         public void HudPanes_SitAtTheMarginFromTheScreenEdges()
         {

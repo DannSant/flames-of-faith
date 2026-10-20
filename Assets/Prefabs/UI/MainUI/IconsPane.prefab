@@ -550,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleText
   size: 1
   outlined: 1
+  bold: 0
   color: 1
 --- !u!1 &3120115229915332025
 GameObject:
@@ -1375,6 +1376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleText
   size: 0
   outlined: 1
+  bold: 0
   color: 0
 --- !u!1 &8076439255357155773
 GameObject:
@@ -1527,6 +1529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleText
   size: 0
   outlined: 1
+  bold: 0
   color: 1
 --- !u!1 &8623498423090795723
 GameObject:

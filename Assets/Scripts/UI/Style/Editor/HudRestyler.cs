@@ -382,22 +382,26 @@ namespace Game.UI.Style.Editor
                 }
             }
 
-            // The scene only restated old layout values: drop them so the prefabs' new layout shows
-            foreach (var instance in instances.Values)
-            {
-                PrefabUtility.RevertPrefabInstance(instance, InteractionMode.AutomatedAction);
-            }
+            // Panes placed on their own get the prefab's root layout (a revert can't remove root layout
+            // overrides). HealthPane and the hint are placed by the TopLeftHud stack instead.
+            // Nothing else on the instances is reverted.
+            MatchPrefabRootLayout(instances[IconsPanePath]);
+            MatchPrefabRootLayout(instances[ExperiencePanePath]);
+            MatchPrefabRootLayout(instances[FlameBarPath]);
 
             var healthPane = instances[HealthPanePath];
             var waveHint = instances[WaveHintPath];
             var canvas = healthPane.transform.parent.name == TopLeftStackName ? healthPane.transform.parent.parent : healthPane.transform.parent;
 
+            // Placed and configured only when created, so later hand tweaks in UIMain survive a re-run
+            bool created = Find(canvas, TopLeftStackName) == null;
             var stack = FindOrCreate(canvas, TopLeftStackName);
-            if (stack.parent != canvas) stack.SetParent(canvas, false);
-            if (healthPane.transform.parent != stack) stack.SetSiblingIndex(healthPane.transform.GetSiblingIndex());
-            Place(stack, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(s.Margin, -s.Margin), new Vector2(TopLeftWidth, 600f));
-            var stackLayout = GetOrAdd<VerticalLayoutGroup>(stack.gameObject);
-            ConfigureVertical(stackLayout, 0f, s.Margin);
+            if (created)
+            {
+                stack.SetSiblingIndex(healthPane.transform.GetSiblingIndex());
+                Place(stack, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(s.Margin, -s.Margin), new Vector2(TopLeftWidth, 600f));
+                ConfigureVertical(GetOrAdd<VerticalLayoutGroup>(stack.gameObject), 0f, s.Margin);
+            }
 
             healthPane.transform.SetParent(stack, false);
             healthPane.transform.SetSiblingIndex(0);

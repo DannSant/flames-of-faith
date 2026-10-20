@@ -37,6 +37,8 @@ namespace Game.UI.Style
         // Decorated frame around windows and HUD panels.
         Panel,
         // Thin frame around bars.
-        Bar
+        Bar,
+        // Item slot (inventory, shop...). Its tint can be changed at runtime (item quality).
+        Slot
     }
 }

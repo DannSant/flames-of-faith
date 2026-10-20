@@ -125,6 +125,7 @@ namespace Game.UI.Style.Editor
             FillReference(so, "outlinedFont", AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(OutlinedFontPath), log);
             FillReference(so, "panelFrame", LoadFrameSprite("PanelFrame.png"), log);
             FillReference(so, "barFrame", LoadFrameSprite("BarFrame.png"), log);
+            FillReference(so, "slotFrame", LoadFrameSprite("SlotFrame.png"), log);
             FillReference(so, "barFill", LoadFrameSprite("BarFillNeutral.png"), log);
             FillReference(so, "solidFill", LoadFrameSprite("SolidSquare.png"), log);
             FillReference(so, "selectionFrame", LoadFrameSprite("SelectionFrame.png"), log);

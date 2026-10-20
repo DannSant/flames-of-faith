@@ -34,6 +34,7 @@ MonoBehaviour:
   favorsColor: {r: 1, g: 0.85, b: 0.35, a: 1}
   panelFrame: {fileID: 21300000, guid: 7889937339384532aa8d91cca421ff23, type: 3}
   barFrame: {fileID: 21300000, guid: d5024936523c4aab9199e445a9cf49f9, type: 3}
+  slotFrame: {fileID: 21300000, guid: b926f169a5ab44c48c49536b6b1ee77c, type: 3}
   barFill: {fileID: 21300000, guid: b185dc0a78154fbbb067a65701fa060f, type: 3}
   solidFill: {fileID: 21300000, guid: de90543549804824a676ee38b78e5518, type: 3}
   frameTint: {r: 1, g: 1, b: 1, a: 1}

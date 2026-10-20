@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -88,10 +89,10 @@ namespace Game.UI.Style.Editor
             Stretch(rect, Vector2.zero, Vector2.one, inset, inset, inset, inset);
         }
 
-        public static UIStyleText StyleText(TMP_Text text, UIFontSize size, bool outlined, UIColorRole color, UISettings settings)
+        public static UIStyleText StyleText(TMP_Text text, UIFontSize size, bool outlined, UIColorRole color, UISettings settings, bool bold = false)
         {
             var style = GetOrAdd<UIStyleText>(text.gameObject);
-            style.Configure(size, outlined, color);
+            style.Configure(size, outlined, color, bold);
             style.Apply(settings);
             return style;
         }
@@ -110,6 +111,27 @@ namespace Game.UI.Style.Editor
             style.Configure(kind);
             style.Apply(settings);
             return style;
+        }
+
+        /// <summary>
+        /// Gives a scene prefab instance its prefab's root layout (anchors, pivot, size, position).
+        /// Reverting can't do it: Unity keeps an instance root's layout as "default overrides" that a revert
+        /// leaves in place, so a restyled prefab would keep showing at its old spot in the scene.
+        /// </summary>
+        public static void MatchPrefabRootLayout(GameObject instance)
+        {
+            var target = instance.transform as RectTransform;
+            var source = PrefabUtility.GetCorrespondingObjectFromSource(instance)?.transform as RectTransform;
+            if (target == null || source == null) return;
+
+            target.anchorMin = source.anchorMin;
+            target.anchorMax = source.anchorMax;
+            target.pivot = source.pivot;
+            target.sizeDelta = source.sizeDelta;
+            target.anchoredPosition = source.anchoredPosition;
+            target.localRotation = source.localRotation;
+            target.localScale = source.localScale;
+            EditorUtility.SetDirty(target);
         }
 
         public static void SetLayerRecursively(GameObject go, int layer)

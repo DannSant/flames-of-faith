@@ -6,6 +6,7 @@ namespace Game.UI.Style
     /// <summary>
     /// A text of the UI standard: Small or Big size, the standard font (or its outlined version)
     /// and optionally one of the shared colors. Leave the color role on None for texts a script colors.
+    /// Titles are Big and bold.
     /// </summary>
     [RequireComponent(typeof(TMP_Text))]
     public class UIStyleText : UIStyleBase
@@ -13,18 +14,22 @@ namespace Game.UI.Style
         [SerializeField] private UIFontSize size = UIFontSize.Small;
         [Tooltip("Use the outlined font, for text over bars or straight over gameplay.")]
         [SerializeField] private bool outlined = false;
+        [Tooltip("Bold, for titles. Only the bold flag is touched; other styles (italic...) are kept.")]
+        [SerializeField] private bool bold = false;
         [Tooltip("None: the color is left alone (set by a script or by hand).")]
         [SerializeField] private UIColorRole color = UIColorRole.None;
 
         public UIFontSize Size => size;
         public bool Outlined => outlined;
+        public bool Bold => bold;
         public UIColorRole ColorRole => color;
 
-        public void Configure(UIFontSize size, bool outlined, UIColorRole color)
+        public void Configure(UIFontSize size, bool outlined, UIColorRole color, bool bold = false)
         {
             this.size = size;
             this.outlined = outlined;
             this.color = color;
+            this.bold = bold;
         }
 
         public override bool Apply(UISettings settings)
@@ -50,6 +55,13 @@ namespace Game.UI.Style
             if (!Mathf.Approximately(text.fontSize, fontSize))
             {
                 text.fontSize = fontSize;
+                changed = true;
+            }
+
+            FontStyles style = bold ? text.fontStyle | FontStyles.Bold : text.fontStyle & ~FontStyles.Bold;
+            if (text.fontStyle != style)
+            {
+                text.fontStyle = style;
                 changed = true;
             }
 

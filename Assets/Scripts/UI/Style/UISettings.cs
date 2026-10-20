@@ -74,6 +74,8 @@ namespace Game.UI.Style
         [SerializeField] private Sprite panelFrame;
         [Tooltip("Thin frame around bars (9-sliced).")]
         [SerializeField] private Sprite barFrame;
+        [Tooltip("Frame of an item slot (inventory, shop...), 9-sliced. Can be tinted, e.g. by item quality.")]
+        [SerializeField] private Sprite slotFrame;
         [Tooltip("Plain bar fill in greys, tinted with the colors above (Grace, Corruption).")]
         [SerializeField] private Sprite barFill;
         [Tooltip("Plain white square with no transparent edge, for overlays that must cover an element exactly (cooldown sweeps).")]
@@ -115,6 +117,7 @@ namespace Game.UI.Style
         public Color FavorsColor => favorsColor;
         public Sprite PanelFrame => panelFrame;
         public Sprite BarFrame => barFrame;
+        public Sprite SlotFrame => slotFrame;
         public Sprite BarFill => barFill;
         public Sprite SolidFill => solidFill;
         public Color FrameTint => frameTint;
@@ -173,6 +176,14 @@ namespace Game.UI.Style
             }
         }
 
-        public Sprite GetFrameSprite(UIFrameKind kind) => kind == UIFrameKind.Bar ? barFrame : panelFrame;
+        public Sprite GetFrameSprite(UIFrameKind kind)
+        {
+            switch (kind)
+            {
+                case UIFrameKind.Bar: return barFrame;
+                case UIFrameKind.Slot: return slotFrame;
+                default: return panelFrame;
+            }
+        }
     }
 }
