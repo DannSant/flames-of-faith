@@ -514,6 +514,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6d914106fe7c3d418aac844498b8dd3, type: 2}
   - {fileID: 11400000, guid: e2dc62a3f2b351249922874754ad60fe, type: 2}
   - {fileID: 11400000, guid: 12177ff8c38e1d34dbbb510460d54a53, type: 2}
+  useFixedSeed: 0
   seed: 12345
   fadeDuration: 0.5
   mainMenuMusic: {fileID: 8300000, guid: 78793306b2a081846b9fac62b6bb25e3, type: 3}
@@ -857,12 +858,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -998,6 +999,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Metaprogression.MetaProgressionManager
   gameObjectsWithMetaProgression:
   - {fileID: 1525878861}
+  debugClass: 1
+  debugNodeId: weapon
+  debugFavors: 10
 --- !u!4 &1820415659
 Transform:
   m_ObjectHideFlags: 0
@@ -1443,6 +1447,10 @@ MonoBehaviour:
   damageToEnemyMagicNumberPrefab: {fileID: 3171153609502651806, guid: 809536bcd54b43d09d05edb7e7cbec59, type: 3}
   damageToPlayerNumberPrefab: {fileID: 3171153609502651806, guid: df47e83195ebe75469111fb6eda668b8, type: 3}
   healToPlayerNumberPrefab: {fileID: 3171153609502651806, guid: f41859adccf56ce449a8c828b59ae6b2, type: 3}
+  dodgeNumberPrefab: {fileID: 0}
+  favorNumberPrefab: {fileID: 0}
+  favorColor: {r: 1, g: 0.85, b: 0.35, a: 1}
+  dodgeText: Dodge
   graceGainedNumberPrefab: {fileID: 3171153609502651806, guid: b7260be350e576b4a93df6508b10a59a, type: 3}
   graceLostNumberPrefab: {fileID: 3171153609502651806, guid: 57967cb8a08c4c547b058c5c027fd19d, type: 3}
   corruptionGainedNumberPrefab: {fileID: 3171153609502651806, guid: 4c8e2a6f0b9d4e3a8f1c5b7d9e2a4c6f, type: 3}

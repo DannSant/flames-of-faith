@@ -60,17 +60,13 @@ namespace Game.UI.Navigation
         [SerializeField] private GameObject[] focusedOnlyObjects;
 
         [Header("Selection marker")]
-        [Tooltip("Use this window's own marker padding/offset instead of the marker's defaults.")]
+        [Tooltip("Use this window's own padding around the gamepad selection frame instead of UISettings' default.")]
         [SerializeField] private bool overrideMarkerSettings = false;
-        [SerializeField] private Vector2 markerPadding = new Vector2(8f, 8f);
-        [SerializeField] private Vector2 markerOffset = Vector2.zero;
-        [Tooltip("Resize the marker to the selected element. Turn off for a fixed-size marker such as an arrow.")]
-        [SerializeField] private bool markerMatchesSize = true;
+        [Tooltip("Extra space around the selected element, per axis (canvas units).")]
+        [SerializeField] private Vector2 markerPadding = new Vector2(10f, 10f);
 
         public bool OverrideMarkerSettings => overrideMarkerSettings;
         public Vector2 MarkerPadding => markerPadding;
-        public Vector2 MarkerOffset => markerOffset;
-        public bool MarkerMatchesSize => markerMatchesSize;
 
         private CanvasGroup canvasGroup;
         private bool registered = false;
