@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Scene;
+using Game.UI.Style;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Game.UI
     /// <summary>
     /// Single Grace bar centered on 0: the positive fill grows to the right while Grace is above 0, the negative
     /// (Corrupted) fill grows to the left while it is below 0. Also shows the Corruption that will be subtracted
-    /// at the end of the current wave.
+    /// at the end of the current wave. Colors come from UISettings: Grace cyan, Corruption purple.
     /// </summary>
     public class GraceBar : MonoBehaviour
     {
@@ -22,8 +23,8 @@ namespace Game.UI
         [SerializeField] private Image negativeGraceFillImage;
         [Tooltip("Optional. Shows the Corruption gathered this wave, subtracted from Grace when the wave ends.")]
         [SerializeField] private TextMeshProUGUI pendingCorruptionText;
-        [SerializeField] private Color positiveTextColor = Color.white;
-        [SerializeField] private Color negativeTextColor = new Color(0.75f, 0.45f, 1f);
+        [Tooltip("{0} = the Corruption gathered this wave, already signed (\"-3\" or \"0\").")]
+        [SerializeField] private string pendingCorruptionFormat = "Corruption {0}";
         [Tooltip("Hide the pending Corruption label while it is 0. Keep it visible so its tooltip can always be reached.")]
         [SerializeField] private bool hidePendingCorruptionWhenZero = false;
         [Tooltip("Hide the pending Corruption label on the overworld map, where there are no waves.")]
@@ -48,6 +49,8 @@ namespace Game.UI
 
         private void Start()
         {
+            ApplyFillColors(UISettings.Instance);
+
             if (PlayerManager.Instance == null)
             {
                 return;
@@ -91,7 +94,7 @@ namespace Game.UI
             if (graceText != null)
             {
                 graceText.text = $"Grace {FormatSigned(current)}";
-                graceText.color = current < 0f ? negativeTextColor : positiveTextColor;
+                graceText.color = GetLabelColor(current, UISettings.Instance);
             }
 
             if (max <= 0f) return;
@@ -119,7 +122,19 @@ namespace Game.UI
 
             bool hasCorruption = corruption > 0f;
             pendingCorruptionText.gameObject.SetActive(hasCorruption || !hidePendingCorruptionWhenZero);
-            pendingCorruptionText.text = hasCorruption ? $"-{corruption:0}" : "0";
+            pendingCorruptionText.text = string.Format(pendingCorruptionFormat, hasCorruption ? $"-{corruption:0}" : "0");
+        }
+
+        /// <summary>The Grace label's color: Grace cyan at 0 and above, Corruption purple below 0 (Corrupted).</summary>
+        public static Color GetLabelColor(float grace, UISettings settings)
+        {
+            return grace < 0f ? settings.CorruptionColor : settings.GraceColor;
+        }
+
+        private void ApplyFillColors(UISettings settings)
+        {
+            if (graceFillImage != null) graceFillImage.color = settings.GraceColor;
+            if (negativeGraceFillImage != null) negativeGraceFillImage.color = settings.CorruptionColor;
         }
 
         private void UpdateGraceStatus(GraceStatus status)

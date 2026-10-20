@@ -1,4 +1,5 @@
 using Game.GameSettings;
+using Game.UI.Style;
 using Game.Waves;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Game.UI
     /// <summary>
     /// Small tutorial panel that tells the player what the current wave expects from them. Stays visible for the
     /// whole step (no timeout). Can be turned off with SettingsManager.ShowTutorialHints.
+    /// The Corruptor hint uses the Corruption color (UISettings).
     /// </summary>
     public class WaveHintUI : MonoBehaviour
     {
@@ -18,10 +20,8 @@ namespace Game.UI
         [Header("Hints")]
         [TextArea]
         [SerializeField] private string waveStartedHint = "Kill enemies until you lure out the Corruptor";
-        [SerializeField] private Color waveStartedColor = Color.white;
         [TextArea]
         [SerializeField] private string corruptorSpawnedHint = "You are getting Corruption, kill the Corruptor now!";
-        [SerializeField] private Color corruptorSpawnedColor = new Color(0.75f, 0.45f, 1f);
 
         private string currentHint;
         private Color currentColor;
@@ -43,7 +43,7 @@ namespace Game.UI
                 // The UI scene loads after the level, so the first wave may already be running
                 if (WaveSpawner.Instance.WaveInProgress)
                 {
-                    ShowHint(waveStartedHint, waveStartedColor);
+                    ShowHint(waveStartedHint, UISettings.Instance.TextColor);
                 }
             }
 
@@ -71,9 +71,9 @@ namespace Game.UI
             }
         }
 
-        private void HandleWaveStarted(int _) => ShowHint(waveStartedHint, waveStartedColor);
+        private void HandleWaveStarted(int _) => ShowHint(waveStartedHint, UISettings.Instance.TextColor);
 
-        private void HandleCorruptorSpawned(Transform _) => ShowHint(corruptorSpawnedHint, corruptorSpawnedColor);
+        private void HandleCorruptorSpawned(Transform _) => ShowHint(corruptorSpawnedHint, UISettings.Instance.CorruptionColor);
 
         private void HandleHintsSettingChanged(bool _) => Refresh();
 

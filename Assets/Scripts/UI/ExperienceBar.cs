@@ -46,19 +46,26 @@ namespace Game.UI {
 
         private void SetupEvents()
         {
-           
+            if (PlayerManager.Instance == null) return;
+
             var playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
             if (playerExperience != null)
             {
                 playerExperience.OnPlayerExperienceGainEvent += OnPlayerExperienceGain;
                 playerExperience.onLevelUp += OnPlayerLevelUp;
-            }            
-        }
 
-        
+                // Show the current level and XP right away, not only after the first level-up
+                int level = playerExperience.GetCurrentLevel();
+                levelText.SetText($"Level {level}");
+                experienceSlider.maxValue = playerExperience.GetXPRequired(level);
+                experienceSlider.value = playerExperience.GetCurrentXP();
+            }
+        }
 
         private void OnDestroy()
         {
+            if (PlayerManager.Instance == null) return;
+
             var playerExperience = PlayerManager.Instance.GetPlayerComponent<PlayerExperience>();
             if (playerExperience != null)
             {

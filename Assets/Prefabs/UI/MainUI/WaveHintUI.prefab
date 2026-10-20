@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 619405952455494357}
   - component: {fileID: 6427126822736856850}
   - component: {fileID: 3988625684233591857}
+  - component: {fileID: 3458126272463925608}
+  - component: {fileID: 4714841970325649978}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -59,15 +61,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.77254903}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5849867678c137d45b5e3f74d7e383eb, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 7889937339384532aa8d91cca421ff23, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -76,6 +78,45 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3458126272463925608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20773215516243905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bb9bd21f8d2b444b973dfe9592dc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleFrame
+  kind: 0
+--- !u!114 &4714841970325649978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20773215516243905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 15
+    m_Right: 15
+    m_Top: 15
+    m_Bottom: 15
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1059794250986129042
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +128,7 @@ GameObject:
   - component: {fileID: 9022497064285871429}
   - component: {fileID: 8105131127589375578}
   - component: {fileID: 1936145179358273123}
+  - component: {fileID: 8052257497291244073}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -143,8 +185,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Kill enemies until you lure out the Corruptor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
-  m_sharedMaterial: {fileID: -3359197029103750868, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
+  m_sharedMaterial: {fileID: -3359197029103750868, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -168,8 +210,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -212,6 +254,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8052257497291244073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059794250986129042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd7c4573ee3d8346b31c5eddd45f9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleText
+  size: 0
+  outlined: 1
+  color: 0
 --- !u!1 &7148750549849558582
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1042411589679478873}
   - component: {fileID: 2940985226271476137}
+  - component: {fileID: 8898009208971466522}
   m_Layer: 5
   m_Name: WaveHintUI
   m_TagString: Untagged
@@ -244,11 +302,11 @@ RectTransform:
   - {fileID: 619405952455494357}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -795.7182, y: 367.65198}
-  m_SizeDelta: {x: 286.5636, y: 46.696}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 15, y: -15}
+  m_SizeDelta: {x: 430, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &2940985226271476137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +322,30 @@ MonoBehaviour:
   panel: {fileID: 20773215516243905}
   hintText: {fileID: 1936145179358273123}
   waveStartedHint: Kill enemies until you lure out the Corruptor
-  waveStartedColor: {r: 1, g: 1, b: 1, a: 1}
   corruptorSpawnedHint: You are getting Corruption, kill the Corruptor now!
-  corruptorSpawnedColor: {r: 0.75, g: 0.45, b: 1, a: 1}
+--- !u!114 &8898009208971466522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148750549849558582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0

@@ -1,3 +1,4 @@
+using Game.UI.Style;
 using Game.Waves;
 using TMPro;
 using UnityEngine;
@@ -8,15 +9,10 @@ namespace Game.UI {
         [SerializeField] private TextMeshProUGUI waveNumberText;
         [SerializeField] private TextMeshProUGUI waveTimeText;
 
-        [Header("Corruptor countdown")]
-        [Tooltip("The wave timer shows the Corruptor countdown in this color while the Corruptor phase runs.")]
-        [SerializeField] private Color corruptorTimeColor = new Color(0.75f, 0.45f, 1f);
-
-        private Color defaultTimeColor;
-
+        // The timer shows the Corruptor countdown in the Corruption color (UISettings) while the Corruptor phase runs
         private void Start()
         {
-            defaultTimeColor = waveTimeText.color;
+            waveTimeText.color = UISettings.Instance.TextColor;
 
             if (WaveSpawner.Instance != null)
             {
@@ -48,18 +44,18 @@ namespace Game.UI {
 
         private void WaveUI_OnWaveStartedEvent(int waveNumber)
         {
-            waveNumberText.text = "Wave: " + (waveNumber);
+            waveNumberText.text = "Wave " + waveNumber;
         }
 
         private void WaveUI_OnCorruptorPhaseStarted(float duration, Transform _)
         {
-            waveTimeText.color = corruptorTimeColor;
+            waveTimeText.color = UISettings.Instance.CorruptionColor;
             WaveUI_OnWaveTimeUpdatedEvent(duration);
         }
 
         private void WaveUI_OnCorruptorPhaseEnded()
         {
-            waveTimeText.color = defaultTimeColor;
+            waveTimeText.color = UISettings.Instance.TextColor;
             WaveUI_OnWaveTimeUpdatedEvent(0f);
         }
     }

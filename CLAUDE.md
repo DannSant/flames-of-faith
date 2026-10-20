@@ -282,15 +282,48 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
   - Cancel/B: a Secondary window returns focus to the previous window, an `OnDemand` window releases focus, and other windows invoke their OnCancel.
   - `logFocusChanges` logs every change.
 - **`UIWindowOpenWhilePaused`:** lets an always-visible HUD panel join focus only while paused.
-- **`UISelectionMarkerUI`:** the visible gamepad highlight. Each scene needs one, drawn above its windows (last sibling).
+- **`UISelectionMarkerUI`:** the visible gamepad highlight, a 9-sliced bracket frame that wraps the selected element (see "UI standards" below). Each scene with windows needs one (MainMenu, UIMain, LevelSelector). Its own Canvas (override sorting 100) draws it above every window, wherever it sits in the hierarchy.
 - **`InputDeviceManager`** (`Game.Control`): tracks keyboard/mouse vs gamepad (`IsGamepadActive`, `OnInputSchemeChanged`). With the mouse, nothing is focused and every window is interactable.
 - **Common pitfalls** (all hit in practice):
   - **Selectables left on Navigation: None.** The gamepad can never reach them, and they're skipped when cycling windows.
   - **Selectables outside the window's hierarchy.**
   - **Manual panels set to `GameObjectActive`.** They count as permanently open and steal focus.
-  - **The selection marker drawn under a window.**
+  - **The selection marker drawn under a window** (fixed: the marker now has its own sorting Canvas).
 - **Player death** blocks only the Player action map (`PlayerInputHandler` gameplay block). The UI map stays on, so the death screen's Stats pane and Inventory still get Shift, LB/RB and gamepad navigation. `PauseMenuController` ignores Pause while dead.
 - `PauseManager.SetPause` sets `timeScale` to 0. Upgrade selection, the item bag and the pause menu pause the game, but the wave-end sequence (including `WaveCorruptionSummaryUI`) does not. Anything time-based that must stop there checks `WaveSpawner.Instance.EndingWave` and/or `GameplayFreeze.IsActive`, as `HealthRegen` does.
+
+### UI standards & revamp (Oct 2026, in progress)
+
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation and the gameplay HUD.
+
+- **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
+  - **Fonts:** Small 12 and Big 20, nothing else. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
+  - **Icons:** Small 50, Medium 80, plus Prompt 28 for input glyphs (sized like text).
+  - **Buttons:** Small (32 high, small font) and Big (48 high, big font). Not tuned on a real window yet.
+  - **Layout:** `margin` 15 (screen edge to window, frame to content), `spacing` 8.
+  - **Colors:** Grace cyan, Corruption purple, Favors gold, text white, muted grey.
+  - **Art:** panel frame, bar frame, neutral bar fill (tinted with the colors above), selection frame. These are 9-sliced copies in `Sprites/UI/Frames/`; the vendored packs stay untouched.
+- **Canvases** (Bootstrapper, MainMenu, UIMain, LevelSelector) scale with the screen from 1920×1080, match 0.5. All sizes are canvas units at that resolution.
+- **Style components** (`UIStyleText`, `UIStyleIcon`, `UIStyleButton`, `UIStyleFrame`) mark an element's role (Small/Big text, Medium icon, Panel/Bar frame...) and apply `UISettings` in `Awake`, so the asset stays the source of truth.
+  - `UIStyleText` with color role None leaves the color to a script (e.g. `GraceBar`). It also turns off TMP vertex gradients, which tint whatever color a script sets.
+- **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
+  - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
+  - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
+  - **Restyle HUD** (`HudRestyler`): owns the HUD layout. Make HUD layout changes there, not by hand, or a re-run overwrites them.
+  - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `HudRestyler.Restyle`).
+  - **Helpers:** `UIBuildHelpers` has find-or-create, place/stretch and style helpers for the next windows' restylers.
+- **Gamepad selection frame:** `UISelectionMarkerUI` wraps the selected element. The frame's position is computed in its parent's local space from the element's corners (`SelectionFrameMath`), so it works at any canvas scale and on Screen Space Camera canvases. It slides between elements and pulses.
+  - A `UIWindow` can only override the padding now. The old per-window arrow offsets are gone.
+- **HUD layout** (1920×1080 reference):
+  - **Top left:** HealthPane and the wave hint, stacked in `TopLeftHud` in UIMain (a VerticalLayoutGroup). The hint takes no room while hidden.
+  - **Top right:** experience. **Bottom left:** IconsPane. **Bottom center:** boss flame bar.
+  - **HealthPane, IconsPane and the wave hint** are framed.
+  - **Grace bar:** split at 50% by anchors. Fills use the neutral sprite tinted by `GraceBar` from `UISettings`.
+  - **Grace label:** cyan at 0 and above, purple below 0 (`GraceBar.GetLabelColor`). The pending label reads "Corruption -N".
+  - **Ability slots:** Medium icons. Each slot's input glyph is its child, centered on the bottom edge.
+- **Tests:** `UISettingsTests` (the standard, sliced art, canvas scalers, marker) and `HudStyleTests` (every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins).
+- **Next windows** follow the same recipe: a restyler entry, style components and a guard test.
+  - **Wave results:** the standard says Favors are gold, but on an earlier request they were made blue `#73BFFF`. `WaveSummaryUITests` also requires those rows to be bigger than the others, which breaks the two-size rule. Decide both with the user.
 
 ### Class kits, skill trees & Favors (reworked Oct 2026)
 
