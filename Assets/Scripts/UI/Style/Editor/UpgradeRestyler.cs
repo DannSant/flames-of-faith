@@ -206,7 +206,7 @@ namespace Game.UI.Style.Editor
         }
 
         // A row stretched across the window's content width, at a distance from the window top
-        private static void PlaceTopRow(RectTransform row, UISettings s, float top, float height)
+        public static void PlaceTopRow(RectTransform row, UISettings s, float top, float height)
         {
             row.anchorMin = new Vector2(0f, 1f);
             row.anchorMax = new Vector2(1f, 1f);

@@ -62,6 +62,12 @@ namespace Game.Tests
                 titleSize = UIFontSize.Big, titleColor = UIColorRole.Text,
                 progressButton = "BackButton", otherButtons = new string[0], inUIMain = true,
             };
+            yield return new WindowCase
+            {
+                prefab = "Assets/Prefabs/UI/ItemBag/ItemBagPane.prefab", frame = "MainPanel", title = "TitleText",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Text,
+                progressButton = "TakeButton", otherButtons = new[] { "SellButton" }, inUIMain = true,
+            };
         }
 
         private static UISettings Settings()

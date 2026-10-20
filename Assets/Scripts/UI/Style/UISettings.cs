@@ -98,6 +98,8 @@ namespace Game.UI.Style
         [Tooltip("Tabs (Stats pane, skill tree...), 9-sliced: the plain tab and the selected one.")]
         [SerializeField] private Sprite tabSprite;
         [SerializeField] private Sprite tabSelectedSprite;
+        [Tooltip("Thin ring (9-sliced) drawn around the selected slot, tinted with the Highlight color.")]
+        [SerializeField] private Sprite selectedOutline;
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]
         [Min(0.01f)]
         [SerializeField] private float framePixelsPerUnitMultiplier = 1f;
@@ -140,6 +142,7 @@ namespace Game.UI.Style
         public Sprite ButtonPressedSprite => buttonPressedSprite;
         public Sprite TabSprite => tabSprite;
         public Sprite TabSelectedSprite => tabSelectedSprite;
+        public Sprite SelectedOutline => selectedOutline;
 
         public Sprite GetTabSprite(bool selected) => selected && tabSelectedSprite != null ? tabSelectedSprite : tabSprite;
         public Sprite PanelFrame => panelFrame;

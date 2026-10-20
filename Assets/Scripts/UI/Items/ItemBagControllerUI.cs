@@ -1,41 +1,55 @@
 using Game.Audio;
+using Game.Control;
 using Game.Currency;
 using Game.Effects;
 using Game.GameSettings;
 using Game.Items;
 using Game.Scene;
 using Game.Waves;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game.UI.Items
 {
+    /// <summary>
+    /// End-of-wave item bag: the player resolves every item picked up during the wave, one at a time,
+    /// with Take (into the inventory) or Sell (coins). The window closes when the bag is empty and the
+    /// wave end continues (level-up).
+    /// Items are the Inventory's slots (EffectIconUI). The selected item is outlined and shown in the shared
+    /// tooltip; hovering another item previews it. With the gamepad, moving onto an item selects it.
+    /// </summary>
     public class ItemBagControllerUI : MonoBehaviour
     {
         [Header("Containers")]
+        [Tooltip("The grid the item slots are spawned in.")]
         [SerializeField] private Transform itemIconsContainer;
-        [SerializeField] private Transform itemDescriptionContainer;
         [SerializeField] private GameObject mainPane;
 
         [Header("Prefabs")]
-        [SerializeField] private GameObject itemIconPrefab;
+        [Tooltip("The Inventory's item slot.")]
+        [SerializeField] private EffectIconUI itemIconPrefab;
 
         [Header("Components")]
-        [SerializeField] private TextMeshProUGUI itemNameText;
-        [SerializeField] private TextMeshProUGUI itemNameDesc;
         [SerializeField] private TextMeshProUGUI itemSellText;
+        [Tooltip("{0} is the selected item's sell price.")]
+        [SerializeField] private string sellFormat = "Sell ({0})";
         [SerializeField] private Button takeButton;
         [SerializeField] private Button sellButton;
         [SerializeField] private StatsPaneUI statsPaneUI;
+        [Tooltip("Optional. Opened alongside, so the player sees what they already own.")]
+        [SerializeField] private InventoryControllerUI inventoryUI;
 
         // References
         private ItemBag itemBag;
         private EffectStore effectStore;
         private CurrencyWallet currencyWallet;
+        private GeneralTooltipPaneUI tooltipPane;
 
         // State
-        private int selectedItemIndex = -1;
+        private readonly List<EffectIconUI> icons = new();
+        private Effect selectedItem;
 
         private void Start()
         {
@@ -43,10 +57,13 @@ namespace Game.UI.Items
             {
                 WaveEventManager.Instance.OnItemBagAvailable += HandleItemBagAvailable;
             }
-            
+
             itemBag = PlayerManager.Instance.GetPlayerComponent<ItemBag>();
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
+
+            takeButton.onClick.AddListener(TakeSelected);
+            sellButton.onClick.AddListener(SellSelected);
             HidePanel();
         }
 
@@ -61,121 +78,153 @@ namespace Game.UI.Items
         private void HandleItemBagAvailable()
         {
             //Pause the game and Lower music volume
-            PauseManager.Instance.SetPause(true); 
-            AudioManager.Instance.SetLowVolume();  
+            PauseManager.Instance.SetPause(true);
+            AudioManager.Instance.SetLowVolume();
 
-            // Clear existing UI
             ClearUI();
-
-            // Populate UI with current items
             RefreshItems();
-
             ShowPanel();
             SelectFirstItem();
 
-            // Open (and refresh) the stats window so the player can see what they need.
+            // Open (and refresh) the panes beside it so the player can see what they need and own
             statsPaneUI?.ShowStatsWindow(null);
+            inventoryUI?.ShowInventoryWindow();
         }
+
+        /// <summary>The Sell button's label for an item's price.</summary>
+        public static string FormatSellLabel(string format, int price) => string.Format(format, price);
 
         private void SelectFirstItem()
         {
             if (itemBag.PickedUpItems.Count > 0)
             {
-                SelectIcon(0);
-            }else
+                SelectItem(itemBag.PickedUpItems[0]);
+            }
+            else
             {
-                ClearUI();
-                HidePanel();
-                WaveEventManager.Instance.HandleWaveComplete();
+                CloseBag();
             }
         }
 
         private void RefreshItems()
         {
-            var items = itemBag.PickedUpItems;
-            foreach (var item in items)
+            foreach (var item in itemBag.PickedUpItems)
             {
-                var buttonItem = Instantiate(itemIconPrefab, itemIconsContainer);
-                buttonItem.GetComponent<ItemBagIconUI>().Initialize(item);
-                var button = buttonItem.GetComponent<Button>();
-                button.onClick.AddListener(() =>
-                {
-                    SelectIcon(items.IndexOf(item));
-                });
+                var icon = Instantiate(itemIconPrefab, itemIconsContainer);
+                icon.Setup(item, item.EffectIcon, 1, HandleItemPointed, ShowSelectedTooltip);
+                icon.GetComponent<Button>().onClick.AddListener(() => SelectItem(item));
+                icons.Add(icon);
             }
         }
 
-
-        private void SelectIcon(int index)
+        // Hover (mouse) previews an item; moving onto it with the gamepad selects it
+        private void HandleItemPointed(Effect item)
         {
-            takeButton.onClick.RemoveAllListeners();
-            sellButton.onClick.RemoveAllListeners();
-
-            selectedItemIndex = index;
-            var item = itemBag.PickedUpItems[index];
-            itemNameText.text = item.EffectName;
-            itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(item.Quality);
-            itemNameDesc.text = item.GetFormattedDescription();
-            itemSellText.text = $"Sell ({item.SellPrice})";
-
-            takeButton.onClick.AddListener(() =>
+            if (InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive)
             {
-                itemBag.RemoveEffectItem(item);
-                effectStore.AddEffect(item);                
-                CheckIfItemsLeft();
-            });
+                SelectItem(item);
+                return;
+            }
+            ShowTooltip(item);
+        }
 
-            sellButton.onClick.AddListener(() =>
+        private void SelectItem(Effect item)
+        {
+            selectedItem = item;
+            foreach (var icon in icons)
             {
-              
-                itemBag.RemoveEffectItem(item);
-                currencyWallet.AddCurrency(item.SellPrice);               
-                CheckIfItemsLeft();
-            });
+                if (icon != null) icon.SetSelected(icon.Effect == item);
+            }
+            if (itemSellText != null) itemSellText.text = FormatSellLabel(sellFormat, item.SellPrice);
+            ShowTooltip(item);
+        }
 
-            itemDescriptionContainer.gameObject.SetActive(true);
+        private void TakeSelected()
+        {
+            if (selectedItem == null) return;
+            var item = selectedItem;
+            itemBag.RemoveEffectItem(item);
+            effectStore.AddEffect(item);
+            CheckIfItemsLeft();
+        }
+
+        private void SellSelected()
+        {
+            if (selectedItem == null) return;
+            var item = selectedItem;
+            itemBag.RemoveEffectItem(item);
+            currencyWallet.AddCurrency(item.SellPrice);
+            CheckIfItemsLeft();
         }
 
         private void CheckIfItemsLeft()
-        {          
+        {
+            ClearUI();
             if (itemBag.IsBagEmpty())
             {
-                ClearUI();
-                HidePanel();
-                WaveEventManager.Instance.HandleWaveComplete();
-            }else
-            {
-                ClearUI();
-                RefreshItems();
-                SelectFirstItem();
+                CloseBag();
+                return;
             }
+            RefreshItems();
+            SelectFirstItem();
         }
+
+        private void CloseBag()
+        {
+            ClearUI();
+            HidePanel();
+            WaveEventManager.Instance.HandleWaveComplete();
+        }
+
+        // --- Shared tooltip ------------------------------------------------------------------------------
+
+        private void ShowTooltip(Effect item)
+        {
+            if (item == null || !mainPane.activeInHierarchy) return;
+            if (tooltipPane == null)
+            {
+                // UI to UI lookup (the pane lives in the same scene), cached after the first time
+                tooltipPane = FindAnyObjectByType<GeneralTooltipPaneUI>();
+                if (tooltipPane == null) return;
+            }
+            tooltipPane.ShowTooltip(item.GetFormattedDescription(), EffectQualityDisplayHelper.ColorizeName(item));
+        }
+
+        // The pointer left an item: back to the selected one, which the tooltip keeps showing
+        private void ShowSelectedTooltip()
+        {
+            ShowTooltip(selectedItem);
+        }
+
+        private void HideTooltip()
+        {
+            tooltipPane?.HideTooltip();
+        }
+
+        // --- Panel ----------------------------------------------------------------------------------------
 
         private void ShowPanel()
         {
-            mainPane.gameObject.SetActive(true);
+            mainPane.SetActive(true);
         }
 
         private void HidePanel()
         {
-            mainPane.gameObject.SetActive(false);
+            selectedItem = null;
+            mainPane.SetActive(false);
+            HideTooltip();
         }
 
         private void ClearUI()
         {
-            
+            // No selection while the slots are rebuilt, so their OnDisable doesn't bring the tooltip back
+            selectedItem = null;
             foreach (Transform child in itemIconsContainer)
             {
-                var button = child.GetComponent<Button>();
-                button.onClick.RemoveAllListeners();
                 Destroy(child.gameObject);
             }
-            itemNameText.text = "";
-            itemNameDesc.text = "";
-            itemSellText.text = "Sell";
-            takeButton.onClick.RemoveAllListeners();
-            sellButton.onClick.RemoveAllListeners();
-            itemDescriptionContainer.gameObject.SetActive(false);
+            icons.Clear();
+            if (itemSellText != null) itemSellText.text = FormatSellLabel(sellFormat, 0);
         }
     }
 }

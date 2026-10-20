@@ -294,7 +294,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings) and the Stats pane.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag) and the Stats pane.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -315,7 +315,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`) and Restyle Stats Pane (`StatsRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`) and Restyle Item Bag (`ItemBagRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
@@ -356,6 +356,13 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
     - Right: Graphics and Language.
   - **Close:** Back and Cancel call `SettingsPanelController.RequestClose`. Whoever opened it subscribes to `OnCloseRequested` (`MainMenuController`, `PauseMenuController`), so neither scene wires it.
   - **Main menu:** it still slides in with the MainMenu Animator. The clip's shown x is −(15 + width/2), and `SettingsRestyler` keeps it in step with the width.
+- **Item bag** (`ItemBagPane`, `ItemBagControllerUI`), the end-of-wave window where each picked-up item is taken or sold:
+  - **Header:** "Items found", and "Take or sell each item" in muted text.
+  - **Grid:** a 6-column grid of the **Inventory's slot** (`EffectIconUI`, the only item slot prefab; `ItemBagIconButton` is gone).
+  - **Selection:** the selected slot shows a yellow `SelectedMark` ring (`EffectIconUI.SetSelected`, sprite `UISettings.selectedOutline`).
+  - **Tooltip:** the shared tooltip keeps showing the selected item. Hovering another item previews it, and moving off returns to the selected one. With the gamepad, moving onto an item selects it.
+  - **Buttons:** Take sits in the progress spot, with "Sell (N)" above it.
+  - **Panes:** opens the Stats pane and the Inventory beside it (`inventoryUI`, wired in UIMain).
 - **Stats pane** (`StatsPane`, `StatsPaneUI`, `StatRow`):
   - **Window:** mirrors the Inventory on the right (same size, height and row). Title "Stats".
   - **Tabs:** Main/Secondary use the tab art (`UISettings.GetTabSprite`). `StatsPaneUI.ApplyTabs` gives the selected tab the picked sprite and a yellow label.
@@ -370,6 +377,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement and the level-up header.
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
+  - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.

@@ -16,6 +16,8 @@ namespace Game.UI
         [Tooltip("Optional. Slot frame, tinted with the item's quality color.")]
         [SerializeField] private Image frame;
         [SerializeField] private TextMeshProUGUI quantitytext;
+        [Tooltip("Optional. Outline shown while this slot is the selected one (the item bag's Take/Sell target).")]
+        [SerializeField] private GameObject selectedMark;
         [SerializeField] private float dimmedAlpha = 0.35f;
 
         private Effect effect;
@@ -39,6 +41,11 @@ namespace Game.UI
 
             this.showTooltipAction = showTooltipAction;
             this.hideTooltipAction = hideTooltipAction;
+        }
+
+        public void SetSelected(bool selected)
+        {
+            if (selectedMark != null) selectedMark.SetActive(selected);
         }
 
         /// <summary>The stack badge: empty for a single item, the count otherwise.</summary>
