@@ -42,6 +42,8 @@ namespace Game.Combat
 
         public event Action<float, float> OnAttackTimerUpdated;
         public event Action<float, float> OnSpecialAttackTimerUpdated;
+        private readonly CooldownProgressReporter attackCooldownReporter = new CooldownProgressReporter();
+        private readonly CooldownProgressReporter specialCooldownReporter = new CooldownProgressReporter();
         public event Action<EnemyHealth> OnTargetChanged;
         public event Action<bool> OnLockChanged;
 
@@ -281,17 +283,14 @@ namespace Game.Combat
             currentWeapon?.SetTargetProvider(() => currentTarget);
         }
 
+        // The reporters also send a final 0 when a cooldown ends, so the HUD sweep clears completely
         private void ManageAttackTimer()
         {
-            if (currentWeapon.IsAttackTimerActive())
-            {
-                OnAttackTimerUpdated?.Invoke(currentWeapon.GetAttackTimer(), currentWeapon.GetAttackTimerDuration());
-            }
+            attackCooldownReporter.Tick(currentWeapon.IsAttackTimerActive(),
+                currentWeapon.GetAttackTimer(), currentWeapon.GetAttackTimerDuration(), OnAttackTimerUpdated);
 
-            if (currentWeapon.IsSpecialAttackTimerActive())
-            {
-                OnSpecialAttackTimerUpdated?.Invoke(currentWeapon.GetSpecialAttackTimer(), currentWeapon.GetSpecialAttackTimerDuration());
-            }
+            specialCooldownReporter.Tick(currentWeapon.IsSpecialAttackTimerActive(),
+                currentWeapon.GetSpecialAttackTimer(), currentWeapon.GetSpecialAttackTimerDuration(), OnSpecialAttackTimerUpdated);
         }
 
         public void Attack()

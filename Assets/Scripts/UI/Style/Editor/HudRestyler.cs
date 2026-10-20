@@ -229,8 +229,16 @@ namespace Game.UI.Style.Editor
                 Place(slot, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(m + i * (icon + SlotSpacing), -m), new Vector2(icon, icon));
                 StyleIcon(slot.gameObject, UIIconSize.Medium, s);
 
-                // The cooldown sweep covers the icon exactly
-                StretchFull(Find(slot, overlayName));
+                // The cooldown sweep covers the icon exactly. Unity's built-in UISprite it used has rounded,
+                // see-through edges, so the sweep looked smaller than the icon
+                var sweep = Find(slot, overlayName);
+                StretchFull(sweep);
+                var sweepImage = sweep.GetComponent<Image>();
+                sweepImage.sprite = s.SolidFill;
+                sweepImage.type = Image.Type.Filled;
+                sweepImage.fillMethod = Image.FillMethod.Radial360;
+                sweepImage.preserveAspect = false;
+                sweepImage.raycastTarget = false;
 
                 // Input glyph centered on the slot's bottom edge, drawn over the sweep
                 var glyph = Find(root.transform, glyphName) ?? Find(slot, glyphName);

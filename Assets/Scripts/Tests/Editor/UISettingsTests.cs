@@ -98,6 +98,7 @@ namespace Game.Tests
             AssertSliced(settings.BarFrame, "Bar frame");
             AssertSliced(settings.SelectionFrame, "Selection frame");
             Assert.IsNotNull(settings.BarFill, "Bar fill");
+            Assert.IsNotNull(settings.SolidFill, "Solid fill");
         }
 
         private static void AssertSliced(Sprite sprite, string label)

@@ -76,6 +76,8 @@ namespace Game.UI.Style
         [SerializeField] private Sprite barFrame;
         [Tooltip("Plain bar fill in greys, tinted with the colors above (Grace, Corruption).")]
         [SerializeField] private Sprite barFill;
+        [Tooltip("Plain white square with no transparent edge, for overlays that must cover an element exactly (cooldown sweeps).")]
+        [SerializeField] private Sprite solidFill;
         [SerializeField] private Color frameTint = Color.white;
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]
         [Min(0.01f)]
@@ -114,6 +116,7 @@ namespace Game.UI.Style
         public Sprite PanelFrame => panelFrame;
         public Sprite BarFrame => barFrame;
         public Sprite BarFill => barFill;
+        public Sprite SolidFill => solidFill;
         public Color FrameTint => frameTint;
         public float FramePixelsPerUnitMultiplier => framePixelsPerUnitMultiplier;
         public Sprite SelectionFrame => selectionFrame;

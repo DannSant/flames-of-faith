@@ -108,6 +108,10 @@ namespace Game.Tests
                 Assert.AreEqual(Vector2.zero, sweep.anchorMin, $"{overlay} should cover the icon");
                 Assert.AreEqual(Vector2.one, sweep.anchorMax, $"{overlay} should cover the icon");
                 Assert.AreEqual(Vector2.zero, sweep.sizeDelta, $"{overlay} should cover the icon exactly");
+                // Unity's built-in UISprite has rounded, see-through edges: the sweep looked smaller than the icon
+                var sweepImage = sweep.GetComponent<Image>();
+                Assert.AreEqual(settings.SolidFill, sweepImage.sprite, $"{overlay} should use the solid square sprite");
+                Assert.AreEqual(Image.Type.Filled, sweepImage.type, $"{overlay} type");
             }
         }
 

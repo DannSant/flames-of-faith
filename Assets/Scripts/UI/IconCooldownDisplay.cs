@@ -53,20 +53,27 @@ namespace Game.UI
 
         private void UpdateCooldownAttackDisplay(float timeLeft, float cooldownDuration)
         {
-            float fill = Mathf.Clamp01(timeLeft / cooldownDuration);
+            float fill = GetCooldownFill(timeLeft, cooldownDuration);
             cooldownAttackBackground.fillAmount = fill;
         }
 
         private void UpdateCooldownSpecialAttackDisplay(float timeLeft, float cooldownDuration)
         {
-            float fill = Mathf.Clamp01(timeLeft / cooldownDuration);
+            float fill = GetCooldownFill(timeLeft, cooldownDuration);
             cooldownSpecialAttackBackground.fillAmount = fill;
         }
 
         private void UpdateCooldownDashDisplay(float timeLeft, float cooldownDuration)
         {
-            float fill = Mathf.Clamp01(timeLeft / cooldownDuration);
+            float fill = GetCooldownFill(timeLeft, cooldownDuration);
             cooldownDashBackground.fillAmount = fill;
+        }
+
+        /// <summary>Share of the icon the cooldown sweep covers: 1 just used, 0 ready (also for a 0 duration).</summary>
+        public static float GetCooldownFill(float timeLeft, float cooldownDuration)
+        {
+            if (cooldownDuration <= 0f || timeLeft <= 0f) return 0f;
+            return Mathf.Clamp01(timeLeft / cooldownDuration);
         }
 
         private void UpdateDashChargesDisplay(int current, int max)

@@ -29,6 +29,7 @@ namespace Game.Control
         [SerializeField] protected float steeringTurnRate = 0f;
 
         public Action<float, float> OnDashTimerUpdated;
+        private readonly CooldownProgressReporter dashCooldownReporter = new CooldownProgressReporter();
         public Action<int, int> OnChargesUpdated;
         public event Action onDashStarted;
         public event Action onDashEnded;
@@ -253,13 +254,9 @@ namespace Game.Control
         {
             // Only surface cooldown progress once every charge is spent - a charge
             // recharging silently in the background while another is still available
-            // shouldn't show as "on cooldown".
-            if (currentCharges <= 0 && dashCooldownTimer.GetIsEventActive())
-            {
-                float timeLeft = dashCooldownTimer.GetEventTimer();
-                float cooldownDuration = dashCooldownTimer.GetEventDuration();
-                OnDashTimerUpdated?.Invoke(timeLeft, cooldownDuration);
-            }
+            // shouldn't show as "on cooldown". A final 0 is sent when it stops showing, so the sweep clears.
+            dashCooldownReporter.Tick(currentCharges <= 0 && dashCooldownTimer.GetIsEventActive(),
+                dashCooldownTimer.GetEventTimer(), dashCooldownTimer.GetEventDuration(), OnDashTimerUpdated);
         }
 
         protected void CheckDashDirection()
