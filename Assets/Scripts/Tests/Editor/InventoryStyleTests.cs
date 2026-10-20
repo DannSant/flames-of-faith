@@ -90,8 +90,8 @@ namespace Game.Tests
             AssertText(Child(pane, "CoinsText").GetComponent<TMP_Text>(), UIFontSize.Small, false, settings);
 
             var icon = Child(pane, "CoinsIcon");
-            Assert.AreEqual(UIIconSize.Prompt, icon.GetComponent<UIStyleIcon>()?.Size, "Coin icon size role");
-            Assert.AreEqual(28f, settings.PromptIconSize, "The coin icon is meant to be 28x28");
+            Assert.AreEqual(UIIconSize.Tiny, icon.GetComponent<UIStyleIcon>()?.Size, "Coin icon size role");
+            Assert.AreEqual(28f, settings.TinyIconSize, "The coin icon is meant to be 28x28");
             Assert.AreEqual(new Vector2(28f, 28f), icon.sizeDelta);
         }
 

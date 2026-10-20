@@ -185,8 +185,8 @@ namespace Game.UI.Style.Editor
             coinIcon.raycastTarget = false;
             var iconLayout = GetOrAdd<LayoutElement>(coinIcon.gameObject);
             iconLayout.ignoreLayout = false;
-            Place(coinIcon.rectTransform, new Vector2(0f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.one * s.PromptIconSize);
-            StyleIcon(coinIcon.gameObject, UIIconSize.Prompt, s);
+            Place(coinIcon.rectTransform, new Vector2(0f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.one * s.TinyIconSize);
+            StyleIcon(coinIcon.gameObject, UIIconSize.Tiny, s);
 
             var coinsText = (Find(mainPanel, "CoinsText") ?? Find(coins, "CoinsText")).GetComponent<TextMeshProUGUI>();
             coinsText.transform.SetParent(coins, false);

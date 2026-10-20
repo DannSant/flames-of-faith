@@ -462,6 +462,7 @@ MonoBehaviour:
   shopIconPrefab: {fileID: 7611171358737864847, guid: 71dc9458b75865b4f9b1140dc78729cd, type: 3}
   confirmDialog: {fileID: 2978266636016006171}
   leaveShopWarning: Are you sure you want to leave? You cannot go back to this shop
+  buyItemQuestion: Buy {0} for {1} coins?
 --- !u!1 &1348997722809810411
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +549,7 @@ GameObject:
   - component: {fileID: 3690313832483510235}
   - component: {fileID: 6146428436276325590}
   - component: {fileID: 8875365772668370836}
+  - component: {fileID: 8006674778409599402}
   m_Layer: 5
   m_Name: ErrorText
   m_TagString: Untagged
@@ -612,7 +614,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4282466786
-  m_fontColor: {r: 0.8867924, g: 0.25516194, b: 0.25516194, a: 1}
+  m_fontColor: {r: 0.95, g: 0.27, b: 0.27, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -673,6 +675,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8006674778409599402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819983203560392233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f548ec23d198114e97dfac4934825fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleColor
+  color: 8
 --- !u!1 &3466940441869826672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,8 +1743,6 @@ MonoBehaviour:
   focusedOnlyObjects: []
   overrideMarkerSettings: 1
   markerPadding: {x: 8, y: 8}
-  markerOffset: {x: -20, y: 0}
-  markerMatchesSize: 0
 --- !u!1 &8542008479740561796
 GameObject:
   m_ObjectHideFlags: 0

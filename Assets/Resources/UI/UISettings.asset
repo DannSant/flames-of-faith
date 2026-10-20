@@ -18,9 +18,10 @@ MonoBehaviour:
   outlinedFont: {fileID: 11400000, guid: 3f431344b3745b54e9ff007c29fcc2a4, type: 2}
   smallFontSize: 12
   bigFontSize: 20
+  displayFontSize: 40
   smallIconSize: 50
   mediumIconSize: 80
-  promptIconSize: 28
+  tinyIconSize: 28
   smallButtonHeight: 32
   smallButtonMinWidth: 120
   bigButtonHeight: 48
@@ -32,12 +33,17 @@ MonoBehaviour:
   graceColor: {r: 0.38, g: 1, b: 1, a: 1}
   corruptionColor: {r: 0.75, g: 0.45, b: 1, a: 1}
   favorsColor: {r: 1, g: 0.85, b: 0.35, a: 1}
+  highlightColor: {r: 1, g: 0.92, b: 0.25, a: 1}
+  positiveColor: {r: 0.55, g: 0.9, b: 0.55, a: 1}
+  negativeColor: {r: 0.95, g: 0.27, b: 0.27, a: 1}
   panelFrame: {fileID: 21300000, guid: 7889937339384532aa8d91cca421ff23, type: 3}
   barFrame: {fileID: 21300000, guid: d5024936523c4aab9199e445a9cf49f9, type: 3}
   slotFrame: {fileID: 21300000, guid: b926f169a5ab44c48c49536b6b1ee77c, type: 3}
   barFill: {fileID: 21300000, guid: b185dc0a78154fbbb067a65701fa060f, type: 3}
   solidFill: {fileID: 21300000, guid: de90543549804824a676ee38b78e5518, type: 3}
   frameTint: {r: 1, g: 1, b: 1, a: 1}
+  buttonSprite: {fileID: 21300000, guid: 8beb09422b59474d82a66d3947ca3d60, type: 3}
+  buttonPressedSprite: {fileID: 21300000, guid: c760c234a6294b2bae1f1897ac68931f, type: 3}
   framePixelsPerUnitMultiplier: 1
   selectionFrame: {fileID: 21300000, guid: 3b6853d21b2d435598dc15257b6eb1b2, type: 3}
   selectionColor: {r: 1, g: 0.9, b: 0.6, a: 1}

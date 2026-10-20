@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Metaprogression;
+using Game.UI.Style;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -69,7 +70,7 @@ namespace Game.UI.SkillTree
         [SerializeField] private string unlockedText = "Unlocked.";
         [SerializeField] private string confirmUpgradeFormat = "Upgrade to {0} for {1} Favors?";
         [SerializeField] private string confirmUnlockFormat = "Unlock {0} for {1} Favors?";
-        [SerializeField] private Color highlightColor = new Color(1f, 0.85f, 0.35f);
+        // The "next tier" header uses the Highlight (yellow) color from UISettings
 
         private SkillTreeView view;
         private Callbacks callbacks;
@@ -211,7 +212,7 @@ namespace Game.UI.SkillTree
             }
             else
             {
-                body += $"\n\n<color=#{ColorUtility.ToHtmlStringRGB(highlightColor)}>{string.Format(nextTierFormat, node.nextName)}</color>\n{node.nextDescription}";
+                body += $"\n\n<color=#{UISettings.Instance.ToHex(UIColorRole.Highlight)}>{string.Format(nextTierFormat, node.nextName)}</color>\n{node.nextDescription}";
                 footer = !view.classUnlocked
                     ? classLockedNodeText
                     : string.Format(node.canUpgrade ? upgradeCostFormat : notEnoughFavorsFormat, node.upgradeCost);

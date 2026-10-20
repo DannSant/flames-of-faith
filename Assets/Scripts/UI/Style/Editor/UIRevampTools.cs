@@ -104,6 +104,43 @@ namespace Game.UI.Style.Editor
             Debug.Log("[UIRevampTools] Re-applied UI styles.\n" + (log.Count > 0 ? string.Join("\n", log) : "Nothing changed."));
         }
 
+        // Texts in windows not restyled yet that take a shared color role (color only, size untouched)
+        private static readonly (string prefab, string objectName, UIColorRole role)[] ColorRoles =
+        {
+            ("Assets/Prefabs/UI/Shop/ShopPane.prefab", "ErrorText", UIColorRole.Negative),
+            ("Assets/Prefabs/UI/Misc/Endscreen.prefab", "Title", UIColorRole.Highlight),
+        };
+
+        [MenuItem("Tools/Flames of Faith/UI Revamp/Apply Color Roles")]
+        public static void ApplyColorRoles()
+        {
+            var settings = LoadSettings();
+            var log = new List<string>();
+            foreach (var (path, objectName, role) in ColorRoles)
+            {
+                var root = PrefabUtility.LoadPrefabContents(path);
+                try
+                {
+                    var target = root.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == objectName);
+                    if (target == null)
+                    {
+                        Debug.LogWarning($"[UIRevampTools] {path} has no {objectName}");
+                        continue;
+                    }
+                    var style = UIBuildHelpers.GetOrAdd<UIStyleColor>(target.gameObject);
+                    style.Configure(role);
+                    style.Apply(settings);
+                    PrefabUtility.SaveAsPrefabAsset(root, path);
+                    log.Add($"{path} > {objectName}: {role}");
+                }
+                finally
+                {
+                    PrefabUtility.UnloadPrefabContents(root);
+                }
+            }
+            Debug.Log("[UIRevampTools] Color roles applied.\n" + string.Join("\n", log));
+        }
+
         // --- Settings ---------------------------------------------------------------------------------
 
         public static UISettings LoadSettings() => AssetDatabase.LoadAssetAtPath<UISettings>(SettingsPath);
@@ -126,6 +163,8 @@ namespace Game.UI.Style.Editor
             FillReference(so, "panelFrame", LoadFrameSprite("PanelFrame.png"), log);
             FillReference(so, "barFrame", LoadFrameSprite("BarFrame.png"), log);
             FillReference(so, "slotFrame", LoadFrameSprite("SlotFrame.png"), log);
+            FillReference(so, "buttonSprite", LoadFrameSprite("Button.png"), log);
+            FillReference(so, "buttonPressedSprite", LoadFrameSprite("ButtonPressed.png"), log);
             FillReference(so, "barFill", LoadFrameSprite("BarFillNeutral.png"), log);
             FillReference(so, "solidFill", LoadFrameSprite("SolidSquare.png"), log);
             FillReference(so, "selectionFrame", LoadFrameSprite("SelectionFrame.png"), log);

@@ -46,6 +46,8 @@ namespace Game.UI.Style
                 changed = true;
             }
 
+            changed |= ApplyArt(settings);
+
             var label = GetComponentInChildren<TMP_Text>(true);
             if (label != null)
             {
@@ -64,6 +66,34 @@ namespace Game.UI.Style
                 }
             }
 
+            return changed;
+        }
+
+        // The standard button art, 9-sliced so any width keeps its bevel. Pressed and disabled (an unfocused
+        // gamepad window) show the darker sprite.
+        private bool ApplyArt(UISettings settings)
+        {
+            var button = GetComponent<Button>();
+            if (button == null || settings.ButtonSprite == null) return false;
+
+            bool changed = false;
+            if (button.targetGraphic is Image image)
+            {
+                if (image.sprite != settings.ButtonSprite) { image.sprite = settings.ButtonSprite; changed = true; }
+                if (image.type != Image.Type.Sliced) { image.type = Image.Type.Sliced; changed = true; }
+                if (image.preserveAspect) { image.preserveAspect = false; changed = true; }
+            }
+
+            if (button.transition != Selectable.Transition.SpriteSwap) { button.transition = Selectable.Transition.SpriteSwap; changed = true; }
+            Sprite pressed = settings.ButtonPressedSprite != null ? settings.ButtonPressedSprite : settings.ButtonSprite;
+            var state = new SpriteState
+            {
+                highlightedSprite = settings.ButtonSprite,
+                selectedSprite = settings.ButtonSprite,
+                pressedSprite = pressed,
+                disabledSprite = pressed,
+            };
+            if (!button.spriteState.Equals(state)) { button.spriteState = state; changed = true; }
             return changed;
         }
     }

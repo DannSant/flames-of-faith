@@ -124,7 +124,7 @@ namespace Game.Tests
             Assert.AreEqual("DashButton", Child(icons, "DashInputIcon").parent.name);
             foreach (string glyph in new[] { "AttackInputIcon", "SpecialAttackInputIcon", "DashInputIcon", "AutoAttackInput", "LockonInput" })
             {
-                Assert.AreEqual(UIIconSize.Prompt, Child(icons, glyph).GetComponent<UIStyleIcon>()?.Size, $"{glyph} size role");
+                Assert.AreEqual(UIIconSize.Tiny, Child(icons, glyph).GetComponent<UIStyleIcon>()?.Size, $"{glyph} size role");
                 Assert.IsTrue(Child(icons, glyph).GetComponent<Image>().preserveAspect, $"{glyph} would squash wide keys like SPACE");
             }
         }

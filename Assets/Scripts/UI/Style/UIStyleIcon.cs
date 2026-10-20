@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Game.UI.Style
 {
     /// <summary>
-    /// An icon of the UI standard: Small, Medium, or Prompt (input glyphs). Sets a square size on the
+    /// An icon of the UI standard: Small, Medium or Tiny (input glyphs, coins). Sets a square size on the
     /// RectTransform, or on the LayoutElement when a layout group places the icon.
     /// </summary>
     [RequireComponent(typeof(RectTransform))]

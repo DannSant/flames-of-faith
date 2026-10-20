@@ -1,18 +1,20 @@
 namespace Game.UI.Style
 {
-    /// <summary>The only two text sizes of the UI standard.</summary>
+    /// <summary>The two text sizes of the UI standard, plus Display for rare headline exceptions (YOU DIED).</summary>
     public enum UIFontSize
     {
         Small,
-        Big
+        Big,
+        // Only for headline exceptions agreed in the standard (the death screen title)
+        Display
     }
 
     public enum UIIconSize
     {
         Small,
         Medium,
-        // Input glyphs, sized like text rather than like icons.
-        Prompt
+        // 28x28: input glyphs, the coin next to a number, stars inside small buttons.
+        Tiny
     }
 
     public enum UIButtonSize
@@ -29,7 +31,13 @@ namespace Game.UI.Style
         Muted,
         Grace,
         Corruption,
-        Favors
+        Favors,
+        // Yellow: highlights neutral elements (titles like PAUSE, section headers, previews)
+        Highlight,
+        // Light green: improved stats and positive highlights not related to Grace
+        Positive,
+        // Red: negative stats, warnings, the death title (not Corruption)
+        Negative
     }
 
     public enum UIFrameKind

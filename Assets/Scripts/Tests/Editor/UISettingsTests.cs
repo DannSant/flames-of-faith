@@ -2,6 +2,7 @@ using Game.UI.Navigation;
 using Game.UI.Style;
 using NUnit.Framework;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
@@ -83,6 +84,72 @@ namespace Game.Tests
         }
 
         [Test]
+        public void Settings_HighlightPositiveNegativeReadAsTheirMeaning()
+        {
+            var settings = LoadSettings();
+            Color yellow = settings.HighlightColor;
+            Color green = settings.PositiveColor;
+            Color red = settings.NegativeColor;
+
+            Assert.Greater(yellow.r, 0.8f, "Highlight should be yellow");
+            Assert.Greater(yellow.g, 0.8f, "Highlight should be yellow");
+            Assert.Less(yellow.b, 0.5f, "Highlight should be yellow");
+            Assert.Greater(green.g, green.r + 0.2f, "Positive should be green");
+            Assert.Greater(green.g, green.b + 0.2f, "Positive should be green");
+            Assert.Greater(red.r, red.g + 0.4f, "Negative should be red");
+            Assert.Greater(red.r, red.b + 0.4f, "Negative should be red");
+
+            // Not mistaken for the gameplay colors
+            var all = new[] { yellow, green, red, settings.GraceColor, settings.CorruptionColor, settings.FavorsColor };
+            Assert.AreEqual(all.Length, all.Distinct().Count(), "Every role needs its own color");
+
+            Assert.AreEqual(yellow, settings.GetColor(UIColorRole.Highlight));
+            Assert.AreEqual(green, settings.GetColor(UIColorRole.Positive));
+            Assert.AreEqual(red, settings.GetColor(UIColorRole.Negative));
+            Assert.AreEqual(ColorUtility.ToHtmlStringRGB(red), settings.ToHex(UIColorRole.Negative));
+        }
+
+        [Test]
+        public void Settings_TinyIconAndDisplayFont()
+        {
+            var settings = LoadSettings();
+            Assert.AreEqual(28f, settings.TinyIconSize, "Tiny icon");
+            Assert.AreEqual(28f, settings.GetIconSize(UIIconSize.Tiny));
+            Assert.Greater(settings.DisplayFontSize, settings.BigFontSize, "Display is the headline exception above Big");
+        }
+
+        [Test]
+        public void AutoAttackOff_IsRed()
+        {
+            var settings = LoadSettings();
+            Assert.AreEqual(settings.NegativeColor, Game.UI.AutoAttackIndicatorUI.GetStateColor(false, settings));
+            Assert.AreEqual(settings.TextColor, Game.UI.AutoAttackIndicatorUI.GetStateColor(true, settings));
+        }
+
+        [Test]
+        public void StatValues_AreGreenRedOrPlain()
+        {
+            var settings = LoadSettings();
+            Assert.AreEqual(settings.NegativeColor, Game.UI.StatsPaneUI.GetValueColor(-3, settings));
+            Assert.AreEqual(settings.PositiveColor, Game.UI.StatsPaneUI.GetValueColor(2, settings));
+            Assert.AreEqual(settings.TextColor, Game.UI.StatsPaneUI.GetValueColor(0, settings));
+        }
+
+        [TestCase("Assets/Prefabs/UI/Shop/ShopPane.prefab", "ErrorText", UIColorRole.Negative)]
+        [TestCase("Assets/Prefabs/UI/Misc/Endscreen.prefab", "Title", UIColorRole.Highlight)]
+        public void NotYetRestyledTexts_UseTheirColorRole(string prefabPath, string objectName, UIColorRole role)
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+            Assert.IsNotNull(prefab, prefabPath);
+            var target = prefab.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == objectName);
+            Assert.IsNotNull(target, $"{prefabPath} has no {objectName}");
+            Assert.AreEqual(role, target.GetComponent<UIStyleColor>()?.ColorRole, $"{objectName} color role");
+            Color expected = LoadSettings().GetColor(role);
+            Color actual = target.GetComponent<UnityEngine.UI.Graphic>().color;
+            Assert.AreEqual((Vector3)(Vector4)expected, (Vector3)(Vector4)actual, $"{objectName} baked color");
+        }
+
+        [Test]
         public void Settings_FontsAreSet()
         {
             var settings = LoadSettings();
@@ -97,6 +164,8 @@ namespace Game.Tests
             AssertSliced(settings.PanelFrame, "Panel frame");
             AssertSliced(settings.BarFrame, "Bar frame");
             AssertSliced(settings.SlotFrame, "Slot frame");
+            AssertSliced(settings.ButtonSprite, "Button");
+            AssertSliced(settings.ButtonPressedSprite, "Button pressed");
             AssertSliced(settings.SelectionFrame, "Selection frame");
             Assert.IsNotNull(settings.BarFill, "Bar fill");
             Assert.IsNotNull(settings.SolidFill, "Solid fill");

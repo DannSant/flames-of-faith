@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.UI.Style
 {
@@ -32,15 +33,19 @@ namespace Game.UI.Style
         [SerializeField] private float smallFontSize = 12f;
         [Min(1f)]
         [SerializeField] private float bigFontSize = 20f;
+        [Tooltip("Only for headline exceptions (the death screen's YOU DIED). Everything else is Small or Big.")]
+        [Min(1f)]
+        [SerializeField] private float displayFontSize = 40f;
 
         [Header("Icons")]
         [Min(1f)]
         [SerializeField] private float smallIconSize = 50f;
         [Min(1f)]
         [SerializeField] private float mediumIconSize = 80f;
-        [Tooltip("Input glyphs (keys, gamepad buttons) shown next to or on top of other elements. They read like text, so they're sized to it, not to the icons.")]
+        [Tooltip("Tiny icons: input glyphs (keys, gamepad buttons), the coin next to a number, stars inside small buttons.")]
         [Min(1f)]
-        [SerializeField] private float promptIconSize = 28f;
+        [FormerlySerializedAs("promptIconSize")]
+        [SerializeField] private float tinyIconSize = 28f;
 
         [Header("Buttons")]
         [Tooltip("Small buttons use the small font.")]
@@ -68,6 +73,12 @@ namespace Game.UI.Style
         [SerializeField] private Color graceColor = new Color(0.38f, 1f, 1f, 1f);
         [SerializeField] private Color corruptionColor = new Color(0.75f, 0.45f, 1f, 1f);
         [SerializeField] private Color favorsColor = new Color(1f, 0.85f, 0.35f, 1f);
+        [Tooltip("Yellow: highlights neutral elements (titles like PAUSE, section headers, previews).")]
+        [SerializeField] private Color highlightColor = new Color(1f, 0.92f, 0.25f, 1f);
+        [Tooltip("Light green: improved stats and positive highlights not related to Grace.")]
+        [SerializeField] private Color positiveColor = new Color(0.55f, 0.9f, 0.55f, 1f);
+        [Tooltip("Red: negative stats, warnings, the death title (not Corruption).")]
+        [SerializeField] private Color negativeColor = new Color(0.95f, 0.27f, 0.27f, 1f);
 
         [Header("Frames")]
         [Tooltip("Decorated frame around windows and HUD panels (9-sliced).")]
@@ -81,6 +92,9 @@ namespace Game.UI.Style
         [Tooltip("Plain white square with no transparent edge, for overlays that must cover an element exactly (cooldown sweeps).")]
         [SerializeField] private Sprite solidFill;
         [SerializeField] private Color frameTint = Color.white;
+        [Tooltip("Button art (9-sliced), and the sprite shown while pressed.")]
+        [SerializeField] private Sprite buttonSprite;
+        [SerializeField] private Sprite buttonPressedSprite;
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]
         [Min(0.01f)]
         [SerializeField] private float framePixelsPerUnitMultiplier = 1f;
@@ -105,9 +119,10 @@ namespace Game.UI.Style
         public TMP_FontAsset OutlinedFont => outlinedFont != null ? outlinedFont : font;
         public float SmallFontSize => smallFontSize;
         public float BigFontSize => bigFontSize;
+        public float DisplayFontSize => displayFontSize;
         public float SmallIconSize => smallIconSize;
         public float MediumIconSize => mediumIconSize;
-        public float PromptIconSize => promptIconSize;
+        public float TinyIconSize => tinyIconSize;
         public float Margin => margin;
         public float Spacing => spacing;
         public Color TextColor => textColor;
@@ -115,6 +130,11 @@ namespace Game.UI.Style
         public Color GraceColor => graceColor;
         public Color CorruptionColor => corruptionColor;
         public Color FavorsColor => favorsColor;
+        public Color HighlightColor => highlightColor;
+        public Color PositiveColor => positiveColor;
+        public Color NegativeColor => negativeColor;
+        public Sprite ButtonSprite => buttonSprite;
+        public Sprite ButtonPressedSprite => buttonPressedSprite;
         public Sprite PanelFrame => panelFrame;
         public Sprite BarFrame => barFrame;
         public Sprite SlotFrame => slotFrame;
@@ -145,14 +165,22 @@ namespace Game.UI.Style
             }
         }
 
-        public float GetFontSize(UIFontSize size) => size == UIFontSize.Big ? bigFontSize : smallFontSize;
+        public float GetFontSize(UIFontSize size)
+        {
+            switch (size)
+            {
+                case UIFontSize.Big: return bigFontSize;
+                case UIFontSize.Display: return displayFontSize;
+                default: return smallFontSize;
+            }
+        }
 
         public float GetIconSize(UIIconSize size)
         {
             switch (size)
             {
                 case UIIconSize.Medium: return mediumIconSize;
-                case UIIconSize.Prompt: return promptIconSize;
+                case UIIconSize.Tiny: return tinyIconSize;
                 default: return smallIconSize;
             }
         }
@@ -172,9 +200,15 @@ namespace Game.UI.Style
                 case UIColorRole.Grace: return graceColor;
                 case UIColorRole.Corruption: return corruptionColor;
                 case UIColorRole.Favors: return favorsColor;
+                case UIColorRole.Highlight: return highlightColor;
+                case UIColorRole.Positive: return positiveColor;
+                case UIColorRole.Negative: return negativeColor;
                 default: return textColor;
             }
         }
+
+        /// <summary>The role's color as "RRGGBB", for TMP rich text: $"&lt;color=#{settings.ToHex(role)}&gt;".</summary>
+        public string ToHex(UIColorRole role) => ColorUtility.ToHtmlStringRGB(GetColor(role));
 
         public Sprite GetFrameSprite(UIFrameKind kind)
         {

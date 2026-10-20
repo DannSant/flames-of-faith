@@ -1,4 +1,5 @@
 using Game.GameSettings;
+using Game.UI.Style;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Game.UI
     /// HUD label for the auto-attack setting (toggled with Ctrl / RT or from the settings menu).
     /// Always shows the current state, and briefly brings in a more visible popup when it changes
     /// so the player notices a toggle mid-fight. Fed only by SettingsManager.OnAutoAttackChanged.
+    /// OFF shows in the Negative (red) color: testers missed that the character had stopped attacking.
     /// </summary>
     public class AutoAttackIndicatorUI : MonoBehaviour
     {
@@ -15,8 +17,6 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI stateLabel;
         [SerializeField] private string onText = "Auto-attack: ON";
         [SerializeField] private string offText = "Auto-attack: OFF";
-        [SerializeField] private Color onColor = Color.white;
-        [SerializeField] private Color offColor = new Color(1f, 0.6f, 0.3f);
 
         [Header("Change Popup (optional)")]
         [Tooltip("Faded in when the setting changes, then out. Must be a child object, not this one.")]
@@ -68,7 +68,7 @@ namespace Game.UI
                 if (popupLabel != null)
                 {
                     popupLabel.text = enabled ? onText : offText;
-                    popupLabel.color = enabled ? onColor : offColor;
+                    popupLabel.color = GetStateColor(enabled, UISettings.Instance);
                 }
                 popupTimer = popupHoldDuration + popupFadeDuration;
                 popup.alpha = 1f;
@@ -79,7 +79,13 @@ namespace Game.UI
         {
             if (stateLabel == null) return;
             stateLabel.text = enabled ? onText : offText;
-            stateLabel.color = enabled ? onColor : offColor;
+            stateLabel.color = GetStateColor(enabled, UISettings.Instance);
+        }
+
+        /// <summary>ON reads as plain text, OFF as a warning (red).</summary>
+        public static Color GetStateColor(bool enabled, UISettings settings)
+        {
+            return enabled ? settings.TextColor : settings.NegativeColor;
         }
     }
 }

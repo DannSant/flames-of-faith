@@ -193,7 +193,7 @@ namespace Game.UI.Style.Editor
             float icon = s.MediumIconSize;
             float width = s.Margin + 3f * icon + 2f * SlotSpacing + SlotSpacing + ToggleColumnWidth + s.Margin;
             // The input glyphs straddle the icons' bottom edge, so leave them half a glyph of room
-            float height = s.Margin + icon + s.PromptIconSize * 0.5f + s.Margin;
+            float height = s.Margin + icon + s.TinyIconSize * 0.5f + s.Margin;
             return new Vector2(width, height);
         }
 
@@ -208,7 +208,7 @@ namespace Game.UI.Style.Editor
         {
             float m = s.Margin;
             float icon = s.MediumIconSize;
-            float prompt = s.PromptIconSize;
+            float prompt = s.TinyIconSize;
             Vector2 size = IconsPaneSize(s);
 
             Place((RectTransform)root.transform, Vector2.zero, Vector2.zero, new Vector2(m, m), size);
@@ -267,7 +267,7 @@ namespace Game.UI.Style.Editor
         private static void PlaceToggleRow(GameObject root, RectTransform panel, string glyphName, string labelName,
             float x, float top, UIColorRole labelColor, UISettings s)
         {
-            float prompt = s.PromptIconSize;
+            float prompt = s.TinyIconSize;
             var glyph = Find(root.transform, glyphName) ?? Find(panel, glyphName);
             glyph.SetParent(panel, false);
             RemoveGlyphLeftovers(glyph);
@@ -281,13 +281,13 @@ namespace Game.UI.Style.Editor
             StyleText(label, UIFontSize.Small, true, labelColor, s);
         }
 
-        // Glyph sprites aren't square (SPACE, CTRL...): keep their shape inside the Prompt-sized box
+        // Glyph sprites aren't square (SPACE, CTRL...): keep their shape inside the Tiny-sized box
         private static void SetupGlyph(RectTransform glyph, UISettings s)
         {
             var image = glyph.GetComponent<Image>();
             image.preserveAspect = true;
             image.raycastTarget = false;
-            StyleIcon(glyph.gameObject, UIIconSize.Prompt, s);
+            StyleIcon(glyph.gameObject, UIIconSize.Tiny, s);
         }
 
         // Each glyph had an unused copy of the cooldown sweep under it

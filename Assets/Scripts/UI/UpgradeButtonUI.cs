@@ -1,4 +1,5 @@
 using Game.Progression;
+using Game.UI.Style;
 using System;
 using TMPro;
 using UnityEngine;
@@ -104,7 +105,7 @@ namespace Game.UI
                 StatUpgradeDatabase.Instance.GetStatDescription(statToUpgrade), roleDescription,
                 role == StatRole.Key ? keyStatColor : complementaryStatColor);
             // The "Now / After" preview goes in the tooltip's second panel, like the stats pane's benefit line.
-            string preview = string.IsNullOrEmpty(benefitPreview) ? null : $"<color=#F2C14E>{benefitPreview}</color>";
+            string preview = string.IsNullOrEmpty(benefitPreview) ? null : $"<color=#{UISettings.Instance.ToHex(UIColorRole.Highlight)}>{benefitPreview}</color>";
             generalTooltipPaneUI?.ShowTooltip(description, statName, preview);
         }
 

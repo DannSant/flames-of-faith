@@ -1,4 +1,5 @@
 using Game.Metaprogression;
+using Game.UI.Style;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -22,13 +23,13 @@ namespace Game.UI.SkillTree
         [Header("Tier pips")]
         [Tooltip("Inactive template, cloned once per tier.")]
         [SerializeField] private Image pipTemplate;
-        [SerializeField] private Color pipOwnedColor = new Color(1f, 0.8f, 0.3f);
+        // Owned pips use the Highlight (yellow) color from UISettings
         [SerializeField] private Color pipEmptyColor = new Color(1f, 1f, 1f, 0.25f);
 
         [Header("Cost colors")]
         [SerializeField] private Color affordableColor = new Color(1f, 0.85f, 0.35f);
         [SerializeField] private Color unaffordableColor = new Color(0.65f, 0.65f, 0.65f);
-        [SerializeField] private Color maxedColor = new Color(0.55f, 0.9f, 0.55f);
+        // A maxed node's "MAX" label uses the Positive (light green) color from UISettings
         [Tooltip("Icon tint while the class is locked.")]
         [SerializeField] private Color lockedIconTint = new Color(0.4f, 0.4f, 0.4f, 1f);
 
@@ -65,7 +66,7 @@ namespace Game.UI.SkillTree
                 if (view.IsMaxed)
                 {
                     costText.text = "MAX";
-                    costText.color = maxedColor;
+                    costText.color = UISettings.Instance.PositiveColor;
                 }
                 else
                 {
@@ -93,7 +94,7 @@ namespace Game.UI.SkillTree
             {
                 bool used = i < count;
                 pips[i].gameObject.SetActive(used);
-                if (used) pips[i].color = i <= tier ? pipOwnedColor : pipEmptyColor;
+                if (used) pips[i].color = i <= tier ? UISettings.Instance.HighlightColor : pipEmptyColor;
             }
         }
 

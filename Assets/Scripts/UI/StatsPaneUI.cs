@@ -2,6 +2,7 @@ using Game.Control;
 using Game.Effects;
 using Game.Progression;
 using Game.Scene;
+using Game.UI.Style;
 using Game.Waves;
 using System;
 using System.Collections.Generic;
@@ -26,13 +27,9 @@ namespace Game.UI
         [SerializeField] private Button secondaryButton;
         [Header("Prefabs")]
         [SerializeField] private StatRowUI statRowPrefab;
-        [Header("Display settings")]
-        [SerializeField] private Color selectedStatColor;       
 
         private PlayerProgression playerProgression;
 
-        // Color of the computed stat benefit line in the tooltip.
-        private const string BenefitColorHex = "F2C14E";
         private PlayerInputHandler inputHandler;
         private GeneralTooltipPaneUI generalTooltipPaneUI;
 
@@ -167,7 +164,7 @@ namespace Game.UI
                 string benefit = playerProgression != null ? playerProgression.GetStatBenefitText(stat) : null;
                 if (!string.IsNullOrEmpty(benefit))
                 {
-                    sourcesText = $"<color=#{BenefitColorHex}>{benefit}</color>";
+                    sourcesText = $"<color=#{UISettings.Instance.ToHex(UIColorRole.Highlight)}>{benefit}</color>";
                 }
             }
             else
@@ -244,7 +241,7 @@ namespace Game.UI
                 row.Initialize(
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
-                    getTextColor(kvp.Value),
+                    GetValueColor(kvp.Value, UISettings.Instance),
                     kvp.Key,
                     this
                 );
@@ -259,7 +256,7 @@ namespace Game.UI
                 row.Initialize(
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
-                    getTextColor(kvp.Value),
+                    GetValueColor(kvp.Value, UISettings.Instance),
                     kvp.Key,
                     this
                 );
@@ -284,7 +281,7 @@ namespace Game.UI
                 row.Initialize(
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
-                    getTextColor(kvp.Value),
+                    GetValueColor(kvp.Value, UISettings.Instance),
                     kvp.Key,
                     this
                 );
@@ -298,7 +295,7 @@ namespace Game.UI
                 row.Initialize(
                     StatDisplayNameHelper.GetDisplayName(kvp.Key),
                     kvp.Value,
-                    getTextColor(kvp.Value),
+                    GetValueColor(kvp.Value, UISettings.Instance),
                     kvp.Key,
                     this
                 );
@@ -328,15 +325,15 @@ namespace Game.UI
 
             if (displayCategory == StatCategory.Primary)
             {               
-                primaryTitle.color = selectedStatColor;
-                secondaryTitle.color = Color.white;
+                primaryTitle.color = UISettings.Instance.HighlightColor;
+                secondaryTitle.color = UISettings.Instance.TextColor;
                 primaryContentPanel.SetActive(true);
                 secondaryContentPanel.SetActive(false);
             }
             else
             {               
-                primaryTitle.color = Color.white;
-                secondaryTitle.color = selectedStatColor;
+                primaryTitle.color = UISettings.Instance.TextColor;
+                secondaryTitle.color = UISettings.Instance.HighlightColor;
                 primaryContentPanel.SetActive(false);
                 secondaryContentPanel.SetActive(true);
             }
@@ -404,18 +401,18 @@ namespace Game.UI
             foreach (var kvp in rows)
             {
                 int value = playerProgression.GetStatTotal(kvp.Key);
-                kvp.Value.UpdateValue(value, getTextColor(value));
+                kvp.Value.UpdateValue(value, GetValueColor(value, UISettings.Instance));
             }
 
             if(displayCategory == StatCategory.Primary)
             {
-                primaryTitle.color = selectedStatColor;
-                secondaryTitle.color = Color.white;
+                primaryTitle.color = UISettings.Instance.HighlightColor;
+                secondaryTitle.color = UISettings.Instance.TextColor;
             }
             else
             {
-                primaryTitle.color = Color.white;
-                secondaryTitle.color = selectedStatColor;
+                primaryTitle.color = UISettings.Instance.TextColor;
+                secondaryTitle.color = UISettings.Instance.HighlightColor;
             }
 
         }
@@ -429,17 +426,12 @@ namespace Game.UI
             backgroundPanel.SetActive(false);
         }
 
-        private Color getTextColor(int value)
+        /// <summary>A stat value's color: red below 0, light green above 0, plain at 0 (UISettings roles).</summary>
+        public static Color GetValueColor(int value, UISettings settings)
         {
-            if(value < 0)
-            {
-                return Color.red;
-            }
-            else if (value > 0)
-            {
-                return Color.green;
-            }
-            return Color.white;
+            if (value < 0) return settings.NegativeColor;
+            if (value > 0) return settings.PositiveColor;
+            return settings.TextColor;
         }
     }
 
