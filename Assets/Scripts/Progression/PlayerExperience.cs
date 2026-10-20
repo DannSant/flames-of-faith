@@ -54,15 +54,16 @@ namespace Game.Progression
         public void AddExperience(float amount)
         {
             int xpToLevelUp = GetXPRequired(currentLevel);
-          
+
             currentXP += amount;
             OnPlayerExperienceGainEvent?.Invoke(currentXP, xpToLevelUp);
+            // One big gain can give several levels: each one costs its own level's requirement
             while (currentXP >= xpToLevelUp)
             {
                 currentXP -= xpToLevelUp;
                 currentLevel++;
-                int newXpToLevelUp = GetXPRequired(currentLevel);               
-                onLevelUp?.Invoke(currentLevel, newXpToLevelUp);
+                xpToLevelUp = GetXPRequired(currentLevel);
+                onLevelUp?.Invoke(currentLevel, xpToLevelUp);
                 OnPlayerExperienceGainEvent?.Invoke(currentXP, xpToLevelUp);
             }
         }
