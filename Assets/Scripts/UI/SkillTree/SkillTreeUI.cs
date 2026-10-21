@@ -143,8 +143,6 @@ namespace Game.UI.SkillTree
                 favorsText.text = string.Format(view.sharedFavorPool ? sharedFavorsFormat : favorsFormat, view.favors);
                 if (settings != null) favorsText.color = settings.FavorsColor;
             }
-            // The footer is the cost in Favors
-            if (detailsFooter != null && settings != null) detailsFooter.color = settings.FavorsColor;
 
             for (int i = 0; i < tabButtons.Count; i++)
             {
@@ -209,7 +207,8 @@ namespace Game.UI.SkillTree
                     DamageTypeColorHelper.ColorizeMetaTags(view.classDescription ?? ""),
                     view.classUnlocked
                         ? unlockedText
-                        : string.Format(view.canUnlockClass ? unlockCostFormat : unlockNotEnoughFormat, view.classUnlockCost, view.favorsForUnlock));
+                        : string.Format(view.canUnlockClass ? unlockCostFormat : unlockNotEnoughFormat, view.classUnlockCost, view.favorsForUnlock),
+                    IsFooterPositive(true, view.classUnlocked, view.canUnlockClass, false));
                 return;
             }
 
@@ -228,14 +227,30 @@ namespace Game.UI.SkillTree
                     : string.Format(node.canUpgrade ? upgradeCostFormat : notEnoughFavorsFormat, node.upgradeCost);
             }
 
-            SetDetails($"{node.title}: {node.currentName}", body, footer);
+            SetDetails($"{node.title}: {node.currentName}", body, footer,
+                IsFooterPositive(false, view.classUnlocked, view.canUnlockClass, node.canUpgrade));
         }
 
-        private void SetDetails(string title, string body, string footer)
+        private void SetDetails(string title, string body, string footer, bool positive)
         {
             if (detailsTitle != null) detailsTitle.text = title;
             if (detailsBody != null) detailsBody.text = body;
-            if (detailsFooter != null) detailsFooter.text = footer;
+            if (detailsFooter != null)
+            {
+                detailsFooter.text = footer;
+                var settings = UISettings.Instance;
+                if (settings != null) detailsFooter.color = positive ? settings.PositiveColor : settings.NegativeColor;
+            }
+        }
+
+        /// <summary>
+        /// The details footer is green when what it describes is available (the class is unlocked, or the unlock /
+        /// upgrade can be bought) and red when it isn't (not enough Favors, or the class is still locked).
+        /// </summary>
+        public static bool IsFooterPositive(bool classRoot, bool classUnlocked, bool canUnlockClass, bool canUpgrade)
+        {
+            if (classRoot) return classUnlocked || canUnlockClass;
+            return classUnlocked && canUpgrade;
         }
 
         private SkillTreeNodeView FindNode(string nodeId)

@@ -137,7 +137,7 @@ namespace Game.UI.SkillTree.Editor
 
             var detailsFooter = CreateText("DetailsFooter", details.transform, "", 18, TextAlignmentOptions.Center);
             Stretch(detailsFooter.rectTransform, new Vector2(0f, 0.03f), new Vector2(1f, 0.18f), 18f);
-            // Colored at runtime by SkillTreeUI (UISettings Favors color), like the Favors counter
+            // Colored at runtime by SkillTreeUI: green when the unlock / upgrade is available, red when not
 
             // Footer
             var closeButton = CreateButton("Back", panel.transform, "1_orange_button_s.png", "Back", 25, out _);

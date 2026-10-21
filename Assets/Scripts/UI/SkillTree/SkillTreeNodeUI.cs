@@ -26,10 +26,7 @@ namespace Game.UI.SkillTree
         // Owned pips use the Highlight (yellow) color from UISettings
         [SerializeField] private Color pipEmptyColor = new Color(1f, 1f, 1f, 0.25f);
 
-        [Header("Cost colors")]
-        [SerializeField] private Color affordableColor = new Color(1f, 0.85f, 0.35f);
-        [SerializeField] private Color unaffordableColor = new Color(0.65f, 0.65f, 0.65f);
-        // A maxed node's "MAX" label uses the Positive (light green) color from UISettings
+        // The cost uses UISettings: Positive (green) when affordable or maxed ("MAX"), Negative (red) otherwise
         [Tooltip("Icon tint while the class is locked.")]
         [SerializeField] private Color lockedIconTint = new Color(0.4f, 0.4f, 0.4f, 1f);
 
@@ -63,19 +60,17 @@ namespace Game.UI.SkillTree
 
             if (costText != null)
             {
-                if (view.IsMaxed)
-                {
-                    costText.text = "MAX";
-                    costText.color = UISettings.Instance.PositiveColor;
-                }
-                else
-                {
-                    costText.text = view.upgradeCost.ToString();
-                    costText.color = view.canUpgrade ? affordableColor : unaffordableColor;
-                }
+                costText.text = view.IsMaxed ? "MAX" : view.upgradeCost.ToString();
+                costText.color = GetCostColor(view.IsMaxed, view.canUpgrade, UISettings.Instance);
             }
 
             UpdatePips(view.tier, view.maxTier);
+        }
+
+        /// <summary>The node's cost label, like the shop's prices: green when it can be bought (or is maxed), red when not.</summary>
+        public static Color GetCostColor(bool maxed, bool canUpgrade, UISettings settings)
+        {
+            return maxed || canUpgrade ? settings.PositiveColor : settings.NegativeColor;
         }
 
         private void UpdatePips(int tier, int maxTier)
