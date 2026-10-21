@@ -43,5 +43,26 @@ namespace Game.Tests
                     $"{scenePath} overrides {prefab.name} {property} with a value the prefab doesn't have");
             }
         }
+
+        /// <summary>
+        /// No layout override (anchors, position, size, pivot) on any child of the prefab's instances in the scene:
+        /// a removed layout group leaves those behind (one pinned the wave results title to the bottom).
+        /// The restylers revert them with UIBuildHelpers.RevertChildLayoutOverrides.
+        /// </summary>
+        public static void AssertNoChildLayoutOverrides(string scenePath, string prefabPath)
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+            Assert.IsNotNull(prefab, $"Missing {prefabPath}");
+            Assert.IsTrue(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(prefab.transform, out string guid, out long rootId));
+
+            string yaml = File.ReadAllText(scenePath);
+            var overrides = Regex.Matches(yaml,
+                $@"target: \{{fileID: (\d+), guid: {guid}, type: 3\}}\s+propertyPath: (m_AnchorMin|m_AnchorMax|m_AnchoredPosition|m_SizeDelta|m_Pivot)\.");
+            foreach (Match match in overrides)
+            {
+                Assert.AreEqual(rootId.ToString(), match.Groups[1].Value,
+                    $"{scenePath} overrides {match.Groups[2].Value} on a child of {prefab.name} (fileID {match.Groups[1].Value})");
+            }
+        }
     }
 }

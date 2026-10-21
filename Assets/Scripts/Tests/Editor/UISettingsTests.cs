@@ -135,19 +135,6 @@ namespace Game.Tests
             Assert.AreEqual(settings.TextColor, Game.UI.StatsPaneUI.GetValueColor(0, settings));
         }
 
-        [TestCase("Assets/Prefabs/UI/Shop/ShopPane.prefab", "ErrorText", UIColorRole.Negative)]
-        public void NotYetRestyledTexts_UseTheirColorRole(string prefabPath, string objectName, UIColorRole role)
-        {
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-            Assert.IsNotNull(prefab, prefabPath);
-            var target = prefab.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == objectName);
-            Assert.IsNotNull(target, $"{prefabPath} has no {objectName}");
-            Assert.AreEqual(role, target.GetComponent<UIStyleColor>()?.ColorRole, $"{objectName} color role");
-            Color expected = LoadSettings().GetColor(role);
-            Color actual = target.GetComponent<UnityEngine.UI.Graphic>().color;
-            Assert.AreEqual((Vector3)(Vector4)expected, (Vector3)(Vector4)actual, $"{objectName} baked color");
-        }
-
         [Test]
         public void Settings_FontsAreSet()
         {

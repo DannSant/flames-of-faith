@@ -37,7 +37,7 @@ namespace Game.UI.Style.Editor
             {
                 // Revert first: a revert reloads the instance, which would drop the snapped root layout
                 bool changed = RevertNameOverride(scene);
-                changed |= RevertChildLayoutOverrides(scene);
+                changed |= RevertChildLayoutOverrides(scene, PanePath);
                 return UpgradeRestyler.SnapSceneInstances(scene, PanePath) || changed;
             });
 
@@ -208,38 +208,6 @@ namespace Game.UI.Style.Editor
             CenterWindowLayout.PlaceStackedButton(rect, s, 0);
             rect.SetAsLastSibling();
             return button;
-        }
-
-        public static readonly string[] LayoutProperties = { "m_AnchorMin", "m_AnchorMax", "m_AnchoredPosition", "m_SizeDelta", "m_Pivot" };
-
-        /// <summary>
-        /// The old layout group left anchors and positions of the window's children as scene overrides (the title
-        /// was pinned to the bottom). The restyler owns these children's layout, so only those properties are
-        /// reverted, on this window's instance only (the instance root keeps its own, snapped next).
-        /// </summary>
-        private static bool RevertChildLayoutOverrides(UnityEngine.SceneManagement.Scene scene)
-        {
-            bool changed = false;
-            foreach (var root in scene.GetRootGameObjects())
-            {
-                foreach (var summary in root.GetComponentsInChildren<WaveCorruptionSummaryUI>(true))
-                {
-                    if (!PrefabUtility.IsAnyPrefabInstanceRoot(summary.gameObject)) continue;
-                    foreach (var rect in summary.GetComponentsInChildren<RectTransform>(true))
-                    {
-                        if (rect == summary.transform) continue;
-                        var so = new SerializedObject(rect);
-                        foreach (string property in LayoutProperties)
-                        {
-                            var p = so.FindProperty(property);
-                            if (p == null || !p.prefabOverride) continue;
-                            PrefabUtility.RevertPropertyOverride(p, InteractionMode.AutomatedAction);
-                            changed = true;
-                        }
-                    }
-                }
-            }
-            return changed;
         }
 
         // The prefab was renamed (it had a trailing space); the scene still overrode the old name

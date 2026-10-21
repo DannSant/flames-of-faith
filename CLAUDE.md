@@ -282,7 +282,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 - **`UIWindow`:** goes on the panel a controller shows or hides, and requires a CanvasGroup. Keep one per window and never nest them.
   - **Role:** Primary (can take focus automatically) or Secondary (reached only with LB/RB).
   - **Open Mode:** `GameObjectActive` for panels that are activated and deactivated. Use `Manual` for panels that stay active and slide off screen, whose controller must call `SetOpen`. The main-menu panels are Manual.
-  - **Focus Mode:** `AutoFocus` takes focus on open; `OnDemand` waits for Browse/Y, as in the Shop and the map's Exit button.
+  - **Focus Mode:** `AutoFocus` takes focus on open; `OnDemand` waits for Browse/Y, as in the map's Exit button. (The shop is AutoFocus: it's modal.)
   - **Priority:** a newly opened window takes focus only if its priority is *strictly higher* than the focused window's.
   - **Default Selectable** and **OnCancel**.
 - **`UIFocusManager`** (singleton, Bootstrapper scene):
@@ -303,7 +303,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows and the wave results.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results and the shop.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -319,19 +319,19 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Style components** (`UIStyleText`, `UIStyleIcon`, `UIStyleButton`, `UIStyleFrame`, `UIStyleGrid`) mark an element's role (Small/Big text, Medium icon, Panel/Bar/Slot frame, a grid of Small cells...) and apply `UISettings` in `Awake`, so the asset stays the source of truth.
   - `UIStyleText` with color role None leaves the color to a script (e.g. `GraceBar`). It also turns off TMP vertex gradients, which tint whatever color a script sets. Its `bold` flag only touches the Bold bit.
   - `UIStyleGrid` sets a GridLayoutGroup's cells to an icon size and its spacing to `UISettings.Spacing`.
-  - `UIStyleColor` applies only a color role, for texts in windows not restyled yet (e.g. the shop's "Not enough Golden Chronos"; `Tools/.../Apply Color Roles`).
+  - `UIStyleColor` applies only a color role, for texts in windows not restyled yet (`Tools/.../Apply Color Roles`). No window needs it since the shop's restyle.
   - Scripts that color text at runtime read `UISettings` too: `GraceBar`, `WaveUI`, `AutoAttackIndicatorUI`, `StatsPaneUI` (values and the selected tab), the skill tree (MAX, next tier, pips) and the upgrade preview.
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`) Restyle Run Encounter Windows (`RunEncounterRestyler`) and Restyle Wave Results (`WaveSummaryRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`), Restyle Run Encounter Windows (`RunEncounterRestyler`), Restyle Wave Results (`WaveSummaryRestyler`) and Restyle Shop (`ShopRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
     - `SceneInstanceLayout.AssertMatchesPrefab` (tests) guards it.
   - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `<Restyler>.Restyle`).
   - **Revert before you snap:** `PrefabUtility.RevertPropertyOverride` on a scene instance reloads it from its recorded overrides. Revert first, then snap. `MatchPrefabRootLayout` now also records its values as instance modifications, so a revert in the same pass can't drop them.
-  - **Children's leftover layout overrides:** a removed layout group can leave its children's anchors and positions as scene overrides (they pinned the wave results title to the bottom). `WaveSummaryRestyler` reverts just those layout properties on the window's children.
+  - **Children's leftover layout overrides:** a removed layout group can leave its children's anchors and positions as scene overrides (they pinned the wave results title to the bottom). `UIBuildHelpers.RevertChildLayoutOverrides(scene, prefabPath)` reverts just those layout properties on an instance's children (wave results, shop). `SceneInstanceLayout.AssertNoChildLayoutOverrides` guards it.
   - **Helpers:** `UIBuildHelpers` has find-or-create, place/stretch and style helpers for the next windows' restylers.
 - **Gamepad selection frame:** `UISelectionMarkerUI` wraps the selected element. The frame's position is computed in its parent's local space from the element's corners (`SelectionFrameMath`), so it works at any canvas scale and on Screen Space Camera canvases. It slides between elements and pulses.
   - A `UIWindow` can only override the padding now. The old per-window arrow offsets are gone.
@@ -420,17 +420,25 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
     - **Options:** each option (`EventOptionButton.prefab`) is a full-width Small button that grows with its wrapped label. Its root VerticalLayoutGroup sizes it, with no root LayoutElement, so `UIStyleButton` doesn't pin it to 32. The label's min height keeps it at least a Small button high.
     - **Tooltips:** an option's tooltip anchors beside it.
     - **Art panel:** to the left, the window's size, shown only for events with art.
+  - **Shared helper:** `StatsAndInventoryPanes` (`Game.UI`) opens and closes the two panes beside a window; the death screen, end screen and campfire use it.
 - **Wave results** (`WaveCorruptionSummaryUI`):
   - **Layout:** a center window. "Wave Results" is Big, bold, yellow. A `Content` column holds the Small receipt rows (label left, value right via `FormatRow`; hidden rows collapse), the Big formula, the `GraceMeter` (built like the HUD bar, with a tick at 0) and the Big gold Favors row.
   - **Button:** Continue in the progress spot.
   - **Removed:** the old click / press A prompt.
-  - **Shared helper:** `StatsAndInventoryPanes` (`Game.UI`) opens and closes the two panes beside a window; the death screen, end screen and campfire use it.
+- **Shop** (`ShopPane`, `ShopControllerUI`, `ShopIconUI`):
+  - **Layout:** a center window between the Inventory and the Stats pane, which both open with it. "Shop" is Big, bold, yellow. Under it is a `Grid` of 5 fixed columns with no scroll: `ShopKeeper.maxItemCount` (20) fits in 4 rows, and `ShopStyleTests` guards that.
+  - **Cells:** each cell (`ShopIconUI.prefab`) nests the **Inventory slot** (`EffectIconUI`: quality frame, icon, its own Button and tooltip events) over a price row (a Tiny coin and the Small price).
+  - **Affordability:** `ShopKeeper.CanAfford` decides it and pushes it to the UI. Items the player can't afford are dimmed (`EffectIconUI.SetDimmed`) with a red price; they can still be clicked, which shows the error.
+  - **Item details:** the shared tooltip, anchored beside the slot, with a price line in its detail section (`ShopControllerUI.FormatPriceLine`, red with "Not enough coins"). The shop's own description panel and the "(A) Buy" prompt row are gone.
+  - **Bottom:** the "Not enough Golden Chronos" error sits just above Continue, and Continue is wired in code.
+  - **Focus:** the window is AutoFocus at priority 50; the shop is modal (player input blocked until Continue).
 - **Tests:**
   - `UISettingsTests`: the standard, colors, sliced art, canvas scalers, marker.
   - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement, the level-up header, and the end screen (thanks line, gamepad window, Main Menu wired in code).
   - `ConfirmDialogStyleTests`: size, frame, backdrop, message, the button row, the gamepad window, and the three instances (layout, drawn on top).
   - `RunEncounterStyleTests`: the Campfire line and wiring, the Results colors, the Event body / options / art panel, and the Treasure having no window. The three windows are also `CenterWindowStyleTests` cases; the Event has no fixed progress button.
   - `WaveSummaryUITests`: row sizes, gold Favors, the column order, Continue as a button, the meter, no leftover child layout overrides in UIMain, the formatting, `GraceBar.GetFills` and the `UIFlight` path.
+  - `ShopStyleTests`: no leftovers (description panel, prompt row, scroll view), the 5-column grid fits the item cap, the cell nests the Inventory slot with a Tiny coin and Small price, the error above Continue, AutoFocus, no child layout overrides in UIMain, and the price line.
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
   - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.

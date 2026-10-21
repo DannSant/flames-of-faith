@@ -171,16 +171,7 @@ namespace Game.Tests
         public void UIMainInstance_HasNoLayoutOverridesOnTheWindowsChildren()
         {
             // The old layout group left the children's anchors as scene overrides; one pinned the title to the bottom
-            var prefab = LoadSummary().gameObject;
-            Assert.IsTrue(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(prefab.transform, out string guid, out long rootId));
-            string yaml = System.IO.File.ReadAllText("Assets/Scenes/UIMain.unity");
-            var overrides = System.Text.RegularExpressions.Regex.Matches(yaml,
-                $@"target: \{{fileID: (\d+), guid: {guid}, type: 3\}}\s+propertyPath: (m_AnchorMin|m_AnchorMax|m_AnchoredPosition|m_SizeDelta|m_Pivot)\.");
-            foreach (System.Text.RegularExpressions.Match match in overrides)
-            {
-                Assert.AreEqual(rootId.ToString(), match.Groups[1].Value,
-                    $"UIMain overrides {match.Groups[2].Value} on a child of the wave results window (fileID {match.Groups[1].Value})");
-            }
+            SceneInstanceLayout.AssertNoChildLayoutOverrides("Assets/Scenes/UIMain.unity", SummaryPrefab);
         }
 
         // --- Formatting ---------------------------------------------------------------------------------------

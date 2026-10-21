@@ -104,10 +104,10 @@ namespace Game.UI.Style.Editor
             Debug.Log("[UIRevampTools] Re-applied UI styles.\n" + (log.Count > 0 ? string.Join("\n", log) : "Nothing changed."));
         }
 
-        // Texts in windows not restyled yet that take a shared color role (color only, size untouched)
+        // Texts in windows not restyled yet that take a shared color role (color only, size untouched).
+        // Empty since the shop's restyle; kept for windows that need a color before their own restyle.
         private static readonly (string prefab, string objectName, UIColorRole role)[] ColorRoles =
         {
-            ("Assets/Prefabs/UI/Shop/ShopPane.prefab", "ErrorText", UIColorRole.Negative),
         };
 
         [MenuItem("Tools/Flames of Faith/UI Revamp/Apply Color Roles")]

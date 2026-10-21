@@ -137,6 +137,41 @@ namespace Game.UI.Style.Editor
             EditorUtility.SetDirty(target);
         }
 
+        public static readonly string[] LayoutProperties = { "m_AnchorMin", "m_AnchorMax", "m_AnchoredPosition", "m_SizeDelta", "m_Pivot" };
+
+        /// <summary>
+        /// Reverts the layout overrides (anchors, position, size, pivot) a scene holds on the children of this
+        /// prefab's instances. A removed layout group leaves its children's layout as scene overrides (one pinned
+        /// the wave results title to the bottom); a restyler owns that layout, so only those properties are
+        /// reverted, never the whole instance, and never the instance root (snap it after this).
+        /// </summary>
+        public static bool RevertChildLayoutOverrides(UnityEngine.SceneManagement.Scene scene, string prefabPath)
+        {
+            bool changed = false;
+            foreach (var root in scene.GetRootGameObjects())
+            {
+                foreach (var transform in root.GetComponentsInChildren<Transform>(true))
+                {
+                    if (!PrefabUtility.IsAnyPrefabInstanceRoot(transform.gameObject)) continue;
+                    if (AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromSource(transform.gameObject)) != prefabPath) continue;
+
+                    foreach (var rect in transform.GetComponentsInChildren<RectTransform>(true))
+                    {
+                        if (rect == transform) continue;
+                        var so = new SerializedObject(rect);
+                        foreach (string property in LayoutProperties)
+                        {
+                            var p = so.FindProperty(property);
+                            if (p == null || !p.prefabOverride) continue;
+                            PrefabUtility.RevertPropertyOverride(p, InteractionMode.AutomatedAction);
+                            changed = true;
+                        }
+                    }
+                }
+            }
+            return changed;
+        }
+
         public static void SetLayerRecursively(GameObject go, int layer)
         {
             go.layer = layer;

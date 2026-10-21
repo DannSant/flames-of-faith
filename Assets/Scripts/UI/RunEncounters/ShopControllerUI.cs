@@ -1,6 +1,7 @@
 using Game.Effects;
 using Game.Scene;
 using Game.RunEncounters;
+using Game.UI.Style;
 using Game.Waves;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,11 @@ using UnityEngine.UI;
 
 namespace Game.UI.RunEncounters
 {
+    /// <summary>
+    /// The shop window: a grid of item cells (the Inventory slot plus the price), Continue to leave. Hovering or
+    /// selecting an item shows the shared tooltip beside it, with the price; items the player can't afford are
+    /// dimmed (ShopKeeper decides). Opens beside the Inventory and the Stats pane. Layout: ShopRestyler.
+    /// </summary>
     public class ShopControllerUI : MonoBehaviour
     {
         [Header("Main UI Elements")]       
@@ -19,12 +25,17 @@ namespace Game.UI.RunEncounters
         [SerializeField] private TextMeshProUGUI errorTextUI;     
 
 
-       [Header("Effects Tooltip UI Elements")]
-        [SerializeField] private TextMeshProUGUI effectNameText;
-        [SerializeField] private TextMeshProUGUI effectDescriptionText;
-
         [Header("Prefab Settings")]
         [SerializeField] private ShopIconUI shopIconPrefab;
+
+        [Header("Continue")]
+        [SerializeField] private Button continueButton;
+
+        [Header("Tooltip")]
+        [Tooltip("The tooltip's price line. {0} = price.")]
+        [SerializeField] private string priceFormat = "Price: {0} coins";
+        [Tooltip("Added to the price line (in red) when the player can't afford the item.")]
+        [SerializeField] private string notEnoughText = "Not enough coins";
 
         [Header("Leave Confirmation")]
         [Tooltip("Asks before leaving, since the shop can't be revisited. Without one, Continue leaves directly.")]
@@ -39,6 +50,17 @@ namespace Game.UI.RunEncounters
         [SerializeField] private string buyItemQuestion = "Buy {0} for {1} coins?";
 
         private ShopKeeper shopKeeper;
+        private GeneralTooltipPaneUI tooltipPane;
+
+        private void Awake()
+        {
+            if (continueButton != null) continueButton.onClick.AddListener(OnContinueButtonclicked);
+        }
+
+        private void OnDestroy()
+        {
+            if (continueButton != null) continueButton.onClick.RemoveListener(OnContinueButtonclicked);
+        }
 
         private void Start()
         {
@@ -85,7 +107,8 @@ namespace Game.UI.RunEncounters
             {
                 ShopIconUI iconUI = Instantiate(shopIconPrefab, itemsContainer.transform);
                 int price = shopKeeper != null ? shopKeeper.GetDiscountedPrice(effect) : effect.BuyPrice;
-                iconUI.Setup(effect, price, BuyItem, ShowEffectTooltip, HideEffectTooltip);
+                bool affordable = shopKeeper == null || shopKeeper.CanAfford(effect);
+                iconUI.Setup(effect, price, affordable, BuyItem, ShowEffectTooltip, HideEffectTooltip);
             }
 
             errorTextUI.gameObject.SetActive(false);
@@ -138,22 +161,35 @@ namespace Game.UI.RunEncounters
             }
         }
 
-        private void ShowEffectTooltip(Effect effect)
+        // The shared tooltip, beside the item's slot. UI-to-UI lookup only.
+        private void ShowEffectTooltip(Effect effect, RectTransform slot)
         {
             if (effect == null)
             {
                 HideEffectTooltip();
                 return;
             }
-            effectNameText.text = effect.effectName;
-            effectNameText.color = EffectQualityDisplayHelper.GetQualityColor(effect.Quality);
-            effectDescriptionText.text = effect.GetFormattedDescription();
+            if (tooltipPane == null) tooltipPane = FindAnyObjectByType<GeneralTooltipPaneUI>();
+            if (tooltipPane == null) return;
+
+            int price = shopKeeper != null ? shopKeeper.GetDiscountedPrice(effect) : effect.BuyPrice;
+            bool affordable = shopKeeper == null || shopKeeper.CanAfford(effect);
+            var settings = UISettings.Instance;
+            string negativeHex = settings != null ? settings.ToHex(UIColorRole.Negative) : "FF4545";
+            tooltipPane.ShowTooltip(effect.GetDescriptionText(), EffectQualityDisplayHelper.ColorizeName(effect),
+                FormatPriceLine(price, affordable, priceFormat, notEnoughText, negativeHex), effect.GetStatLines(), slot);
         }
 
         private void HideEffectTooltip()
         {
-            effectNameText.text = string.Empty;
-            effectDescriptionText.text = string.Empty;
+            if (tooltipPane != null) tooltipPane.HideTooltip();
+        }
+
+        /// <summary>The tooltip's price line: "Price: 25 coins", in red with "Not enough coins" when unaffordable.</summary>
+        public static string FormatPriceLine(int price, bool affordable, string priceFormat, string notEnoughText, string negativeHex)
+        {
+            string line = string.Format(priceFormat, price);
+            return affordable ? line : $"<color=#{negativeHex}>{line} - {notEnoughText}</color>";
         }
 
 
@@ -178,6 +214,7 @@ namespace Game.UI.RunEncounters
 
         private void LeaveShop()
         {
+            HideEffectTooltip();
             WaveSpawner.Instance.GoToNextLevel();
         }
     }

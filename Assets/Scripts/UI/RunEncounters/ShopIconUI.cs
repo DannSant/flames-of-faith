@@ -1,54 +1,36 @@
 using Game.Effects;
+using Game.UI.Style;
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.UI.RunEncounters
 {
-    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
-    public class ShopIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+    /// <summary>
+    /// A shop cell: the Inventory's item slot (quality frame, icon; it shows and hides the tooltip on hover and
+    /// gamepad select) with the price under it. Items the player can't afford are dimmed with a red price; they
+    /// can still be clicked, which shows the shop's error. Layout: ShopRestyler.
+    /// </summary>
+    public class ShopIconUI : MonoBehaviour
     {
-        [SerializeField] private Image icon;
+        [SerializeField] private EffectIconUI slot;
+        [SerializeField] private Button slotButton;
         [SerializeField] private TextMeshProUGUI costText;
-        [SerializeField] private Button button;
 
-        private Effect effect;
-        private Action<Effect> showTooltipAction;
-        private Action hideTooltipAction;
-
-        public void Setup(Effect effect, int displayPrice, Action<Effect> clickAction, Action<Effect> showTooltipAction, Action hideTooltipAction)
+        public void Setup(Effect effect, int displayPrice, bool affordable, Action<Effect> clickAction,
+            Action<Effect, RectTransform> showTooltipAction, Action hideTooltipAction)
         {
-            this.effect = effect;
-            icon.sprite = effect.EffectIcon;
+            var slotRect = (RectTransform)slot.transform;
+            slot.Setup(effect, effect.EffectIcon, 1, e => showTooltipAction?.Invoke(e, slotRect), hideTooltipAction);
+            slot.SetDimmed(!affordable);
+
             costText.text = displayPrice.ToString();
+            var settings = UISettings.Instance;
+            if (settings != null) costText.color = settings.GetColor(affordable ? UIColorRole.Text : UIColorRole.Negative);
 
-            this.showTooltipAction = showTooltipAction;
-            this.hideTooltipAction = hideTooltipAction;
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => clickAction?.Invoke(effect));
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-
-            showTooltipAction?.Invoke(effect);
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            hideTooltipAction?.Invoke();
-        }
-
-        public void OnSelect(BaseEventData eventData)
-        {
-            showTooltipAction?.Invoke(effect);
-        }
-
-        public void OnDeselect(BaseEventData eventData)
-        {
-            hideTooltipAction?.Invoke();
+            slotButton.onClick.RemoveAllListeners();
+            slotButton.onClick.AddListener(() => clickAction?.Invoke(effect));
         }
     }
 }
