@@ -87,7 +87,8 @@ The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncount
 - **No Ignore options** (reworked Oct 2026): every event has 2–3 options, and each one costs and gives something.
 - **Action names:** an action is named `Lose…` or `Gain…`, and it must lose or gain accordingly. `EventEncounterTests` checks this; the lever's "Lose1To5Grace" used to give +3.
 - **Rolls:** ranged rolls (`StatBiasedRoll`) lean toward the range's high end with Luck. For losses, that means losing less.
-- **Background:** a plain color like the other windows (`EventEncounterUI.plainBackgroundColor` on `EventEncounterPane.prefab`). An optional `genericBackground` sprite replaces it. Events have no art of their own.
+- **Art:** `EventEncounterData.art` (optional sprite). When set, `EventEncounterUI` shows it in a framed panel to the left of the event window; no event has art yet. The window itself uses the standard frame (see "Run encounter windows" under UI standards).
+- **Treasure** (`TreasureEncounterController`, `Act1/Treasure.unity`): walking into the chest rolls one reward. An item goes to the player's `ItemBag` and the encounter ends, so the item bag window opens (take or sell), like event items. Currency and experience are given at once and shown in the Results window (`OnTreasureResolved`). There is no treasure window.
 
 ### Combat/effect pipeline
 
@@ -294,7 +295,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog and the end screen.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen and the run encounter windows.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -315,7 +316,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`) and Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`) and Restyle Run Encounter Windows (`RunEncounterRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
@@ -399,10 +400,23 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - **Main Menu:** wired in code (`mainMenuButton`). It used to be a UIMain override pointing at another prefab's `PauseMenuController`. It unpauses before `LoadMainMenu`, because the end screen paused the game.
   - **Gamepad:** a `UIWindow` on MainPanel (Primary, AutoFocus, priority 50, default Main Menu). It opens the Stats pane and the Inventory beside it, like the death screen (`showStatsAndInventory`).
   - **Pause:** `PauseMenuController` ignores Pause while it's up (`EndscreenControllerUI.IsShown`), since Resume would unpause the game behind it.
+- **Run encounter windows** (`Prefabs/UI/RunEncounters/`, all in UIMain): center windows with a Big bold **yellow** title. `UIWindow` priority 50.
+  - **Campfire** (`CampfireUI`):
+    - One line from `restedFormat`: "You feel rested. You gained 5 Grace and 10 health.", with the Grace in cyan and the health in green (`FormatRestedText`).
+    - Continue (wired in code) is in the progress spot.
+    - It opens the Stats pane and the Inventory beside it; `CampfireGraceGenerator` no longer touches the UI.
+  - **Results** (`RunEncounterResultUI`): the result lines of an event option or a currency / experience treasure. "Gained…" lines are green and "Lost…" lines red (`ColorizeResultLines`). Continue ends the encounter.
+  - **Event** (`EventEncounterUI`):
+    - **Body:** a `Body` column holds the text (flexible height) above `OptionsContainer`, a bottom-aligned column.
+    - **Options:** each option (`EventOptionButton.prefab`) is a full-width Small button that grows with its wrapped label. Its root VerticalLayoutGroup sizes it, with no root LayoutElement, so `UIStyleButton` doesn't pin it to 32. The label's min height keeps it at least a Small button high.
+    - **Tooltips:** an option's tooltip anchors beside it.
+    - **Art panel:** to the left, the window's size, shown only for events with art.
+  - **Shared helper:** `StatsAndInventoryPanes` (`Game.UI`) opens and closes the two panes beside a window; the death screen, end screen and campfire use it.
 - **Tests:**
   - `UISettingsTests`: the standard, colors, sliced art, canvas scalers, marker.
   - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement, the level-up header, and the end screen (thanks line, gamepad window, Main Menu wired in code).
   - `ConfirmDialogStyleTests`: size, frame, backdrop, message, the button row, the gamepad window, and the three instances (layout, drawn on top).
+  - `RunEncounterStyleTests`: the Campfire line and wiring, the Results colors, the Event body / options / art panel, and the Treasure having no window. The three windows are also `CenterWindowStyleTests` cases; the Event has no fixed progress button.
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
   - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.

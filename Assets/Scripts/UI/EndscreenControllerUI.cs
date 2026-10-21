@@ -30,6 +30,7 @@ namespace Game.UI
         // query) - the boss level has no WaveSpawner.OnAllLevelsFinished to listen to instead,
         // since WaveSpawner is deliberately disabled there.
         private BossWaveHandler bossWaveHandler;
+        private StatsAndInventoryPanes runReview;
 
         /// <summary>The pause menu ignores Pause while this is up: resuming would unpause the game behind it.</summary>
         public bool IsShown => endScreenPanel != null && endScreenPanel.activeSelf;
@@ -102,22 +103,11 @@ namespace Game.UI
             }
         }
 
-        // UI-to-UI lookup only: both panes are fed by gameplay events of their own.
         private void ToggleRunReview(bool show)
         {
-            if (statsPane == null) statsPane = FindAnyObjectByType<StatsPaneUI>(FindObjectsInactive.Include);
-            if (inventoryPane == null) inventoryPane = FindAnyObjectByType<InventoryControllerUI>(FindObjectsInactive.Include);
-
-            if (statsPane != null)
-            {
-                if (show) statsPane.ShowStatsWindow(null);
-                else statsPane.HideStatsWindow(0);
-            }
-            if (inventoryPane != null)
-            {
-                if (show) inventoryPane.ShowInventoryWindow();
-                else inventoryPane.HideInventoryWindow(0);
-            }
+            runReview ??= new StatsAndInventoryPanes(statsPane, inventoryPane);
+            if (show) runReview.Show();
+            else runReview.Hide();
         }
 
         public void OnMainMenuButtonClicked()

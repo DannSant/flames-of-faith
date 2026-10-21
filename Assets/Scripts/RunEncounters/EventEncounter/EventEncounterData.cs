@@ -13,5 +13,8 @@ namespace Game.RunEncounters
         public string fullText;
 
         public List<EventOptionsList> options;
+
+        [Tooltip("Optional art, shown in a panel beside the event window. Empty = no panel.")]
+        public Sprite art;
     }
 }

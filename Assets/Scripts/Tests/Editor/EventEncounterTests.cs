@@ -105,18 +105,17 @@ namespace Game.Tests
         }
 
         [Test]
-        public void EventPane_HasAPlainBackground()
+        public void EventPane_UsesTheWindowFrameNotABackground()
         {
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(EventPanePrefab);
             Assert.IsNotNull(prefab, $"Missing prefab {EventPanePrefab}");
             var ui = prefab.GetComponentInChildren<EventEncounterUI>(true);
             Assert.IsNotNull(ui, "The event pane has no EventEncounterUI");
 
-            var so = new SerializedObject(ui);
-            Assert.IsNull(so.FindProperty("genericBackground")?.objectReferenceValue,
-                "Events use a plain background, like the other windows (no art)");
-            Color plain = so.FindProperty("plainBackgroundColor").colorValue;
-            Assert.Greater(plain.a, 0.5f, "The plain background should be mostly opaque so the text reads");
+            // The framed window is the background, like the other windows; event art goes in the side panel
+            Assert.IsFalse(prefab.GetComponentsInChildren<Transform>(true).Any(t => t.name == "EventBackground"),
+                "The old plain-color background image is still in the event pane");
+            Assert.IsNotNull(new SerializedObject(ui).FindProperty("artPanel")?.objectReferenceValue, "EventEncounterUI.artPanel not set");
         }
     }
 }

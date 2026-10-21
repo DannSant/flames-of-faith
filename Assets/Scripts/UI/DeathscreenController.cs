@@ -16,6 +16,8 @@ namespace Game.UI
         [Tooltip("Optional. Found in the loaded scenes when empty.")]
         [SerializeField] private InventoryControllerUI inventoryPane;
 
+        private StatsAndInventoryPanes runReview;
+
         private void Start()
         {
             deathScreenPanel.SetActive(false);
@@ -50,22 +52,11 @@ namespace Game.UI
             }
         }
 
-        // UI-to-UI lookup only: both panes are fed by gameplay events of their own.
         private void ToggleRunReview(bool show)
         {
-            if (statsPane == null) statsPane = FindAnyObjectByType<StatsPaneUI>(FindObjectsInactive.Include);
-            if (inventoryPane == null) inventoryPane = FindAnyObjectByType<InventoryControllerUI>(FindObjectsInactive.Include);
-
-            if (statsPane != null)
-            {
-                if (show) statsPane.ShowStatsWindow(null);
-                else statsPane.HideStatsWindow(0);
-            }
-            if (inventoryPane != null)
-            {
-                if (show) inventoryPane.ShowInventoryWindow();
-                else inventoryPane.HideInventoryWindow(0);
-            }
+            runReview ??= new StatsAndInventoryPanes(statsPane, inventoryPane);
+            if (show) runReview.Show();
+            else runReview.Hide();
         }
 
         public void OnRetryButtonClicked()

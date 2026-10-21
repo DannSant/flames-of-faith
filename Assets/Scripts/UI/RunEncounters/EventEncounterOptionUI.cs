@@ -52,7 +52,8 @@ namespace Game.UI.RunEncounters
                 return;
             }
 
-            generalTooltipPaneUI?.ShowTooltip(tooltip);
+            // Beside the option button, not at the pointer
+            generalTooltipPaneUI?.ShowTooltip(tooltip, anchor: (RectTransform)transform);
         }
 
         public void HideTooltip()

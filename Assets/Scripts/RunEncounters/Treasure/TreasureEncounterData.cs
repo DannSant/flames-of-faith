@@ -9,13 +9,8 @@ namespace Game.RunEncounters
 )]
     public class TreasureEncounterData : ScriptableObject
     {
-        [Header("Reward Rules")]
-        public bool allowReject = true;
-
-        [Tooltip("If true, pick one random reward from the list")]
-        public bool pickSingleReward = true;
-
-        [Tooltip("If false, rewardType == Random is resolved here")]
+        [Tooltip("One reward is picked by weight. An item goes to the item bag (take or sell it); " +
+                 "currency and experience are given at once and shown in the Results window.")]
         public List<TreasureRewardEntry> rewardTable;
     }
 }

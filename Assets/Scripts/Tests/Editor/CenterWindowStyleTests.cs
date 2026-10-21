@@ -21,6 +21,7 @@ namespace Game.Tests
         private const string InventoryPath = "Assets/Prefabs/UI/Inventory/InventoryPane.prefab";
         private const string UpgradePath = "Assets/Prefabs/UI/Progression/SelectUpgradePane.prefab";
         private const string EndscreenPath = "Assets/Prefabs/UI/Misc/Endscreen.prefab";
+        private const string CampfirePath = "Assets/Prefabs/UI/RunEncounters/CampfirePane.prefab";
 
         public class WindowCase
         {
@@ -29,7 +30,7 @@ namespace Game.Tests
             public string title;
             public UIFontSize titleSize;
             public UIColorRole titleColor;
-            public string progressButton;
+            public string progressButton; // null: the window has no fixed progress button
             public string[] otherButtons;
             public bool inUIMain;
 
@@ -75,6 +76,25 @@ namespace Game.Tests
                 prefab = EndscreenPath, frame = "MainPanel", title = "Title",
                 titleSize = UIFontSize.Display, titleColor = UIColorRole.Highlight,
                 progressButton = "MainMenuButton", otherButtons = new string[0], inUIMain = true,
+            };
+            yield return new WindowCase
+            {
+                prefab = CampfirePath, frame = "MainPanel", title = "Title",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
+                progressButton = "ContinueButton", otherButtons = new string[0], inUIMain = true,
+            };
+            yield return new WindowCase
+            {
+                prefab = "Assets/Prefabs/UI/RunEncounters/ResultsPane.prefab", frame = "MainPanel", title = "Title",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
+                progressButton = "ContinueButton", otherButtons = new string[0], inUIMain = true,
+            };
+            yield return new WindowCase
+            {
+                // The options are spawned at runtime (the last one ends in the progress row): no fixed button
+                prefab = "Assets/Prefabs/UI/RunEncounters/EventEncounterPane.prefab", frame = "MainPanel", title = "EvenTitle",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
+                progressButton = null, otherButtons = new string[0], inUIMain = true,
             };
         }
 
@@ -141,7 +161,7 @@ namespace Game.Tests
         {
             var settings = Settings();
             var root = Load(window.prefab);
-            foreach (string name in window.otherButtons.Append(window.progressButton))
+            foreach (string name in window.otherButtons.Append(window.progressButton).Where(n => n != null))
             {
                 var button = Child(root, name);
                 Assert.AreEqual(UIButtonSize.Small, button.GetComponent<UIStyleButton>()?.Size, $"{name} size role");
@@ -154,7 +174,7 @@ namespace Game.Tests
         [Test]
         public void ProgressButtons_ShareOneSpot()
         {
-            var cases = Windows().ToList();
+            var cases = Windows().Where(w => w.progressButton != null).ToList();
             var first = Child(Load(cases[0].prefab), cases[0].progressButton);
             foreach (var window in cases.Skip(1))
             {

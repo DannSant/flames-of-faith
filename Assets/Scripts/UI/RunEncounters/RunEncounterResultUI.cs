@@ -1,24 +1,31 @@
 using Game.RunEncounters;
 using Game.Scene;
+using Game.UI.Style;
 using Game.Waves;
 using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Game.UI.RunEncounters
 {
+    /// <summary>
+    /// The Results window: what an event option (or a currency / experience treasure) gave and took, one line
+    /// each, gains in green and losses in red. Continue ends the encounter. Layout: RunEncounterRestyler.
+    /// </summary>
     public class RunEncounterResultUI : MonoBehaviour
     {
+        private const string GainedPrefix = "Gained";
+        private const string LostPrefix = "Lost";
+
         [SerializeField] private GameObject mainPanel;
         [SerializeField] private TextMeshProUGUI resultsText;
-        [SerializeField] private float displayDuration = 5f;
 
         [SerializeField] private Button okButton;
 
+        // One-time lookups purely to attach/detach event subscriptions
         private EventEncounterController eventController;
-        private Coroutine autoHideRoutine;
+        private TreasureEncounterController treasureController;
 
         private void Awake()
         {
@@ -39,6 +46,10 @@ namespace Game.UI.RunEncounters
             {
                 eventController.OnEventResolved -= ShowResults;
             }
+            if (treasureController != null)
+            {
+                treasureController.OnTreasureResolved -= ShowResults;
+            }
         }
 
         private void SubscribeToEvents()
@@ -48,41 +59,51 @@ namespace Game.UI.RunEncounters
             {
                 eventController.OnEventResolved += ShowResults;
             }
+
+            treasureController = FindAnyObjectByType<TreasureEncounterController>();
+            if (treasureController != null)
+            {
+                treasureController.OnTreasureResolved += ShowResults;
+            }
         }
 
         public void ShowResults(string results)
         {
-            if (autoHideRoutine != null)
-            {
-                StopCoroutine(autoHideRoutine);
-            }
-
-            resultsText.text = results;
-            mainPanel.SetActive(true);           
+            var settings = UISettings.Instance;
+            resultsText.text = ColorizeResultLines(results,
+                settings != null ? settings.ToHex(UIColorRole.Positive) : "FFFFFF",
+                settings != null ? settings.ToHex(UIColorRole.Negative) : "FFFFFF");
+            mainPanel.SetActive(true);
         }
 
         public void HideResults()
         {
-            if (autoHideRoutine != null)
-            {
-                StopCoroutine(autoHideRoutine);
-                autoHideRoutine = null;
-            }
-
             mainPanel.SetActive(false);
+        }
+
+        /// <summary>
+        /// One result per line ("Gained 10 health", "Lost 5 Grace", "Found item: X"): lines starting with Gained
+        /// take the gained color, lines starting with Lost the lost color, others stay as they are.
+        /// </summary>
+        public static string ColorizeResultLines(string results, string gainedHex, string lostHex)
+        {
+            if (string.IsNullOrEmpty(results)) return string.Empty;
+
+            var lines = results.TrimEnd('\r', '\n').Split('\n');
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string line = lines[i].TrimEnd('\r');
+                if (line.StartsWith(GainedPrefix, StringComparison.Ordinal)) line = $"<color=#{gainedHex}>{line}</color>";
+                else if (line.StartsWith(LostPrefix, StringComparison.Ordinal)) line = $"<color=#{lostHex}>{line}</color>";
+                lines[i] = line;
+            }
+            return string.Join("\n", lines);
         }
 
         private void OnOkButtonClicked()
         {
             HideResults();
             WaveSpawner.Instance.InvokeOnWaveComplete();
-        }
-
-        private IEnumerator AutoHideAfterDelay()
-        {
-            yield return new WaitForSeconds(displayDuration);
-            autoHideRoutine = null;
-            mainPanel.SetActive(false);
         }
     }
 }

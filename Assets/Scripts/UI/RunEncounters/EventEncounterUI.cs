@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 namespace Game.UI.RunEncounters
 {
+    /// <summary>
+    /// The event window: title, text and one button per option (a column at the bottom), plus a panel beside
+    /// it for the event's art when it has any. Layout: RunEncounterRestyler.
+    /// </summary>
     public class EventEncounterUI : MonoBehaviour
     {
         [SerializeField] private GameObject mainPanel;
-        [SerializeField] private Image backgroundImage;
-        [Tooltip("Optional art behind every event (events have no art of their own). Empty = the plain color below.")]
-        [SerializeField] private Sprite genericBackground;
-        [Tooltip("Plain background used when there's no generic background art.")]
-        [SerializeField] private Color plainBackgroundColor = new Color(0.15f, 0.12f, 0.1f, 0.9f);
+        [Tooltip("Panel beside the window that shows the event's art. Hidden for events without art.")]
+        [SerializeField] private GameObject artPanel;
+        [SerializeField] private Image artImage;
         [SerializeField] private TextMeshProUGUI titleText;
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private Transform optionsContainer;
@@ -58,8 +60,8 @@ namespace Game.UI.RunEncounters
             ShowPanel();
             titleText.text = data.title;
             descriptionText.text = data.fullText;
-            backgroundImage.sprite = genericBackground;
-            backgroundImage.color = genericBackground != null ? Color.white : plainBackgroundColor;
+            if (artPanel != null) artPanel.SetActive(data.art != null);
+            if (artImage != null) artImage.sprite = data.art;
             foreach (Transform child in optionsContainer)
             {
                 Destroy(child.gameObject);
