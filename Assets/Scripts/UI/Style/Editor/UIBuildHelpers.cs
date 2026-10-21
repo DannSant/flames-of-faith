@@ -172,6 +172,23 @@ namespace Game.UI.Style.Editor
             return changed;
         }
 
+        /// <summary>Deletes the scene's instances of a prefab that a window no longer uses; a no-op once they're gone.</summary>
+        public static bool RemovePrefabInstances(UnityEngine.SceneManagement.Scene scene, string prefabPath)
+        {
+            bool changed = false;
+            foreach (var root in scene.GetRootGameObjects())
+            {
+                foreach (var transform in root.GetComponentsInChildren<Transform>(true))
+                {
+                    if (transform == null || !PrefabUtility.IsAnyPrefabInstanceRoot(transform.gameObject)) continue;
+                    if (AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromSource(transform.gameObject)) != prefabPath) continue;
+                    Object.DestroyImmediate(transform.gameObject);
+                    changed = true;
+                }
+            }
+            return changed;
+        }
+
         public static void SetLayerRecursively(GameObject go, int layer)
         {
             go.layer = layer;

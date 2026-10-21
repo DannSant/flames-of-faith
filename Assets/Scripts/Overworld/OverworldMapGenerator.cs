@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Overworld
@@ -59,6 +59,7 @@ namespace Game.Overworld
                 mapId = mapDefinition.mapId,
                 seed = actSeed,
                 actNumber = mapDefinition.actNumber,
+                displayName = mapDefinition.displayName,
                 mapMusic = mapDefinition.mapMusic,
                 nodes = new Dictionary<string, RunNode>()
             };

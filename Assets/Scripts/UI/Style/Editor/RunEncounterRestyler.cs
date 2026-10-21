@@ -46,7 +46,7 @@ namespace Game.UI.Style.Editor
 
             UIRevampTools.RunOnScenes(new[] { UIMainScene }, (scene, path) =>
             {
-                bool changed = RemoveInstances(scene, TreasurePath);
+                bool changed = RemovePrefabInstances(scene, TreasurePath);
                 return UpgradeRestyler.SnapSceneInstances(scene, CampfirePath, ResultsPath, EventPath) || changed;
             });
 
@@ -284,24 +284,6 @@ namespace Game.UI.Style.Editor
             label.textWrappingMode = TextWrappingModes.Normal;
             label.overflowMode = TextOverflowModes.Overflow;
             label.raycastTarget = false;
-        }
-
-        // --- UIMain --------------------------------------------------------------------------------------
-
-        private static bool RemoveInstances(UnityEngine.SceneManagement.Scene scene, string prefabPath)
-        {
-            bool changed = false;
-            foreach (var root in scene.GetRootGameObjects())
-            {
-                foreach (var transform in root.GetComponentsInChildren<Transform>(true))
-                {
-                    if (transform == null || !PrefabUtility.IsAnyPrefabInstanceRoot(transform.gameObject)) continue;
-                    if (AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromSource(transform.gameObject)) != prefabPath) continue;
-                    Object.DestroyImmediate(transform.gameObject);
-                    changed = true;
-                }
-            }
-            return changed;
         }
     }
 }

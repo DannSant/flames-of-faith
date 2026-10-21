@@ -60,7 +60,7 @@ Levels have only a few small, convex obstacles (tree trunks on the `Obstacle` la
   - Runtime: `OverworldMapGenerator` seeds a `RunMapState`/`RunMapGraph` (`RunNode`/`RunEdge`) from definitions; `MapRunController` (singleton) owns traversal, fog-of-war reveal, and act progression, and fires events the renderer subscribes to.
   - Rendering: `Scripts/Overworld/Render/` (`OverworldMapRenderer`, `OverworldNodeView`, `OverworldEdgeView`) draws the live graph in-scene.
   - Authoring tool: `Scripts/Overworld/Editor/` — a custom `EditorWindow` (`MapEditorWindow`, menu `Tools/Flames of Faith/Map Editor`) built on UI Toolkit's `GraphView` (`MapGraphView`, `MapNodeView`, sizing constants in `MapEditorConstants`). Editor-authored node positions (`NodeDefinition.editorPosition`) are baked into normalized runtime `worldPosition` via `MapEditorWindow.BakeEditorPositionsToWorldPositions()` (divides by `MapEditorConstants.NodeSpacing`, inverts Y). Toolbar actions `AddNewNode`, `DeleteSelected` and `ValidateMap` are implemented (with Undo).
-  - Gamepad/keyboard: `OverworldGamepadNavigator` moves between nodes with the UI Navigate action and enters a level with Submit. It ignores input while any `UIWindow` has gamepad focus (e.g. the map's Exit button, reached with Browse/Y).
+  - Gamepad/keyboard: `OverworldGamepadNavigator` moves between nodes with the UI Navigate action and enters a level with Submit. It ignores input while any `UIWindow` has gamepad focus (e.g. the map's Exit button, reached with Browse/Y). The map's HUD (act / level / coins window, prompts, the Stats pane opened by `OverworldPlayerStatePresenter`) is under "Map HUD" in UI standards.
   - Generation is deterministic from the seed and the `MapDefinition`s, except which map an act uses (`SetCurrentMapGraph` picks randomly among maps with the same `actNumber`), which is why saves store the `mapId`.
   - **Developer map cheats:**
     - **Where:** the Ctrl+Shift+D window, whose prefab is also in `LevelSelector.unity` because UIMain is unloaded on the map, and `DevTools/Map`.
@@ -303,7 +303,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results, the shop and the skill tree's colors (its layout stays the builder's).
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results, the shop, the skill tree's colors (its layout stays the builder's) and the overworld map HUD.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -324,7 +324,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`), Restyle Run Encounter Windows (`RunEncounterRestyler`), Restyle Wave Results (`WaveSummaryRestyler`) and Restyle Shop (`ShopRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`), Restyle Run Encounter Windows (`RunEncounterRestyler`), Restyle Wave Results (`WaveSummaryRestyler`), Restyle Shop (`ShopRestyler`) and Restyle Map HUD (`LevelSelectorRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
@@ -432,12 +432,29 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - **Item details:** the shared tooltip, anchored beside the slot, with a price line in its detail section (`ShopControllerUI.FormatPriceLine`, red with "Not enough coins"). The shop's own description panel and the "(A) Buy" prompt row are gone.
   - **Bottom:** the "Not enough Golden Chronos" error sits just above Continue, and Continue is wired in code.
   - **Focus:** the window is AutoFocus at priority 50; the shop is modal (player input blocked until Continue).
+- **Map HUD** (LevelSelector scene, prefabs in `Prefabs/UI/LevelSelector/`):
+  - **Map window** (`LevelSelectorUI.prefab`, `OverworldMapInfoUI`): top right, 486 wide, the Stats pane's width and right edge, ending above it. It shows:
+    - the act title (Big, bold, yellow; `OverworldPlayerStatePresenter.FormatActTitle`, "Act I - Jesterwoods", from `RunMapGraph.displayName`);
+    - the level under the player (Small, the current node's `LevelData.DisplayName`; it changes as the player moves);
+    - the coins (Tiny coin, Small);
+    - Save & Exit (Small) with its (Y) prompt.
+
+    The coins were a separate CurrencyPane, merged in. The window stays the Primary, OnDemand `UIWindow`.
+  - **Prompts** (`InputPrompts.prefab`): a framed window bottom left, gamepad only, sized to its rows.
+    - `MapRows` (Move, Enter level, Menu / Stats) show while no window has focus (`GlobalFocusRequirement.NoWindowFocused`).
+    - `MenuRows` (LB/RB Swap windows, B Back) show while the gamepad is in the UI.
+  - **Stats pane:**
+    - **Display:** it shows on every map visit. `OverworldPlayerStatePresenter` opens it on `PlayerManager.OnPlayerDisabledOnMap`, after the player state loads. The map's UI setup event fires earlier, while the stats are still empty, which was the bug.
+    - **Gamepad:** Y enters the UI (the map window), LB/RB reaches the Stats pane, and B goes back to moving on the map.
+  - **Canvas plane:** this scene's canvas is Screen Space - Camera. Its children must stay on the canvas plane: `LevelSelectorRestyler` zeroes their z (the Stats pane sat ~8000 units toward the camera and was clipped on wide screens).
+  - **Level names:** `LevelData.DisplayName` is shown to the player, so keep it readable. `LevelSelectorStyleTests` rejects CamelCase or numbered placeholders.
 - **Tests:**
   - `UISettingsTests`: the standard, colors, sliced art, canvas scalers, marker.
   - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement, the level-up header, and the end screen (thanks line, gamepad window, Main Menu wired in code).
   - `ConfirmDialogStyleTests`: size, frame, backdrop, message, the button row, the gamepad window, and the three instances (layout, drawn on top).
   - `RunEncounterStyleTests`: the Campfire line and wiring, the Results colors, the Event body / options / art panel, and the Treasure having no window. The three windows are also `CenterWindowStyleTests` cases; the Event has no fixed progress button.
   - `WaveSummaryUITests`: row sizes, gold Favors, the column order, Continue as a button, the meter, no leftover child layout overrides in UIMain, the formatting, `GraceBar.GetFills` and the `UIFlight` path.
+  - `LevelSelectorStyleTests`: the map window (place, sizes, title, coins, Exit, OnDemand window), the prompts (frame, gamepad only, the focus rules), the scene (no CurrencyPane, presenter wired, no z offsets, layouts), act titles and Roman numerals, readable level names.
   - `ShopStyleTests`: no leftovers (description panel, prompt row, scroll view), the 5-column grid fits the item cap, the cell nests the Inventory slot with a Tiny coin and Small price, the error above Continue, AutoFocus, no child layout overrides in UIMain, and the price line.
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.

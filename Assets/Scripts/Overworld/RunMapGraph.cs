@@ -9,6 +9,8 @@ namespace Game.Overworld
         public int seed;
 
         public int actNumber;
+        /// <summary>The act's name from its MapDefinition (e.g. "Jesterwoods"), shown on the map.</summary>
+        public string displayName;
         public AudioClip mapMusic;
 
         public Dictionary<string, RunNode> nodes;

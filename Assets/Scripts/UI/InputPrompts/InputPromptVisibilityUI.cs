@@ -17,7 +17,9 @@ namespace Game.UI.InputPrompts
     {
         Ignore,
         AnyWindowFocused,
-        MultipleWindowsOpen
+        MultipleWindowsOpen,
+        // Only while no window has gamepad focus, e.g. the map's movement prompts (appended: stored by index)
+        NoWindowFocused
     }
 
     // Shows/hides input prompts depending on the active input scheme and, optionally, whether a
@@ -35,7 +37,8 @@ namespace Game.UI.InputPrompts
         [Tooltip("Leave empty for prompts that aren't tied to one window - use the requirement below instead.")]
         [SerializeField] private UIWindow window;
         [SerializeField] private WindowFocusCondition focusCondition = WindowFocusCondition.Any;
-        [Tooltip("AnyWindowFocused: only while the gamepad is in the UI. MultipleWindowsOpen: only when LB/RB have somewhere to go.")]
+        [Tooltip("AnyWindowFocused: only while the gamepad is in the UI. MultipleWindowsOpen: only when LB/RB have somewhere to go. " +
+                 "NoWindowFocused: only while the gamepad is out of the UI (e.g. moving on the map).")]
         [SerializeField] private GlobalFocusRequirement globalRequirement = GlobalFocusRequirement.Ignore;
 
         private CanvasGroup canvasGroup;
@@ -117,10 +120,9 @@ namespace Game.UI.InputPrompts
             if (visible && globalRequirement != GlobalFocusRequirement.Ignore)
             {
                 var focusManager = UIFocusManager.Instance;
-                visible = focusManager != null
-                    && focusManager.FocusedWindow != null
-                    && (globalRequirement == GlobalFocusRequirement.AnyWindowFocused
-                        || focusManager.CountCyclableWindows() > 1);
+                visible = MeetsGlobalRequirement(globalRequirement,
+                    focusManager != null && focusManager.FocusedWindow != null,
+                    focusManager != null ? focusManager.CountCyclableWindows() : 0);
             }
 
             if (targets != null && targets.Length > 0)
@@ -134,6 +136,18 @@ namespace Game.UI.InputPrompts
             {
                 canvasGroup.alpha = visible ? 1f : 0f;
                 canvasGroup.blocksRaycasts = visible;
+            }
+        }
+
+        /// <summary>Whether a prompt with this requirement shows, given whether a window has gamepad focus and how many LB/RB can reach.</summary>
+        public static bool MeetsGlobalRequirement(GlobalFocusRequirement requirement, bool anyWindowFocused, int cyclableWindows)
+        {
+            switch (requirement)
+            {
+                case GlobalFocusRequirement.AnyWindowFocused: return anyWindowFocused;
+                case GlobalFocusRequirement.MultipleWindowsOpen: return anyWindowFocused && cyclableWindows > 1;
+                case GlobalFocusRequirement.NoWindowFocused: return !anyWindowFocused;
+                default: return true;
             }
         }
     }
