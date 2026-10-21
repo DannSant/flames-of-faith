@@ -136,7 +136,6 @@ namespace Game.Tests
         }
 
         [TestCase("Assets/Prefabs/UI/Shop/ShopPane.prefab", "ErrorText", UIColorRole.Negative)]
-        [TestCase("Assets/Prefabs/UI/Misc/Endscreen.prefab", "Title", UIColorRole.Highlight)]
         public void NotYetRestyledTexts_UseTheirColorRole(string prefabPath, string objectName, UIColorRole role)
         {
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);

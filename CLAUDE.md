@@ -264,7 +264,7 @@ Code is in `Scripts/Saving/`. `RunSaveService` (static) writes `RunSaveData` to 
   - Main menu: Load Game is disabled and tinted when there's no save, and New Game warns before deleting the save.
   - Pause menu: `SaveAndExit` warns that the level's progress is lost.
   - Map: `ExitGame` saves, then goes to the main menu.
-  - The warnings use the reusable `ConfirmDialogUI` (`Show(message, onConfirm, onCancel)`, prefab `Prefabs/UI/Misc/ConfirmDialogUI.prefab`).
+  - The warnings use the reusable `ConfirmDialogUI` (`Show(message, onConfirm, onCancel)`, or the OK-only `ShowInfo(message, onClose)`; prefab `Prefabs/UI/Misc/ConfirmDialogUI.prefab`).
 
 ### Gamepad & UI navigation
 
@@ -294,7 +294,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane and the shared tooltip.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog and the end screen.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -315,12 +315,13 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`) and Restyle Tooltip (`TooltipRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`) and Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
     - `SceneInstanceLayout.AssertMatchesPrefab` (tests) guards it.
   - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `<Restyler>.Restyle`).
+  - **Revert before you snap:** `PrefabUtility.RevertPropertyOverride` on a scene instance reloads it from its recorded overrides, which drops a root layout snapped earlier in the same pass (`ConfirmEndscreenRestyler` reverts the old onClick wiring first).
   - **Helpers:** `UIBuildHelpers` has find-or-create, place/stretch and style helpers for the next windows' restylers.
 - **Gamepad selection frame:** `UISelectionMarkerUI` wraps the selected element. The frame's position is computed in its parent's local space from the element's corners (`SelectionFrameMath`), so it works at any canvas scale and on Screen Space Camera canvases. It slides between elements and pulses.
   - A `UIWindow` can only override the padding now. The old per-window arrow offsets are gone.
@@ -387,9 +388,21 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
     - The scrollbar auto-hides and has navigation None, so the gamepad never lands on it.
   - **Gotcha:** every graphic inside scrolled content must be **maskable**. The row texts were not, so they drew outside the list. `StatsStyleTests` guards it.
   - **StatRow:** a full-width, 32-high band (the slot frame at low alpha that brightens on hover and select; the Selectable's target graphic, so the gamepad frame wraps the whole row), a Tiny star, a name, and a green/red value. The name stays white.
+- **Confirm dialog** (`ConfirmDialogUI`, prefab `Prefabs/UI/Misc/ConfirmDialogUI.prefab`):
+  - **Layout:** a 400×160 framed `Window` with a Small centered message, and OK | Cancel as Small 160×32 buttons in a centered `Buttons` row (a HorizontalLayoutGroup). No title: the message is the question.
+  - **Modal backdrop:** the `Panel` the script toggles is a 4000×4000 dim image (`UISettings.modalBackdropColor`) centered on the dialog. It blocks clicks on the windows behind. It is fixed-size because the dialog's parent differs in each place.
+  - **API:** `Show(message, onConfirm, onCancel)` asks a question. `ShowInfo(message, onClose)` hides Cancel, so OK is centered and the gamepad lands on it (the main menu's locked-class message).
+  - **Gamepad:** the Panel's `UIWindow` is Primary, AutoFocus, priority 101, default Cancel, and B → `Cancel`.
+  - **Instances:** the MainMenu scene, plus nested in `PauseMenu.prefab` and `ShopPane.prefab`, where it is the last sibling. The restyler snaps the scene instance and the nested ones (their root layout overrides live in those prefabs).
+- **End screen** (`Endscreen.prefab` in UIMain, `EndscreenControllerUI`), shown after the boss or the last level:
+  - **Layout:** a center window like the death screen. VICTORY is the second Display headline exception, in yellow, followed by a Small "Thanks for playing the demo!" line. Main Menu sits in the progress spot.
+  - **Main Menu:** wired in code (`mainMenuButton`). It used to be a UIMain override pointing at another prefab's `PauseMenuController`. It unpauses before `LoadMainMenu`, because the end screen paused the game.
+  - **Gamepad:** a `UIWindow` on MainPanel (Primary, AutoFocus, priority 50, default Main Menu). It opens the Stats pane and the Inventory beside it, like the death screen (`showStatsAndInventory`).
+  - **Pause:** `PauseMenuController` ignores Pause while it's up (`EndscreenControllerUI.IsShown`), since Resume would unpause the game behind it.
 - **Tests:**
   - `UISettingsTests`: the standard, colors, sliced art, canvas scalers, marker.
-  - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement and the level-up header.
+  - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement, the level-up header, and the end screen (thanks line, gamepad window, Main Menu wired in code).
+  - `ConfirmDialogStyleTests`: size, frame, backdrop, message, the button row, the gamepad window, and the three instances (layout, drawn on top).
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
   - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.

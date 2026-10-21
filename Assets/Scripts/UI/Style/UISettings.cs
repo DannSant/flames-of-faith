@@ -103,6 +103,8 @@ namespace Game.UI.Style
         [Tooltip("The shared tooltip's frame opacity: a little of the game shows through.")]
         [Range(0f, 1f)]
         [SerializeField] private float tooltipOpacity = 0.9f;
+        [Tooltip("Dims the screen behind a modal window (the confirm dialog) and blocks clicks on what's behind it.")]
+        [SerializeField] private Color modalBackdropColor = new Color(0f, 0f, 0f, 0.6f);
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]
         [Min(0.01f)]
         [SerializeField] private float framePixelsPerUnitMultiplier = 1f;
@@ -155,6 +157,7 @@ namespace Game.UI.Style
         public Sprite SolidFill => solidFill;
         public Color FrameTint => frameTint;
         public float TooltipOpacity => tooltipOpacity;
+        public Color ModalBackdropColor => modalBackdropColor;
         public float FramePixelsPerUnitMultiplier => framePixelsPerUnitMultiplier;
         public Sprite SelectionFrame => selectionFrame;
         public Color SelectionColor => selectionColor;

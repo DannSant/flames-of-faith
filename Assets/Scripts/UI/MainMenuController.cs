@@ -169,7 +169,7 @@ namespace Game.UI
             {
                 if (confirmDialog != null)
                 {
-                    confirmDialog.Show(string.Format(classLockedMessage, className, GetUnlockCost(characterClass)), null);
+                    confirmDialog.ShowInfo(string.Format(classLockedMessage, className, GetUnlockCost(characterClass)));
                 }
                 return;
             }

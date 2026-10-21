@@ -108,7 +108,6 @@ namespace Game.UI.Style.Editor
         private static readonly (string prefab, string objectName, UIColorRole role)[] ColorRoles =
         {
             ("Assets/Prefabs/UI/Shop/ShopPane.prefab", "ErrorText", UIColorRole.Negative),
-            ("Assets/Prefabs/UI/Misc/Endscreen.prefab", "Title", UIColorRole.Highlight),
         };
 
         [MenuItem("Tools/Flames of Faith/UI Revamp/Apply Color Roles")]

@@ -6,9 +6,11 @@ using UnityEngine.UI;
 namespace Game.UI
 {
     /// <summary>
-    /// Generic Yes/No dialog. Callers pass the message and what to do on each answer.
-    /// Put a UIWindow on the panel (Primary, AutoFocus, a priority above the window it opens from,
-    /// default selectable = Cancel, OnCancel -> ConfirmDialogUI.Cancel) to get gamepad focus.
+    /// Generic Yes/No dialog. Callers pass the message and what to do on each answer; ShowInfo is the
+    /// OK-only variant for messages that ask nothing. The panel is a modal backdrop (it blocks clicks on
+    /// the windows behind) holding the framed window; its UIWindow (Primary, AutoFocus, a priority above
+    /// the window it opens from, default selectable = Cancel, OnCancel -> ConfirmDialogUI.Cancel) gives
+    /// it gamepad focus. Layout: ConfirmEndscreenRestyler.
     /// </summary>
     public class ConfirmDialogUI : MonoBehaviour
     {
@@ -37,10 +39,13 @@ namespace Game.UI
 
         public void Show(string message, Action onConfirm, Action onCancel = null)
         {
-            this.onConfirm = onConfirm;
-            this.onCancel = onCancel;
-            messageText.SetText(message);
-            panel.SetActive(true);
+            Open(message, onConfirm, onCancel, showCancel: true);
+        }
+
+        /// <summary>A message with only OK. OK and Cancel (B) both close it and run onClose.</summary>
+        public void ShowInfo(string message, Action onClose = null)
+        {
+            Open(message, onClose, onClose, showCancel: false);
         }
 
         public void Confirm()
@@ -55,6 +60,16 @@ namespace Game.UI
             var callback = onCancel;
             Close();
             callback?.Invoke();
+        }
+
+        private void Open(string message, Action onConfirm, Action onCancel, bool showCancel)
+        {
+            this.onConfirm = onConfirm;
+            this.onCancel = onCancel;
+            messageText.SetText(message);
+            // Before the panel opens: with Cancel hidden, the window's gamepad focus falls back to OK
+            cancelButton.gameObject.SetActive(showCancel);
+            panel.SetActive(true);
         }
 
         private void Close()

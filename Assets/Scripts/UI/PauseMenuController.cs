@@ -22,6 +22,7 @@ namespace Game.UI
         private bool isPaused = false;
         private StatsPaneUI statsPaneUI;
         private InventoryControllerUI inventoryControllerUI;
+        private EndscreenControllerUI endscreen;
         private LevelData levelData;
 
 
@@ -33,6 +34,7 @@ namespace Game.UI
 
             statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
             inventoryControllerUI = FindAnyObjectByType<InventoryControllerUI>();
+            endscreen = FindAnyObjectByType<EndscreenControllerUI>();
 
             if (settingsWindow != null)
             {
@@ -66,6 +68,12 @@ namespace Game.UI
             // The UI map stays on after death (for the death screen), but there's nothing to pause then
             var playerHealth = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<PlayerHealth>() : null;
             if (!isPaused && playerHealth != null && playerHealth.IsDead())
+            {
+                return;
+            }
+
+            // Nor over the end screen: it paused the game itself, and Resume would unpause it behind
+            if (!isPaused && endscreen != null && endscreen.IsShown)
             {
                 return;
             }

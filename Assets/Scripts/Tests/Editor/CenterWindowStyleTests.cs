@@ -20,6 +20,7 @@ namespace Game.Tests
     {
         private const string InventoryPath = "Assets/Prefabs/UI/Inventory/InventoryPane.prefab";
         private const string UpgradePath = "Assets/Prefabs/UI/Progression/SelectUpgradePane.prefab";
+        private const string EndscreenPath = "Assets/Prefabs/UI/Misc/Endscreen.prefab";
 
         public class WindowCase
         {
@@ -67,6 +68,13 @@ namespace Game.Tests
                 prefab = "Assets/Prefabs/UI/ItemBag/ItemBagPane.prefab", frame = "MainPanel", title = "TitleText",
                 titleSize = UIFontSize.Big, titleColor = UIColorRole.Text,
                 progressButton = "TakeButton", otherButtons = new[] { "SellButton" }, inUIMain = true,
+            };
+            yield return new WindowCase
+            {
+                // VICTORY mirrors YOU DIED: the Display headline exception, yellow
+                prefab = EndscreenPath, frame = "MainPanel", title = "Title",
+                titleSize = UIFontSize.Display, titleColor = UIColorRole.Highlight,
+                progressButton = "MainMenuButton", otherButtons = new string[0], inUIMain = true,
             };
         }
 
@@ -227,6 +235,47 @@ namespace Game.Tests
         public void Upgrade_LevelLine(int level, string expected)
         {
             Assert.AreEqual(expected, UpgradeSelectionUI.FormatLevelLine("You are now Level {0}", level));
+        }
+
+        // --- End screen ---------------------------------------------------------------------------------
+
+        [Test]
+        public void Endscreen_HasASmallThanksLine()
+        {
+            var settings = Settings();
+            var subtitle = Child(Load(EndscreenPath), "Subtitle").GetComponent<TMP_Text>();
+            Assert.AreEqual(UIFontSize.Small, subtitle.GetComponent<UIStyleText>()?.Size);
+            Assert.AreEqual(settings.SmallFontSize, subtitle.fontSize);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(subtitle.text));
+        }
+
+        [Test]
+        public void Endscreen_IsAGamepadWindowStartingOnMainMenu()
+        {
+            var root = Load(EndscreenPath);
+            var button = Child(root, "MainMenuButton").GetComponent<Button>();
+            var window = Child(root, "MainPanel").GetComponent<UIWindow>();
+            Assert.IsNotNull(window, "Without a UIWindow the gamepad can't reach Main Menu");
+            var so = new SerializedObject(window);
+            Assert.AreEqual((int)UIWindowRole.Primary, so.FindProperty("role").enumValueIndex);
+            Assert.AreEqual((int)UIWindowFocusMode.AutoFocus, so.FindProperty("focusMode").enumValueIndex);
+            Assert.AreSame(button, so.FindProperty("defaultSelectable").objectReferenceValue);
+        }
+
+        [Test]
+        public void Endscreen_MainMenuIsWiredInCode()
+        {
+            var root = Load(EndscreenPath);
+            var button = Child(root, "MainMenuButton").GetComponent<Button>();
+            var controller = new SerializedObject(root.GetComponent<EndscreenControllerUI>());
+            Assert.AreSame(button, controller.FindProperty("mainMenuButton").objectReferenceValue, "EndscreenControllerUI.mainMenuButton not set");
+            Assert.AreEqual(0, button.onClick.GetPersistentEventCount(), "A persistent call would run besides the code wiring");
+
+            // The old Exit button was wired by a UIMain override to another prefab's PauseMenuController
+            Assert.IsTrue(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(button, out string guid, out long buttonId));
+            string yaml = System.IO.File.ReadAllText("Assets/Scenes/UIMain.unity");
+            StringAssert.DoesNotMatch($@"target: \{{fileID: {buttonId}, guid: {guid}, type: 3\}}\s+propertyPath: m_OnClick", yaml,
+                "UIMain still overrides the Main Menu button's onClick");
         }
     }
 }

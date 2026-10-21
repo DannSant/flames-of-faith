@@ -1,24 +1,48 @@
 using Game.Boss;
 using Game.GameSettings;
+using Game.Scene;
 using Game.Waves;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI
 {
     public class EndscreenControllerUI : MonoBehaviour
     {
         [SerializeField] private GameObject endScreenPanel;
+        [SerializeField] private Button mainMenuButton;
 
         [Tooltip("Delay before the panel appears, so the boss's death animation gets to play " +
             "instead of being covered immediately. Demo-only screen, so this is a plain wait " +
             "rather than something tied to the animation's actual length.")]
         [SerializeField] private float showDelay = 2f;
 
+        [Header("Run review")]
+        [Tooltip("Also open the Stats pane and the Inventory with the end screen, so the player can look over the winning build.")]
+        [SerializeField] private bool showStatsAndInventory = true;
+        [Tooltip("Optional. Found in the loaded scenes when empty.")]
+        [SerializeField] private StatsPaneUI statsPane;
+        [Tooltip("Optional. Found in the loaded scenes when empty.")]
+        [SerializeField] private InventoryControllerUI inventoryPane;
+
         // One-time lookup purely to attach/detach an event subscription (wiring, not a data
         // query) - the boss level has no WaveSpawner.OnAllLevelsFinished to listen to instead,
         // since WaveSpawner is deliberately disabled there.
         private BossWaveHandler bossWaveHandler;
+
+        /// <summary>The pause menu ignores Pause while this is up: resuming would unpause the game behind it.</summary>
+        public bool IsShown => endScreenPanel != null && endScreenPanel.activeSelf;
+
+        private void Awake()
+        {
+            if (mainMenuButton != null) mainMenuButton.onClick.AddListener(OnMainMenuButtonClicked);
+        }
+
+        private void OnDestroy()
+        {
+            if (mainMenuButton != null) mainMenuButton.onClick.RemoveListener(OnMainMenuButtonClicked);
+        }
 
         private void Start()
         {
@@ -69,6 +93,42 @@ namespace Game.UI
             {
                 PauseManager.Instance.SetPause(true);
             }
+
+            // Opened after the end screen: they're Secondary windows, so the end screen keeps
+            // gamepad focus and LB/RB reach them.
+            if (showStatsAndInventory)
+            {
+                ToggleRunReview(true);
+            }
+        }
+
+        // UI-to-UI lookup only: both panes are fed by gameplay events of their own.
+        private void ToggleRunReview(bool show)
+        {
+            if (statsPane == null) statsPane = FindAnyObjectByType<StatsPaneUI>(FindObjectsInactive.Include);
+            if (inventoryPane == null) inventoryPane = FindAnyObjectByType<InventoryControllerUI>(FindObjectsInactive.Include);
+
+            if (statsPane != null)
+            {
+                if (show) statsPane.ShowStatsWindow(null);
+                else statsPane.HideStatsWindow(0);
+            }
+            if (inventoryPane != null)
+            {
+                if (show) inventoryPane.ShowInventoryWindow();
+                else inventoryPane.HideInventoryWindow(0);
+            }
+        }
+
+        public void OnMainMenuButtonClicked()
+        {
+            ToggleRunReview(false);
+            // The end screen paused the game; the menu must not start frozen
+            if (PauseManager.Instance != null)
+            {
+                PauseManager.Instance.SetPause(false);
+            }
+            MainSceneController.Instance.LoadMainMenu();
         }
     }
 
