@@ -37,7 +37,6 @@ namespace Game.UI.SkillTree
         [SerializeField] private List<TextMeshProUGUI> tabLabels = new();
         [SerializeField] private Sprite tabSprite;
         [SerializeField] private Sprite tabSelectedSprite;
-        [SerializeField] private Color lockedTabTextColor = new Color(0.6f, 0.6f, 0.6f);
 
         [Header("Tree")]
         [SerializeField] private Button rootButton;
@@ -137,11 +136,15 @@ namespace Game.UI.SkillTree
         private void Render()
         {
             if (view == null) return;
+            var settings = UISettings.Instance;
 
             if (favorsText != null)
             {
                 favorsText.text = string.Format(view.sharedFavorPool ? sharedFavorsFormat : favorsFormat, view.favors);
+                if (settings != null) favorsText.color = settings.FavorsColor;
             }
+            // The footer is the cost in Favors
+            if (detailsFooter != null && settings != null) detailsFooter.color = settings.FavorsColor;
 
             for (int i = 0; i < tabButtons.Count; i++)
             {
@@ -159,7 +162,7 @@ namespace Game.UI.SkillTree
                 if (i < tabLabels.Count && tabLabels[i] != null)
                 {
                     tabLabels[i].text = tab.unlocked ? tab.name : tab.name + lockedSuffix;
-                    tabLabels[i].color = tab.unlocked ? Color.white : lockedTabTextColor;
+                    if (settings != null) tabLabels[i].color = GetTabLabelColor(selected, tab.unlocked, settings);
                 }
             }
 
@@ -186,6 +189,13 @@ namespace Game.UI.SkillTree
         {
             focusedNodeId = nodeId;
             RenderDetails();
+        }
+
+        /// <summary>A class tab's label, like the Stats pane's tabs: yellow when selected, white, or muted while the class is locked.</summary>
+        public static Color GetTabLabelColor(bool selected, bool unlocked, UISettings settings)
+        {
+            if (selected) return settings.HighlightColor;
+            return unlocked ? settings.TextColor : settings.MutedTextColor;
         }
 
         private void RenderDetails()

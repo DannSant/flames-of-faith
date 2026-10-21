@@ -303,7 +303,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results and the shop.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results, the shop and the skill tree's colors (its layout stays the builder's).
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -320,7 +320,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - `UIStyleText` with color role None leaves the color to a script (e.g. `GraceBar`). It also turns off TMP vertex gradients, which tint whatever color a script sets. Its `bold` flag only touches the Bold bit.
   - `UIStyleGrid` sets a GridLayoutGroup's cells to an icon size and its spacing to `UISettings.Spacing`.
   - `UIStyleColor` applies only a color role, for texts in windows not restyled yet (`Tools/.../Apply Color Roles`). No window needs it since the shop's restyle.
-  - Scripts that color text at runtime read `UISettings` too: `GraceBar`, `WaveUI`, `AutoAttackIndicatorUI`, `StatsPaneUI` (values and the selected tab), the skill tree (MAX, next tier, pips) and the upgrade preview.
+  - Scripts that color text at runtime read `UISettings` too: `GraceBar`, `WaveUI`, `AutoAttackIndicatorUI`, `StatsPaneUI` (values and the selected tab), the skill tree (MAX, next tier, pips, the Favors counter and cost footer in Favors gold, and the class tabs like the Stats pane's: yellow when selected, muted while locked; `SkillTreeUI.GetTabLabelColor`) and the upgrade preview.
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
