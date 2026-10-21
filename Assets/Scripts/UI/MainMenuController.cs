@@ -5,7 +5,8 @@ using Game.Effects;
 using Game.Saving;
 using Game.Scene;
 using Game.UI.Navigation;
-using NUnit.Framework;
+using Game.UI.Overworld;
+using Game.UI.Style;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,55 +15,93 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>
+    /// The main menu: the menu panel, the class select and the Settings panel, all resting at their spot on the right.
+    /// Switching panels fades and slides the old one out and the new one in (in code, on unscaled time).
+    /// Class select: clicking (or moving onto) a card chooses the class, hovering previews another; Start Run starts.
+    /// Layout: MainMenuRestyler.
+    /// </summary>
     public class MainMenuController : MonoBehaviour
     {
 
         [Header("Gamepad navigation")]
         [Tooltip("UIWindows on the three panels, set to Manual open mode - the panels stay active and " +
-                 "animate off screen, so the focus system is told which one is showing.")]
+                 "fade in and out in place, so the focus system is told which one is showing.")]
         [SerializeField] private UIWindow mainPanelWindow;
         [SerializeField] private UIWindow characterSelectWindow;
         [SerializeField] private UIWindow settingsWindow;
 
-        [Header("Class Info Display")]
+        [Header("Transitions")]
+        [Tooltip("How long the panel being left takes to fade out (unscaled seconds).")]
+        [SerializeField] private float hideDuration = 0.15f;
+        [Tooltip("How long the panel being opened takes to fade in (unscaled seconds).")]
+        [SerializeField] private float showDuration = 0.25f;
+        [Tooltip("How far (canvas units) a panel slides to the right as it fades out, and from where it slides in.")]
+        [SerializeField] private float slideDistance = 60f;
+
+        [Header("Class select")]
+        [Tooltip("The classes in GameSession.SelectedPlayerIndex order (PlayerManager's player prefabs).")]
+        [SerializeField] private CharacterClassData[] classesByPlayerIndex;
+        [SerializeField] private Button startRunButton;
+        [SerializeField] private SkillTreeController skillTree;
         [SerializeField] private TextMeshProUGUI classNameText;
         [SerializeField] private TextMeshProUGUI classDescriptionText;
         [SerializeField] private TextMeshProUGUI itemNameText;
         [SerializeField] private TextMeshProUGUI itemDescriptionText;
+        [Tooltip("Green when the class can be played, red with the unlock cost while it's locked.")]
+        [SerializeField] private TextMeshProUGUI classFooterText;
+        [SerializeField] private string unlockedText = "Unlocked";
+        [Tooltip("Footer of a locked class. {0} = unlock cost in Favors.")]
+        [SerializeField] private string classLockedInfo = "Locked. Unlock it in the skill tree for {0} Favors.";
+        [Tooltip("Shown when Start Run is pressed on a locked class. {0} = class name, {1} = unlock cost in Favors.")]
+        [SerializeField] private string classLockedMessage = "{0} is locked. Unlock it in the skill tree for {1} Favors.";
 
         [Header("Saved Run")]
         [Tooltip("Continues the saved run. Disabled when there is no save.")]
         [SerializeField] private Button loadGameButton;
         [Tooltip("Tint of the Load Game button's image while there is no save, so it reads as grayed out.")]
         [SerializeField] private Color loadGameDisabledTint = new Color32(82, 57, 57, 255);
+        [Tooltip("Optional. The saved run under Load Game.")]
+        [SerializeField] private TextMeshProUGUI saveInfoText;
+        [Tooltip("{0} = class, {1} = act in Roman numerals, {2} = character level.")]
+        [SerializeField] private string saveInfoFormat = "{0} - Act {1} - Level {2}";
+        [SerializeField] private string noSaveText = "No saved run";
         [SerializeField] private ConfirmDialogUI confirmDialog;
         [TextArea]
         [SerializeField] private string newGameOverwriteWarning = "Starting a new game will delete your current run. Continue?";
-        [Tooltip("Shown when a locked class is picked. {0} = class name, {1} = unlock cost in Favors.")]
-        [SerializeField] private string classLockedMessage = "{0} is locked. Unlock it in the skill tree for {1} Favors.";
-        [Tooltip("Added to a locked class's description. {0} = unlock cost in Favors.")]
-        [SerializeField] private string classLockedInfo = "<color=#B0B0B0>Locked. Unlock it in the skill tree for {0} Favors.</color>";
 
-        private Animator animator;
         private SettingsPanelController settingsPanel;
+        private readonly Dictionary<UIWindow, Vector2> shownPositions = new();
+        private readonly List<ClassSelectHoverButton> cards = new();
+        private Coroutine transition;
+        private int selectedIndex = -1;
+
+        private bool Transitioning => transition != null;
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
+            // The panels rest at their shown spot; remember it before hiding the ones that start closed
+            foreach (var window in new[] { mainPanelWindow, characterSelectWindow, settingsWindow })
+            {
+                if (window != null) shownPositions[window] = ((RectTransform)window.transform).anchoredPosition;
+            }
         }
 
         private void Start()
         {
-            foreach (var hoverButton in FindObjectsByType<ClassSelectHoverButton>(FindObjectsSortMode.None))
+            cards.AddRange(FindObjectsByType<ClassSelectHoverButton>(FindObjectsInactive.Include, FindObjectsSortMode.None));
+            foreach (var card in cards)
             {
-                hoverButton.OnHoverEnter += ShowClassInfo;
-                hoverButton.OnHoverExit += HideClassInfo;
+                card.OnHoverEnter += ShowClassInfo;
+                card.OnHoverExit += HideClassInfo;
+                card.OnSelected += HandleCardSelected;
             }
+            if (startRunButton != null) startRunButton.onClick.AddListener(StartRun);
 
-            // The menu opens on the main panel; the other two are off screen.
-            if (mainPanelWindow != null) mainPanelWindow.SetOpen(true);
-            if (characterSelectWindow != null) characterSelectWindow.SetOpen(false);
-            if (settingsWindow != null) settingsWindow.SetOpen(false);
+            // The menu opens on the main panel; the other two are hidden in place
+            SetShown(mainPanelWindow, true);
+            SetShown(characterSelectWindow, false);
+            SetShown(settingsWindow, false);
 
             // The settings panel's Back button / Cancel ask whoever opened it to close it
             settingsPanel = settingsWindow != null ? settingsWindow.GetComponentInChildren<SettingsPanelController>(true) : null;
@@ -86,96 +125,118 @@ namespace Game.UI
         {
             RunSaveService.OnSaveChanged -= RefreshLoadGameButton;
             if (settingsPanel != null) settingsPanel.OnCloseRequested -= CloseSettings;
+            if (startRunButton != null) startRunButton.onClick.RemoveListener(StartRun);
 
             if (MetaProgressionManager.Instance != null)
             {
                 MetaProgressionManager.Instance.OnClassUnlocked -= HandleClassUnlocked;
             }
 
-            foreach (var hoverButton in FindObjectsByType<ClassSelectHoverButton>(FindObjectsSortMode.None))
+            foreach (var card in cards)
             {
-                hoverButton.OnHoverEnter -= ShowClassInfo;
-                hoverButton.OnHoverExit -= HideClassInfo;
+                if (card == null) continue;
+                card.OnHoverEnter -= ShowClassInfo;
+                card.OnHoverExit -= HideClassInfo;
+                card.OnSelected -= HandleCardSelected;
             }
         }
+
+        // --- Class select ---------------------------------------------------------------------------------
+
+        private CharacterClassData SelectedClass =>
+            classesByPlayerIndex != null && selectedIndex >= 0 && selectedIndex < classesByPlayerIndex.Length ? classesByPlayerIndex[selectedIndex] : null;
+
+        /// <summary>The class the details show: the one hovered (or gamepad-selected), else the chosen one.</summary>
+        public static CharacterClassData ClassToShow(CharacterClassData hovered, CharacterClassData chosen) => hovered != null ? hovered : chosen;
 
         private void ShowClassInfo(CharacterClassData classData)
         {
-            if (classData == null) return;
+            var shown = ClassToShow(classData, SelectedClass);
+            if (shown == null) return;
 
-            classNameText.text = classData.characterName;
-            classDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(classData.classDescription);
-            if (!IsClassPlayable(classData.characterClass))
-            {
-                classDescriptionText.text += "\n\n" + string.Format(classLockedInfo, GetUnlockCost(classData.characterClass));
-            }
+            var settings = UISettings.Instance;
+            bool playable = IsClassPlayable(shown.characterClass);
+            classNameText.text = shown.characterName;
+            classDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(shown.classDescription);
 
             // The class's weapon at the tier bought in its skill tree
-            var weapon = ClassKits.GetWeapon(classData.characterClass);
-            if (weapon != null)
+            var weapon = ClassKits.GetWeapon(shown.characterClass);
+            itemNameText.text = weapon != null ? weapon.EffectName : string.Empty;
+            if (weapon != null) itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(weapon.Quality);
+            itemDescriptionText.text = weapon != null ? weapon.GetFormattedDescription() : string.Empty;
+
+            if (classFooterText != null)
             {
-                itemNameText.text = weapon.EffectName;
-                itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(weapon.Quality);
-                itemDescriptionText.text = weapon.GetFormattedDescription();
+                classFooterText.text = playable ? unlockedText : string.Format(classLockedInfo, GetUnlockCost(shown.characterClass));
+                if (settings != null) classFooterText.color = playable ? settings.PositiveColor : settings.NegativeColor;
             }
         }
 
-        private void HideClassInfo()
+        // Moving off a card shows the chosen class again (like the item bag's hover preview)
+        private void HideClassInfo() => ShowClassInfo(null);
+
+        // Clicking (or moving onto) a card chooses its class; Start Run starts the run
+        public void SelectWarrior() => SelectClass(0);
+
+        public void SelectArcher() => SelectClass(1);
+
+        public void SelectAugur() => SelectClass(2);
+
+        // With the gamepad, moving onto a card chooses it (like the item bag); the mouse chooses by clicking
+        private void HandleCardSelected(ClassSelectHoverButton card)
         {
-            classNameText.text = "";
-            classDescriptionText.text = "";
-            itemNameText.text = "";
-            itemDescriptionText.text = "";
-        }
-        public void StartNewGame() 
-        { 
-            //MainSceneController.Instance.LoadGameplay();
-            RunSaveService.DeleteSave();
-            MainSceneController.Instance.LoadLevelSelectorScene(true);
+            bool gamepad = InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
+            if (!gamepad || classesByPlayerIndex == null) return;
+            int index = System.Array.IndexOf(classesByPlayerIndex, card.ClassData);
+            if (index >= 0) SelectClass(index);
         }
 
-        public void LoadGame()
+        private void SelectClass(int playerIndex)
         {
-            if (!MainSceneController.Instance.ContinueRun())
+            selectedIndex = playerIndex;
+            var chosen = SelectedClass;
+            foreach (var card in cards)
             {
-                // The save couldn't be used and was deleted
-                RefreshLoadGameButton();
+                card.SetSelected(chosen != null && card.ClassData == chosen);
             }
+            ShowClassInfo(null);
         }
 
-        private void RefreshLoadGameButton()
+        public void StartRun()
         {
-            if (loadGameButton != null)
-            {
-                bool hasSave = RunSaveService.HasSave;
-                loadGameButton.interactable = hasSave;
+            var chosen = SelectedClass;
+            if (Transitioning || chosen == null) return;
 
-                if (loadGameButton.targetGraphic != null)
-                {
-                    loadGameButton.targetGraphic.color = hasSave ? Color.white : loadGameDisabledTint;
-                }
-            }
-        }
-
-        public void SelectWarrior() => SelectClass(0, CharacterClass.Warrior, "Warrior");
-
-        public void SelectArcher() => SelectClass(1, CharacterClass.Archer, "Archer");
-
-        public void SelectAugur() => SelectClass(2, CharacterClass.Mage, "Augur");
-
-        private void SelectClass(int playerIndex, CharacterClass characterClass, string className)
-        {
-            if (!IsClassPlayable(characterClass))
+            if (!IsClassPlayable(chosen.characterClass))
             {
                 if (confirmDialog != null)
                 {
-                    confirmDialog.ShowInfo(string.Format(classLockedMessage, className, GetUnlockCost(characterClass)));
+                    confirmDialog.ShowInfo(string.Format(classLockedMessage, chosen.characterName, GetUnlockCost(chosen.characterClass)));
                 }
                 return;
             }
 
-            GameSession.Instance.SelectedPlayerIndex = playerIndex;
+            GameSession.Instance.SelectedPlayerIndex = selectedIndex;
             StartNewGame();
+        }
+
+        /// <summary>Opens the skill tree on the chosen class (e.g. to unlock it).</summary>
+        public void OpenSkillTreeForSelected()
+        {
+            var chosen = SelectedClass;
+            if (skillTree == null || Transitioning) return;
+            if (chosen != null) skillTree.Open(chosen.characterClass);
+            else skillTree.Open();
+        }
+
+        private int FirstPlayableIndex()
+        {
+            if (classesByPlayerIndex == null) return 0;
+            for (int i = 0; i < classesByPlayerIndex.Length; i++)
+            {
+                if (classesByPlayerIndex[i] != null && IsClassPlayable(classesByPlayerIndex[i].characterClass)) return i;
+            }
+            return 0;
         }
 
         // Without the meta manager (e.g. the menu scene played on its own) every class is playable.
@@ -185,114 +246,156 @@ namespace Game.UI
         private static int GetUnlockCost(CharacterClass characterClass) =>
             SkillTrees.Get(characterClass)?.UnlockCost ?? 0;
 
-        private void HandleClassUnlocked(CharacterClass characterClass) => RefreshClassLocks();
+        private void HandleClassUnlocked(CharacterClass characterClass)
+        {
+            RefreshClassLocks();
+            ShowClassInfo(null);
+        }
 
         private void RefreshClassLocks()
         {
-            foreach (var hoverButton in FindObjectsByType<ClassSelectHoverButton>(FindObjectsSortMode.None))
+            foreach (var card in cards)
             {
-                if (hoverButton.ClassData != null)
+                if (card.ClassData != null)
                 {
-                    hoverButton.SetLocked(!IsClassPlayable(hoverButton.ClassData.characterClass));
+                    card.SetLocked(!IsClassPlayable(card.ClassData.characterClass));
                 }
             }
         }
 
+        // --- New game / Load game -------------------------------------------------------------------------
+
+        public void StartNewGame()
+        {
+            RunSaveService.DeleteSave();
+            MainSceneController.Instance.LoadLevelSelectorScene(true);
+        }
+
+        public void LoadGame()
+        {
+            if (Transitioning) return;
+            if (!MainSceneController.Instance.ContinueRun())
+            {
+                // The save couldn't be used and was deleted
+                RefreshLoadGameButton();
+            }
+        }
+
+        private void RefreshLoadGameButton()
+        {
+            bool hasSave = RunSaveService.TryLoad(out var save);
+            if (loadGameButton != null)
+            {
+                loadGameButton.interactable = hasSave;
+
+                if (loadGameButton.targetGraphic != null)
+                {
+                    loadGameButton.targetGraphic.color = hasSave ? Color.white : loadGameDisabledTint;
+                }
+            }
+
+            if (saveInfoText != null)
+            {
+                var savedClass = hasSave && classesByPlayerIndex != null && save.selectedPlayerIndex >= 0 && save.selectedPlayerIndex < classesByPlayerIndex.Length
+                    ? classesByPlayerIndex[save.selectedPlayerIndex]
+                    : null;
+                saveInfoText.text = hasSave
+                    ? FormatSaveInfo(saveInfoFormat, savedClass != null ? savedClass.characterName : "?", save.map != null ? save.map.actNumber : 1, save.experience.CurrentLevel)
+                    : noSaveText;
+            }
+        }
+
+        /// <summary>The saved run under Load Game: "Warrior - Act I - Level 7".</summary>
+        public static string FormatSaveInfo(string format, string className, int act, int level)
+        {
+            return string.Format(format, className, OverworldPlayerStatePresenter.ToRoman(Mathf.Max(1, act)), Mathf.Max(1, level));
+        }
+
+        // --- Panel switching ------------------------------------------------------------------------------
+
         public void SwitchFromMainPanelToCharacterSelect()
         {
-            // The save is only deleted once a class is picked, so backing out of class select keeps it
+            if (Transitioning) return;
+
+            // The save is only deleted once a run starts, so backing out of class select keeps it
             if (RunSaveService.HasSave && confirmDialog != null)
             {
-                confirmDialog.Show(newGameOverwriteWarning, () => StartCoroutine(SwitchFromMainPanelToCharacterSelectRoutine()));
+                confirmDialog.Show(newGameOverwriteWarning, OpenCharacterSelect);
                 return;
             }
 
-            StartCoroutine(SwitchFromMainPanelToCharacterSelectRoutine());
+            OpenCharacterSelect();
         }
 
-        public IEnumerator SwitchFromMainPanelToCharacterSelectRoutine()
+        private void OpenCharacterSelect()
         {
-            ToggleMainPanel(false);
-            yield return new WaitForSeconds(1f);
-            ToggleCharacterSelect(true);
+            SelectClass(FirstPlayableIndex());
+            Switch(mainPanelWindow, characterSelectWindow);
         }
 
-        public void SwitchFromCharacterSelectToMainPanel()
+        public void SwitchFromCharacterSelectToMainPanel() => Switch(characterSelectWindow, mainPanelWindow);
+
+        public void OpenSettings() => Switch(mainPanelWindow, settingsWindow);
+
+        public void CloseSettings() => Switch(settingsWindow, mainPanelWindow);
+
+        private void Switch(UIWindow from, UIWindow to)
         {
-            StartCoroutine(SwitchFromCharacterSelectToMainPanelRoutine());
+            if (Transitioning) return;
+            transition = StartCoroutine(TransitionRoutine(from, to));
         }
 
-        public IEnumerator SwitchFromCharacterSelectToMainPanelRoutine()
+        // The old panel fades out sliding right, then the new one fades in sliding into place. Unscaled time, so a
+        // paused time scale can't freeze the menu.
+        private IEnumerator TransitionRoutine(UIWindow from, UIWindow to)
         {
-            ToggleCharacterSelect(false);          
-            yield return new WaitForSeconds(1f);
-            ToggleMainPanel(true);
-        }
-
-        private void ToggleMainPanel(bool show)
-        {
-            if (show)
+            if (from != null)
             {
-                animator.SetTrigger("MainPanelShow");
+                from.SetOpen(false);
+                yield return Animate(from, 1f, 0f, 0f, slideDistance, hideDuration);
+                SetShown(from, false);
             }
-            else
+            if (to != null)
             {
-                animator.SetTrigger("MainPanelHide");
+                to.SetOpen(true);
+                yield return Animate(to, 0f, 1f, slideDistance, 0f, showDuration);
+                SetShown(to, true);
             }
-
-            if (mainPanelWindow != null) mainPanelWindow.SetOpen(show);
+            transition = null;
         }
 
-        private void ToggleCharacterSelect(bool show)
+        private IEnumerator Animate(UIWindow window, float fromAlpha, float toAlpha, float fromOffset, float toOffset, float duration)
         {
-            if (show)
+            var rect = (RectTransform)window.transform;
+            var group = window.GetComponent<CanvasGroup>();
+            Vector2 shown = shownPositions.TryGetValue(window, out var position) ? position : rect.anchoredPosition;
+            if (group != null) group.blocksRaycasts = false;
+
+            float elapsed = 0f;
+            while (elapsed < duration)
             {
-                animator.SetTrigger("CharacterSelectShow");
+                elapsed += Time.unscaledDeltaTime;
+                float t = UIFlight.EaseOutCubic(Mathf.Clamp01(elapsed / duration));
+                if (group != null) group.alpha = Mathf.Lerp(fromAlpha, toAlpha, t);
+                rect.anchoredPosition = shown + Vector2.right * Mathf.Lerp(fromOffset, toOffset, t);
+                yield return null;
             }
-            else
+        }
+
+        // Shown: in place, opaque, clickable, open for the gamepad. Hidden: transparent, not clickable, closed.
+        private void SetShown(UIWindow window, bool shown)
+        {
+            if (window == null) return;
+            var rect = (RectTransform)window.transform;
+            var group = window.GetComponent<CanvasGroup>();
+            Vector2 position = shownPositions.TryGetValue(window, out var p) ? p : rect.anchoredPosition;
+            rect.anchoredPosition = shown ? position : position + Vector2.right * slideDistance;
+            if (group != null)
             {
-                animator.SetTrigger("CharacterSelectHide");
+                group.alpha = shown ? 1f : 0f;
+                group.blocksRaycasts = shown;
             }
-
-            if (characterSelectWindow != null) characterSelectWindow.SetOpen(show);
-        }
-
-        public void OpenSettings()
-        {
-            StartCoroutine(OpenSettingsRoutine());
-        }
-
-        public IEnumerator OpenSettingsRoutine()
-        {
-            ToggleMainPanel(false);
-            yield return new WaitForSeconds(1f);
-            ToggleSettingsPanel(true);
-        }
-
-        public void CloseSettings()
-        {
-            StartCoroutine(CloseSettingsRoutine());
-        }
-
-        public IEnumerator CloseSettingsRoutine()
-        {
-            ToggleSettingsPanel(false);
-            yield return new WaitForSeconds(1f);
-            ToggleMainPanel(true);
-        }
-
-        private void ToggleSettingsPanel(bool show)
-        {
-            if (show)
-            {
-                animator.SetTrigger("SettingsShow");
-            }
-            else
-            {
-                animator.SetTrigger("SettingsHide");
-            }
-
-            if (settingsWindow != null) settingsWindow.SetOpen(show);
+            window.SetOpen(shown);
         }
 
         public void ExitGame()

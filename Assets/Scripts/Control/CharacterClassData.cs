@@ -1,6 +1,5 @@
 using Game.Effects;
 using Game.Progression;
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 

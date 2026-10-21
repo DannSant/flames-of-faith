@@ -6,15 +6,22 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
-    // Select/Deselect mirror pointer enter/exit so the class info also updates with gamepad navigation.
+    // A class card in the main menu's class select. Select/Deselect mirror pointer enter/exit so the class info also
+    // updates with gamepad navigation. Shows a "Locked" note while the class is locked and a ring while it's the chosen one.
     public class ClassSelectHoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private CharacterClassData classData;
         [Tooltip("Button tint while the class is locked. It stays selectable, so its info (and unlock cost) can still be read.")]
         [SerializeField] private Color lockedTint = new Color(0.4f, 0.4f, 0.4f, 1f);
+        [Tooltip("Optional. Shown while the class is locked (e.g. a red \"Locked\" note).")]
+        [SerializeField] private GameObject lockedLabel;
+        [Tooltip("Optional. Shown while this is the chosen class.")]
+        [SerializeField] private GameObject selectedMark;
 
         public event Action<CharacterClassData> OnHoverEnter;
         public event Action OnHoverExit;
+        /// <summary>The card got the EventSystem selection (gamepad navigation moved onto it).</summary>
+        public event Action<ClassSelectHoverButton> OnSelected;
 
         public CharacterClassData ClassData => classData;
 
@@ -31,6 +38,12 @@ namespace Game.UI
         public void SetLocked(bool locked)
         {
             if (tintTarget != null) tintTarget.color = locked ? lockedTint : unlockedColor;
+            if (lockedLabel != null) lockedLabel.SetActive(locked);
+        }
+
+        public void SetSelected(bool selected)
+        {
+            if (selectedMark != null) selectedMark.SetActive(selected);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -46,6 +59,7 @@ namespace Game.UI
         public void OnSelect(BaseEventData eventData)
         {
             OnHoverEnter?.Invoke(classData);
+            OnSelected?.Invoke(this);
         }
 
         public void OnDeselect(BaseEventData eventData)

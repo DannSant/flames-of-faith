@@ -27,9 +27,7 @@ namespace Game.UI.Style.Editor
         public const string SettingsPath = "Assets/Prefabs/UI/Menus/SettingsPanel.prefab";
         private const string UIMainScene = "Assets/Scenes/UIMain.unity";
         private const string MainMenuScene = "Assets/Scenes/MainMenu.unity";
-        private static readonly string[] SlideClips = { "Assets/Animation/UI/SettingsShow.anim", "Assets/Animation/UI/HideSettings.anim" };
         // The old on-screen x of the slide (anchor right edge, 535 wide panel)
-        private const float OldShownX = -276.1f;
 
         public const float Width = 640f;
         public const float RowHeight = 32f;
@@ -69,7 +67,6 @@ namespace Game.UI.Style.Editor
             UpgradeRestyler.EditPrefab(PauseDeathRestyler.PausePath, root => AddPauseSettingsButton(root, settings));
             UIRevampTools.RunOnScenes(new[] { UIMainScene }, (scene, path) => PlaceInUIMain(scene, settings));
             UIRevampTools.RunOnScenes(new[] { MainMenuScene }, (scene, path) => FixMainMenuInstance(scene, settings));
-            AdjustSlideClips(settings);
 
             AssetDatabase.SaveAssets();
             Debug.Log("[SettingsRestyler] Settings restyled and added to the pause menu.");
@@ -378,13 +375,15 @@ namespace Game.UI.Style.Editor
             var back = instance.GetComponentsInChildren<Button>(true).First(b => b.name == "BackButton");
             RevertProperty(back, "m_OnClick");
 
-            // Same size as the prefab, still anchored to the right edge for the slide-in (the animation sets x)
+            // Same size as the prefab, resting at its shown spot on the right edge: MainMenuController fades and
+            // slides it in and out from there (the old Animator clips that set x are gone)
             var rect = (RectTransform)instance.transform;
             var source = (RectTransform)PrefabUtility.GetCorrespondingObjectFromSource(instance).transform;
             rect.anchorMin = rect.anchorMax = new Vector2(1f, 0.5f);
             rect.pivot = new Vector2(0.5f, 0.5f);
             rect.sizeDelta = source.sizeDelta;
-            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, source.anchoredPosition.y);
+            rect.anchoredPosition = new Vector2(MainMenuShownX(s), source.anchoredPosition.y);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(rect);
             return true;
         }
 
@@ -392,37 +391,6 @@ namespace Game.UI.Style.Editor
         {
             var prop = new SerializedObject(target).FindProperty(property);
             if (prop != null && prop.prefabOverride) PrefabUtility.RevertPropertyOverride(prop, InteractionMode.AutomatedAction);
-        }
-
-        // The main menu slides the panel in from the right: keep it on screen at the new width
-        private static void AdjustSlideClips(UISettings s)
-        {
-            float shownX = MainMenuShownX(s);
-            foreach (string path in SlideClips)
-            {
-                var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
-                if (clip == null) continue;
-                foreach (var binding in AnimationUtility.GetCurveBindings(clip))
-                {
-                    if (binding.propertyName != "m_AnchoredPosition.x" || !binding.path.EndsWith("SettingsPanel")) continue;
-                    var curve = AnimationUtility.GetEditorCurve(clip, binding);
-                    var keys = curve.keys;
-                    bool changed = false;
-                    for (int i = 0; i < keys.Length; i++)
-                    {
-                        if (keys[i].value < 0f && !Mathf.Approximately(keys[i].value, shownX))
-                        {
-                            keys[i].value = shownX;
-                            changed = true;
-                        }
-                    }
-                    if (!changed) continue;
-                    curve.keys = keys;
-                    AnimationUtility.SetEditorCurve(clip, binding, curve);
-                    EditorUtility.SetDirty(clip);
-                    Debug.Log($"[SettingsRestyler] {path}: shown x {OldShownX} -> {shownX}");
-                }
-            }
         }
     }
 }

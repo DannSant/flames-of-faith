@@ -144,18 +144,23 @@ namespace Game.Tests
         }
 
         [Test]
-        public void MainMenuSlide_KeepsTheWiderPanelOnScreen()
+        public void MainMenu_SettingsRestsOnScreen()
         {
+            // The main menu fades and slides its panels in place (MainMenuController): the instance's own position
+            // is where it shows, so it must be on screen at its width
             var settings = Settings();
-            var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>("Assets/Animation/UI/SettingsShow.anim");
-            Assert.IsNotNull(clip);
-            var binding = AnimationUtility.GetCurveBindings(clip)
-                .First(b => b.propertyName == "m_AnchoredPosition.x" && b.path.EndsWith("SettingsPanel"));
-            float shown = AnimationUtility.GetEditorCurve(clip, binding).keys.Min(k => k.value);
+            var prefab = Load(SettingsPath);
+            Assert.IsTrue(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(prefab.transform, out string guid, out long rootId));
+            string yaml = File.ReadAllText("Assets/Scenes/MainMenu.unity");
+            var match = System.Text.RegularExpressions.Regex.Match(yaml,
+                $@"target: \{{fileID: {rootId}, guid: {guid}, type: 3\}}\s+propertyPath: m_AnchoredPosition\.x\s+value: (\S+)");
+            Assert.IsTrue(match.Success, "The MainMenu SettingsPanel instance doesn't set its x");
+            float shown = float.Parse(match.Groups[1].Value, System.Globalization.CultureInfo.InvariantCulture);
 
-            float width = ((RectTransform)Load(SettingsPath).transform).sizeDelta.x;
+            float width = ((RectTransform)prefab.transform).sizeDelta.x;
             // Anchored to the right edge, pivot centered: the panel's right edge sits at shown + width/2
             Assert.LessOrEqual(shown + width * 0.5f, -settings.Margin + 0.01f, "The panel would stick out of the screen");
+            Assert.Greater(shown - width * 0.5f, -settings.ReferenceResolution.x, "The panel would stick out on the left");
         }
     }
 }

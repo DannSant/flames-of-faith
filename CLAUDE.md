@@ -303,7 +303,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results, the shop, the skill tree's colors (its layout stays the builder's) and the overworld map HUD.
+The UI was redone window by window to one standard (`todo.md`, Priority 2); every window is done: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results, the shop, the skill tree's colors (its layout stays the builder's), the overworld map HUD and the main menu.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -324,7 +324,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`), Restyle Run Encounter Windows (`RunEncounterRestyler`), Restyle Wave Results (`WaveSummaryRestyler`), Restyle Shop (`ShopRestyler`) and Restyle Map HUD (`LevelSelectorRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`), Restyle Run Encounter Windows (`RunEncounterRestyler`), Restyle Wave Results (`WaveSummaryRestyler`), Restyle Shop (`ShopRestyler`), Restyle Map HUD (`LevelSelectorRestyler`) and Restyle Main Menu (`MainMenuRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
@@ -366,7 +366,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
     - Left: Gameplay (auto-attack, lock-on mode, tutorial hints) and Audio.
     - Right: Graphics and Language.
   - **Close:** Back and Cancel call `SettingsPanelController.RequestClose`. Whoever opened it subscribes to `OnCloseRequested` (`MainMenuController`, `PauseMenuController`), so neither scene wires it.
-  - **Main menu:** it still slides in with the MainMenu Animator. The clip's shown x is −(15 + width/2), and `SettingsRestyler` keeps it in step with the width.
+  - **Main menu:** it rests at its shown spot on the right, x = −(15 + width/2) (`SettingsRestyler.MainMenuShownX`, set on the instance), and `MainMenuController` fades and slides it in and out like the other menu panels.
 - **Shared tooltip** (`GeneralTooltipPane`, `GeneralTooltipPaneUI`, one per scene):
   - **API:** `ShowTooltip(description, title, detail, list, anchor)` / `HideTooltip()`.
   - **Layout:**
@@ -432,6 +432,22 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - **Item details:** the shared tooltip, anchored beside the slot, with a price line in its detail section (`ShopControllerUI.FormatPriceLine`, red with "Not enough coins"). The shop's own description panel and the "(A) Buy" prompt row are gone.
   - **Bottom:** the "Not enough Golden Chronos" error sits just above Continue, and Continue is wired in code.
   - **Focus:** the window is AutoFocus at priority 50; the shop is modal (player input blocked until Continue).
+- **Main menu** (`MainMenu.unity`, prefabs `Prefabs/UI/Menus/MainMenuPanel` and `CharacterSelect`, `MainMenuController`):
+  - **Panels:** every one rests at its shown spot on the right at the standard height (645), as does Settings.
+    - **Menu panel:** 400 wide. Its title "Flames of Faith" is Big, bold, yellow (an Inspector text; the scene also has the logo art). The buttons are **Big** (48), and `SaveInfo`, Small muted, sits under Load Game: "Warrior - Act I - Level 7" from `RunSaveService.TryLoad`, or "No saved run" (`FormatSaveInfo`).
+    - **Class select:** 640 wide.
+      - **Cards:** three on the left (`ClassSelectHoverButton`): a portrait, the class name, a red "Locked" note, and the item bag's yellow ring on the chosen one.
+      - **Details:** on the right, like the skill tree's: the name, the description, a yellow "Starting weapon" header, the weapon (`ClassKits.GetWeapon`, quality color) and its text, a green "Unlocked" / red unlock-cost footer, and **Skill Tree**, which opens the tree on that class (`SkillTreeController.Open(class)`).
+      - **Buttons:** Start Run in the progress spot, Back above it.
+  - **Class select flow:**
+    - **Choosing:** a click chooses a class; with the gamepad, moving onto a card chooses it. Hovering previews another class (`ClassToShow`).
+    - **Start Run** starts the run; on a locked class it shows the unlock dialog. Nothing starts from a single click any more.
+    - **Back:** B goes back (the window's `onCancel`).
+    - **Order:** `classesByPlayerIndex` is Warrior, Archer, Augur, the `GameSession.SelectedPlayerIndex` order.
+  - **Transitions:**
+    - **How:** `MainMenuController.Switch` fades and slides the old panel out (0.15 s, `slideDistance` to the right) and the new one in (0.25 s), eased (`UIFlight.EaseOutCubic`) on unscaled time. It only touches alpha, `blocksRaycasts` and position; interactability is left to `UIFocusManager`.
+    - **Input:** clicks are ignored while a panel moves.
+    - **Removed:** the old Animator, its six clips and the 1 s waits.
 - **Map HUD** (LevelSelector scene, prefabs in `Prefabs/UI/LevelSelector/`):
   - **Map window** (`LevelSelectorUI.prefab`, `OverworldMapInfoUI`): top right, 486 wide, the Stats pane's width and right edge, ending above it. It shows:
     - the act title (Big, bold, yellow; `OverworldPlayerStatePresenter.FormatActTitle`, "Act I - Jesterwoods", from `RunMapGraph.displayName`);
@@ -454,6 +470,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - `ConfirmDialogStyleTests`: size, frame, backdrop, message, the button row, the gamepad window, and the three instances (layout, drawn on top).
   - `RunEncounterStyleTests`: the Campfire line and wiring, the Results colors, the Event body / options / art panel, and the Treasure having no window. The three windows are also `CenterWindowStyleTests` cases; the Event has no fixed progress button.
   - `WaveSummaryUITests`: row sizes, gold Favors, the column order, Continue as a button, the meter, no leftover child layout overrides in UIMain, the formatting, `GraceBar.GetFills` and the `UIFlight` path.
+  - `MainMenuStyleTests`: both panels (place, frame, title, Big menu buttons, the saved-run line, cards, details, Start Run / Back), the scene (no Animator, B and Skill Tree wired, controller fields and class order, layouts), the saved-run text and the hover preview rule.
   - `LevelSelectorStyleTests`: the map window (place, sizes, title, coins, Exit, OnDemand window), the prompts (frame, gamepad only, the focus rules), the scene (no CurrencyPane, presenter wired, no z offsets, layouts), act titles and Roman numerals, readable level names.
   - `ShopStyleTests`: no leftovers (description panel, prompt row, scroll view), the 5-column grid fits the item cap, the cell nests the Inventory slot with a Tiny coin and Small price, the error above Continue, AutoFocus, no child layout overrides in UIMain, and the price line.
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
@@ -502,7 +519,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   - `MetaProgressionSettings.unlockAllClasses` (on for tester builds) makes every class playable.
   - The debug cheat window swaps an owned kit item for another tier of its line (`SkillTrees.EquipTier`).
   - `MetaProgressionManager`'s Inspector context menu (Play mode only) adds Favors, upgrades a node, unlocks a class or resets everything.
-- **Main menu:** locked classes are tinted (`ClassSelectHoverButton.SetLocked`), show their unlock cost, and can't start a run. The class panel shows the weapon at its bought tier.
+- **Main menu:** locked classes are tinted with a red "Locked" note (`ClassSelectHoverButton.SetLocked`). Their details footer shows the unlock cost in red, and Start Run shows the unlock dialog instead of starting. The details show the weapon at its bought tier, and the Skill Tree button opens the tree on that class.
 - **Class icon:** `CharacterClassData.icon` is the class's menu icon (skill tree root). Don't reuse `defaultSprite` for it: `CharacterVisual` assigns that one to the player's SpriteRenderer on spawn.
 - **Skill tree screen** (main menu, prefab `Prefabs/UI/Menus/SkillTreePanel.prefab`):
   - `SkillTreeController` (gameplay side, on the always-active prefab root) builds a plain `SkillTreeView` and handles upgrade and unlock requests.
