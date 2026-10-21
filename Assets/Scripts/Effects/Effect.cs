@@ -147,8 +147,17 @@ namespace Game.Effects{
         /// <summary>
         /// Description text with damage-type meta tags colorized, plus an auto-generated
         /// line per stat modifier (e.g. "+2 Melee Damage") appended after a line break.
+        /// The tooltip shows the two parts in separate columns: GetDescriptionText and GetStatLines.
         /// </summary>
         public string GetFormattedDescription()
+        {
+            string statLines = GetStatLines();
+            string text = GetDescriptionText();
+            return string.IsNullOrEmpty(statLines) ? text : text + "\n" + statLines;
+        }
+
+        /// <summary>The description and the ability lines for this item's tier, without the stat lines.</summary>
+        public string GetDescriptionText()
         {
             string result = DamageTypeColorHelper.ColorizeMetaTags(description);
 
@@ -166,19 +175,22 @@ namespace Game.Effects{
                 }
             }
 
-            if (effectStatModifiers != null && effectStatModifiers.Count > 0)
-            {
-                var modifierLines = effectStatModifiers.Select(BuildModifierLine);
-                result += "\n" + string.Join("\n", modifierLines);
-            }
+            return result;
+        }
 
+        /// <summary>One line per stat modifier ("+2 Melee Damage"), then per stat bonus rule. Empty without any.</summary>
+        public string GetStatLines()
+        {
+            var lines = new List<string>();
+            if (effectStatModifiers != null)
+            {
+                lines.AddRange(effectStatModifiers.Select(BuildModifierLine));
+            }
             if (HasStatDependencies)
             {
-                var ruleLines = statDependencies.Where(r => r != null).Select(BuildDependencyLine);
-                result += "\n" + string.Join("\n", ruleLines);
+                lines.AddRange(statDependencies.Where(r => r != null).Select(BuildDependencyLine));
             }
-
-            return result;
+            return string.Join("\n", lines);
         }
 
         // "+1 Armor per Retribution point" / "-1 Attack Speed per 5 Evasion"

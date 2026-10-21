@@ -294,7 +294,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag) and the Stats pane.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane and the shared tooltip.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -315,7 +315,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`) and Restyle Item Bag (`ItemBagRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`) and Restyle Tooltip (`TooltipRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
@@ -356,6 +356,21 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
     - Right: Graphics and Language.
   - **Close:** Back and Cancel call `SettingsPanelController.RequestClose`. Whoever opened it subscribes to `OnCloseRequested` (`MainMenuController`, `PauseMenuController`), so neither scene wires it.
   - **Main menu:** it still slides in with the MainMenu Animator. The clip's shown x is −(15 + width/2), and `SettingsRestyler` keeps it in step with the width.
+- **Shared tooltip** (`GeneralTooltipPane`, `GeneralTooltipPaneUI`, one per scene):
+  - **API:** `ShowTooltip(description, title, detail, list, anchor)` / `HideTooltip()`.
+  - **Layout:**
+    - **Title:** Big, bold.
+    - **Left column:** `GeneralTooltipTxt` (main text), then `DetailedTooltipTxt` (`detail`: stat sources and benefit, upgrade Now/After).
+    - **Right column:** `ListTxt` (`list`: an item's stat lines).
+    - Empty parts hide.
+  - **Size:** the pane is 600 wide; its height follows the content (ContentSizeFitter). The frame is at `UISettings.tooltipOpacity`.
+  - **Raycasts:** the pane never takes raycasts (CanvasGroup), so it can't steal hover or flicker.
+  - **Placement:**
+    - **Anchor:** the given `anchor`, else the gamepad selection, else the pointer.
+    - **Side:** to its right if it fits, else to its left.
+    - **Height:** top-aligned with the anchor, and kept on screen with the margin (pure `TooltipPlacement.TopLeft`).
+    - **Item bag:** anchors to its selected slot.
+  - **Item text:** `Effect.GetDescriptionText()` (description + ability tier lines) and `Effect.GetStatLines()` (modifier + bonus rule lines). `GetFormattedDescription()` still returns both joined, for the shop, main menu and skill tree.
 - **Item bag** (`ItemBagPane`, `ItemBagControllerUI`), the end-of-wave window where each picked-up item is taken or sold:
   - **Header:** "Items found", and "Take or sell each item" in muted text.
   - **Grid:** a 6-column grid of the **Inventory's slot** (`EffectIconUI`, the only item slot prefab; `ItemBagIconButton` is gone).
@@ -378,6 +393,7 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
   - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.
+  - `TooltipStyleTests`: see-through frame, no raycasts, the text and list columns, scene placement, the placement math, and the item text split.
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.

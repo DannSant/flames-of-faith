@@ -100,6 +100,9 @@ namespace Game.UI.Style
         [SerializeField] private Sprite tabSelectedSprite;
         [Tooltip("Thin ring (9-sliced) drawn around the selected slot, tinted with the Highlight color.")]
         [SerializeField] private Sprite selectedOutline;
+        [Tooltip("The shared tooltip's frame opacity: a little of the game shows through.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float tooltipOpacity = 0.9f;
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]
         [Min(0.01f)]
         [SerializeField] private float framePixelsPerUnitMultiplier = 1f;
@@ -151,6 +154,7 @@ namespace Game.UI.Style
         public Sprite BarFill => barFill;
         public Sprite SolidFill => solidFill;
         public Color FrameTint => frameTint;
+        public float TooltipOpacity => tooltipOpacity;
         public float FramePixelsPerUnitMultiplier => framePixelsPerUnitMultiplier;
         public Sprite SelectionFrame => selectionFrame;
         public Color SelectionColor => selectionColor;

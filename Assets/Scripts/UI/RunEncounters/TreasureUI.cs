@@ -74,7 +74,7 @@ namespace Game.UI.RunEncounters
             if (currentReward == null || currentReward.type != TreasureRewardType.Item || currentReward.item == null)
                 return;
 
-            generalTooltipPaneUI?.ShowTooltip(currentReward.item.GetFormattedDescription(), ColorizeItemName(currentReward.item));
+            generalTooltipPaneUI?.ShowTooltip(currentReward.item.GetDescriptionText(), ColorizeItemName(currentReward.item), null, currentReward.item.GetStatLines());
         }
 
         private void HideRewardTooltip()

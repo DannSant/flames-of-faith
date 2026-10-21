@@ -10,12 +10,17 @@ namespace Game.UI.Style
     public class UIStyleFrame : UIStyleBase
     {
         [SerializeField] private UIFrameKind kind = UIFrameKind.Panel;
+        [Tooltip("Multiplies the frame's alpha (1 = opaque), e.g. the tooltip lets the game show through.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float opacity = 1f;
 
         public UIFrameKind Kind => kind;
+        public float Opacity => opacity;
 
-        public void Configure(UIFrameKind kind)
+        public void Configure(UIFrameKind kind, float opacity = 1f)
         {
             this.kind = kind;
+            this.opacity = opacity;
         }
 
         public override bool Apply(UISettings settings)
@@ -33,7 +38,9 @@ namespace Game.UI.Style
                 image.pixelsPerUnitMultiplier = settings.FramePixelsPerUnitMultiplier;
                 changed = true;
             }
-            if (image.color != settings.FrameTint) { image.color = settings.FrameTint; changed = true; }
+            Color tint = settings.FrameTint;
+            tint.a *= opacity;
+            if (image.color != tint) { image.color = tint; changed = true; }
             return changed;
         }
     }

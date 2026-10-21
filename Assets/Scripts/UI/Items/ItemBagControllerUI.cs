@@ -187,7 +187,10 @@ namespace Game.UI.Items
                 tooltipPane = FindAnyObjectByType<GeneralTooltipPaneUI>();
                 if (tooltipPane == null) return;
             }
-            tooltipPane.ShowTooltip(item.GetFormattedDescription(), EffectQualityDisplayHelper.ColorizeName(item));
+            // Pinned beside the item's slot (it stays shown for the selected item while the pointer moves)
+            var slot = icons.Find(icon => icon != null && icon.Effect == item);
+            tooltipPane.ShowTooltip(item.GetDescriptionText(), EffectQualityDisplayHelper.ColorizeName(item), null,
+                item.GetStatLines(), slot != null ? (RectTransform)slot.transform : null);
         }
 
         // The pointer left an item: back to the selected one, which the tooltip keeps showing

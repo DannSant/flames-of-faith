@@ -255,7 +255,7 @@ namespace Game.UI
                 if (tooltipPane == null) return;
             }
 
-            tooltipPane.ShowTooltip(effect.GetFormattedDescription(), EffectQualityDisplayHelper.ColorizeName(effect));
+            tooltipPane.ShowTooltip(effect.GetDescriptionText(), EffectQualityDisplayHelper.ColorizeName(effect), null, effect.GetStatLines());
             showingTooltip = true;
         }
 
