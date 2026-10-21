@@ -135,6 +135,39 @@ namespace Game.Tests
         }
 
         [Test]
+        public void OnlyTheRowsThatApplyAreShown()
+        {
+            // Reported: Corruptor killed fast, no damage taken, no Grace Affinity - yet the damage and Affinity rows
+            // showed the prefab's sample texts ("Corrupted damage taken: 40 -3", "Grace Affinity +1")
+            var instance = (GameObject)PrefabUtility.InstantiatePrefab(LoadSummary().gameObject);
+            try
+            {
+                var summary = instance.GetComponent<WaveCorruptionSummaryUI>();
+                summary.ShowFinalState(new Game.Waves.WaveCorruptionResult
+                {
+                    corruptor = new Game.Waves.CorruptorResult { spawned = true, killed = true, killTime = 13.2f, corruption = 1 },
+                    totalCorruption = 1,
+                    graceBefore = 8f,
+                    graceAfter = 7f,
+                    graceMax = 50f,
+                    favorsEarned = 0,
+                });
+
+                Assert.IsTrue(Ref<TextMeshProUGUI>(summary, "corruptorRowText").gameObject.activeSelf, "Corruptor row");
+                StringAssert.Contains("Corruptor killed in 13.2s", Ref<TextMeshProUGUI>(summary, "corruptorRowText").text);
+                Assert.IsTrue(Ref<TextMeshProUGUI>(summary, "totalCorruptionRowText").gameObject.activeSelf, "Total row");
+                Assert.IsFalse(Ref<TextMeshProUGUI>(summary, "corruptedDamageRowText").gameObject.activeSelf, "No damage taken: no damage row");
+                Assert.IsFalse(Ref<TextMeshProUGUI>(summary, "graceAffinityRowText").gameObject.activeSelf, "No Grace Affinity: no Affinity row");
+                Assert.IsFalse(Ref<TextMeshProUGUI>(summary, "favorsRowText").gameObject.activeSelf, "No Favors: no Favors row");
+                StringAssert.StartsWith("Grace +8 ", Ref<TextMeshProUGUI>(summary, "formulaText").text);
+            }
+            finally
+            {
+                Object.DestroyImmediate(instance);
+            }
+        }
+
+        [Test]
         public void UIMainInstance_HasNoLayoutOverridesOnTheWindowsChildren()
         {
             // The old layout group left the children's anchors as scene overrides; one pinned the title to the bottom

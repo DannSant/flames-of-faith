@@ -151,8 +151,7 @@ namespace Game.UI
         private IEnumerator Play(WaveCorruptionResult result)
         {
             var settings = UISettings.Instance;
-            foreach (var row in BuildRows(result, settings)) row.text.gameObject.SetActive(false);
-            HideRow(favorsRowText);
+            HideAllRows();
             if (formulaText != null) formulaText.text = string.Empty;
             SetMeter(result.graceBefore);
             closeRequested = false;
@@ -233,9 +232,15 @@ namespace Game.UI
             playRoutine = StartCoroutine(WaitAndClose());
         }
 
-        private void ShowFinalState(WaveCorruptionResult result)
+        /// <summary>
+        /// The final state at once (what Skip jumps to): only the rows that apply to this wave, the formula, the
+        /// bar, the Favors and the HUD at their final values.
+        /// </summary>
+        public void ShowFinalState(WaveCorruptionResult result)
         {
+            current = result;
             var settings = UISettings.Instance;
+            HideAllRows();
             foreach (var row in BuildRows(result, settings))
             {
                 row.text.text = FormatRow(row.label, row.value, row.hex);
@@ -425,6 +430,17 @@ namespace Game.UI
         private void Hide()
         {
             if (panel != null) panel.SetActive(false);
+        }
+
+        // Every row, not just the ones that apply: the prefab keeps sample texts in all of them for editing,
+        // and a row this wave doesn't use would otherwise show its sample (e.g. "Corrupted damage taken: 40")
+        private void HideAllRows()
+        {
+            HideRow(corruptorRowText);
+            HideRow(corruptedDamageRowText);
+            HideRow(totalCorruptionRowText);
+            HideRow(graceAffinityRowText);
+            HideRow(favorsRowText);
         }
 
         private static void HideRow(TextMeshProUGUI row)
