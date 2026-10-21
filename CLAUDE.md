@@ -301,7 +301,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 - **Player death** blocks only the Player action map (`PlayerInputHandler` gameplay block). The UI map stays on, so the death screen's Stats pane and Inventory still get Shift, LB/RB and gamepad navigation. `PauseMenuController` ignores Pause while dead.
 - `PauseManager.SetPause` sets `timeScale` to 0. Upgrade selection, the item bag and the pause menu pause the game, but the wave-end sequence (including `WaveCorruptionSummaryUI`) does not. Anything time-based that must stop there checks `WaveSpawner.Instance.EndingWave` and/or `GameplayFreeze.IsActive`, as `HealthRegen` does.
 
-### UI standards & revamp (Oct 2026, in progress)
+### UI standards & revamp (Oct 2026, done)
 
 The UI was redone window by window to one standard (`todo.md`, Priority 2); every window is done: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows, the wave results, the shop, the skill tree's colors (its layout stays the builder's), the overworld map HUD and the main menu.
 
@@ -480,7 +480,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.
-- **Next windows** follow the same recipe: a restyler entry, style components and a guard test.
+- **New or changed windows** follow the same recipe: a restyler entry (or an existing restyler extended), style components and a guard test. Latest handoff: `Assets/Docs/handoff-2026-10-21.md`.
 
 ### Class kits, skill trees & Favors (reworked Oct 2026)
 
