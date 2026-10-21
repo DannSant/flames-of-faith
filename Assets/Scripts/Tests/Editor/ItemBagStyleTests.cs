@@ -108,5 +108,39 @@ namespace Game.Tests
             string yaml = File.ReadAllText("Assets/Scenes/UIMain.unity");
             Assert.IsTrue(yaml.Contains("propertyPath: inventoryUI"), "ItemBagControllerUI.inventoryUI is not set in UIMain");
         }
+
+        [Test]
+        public void SpawnedSlot_IsInItsCell_WhenTheTooltipIsPlaced()
+        {
+            // The tooltip is placed beside a slot spawned the same frame; it showed above the buttons
+            var canvas = new GameObject("Canvas", typeof(RectTransform), typeof(Canvas));
+            try
+            {
+                var pane = (GameObject)PrefabUtility.InstantiatePrefab(Load(PanePath), canvas.transform);
+                var ui = new SerializedObject(pane.GetComponent<ItemBagControllerUI>());
+                var grid = (Transform)ui.FindProperty("itemIconsContainer").objectReferenceValue;
+                var mainPane = (GameObject)ui.FindProperty("mainPane").objectReferenceValue;
+                var window = (RectTransform)mainPane.transform;
+                var slot = Load(SlotPath);
+                mainPane.SetActive(true);
+
+                var taken = (RectTransform)Object.Instantiate(slot, grid).transform;
+                ItemBagControllerUI.LayOutNow(window);
+                Vector3 firstCell = taken.localPosition;
+
+                // Take / Sell: the old slot goes inactive (its Destroy waits for the frame's end), new ones spawn
+                taken.gameObject.SetActive(false);
+                var first = (RectTransform)Object.Instantiate(slot, grid).transform;
+                var second = (RectTransform)Object.Instantiate(slot, grid).transform;
+                ItemBagControllerUI.LayOutNow(window);
+
+                Assert.AreEqual(firstCell, first.localPosition, "The first new slot must take the first cell");
+                Assert.AreNotEqual(firstCell, second.localPosition, "The second slot must be laid out in its own cell");
+            }
+            finally
+            {
+                Object.DestroyImmediate(canvas);
+            }
+        }
     }
 }

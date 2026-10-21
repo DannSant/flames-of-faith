@@ -188,10 +188,17 @@ namespace Game.UI.Items
                 if (tooltipPane == null) return;
             }
             // Pinned beside the item's slot (it stays shown for the selected item while the pointer moves)
+            LayOutNow((RectTransform)mainPane.transform);
             var slot = icons.Find(icon => icon != null && icon.Effect == item);
             tooltipPane.ShowTooltip(item.GetDescriptionText(), EffectQualityDisplayHelper.ColorizeName(item), null,
                 item.GetStatLines(), slot != null ? (RectTransform)slot.transform : null);
         }
+
+        /// <summary>
+        /// Lays the window out now. Slots spawned this frame are not in their grid cell until the layout runs,
+        /// and the tooltip is placed beside the slot (it showed above the buttons when the bag opened).
+        /// </summary>
+        public static void LayOutNow(RectTransform pane) => LayoutRebuilder.ForceRebuildLayoutImmediate(pane);
 
         // The pointer left an item: back to the selected one, which the tooltip keeps showing
         private void ShowSelectedTooltip()
@@ -224,6 +231,8 @@ namespace Game.UI.Items
             selectedItem = null;
             foreach (Transform child in itemIconsContainer)
             {
+                // Destroy waits for the frame's end; inactive, the grid already skips it for the new slots
+                child.gameObject.SetActive(false);
                 Destroy(child.gameObject);
             }
             icons.Clear();
