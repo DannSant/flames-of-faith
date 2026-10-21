@@ -40,13 +40,15 @@ namespace Game.Tests
         // --- Prefab -------------------------------------------------------------------------------------
 
         [Test]
-        public void Frame_IsSeeThroughAndGrowsWithContent()
+        public void Frame_IsOpaqueAndGrowsWithContent()
         {
             var settings = Settings();
             var panel = Child(Load(), "MainPanel");
             var frame = panel.GetComponent<UIStyleFrame>();
             Assert.AreEqual(UIFrameKind.Panel, frame.Kind);
-            Assert.Less(frame.Opacity, 1f, "Some transparency");
+            // See-through looked messy over the Stats pane and the Inventory (play-test 2026-10-21)
+            Assert.AreEqual(1f, settings.TooltipOpacity, 0.001f, "The tooltip frame is opaque");
+            Assert.AreEqual(settings.TooltipOpacity, frame.Opacity, 0.001f, "Re-run Restyle Tooltip after changing the setting");
             Assert.AreEqual(settings.TooltipOpacity, panel.GetComponent<Image>().color.a, 0.01f);
             Assert.AreEqual(Image.Type.Sliced, panel.GetComponent<Image>().type);
             Assert.AreEqual(ContentSizeFitter.FitMode.PreferredSize, panel.GetComponent<ContentSizeFitter>().verticalFit, "Height follows the text");

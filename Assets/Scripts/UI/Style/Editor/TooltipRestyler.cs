@@ -10,7 +10,7 @@ namespace Game.UI.Style.Editor
     /// <summary>
     /// UI revamp, step 6: restyles the shared tooltip (GeneralTooltipPane) in place.
     /// - The root stretches over the canvas and is only the space GeneralTooltipPaneUI places the pane in.
-    /// - MainPanel: a 600-wide frame at UISettings.tooltipOpacity whose height follows the content, never a
+    /// - MainPanel: a 600-wide frame at UISettings.tooltipOpacity (opaque) whose height follows the content, never a
     ///   raycast target. Title (Big, bold), then a Body row: TextColumn (GeneralTooltipTxt + DetailedTooltipTxt,
     ///   Small) and ListColumn (ListTxt, Small, 150 wide; an item's stat lines).
     /// Batchmode: -executeMethod Game.UI.Style.Editor.TooltipRestyler.Restyle

@@ -100,9 +100,9 @@ namespace Game.UI.Style
         [SerializeField] private Sprite tabSelectedSprite;
         [Tooltip("Thin ring (9-sliced) drawn around the selected slot, tinted with the Highlight color.")]
         [SerializeField] private Sprite selectedOutline;
-        [Tooltip("The shared tooltip's frame opacity: a little of the game shows through.")]
+        [Tooltip("The shared tooltip's frame opacity. Opaque: over the Stats pane and the Inventory, see-through looked messy.")]
         [Range(0f, 1f)]
-        [SerializeField] private float tooltipOpacity = 0.9f;
+        [SerializeField] private float tooltipOpacity = 1f;
         [Tooltip("Dims the screen behind a modal window (the confirm dialog) and blocks clicks on what's behind it.")]
         [SerializeField] private Color modalBackdropColor = new Color(0f, 0f, 0f, 0.6f);
         [Tooltip("Higher = thinner frame borders. 1 = the art's own pixel size.")]

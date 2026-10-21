@@ -374,7 +374,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
     - **Left column:** `GeneralTooltipTxt` (main text), then `DetailedTooltipTxt` (`detail`: stat sources and benefit, upgrade Now/After).
     - **Right column:** `ListTxt` (`list`: an item's stat lines).
     - Empty parts hide.
-  - **Size:** the pane is 600 wide; its height follows the content (ContentSizeFitter). The frame is at `UISettings.tooltipOpacity`.
+  - **Size:** the pane is 600 wide; its height follows the content (ContentSizeFitter). The frame is opaque (`UISettings.tooltipOpacity` 1): see-through looked messy over the Stats pane.
   - **Raycasts:** the pane never takes raycasts (CanvasGroup), so it can't steal hover or flicker.
   - **Placement:**
     - **Anchor:** the given `anchor`, else the gamepad selection, else the pointer.
@@ -476,7 +476,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
   - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.
-  - `TooltipStyleTests`: see-through frame, no raycasts, the text and list columns, scene placement, the placement math, and the item text split.
+  - `TooltipStyleTests`: opaque frame, no raycasts, the text and list columns, scene placement, the placement math, and the item text split.
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.
