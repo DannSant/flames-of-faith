@@ -123,11 +123,19 @@ The original spec is `Assets/Docs/corruption-rework.md`, but several decisions c
 - **Phase cancellation:** the phase is cancelled immediately on player death via `PlayerHealth.IsDead()`. Don't rely on `onDeath` here: it fires only after the death animation.
 - **Boss:** `BossController.isCorrupted` (default on). Ability damage goes through `BossController.GetAbilityDamage`. Boss damage is *not* converted into Corruption, because boss levels have no wave end. `BossWaveHandler` is unchanged.
 - **UI** (all fed by gameplay events, per the UI rule above):
-  - `GraceBar`: signed bar, pending wave Corruption label, tooltips.
+  - `GraceBar`: signed bar, pending wave Corruption label, tooltips. The wave summary can take over what it shows (`BeginPresentation` / `PresentGrace` / `PresentPendingCorruption` / `EndPresentation`, display only).
   - Corruptor bar: `CorruptorPhaseBarPresenter` attaches a world-space `CorruptorPhaseBarUI` to the player.
   - Off-screen arrow: `TargetIndicatorUI`.
   - Wave hints: `WaveHintUI`, toggled by `SettingsManager.ShowTutorialHints`.
-  - End-of-wave summary: `WaveCorruptionSummaryUI` waits for Submit. The end sequence waits on its callback; `waveSummaryMaxWait` 0 means no limit.
+  - End-of-wave summary (`WaveCorruptionSummaryUI`), a receipt of what happened to Grace:
+    - **Rows:** each Corruption source is `-N` in purple, then the total, then Grace Affinity `+N` in cyan. Then the formula, which counts over `countDuration` (2 s) on a Grace bar in the window, then Favors in gold.
+    - **The HUD:** Grace is already applied when the summary opens, so it takes over the HUD `GraceBar`, which shows the old values again. With `flyingNumbers`:
+      1. The Corruption total flies from the HUD label into its row, and the label drops to 0.
+      2. Grace flies into the formula.
+      3. The result flies back, and the HUD bar moves when it lands (`UIFlight` path).
+    - Without `flyingNumbers`, the HUD follows the count instead.
+    - **Button:** it reads Skip while playing (jumps to the end) and Continue after (closes). It's the UIWindow default.
+    - **Waiting:** the end sequence waits on its callback; `waveSummaryMaxWait` 0 means no limit.
   - Corruption numbers: `NumberCorruptionGainedVFX`.
 
 **Corrupted outline** (Oct 2026): many VFX on screen got noisy, so Corrupted things get a pulsing purple outline instead.
@@ -295,7 +303,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
 
 ### UI standards & revamp (Oct 2026, in progress)
 
-The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen and the run encounter windows.
+The UI is being redone window by window to one standard (`todo.md`, Priority 2). Done so far: the foundation, the gameplay HUD, the Inventory, the center windows (level-up, pause, death screen, Settings, item bag), the Stats pane, the shared tooltip, the confirm dialog, the end screen, the run encounter windows and the wave results.
 
 - **`UISettings`** (`Scripts/UI/Style/`, asset `Resources/UI/UISettings.asset`, `UISettings.Instance`) holds the standard. Never hardcode these values in UI scripts or prefabs:
   - **Fonts:** Small 12 and Big 20. Titles are Big and bold. `Display` (40) exists only for the agreed headline exception, YOU DIED. `font` is PIXEARG_ SDF; `outlinedFont` (PIXEARG_OUT) is for text over bars or straight over gameplay.
@@ -316,13 +324,14 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
 - **Tools** (`Tools/Flames of Faith/UI Revamp/`, code in `Scripts/UI/Style/Editor/`). They edit the existing prefabs and scenes in place and can be run again; they find what they made before.
   - **Apply Foundation** (`UIRevampTools`): fills `UISettings`' asset references, sets the canvas scalers, rebuilds the selection marker prefab and adds it to LevelSelector.
   - **Re-apply UI Styles:** after editing `UISettings`, it pushes the values into every prefab so the Editor shows them.
-  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`) and Restyle Run Encounter Windows (`RunEncounterRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
+  - **Restylers that own a window's layout:** Restyle HUD (`HudRestyler`), Restyle Inventory (`InventoryRestyler`), Restyle Level-up Window (`UpgradeRestyler`), Restyle Pause and Death Screen (`PauseDeathRestyler`), Restyle Settings (`SettingsRestyler`), Restyle Stats Pane (`StatsRestyler`), Restyle Item Bag (`ItemBagRestyler`), Restyle Tooltip (`TooltipRestyler`), Restyle Confirm Dialog and Endscreen (`ConfirmEndscreenRestyler`) Restyle Run Encounter Windows (`RunEncounterRestyler`) and Restyle Wave Results (`WaveSummaryRestyler`). Make layout changes there, not by hand, or a re-run overwrites them.
   - **Scene instances:** restylers never revert a whole instance; they only replace what they own.
     - Unity keeps a prefab instance root's anchors, size and position as overrides that a revert does **not** remove, so a restyled prefab can keep its old spot in a scene.
     - Restylers copy the prefab's root layout onto the scene instance (`UIBuildHelpers.MatchPrefabRootLayout`).
     - `SceneInstanceLayout.AssertMatchesPrefab` (tests) guards it.
   - **Batchmode:** `-executeMethod Game.UI.Style.Editor.UIRevampTools.ApplyFoundation` (or `<Restyler>.Restyle`).
-  - **Revert before you snap:** `PrefabUtility.RevertPropertyOverride` on a scene instance reloads it from its recorded overrides, which drops a root layout snapped earlier in the same pass (`ConfirmEndscreenRestyler` reverts the old onClick wiring first).
+  - **Revert before you snap:** `PrefabUtility.RevertPropertyOverride` on a scene instance reloads it from its recorded overrides. Revert first, then snap. `MatchPrefabRootLayout` now also records its values as instance modifications, so a revert in the same pass can't drop them.
+  - **Children's leftover layout overrides:** a removed layout group can leave its children's anchors and positions as scene overrides (they pinned the wave results title to the bottom). `WaveSummaryRestyler` reverts just those layout properties on the window's children.
   - **Helpers:** `UIBuildHelpers` has find-or-create, place/stretch and style helpers for the next windows' restylers.
 - **Gamepad selection frame:** `UISelectionMarkerUI` wraps the selected element. The frame's position is computed in its parent's local space from the element's corners (`SelectionFrameMath`), so it works at any canvas scale and on Screen Space Camera canvases. It slides between elements and pulses.
   - A `UIWindow` can only override the padding now. The old per-window arrow offsets are gone.
@@ -411,12 +420,17 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
     - **Options:** each option (`EventOptionButton.prefab`) is a full-width Small button that grows with its wrapped label. Its root VerticalLayoutGroup sizes it, with no root LayoutElement, so `UIStyleButton` doesn't pin it to 32. The label's min height keeps it at least a Small button high.
     - **Tooltips:** an option's tooltip anchors beside it.
     - **Art panel:** to the left, the window's size, shown only for events with art.
+- **Wave results** (`WaveCorruptionSummaryUI`):
+  - **Layout:** a center window. "Wave Results" is Big, bold, yellow. A `Content` column holds the Small receipt rows (label left, value right via `FormatRow`; hidden rows collapse), the Big formula, the `GraceMeter` (built like the HUD bar, with a tick at 0) and the Big gold Favors row.
+  - **Button:** Continue in the progress spot.
+  - **Removed:** the old click / press A prompt.
   - **Shared helper:** `StatsAndInventoryPanes` (`Game.UI`) opens and closes the two panes beside a window; the death screen, end screen and campfire use it.
 - **Tests:**
   - `UISettingsTests`: the standard, colors, sliced art, canvas scalers, marker.
   - `CenterWindowStyleTests`: the shared height, frame, titles, Small buttons, the progress button spot, scene placement, the level-up header, and the end screen (thanks line, gamepad window, Main Menu wired in code).
   - `ConfirmDialogStyleTests`: size, frame, backdrop, message, the button row, the gamepad window, and the three instances (layout, drawn on top).
   - `RunEncounterStyleTests`: the Campfire line and wiring, the Results colors, the Event body / options / art panel, and the Treasure having no window. The three windows are also `CenterWindowStyleTests` cases; the Event has no fixed progress button.
+  - `WaveSummaryUITests`: row sizes, gold Favors, the column order, Continue as a button, the meter, no leftover child layout overrides in UIMain, the formatting, `GraceBar.GetFills` and the `UIFlight` path.
   - `SettingsStyleTests`: columns, fonts, the tutorial hints toggle, the close flow, the pause integration and the slide.
   - `StatsStyleTests`: the pane mirrors the Inventory, tabs, legend, the scroll setup, the rows (band, maskable) and the scroll math.
   - `ItemBagStyleTests`: the Inventory slot in a 6-column grid, no description panel, subtitle, Sell label, selected outline, and the Inventory wired.
@@ -425,7 +439,6 @@ The UI is being redone window by window to one standard (`todo.md`, Priority 2).
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.
 - **Next windows** follow the same recipe: a restyler entry, style components and a guard test.
-  - **Wave results:** the standard says Favors are gold, but on an earlier request they were made blue `#73BFFF`. `WaveSummaryUITests` also requires those rows to be bigger than the others, which breaks the two-size rule. Decide both with the user.
 
 ### Class kits, skill trees & Favors (reworked Oct 2026)
 

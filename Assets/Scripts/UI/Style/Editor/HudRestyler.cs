@@ -30,9 +30,9 @@ namespace Game.UI.Style.Editor
 
         // Layout, in canvas units at the reference resolution
         public const float TopLeftWidth = 430f;
-        private const float BarFrameInset = 3f;
+        public const float BarFrameInset = 3f;
         private const float HealthBarHeight = 22f;
-        private const float GraceBarHeight = 14f;
+        public const float GraceBarHeight = 14f;
         private const float LabelHeight = 16f;
         private const float WaveBlockWidth = 80f;
         private const float SlotSpacing = 15f;
@@ -42,7 +42,7 @@ namespace Game.UI.Style.Editor
         private const float FlameBarHeight = 22f;
         public const string TopLeftStackName = "TopLeftHud";
 
-        private static readonly Color BarBackgroundColor = new Color(0.08f, 0.06f, 0.06f, 0.9f);
+        public static readonly Color BarBackgroundColor = new Color(0.08f, 0.06f, 0.06f, 0.9f);
 
         [MenuItem("Tools/Flames of Faith/UI Revamp/Restyle HUD")]
         public static void Restyle()
@@ -436,7 +436,7 @@ namespace Game.UI.Style.Editor
             border.transform.SetSiblingIndex(1);
         }
 
-        private static void SetupTintedFill(Image image, Sprite sprite, Color color, int origin)
+        public static void SetupTintedFill(Image image, Sprite sprite, Color color, int origin)
         {
             image.sprite = sprite;
             image.color = color;

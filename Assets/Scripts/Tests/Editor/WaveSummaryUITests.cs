@@ -1,5 +1,6 @@
 using Game.UI;
-using Game.UI.InputPrompts;
+using Game.UI.Navigation;
+using Game.UI.Style;
 using NUnit.Framework;
 using System.Linq;
 using TMPro;
@@ -10,13 +11,21 @@ using UnityEngine.UI;
 namespace Game.Tests
 {
     /// <summary>
-    /// The end-of-wave summary (WaveCorruptionSummaryUI prefab): Favors read as blue, not as more golden
-    /// Grace; the final Grace and the Favors are the biggest rows; keyboard/mouse is told to click.
+    /// The end-of-wave summary (WaveCorruptionSummaryUI prefab), restyled as a center window (its shared layout
+    /// is in CenterWindowStyleTests): Small receipt rows, the Big formula and gold Favors, the Grace bar built like
+    /// the HUD's, and a Continue button instead of the old "click / press A" prompt. Plus the pure formatting and
+    /// the flight path the flying numbers use.
     /// </summary>
     public class WaveSummaryUITests
     {
-        private const string SummaryPrefab = "Assets/Prefabs/UI/Waves/WaveCorruptionSummaryUI .prefab";
-        private const string MouseLeftSprite = "Assets/Sprites/UI/KeyboardAndMouseIcons/mouse_left.png";
+        private const string SummaryPrefab = "Assets/Prefabs/UI/Waves/WaveCorruptionSummaryUI.prefab";
+
+        private static UISettings Settings()
+        {
+            var settings = AssetDatabase.LoadAssetAtPath<UISettings>("Assets/Resources/UI/UISettings.asset");
+            Assert.IsNotNull(settings, "Missing UISettings");
+            return settings;
+        }
 
         private static WaveCorruptionSummaryUI LoadSummary()
         {
@@ -27,74 +36,175 @@ namespace Game.Tests
             return summary;
         }
 
-        private static SerializedProperty Property(Object owner, string field)
+        private static T Ref<T>(Object owner, string field) where T : Object
         {
             var property = new SerializedObject(owner).FindProperty(field);
             Assert.IsNotNull(property, $"{owner.name} has no field {field}");
-            return property;
+            var value = property.objectReferenceValue as T;
+            Assert.IsNotNull(value, $"{owner.name}.{field} is not set");
+            return value;
         }
 
-        private static TextMeshProUGUI Text(Object owner, string field)
-        {
-            var text = Property(owner, field).objectReferenceValue as TextMeshProUGUI;
-            Assert.IsNotNull(text, $"{owner.name}.{field} is not set");
-            return text;
-        }
+        private static readonly string[] RowsInRevealOrder = { "corruptorRowText", "corruptedDamageRowText", "totalCorruptionRowText", "graceAffinityRowText" };
 
         [Test]
-        public void Favors_AreBlue_NotGraceGold()
+        public void SourceRows_AreSmall_ResultRowsAreBig()
         {
+            var settings = Settings();
             var summary = LoadSummary();
-            Color favors = Property(summary, "favorsColor").colorValue;
-            Color grace = Property(summary, "positiveColor").colorValue;
-
-            Assert.Greater(favors.b, favors.r, "Favors color should be blue");
-            Assert.Greater(favors.b, favors.g, "Favors color should be blue");
-            Assert.Greater(Mathf.Abs(favors.b - grace.b) + Mathf.Abs(favors.r - grace.r), 0.3f,
-                "Favors must not look like the positive Grace color");
-        }
-
-        [Test]
-        public void FinalGraceAndFavors_AreTheBiggestRows()
-        {
-            var summary = LoadSummary();
-            float formula = Text(summary, "formulaText").fontSize;
-            float favors = Text(summary, "favorsRowText").fontSize;
-            string[] otherRows = { "corruptorRowText", "corruptedDamageRowText", "graceAffinityRowText", "totalCorruptionRowText" };
-
-            foreach (string row in otherRows)
+            foreach (string row in RowsInRevealOrder)
             {
-                float size = Text(summary, row).fontSize;
-                Assert.Greater(formula, size, $"The final Grace should be bigger than {row}");
-                Assert.Greater(favors, size, $"The Favors should be bigger than {row}");
+                var text = Ref<TextMeshProUGUI>(summary, row);
+                Assert.AreEqual(UIFontSize.Small, text.GetComponent<UIStyleText>()?.Size, $"{row} size role");
+                Assert.AreEqual(settings.SmallFontSize, text.fontSize, row);
+            }
+            foreach (string row in new[] { "formulaText", "favorsRowText" })
+            {
+                var text = Ref<TextMeshProUGUI>(summary, row);
+                Assert.AreEqual(UIFontSize.Big, text.GetComponent<UIStyleText>()?.Size, $"{row} size role");
+                Assert.AreEqual(settings.BigFontSize, text.fontSize, row);
             }
         }
 
         [Test]
-        public void ContinuePrompt_ShowsTheMouseAndSaysClickOnKeyboardMouse()
+        public void Favors_AreTheStandardGold()
         {
-            var prompt = Property(LoadSummary(), "continuePrompt").objectReferenceValue as GameObject;
-            Assert.IsNotNull(prompt, "continuePrompt is not set");
+            var settings = Settings();
+            var favors = Ref<TextMeshProUGUI>(LoadSummary(), "favorsRowText");
+            Assert.AreEqual(UIColorRole.Favors, favors.GetComponent<UIStyleText>()?.ColorRole);
+            Assert.AreEqual((Vector3)(Vector4)settings.FavorsColor, (Vector3)(Vector4)favors.color, "Baked Favors color");
+        }
 
-            var mouseLeft = AssetDatabase.LoadAssetAtPath<Sprite>(MouseLeftSprite);
-            Assert.IsNotNull(mouseLeft, $"Missing sprite {MouseLeftSprite}");
+        [Test]
+        public void Rows_SitInAColumnInRevealOrder()
+        {
+            var summary = LoadSummary();
+            var content = Ref<TextMeshProUGUI>(summary, RowsInRevealOrder[0]).transform.parent;
+            Assert.AreEqual("Content", content.name);
+            Assert.IsNotNull(content.GetComponent<VerticalLayoutGroup>(), "Hidden rows collapse in a column");
 
-            // The icon shown on keyboard/mouse is the one an InputPromptVisibilityUI shows only there.
-            var keyboardMouseIcons = prompt.GetComponentsInChildren<InputPromptVisibilityUI>(true)
-                .Select(v => new SerializedObject(v))
-                .Where(s => s.FindProperty("showOnKeyboardMouse").boolValue && !s.FindProperty("showOnGamepad").boolValue)
-                .SelectMany(s => Enumerable.Range(0, s.FindProperty("targets").arraySize)
-                    .Select(i => s.FindProperty("targets").GetArrayElementAtIndex(i).objectReferenceValue as GameObject))
-                .Where(go => go != null)
-                .Select(go => go.GetComponent<Image>())
+            var order = RowsInRevealOrder.Concat(new[] { "formulaText" })
+                .Select(f => Ref<TextMeshProUGUI>(summary, f).transform)
                 .ToList();
-            Assert.IsNotEmpty(keyboardMouseIcons, "The continue prompt has no keyboard/mouse-only icon");
-            Assert.IsTrue(keyboardMouseIcons.All(i => i != null && i.sprite == mouseLeft),
-                "The keyboard/mouse continue icon should be the left mouse button");
+            Assert.IsTrue(order.All(t => t.parent == content), "Every row is in the column");
+            for (int i = 1; i < order.Count; i++)
+            {
+                Assert.Greater(order[i].GetSiblingIndex(), order[i - 1].GetSiblingIndex(), $"{order[i].name} comes after {order[i - 1].name}");
+            }
+            Assert.Greater(Ref<Image>(summary, "graceMeterPositive").transform.parent.GetSiblingIndex(),
+                Ref<TextMeshProUGUI>(summary, "formulaText").transform.GetSiblingIndex(), "The Grace bar is under the formula");
+        }
 
-            var schemeText = prompt.GetComponentInChildren<InputSchemeTextUI>(true);
-            Assert.IsNotNull(schemeText, "The continue prompt has no InputSchemeTextUI (\"Click\" / \"Press\")");
-            StringAssert.Contains("Click", Property(schemeText, "keyboardMouseText").stringValue);
+        [Test]
+        public void Continue_IsAButtonNotAPrompt()
+        {
+            var summary = LoadSummary();
+            var root = summary.gameObject;
+            Assert.IsFalse(root.GetComponentsInChildren<Transform>(true).Any(t => t.name == "InputPromptRow"), "Leftover click / press A prompt");
+            Assert.IsNull(new SerializedObject(summary).FindProperty("continuePrompt"), "Leftover continuePrompt field");
+
+            var button = Ref<Button>(summary, "continueButton");
+            Assert.AreEqual(0, button.onClick.GetPersistentEventCount(), "Wired in code (Skip, then Continue)");
+            Assert.AreSame(button.GetComponentInChildren<TextMeshProUGUI>(true), Ref<TextMeshProUGUI>(summary, "continueLabel"));
+
+            var window = root.GetComponentInChildren<UIWindow>(true);
+            Assert.IsNotNull(window);
+            Assert.AreSame(button, new SerializedObject(window).FindProperty("defaultSelectable").objectReferenceValue, "The gamepad starts on the button");
+        }
+
+        [Test]
+        public void GraceMeter_IsSplitAtZeroLikeTheHudBar()
+        {
+            var settings = Settings();
+            var summary = LoadSummary();
+            var positive = Ref<Image>(summary, "graceMeterPositive");
+            var negative = Ref<Image>(summary, "graceMeterNegative");
+
+            foreach (var fill in new[] { positive, negative })
+            {
+                Assert.AreEqual(Image.Type.Filled, fill.type, fill.name);
+                Assert.AreEqual(Image.FillMethod.Horizontal, fill.fillMethod, fill.name);
+            }
+            Assert.AreEqual((int)Image.OriginHorizontal.Left, positive.fillOrigin, "Grace grows right from the middle");
+            Assert.AreEqual((int)Image.OriginHorizontal.Right, negative.fillOrigin, "Corrupted grows left from the middle");
+            Assert.AreEqual(settings.GraceColor, positive.color);
+            Assert.AreEqual(settings.CorruptionColor, negative.color);
+            Assert.AreEqual(0.5f, positive.rectTransform.anchorMin.x, "Split at the middle");
+            Assert.AreEqual(0.5f, negative.rectTransform.anchorMax.x, "Split at the middle");
+            Assert.IsNotNull(positive.transform.parent.Find("Tick"), "A tick marks 0");
+        }
+
+        [Test]
+        public void UIMainInstance_HasNoLayoutOverridesOnTheWindowsChildren()
+        {
+            // The old layout group left the children's anchors as scene overrides; one pinned the title to the bottom
+            var prefab = LoadSummary().gameObject;
+            Assert.IsTrue(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(prefab.transform, out string guid, out long rootId));
+            string yaml = System.IO.File.ReadAllText("Assets/Scenes/UIMain.unity");
+            var overrides = System.Text.RegularExpressions.Regex.Matches(yaml,
+                $@"target: \{{fileID: (\d+), guid: {guid}, type: 3\}}\s+propertyPath: (m_AnchorMin|m_AnchorMax|m_AnchoredPosition|m_SizeDelta|m_Pivot)\.");
+            foreach (System.Text.RegularExpressions.Match match in overrides)
+            {
+                Assert.AreEqual(rootId.ToString(), match.Groups[1].Value,
+                    $"UIMain overrides {match.Groups[2].Value} on a child of the wave results window (fileID {match.Groups[1].Value})");
+            }
+        }
+
+        // --- Formatting ---------------------------------------------------------------------------------------
+
+        [Test]
+        public void Row_PutsTheValueOnTheRight()
+        {
+            Assert.AreEqual("Grace Affinity<line-height=0>\n<align=right><color=#00FFFF>+1</color>",
+                WaveCorruptionSummaryUI.FormatRow("Grace Affinity", "+1", "00FFFF"));
+        }
+
+        [TestCase(3, "+3")]
+        [TestCase(-5, "-5")]
+        [TestCase(0, "0")]
+        public void Delta_IsSigned(int value, string expected)
+        {
+            Assert.AreEqual(expected, WaveCorruptionSummaryUI.FormatDelta(value));
+        }
+
+        [Test]
+        public void FormulaLeft_ColorsAffinityAndCorruption()
+        {
+            Assert.AreEqual("Grace +5 <color=#0FF>+ 1</color> <color=#F0F>- 6</color>",
+                WaveCorruptionSummaryUI.FormatFormulaLeft(5f, 1f, 6, "0FF", "F0F"));
+            Assert.AreEqual("Grace -2 <color=#F0F>- 3</color>", WaveCorruptionSummaryUI.FormatFormulaLeft(-2f, 0f, 3, "0FF", "F0F"));
+            Assert.AreEqual("Grace 0 <color=#0FF>+ 2</color>", WaveCorruptionSummaryUI.FormatFormulaLeft(0f, 2f, 0, "0FF", "F0F"));
+        }
+
+        [TestCase(1, "Favor earned +1")]
+        [TestCase(3, "Favors earned +3")]
+        public void Favors_Line(int favors, string expected)
+        {
+            Assert.AreEqual(expected, WaveCorruptionSummaryUI.FormatFavors(favors));
+        }
+
+        [TestCase(25f, 50f, 0.5f, 0f)]
+        [TestCase(-10f, 50f, 0f, 0.2f)]
+        [TestCase(80f, 50f, 1f, 0f)]
+        [TestCase(-80f, 50f, 0f, 1f)]
+        [TestCase(10f, 0f, 0f, 0f)]
+        public void GraceBarFills_SplitAtZero(float grace, float max, float positive, float negative)
+        {
+            Assert.AreEqual(new Vector2(positive, negative), GraceBar.GetFills(grace, max));
+        }
+
+        [Test]
+        public void Flight_StartsAndEndsOnItsPointsAndArcsUp()
+        {
+            var from = new Vector3(0f, 0f, 0f);
+            var to = new Vector3(100f, 0f, 0f);
+            Assert.AreEqual(from, UIFlight.Evaluate(from, to, 0f, 40f));
+            Assert.AreEqual(to, UIFlight.Evaluate(from, to, 1f, 40f));
+            Assert.AreEqual(to, UIFlight.Evaluate(from, to, 3f, 40f), "Clamped past the end");
+
+            Vector3 middle = UIFlight.Evaluate(from, to, 0.5f, 40f);
+            Assert.Greater(middle.y, 0f, "Arcs up along the way");
+            Assert.Greater(middle.x, 50f, "Eased out: past halfway at half time");
         }
     }
 }

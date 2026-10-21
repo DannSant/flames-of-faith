@@ -96,6 +96,12 @@ namespace Game.Tests
                 titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
                 progressButton = null, otherButtons = new string[0], inUIMain = true,
             };
+            yield return new WindowCase
+            {
+                prefab = "Assets/Prefabs/UI/Waves/WaveCorruptionSummaryUI.prefab", frame = "MainPanel", title = "Title",
+                titleSize = UIFontSize.Big, titleColor = UIColorRole.Highlight,
+                progressButton = "ContinueButton", otherButtons = new string[0], inUIMain = true,
+            };
         }
 
         private static UISettings Settings()

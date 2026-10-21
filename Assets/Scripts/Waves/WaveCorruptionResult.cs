@@ -25,6 +25,8 @@ namespace Game.Waves
         public float graceAffinity;
         public float graceBefore;
         public float graceAfter;
+        /// <summary>Grace limit (Grace runs from -graceMax to +graceMax), to scale the summary's Grace bar.</summary>
+        public float graceMax;
         /// <summary>Favors earned by this wave (Grace ended above 0).</summary>
         public int favorsEarned;
     }

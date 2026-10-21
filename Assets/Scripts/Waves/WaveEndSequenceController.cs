@@ -164,7 +164,8 @@ namespace Game.Waves
                 corruptionFromDamage = playerCorruption.CorruptionFromDamage,
                 totalCorruption = playerCorruption.CorruptionValue,
                 graceAffinity = playerGrace.GraceAffinity,
-                graceBefore = playerGrace.CurrentGrace
+                graceBefore = playerGrace.CurrentGrace,
+                graceMax = playerGrace.MaxGrace
             };
             result.graceAfter = playerGrace.ApplyWaveResolution(result.graceAffinity, result.totalCorruption);
 

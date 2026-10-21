@@ -131,6 +131,9 @@ namespace Game.UI.Style.Editor
             target.anchoredPosition = source.anchoredPosition;
             target.localRotation = source.localRotation;
             target.localScale = source.localScale;
+            // Recorded as instance overrides right away: only marking it dirty let a later revert on the same
+            // instance (in the same pass) reload it and drop these values
+            PrefabUtility.RecordPrefabInstancePropertyModifications(target);
             EditorUtility.SetDirty(target);
         }
 

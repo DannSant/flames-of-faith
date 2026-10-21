@@ -12,6 +12,9 @@ namespace Game.UI
     /// Single Grace bar centered on 0: the positive fill grows to the right while Grace is above 0, the negative
     /// (Corrupted) fill grows to the left while it is below 0. Also shows the Corruption that will be subtracted
     /// at the end of the current wave. Colors come from UISettings: Grace cyan, Corruption purple.
+    /// The wave summary can take over what the bar shows (BeginPresentation .. EndPresentation): Grace is
+    /// already applied when the summary opens, so the bar shows the old values again and changes in step
+    /// with the summary's explanation, then goes back to the live values.
     /// </summary>
     public class GraceBar : MonoBehaviour
     {
@@ -46,6 +49,12 @@ namespace Game.UI
         private PlayerGrace playerGrace;
         private PlayerCorruption playerCorruption;
         private GraceStatus graceStatus;
+        private bool presenting;
+
+        /// <summary>The Grace label, e.g. where the wave summary's flying Grace number starts and lands.</summary>
+        public RectTransform GraceLabel => graceText != null ? graceText.rectTransform : null;
+        /// <summary>The pending Corruption label, where the wave summary's flying Corruption number starts.</summary>
+        public RectTransform PendingCorruptionLabel => pendingCorruptionText != null ? pendingCorruptionText.rectTransform : null;
 
         private void Start()
         {
@@ -77,6 +86,7 @@ namespace Game.UI
 
         private void OnDisable()
         {
+            presenting = false;
             if (playerGrace != null)
             {
                 playerGrace.onGraceChanged -= UpdateGrace;
@@ -91,6 +101,56 @@ namespace Game.UI
         // Grace limits are symmetric (-max..+max), so max is enough to scale both sides
         public void UpdateGrace(float current, float max)
         {
+            if (presenting) return;
+            ShowGrace(current, max, true);
+        }
+
+        private void UpdatePendingCorruption(float corruption)
+        {
+            if (presenting) return;
+            ShowPendingCorruption(corruption);
+        }
+
+        // --- Presentation (the wave summary drives the bar) ---------------------------------------------
+
+        /// <summary>Shows these values instead of the live ones until EndPresentation.</summary>
+        public void BeginPresentation(float grace, float pendingCorruption)
+        {
+            presenting = true;
+            ShowGrace(grace, PresentationMax, false);
+            ShowPendingCorruption(pendingCorruption);
+        }
+
+        public void PresentGrace(float grace, bool animate)
+        {
+            if (presenting) ShowGrace(grace, PresentationMax, animate);
+        }
+
+        public void PresentPendingCorruption(float corruption)
+        {
+            if (presenting) ShowPendingCorruption(corruption);
+        }
+
+        /// <summary>Back to the live values.</summary>
+        public void EndPresentation()
+        {
+            if (!presenting) return;
+            presenting = false;
+            if (playerGrace != null) ShowGrace(playerGrace.CurrentGrace, playerGrace.MaxGrace, true);
+            if (playerCorruption != null) ShowPendingCorruption(playerCorruption.CorruptionValue);
+        }
+
+        private float PresentationMax => playerGrace != null ? playerGrace.MaxGrace : 0f;
+
+        /// <summary>The fill amounts of the bar: x = the positive (Grace) side, y = the negative (Corrupted) side.</summary>
+        public static Vector2 GetFills(float grace, float max)
+        {
+            if (max <= 0f) return Vector2.zero;
+            return new Vector2(Mathf.Clamp01(grace / max), Mathf.Clamp01(-grace / max));
+        }
+
+        private void ShowGrace(float current, float max, bool animate)
+        {
             if (graceText != null)
             {
                 graceText.text = $"Grace {FormatSigned(current)}";
@@ -99,17 +159,24 @@ namespace Game.UI
 
             if (max <= 0f) return;
 
-            float positive = Mathf.Clamp01(current / max);
-            float negative = Mathf.Clamp01(-current / max);
-
+            Vector2 fills = GetFills(current, max);
             if (currentRoutine != null)
             {
                 StopCoroutine(currentRoutine);
+                currentRoutine = null;
             }
-            currentRoutine = StartCoroutine(AnimateFills(positive, negative));
+            if (animate && isActiveAndEnabled)
+            {
+                currentRoutine = StartCoroutine(AnimateFills(fills.x, fills.y));
+            }
+            else
+            {
+                SetFill(graceFillImage, fills.x);
+                SetFill(negativeGraceFillImage, fills.y);
+            }
         }
 
-        private void UpdatePendingCorruption(float corruption)
+        private void ShowPendingCorruption(float corruption)
         {
             if (pendingCorruptionText == null) return;
 
