@@ -157,5 +157,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.VFX.ChainLightningBolt
   segmentCount: 8
   jitterAmount: 0.25
-  refreshInterval: 0.03
   lifetime: 0.2
