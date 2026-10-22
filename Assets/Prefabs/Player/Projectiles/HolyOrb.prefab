@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.LifetimeByStat
   baseDurationTime: 3
+  durationScalingFactor: 1
   durationStat: 16
 --- !u!114 &4110729191943974511
 MonoBehaviour:
@@ -128,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  data: {fileID: 11400000, guid: 778d338ff0e6617459d13fd9f9b300de, type: 2}
   baseDamage: 5
   weaponClass: 3
   attackScale: 1
@@ -143,9 +145,11 @@ MonoBehaviour:
   shouldStackDamage: 1
   enablePierce: 0
   pierceCount: 1
+  addPierceStat: 0
   applyKnockback: 1
   knockbackForce: 5
   canTriggerLifesteal: 1
+  directElementalDebuffData: {fileID: 0}
 --- !u!114 &-6525033825346590171
 MonoBehaviour:
   m_ObjectHideFlags: 0

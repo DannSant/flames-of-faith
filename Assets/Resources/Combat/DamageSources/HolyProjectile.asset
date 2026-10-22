@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be19defc7094bec880d75016c271009, type: 3}
+  m_Name: HolyProjectile
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceData
+  baseDamage: 1
+  weaponClass: 3
+  attackScale: 1
+  useTriggerEnter: 1
+  useTriggerStay: 0
+  tickInterval: 1
+  shouldStackDamage: 1
+  enablePierce: 1
+  pierceCount: 5
+  addPierceStat: 0
+  applyKnockback: 0
+  knockbackForce: 5
+  canTriggerLifesteal: 1
+  directElementalDebuffData: {fileID: 0}
+  projectileSpeed: 5
+  lifetime: 3
+  lifetimePerSkillDuration: 1

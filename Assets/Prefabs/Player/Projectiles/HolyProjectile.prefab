@@ -141,6 +141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.Projectiles.ProjectileMoveLinear
   speed: 5
   rotateTowardsDirection: 1
+  steerTowardsTarget: 0
+  steerTurnRate: 120
+  steerMaxAngleToTarget: 90
 --- !u!114 &4110729191943974511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  data: {fileID: 11400000, guid: 124c951b7c9d6324e903a2792c00ace5, type: 2}
   baseDamage: 1
   weaponClass: 3
   attackScale: 1
@@ -168,6 +172,7 @@ MonoBehaviour:
   shouldStackDamage: 1
   enablePierce: 1
   pierceCount: 5
+  addPierceStat: 0
   applyKnockback: 0
   knockbackForce: 5
   canTriggerLifesteal: 1

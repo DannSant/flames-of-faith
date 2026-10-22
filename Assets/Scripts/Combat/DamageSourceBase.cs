@@ -12,6 +12,9 @@ namespace Game.Combat
 {
     public class DamageSourceBase : MonoBehaviour, IEffectMultiplier, IDamageDealtNotifier, IStackScalable
     {
+        [Tooltip("This source's design numbers (damage, hit mode, pierce, knockback, debuff, projectile speed and lifetime).")]
+        [SerializeField] private DamageSourceData data;
+
         [Header("Damage")]
         [SerializeField] private int baseDamage = 5;
         [SerializeField] private WeaponClass weaponClass = WeaponClass.None;

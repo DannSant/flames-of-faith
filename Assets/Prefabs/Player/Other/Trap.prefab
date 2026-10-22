@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66fec8eae175b45911657d50204281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
+  data: {fileID: 11400000, guid: fddd50d65825c204ab9e7e980363787c, type: 2}
   baseDamage: 2
   weaponClass: 2
   attackScale: 0.7
@@ -182,6 +183,7 @@ MonoBehaviour:
   shouldStackDamage: 1
   enablePierce: 0
   pierceCount: 1
+  addPierceStat: 0
   applyKnockback: 0
   knockbackForce: 5
   canTriggerLifesteal: 0
