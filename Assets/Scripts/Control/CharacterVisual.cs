@@ -179,25 +179,36 @@ namespace Game.Control
             animator.SetTrigger("Attack");
         }
 
+        // Each clip of a blend tree fires its own copy of an animation event, all in the same frame: the
+        // Warrior's 8-direction attack ran the cleave 8 times per swing. Each event goes through once per frame.
+        private readonly OncePerFrame attackStartGate = new();
+        private readonly OncePerFrame attackEndGate = new();
+        private readonly OncePerFrame specialAttackStartGate = new();
+        private readonly OncePerFrame specialAttackEndGate = new();
+
         public void AttackStartAnimEvent()
         {
+            if (!attackStartGate.TryPass(Time.frameCount)) return;
             OnAttackStartAnimEvent?.Invoke();
         }
 
 
-        public void AttackEndAnimEvent() 
+        public void AttackEndAnimEvent()
         {
+            if (!attackEndGate.TryPass(Time.frameCount)) return;
             IsAttackAnimationPlaying = false;
             OnAttackEndAnimEvent?.Invoke();
         }
 
         public void SpecialAttackStartAnimEvent()
         {
+            if (!specialAttackStartGate.TryPass(Time.frameCount)) return;
             OnSpecialAttackStartAnimEvent?.Invoke();
         }
 
         public void SpecialAttackEndAnimEvent()
         {
+            if (!specialAttackEndGate.TryPass(Time.frameCount)) return;
             IsSpecialAttackAnimationPlaying = false;
             OnSpecialAttackEndAnimEvent?.Invoke();
         }

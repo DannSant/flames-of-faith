@@ -98,6 +98,8 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
   - **Trigger enter:** one hit on contact.
   - **Trigger stay** (e.g. the Augur's flame trail): each target has its own timer, is hit on contact, then every `tickInterval` while it stays inside. One shared timer used to need 0.4 s of contact, so fleeing enemies such as the Corruptor never got hit.
 - **Explosions:** `ExplosionDamage.SetExplosionDamage` lets a spawner set the damage of the explosion it sets off; without it the explosion prefab's own damage is used.
+- **Animation events in blend trees fire once per clip**, all in the same frame. The Warrior's attack is an 8-direction blend tree, so its start event ran the cleave 8 times per swing. `CharacterVisual` forwards each attack event once per frame (`OncePerFrame`, `AnimationEventTests`). Anything else driven by events on directional clips needs the same gate.
+- **Ley Charge debug log:** tick "Log Debug" on `Resources/Debuffs/LeyChargeDebuff.asset` (`ElementalDebuffData.logDebug`) to log every damage a charged enemy takes, each strike and why a chain stops.
 
 ### Corruption & Grace (reworked Oct 2026)
 

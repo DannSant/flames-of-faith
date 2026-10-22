@@ -19,6 +19,9 @@ namespace Game.Combat.Elemental
         [SerializeField] private GameObject vfx;
         [SerializeField] private DebuffContactSpreadData contactSpread = new DebuffContactSpreadData();
         [SerializeField] private DebuffStackData stacking = new DebuffStackData();
+        [Header("Debug")]
+        [Tooltip("Logs what this debuff does to the Console (Ley Charge: every damage taken, strike and chain hop).")]
+        [SerializeField] private bool logDebug = false;
 
         public ElementalType ElementalType => elementalType;
         public float BaseDuration => baseDuration;
@@ -31,6 +34,7 @@ namespace Game.Combat.Elemental
         public GameObject VFX => vfx;
         public DebuffContactSpreadData ContactSpread => contactSpread;
         public DebuffStackData Stacking => stacking;
+        public bool LogDebug => logDebug;
     }
 
 }
