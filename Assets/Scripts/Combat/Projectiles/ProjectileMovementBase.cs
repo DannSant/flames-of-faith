@@ -11,15 +11,26 @@ namespace Game.Combat.Projectiles
     }
     public abstract class ProjectileMovementBase : MonoBehaviour
     {
+        [Tooltip("Units per second. A player projectile takes its speed from its DamageSourceData " +
+            "(Resources/Combat/DamageSources) instead; this value is used only without one.")]
+        [SerializeField] protected float speed = 5f;
+
         protected Rigidbody2D rb;
         protected Vector2 direction;
 
         private Vector2 startPosition;
         private float maxTravelDistance;
 
+        public float Speed { get => speed; set => speed = value; }
+
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+
+            if (TryGetComponent(out DamageSourceBase source) && source.Data != null && source.Data.ProjectileSpeed > 0f)
+            {
+                speed = source.Data.ProjectileSpeed;
+            }
         }
 
         public virtual void Initialize(Vector2 dir)

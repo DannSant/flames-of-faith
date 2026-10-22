@@ -17,11 +17,20 @@ namespace Game.BalanceData.Editor
             "Assets/Resources/Enemies",
             "Assets/Resources/Waves",
             "Assets/Resources/Behaviors",
+            "Assets/Resources/Combat/DamageSources",
+        };
+
+        // Prefabs whose design numbers moved to an asset (damage sources -> DamageSourceData).
+        public static readonly string[] PrefabFolders =
+        {
+            "Assets/Prefabs/Player/Projectiles",
+            "Assets/Prefabs/Player/Other",
         };
 
         public static readonly string[] Files =
         {
             "Assets/Prefabs/Pickups/HealthPickup.prefab",
+            "Assets/Prefabs/Player/PlayerWarrior.prefab",
         };
 
         [MenuItem("Tools/Flames of Faith/Balance Data/Reserialize Data Assets")]
@@ -44,6 +53,7 @@ namespace Game.BalanceData.Editor
             return AssetDatabase.FindAssets("", Folders)
                 .Select(AssetDatabase.GUIDToAssetPath)
                 .Where(p => p.EndsWith(".asset"))
+                .Concat(AssetDatabase.FindAssets("t:Prefab", PrefabFolders).Select(AssetDatabase.GUIDToAssetPath))
                 .Concat(Files)
                 .Distinct()
                 .OrderBy(p => p)
@@ -52,8 +62,23 @@ namespace Game.BalanceData.Editor
 
         private static void Reserialize(List<string> paths)
         {
-            AssetDatabase.ForceReserializeAssets(paths, ForceReserializeAssetsOptions.ReserializeAssets);
-            Debug.Log($"[ReserializeDataAssets] Re-saved {paths.Count} assets.");
+            // ForceReserializeAssets drops removed fields from .asset files but keeps them in prefabs,
+            // so prefabs are loaded and saved again instead.
+            var prefabs = paths.Where(p => p.EndsWith(".prefab")).ToList();
+            AssetDatabase.ForceReserializeAssets(paths.Except(prefabs).ToList(), ForceReserializeAssetsOptions.ReserializeAssets);
+            foreach (string path in prefabs)
+            {
+                var root = PrefabUtility.LoadPrefabContents(path);
+                try
+                {
+                    PrefabUtility.SaveAsPrefabAsset(root, path);
+                }
+                finally
+                {
+                    PrefabUtility.UnloadPrefabContents(root);
+                }
+            }
+            Debug.Log($"[ReserializeDataAssets] Re-saved {paths.Count} assets ({prefabs.Count} prefabs).");
         }
     }
 }

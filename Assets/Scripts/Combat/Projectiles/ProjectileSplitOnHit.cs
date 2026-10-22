@@ -53,6 +53,8 @@ namespace Game.Combat.Projectiles
             if (cloneSplit != null) cloneSplit.isSplit = true;
 
             var cloneDamage = clone.GetComponent<DamageSourceBase>();
+            // The clone starts from its data's defaults; take what the weapon set on this arrow (class, scale, item id).
+            cloneDamage.CopyRuntimeFrom(damageSource);
             int splitDamage = Mathf.Max(1, Mathf.RoundToInt(damageSource.BaseDamage * settings.SplitDamageMultiplier));
             cloneDamage.SetBaseDamage(splitDamage);
             cloneDamage.ConfigurePierce(true, 1);
@@ -62,6 +64,9 @@ namespace Game.Combat.Projectiles
             var move = clone.GetComponent<ProjectileMovementBase>();
             if (move != null)
             {
+                // Keep this arrow's current speed (item stacking may have scaled it) over the data's default.
+                var ownMove = GetComponent<ProjectileMovementBase>();
+                if (ownMove != null) move.Speed = ownMove.Speed;
                 Vector2 direction = Random.insideUnitCircle;
                 if (direction.sqrMagnitude < 0.0001f) direction = Vector2.right;
                 move.Initialize(direction.normalized);

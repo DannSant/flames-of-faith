@@ -5,7 +5,6 @@ namespace Game.Combat.Projectiles
 {
     public class ProjectileMoveLinear : ProjectileMovementBase, IStackScalable
     {
-        [SerializeField] private float speed = 5f;
         [SerializeField] private bool rotateTowardsDirection = true;
 
         [Header("Course Correction")]
@@ -63,11 +62,6 @@ namespace Game.Combat.Projectiles
             }
 
             direction = ProjectileSteering.Steer(direction, toTarget, steerTurnRate * Time.fixedDeltaTime);
-        }
-
-        public void SetSpeed(float newSpeed)
-        {
-            speed = newSpeed;
         }
     }
 }

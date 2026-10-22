@@ -4,7 +4,6 @@ namespace Game.Combat.Projectiles
 {
     public class ProjectileMoveHoming : ProjectileMovementBase
     {
-        [SerializeField] private float speed = 5f;
         [SerializeField] private float turnSpeed = 180f;
         [Tooltip("Rotate the projectile to face where it's flying (arrows). Off for round projectiles.")]
         [SerializeField] private bool rotateTowardsDirection = false;

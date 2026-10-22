@@ -12,55 +12,44 @@ namespace Game.Combat
 {
     public class DamageSourceBase : MonoBehaviour, IEffectMultiplier, IDamageDealtNotifier, IStackScalable
     {
-        [Tooltip("This source's design numbers (damage, hit mode, pierce, knockback, debuff, projectile speed and lifetime).")]
+        [Tooltip("This source's design numbers: damage, hit mode, pierce, knockback, debuff, and its projectile's " +
+            "speed and lifetime. Edit them on the asset (Resources/Combat/DamageSources), not here.")]
         [SerializeField] private DamageSourceData data;
 
-        [Header("Damage")]
-        [SerializeField] private int baseDamage = 5;
-        [SerializeField] private WeaponClass weaponClass = WeaponClass.None;
-        [SerializeField] private float attackScale = 1f;
+        [Header("Wiring")]
         [SerializeField] private string effectID;
         [SerializeField] private string layerMaskName = "Enemy";
         [SerializeField] private LayerMask enemyLayerMask = 0;
         [SerializeField] private DamageOriginType originType = DamageOriginType.Weapon;
 
-        [Header("Hit Mode")]
-        [Tooltip("If true, we deal damage when something ENTERS the trigger.")]
-        [SerializeField] private bool useTriggerEnter = true;
+        // The design numbers, loaded from data (EnsureLoaded) and then changed at runtime by spawners
+        // (Initialize, the setters below) and item stacking. Not serialized: the asset is their only source.
+        // The defaults are for a source without data (tests, a component added in code).
+        private int baseDamage = 5;
+        private WeaponClass weaponClass = WeaponClass.None;
+        private float attackScale = 1f;
+        private bool useTriggerEnter = true;
+        // Trigger stay: each target has its own timer and is hit as soon as it enters, so a target
+        // that only passes through still takes a hit.
+        private bool useTriggerStay = false;
+        private float tickInterval = 1f;
+        // Still only a config hint: every instance ticks on its own.
+        private bool shouldStackDamage = true;
+        private bool enablePierce = false;
+        private int pierceCount = 1;
+        private bool addPierceStat = false;
+        private bool applyKnockback = false;
+        private float knockbackForce = 5f;
+        private bool canTriggerLifesteal = true;
+        private ElementalDebuffData directElementalDebuffData;
 
-        [Tooltip("If true, we deal damage periodically while something STAYS in the trigger.")]
-        [SerializeField] private bool useTriggerStay = false;
-
-        [Tooltip("Seconds between hits on the same target while it stays inside. Each target has its " +
-            "own timer and is hit as soon as it enters, so a target that only passes through still takes a hit.")]
-        [SerializeField] private float tickInterval = 1f;
-
-        [Tooltip("If true, multiple overlapping instances can each tick damage. " +
-             "If false, you may later centralize stacking per target.")]
-        [SerializeField] private bool shouldStackDamage = true;
-
-        [Header("Pierce")]
-        [SerializeField] private bool enablePierce = false;
-        [SerializeField] private int pierceCount = 1;
-        [Tooltip("Add the Pierce stat's extra targets to Pierce Count when spawned. For projectiles " +
-            "spawned straight from a prefab (e.g. Strafe arrows); weapons pass their own pierce through Initialize.")]
-        [SerializeField] private bool addPierceStat = false;
+        // Set once the values above are loaded from data. Every entry point loads first, because a
+        // spawner can configure a source before its object is active, i.e. before Awake.
+        private bool loaded;
 
         // Set when a spawner sets the pierce itself (Initialize, ConfigurePierce), so the Pierce
         // stat isn't added on top of a value that already includes it (or a split arrow's single hit).
         private bool pierceSetExplicitly;
-
-        [Header("Knockback")]
-        [SerializeField] private bool applyKnockback = false;
-        [SerializeField] private float knockbackForce = 5f;
-
-        [Header("Lifesteal")]
-        [SerializeField] private bool canTriggerLifesteal = true;
-
-        [Header("Direct Elemental Debuff")]
-        [Tooltip("Elemental debuff applied directly by this damage source, independent of any weapon/effect data. " +
-            "Useful for damage sources not tied to a WeaponData asset (e.g. an AoE explosion prefab).")]
-        [SerializeField] private ElementalDebuffData directElementalDebuffData;
 
         private EffectStore effectStore;
         private PlayerProgression playerProgression;
@@ -70,22 +59,76 @@ namespace Game.Combat
         private readonly Dictionary<Collider2D, float> nextStayHitTime = new();
         private WeaponData weaponData;
         
+        public DamageSourceData Data => data;
         public DamageOriginType OriginType => originType;
 
         // Exposed so sibling components that propagate this hit (e.g. AreaDamageOnHit) stay in
         // sync with it instead of duplicating the serialized fields on their own inspector.
-        public WeaponClass WeaponClass => weaponClass;
-        public bool CanTriggerLifesteal => canTriggerLifesteal;
-        public int PierceCount => pierceCount;
-        public float KnockbackForce => knockbackForce;
+        public WeaponClass WeaponClass { get { EnsureLoaded(); return weaponClass; } }
+        public bool CanTriggerLifesteal { get { EnsureLoaded(); return canTriggerLifesteal; } }
+        public int PierceCount { get { EnsureLoaded(); return pierceCount; } }
+        public float KnockbackForce { get { EnsureLoaded(); return knockbackForce; } }
 
-        public void SetKnockbackForce(float value) => knockbackForce = value;
+        public void SetKnockbackForce(float value) { EnsureLoaded(); knockbackForce = value; }
 
         // In case something external wants to know when we dealt damage
         public event Action<float, GameObject> OnDamageDealtEvent;
 
+        private void Awake() => EnsureLoaded();
+
+        private void EnsureLoaded()
+        {
+            if (loaded) return;
+            loaded = true;
+            if (data == null) return;
+
+            baseDamage = data.BaseDamage;
+            weaponClass = data.WeaponClass;
+            attackScale = data.AttackScale;
+            useTriggerEnter = data.UseTriggerEnter;
+            useTriggerStay = data.UseTriggerStay;
+            tickInterval = data.TickInterval;
+            shouldStackDamage = data.ShouldStackDamage;
+            enablePierce = data.EnablePierce;
+            pierceCount = data.PierceCount;
+            addPierceStat = data.AddPierceStat;
+            applyKnockback = data.ApplyKnockback;
+            knockbackForce = data.KnockbackForce;
+            canTriggerLifesteal = data.CanTriggerLifesteal;
+            directElementalDebuffData = data.DirectElementalDebuffData;
+        }
+
+        /// <summary>
+        /// Copies another source's runtime values (the ones its spawner set, not its data's defaults).
+        /// For a source cloned from a live one: Instantiate copies serialized fields only, and these aren't.
+        /// </summary>
+        public void CopyRuntimeFrom(DamageSourceBase other)
+        {
+            other.EnsureLoaded();
+            loaded = true;
+            baseDamage = other.baseDamage;
+            weaponClass = other.weaponClass;
+            attackScale = other.attackScale;
+            useTriggerEnter = other.useTriggerEnter;
+            useTriggerStay = other.useTriggerStay;
+            tickInterval = other.tickInterval;
+            shouldStackDamage = other.shouldStackDamage;
+            enablePierce = other.enablePierce;
+            pierceCount = other.pierceCount;
+            addPierceStat = other.addPierceStat;
+            pierceSetExplicitly = other.pierceSetExplicitly;
+            applyKnockback = other.applyKnockback;
+            knockbackForce = other.knockbackForce;
+            canTriggerLifesteal = other.canTriggerLifesteal;
+            directElementalDebuffData = other.directElementalDebuffData;
+            effectID = other.effectID;
+            weaponData = other.weaponData;
+            stackDamageMultiplier = other.stackDamageMultiplier;
+        }
+
         private void Start()
         {
+            EnsureLoaded();
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
 
@@ -97,6 +140,7 @@ namespace Game.Combat
 
         public void Initialize(int baseDamage, int pierceAmount, string effectId, WeaponClass weaponClass, WeaponData weaponData)
         {
+            EnsureLoaded();
             this.baseDamage = baseDamage;
             this.pierceCount = pierceAmount;
             pierceSetExplicitly = true;
@@ -212,7 +256,11 @@ namespace Game.Combat
         /// Used by sibling components that propagate the hit (e.g. <see cref="AreaDamageOnHit"/>)
         /// so they don't have to re-implement the weapon/effect/direct debuff lookups.
         /// </summary>
-        public void ApplyOnHitEffectsTo(GameObject target) => TryApplyElementalDebuff(target);
+        public void ApplyOnHitEffectsTo(GameObject target)
+        {
+            EnsureLoaded();
+            TryApplyElementalDebuff(target);
+        }
 
         private void TryApplyElementalDebuff(GameObject target)
         {
@@ -274,6 +322,7 @@ namespace Game.Combat
 
         public void ApplyStackScaling(StackScaling scaling)
         {
+            EnsureLoaded();
             stackDamageMultiplier = scaling.Get(StackScalingTarget.Damage);
 
             float pierceScale = scaling.Get(StackScalingTarget.Pierce);
@@ -283,10 +332,10 @@ namespace Game.Combat
             }
         }
 
-        public void SetElementalDebuffData(ElementalDebuffData debuffData) => directElementalDebuffData = debuffData;
+        public void SetElementalDebuffData(ElementalDebuffData debuffData) { EnsureLoaded(); directElementalDebuffData = debuffData; }
 
-        public void SetBaseDamage(int value) => baseDamage = value;
-        public int BaseDamage => baseDamage;
+        public void SetBaseDamage(int value) { EnsureLoaded(); baseDamage = value; }
+        public int BaseDamage { get { EnsureLoaded(); return baseDamage; } }
 
         // Targets this source never damages, e.g. the enemy a split arrow broke off from (it spawns
         // inside that enemy's collider and would otherwise hit it again immediately).
@@ -298,18 +347,20 @@ namespace Game.Combat
             ignoredTargets ??= new HashSet<GameObject>();
             ignoredTargets.Add(target);
         }
-        public void SetWeaponClass(WeaponClass wc) => weaponClass = wc;
-        public void SetAttackScale(float scale) => attackScale = scale;
-        public float AttackScale => attackScale;
-        public void EnableTriggerEnter(bool enabled) => useTriggerEnter = enabled;
+        public void SetWeaponClass(WeaponClass wc) { EnsureLoaded(); weaponClass = wc; }
+        public void SetAttackScale(float scale) { EnsureLoaded(); attackScale = scale; }
+        public float AttackScale { get { EnsureLoaded(); return attackScale; } }
+        public void EnableTriggerEnter(bool enabled) { EnsureLoaded(); useTriggerEnter = enabled; }
         public void EnableTriggerStay(bool enabled, float interval = 1f)
         {
+            EnsureLoaded();
             useTriggerStay = enabled;
             tickInterval = interval;
         }
 
         public void ConfigurePierce(bool enabled, int count)
         {
+            EnsureLoaded();
             enablePierce = enabled;
             pierceCount = count;
             pierceSetExplicitly = true;

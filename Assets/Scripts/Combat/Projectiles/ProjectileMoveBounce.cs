@@ -5,7 +5,6 @@ namespace Game.Combat.Projectiles
 {
     public class ProjectileMoveBounce : ProjectileMovementBase, IStackScalable
     {
-        [SerializeField] private float speed = 5f;
         [SerializeField] private int maxBounces = 3;
 
         private int bounceCount = 0;

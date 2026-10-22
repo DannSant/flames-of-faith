@@ -572,7 +572,16 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
     - every enemy behavior asset is used by an enemy prefab;
     - every `LevelData` is on a map, and its scene is in the build;
     - every `WaveDatabase` is used by a build scene.
-- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`).
+- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`). It covers the enemy, wave, behavior and damage-source assets and the damage-source prefabs. `ForceReserializeAssets` keeps removed fields in prefabs, so the tool loads and saves prefabs instead.
+- **Damage sources** (`DamageSourceData`, one asset per player damage source in `Resources/Combat/DamageSources`, named after its prefab):
+  - **What it holds:** base damage, weapon class (= which damage stat it adds), attack scale, hit mode and tick, pierce, knockback, lifesteal, the direct debuff, and the projectile's speed and lifetime.
+  - **On the prefab:** only wiring (`effectID`, layer mask, origin).
+  - **How the components read it:**
+    - `DamageSourceBase`'s design values are non-serialized runtime state, loaded from the asset on first use (`EnsureLoaded`, called by `Awake` and every setter/getter, since spawners can configure a source before it's active). Spawners and ability tiers still override them (`Initialize`, `SetBaseDamage`...).
+    - `ProjectileMovementBase.speed` (hoisted from the subclasses), `LifetimeByStat` and `DestroyAfterTime` take the asset's values in `Awake` when the sibling source has data. Enemy projectiles have no data and keep their own.
+  - **Cloning a live source** (split arrows): `Instantiate` copies serialized fields only, so call `CopyRuntimeFrom(original)`.
+  - **New damage source:** run `Tools/Flames of Faith/Balance Data/Create Damage Source Data`, which creates assets from prefab values and skips sources that have one.
+  - **Tests:** `DamageSourceDataTests` checks that every source has its own asset, that its values are sane (speed only with a projectile movement, lifetime only with a lifetime component), and that runtime overrides win.
 - **Enemy speed:** `EnemyData.moveSpeed` is units per second for walkers: chasers, the Corruptor, and DrekoEye, whose `AIBehaviorMoveToSnapshot` no longer has its own speed. `hopForce` is the push per hop for slimes (`AIBehaviorChaseOnAnimIntervals` / `AIBehaviorRoamOnAnimIntervals`).
   - The old `speedBase` meant both, so the slimes' 100–150 and the chasers' 1–3 sat in the same column.
   - Frost's slow scales both.

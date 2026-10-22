@@ -158,26 +158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceBase
   data: {fileID: 11400000, guid: d5786990204c87149b61133c6b4c1e5c, type: 2}
-  baseDamage: 2
-  weaponClass: 2
-  attackScale: 0.5
   effectID: 
   layerMaskName: Enemy
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1152
   originType: 1
-  useTriggerEnter: 1
-  useTriggerStay: 0
-  tickInterval: 1
-  shouldStackDamage: 1
-  enablePierce: 1
-  pierceCount: 2
-  addPierceStat: 1
-  applyKnockback: 0
-  knockbackForce: 5
-  canTriggerLifesteal: 1
-  directElementalDebuffData: {fileID: 0}
 --- !u!114 &-9035687851212520077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.RandomDirectionInitializer
   minAngle: 0
   maxAngle: 360
-  initialSpeedOverride: 0
 --- !u!114 &7311908642113207301
 MonoBehaviour:
   m_ObjectHideFlags: 0

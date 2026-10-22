@@ -4,7 +4,6 @@ namespace Game.Combat.Projectiles
 {
     public class ProjectileMovementDelayedHoming : ProjectileMovementBase
     {
-        [SerializeField] private float speed = 1.5f;
         [SerializeField] private float retargetInterval = 2f;
         [SerializeField] private float turnSpeed = 45f;
         [SerializeField] private float offsetRadius = 1f;

@@ -173,7 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9443484b7b9fb43b6bd8f985743406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Pickups.HealthPickup
-  healAmount: 3
+  baseAmount: 5
+  amountPerLevel: 2
 --- !u!114 &2603307318486496441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,4 +188,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Utils.MagnetToPlayer
   moveSpeed: 5
-  baseRange: 2
