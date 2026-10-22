@@ -50,5 +50,24 @@ namespace Game.Tests
             Assert.IsEmpty(mismatched, "Effect assets whose file name isn't their effect's name (the generator " +
                 "would write a second asset for them):\n" + string.Join("\n", mismatched));
         }
+
+        /// <summary>
+        /// Items list their behaviors by id, and the generator loads each one from
+        /// "Effects/EffectBehaviors/&lt;id&gt;". A behavior file renamed away from its id silently drops out
+        /// of every item using it: Fire Arrows lost its fire this way (Oct 2026).
+        /// </summary>
+        [Test]
+        public void EveryEffectBehavior_IsNamedAfterItsId()
+        {
+            var mismatched = AssetDatabase.FindAssets("t:EffectBehavior", new[] { EffectsFolder + "/EffectBehaviors" })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Select(p => (path: p, behavior: AssetDatabase.LoadAssetAtPath<EffectBehavior>(p)))
+                .Where(b => b.behavior != null && !string.IsNullOrEmpty(b.behavior.BehaviorId)
+                    && Path.GetFileNameWithoutExtension(b.path) != b.behavior.BehaviorId)
+                .Select(b => $"{b.path} has id \"{b.behavior.BehaviorId}\"")
+                .ToList();
+            Assert.IsEmpty(mismatched, "Effect behaviors whose file name isn't their id (items can't load them):\n" +
+                string.Join("\n", mismatched));
+        }
     }
 }
