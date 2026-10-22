@@ -26,6 +26,9 @@ MonoBehaviour:
   - stat: 1
     value: 5
     type: 0
+  - stat: 14
+    value: 1
+    type: 0
   statDependencies: []
   behaviors: []
   unlockedByDefault: 0

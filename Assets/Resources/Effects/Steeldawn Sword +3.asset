@@ -24,7 +24,10 @@ MonoBehaviour:
   sellPrice: 0
   effectStatModifiers:
   - stat: 1
-    value: 8
+    value: 10
+    type: 0
+  - stat: 14
+    value: 3
     type: 0
   statDependencies: []
   behaviors: []
