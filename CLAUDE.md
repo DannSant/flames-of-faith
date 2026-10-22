@@ -446,7 +446,9 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
       - **Details:** on the right, like the skill tree's: the name, the description, a yellow "Starting weapon" header, the weapon (`ClassKits.GetWeapon`, quality color) and its text, a green "Unlocked" / red unlock-cost footer, and **Skill Tree**, which opens the tree on that class (`SkillTreeController.Open(class)`).
       - **Buttons:** Start Run in the progress spot, Back above it.
   - **Class select flow:**
-    - **Choosing:** a click chooses a class; with the gamepad, moving onto a card chooses it. Hovering previews another class (`ClassToShow`).
+    - **Choosing:** pressing a card chooses its class: a click, or A with the gamepad (the card's button calls `SelectWarrior` / `SelectArcher` / `SelectAugur`).
+    - **Previewing:** hovering, or moving onto a card with the gamepad, only previews it (`ClassToShow`); moving off shows the chosen class again.
+    - **Why moving doesn't choose:** it used to, and walking the gamepad from the Warrior card down to Start Run passed the Augur card and chose it. A locked Augur then blocked the run.
     - **Start Run** starts the run; on a locked class it shows the unlock dialog. Nothing starts from a single click any more.
     - **Back:** B goes back (the window's `onCancel`).
     - **Order:** `classesByPlayerIndex` is Warrior, Archer, Augur, the `GameSession.SelectedPlayerIndex` order.

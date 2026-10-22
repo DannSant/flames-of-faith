@@ -199,6 +199,53 @@ namespace Game.Tests
             Assert.AreEqual(expected, MainMenuController.FormatSaveInfo("{0} - Act {1} - Level {2}", className, act, level));
         }
 
+        /// <summary>
+        /// Pressing a card is the only way to choose a class (click, or A with the gamepad): moving onto a card just
+        /// previews it, so walking the gamepad from the Warrior card down to Start Run can't choose the Augur on the way.
+        /// </summary>
+        [Test]
+        public void Cards_ChooseTheirOwnClassWhenPressed()
+        {
+            var cards = Load(ClassSelectPath).GetComponentsInChildren<ClassSelectHoverButton>(true);
+            Assert.AreEqual(3, cards.Length);
+            foreach (var card in cards)
+            {
+                var button = card.GetComponent<Button>();
+                Assert.IsNotNull(button, $"{card.name} is not a button");
+                Assert.AreEqual(1, button.onClick.GetPersistentEventCount(), $"{card.name}: one click handler");
+                Assert.AreEqual("Select" + card.ClassData.characterName, button.onClick.GetPersistentMethodName(0),
+                    $"{card.name} chooses another class when pressed");
+            }
+        }
+
+        [Test]
+        public void MovingOntoACard_OnlyPreviewsIt()
+        {
+            var go = new GameObject("Card");
+            var classData = ScriptableObject.CreateInstance<CharacterClassData>();
+            try
+            {
+                var card = go.AddComponent<ClassSelectHoverButton>();
+                var so = new SerializedObject(card);
+                so.FindProperty("classData").objectReferenceValue = classData;
+                so.ApplyModifiedPropertiesWithoutUndo();
+                CharacterClassData previewed = null;
+                card.OnHoverEnter += c => previewed = c;
+
+                card.OnSelect(null);
+
+                Assert.AreSame(classData, previewed, "Gamepad selection previews the card's class");
+                var events = typeof(ClassSelectHoverButton).GetEvents().Select(e => e.Name).ToList();
+                CollectionAssert.AreEquivalent(new[] { "OnHoverEnter", "OnHoverExit" }, events,
+                    "A card should only report previews; choosing goes through its button");
+            }
+            finally
+            {
+                Object.DestroyImmediate(go);
+                Object.DestroyImmediate(classData);
+            }
+        }
+
         [Test]
         public void Details_ShowTheHoveredClass_ElseTheChosenOne()
         {

@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
-    // A class card in the main menu's class select. Select/Deselect mirror pointer enter/exit so the class info also
-    // updates with gamepad navigation. Shows a "Locked" note while the class is locked and a ring while it's the chosen one.
+    // A class card in the main menu's class select. Select/Deselect mirror pointer enter/exit, so gamepad navigation
+    // previews a class like hovering does; only clicking the card (A on it) chooses it. Shows a "Locked" note while
+    // the class is locked and a ring while it's the chosen one.
     public class ClassSelectHoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private CharacterClassData classData;
@@ -20,8 +21,6 @@ namespace Game.UI
 
         public event Action<CharacterClassData> OnHoverEnter;
         public event Action OnHoverExit;
-        /// <summary>The card got the EventSystem selection (gamepad navigation moved onto it).</summary>
-        public event Action<ClassSelectHoverButton> OnSelected;
 
         public CharacterClassData ClassData => classData;
 
@@ -59,7 +58,6 @@ namespace Game.UI
         public void OnSelect(BaseEventData eventData)
         {
             OnHoverEnter?.Invoke(classData);
-            OnSelected?.Invoke(this);
         }
 
         public void OnDeselect(BaseEventData eventData)

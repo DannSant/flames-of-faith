@@ -18,7 +18,7 @@ namespace Game.UI
     /// <summary>
     /// The main menu: the menu panel, the class select and the Settings panel, all resting at their spot on the right.
     /// Switching panels fades and slides the old one out and the new one in (in code, on unscaled time).
-    /// Class select: clicking (or moving onto) a card chooses the class, hovering previews another; Start Run starts.
+    /// Class select: clicking a card (A with the gamepad) chooses the class; hovering or moving onto one previews it; Start Run starts.
     /// Layout: MainMenuRestyler.
     /// </summary>
     public class MainMenuController : MonoBehaviour
@@ -94,7 +94,6 @@ namespace Game.UI
             {
                 card.OnHoverEnter += ShowClassInfo;
                 card.OnHoverExit += HideClassInfo;
-                card.OnSelected += HandleCardSelected;
             }
             if (startRunButton != null) startRunButton.onClick.AddListener(StartRun);
 
@@ -137,7 +136,6 @@ namespace Game.UI
                 if (card == null) continue;
                 card.OnHoverEnter -= ShowClassInfo;
                 card.OnHoverExit -= HideClassInfo;
-                card.OnSelected -= HandleCardSelected;
             }
         }
 
@@ -175,21 +173,13 @@ namespace Game.UI
         // Moving off a card shows the chosen class again (like the item bag's hover preview)
         private void HideClassInfo() => ShowClassInfo(null);
 
-        // Clicking (or moving onto) a card chooses its class; Start Run starts the run
+        // Clicking a card (A on it with the gamepad) chooses its class; hovering or moving onto it only previews it,
+        // so walking the gamepad past the other cards to Start Run doesn't change the class. Start Run starts the run.
         public void SelectWarrior() => SelectClass(0);
 
         public void SelectArcher() => SelectClass(1);
 
         public void SelectAugur() => SelectClass(2);
-
-        // With the gamepad, moving onto a card chooses it (like the item bag); the mouse chooses by clicking
-        private void HandleCardSelected(ClassSelectHoverButton card)
-        {
-            bool gamepad = InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
-            if (!gamepad || classesByPlayerIndex == null) return;
-            int index = System.Array.IndexOf(classesByPlayerIndex, card.ClassData);
-            if (index >= 0) SelectClass(index);
-        }
 
         private void SelectClass(int playerIndex)
         {
