@@ -221,6 +221,7 @@ namespace Game.Tests
         {
             StatType.MaxHealth, StatType.MeleeDamage, StatType.RangedDamage, StatType.MagicDamage,
             StatType.MastowAffinity, // depends on each debuff's own data
+            StatType.Cleave, // retired (RetiredStatTests)
         };
 
         [Test]

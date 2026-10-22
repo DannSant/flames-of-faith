@@ -367,14 +367,18 @@ namespace Game.UI
             }
         }
 
+        /// <summary>Retired stats (e.g. Cleave) keep their StatType but get no row.</summary>
+        public static bool ShowsInStatsPane(StatData statData) => statData != null && !statData.Retired;
+
         private Dictionary<StatType,int> GetStatsByCategory(Dictionary<StatType, int>  allStats,StatCategory category)
         {
            
             Dictionary<StatType, int> filteredStats = new();
             foreach (var kvp in allStats)
             {
-                var currentCategory = StatUpgradeDatabase.Instance.GetStatData(kvp.Key).Category;
-                if (currentCategory == category)
+                var statData = StatUpgradeDatabase.Instance.GetStatData(kvp.Key);
+                if (!ShowsInStatsPane(statData)) continue;
+                if (statData.Category == category)
                 {
                     filteredStats.Add(kvp.Key, kvp.Value);
                 }

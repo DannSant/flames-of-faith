@@ -16,7 +16,7 @@ namespace Game.Progression {
         Range,
         Pierce, // was PierceAmount (saves map the old name via StatTypeNames)
         MagicDamage,
-        Cleave,
+        Cleave, // retired (Oct 2026): nothing grants or reads it; kept so the stats stored by index don't shift
         HealthRegen,
         LifeSteal, 
         SkillDuration,

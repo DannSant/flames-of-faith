@@ -80,7 +80,7 @@ namespace Game.Progression
             eligibleUpgradeStats.Clear();
             foreach (var stat in StatUpgradeDatabase.Instance.GetStatsConfig())
             {
-                if (stat.AllowLevelUpgrades)
+                if (stat.AllowLevelUpgrades && !stat.Retired)
                 {
                     eligibleUpgradeStats.Add(stat.StatType);
                 }

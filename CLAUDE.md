@@ -216,6 +216,8 @@ Enemy → player damage is sized against an *expected* player, never the real on
   - A dodge returns before `onDamageTaken`, so it adds no Corruption and triggers no Retribution or on-damage effects.
   - It grants `dodgeInvulnerabilityDuration` and shows `DamageNumberSpawner.SpawnDodgeNumber`.
 
+**Removing a stat:** never delete it from `StatType` (it would shift every index after it). Tick **Retired** on its `StatDatabase` entry instead: the Stats pane hides it (`StatsPaneUI.ShowsInStatsPane`), level-up never offers it, and `RetiredStatTests` fails if any item, stat bonus rule or class guide still uses it. Remove it from the items in the Effect Database, regenerate, and delete the code that reads it. **Cleave** (index 13) was retired this way in Oct 2026: melee swings already hit every enemy in the arc, so nobody picked it.
+
 **Class stat guide** (Oct 2026), so new players know what to pick:
 - **Data:** `CharacterClassData.statPriorities`, a list of `{stat, role (Key / Complementary), justification}`. Each class has one Key stat.
 - **Rules:** the pure `ClassStatGuide` (`Scripts/Progression/`) handles role lookup, display order and tab, and the tooltip line ("Key stat for the Warrior: ...").

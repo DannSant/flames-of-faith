@@ -123,7 +123,6 @@ namespace Game.Combat
         protected override void OnAttackAnimationStarted()
         {
             weaponColliderObject.SetActive(true);
-            CleaveDamage();
         }
 
         protected override void OnAttackAnimationPlayed()
@@ -183,26 +182,6 @@ namespace Game.Combat
             float angleRad = currentAngle * Mathf.Deg2Rad;
             Vector2 offset = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad)) * orbitRadius;
             weaponColliderObject.transform.position = pivotPoint.position + (Vector3)offset;
-        }
-
-        private void CleaveDamage()
-        {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, weaponData.rangeBase, LayerMask.GetMask("Enemy"));
-            float cleaveDamage = playerProgression.GetStatTotal(StatType.Cleave);
-            foreach (var hit in hits)
-            {
-                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
-                if (cleaveDamage > 0 && enemy != null) 
-                { 
-                    enemy.TakeDamage(new DamageRequest(cleaveDamage, weaponData.weaponClass,false));
-                }
-                Knockback knockback = hit.GetComponent<Knockback>();
-                if (cleaveDamage> 0 && knockback != null)
-                {
-                    var playerTransform = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
-                    knockback.ApplyKnockback(playerTransform, weaponData.knockbackForce);
-                }
-            }
         }
 
         private void PlayRandomSwordSound()

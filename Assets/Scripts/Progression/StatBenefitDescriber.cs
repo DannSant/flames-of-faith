@@ -66,7 +66,6 @@ namespace Game.Progression
                 case StatType.GraceAffinity: return DescribeGraceAffinity(points, ctx);
                 case StatType.ExperienceToLevelUpReduction: return DescribeExperience(points, ctx);
                 case StatType.Luck: return DescribeLuck(points, ctx);
-                case StatType.Cleave: return DescribeCleave(points);
                 case StatType.SkillDuration: return DescribeSkillDuration(points);
                 case StatType.HealingReceived: return DescribeHealingReceived(points);
                 default: return null;
@@ -225,12 +224,6 @@ namespace Game.Progression
             var parts = new string[tiers.Length];
             for (int i = 0; i < tiers.Length; i++) parts[i] = $"T{i + 1} {Num(Mathf.Round(tiers[i] * 10f) / 10f)}%";
             return "Level-up upgrade tiers: " + string.Join(", ", parts);
-        }
-
-        private static string DescribeCleave(int points)
-        {
-            if (points <= 0) return "No cleave damage";
-            return $"Each basic attack deals {points} damage to every enemy around you";
         }
 
         private static string DescribeSkillDuration(int points)
