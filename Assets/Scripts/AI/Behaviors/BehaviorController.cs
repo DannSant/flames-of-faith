@@ -163,8 +163,27 @@ namespace Game.AI.Behaviors
                 .Concat(deathBehaviors);
         }
 
+        // Each clip of a blend tree fires its own copy of an animation event, all in the same frame: DrekoEye's
+        // and FlameShooter's 8-direction shoot clips spawned 8 stacked volleys per shot. Each event name goes
+        // through once per frame.
+        private readonly Dictionary<string, OncePerFrame> startEventGates = new();
+        private readonly Dictionary<string, OncePerFrame> endEventGates = new();
+
+        private static bool PassesOncePerFrame(Dictionary<string, OncePerFrame> gates, string eventName)
+        {
+            string key = eventName ?? string.Empty;
+            if (!gates.TryGetValue(key, out OncePerFrame gate))
+            {
+                gate = new OncePerFrame();
+                gates[key] = gate;
+            }
+            return gate.TryPass(Time.frameCount);
+        }
+
         public void OnAnimationEventStart(string eventName)
         {
+            if (!PassesOncePerFrame(startEventGates, eventName)) return;
+
             // A stun freezes the animator, so clip events shouldn't reach here at all - this is the
             // guarantee that nothing slips through on the frame the stun lands. It matters most for
             // the enemies whose movement and projectiles come *only* from animation events (all the
@@ -184,6 +203,8 @@ namespace Game.AI.Behaviors
 
         public void OnAnimationEventEnd(string eventName)
         {
+            if (!PassesOncePerFrame(endEventGates, eventName)) return;
+
             foreach (var receiver in GetAnimationEventReceivers())
             {
                 receiver.OnAnimationEventEnd(context, eventName);
