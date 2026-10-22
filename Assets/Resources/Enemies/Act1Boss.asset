@@ -17,8 +17,11 @@ MonoBehaviour:
   healthBase: 2000
   contactDamageTier: 1
   projectileDamageTier: 0
-  speedBase: 1
-  attackRangeBase: 1
+  moveSpeed: 0
+  hopForce: 0
   xpTier: 1
   healthPerWave: 30
   healthPerLevel: 40
+  alwaysCorrupted: 0
+  overrideCorruptedHealthBonus: 0
+  corruptedHealthBonus: 1

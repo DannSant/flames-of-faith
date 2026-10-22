@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Wave3
   m_EditorClassIdentifier: 
   waveDuration: 50
-  cooldownDuration: 20
-  enemies: []
   enemyPool:
   - type: 0
     weight: 2
@@ -29,3 +27,8 @@ MonoBehaviour:
   longCooldown: 3
   amountOfEnemiesWithLongCooldown: 10
   regularCooldown: 2
+  expectedEnemyCountOverride: 0
+  corruptedChanceMultiplier: 1
+  spawnCorruptor: 1
+  overrideCorruptor: 0
+  corruptorOverride: 7

@@ -17,8 +17,8 @@ MonoBehaviour:
   healthBase: 40
   contactDamageTier: 2
   projectileDamageTier: 1.5
-  speedBase: 2
-  attackRangeBase: 1
+  moveSpeed: 2
+  hopForce: 0
   xpTier: 2
   healthPerWave: 5
   healthPerLevel: 15

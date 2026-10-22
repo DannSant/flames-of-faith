@@ -44,7 +44,7 @@ namespace Game.AI.Behaviors
             var knockback = context.enemyTransform.GetComponent<Knockback>();
             if (knockback != null && knockback.IsKnockbacked) return;
 
-            float speed = context.enemyData.speedBase *context.speedMultiplier;
+            float speed = context.enemyData.moveSpeed *context.speedMultiplier;
             float distance = Vector2.Distance(rb.position, context.playerTransform.position);
 
             var state = context.GetState<ChaserBehaviorState>(this);

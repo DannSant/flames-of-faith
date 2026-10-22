@@ -17,12 +17,7 @@ namespace Game.Waves {
         [Tooltip("Duration of the wave in seconds.")]
         public float waveDuration = 30f;
 
-        [Tooltip("Cooldown duration after wave ends.")]
-        public float cooldownDuration = 20f;
-
-        [Tooltip("Enemy types and how many to spawn.")]
-        public List<EnemySpawnInfo> enemies = new();
-
+        [Tooltip("Enemy types that can spawn this wave; each spawn picks one by weight.")]
         public List<WaveEnemyPoolEntry> enemyPool;
 
         [Header("Cooldown settings")]
@@ -48,22 +43,5 @@ namespace Game.Waves {
         [Tooltip("Use corruptorOverride instead of the Wave Database's Corruptor for this wave.")]
         public bool overrideCorruptor = false;
         public EnemyType corruptorOverride = EnemyType.CorruptorAct1;
-
-        [Serializable]
-        public class EnemySpawnInfo
-        {
-            public EnemyType type;
-            public int amount;
-        }
-
-        public int GetTotalEnemies()
-        {
-            int total = 0;
-            foreach (var e in enemies)
-            {
-                total += e.amount;
-            }
-            return total;
-        }
     }
 }

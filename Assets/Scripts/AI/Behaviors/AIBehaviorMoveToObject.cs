@@ -8,6 +8,7 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Update/MoveToObject")]
     public class AIBehaviorMoveToObject : AIUpdateBehavior
     {
+        [Tooltip("Speed of this scripted walk (e.g. DrekoEyeAdd walking to the altar), separate from EnemyData.moveSpeed on purpose.")]
         [SerializeField] private float speed = 2f;
         [SerializeField] private float arrivalThreshold = 0.3f;
         [Tooltip("Steer around obstacles (trees) instead of pressing into them. Tuned in ObstacleAvoidanceSettings.")]

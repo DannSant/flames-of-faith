@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c956d0747d831cb4790380c836022205, type: 3}
   m_Name: CorruptorAct1Movement
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorChaserMovement
+  stopDuringGameplayFreeze: 1
+  avoidObstacles: 1

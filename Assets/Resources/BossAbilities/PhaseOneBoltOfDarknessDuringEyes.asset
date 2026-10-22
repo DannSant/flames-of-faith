@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a0c4781edb47b4b8295b5eb464c44f, type: 3}
-  m_Name: PhaseOneBoltOfDarkness 1
+  m_Name: PhaseOneBoltOfDarknessDuringEyes
   m_EditorClassIdentifier: Assembly-CSharp::Game.Boss.VoltOfDarknessAbility
   abilityName: Bolt of darkness During eyes
   animationName: Attack

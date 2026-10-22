@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0de88fc60c436295b7dd6563f9f92c, type: 3}
   m_Name: CorruptorAct1Flee
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorFleeLogic
+  stopDuringGameplayFreeze: 1
   fleeRange: 6
   buffer: 1
   strafeWeight: 0.4

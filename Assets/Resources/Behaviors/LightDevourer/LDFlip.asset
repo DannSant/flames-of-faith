@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03cf040c76d9fb343a648e782e0b1231, type: 3}
   m_Name: LDFlip
   m_EditorClassIdentifier: 
+  stopDuringGameplayFreeze: 1
   invert: 0

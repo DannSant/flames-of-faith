@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db9964f291faf14bbe97b3a4f2b7fcd, type: 3}
   m_Name: SlimeKnockback
   m_EditorClassIdentifier: 
+  stopDuringGameplayFreeze: 1
   force: 3
   forceMode: 1

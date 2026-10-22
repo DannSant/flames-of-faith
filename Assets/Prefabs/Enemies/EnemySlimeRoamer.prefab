@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8cbea71d29fb1914883a3b0899ffed2f, type: 2}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: collisionBehaviors.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: 'updateBehaviors.Array.data[0]'
@@ -116,10 +116,6 @@ PrefabInstance:
       propertyPath: 'collisionBehaviors.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 5df4dff9f9887b446879a1938a89a7ed, type: 2}
-    - target: {fileID: 5236421020208634294, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
-      propertyPath: 'collisionBehaviors.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 374c36023352e1e40b209f344f0acc1c, type: 2}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.y
       value: -0.04

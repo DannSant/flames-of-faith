@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: 
   waveDuration: 45
-  cooldownDuration: 20
-  enemies: []
   enemyPool:
   - type: 5
     weight: 10
   longCooldown: 5
   amountOfEnemiesWithLongCooldown: 5
   regularCooldown: 1
+  expectedEnemyCountOverride: 0
+  corruptedChanceMultiplier: 1
+  spawnCorruptor: 1
+  overrideCorruptor: 0
+  corruptorOverride: 7

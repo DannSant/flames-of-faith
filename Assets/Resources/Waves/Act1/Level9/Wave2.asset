@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: Assembly-CSharp::Game.Waves.WaveData
   waveDuration: 50
-  cooldownDuration: 20
-  enemies: []
   enemyPool:
   - type: 3
     weight: 4
@@ -29,3 +27,8 @@ MonoBehaviour:
   longCooldown: 2
   amountOfEnemiesWithLongCooldown: 8
   regularCooldown: 1.5
+  expectedEnemyCountOverride: 0
+  corruptedChanceMultiplier: 1
+  spawnCorruptor: 1
+  overrideCorruptor: 0
+  corruptorOverride: 7

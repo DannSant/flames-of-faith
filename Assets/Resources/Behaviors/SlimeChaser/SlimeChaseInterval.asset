@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57de32ab6a8d60d4c8c2aae009c126ba, type: 3}
   m_Name: SlimeChaseInterval
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorChaseOnIntervals
-  chaseCooldown: 0.667
+  stopDuringGameplayFreeze: 1
+  avoidObstacles: 1

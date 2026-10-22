@@ -16,8 +16,14 @@ namespace Game.Enemies
         [Tooltip("Damage tier of projectiles and explosions this enemy spawns. 0 = no damage.")]
         [Min(0f)]
         public float projectileDamageTier = 1f;
-        public float speedBase = 1f;
-        public float attackRangeBase = 1f;
+        [Tooltip("Walking speed in units per second, for enemies that move continuously (chasers, DrekoEye). " +
+            "0 for enemies that only hop.")]
+        [Min(0f)]
+        public float moveSpeed = 1f;
+        [Tooltip("Push applied on each hop, for enemies that move in hops timed by their animation (slimes). " +
+            "0 for enemies that walk.")]
+        [Min(0f)]
+        public float hopForce = 0f;
         [Tooltip("Highest experience token denomination this enemy can drop (see ExperienceSettings). 1 = regular tokens only.")]
         [Min(1)]
         public int xpTier = 1;

@@ -31,7 +31,7 @@ namespace Game.AI.Behaviors
             { 
                 return; 
             }
-            float speed = context.enemyData.speedBase * context.speedMultiplier;
+            float speed = context.enemyData.hopForce * context.speedMultiplier;
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();           
             Vector2 direction = (context.playerTransform.position - context.enemyTransform.position).normalized;
             if (avoidObstacles)

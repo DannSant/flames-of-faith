@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b434cf23eb0548b2d7dd7e7fbb8e6, type: 3}
   m_Name: SlimeRoamInterval
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorRoamOnAnimIntervals
+  stopDuringGameplayFreeze: 1

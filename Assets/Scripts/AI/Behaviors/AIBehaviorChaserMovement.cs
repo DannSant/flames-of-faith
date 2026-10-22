@@ -29,7 +29,7 @@ namespace Game.AI.Behaviors
                 return;
             }
 
-            float speed = context.enemyData.speedBase * context.speedMultiplier;
+            float speed = context.enemyData.moveSpeed * context.speedMultiplier;
             // context.moveDirection stays the logic's wanted direction (it also drives facing);
             // only the applied velocity goes around obstacles.
             Vector2 direction = avoidObstacles

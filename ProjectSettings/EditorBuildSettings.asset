@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Sandbox2.unity
-    guid: aeb5a7984b6b9294c965ea4ec0d00588
-  - enabled: 1
     path: Assets/Scenes/UIMain.unity
     guid: c71b413c06332864c94408861a439446
   - enabled: 1
@@ -24,44 +21,11 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelector.unity
     guid: 7e29f379e080a7049aaf990795b393ac
   - enabled: 1
-    path: Assets/Scenes/Act1/old/Level1.unity
-    guid: d6f9950c1b329aa4e900e6646a47c5e8
-  - enabled: 1
     path: Assets/Scenes/Act1/Level1_Iso.unity
     guid: d6b1080b0a4be304d84da64aa11e7bd5
   - enabled: 1
-    path: Assets/Scenes/Act1/old/Level2.unity
-    guid: 9ee5f4a7c7474044bb5759ded2acd8c5
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level3.unity
-    guid: 562073f17e382354db14a6de1665c5f5
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level4.unity
-    guid: 89439c8f9c404cc41be23f7be9fc7064
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level5.unity
-    guid: 1d1a3176d5e42bb46a8ce3e5da55e673
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level6.unity
-    guid: 7d6e50dbeee3125409a5965a4018814f
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level7.unity
-    guid: d2ed2ed53f1711b4ab9e28bf8db04825
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level8.unity
-    guid: de628c4f0e4ef8846a9393e2e6bbf5f5
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level9.unity
-    guid: c52f6c211126cd14a9d3f4c088d36afc
-  - enabled: 1
-    path: Assets/Scenes/Act1/old/Level10.unity
-    guid: d05c4e631bf5dfb48a76822349cc79d4
-  - enabled: 1
     path: Assets/Scenes/Act1/Shop1.unity
     guid: efb0dd27003c64f498535a92e7624458
-  - enabled: 1
-    path: Assets/Scenes/Act1/Boss1.unity
-    guid: 4a651d0a8ea6b514eb0e53a4600f0d4d
   - enabled: 1
     path: Assets/Scenes/Act1/Campfire.unity
     guid: 2b9216d812c087744a2c2044e31ce8c8

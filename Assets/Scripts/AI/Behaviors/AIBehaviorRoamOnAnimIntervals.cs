@@ -13,7 +13,7 @@ namespace Game.AI.Behaviors
 
         public void OnAnimationEventStart(BehaviorContext context, string eventName)
         {
-            float speed = context.enemyData.speedBase * context.speedMultiplier;
+            float speed = context.enemyData.hopForce * context.speedMultiplier;
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
             float x = Random.Range(-1f, 1f);
             float y = Random.Range(-1f, 1f);

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa37f8b60cb5d547b0384229c30c207, type: 3}
   m_Name: DrekoEyeShoot
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorShootBurst
+  stopDuringGameplayFreeze: 1
   shootTimes: 3
   projectilesPerShot: 3
   spreadAngle: 90

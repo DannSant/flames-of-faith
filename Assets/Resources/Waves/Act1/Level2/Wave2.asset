@@ -13,14 +13,6 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: 
   waveDuration: 40
-  cooldownDuration: 5
-  enemies:
-  - type: 0
-    amount: 15
-  - type: 1
-    amount: 10
-  - type: 2
-    amount: 3
   enemyPool:
   - type: 0
     weight: 5

@@ -49,7 +49,7 @@ Levels have only a few small, convex obstacles (tree trunks on the `Obstacle` la
 - **How it works:** a movement behavior passes its wanted direction to `ObstacleSteering.SteerAroundObstacles(context, rb, desired, expectedSpeed, dt)`. It scores the wanted direction and a ring of candidates as `dot(dir, wanted) − dangerWeight × danger(dir)`. Danger comes from `Obstacle` colliders within `lookAhead` of the enemy's collider.
 - **Side commitment:** the enemy keeps the side it chose for `sideCommitTime`, so it doesn't flip-flop.
 - **Stuck recovery:** if over a `stuckCheckWindow` it covers less than `stuckSpeedRatio` of the expected distance next to an obstacle, it switches sides.
-- **Wired into:** `AIBehaviorChaserMovement` (chasers and the Corruptor's flee), `AIBehaviorMoveToSnapshot`, `AIBehaviorMoveToObject` and `AIBehaviorChaseOnAnimIntervals` (per hop, no stuck check). Each has an `avoidObstacles` toggle. Roamers already bounce off collisions.
+- **Wired into:** `AIBehaviorChaserMovement` (chasers and the Corruptor's flee), `AIBehaviorMoveToSnapshot`, `AIBehaviorMoveToObject` and `AIBehaviorChaseOnAnimIntervals` (per hop, no stuck check). Each has an `avoidObstacles` toggle. Roaming slimes hop in random directions and aren't steered.
 - **`context.moveDirection` stays the wanted direction,** because it drives facing. Only the applied velocity is steered.
 - **Tunables:** `ObstacleAvoidanceSettings` (`Resources/AI/ObstacleAvoidanceSettings.asset`), including `debugDraw` (white = wanted, cyan = steered) and a master switch.
 - **New movement behaviors** should route their final direction through it. The math is pure and covered by `ObstacleSteeringTests`.
@@ -557,7 +557,27 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
 - Items with rules are **starting items only**: `ShopKeeper` filters them out, and `StatDependencyTests` guards the hand-authored treasure, event and drop lists.
 - The stats pane's Shift view shows them as "(+N from Retribution)".
 
+**Item behaviors are loaded by file name.** A row lists its behaviors by id (`behaviorsJson`), and the generator loads each one from `Resources/Effects/EffectBehaviors/<id>`. So a behavior asset's file name must equal its `behaviorId`. Renaming the file silently drops the behavior from every item using it: Fire Arrows lost its fire this way in Oct 2026. `EffectAssetTests.EveryEffectBehavior_IsNamedAfterItsId` guards it.
+
 At runtime, look effects up through **`EffectsDatabaseProvider`**. It loads every `Effect` from `Resources/Effects`, and `GetEffectById` searches available and unlockable effects. The static `EffectsDatabase` class is legacy: the `Resources/Effects/EffectsDatabase` asset it loads doesn't exist, so its lookups return null.
+
+### Balance data (data-driven pilot, Oct 2026)
+
+The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal is that the game designer can tune the numbers outside Unity. The pilot covers enemies, waves and XP.
+
+- **No dead data.** Every field a designer can see must do something.
+  - Unused content was deleted: the old level scenes, `Sandbox2`, `Boss1.unity`, the old enemy prefabs, test waves, `WarriorOld`, unused level data, behaviors and treasure tables.
+  - Dead fields were removed: `WaveData.enemies` / `cooldownDuration`, `EnemyData.attackRangeBase`.
+  - `DataHygieneTests` keeps it that way:
+    - every enemy behavior asset is used by an enemy prefab;
+    - every `LevelData` is on a map, and its scene is in the build;
+    - every `WaveDatabase` is used by a build scene.
+- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`).
+- **Enemy speed:** `EnemyData.moveSpeed` is units per second for walkers: chasers, the Corruptor, and DrekoEye, whose `AIBehaviorMoveToSnapshot` no longer has its own speed. `hopForce` is the push per hop for slimes (`AIBehaviorChaseOnAnimIntervals` / `AIBehaviorRoamOnAnimIntervals`).
+  - The old `speedBase` meant both, so the slimes' 100–150 and the chasers' 1–3 sat in the same column.
+  - Frost's slow scales both.
+  - `AIBehaviorMoveToObject` (DrekoEyeAdd's walk to the altar) keeps its own speed on purpose.
+  - The tests check that each enemy has the speed its movement reads, and no unused one.
 
 ## Coding conventions
 

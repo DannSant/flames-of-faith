@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 92599469493855886}
   - component: {fileID: 290498359610644683}
   - component: {fileID: 5383682642180069208}
-  - component: {fileID: 8163326680309900243}
   - component: {fileID: 8894273010836816714}
   m_Layer: 8
   m_Name: Oak_Tree
@@ -140,22 +139,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.29654264, y: 0.47838664}
   m_EdgeRadius: 0
---- !u!114 &8163326680309900243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2397614456465335065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!50 &8894273010836816714
 Rigidbody2D:
   serializedVersion: 5

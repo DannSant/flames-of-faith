@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c142f3fbaca85954389a69d1ef2bee05, type: 3}
   m_Name: FlameShooterTouchDamage
   m_EditorClassIdentifier: 
+  stopDuringGameplayFreeze: 1
   cooldownDuration: 1
