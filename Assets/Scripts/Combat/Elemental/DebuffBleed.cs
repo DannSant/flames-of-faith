@@ -33,7 +33,7 @@ namespace Game.Combat.Elemental
             float tickDamage = strength * stacks;
 
             DamageNumberSpawner.Instance.SpawnBleedDebuffDamageNumber(enemyHealth.transform.position, tickDamage);
-            enemyHealth.TakeDamage(DamageRequest.DamageOverTime(tickDamage, WeaponClass.Melee));
+            enemyHealth.TakeDamage(new DamageRequest(tickDamage, WeaponClass.Melee, false));
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Game.Combat.Elemental
 
             SpawnOneShotVfx(stacking.StackVfx, stacking.StackVfxLifetime);
             DamageNumberSpawner.Instance.SpawnBleedDebuffDamageNumber(enemyHealth.transform.position, burstDamage);
-            enemyHealth.TakeDamage(DamageRequest.DamageOverTime(burstDamage, WeaponClass.Melee));
+            enemyHealth.TakeDamage(new DamageRequest(burstDamage, WeaponClass.Melee, false));
         }
     }
 

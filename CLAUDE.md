@@ -98,7 +98,6 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
   - **Trigger enter:** one hit on contact.
   - **Trigger stay** (e.g. the Augur's flame trail): each target has its own timer, is hit on contact, then every `tickInterval` while it stays inside. One shared timer used to need 0.4 s of contact, so fleeing enemies such as the Corruptor never got hit.
 - **Explosions:** `ExplosionDamage.SetExplosionDamage` lets a spawner set the damage of the explosion it sets off; without it the explosion prefab's own damage is used.
-- **Damage over time:** a debuff's own damage (burn and bleed ticks, the bleed burst) goes through `DamageRequest.DamageOverTime`, which sets `isDamageOverTime` and no lifesteal. On-hit reactions ignore it: a Ley Charged enemy strikes only when hit (`DebuffLeyCharge.ShouldStrike`, `LeyChargeTests`), not on every 0.5 s burn tick, and not on silent forced kills.
 
 ### Corruption & Grace (reworked Oct 2026)
 

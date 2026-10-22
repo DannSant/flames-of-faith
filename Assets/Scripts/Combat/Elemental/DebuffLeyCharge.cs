@@ -30,21 +30,10 @@ namespace Game.Combat.Elemental
                 enemyHealth.onDamageTaken -= HandleDamageTaken;
         }
 
-        /// <summary>
-        /// A charged enemy strikes when it is hit (an attack or a chain hop below the max depth), never on
-        /// a debuff's own damage (a burning enemy struck its closest neighbour on every 0.5 s burn tick) or
-        /// a silent forced kill (the wave end clearing the enemies left).
-        /// </summary>
-        public static bool ShouldStrike(DamageRequest sourceDamage, int maxChainDepth)
-        {
-            if (sourceDamage == null || sourceDamage.isDamageOverTime || sourceDamage.silent) return false;
-            return sourceDamage.leyChargeChainDepth < maxChainDepth;
-        }
-
         private void HandleDamageTaken(DamageRequest sourceDamage)
         {
             if (enemyHealth == null || enemyHealth.IsDead()) return;
-            if (!ShouldStrike(sourceDamage, maxChainDepth)) return;
+            if (sourceDamage.leyChargeChainDepth >= maxChainDepth) return;
 
             var visited = sourceDamage.leyChargeChainVisited ?? new HashSet<EnemyHealth>();
             visited.Add(enemyHealth);
