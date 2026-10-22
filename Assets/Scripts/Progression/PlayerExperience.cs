@@ -14,10 +14,6 @@ namespace Game.Progression
 
     public class PlayerExperience : MonoBehaviour, IPrimaryStateLoader
     {
-        [Header("Experience Growth Settings")]
-        [SerializeField] private float baseXPRequired = 10f;
-        [SerializeField] private float baseGrowthRate = 1.2f; // 20% per level by default
-
         [SerializeField] private int currentLevel = 1;
         [SerializeField] private float currentXP = 0f;
 
@@ -25,6 +21,12 @@ namespace Game.Progression
         public event Action<float,int> OnPlayerExperienceGainEvent;
         public delegate void OnLevelUp(int newLevel, int newXPRequired);
         public event OnLevelUp onLevelUp;
+
+        // The level curve lives on ExperienceSettings; tests pass their own so the designer's tuning can't break them.
+        private ExperienceSettings settingsOverride;
+        private ExperienceSettings Settings => settingsOverride != null ? settingsOverride : ExperienceSettings.Instance;
+
+        public void UseSettings(ExperienceSettings settings) => settingsOverride = settings;
 
         private void Start()
         {
@@ -47,8 +49,9 @@ namespace Game.Progression
         {
             currentLevel = 1;
             currentXP = 0f;
-            OnPlayerExperienceGainEvent?.Invoke(currentXP, 10);            
-            onLevelUp?.Invoke(currentLevel, 10);
+            int required = GetXPRequired(currentLevel);
+            OnPlayerExperienceGainEvent?.Invoke(currentXP, required);
+            onLevelUp?.Invoke(currentLevel, required);
         }
 
         public void AddExperience(float amount)
@@ -70,14 +73,8 @@ namespace Game.Progression
 
         public float GetCurrentXP() => currentXP;
         public int GetCurrentLevel() => currentLevel;
-        /// <summary>
-        /// XP needed to go from this level to the next. The curve is the same for every player: the
-        /// ExperienceToLevelUpReduction stat makes experience drops bigger instead (see WaveExperienceCalculator).
-        /// </summary>
-        public int GetXPRequired(int level)
-        {
-            return Mathf.CeilToInt(baseXPRequired * Mathf.Pow(baseGrowthRate, level - 1));
-        }
+        /// <summary>XP needed to go from this level to the next (ExperienceSettings' level curve).</summary>
+        public int GetXPRequired(int level) => Settings.GetXPRequired(level);
 
         public void LoadState()
         {

@@ -8,24 +8,29 @@ namespace Game.Tests
     /// <summary>
     /// PlayerExperience.AddExperience: a gain worth several levels charges each level its own
     /// requirement (10, 12, 15... with the default curve), and the XP bar is told the requirement of
-    /// the level it is now filling toward.
+    /// the level it is now filling toward. Uses its own ExperienceSettings with the default curve, so
+    /// tuning the real asset doesn't break these.
     /// </summary>
     public class ExperienceLevelUpTests
     {
         private GameObject go;
         private PlayerExperience experience;
+        private ExperienceSettings settings;
 
         [SetUp]
         public void SetUp()
         {
             go = new GameObject("PlayerExperienceTest");
             experience = go.AddComponent<PlayerExperience>();
+            settings = ScriptableObject.CreateInstance<ExperienceSettings>();
+            experience.UseSettings(settings);
         }
 
         [TearDown]
         public void TearDown()
         {
             Object.DestroyImmediate(go);
+            Object.DestroyImmediate(settings);
         }
 
         [Test]
@@ -34,6 +39,14 @@ namespace Game.Tests
             Assert.AreEqual(10, experience.GetXPRequired(1));
             Assert.AreEqual(12, experience.GetXPRequired(2));
             Assert.AreEqual(15, experience.GetXPRequired(3));
+        }
+
+        [Test]
+        public void Curve_GrowsByTheGivenRate()
+        {
+            Assert.AreEqual(20, ExperienceSettings.CalculateXPRequired(1, 20f, 1.5f));
+            Assert.AreEqual(30, ExperienceSettings.CalculateXPRequired(2, 20f, 1.5f));
+            Assert.AreEqual(45, ExperienceSettings.CalculateXPRequired(3, 20f, 1.5f));
         }
 
         [Test]

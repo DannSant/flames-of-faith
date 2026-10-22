@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1183f325f4ff2745a96cdf2fd528edb, type: 3}
   m_Name: ExperienceSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Progression.ExperienceSettings
+  xpRequiredBase: 10
+  xpRequiredGrowth: 1.2
   dropChance: 0.8
   fallbackXp: 1
   levelsPerWaveTarget: 1

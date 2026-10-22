@@ -157,7 +157,7 @@ Reusable pieces that came out of this work:
 
 ### Experience & XP tokens (reworked Oct 2026)
 
-XP needed per level is a fixed curve, `PlayerExperience.GetXPRequired` = `10 × 1.2^(level−1)`. Drops are sized so that the base tokens give about `levelsPerWaveTarget` levels per wave at any level. All tunables live in **`ExperienceSettings`** (`Assets/Resources/Progression/ExperienceSettings.asset`, loaded via `ExperienceSettings.Instance`). XP values are `float`.
+XP needed per level is a fixed curve, `ExperienceSettings.GetXPRequired` = `xpRequiredBase × xpRequiredGrowth^(level−1)` (10 × 1.2^(level−1); `PlayerExperience.GetXPRequired` forwards to it, and tests pass their own settings through `PlayerExperience.UseSettings`). Drops are sized so that the base tokens give about `levelsPerWaveTarget` levels per wave at any level. All tunables live in **`ExperienceSettings`** (`Assets/Resources/Progression/ExperienceSettings.asset`, loaded via `ExperienceSettings.Instance`). XP values are `float`.
 
 - **Per-wave base XP** is computed once at wave start (`WaveSpawner.CalculateWaveExperience` → `WaveExperienceCalculator.CalculateBaseXp`) from the player's level at that moment:
   - `expectedSpawns = waveDuration / lerp(regularCooldown, longCooldown, cooldownBlend)`, or `WaveData.expectedEnemyCountOverride` when it's > 0. The blend exists because `EnemySpawnCoordinator` uses the long cooldown while few enemies are alive, so fast killers get fewer spawns.

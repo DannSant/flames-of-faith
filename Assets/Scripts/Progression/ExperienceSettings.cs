@@ -29,6 +29,14 @@ namespace Game.Progression
     {
         private const string ResourcePath = "Progression/ExperienceSettings";
 
+        [Header("Level Curve")]
+        [Tooltip("XP needed to go from level 1 to level 2.")]
+        [Min(1f)]
+        [SerializeField] private float xpRequiredBase = 10f;
+        [Tooltip("Each level needs this many times the previous level's XP (1.2 = +20% per level).")]
+        [Min(1f)]
+        [SerializeField] private float xpRequiredGrowth = 1.2f;
+
         [Header("Drops")]
         [Tooltip("Chance for a killed enemy to drop an experience token.")]
         [Range(0f, 1f)]
@@ -69,6 +77,15 @@ namespace Game.Progression
         public float CooldownBlend => cooldownBlend;
         public float XpBonusPerReductionPoint => xpBonusPerReductionPoint;
         public bool LogWaveXpDebug => logWaveXpDebug;
+
+        /// <summary>
+        /// XP needed to go from this level to the next. The curve is the same for every player: the
+        /// ExperienceToLevelUpReduction stat makes experience drops bigger instead (see WaveExperienceCalculator).
+        /// </summary>
+        public int GetXPRequired(int level) => CalculateXPRequired(level, xpRequiredBase, xpRequiredGrowth);
+
+        public static int CalculateXPRequired(int level, float baseXp, float growth) =>
+            Mathf.CeilToInt(baseXp * Mathf.Pow(growth, level - 1));
 
         /// <summary>
         /// Returns the denomination for the given tier, or null when the tier is not defined.
