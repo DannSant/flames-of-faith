@@ -313,7 +313,19 @@ namespace Game.Combat
             currentWeapon.Attack();
         }
         public void SpecialAttack() => currentWeapon?.SpecialAttack();
-        public EnemyHealth GetCurrentTarget() => currentWeapon?.GetTarget();
+        /// <summary>
+        /// The weapon's per-shot target while it can still be hit (alive and within weapon range), else null.
+        /// Player facing and the sword's orbit follow it. It is only set when attacking, so without the range
+        /// check the player kept facing the last enemy attacked after walking away from it.
+        /// </summary>
+        public EnemyHealth GetCurrentTarget() => currentWeapon == null
+            ? null
+            : TargetIfInRange(transform.position, currentWeapon.GetTarget(), currentWeapon.GetWeaponRange(),
+                currentWeapon.ShouldCompensateForEnemyBodySize);
+
+        /// <summary><paramref name="target"/> if it is alive and within <paramref name="range"/>, measured like auto-attack; else null.</summary>
+        public static EnemyHealth TargetIfInRange(Vector2 origin, EnemyHealth target, float range, bool compensateForBodySize) =>
+            EnemyTargeting.IsWithinRange(origin, target, range, compensateForBodySize) ? target : null;
 
         public WeaponBase GetCurrentWeapon() => currentWeapon;
 

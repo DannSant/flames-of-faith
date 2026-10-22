@@ -236,7 +236,7 @@ Enemy → player damage is sized against an *expected* player, never the real on
 
 ### Targeting & lock-on
 
-`WeaponManager` owns the player's **marked target** (`CurrentTarget`, `OnTargetChanged`). This is separate from the weapon's per-shot target (`WeaponBase.currentTarget` / `GetCurrentTarget()`), which manual aim assist can set without marking anything. Player facing and the Sword orbit use the per-shot target.
+`WeaponManager` owns the player's **marked target** (`CurrentTarget`, `OnTargetChanged`). This is separate from the weapon's per-shot target (`WeaponBase.currentTarget` / `GetCurrentTarget()`), which manual aim assist can set without marking anything. Player facing and the Sword orbit use the per-shot target, but only while it is alive and within weapon range (`WeaponManager.GetCurrentTarget` / `TargetIfInRange`, `WeaponTargetTests`): it is only set when attacking, so the player used to keep facing an enemy left far behind.
 
 - **Lock-on input:** the `LockTarget` action (F / gamepad LT; Left Shift is taken by `ShowStatSources` and the Ctrl+Shift+D cheat window), read by `PlayerController`. Its mode is `SettingsManager.LockOnToggleMode`, saved in PlayerPrefs and shown in `SettingsPanelController.lockOnToggleModeToggle`.
   - **Toggle mode (default):** each press calls `WeaponManager.ToggleLock`. It locks the current target, or the nearest one in `weapon range × lockOnRangeMultiplier`, and does nothing if there is none. Pressing again unlocks. The lock also ends when that enemy dies.
