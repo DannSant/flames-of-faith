@@ -584,6 +584,41 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
   - **Cloning a live source** (split arrows): `Instantiate` copies serialized fields only, so call `CopyRuntimeFrom(original)`.
   - **New damage source:** run `Tools/Flames of Faith/Balance Data/Create Damage Source Data`, which creates assets from prefab values and skips sources that have one.
   - **Tests:** `DamageSourceDataTests` checks that every source has its own asset, that its values are sane (speed only with a projectile movement, lifetime only with a lifetime component), and that runtime overrides win.
+- **CSV tables** (`BalanceData/` at the repo root, one CSV per table, next to `Database/`; code in `Scripts/BalanceData/Editor/`):
+  - **Menu** (`Tools/Flames of Faith/Balance Data/`):
+    - **Export CSV:** writes the tables and the reports.
+    - **Import CSV (Dry Run):** lists every change (`asset.field: old -> new`) or every error with its file and line. Nothing changes.
+    - **Import CSV:** shows the same list, applies it with Undo after a confirm, rewrites the reports and runs the guard tests (`TestRunnerApi`).
+    - **Write Reports**, **Run Guard Tests.**
+    - **Batch:** `Game.BalanceData.Editor.BalanceDataTools.ExportBatch` / `DryRunBatch` / `ImportBatch`. `ImportBatch` fails with a non-zero exit on errors.
+  - **Tables** (`BalanceTables.All`, in import order):
+    - Enemies, keyed by `EnemyType` name, the same names `WaveEnemies` uses;
+    - `EnemyBehaviors_<Type>`, one per AI behavior type, its numbers found from the assets (`DesignFields`);
+    - Levels (taint), WaveLevels, Waves, WaveEnemies;
+    - Experience and ExperienceTokenTiers;
+    - EnemyDamage, EnemyDamageCurve and EnemyDamageTiers;
+    - DamageSources.
+  - **Table kinds** (`BalanceTableDefinition`):
+    - `AssetTable`: a row per asset, keyed.
+    - `SettingsTable`: Setting / Value / Notes. Notes are the field tooltips: written on export, ignored on import.
+    - `ChildListTable`: a list's elements. Resizable lists follow the rows; a fixed one keeps its count, e.g. token tiers, which have sprites.
+    - `WaveTable`: a row with the next wave number creates a `WaveData` and appends it. `WaveEnemyTable` runs after it, so the new wave gets its enemies (`ImportPlan` pending assets).
+  - **Cells** (`CellCodec`):
+    - **Formats:** invariant numbers, `TRUE`/`FALSE`, enums by **name** (never index), references by asset name.
+    - **Checks:** `[Min]`/`[Range]`.
+    - **Floats:** compared with a tolerance, so an export imports back as no change.
+  - **Rules:**
+    - Any error cancels the whole import.
+    - Asset rows can't be added or removed (retire instead); list rows can.
+    - Columns must match exactly.
+  - **Reports** (`BalanceData/Reports`, read-only, `BalanceReports`) use the game's own formulas:
+    - **EnemyDamage:** damage per hit and hits-to-die at each point of the run (`EnemyDamageCalculator`, like the Enemy Damage Preview);
+    - **EnemyHealth:** `Enemy.CalculateHealth`, the pure formula `Enemy.Initialize` uses;
+    - **Experience.**
+  - **Keeping them in sync:**
+    - `BalanceTablesTests` checks that every table exports and imports back as no change, and that **the committed CSVs match the assets**.
+    - After editing a balance asset in the Inspector, run Export CSV and commit the CSVs with it. After editing a CSV, run Import CSV.
+  - **Tests:** `BalanceDataTests` covers the core (CSV, cells, the three kinds, errors cancel everything).
 - **Enemy speed:** `EnemyData.moveSpeed` is units per second for walkers: chasers, the Corruptor, and DrekoEye, whose `AIBehaviorMoveToSnapshot` no longer has its own speed. `hopForce` is the push per hop for slimes (`AIBehaviorChaseOnAnimIntervals` / `AIBehaviorRoamOnAnimIntervals`).
   - The old `speedBase` meant both, so the slimes' 100–150 and the chasers' 1–3 sat in the same column.
   - Frost's slow scales both.

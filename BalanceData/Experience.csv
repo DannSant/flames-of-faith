@@ -1,0 +1,9 @@
+Setting,Value,Notes
+Xp Required Base,10,XP needed to go from level 1 to level 2.
+Xp Required Growth,1.2,Each level needs this many times the previous level's XP (1.2 = +20% per level).
+Drop Chance,0.8,Chance for a killed enemy to drop an experience token.
+Fallback Xp,1,XP per token when there is no running wave to calculate it from (e.g. test scenes).
+Levels Per Wave Target,1,Levels a player should gain per wave from base tokens alone. Enhanced tokens add on top of this.
+Expected Kill Ratio,0.7,Share of the expected spawns the player is expected to kill before the wave ends.
+Cooldown Blend,0.3,"Spawn interval used for the estimate: 0 = the wave's regular cooldown, 1 = its long cooldown. Fast killers keep few enemies alive and stay on the long cooldown more often."
+Xp Bonus Per Reduction Point,0.1,"Extra XP per point of the Experience Reduction stat (0.1 = +10% per point), so each point makes the player level the same amount faster at every level."

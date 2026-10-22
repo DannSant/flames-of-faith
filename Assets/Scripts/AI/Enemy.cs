@@ -63,6 +63,21 @@ namespace Game.AI {
 
         }
 
+        /// <summary>
+        /// An enemy's max health: base + (wave - 1) x per wave + levels beaten x per level, then x (1 + the Corrupted
+        /// bonus) while Corrupted. Pure, so the balance reports use the same formula.
+        /// </summary>
+        public static int CalculateHealth(EnemyData data, int waveNumber, int levelsBeaten, bool corrupted, float globalCorruptedHealthBonus)
+        {
+            int health = data.healthBase + (waveNumber - 1) * data.healthPerWave + levelsBeaten * data.healthPerLevel;
+            if (corrupted)
+            {
+                float bonus = data.GetCorruptedHealthBonus(globalCorruptedHealthBonus);
+                health = Mathf.RoundToInt(health * (1f + bonus));
+            }
+            return health;
+        }
+
         public void Initialize(int waveNumber, bool spawnCorrupted = false)
         {
             if (health == null)
@@ -75,19 +90,9 @@ namespace Game.AI {
                 enemyData = FindEnemyData();
             }
 
-            int baseHealth = enemyData.healthBase;
-            int levelHealthBonus = GameSession.Instance.LevelsBeaten * enemyData.healthPerLevel; // Health bonus based on levels beaten
-          
-            int waveHealthBonus = (waveNumber - 1) * enemyData.healthPerWave;
-           
-            int calculatedHealth = baseHealth  + waveHealthBonus + levelHealthBonus;
-
             SetCorrupted(spawnCorrupted || enemyData.alwaysCorrupted);
-            if (isCorrupted)
-            {
-                float healthBonus = enemyData.GetCorruptedHealthBonus(CorruptionSettings.Instance.CorruptedHealthBonus);
-                calculatedHealth = Mathf.RoundToInt(calculatedHealth * (1f + healthBonus));
-            }
+            int calculatedHealth = CalculateHealth(enemyData, waveNumber, GameSession.Instance.LevelsBeaten, isCorrupted,
+                CorruptionSettings.Instance.CorruptedHealthBonus);
             var enemyAnimController = GetComponent<EnemyAnimationController>();
 
             health.SetMaxHealth(calculatedHealth);

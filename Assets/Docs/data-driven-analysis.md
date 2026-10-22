@@ -2,7 +2,12 @@
 
 Analysis only, no code changes. Written 2026-10-21 from the code and assets on `main` (after v0.5.1).
 
-**Progress:** the pilot (enemies, waves, XP) is underway; see CLAUDE.md "Balance data". Step 1, the cleanup, was done on 2026-10-22.
+**Progress:** the pilot (enemies, waves, XP) is underway; see CLAUDE.md "Balance data". Done on 2026-10-22:
+- step 1, the cleanup;
+- step 2, the XP curve on ExperienceSettings and one DamageSourceData per damage source;
+- steps 3–4, the CSV importer with 21 pilot tables and 3 reports in `BalanceData/`.
+
+Next: step 5, the Google Sheets transport.
 
 **The question:** what would it take to make every system data-driven, with its numbers fed from a database that a game designer can edit outside Unity, the way the Effects already come from a database?
 

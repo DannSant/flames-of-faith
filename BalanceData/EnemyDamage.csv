@@ -1,0 +1,10 @@
+Setting,Value,Notes
+Wave Progress Step,0.25,"How much each wave inside a level counts as progress, in levels (0.25 = wave 3 reads the curve half a level further)."
+Armor Effectiveness Constant,25,"Controls how quickly armor loses effectiveness. Reduction = armor / (armor + this). Higher values make each point of armor weaker. At 25: armor 10 = -29%, armor 25 = -50%, armor 50 = -67%. Negative armor increases damage: armor -5 = +17%, armor -25 = +50%, never +100%."
+Min Damage Percent,0.15,"Armor can never reduce an attack below this fraction of its raw damage, so stacking armor can't trivialise every enemy."
+Min Damage,0.1,Smallest raw damage an enemy attack with a tier above 0 can deal.
+Evasion Soft Cap Points,50,Evasion points up to which each point gives Per Point Before Soft Cap.
+Evasion Per Point Before Soft Cap,0.005,Dodge chance per Evasion point up to the soft cap (0.005 = 0.5%).
+Evasion Per Point After Soft Cap,0.001,Dodge chance per Evasion point past the soft cap (0.001 = 0.1%).
+Evasion Max Chance,0.3,Highest dodge chance Evasion can reach (0.3 = 30%).
+Dodge Invulnerability Duration,0.3,"Seconds of invulnerability after a dodge, so one dodge isn't followed by an immediate hit."
