@@ -118,24 +118,29 @@ namespace Game.Tests
             {
                 var pane = (GameObject)PrefabUtility.InstantiatePrefab(Load(PanePath), canvas.transform);
                 var ui = new SerializedObject(pane.GetComponent<ItemBagControllerUI>());
-                var grid = (Transform)ui.FindProperty("itemIconsContainer").objectReferenceValue;
+                var grid = (RectTransform)ui.FindProperty("itemIconsContainer").objectReferenceValue;
                 var mainPane = (GameObject)ui.FindProperty("mainPane").objectReferenceValue;
-                var window = (RectTransform)mainPane.transform;
+                var layout = grid.GetComponent<GridLayoutGroup>();
+                float step = layout.cellSize.x + layout.spacing.x;
                 var slot = Load(SlotPath);
                 mainPane.SetActive(true);
 
+                // Every slot spawns at the same spot; only the layout moves them into their cells
                 var taken = (RectTransform)Object.Instantiate(slot, grid).transform;
-                ItemBagControllerUI.LayOutNow(window);
+                var kept = (RectTransform)Object.Instantiate(slot, grid).transform;
+                ItemBagControllerUI.LayOutNow(grid);
                 Vector3 firstCell = taken.localPosition;
+                Assert.AreEqual(step, kept.localPosition.x - taken.localPosition.x, 0.01f, "The grid was not laid out");
 
-                // Take / Sell: the old slot goes inactive (its Destroy waits for the frame's end), new ones spawn
+                // Take / Sell: the old slots go inactive (their Destroy waits for the frame's end), new ones spawn
                 taken.gameObject.SetActive(false);
+                kept.gameObject.SetActive(false);
                 var first = (RectTransform)Object.Instantiate(slot, grid).transform;
                 var second = (RectTransform)Object.Instantiate(slot, grid).transform;
-                ItemBagControllerUI.LayOutNow(window);
+                ItemBagControllerUI.LayOutNow(grid);
 
                 Assert.AreEqual(firstCell, first.localPosition, "The first new slot must take the first cell");
-                Assert.AreNotEqual(firstCell, second.localPosition, "The second slot must be laid out in its own cell");
+                Assert.AreEqual(step, second.localPosition.x - first.localPosition.x, 0.01f, "The second slot must be in the next cell");
             }
             finally
             {
