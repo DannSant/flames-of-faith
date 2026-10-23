@@ -8,7 +8,7 @@ FlamesOfFaith is a 2D action roguelite built in Unity 6.3 LTS (`6000.3.13f1`, UR
 
 ## Working with this repo
 
-- **Git: always work and commit directly on `main`** unless the user says otherwise for a specific task. Don't create feature branches on your own; this overrides any default "branch first when on the default branch" behavior.
+- **Git (changed 2026-10-23): `develop` is the integration branch and `main` is for releases.** Feature work happens on feature branches off `develop`, and the Orchestrator session (see `docs/pm/`) owns `docs/pm/PROJECT_STATE.md` and `BACKLOG.md`, on `develop` only. Don't create branches on your own: an implementation session works on the branch its feature spec in `docs/features/` names. Never merge into `main` without the user's OK. Before 2026-10-23 everything was committed directly on `main`.
 
 This is a Unity project — there is no CLI build/lint/test pipeline (no `package.json`, no CI config). Development happens in the Unity Editor:
 
