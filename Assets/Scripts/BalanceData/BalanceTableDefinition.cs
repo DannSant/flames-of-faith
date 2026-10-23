@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
+using System.Text;
 using Object = UnityEngine.Object;
 
-namespace Game.BalanceData.Editor
+namespace Game.BalanceData
 {
     /// <summary>
     /// One balance table: its columns, how to export it from the assets, and how to plan an import of it. Rows are
     /// never deleted (saves store items by id and stats by name, so the safe way out is to retire), and an import
-    /// with any error changes nothing.
+    /// with any error changes nothing. Runtime code (reflection, Resources), so a build can apply a table too.
     /// </summary>
     public abstract class BalanceTableDefinition
     {
@@ -28,9 +28,40 @@ namespace Game.BalanceData.Editor
             string last = segments[segments.Length - 1];
             if (segments.Length >= 2 && (last == "x" || last == "y" || last == "z" || last == "w"))
             {
-                return ObjectNames.NicifyVariableName(segments[segments.Length - 2]) + " " + last.ToUpperInvariant();
+                return Nicify(segments[segments.Length - 2]) + " " + last.ToUpperInvariant();
             }
-            return ObjectNames.NicifyVariableName(last);
+            return Nicify(last);
+        }
+
+        /// <summary>
+        /// A field name as the Inspector shows it (same as ObjectNames.NicifyVariableName, which is Editor-only):
+        /// "m_" / "_" / "k" prefixes dropped, the first letter capitalised, a space before each word.
+        /// </summary>
+        public static string Nicify(string name)
+        {
+            if (name.StartsWith("m_")) name = name.Substring(2);
+            else if (name.StartsWith("_")) name = name.Substring(1);
+            if (name.Length > 1 && name[0] == 'k' && char.IsUpper(name[1])) name = name.Substring(1);
+            if (name.Length == 0) return name;
+
+            var text = new StringBuilder();
+            for (int i = 0; i < name.Length; i++)
+            {
+                char c = name[i];
+                if (i == 0)
+                {
+                    text.Append(char.ToUpperInvariant(c));
+                    continue;
+                }
+                char previous = name[i - 1];
+                bool nextIsLower = i + 1 < name.Length && char.IsLower(name[i + 1]);
+                bool startsWord =
+                    (char.IsUpper(c) && (char.IsLower(previous) || char.IsDigit(previous) || (char.IsUpper(previous) && nextIsLower)))
+                    || (char.IsDigit(c) && char.IsLetter(previous));
+                if (startsWord) text.Append(' ');
+                text.Append(c);
+            }
+            return text.ToString();
         }
 
         protected bool CheckColumns(BalanceTable table, ImportPlan plan)
@@ -53,28 +84,39 @@ namespace Game.BalanceData.Editor
             return ok;
         }
 
+        /// <summary>The cell text of a field of an asset.</summary>
+        protected static string FormatField(object root, string path)
+        {
+            if (!FieldAccess.TryDescribe(root.GetType(), path, out var type, out _))
+            {
+                throw new ArgumentException($"{root.GetType().Name} has no field {path}");
+            }
+            return CellCodec.Format(FieldAccess.Get(root, path), type);
+        }
+
         /// <summary>
-        /// Plans one cell: parses it against the field and, if it differs from the asset's value, adds the change.
-        /// <paramref name="serialized"/> reads the current value (a scratch copy for rows that don't exist yet);
+        /// Plans one cell: parses it against the field and, if it differs from the current value, adds the change.
+        /// <paramref name="current"/> holds the current value (a scratch copy for rows that don't exist yet);
         /// <paramref name="target"/> resolves the asset to change, by default <paramref name="asset"/>.
         /// </summary>
-        protected void PlanCell(ImportPlan plan, int line, string label, Object asset, SerializedObject serialized,
-            string path, string text, Func<Object> target = null)
+        protected void PlanCell(ImportPlan plan, int line, string label, Object asset, object current,
+            string path, string text, Func<Object> target = null, string column = null)
         {
-            var property = serialized.FindProperty(path);
-            if (property == null)
+            column ??= Header(path);
+            if (!FieldAccess.TryDescribe(current.GetType(), path, out var type, out var field) || !CellCodec.IsSupported(type))
             {
-                plan.Error(Name, line, $"{label} has no field {path}");
+                plan.Error(Name, line, $"{label} has no field {path} a table can set");
                 return;
             }
-            if (!CellCodec.TryParse(property, text, out var setter, out string error))
+            if (!CellCodec.TryParse(text, type, field, out object value, out string error))
             {
-                plan.Error(Name, line, $"{label}, {Header(path)}: {error}");
+                plan.Error(Name, line, $"{label}, {column}: {error}");
                 return;
             }
-            if (CellCodec.Matches(property, text)) return;
+            object currentValue = FieldAccess.Get(current, path);
+            if (CellCodec.Matches(currentValue, type, text)) return;
 
-            plan.SetField($"{label}.{Header(path)}: {CellCodec.Format(property)} -> {text.Trim()}", target ?? (() => asset), path, setter);
+            plan.SetField($"{label}.{column}: {CellCodec.Format(currentValue, type)} -> {text.Trim()}", target ?? (() => asset), path, value);
         }
     }
 
@@ -104,8 +146,7 @@ namespace Game.BalanceData.Editor
             var table = new BalanceTable(Name, Columns);
             foreach (var asset in assets().OrderBy(key, StringComparer.Ordinal))
             {
-                var serialized = new SerializedObject(asset);
-                table.AddRow(new[] { key(asset) }.Concat(fields.Select(f => CellCodec.Format(serialized.FindProperty(f)))).ToArray());
+                table.AddRow(new[] { key(asset) }.Concat(fields.Select(f => FormatField(asset, f))).ToArray());
             }
             return table;
         }
@@ -136,10 +177,9 @@ namespace Game.BalanceData.Editor
                     plan.Error(Name, line, $"{rowKey} has two rows");
                     continue;
                 }
-                var serialized = new SerializedObject(asset);
                 for (int f = 0; f < fields.Length; f++)
                 {
-                    PlanCell(plan, line, rowKey, asset, serialized, fields[f], row[f + 1]);
+                    PlanCell(plan, line, rowKey, asset, asset, fields[f], row[f + 1]);
                 }
             }
 
@@ -173,11 +213,11 @@ namespace Game.BalanceData.Editor
         public override BalanceTable Export()
         {
             var table = new BalanceTable(Name, Columns);
-            var serialized = new SerializedObject(asset());
+            var target = asset();
             foreach (string field in fields)
             {
-                var property = serialized.FindProperty(field);
-                table.AddRow(Header(field), CellCodec.Format(property), CellCodec.TooltipOf(property));
+                FieldAccess.TryDescribe(target.GetType(), field, out _, out var info);
+                table.AddRow(Header(field), FormatField(target, field), CellCodec.TooltipOf(info));
             }
             return table;
         }
@@ -186,7 +226,6 @@ namespace Game.BalanceData.Editor
         {
             if (!CheckColumns(table, plan)) return;
             var target = asset();
-            var serialized = new SerializedObject(target);
             var byHeader = fields.ToDictionary(Header, f => f, StringComparer.OrdinalIgnoreCase);
 
             var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -205,7 +244,7 @@ namespace Game.BalanceData.Editor
                     plan.Error(Name, line, $"{setting} has two rows");
                     continue;
                 }
-                PlanCell(plan, line, target.name, target, serialized, field, row[1]);
+                PlanCell(plan, line, target.name, target, target, field, row[1]);
             }
 
             foreach (string missing in byHeader.Keys.Where(k => !seen.Contains(k)))
@@ -254,13 +293,10 @@ namespace Game.BalanceData.Editor
             var table = new BalanceTable(Name, Columns);
             foreach (var parent in parents().OrderBy(key, StringComparer.Ordinal))
             {
-                var serialized = new SerializedObject(parent);
-                int count = serialized.FindProperty(listPath).arraySize;
+                int count = FieldAccess.Count(parent, listPath);
                 for (int i = 0; i < count; i++)
                 {
-                    table.AddRow(new[] { key(parent) }
-                        .Concat(items.Select(item => CellCodec.Format(serialized.FindProperty(ElementPath(i, item.path)))))
-                        .ToArray());
+                    table.AddRow(new[] { key(parent) }.Concat(items.Select(item => FormatField(parent, ElementPath(i, item.path)))).ToArray());
                 }
             }
             return table;
@@ -294,8 +330,7 @@ namespace Game.BalanceData.Editor
         /// <summary>Plans one parent's list from its rows (line, cells); also used for parents created by the import.</summary>
         public void PlanList(ImportPlan plan, string parentKey, Object current, List<(int line, string[] cells)> rows, Func<Object> target)
         {
-            var serialized = new SerializedObject(current);
-            int count = serialized.FindProperty(listPath).arraySize;
+            int count = FieldAccess.Count(current, listPath);
 
             if (rows.Count == 0 && count > 0)
             {
@@ -308,18 +343,16 @@ namespace Game.BalanceData.Editor
                 return;
             }
 
-            // Rows past the list's end are checked against a scratch copy grown to the new size. Unity fills new
-            // elements with a copy of the last one, so the resize below does the same to the asset.
+            // Rows past the list's end are checked against a scratch copy grown to the new size. New elements copy the
+            // last one (FieldAccess.Resize), so the resize below does the same to the asset.
             Object scratch = null;
-            var grown = serialized;
+            object values = current;
             if (rows.Count != count)
             {
-                plan.SetField($"{parentKey}.{Header(listPath)}: {count} rows -> {rows.Count} rows", target,
-                    $"{listPath}.Array.size", p => p.intValue = rows.Count);
+                plan.ResizeList($"{parentKey}.{Header(listPath)}: {count} rows -> {rows.Count} rows", target, listPath, rows.Count);
                 scratch = Object.Instantiate(current);
-                grown = new SerializedObject(scratch);
-                grown.FindProperty(listPath).arraySize = rows.Count;
-                grown.ApplyModifiedPropertiesWithoutUndo();
+                FieldAccess.Resize(scratch, listPath, rows.Count);
+                values = scratch;
             }
 
             try
@@ -329,7 +362,7 @@ namespace Game.BalanceData.Editor
                     var (line, cells) = rows[i];
                     for (int c = 0; c < items.Length; c++)
                     {
-                        PlanCell(plan, line, $"{parentKey}[{i + 1}]", current, grown, ElementPath(i, items[c].path), cells[c + 1], target);
+                        PlanCell(plan, line, $"{parentKey}[{i + 1}]", current, values, ElementPath(i, items[c].path), cells[c + 1], target, items[c].header);
                     }
                 }
             }

@@ -1,4 +1,5 @@
 using Game.AI;
+using Game.BalanceData;
 using Game.BalanceData.Editor;
 using Game.Enemies;
 using NUnit.Framework;

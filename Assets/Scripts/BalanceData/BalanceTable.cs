@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Game.BalanceData.Editor
+namespace Game.BalanceData
 {
     /// <summary>
     /// One balance table as text: a header and string rows. This is what a CSV file in BalanceData/ (and later a

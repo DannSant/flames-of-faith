@@ -38,10 +38,10 @@ namespace Game.BalanceData.Editor
             };
         }
 
-        private static T BalanceTablesLoad<T>(string path) where T : Object
+        private static T BalanceTablesLoad<T>(string resourcesPath) where T : Object
         {
-            var asset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
-            if (asset == null) throw new System.IO.FileNotFoundException($"Missing {path}");
+            var asset = Resources.Load<T>(resourcesPath);
+            if (asset == null) throw new System.IO.FileNotFoundException($"Missing Resources/{resourcesPath}");
             return asset;
         }
 

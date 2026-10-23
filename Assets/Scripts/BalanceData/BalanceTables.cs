@@ -1,5 +1,6 @@
 using Game.AI.Behaviors;
 using Game.Combat;
+using Game.Combat.Elemental;
 using Game.Enemies;
 using Game.Progression;
 using Game.Scene;
@@ -8,41 +9,44 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
+using System.Reflection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Game.BalanceData.Editor
+namespace Game.BalanceData
 {
     /// <summary>
     /// The balance tables of the data-driven pilot: enemies, waves, XP and damage sources. Each becomes one CSV in
-    /// BalanceData/ (and one sheet tab later). Order matters on import: Waves runs before WaveEnemies, so the enemies
-    /// of a wave the same import adds can be set.
+    /// BalanceData/ and one tab of the designer's sheet. Order matters on import: Waves runs before WaveEnemies, so the
+    /// enemies of a wave the same import adds can be set. Every asset is read from Resources, so a build can apply the
+    /// tables too (BalanceOverride).
     /// </summary>
     public static class BalanceTables
     {
-        public const string EnemiesFolder = "Assets/Resources/Enemies";
-        public const string BehaviorsFolder = "Assets/Resources/Behaviors";
-        public const string WavesFolder = "Assets/Resources/Waves";
-        public const string LevelsFolder = "Assets/Resources/Levels";
-        public const string ExperienceSettingsPath = "Assets/Resources/Progression/ExperienceSettings.asset";
-        public const string EnemyDamageSettingsPath = "Assets/Resources/Combat/EnemyDamageSettings.asset";
-        public const string DamageSourcesFolder = "Assets/Resources/Combat/DamageSources";
+        // Resources paths
+        public const string EnemiesFolder = "Enemies";
+        public const string BehaviorsFolder = "Behaviors";
+        public const string WavesFolder = "Waves";
+        public const string LevelsFolder = "Levels";
+        public const string DamageSourcesFolder = "Combat/DamageSources";
+        public const string ExperienceSettingsPath = "Progression/ExperienceSettings";
+        public const string EnemyDamageSettingsPath = "Combat/EnemyDamageSettings";
 
         // Technical switches on every enemy behavior, not balance numbers
         private static readonly HashSet<string> BehaviorFieldsSkipped = new() { "stopDuringGameplayFreeze", "avoidObstacles" };
 
-        public static IEnumerable<T> LoadAll<T>(string folder) where T : Object =>
-            AssetDatabase.FindAssets("t:" + typeof(T).Name, new[] { folder })
-                .Select(AssetDatabase.GUIDToAssetPath)
-                .Distinct()
-                .Select(AssetDatabase.LoadAssetAtPath<T>)
-                .Where(a => a != null);
-
-        private static T Load<T>(string path) where T : Object
+        static BalanceTables()
         {
-            var asset = AssetDatabase.LoadAssetAtPath<T>(path);
-            if (asset == null) throw new FileNotFoundException($"Missing {path}");
+            CellCodec.ReferenceFolders[typeof(ElementalDebuffData)] = "Debuffs";
+        }
+
+        public static IEnumerable<T> LoadAll<T>(string resourcesPath) where T : Object =>
+            Resources.LoadAll<T>(resourcesPath).Where(a => a != null).Distinct();
+
+        private static T Load<T>(string resourcesPath) where T : Object
+        {
+            var asset = Resources.Load<T>(resourcesPath);
+            if (asset == null) throw new FileNotFoundException($"Missing Resources/{resourcesPath}");
             return asset;
         }
 
@@ -87,12 +91,33 @@ namespace Game.BalanceData.Editor
             return tables;
         }
 
+        /// <summary>
+        /// Plans an import of every table from <paramref name="tables"/> (by table name). A missing table is an error;
+        /// nothing is applied until the caller calls <see cref="ImportPlan.Apply"/> on an error-free plan.
+        /// </summary>
+        public static ImportPlan Plan(IReadOnlyDictionary<string, BalanceTable> tables, IBalanceStore store)
+        {
+            var plan = new ImportPlan(store);
+            foreach (var definition in All())
+            {
+                if (tables.TryGetValue(definition.Name, out var table))
+                {
+                    definition.Plan(table, plan);
+                }
+                else
+                {
+                    plan.Error(definition.Name, "the table is missing");
+                }
+            }
+            return plan;
+        }
+
         /// <summary>One table per enemy behavior type, with its numbers, toggles and enums (found from the assets).</summary>
         private static IEnumerable<BalanceTableDefinition> BehaviorTables()
         {
             foreach (var group in LoadAll<AIBehavior>(BehaviorsFolder).GroupBy(b => b.GetType()).OrderBy(g => g.Key.Name, StringComparer.Ordinal))
             {
-                var fields = DesignFields(group.First());
+                var fields = DesignFields(group.Key);
                 if (fields.Count == 0) continue;
                 var type = group.Key;
                 yield return new AssetTable<AIBehavior>("EnemyBehaviors_" + ShortName(type.Name), "Behavior",
@@ -106,32 +131,40 @@ namespace Game.BalanceData.Editor
             return name.StartsWith("AI") ? name.Substring(2) : name;
         }
 
-        /// <summary>The top-level numbers, toggles, enums and vector components of an asset (no references or text).</summary>
-        public static List<string> DesignFields(Object asset)
+        /// <summary>
+        /// The serialized numbers, toggles, enums and vector components a type shows in the Inspector, in Inspector
+        /// order (base class first), without references or text.
+        /// </summary>
+        public static List<string> DesignFields(Type type)
         {
+            var chain = new List<Type>();
+            for (var t = type; t != null && t != typeof(ScriptableObject) && t != typeof(Object); t = t.BaseType) chain.Insert(0, t);
+
             var fields = new List<string>();
-            var property = new SerializedObject(asset).GetIterator();
-            if (!property.NextVisible(true)) return fields;
-            do
+            foreach (var t in chain)
             {
-                if (property.propertyPath == "m_Script" || BehaviorFieldsSkipped.Contains(property.propertyPath)) continue;
-                switch (property.propertyType)
+                foreach (var field in t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))
                 {
-                    case SerializedPropertyType.Integer:
-                    case SerializedPropertyType.Float:
-                    case SerializedPropertyType.Boolean:
-                    case SerializedPropertyType.Enum:
-                        fields.Add(property.propertyPath);
-                        break;
-                    case SerializedPropertyType.Vector2:
-                        fields.Add(property.propertyPath + ".x");
-                        fields.Add(property.propertyPath + ".y");
-                        break;
+                    if (!IsShownInInspector(field) || BehaviorFieldsSkipped.Contains(field.Name)) continue;
+                    var fieldType = field.FieldType;
+                    if (fieldType == typeof(int) || fieldType == typeof(float) || fieldType == typeof(bool) || fieldType.IsEnum)
+                    {
+                        fields.Add(field.Name);
+                    }
+                    else if (fieldType == typeof(Vector2))
+                    {
+                        fields.Add(field.Name + ".x");
+                        fields.Add(field.Name + ".y");
+                    }
                 }
             }
-            while (property.NextVisible(false));
             return fields;
         }
+
+        private static bool IsShownInInspector(FieldInfo field) =>
+            !field.IsInitOnly && !field.IsNotSerialized
+            && (field.IsPublic || field.GetCustomAttribute<SerializeField>() != null)
+            && field.GetCustomAttribute<HideInInspector>() == null;
     }
 
     /// <summary>
@@ -163,9 +196,8 @@ namespace Game.BalanceData.Editor
                 for (int i = 0; i < database.waves.Count; i++)
                 {
                     if (database.waves[i] == null) continue;
-                    var serialized = new SerializedObject(database.waves[i]);
-                    table.AddRow(new[] { database.name, (i + 1).ToString() }
-                        .Concat(Fields.Select(f => CellCodec.Format(serialized.FindProperty(f)))).ToArray());
+                    var wave = database.waves[i];
+                    table.AddRow(new[] { database.name, (i + 1).ToString() }.Concat(Fields.Select(f => FormatField(wave, f))).ToArray());
                 }
             }
             return table;
@@ -184,7 +216,7 @@ namespace Game.BalanceData.Editor
                 string level = row[0].Trim();
                 if (!byName.ContainsKey(level))
                 {
-                    plan.Error(Name, line, $"no level \"{level}\" (a wave database under {BalanceTables.WavesFolder})");
+                    plan.Error(Name, line, $"no level \"{level}\" (a wave database under Resources/{BalanceTables.WavesFolder})");
                     continue;
                 }
                 if (!int.TryParse(row[1].Trim(), out int wave) || wave < 1)
@@ -225,8 +257,7 @@ namespace Game.BalanceData.Editor
                             plan.Error(Name, line, $"{label} is an empty slot in {level}'s list");
                             continue;
                         }
-                        var serialized = new SerializedObject(wave);
-                        for (int f = 0; f < Fields.Length; f++) PlanCell(plan, line, label, wave, serialized, Fields[f], cells[f + 2]);
+                        for (int f = 0; f < Fields.Length; f++) PlanCell(plan, line, label, wave, wave, Fields[f], cells[f + 2]);
                     }
                     else
                     {
@@ -242,29 +273,26 @@ namespace Game.BalanceData.Editor
             Func<Object> target = () => created;
             plan.Do($"{label}: new wave", () =>
             {
-                string folder = Path.GetDirectoryName(AssetDatabase.GetAssetPath(database)).Replace('\\', '/');
-                created = ScriptableObject.CreateInstance<WaveData>();
-                AssetDatabase.CreateAsset(created, AssetDatabase.GenerateUniqueAssetPath($"{folder}/Wave{number}.asset"));
-                Undo.RecordObject(database, "Add wave");
+                created = plan.Store.CreateAsset<WaveData>(database, $"Wave{number}");
+                plan.Store.BeforeChange(database);
                 database.waves.Add(created);
-                EditorUtility.SetDirty(database);
+                plan.Store.AfterChange(database);
             });
             plan.AddPendingAsset(label, target);
 
-            // Cells are checked against a fresh wave: every field gets set, defaults included
+            // Cells are checked against a fresh wave, and every one is set (defaults included)
             var scratch = ScriptableObject.CreateInstance<WaveData>();
             try
             {
-                var serialized = new SerializedObject(scratch);
                 for (int f = 0; f < Fields.Length; f++)
                 {
-                    var property = serialized.FindProperty(Fields[f]);
-                    if (!CellCodec.TryParse(property, cells[f + 2], out var setter, out string error))
+                    FieldAccess.TryDescribe(typeof(WaveData), Fields[f], out var type, out var field);
+                    if (!CellCodec.TryParse(cells[f + 2], type, field, out object value, out string error))
                     {
                         plan.Error(Name, line, $"{label}, {Header(Fields[f])}: {error}");
                         continue;
                     }
-                    plan.SetField($"{label}.{Header(Fields[f])}: {cells[f + 2].Trim()}", target, Fields[f], setter);
+                    plan.SetField($"{label}.{Header(Fields[f])}: {cells[f + 2].Trim()}", target, Fields[f], value);
                 }
             }
             finally

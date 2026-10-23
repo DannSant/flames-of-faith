@@ -69,27 +69,26 @@ namespace Game.BalanceData.Editor
         public static ImportPlan PlanImport(string folder = null)
         {
             folder ??= Folder;
-            var plan = new ImportPlan();
+            var tables = new Dictionary<string, BalanceTable>();
+            var readErrors = new List<(string table, string message)>();
             foreach (var definition in BalanceTables.All())
             {
                 string path = Path.Combine(folder, definition.Name + ".csv");
-                if (!File.Exists(path))
-                {
-                    plan.Error(definition.Name, $"the file is missing ({path})");
-                    continue;
-                }
-                BalanceTable table;
+                if (!File.Exists(path)) continue; // reported as a missing table by the plan
                 try
                 {
-                    table = Csv.Read(definition.Name, File.ReadAllText(path, Utf8));
+                    tables[definition.Name] = Csv.Read(definition.Name, File.ReadAllText(path, Utf8));
                 }
                 catch (FormatException e)
                 {
-                    plan.Error(definition.Name, e.Message);
-                    continue;
+                    readErrors.Add((definition.Name, e.Message));
+                    tables[definition.Name] = null;
                 }
-                definition.Plan(table, plan);
             }
+
+            var readable = tables.Where(kv => kv.Value != null).ToDictionary(kv => kv.Key, kv => kv.Value);
+            var plan = BalanceTables.Plan(readable, new EditorBalanceStore());
+            foreach (var (table, message) in readErrors) plan.Error(table, message);
             return plan;
         }
 
@@ -156,7 +155,7 @@ namespace Game.BalanceData.Editor
             return text.ToString();
         }
 
-        private static string Summary(ImportPlan plan)
+        public static string Summary(ImportPlan plan)
         {
             if (!plan.HasErrors && plan.Changes.Count == 0) return "The assets already match the CSV files.";
             var lines = plan.HasErrors ? plan.Errors : plan.Changes;
