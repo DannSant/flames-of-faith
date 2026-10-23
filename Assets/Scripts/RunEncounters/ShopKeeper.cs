@@ -17,6 +17,9 @@ namespace Game.RunEncounters
         [SerializeField] private int itemCount = 10;
         [SerializeField] private float qualityScalePerStat = 2f;
         [SerializeField] private int quantityScalePerStat = 1;
+        [Tooltip("The fewest items the shop offers, however low the player's Luck.")]
+        [Min(0)]
+        [SerializeField] private int minItemCount = 3;
         [SerializeField] private int maxItemCount = 20;
         public List<Effect> items;
 
@@ -69,7 +72,7 @@ namespace Game.RunEncounters
 
             int luck = playerProgression != null ? playerProgression.GetStatTotal(StatType.Luck) : 0;
 
-            int displayCount = Mathf.Min(itemCount + luck * quantityScalePerStat, maxItemCount);
+            int displayCount = GetDisplayCount(itemCount, luck, quantityScalePerStat, minItemCount, maxItemCount);
 
             // Roll each slot's quality independently (weighted by Luck, never fully excluding
             // any tier) rather than sorting-and-cutting, so common items can still show up
@@ -81,6 +84,12 @@ namespace Game.RunEncounters
             {
                 EffectQuality rolledQuality = EffectQualityScaler.RollQualityTier(luck, qualityScalePerStat, remainingPool);
                 var candidates = remainingPool.Where(e => e.Quality == rolledQuality).ToList();
+                // This runs inside the level load: throwing here leaves the game stuck on the loading screen
+                if (candidates.Count == 0)
+                {
+                    Debug.LogError($"ShopKeeper: rolled {rolledQuality} but no item of that quality is left, stopping at {selectedEffects.Count} items.");
+                    break;
+                }
                 var chosen = candidates[Random.Range(0, candidates.Count)];
 
                 selectedEffects.Add(chosen);
@@ -89,6 +98,15 @@ namespace Game.RunEncounters
 
             // Shuffle final display order so it doesn't read as grouped/sorted by quality.
             items = selectedEffects.OrderBy(x => Random.value).ToList();
+        }
+
+        /// <summary>
+        /// How many items the shop offers: the base count plus (or, with negative Luck, minus) the Luck bonus,
+        /// kept between the min and the max. If the min is set above the max, the min wins.
+        /// </summary>
+        public static int GetDisplayCount(int baseCount, int luck, int perLuck, int minCount, int maxCount)
+        {
+            return Mathf.Clamp(baseCount + luck * perLuck, minCount, Mathf.Max(minCount, maxCount));
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

@@ -13,9 +13,14 @@ namespace Game.Utils
     {
         private static readonly int TierCount = System.Enum.GetValues(typeof(EffectQuality)).Length;
 
+        // Negative stat mirrors the positive curve (1 / (1 + |stat| / scale)), so higher tiers get rarer
+        // but every weight stays positive. 1 + stat / scale used to reach 0 at -2 Luck and go negative
+        // below it, which zeroed or flipped the higher tiers: only Common could roll, and the shop
+        // threw once its few Commons ran out, killing the level load behind the black screen.
         public static float[] GetTierWeights(int statValue, float scalePerQualityStep)
         {
-            float luckFactor = 1f + (scalePerQualityStep > 0f ? statValue / scalePerQualityStep : 0f);
+            float steps = scalePerQualityStep > 0f ? Mathf.Abs(statValue) / scalePerQualityStep : 0f;
+            float luckFactor = statValue >= 0 ? 1f + steps : 1f / (1f + steps);
 
             var weights = new float[TierCount];
             for (int i = 0; i < TierCount; i++)
@@ -71,15 +76,19 @@ namespace Game.Utils
             float total = weights.Sum();
             float roll = Random.Range(0f, total);
             float cumulative = 0f;
+            int lastWeighted = 0;
             for (int i = 0; i < weights.Length; i++)
             {
+                if (weights[i] <= 0f) continue;
+                lastWeighted = i;
                 cumulative += weights[i];
                 if (roll <= cumulative)
                 {
                     return (EffectQuality)i;
                 }
             }
-            return (EffectQuality)(weights.Length - 1);
+            // Float rounding can leave the roll a hair above the running sum: never fall to a tier with no weight
+            return (EffectQuality)lastWeighted;
         }
     }
 }

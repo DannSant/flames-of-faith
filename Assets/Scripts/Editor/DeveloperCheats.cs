@@ -181,12 +181,25 @@ public class DeveloperCheats
     
 
     [MenuItem("DevTools/Stats/Increase Luck")]
-    public static void IncreaseLuck()
+    public static void IncreaseLuck() => ChangeLuck(1);
+
+    // Negative Luck makes shop and event items rarer (see EffectQualityScaler) and shrinks the shop
+    [MenuItem("DevTools/Stats/Decrease Luck")]
+    public static void DecreaseLuck() => ChangeLuck(-1);
+
+    private static void ChangeLuck(int amount)
     {
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
+        if (playerProgression == null) return;
+
+        playerProgression.UpdateStat(StatType.Luck, amount);
+        Debug.Log($"[DevTools] Luck is now {playerProgression.GetStatTotal(StatType.Luck)}");
+
+        // The next level respawns the player from PlayerData, which is only written when a level ends,
+        // so on the map write it now or the change is lost on entering a shop
+        if (PlayerManager.Instance.IsPlayerOnMap)
         {
-            playerProgression.UpdateStat(StatType.Luck, 1);
+            PlayerManager.Instance.SaveAllPlayerComponentStates();
         }
     }
 
