@@ -283,7 +283,10 @@ function writeNotes_(sheet, width, description, columnNotes) {
   const start = width + 2;
   if (sheet.getMaxColumns() < start + 1) sheet.insertColumnsAfter(sheet.getMaxColumns(), start + 1 - sheet.getMaxColumns());
   if (sheet.getMaxRows() < rows.length) sheet.insertRowsAfter(sheet.getMaxRows(), rows.length - sheet.getMaxRows());
-  sheet.getRange(1, width + 1, sheet.getMaxRows(), sheet.getMaxColumns() - width).clear();
+  // clear() keeps data validation (open-ended checkbox or dropdown columns would reject the text), so drop it too
+  const area = sheet.getRange(1, width + 1, sheet.getMaxRows(), sheet.getMaxColumns() - width);
+  area.clear();
+  area.clearDataValidations();
 
   const range = sheet.getRange(1, start, rows.length, 2);
   range.setValues(rows).setWrap(true).setVerticalAlignment('top').setFontColor('#434343');
