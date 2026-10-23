@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 public class EditorTools : MonoBehaviour
@@ -15,18 +16,24 @@ public class EditorTools : MonoBehaviour
             if (importer == null || importer.spriteImportMode != SpriteImportMode.Multiple)
                 continue;
 
-            var metas = importer.spritesheet;
-            if (metas == null || metas.Length == 0)
+            // TextureImporter.spritesheet no longer works in Unity 6.3; sprite rects go through the data provider
+            var factory = new SpriteDataProviderFactories();
+            factory.Init();
+            var provider = factory.GetSpriteEditorDataProviderFromObject(importer);
+            provider.InitSpriteEditorDataProvider();
+
+            var rects = provider.GetSpriteRects();
+            if (rects == null || rects.Length == 0)
                 continue;
 
-            for (int i = 0; i < metas.Length; i++)
+            foreach (var rect in rects)
             {
-                metas[i].alignment = (int)SpriteAlignment.Custom;
-                metas[i].pivot = new Vector2(0.5f, 0.4f); // 👈 adjust here
+                rect.alignment = SpriteAlignment.Custom;
+                rect.pivot = new Vector2(0.5f, 0.4f); // 👈 adjust here
             }
 
-            importer.spritesheet = metas; // ✅ THIS was missing
-            EditorUtility.SetDirty(importer);
+            provider.SetSpriteRects(rects);
+            provider.Apply();
             importer.SaveAndReimport();
         }
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-FlamesOfFaith is a 2D action roguelite built in Unity 6 (`6000.2.10f1`, URP). Runs (attempts) proceed through an act-based overworld map, into isometric combat levels with waves of enemies, elemental debuffs, boss fights, and between-run meta-progression / relic ("Effect") systems.
+FlamesOfFaith is a 2D action roguelite built in Unity 6.3 LTS (`6000.3.13f1`, URP). Runs (attempts) proceed through an act-based overworld map, into isometric combat levels with waves of enemies, elemental debuffs, boss fights, and between-run meta-progression / relic ("Effect") systems.
 
 ## Working with this repo
 
@@ -12,7 +12,7 @@ FlamesOfFaith is a 2D action roguelite built in Unity 6 (`6000.2.10f1`, URP). Ru
 
 This is a Unity project — there is no CLI build/lint/test pipeline (no `package.json`, no CI config). Development happens in the Unity Editor:
 
-- Open the project in Unity Editor **6000.2.10f1** (must match `ProjectSettings/ProjectVersion.txt` — Unity will offer to auto-upgrade if a different version is installed; don't let it silently change the version).
+- Open the project in Unity Editor **6000.3.13f1** (upgraded from 6.2 in Oct 2026; must match `ProjectSettings/ProjectVersion.txt` — Unity will offer to auto-upgrade if a different version is installed; don't let it silently change the version).
 - There is no headless build script or Makefile in the repo. Compilation errors surface in the Editor Console; there is no `dotnet build` step that mirrors Unity's compile (the generated `.csproj`/`.sln` files are for IDE intellisense only, not authoritative builds).
 - **Tests.** The only automated tests are the EditMode tests in `Assets/Scripts/Tests/Editor/`. They come in two kinds:
   - **Pure tests** of the math (static functions with their tunables passed in): enemy damage, stats and stat bonuses, Pierce, projectile steering, enemy obstacle steering, wave progress, Favors, skill tree rules, ability tiers, the Luck quality roll and shop stock.
@@ -23,7 +23,8 @@ This is a Unity project — there is no CLI build/lint/test pipeline (no `packag
   - `Assets/Scripts/Tests/LevelTreeDebugger.cs` is a debug helper, not a test.
 - All first-party code compiles into the default `Assembly-CSharp` assembly — there are no custom `.asmdef` files under `Assets/Scripts/`, so any script can reference any other without assembly-reference wiring.
 - Third-party/vendored code lives under `Assets/AssetPackages/` (ClassicPixelRPGUI, DamageNumbersPro, NavMeshPlus, WalldoffStudios Indicators) and should generally be left alone rather than modified in place.
-- Key packages: URP 17.2.0, new Input System 1.14.2, Cinemachine 3.1.3, `com.unity.ai.navigation` (NavMesh) plus the vendored NavMeshPlus for 2D nav (both currently unused: enemies use local steering, see "Enemy obstacle avoidance"), Timeline, Visual Scripting.
+- Key packages: URP 17.3.0 (Render Graph; 6.3 removed Compatibility Mode), new Input System 1.19.0, Cinemachine 3.1.3, `com.unity.ai.navigation` (NavMesh) plus the vendored NavMeshPlus for 2D nav (both currently unused: enemies use local steering, see "Enemy obstacle avoidance"), Timeline, Visual Scripting, and Newtonsoft.Json (`com.unity.nuget.newtonsoft-json`, listed explicitly because `EffectDatabaseWindow` uses it).
+- **Object IDs (Unity 6.3):** the `int` instance-ID APIs are obsolete (warnings now, compile errors in 6.5). Use `GetEntityId()` / `EntityId`, not `GetInstanceID()`, and `FindAnyObjectByType`, not `FindFirstObjectByType` or `FindObjectsSortMode.InstanceID`.
 
 ## Architecture
 

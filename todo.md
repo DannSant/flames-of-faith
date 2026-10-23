@@ -39,6 +39,16 @@ Note: My idea on the external system is something I came up with, but it would b
 
 # Pending manual tests
 
+## Unity 6.3 upgrade (2026-10-23)
+The project moved from 6000.2.10f1 to 6000.3.13f1 (URP 17.3, Input System 1.19). The unused AI Inference package and the `APP_UI_EDITOR_ONLY` define are gone, and Tools > Sprites > Batch Set Pivot (Isometric) now uses the sprite data provider (the old `spritesheet` API stopped working in 6.3).
+- [ ] The Console is clean after a recompile: no errors, and no obsolete warnings outside `Assets/AssetPackages`.
+- [ ] Test Runner > EditMode: the whole suite passes.
+- [ ] Play a run from Bootstrapper: lighting, the purple Corrupted outline, damage numbers and the loading screen look as before.
+- [ ] Gamepad and keyboard: menus, the map and combat respond as before (Input System 1.19).
+- [ ] Tools > Effects > Effect Database opens and saves (it uses Newtonsoft.Json, now a direct package).
+- [ ] Batch Set Pivot: select a Multiple-mode sheet, run it, and every sprite's pivot is (0.5, 0.4).
+- [ ] Make a Windows build: it starts, Continue loads a run saved on 6.2, and the balance override still applies with `balance-override.json`.
+
 ## Corruptor: its own sprites and animations (2026-10-22)
 The Corruptor used a dark-tinted Skull as a placeholder. It now has its own sheets (Sprites/Enemies/Corruptor), 8-direction Idle / Walk / Attack clips and its own animator (Animation/Enemies/Corruptor), built by Tools > Flames of Faith > Enemies > Build Corruptor Art.
 - [ ] Open EnemyCorruptor.prefab: the creature shows (no dark tint), centered on the object, the health bar just above its head.
