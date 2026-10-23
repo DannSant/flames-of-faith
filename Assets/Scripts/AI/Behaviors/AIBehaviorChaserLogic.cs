@@ -12,8 +12,11 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Update/ChaserLogic")]
     public class AIBehaviorChaserLogic : AIUpdateBehavior
     {
+        [Tooltip("Distance to the player under which the enemy stops moving.")]
         [SerializeField] private float minRange = 0f;
+        [Tooltip("It starts moving again once the player is farther than Min Range + this.")]
         [SerializeField] private float buffer = 0.2f;
+        [Tooltip("Currently has no effect: the pause logic is disabled in the code.")]
         [SerializeField] private bool useChasePause = false;
        
 

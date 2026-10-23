@@ -186,6 +186,10 @@ namespace Game.BalanceData
         public override string Name => "Waves";
         public override IReadOnlyList<string> Columns => new[] { "Level", "Wave" }.Concat(Fields.Select(Header)).ToList();
 
+        public override IReadOnlyList<string> ColumnNotes =>
+            new[] { BalanceDocs.ColumnNote(Name, "Level", null), BalanceDocs.ColumnNote(Name, "Wave", null) }
+                .Concat(FieldNotes(typeof(WaveData), Fields)).ToList();
+
         public static string WaveKey(string level, int wave) => $"{level} wave {wave}";
 
         public override BalanceTable Export()

@@ -18,6 +18,20 @@ namespace Game.BalanceData
         public abstract BalanceTable Export();
         public abstract void Plan(BalanceTable table, ImportPlan plan);
 
+        /// <summary>What the table is for, shown at the side of its sheet tab (see <see cref="BalanceDocs"/>).</summary>
+        public virtual string Description => BalanceDocs.TableDescription(Name);
+
+        /// <summary>What each column means, in the order of <see cref="Columns"/>; empty where nothing documents it.</summary>
+        public virtual IReadOnlyList<string> ColumnNotes => Columns.Select(c => BalanceDocs.ColumnNote(Name, c, null)).ToList();
+
+        /// <summary>The notes of columns that edit <paramref name="fields"/> of <paramref name="type"/> (tooltips unless documented).</summary>
+        protected IEnumerable<string> FieldNotes(Type type, IEnumerable<string> fields) =>
+            fields.Select(f =>
+            {
+                FieldAccess.TryDescribe(type, f, out _, out var info);
+                return BalanceDocs.ColumnNote(Name, Header(f), info);
+            });
+
         /// <summary>
         /// A field path's column header: its name made readable ("healthPerWave" -> "Health Per Wave"; a vector's
         /// component keeps its field name: "strafeFlipInterval.x" -> "Strafe Flip Interval X").
@@ -140,6 +154,10 @@ namespace Game.BalanceData
 
         public override string Name => name;
         public override IReadOnlyList<string> Columns => new[] { keyColumn }.Concat(fields.Select(Header)).ToList();
+
+        public override IReadOnlyList<string> ColumnNotes =>
+            new[] { BalanceDocs.ColumnNote(Name, keyColumn, null) }
+                .Concat(FieldNotes(assets().FirstOrDefault()?.GetType() ?? typeof(T), fields)).ToList();
 
         public override BalanceTable Export()
         {

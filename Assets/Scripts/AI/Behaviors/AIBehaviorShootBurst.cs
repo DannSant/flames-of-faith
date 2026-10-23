@@ -8,9 +8,13 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Update/ShootBurst")]
     public class AIBehaviorShootBurst : AIUpdateBehavior, IAnimationEventReceiver
     {
+        [Tooltip("Number of volleys in one burst.")]
         [SerializeField] private int shootTimes = 3;
+        [Tooltip("Projectiles fired in each volley, spread over Spread Angle.")]
         [SerializeField] private int projectilesPerShot = 3;
+        [Tooltip("Total angle in degrees a volley is spread over, centered on the player.")]
         [SerializeField][Range(0f, 180f)] private float spreadAngle = 90f;
+        [Tooltip("Seconds between one volley and the next.")]
         [SerializeField] private float delayBetweenShots = 0.3f;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private BehaviorSharedStateGroup sharedStateGroup;

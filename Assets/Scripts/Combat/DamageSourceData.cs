@@ -42,13 +42,16 @@ namespace Game.Combat
         [Tooltip("Destroyed after hitting Pierce Count enemies. Off = hits every enemy it touches.")]
         [SerializeField] private bool enablePierce = false;
         [Min(1)]
+        [Tooltip("Enemies it can hit before it is destroyed (needs Enable Pierce).")]
         [SerializeField] private int pierceCount = 1;
         [Tooltip("Add the Pierce stat's extra targets to Pierce Count (for projectiles no weapon fires, e.g. Strafe arrows).")]
         [SerializeField] private bool addPierceStat = false;
 
         [Header("Knockback")]
+        [Tooltip("Hits push the enemy away.")]
         [SerializeField] private bool applyKnockback = false;
         [Min(0f)]
+        [Tooltip("Strength of that push (needs Apply Knockback).")]
         [SerializeField] private float knockbackForce = 5f;
 
         [Header("Lifesteal")]

@@ -10,6 +10,7 @@ namespace Game.AI.Behaviors
     {
         [Tooltip("Speed of this scripted walk (e.g. DrekoEyeAdd walking to the altar), separate from EnemyData.moveSpeed on purpose.")]
         [SerializeField] private float speed = 2f;
+        [Tooltip("Distance to the target at which the walk counts as arrived.")]
         [SerializeField] private float arrivalThreshold = 0.3f;
         [Tooltip("Steer around obstacles (trees) instead of pressing into them. Tuned in ObstacleAvoidanceSettings.")]
         [SerializeField] private bool avoidObstacles = true;

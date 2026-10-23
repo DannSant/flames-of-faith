@@ -14,6 +14,7 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Collision/Damage On Collision")]
     public class DamageOnCollisionBehavior : AICollisionBehavior
     {
+        [Tooltip("Seconds before the same touch can hurt the player again.")]
         [SerializeField] private float cooldownDuration = 1f;      
 
         public override void HandleCollision(Collision2D collision, BehaviorContext context)

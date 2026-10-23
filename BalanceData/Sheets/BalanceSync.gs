@@ -106,13 +106,22 @@ function csvCell_(text) {
   return /[",\r\n]/.test(text) || text !== text.trim() ? '"' + text.replace(/"/g, '""') + '"' : text;
 }
 
+// The table's width: the header cells up to the first empty one. What sits right of that gap is the explanation panel
+// (writeNotes_), which is not data.
+function headerWidth_(sheet) {
+  if (sheet.getLastColumn() === 0) return 0;
+  const header = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  let width = 0;
+  while (width < header.length && cellText_(header[width]) !== '') width++;
+  return width;
+}
+
 // A tab as CSV: the header's columns only, and only rows whose first cell has something in it (spare rows with
 // empty checkboxes are skipped). Null for a tab with no header row.
 function tabCsv_(sheet) {
   const values = sheet.getDataRange().getValues();
   if (values.length === 0) return null;
-  let width = values[0].length;
-  while (width > 0 && cellText_(values[0][width - 1]) === '') width--;
+  const width = headerWidth_(sheet);
   if (width === 0) return null;
 
   const lines = [];
@@ -193,8 +202,9 @@ function doGet(e) {
   return respond_(json || { error: version ? 'version ' + version + ' is not kept any more' : 'nothing has been published yet' });
 }
 
-// POST {token, action: "reports" | "tables", tables: [{name, csv}]}: writes the given tabs. "reports" only accepts
-// Report_ tabs (creating them if needed); "tables" also overwrites data tabs, keeping their formatting and checks.
+// POST {token, action: "reports" | "tables" | "notes", tables: [{name, csv, description, columnNotes}]}: writes the
+// given tabs. "reports" only accepts Report_ tabs (creating them if needed); "tables" also overwrites data tabs,
+// keeping their formatting and checks, and rewrites their explanation panel; "notes" rewrites only the panel.
 function doPost(e) {
   let body;
   try {
@@ -203,7 +213,7 @@ function doPost(e) {
     return respond_({ error: 'the request is not JSON' });
   }
   if (!authorized_(body.token)) return respond_({ error: 'wrong or missing token' });
-  if (body.action !== 'reports' && body.action !== 'tables') return respond_({ error: 'unknown action ' + body.action });
+  if (body.action !== 'reports' && body.action !== 'tables' && body.action !== 'notes') return respond_({ error: 'unknown action ' + body.action });
 
   const lock = LockService.getScriptLock();
   lock.waitLock(30000);
@@ -211,8 +221,14 @@ function doPost(e) {
     const written = [];
     (body.tables || []).forEach(table => {
       const isReport = table.name.indexOf(REPORT_PREFIX) === 0;
-      if (!isReport && body.action !== 'tables') throw new Error(table.name + ' is not a report');
-      writeTab_(table.name, table.csv, isReport);
+      if (body.action === 'notes') {
+        const sheet = SpreadsheetApp.getActive().getSheetByName(table.name);
+        if (!sheet || isReport) throw new Error('there is no data tab ' + table.name);
+        writeNotes_(sheet, headerWidth_(sheet), table.description, table.columnNotes);
+      } else {
+        if (!isReport && body.action !== 'tables') throw new Error(table.name + ' is not a report');
+        writeTab_(table.name, table.csv, isReport, table.description, table.columnNotes);
+      }
       written.push(table.name);
     });
     return respond_({ ok: true, written: written });
@@ -230,7 +246,7 @@ function typed_(text) {
   return text;
 }
 
-function writeTab_(name, csv, isReport) {
+function writeTab_(name, csv, isReport, description, columnNotes) {
   const spreadsheet = SpreadsheetApp.getActive();
   let sheet = spreadsheet.getSheetByName(name);
   if (!sheet) {
@@ -248,7 +264,32 @@ function writeTab_(name, csv, isReport) {
   if (sheet.getMaxRows() < values.length + 1) sheet.insertRowsAfter(sheet.getMaxRows(), values.length + 1 - sheet.getMaxRows());
   if (sheet.getMaxColumns() < width) sheet.insertColumnsAfter(sheet.getMaxColumns(), width - sheet.getMaxColumns());
 
-  // Clear only the old values (formatting, checkboxes and dropdowns stay), then write the new ones
-  sheet.getRange(1, 1, sheet.getMaxRows(), Math.max(width, sheet.getLastColumn())).clearContent();
+  // Clear only the old values (formatting, checkboxes and dropdowns stay), then write the new ones. A data tab keeps
+  // its explanation panel, which sits right of the table (it is rewritten below when Unity sends it).
+  const oldWidth = isReport ? sheet.getLastColumn() : headerWidth_(sheet);
+  sheet.getRange(1, 1, sheet.getMaxRows(), Math.max(width, oldWidth)).clearContent();
   if (values.length > 0) sheet.getRange(1, 1, values.length, width).setValues(values);
+  if (!isReport && columnNotes) writeNotes_(sheet, width, description, columnNotes);
+}
+
+// The explanation panel of a data tab: two columns right of the table, after one empty column. The first row says
+// what the table is for, then one line per column. Everything right of the table is replaced.
+function writeNotes_(sheet, width, description, columnNotes) {
+  if (width === 0) return;
+  const names = sheet.getRange(1, 1, 1, width).getValues()[0].map(cellText_);
+  const rows = [['About this table', description || ''], ['Column', 'What it means']];
+  names.forEach((n, i) => rows.push([n, (columnNotes && columnNotes[i]) || '']));
+
+  const start = width + 2;
+  if (sheet.getMaxColumns() < start + 1) sheet.insertColumnsAfter(sheet.getMaxColumns(), start + 1 - sheet.getMaxColumns());
+  if (sheet.getMaxRows() < rows.length) sheet.insertRowsAfter(sheet.getMaxRows(), rows.length - sheet.getMaxRows());
+  sheet.getRange(1, width + 1, sheet.getMaxRows(), sheet.getMaxColumns() - width).clear();
+
+  const range = sheet.getRange(1, start, rows.length, 2);
+  range.setValues(rows).setWrap(true).setVerticalAlignment('top').setFontColor('#434343');
+  sheet.getRange(1, start, 1, 2).setBackground('#fff2cc').setFontWeight('bold');
+  sheet.getRange(2, start, 1, 2).setBackground('#d9ead3').setFontWeight('bold');
+  sheet.getRange(3, start, rows.length - 2, 1).setFontWeight('bold');
+  sheet.setColumnWidth(start, 190);
+  sheet.setColumnWidth(start + 1, 620);
 }

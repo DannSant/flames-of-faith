@@ -155,7 +155,7 @@ namespace Game.BalanceData.Editor
             EditorUtility.DisplayDialog("Balance sheet", TryPushReports(config), "OK");
         }
 
-        [MenuItem(Menu + "Push All to Sheet", priority = 2)]
+        [MenuItem(Menu + "Push All to Sheet", priority = 3)]
         public static void PushAllMenu()
         {
             var config = RequireConfig();
@@ -167,7 +167,7 @@ namespace Game.BalanceData.Editor
                 return;
             }
 
-            var tables = BalanceTables.All().Select(definition => ToSnapshotTable(definition.Export()))
+            var tables = BalanceTables.All().Select(ToSnapshotTable)
                 .Concat(Reports())
                 .ToArray();
             EditorUtility.DisplayDialog("Balance sheet", TryPush(config, "tables", tables), "OK");
@@ -176,7 +176,25 @@ namespace Game.BalanceData.Editor
         private static IEnumerable<BalanceSnapshotTable> Reports() =>
             BalanceReports.All().Select(report => new BalanceSnapshotTable { name = ReportPrefix + report.Name, csv = Csv.Write(report) });
 
-        private static BalanceSnapshotTable ToSnapshotTable(BalanceTable table) => new() { name = table.Name, csv = Csv.Write(table) };
+        private static BalanceSnapshotTable ToSnapshotTable(BalanceTableDefinition definition) => new()
+        {
+            name = definition.Name,
+            csv = Csv.Write(definition.Export()),
+            description = definition.Description,
+            columnNotes = definition.ColumnNotes.ToArray(),
+        };
+
+        /// <summary>Writes only the explanation panel at the side of every data tab, leaving the numbers alone.</summary>
+        [MenuItem(Menu + "Push Table Notes to Sheet", priority = 2)]
+        public static void PushNotesMenu()
+        {
+            var config = RequireConfig();
+            if (config == null) return;
+            var tables = BalanceTables.All()
+                .Select(definition => new BalanceSnapshotTable { name = definition.Name, description = definition.Description, columnNotes = definition.ColumnNotes.ToArray() })
+                .ToArray();
+            EditorUtility.DisplayDialog("Balance sheet", TryPush(config, "notes", tables), "OK");
+        }
 
         private static string TryPushReports(BalanceOverride.Config config) => TryPush(config, "reports", Reports().ToArray());
 
@@ -254,7 +272,7 @@ namespace Game.BalanceData.Editor
         private string token;
         private string status;
 
-        [MenuItem("Tools/Flames of Faith/Balance Data/Sheet Settings...", priority = 3)]
+        [MenuItem("Tools/Flames of Faith/Balance Data/Sheet Settings...", priority = 4)]
         public static void Open() => GetWindow<BalanceSheetSettingsWindow>(true, "Balance Sheet Settings");
 
         private void OnEnable()

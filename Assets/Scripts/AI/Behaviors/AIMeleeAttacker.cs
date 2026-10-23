@@ -14,9 +14,12 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Update/MeleeAttacker")]
     public class AIMeleeAttacker : AIUpdateBehavior, IAnimationEventReceiver
     {
+        [Tooltip("The enemy attacks only while the player is closer than this.")]
         [SerializeField] private float maxRange = 7f;
+        [Tooltip("Seconds between attacks.")]
         [SerializeField] private float attackCooldown = 2f;
         [SerializeField] private string colliderObjectName = "MeleeCollider";
+        [Tooltip("Distance from the enemy's center at which the melee hitbox is placed, toward the player.")]
         [SerializeField] private float orbitRadius = 0.5f;
 
 

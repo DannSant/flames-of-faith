@@ -8,6 +8,7 @@ namespace Game.Enemies
     {
         public EnemyType enemyType;
         public GameObject enemyPrefab;
+        [Tooltip("Health at wave 1 of a level, before any growth. Max health = this + (wave - 1) x Health Per Wave + levels beaten x Health Per Level.")]
         public int healthBase = 10;
         [Tooltip("Damage tier of touch and melee attacks (see EnemyDamageSettings). " +
             "Tier N kills a player with the expected stats in the tier's number of hits. Fractions interpolate; 0 = no damage.")]
@@ -27,7 +28,9 @@ namespace Game.Enemies
         [Tooltip("Highest experience token denomination this enemy can drop (see ExperienceSettings). 1 = regular tokens only.")]
         [Min(1)]
         public int xpTier = 1;
+        [Tooltip("Health added for each wave after the first in a level.")]
         public int healthPerWave = 30; // Base health increase per wave
+        [Tooltip("Health added for each level the player has beaten in the run.")]
         public int healthPerLevel = 40; // Health increase per level
         [Tooltip("Always spawns Corrupted, regardless of the player's Grace (e.g. Corruptors).")]
         public bool alwaysCorrupted = false;

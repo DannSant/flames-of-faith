@@ -49,5 +49,9 @@ namespace Game.BalanceData
     {
         public string name;
         public string csv;
+        /// <summary>Only when Unity writes to the sheet: what the table is for, shown at the side of its tab.</summary>
+        public string description;
+        /// <summary>Only when Unity writes to the sheet: what each column means, in column order.</summary>
+        public string[] columnNotes;
     }
 }

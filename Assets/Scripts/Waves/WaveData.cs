@@ -42,6 +42,7 @@ namespace Game.Waves {
         public bool spawnCorruptor = true;
         [Tooltip("Use corruptorOverride instead of the Wave Database's Corruptor for this wave.")]
         public bool overrideCorruptor = false;
+        [Tooltip("The Corruptor spawned at the end of this wave when Override Corruptor is on.")]
         public EnemyType corruptorOverride = EnemyType.CorruptorAct1;
     }
 }

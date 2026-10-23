@@ -16,8 +16,11 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Update/Shooter")]
     public class AIBehaviorShooter : AIUpdateBehavior, IAnimationEventReceiver
     {
+        [Tooltip("Not read by this behavior at the moment (only Max Range is).")]
         [SerializeField] private float minRange = 5f;
+        [Tooltip("The enemy shoots only while the player is closer than this.")]
         [SerializeField] private float maxRange = 7f;
+        [Tooltip("Seconds between shots.")]
         [SerializeField] private float shootCooldown = 2f;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private string firePointName = "FirePoint";

@@ -593,6 +593,15 @@ At runtime, look effects up through **`EffectsDatabaseProvider`**. It loads ever
 ### Balance data (data-driven pilot, Oct 2026)
 
 The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal is that the game designer can tune the numbers outside Unity. The pilot covers enemies, waves and XP.
+- **Keep the Google Sheets pipeline in step (required).** Every time we add, rename, remove or reinterpret a column or field of a balance table, add a table, or change the data-driven structure (importer, CSV format, table kinds, sync, `balance-override.json`), update the whole pipeline in the same change:
+  - the table definition in `BalanceTables.All()` and its committed CSV (Export CSV);
+  - the explanation panel: a description in `BalanceDocs.Tables` and a note for each column (a `[Tooltip]` on the field, or an entry in `BalanceDocs.Columns`); `BalanceDocsTests` fails without them;
+  - the workbook: the tab (Push All creates no tabs, so add it by hand or with the Sheets connector; load the google-workspace skill first), its checkboxes, dropdowns and protection, and the Read Me;
+  - `BalanceData/Sheets/BalanceSync.gs` if the format or web app changes, then tell the owner to paste it again and redeploy (Manage deployments > New version), because the deployed copy doesn't update itself;
+  - the sheet's contents: Push All to Sheet (or Push Table Notes to Sheet for explanations only), and the Unity-side sync code (`BalanceSheetSync`, `BalanceOverride`);
+  - this section, and the `todo.md` manual checklist.
+  A change that only touches the assets or CSVs without these leaves the designer's sheet out of date.
+- **Explanation panel:** every data tab has, right of the table after one empty column, an "About this table" line and one note per column, for new team members. `BalanceDocs` holds the texts; column notes default to the field's `[Tooltip]`, so the Inspector and the sheet say the same. The sheet reads a table's width as the header cells up to the first empty one (`headerWidth_`), so keep that gap. *Push Table Notes to Sheet* rewrites only the panels (script action `notes`); Push All rewrites them with the numbers.
 
 - **No dead data.** Every field a designer can see must do something.
   - Unused content was deleted: the old level scenes, `Sandbox2`, `Boss1.unity`, the old enemy prefabs, test waves, `WarriorOld`, unused level data, behaviors and treasure tables.

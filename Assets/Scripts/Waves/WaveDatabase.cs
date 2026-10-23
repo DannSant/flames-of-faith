@@ -9,6 +9,7 @@ namespace Game.Waves {
         [Tooltip("List of all wave data, in order.")]
         public List<WaveData> waves = new();
 
+        [Tooltip("Marks the game's final level: clearing it ends the run (VICTORY). Not the same as the last wave of an ordinary level.")]
         public bool lastWave = false;
 
         [Tooltip("Corruptor spawned at the end of each wave of this level (waves can override it).")]

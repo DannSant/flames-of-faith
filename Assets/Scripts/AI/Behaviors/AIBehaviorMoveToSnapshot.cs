@@ -8,6 +8,7 @@ namespace Game.AI.Behaviors
     [CreateAssetMenu(menuName = "Behaviors/On Update/MoveToSnapshot")]
     public class AIBehaviorMoveToSnapshot : AIUpdateBehavior
     {
+        [Tooltip("Distance to the remembered player position at which the walk counts as arrived (it then picks a new one).")]
         [SerializeField] private float arrivalThreshold = 0.3f;
         [SerializeField] private BehaviorSharedStateGroup sharedStateGroup;
         [Tooltip("Steer around obstacles (trees) instead of pressing into them. Tuned in ObstacleAvoidanceSettings.")]
