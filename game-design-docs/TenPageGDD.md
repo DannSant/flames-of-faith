@@ -1,180 +1,337 @@
 # Flames of Faith – Ten Page GDD
 
-## 1 – Título
+_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-10-23. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
 
-Flames of Faith
-**Género:** RPG con historia y survivor like
+---
 
-## 2 – Historia y Gameplay
+## 1 – Title page
 
-### Historia
+| | |
+|---|---|
+| **Title** | Flames of Faith |
+| **Genre** | 2D isometric action roguelite with survivor-like combat |
+| **Platforms** | PC (Steam) first; Xbox possibly later |
+| **Engine** | Unity 6.3 LTS (URP 2D) |
+| **Target rating** | Teen / PEGI 16 (fantasy violence, dark religious and horror themes) |
+| **Target audience** | Players of roguelites and survivor-likes (*Death Must Die*, *Brotato*, *Vampire Survivors*, *Hades*) who want short, replayable runs with build-crafting and meta-progression |
+| **Ship date** | **TBD**. A playable Act I demo already exists for testers (v0.5.1). |
+| **Monetization** | Premium, one-time purchase. No microtransactions. DLC TBD. |
+| **Team** | Solo developer, with friends helping on art and testing, plus a game designer working on balance |
 
-La historia ocurre poco después del año 1000 de la edad decadente, o eso se piensa pues el caos durante esta época ha hecho que los registros de los años sean un poco confusos. En una época difícil donde el hambre, la delincuencia y la corrupción abundan, cosas extrañas empezaron a ocurrir, enfermedades espontaneas, plagas nunca vistas, alimentos que se echaban a perder de un día a otro. Los augures de la Iglesia Blanca determinan que la causa podría ser que la Peregrinación de la Flama, un ritual antiguo y sagrado, tiene siglos que no se lleva a cabo debido a la guerra que terminó recientemente, por lo que deducen que el mal ha comenzado a echar raíces en el mundo. Ayteel Alamoh una Guardiana descendiente del mítico e infame Gabien Alamoh se ha unido a la Peregrinación para intentar enmendar los pecados de su ancestro, pero la gente la rechaza pues se piensa que Gabien fue el principal causante del desastre actual. Es por esto que es forzada a viajar sola por el peligroso Bosque de Jester, las heladas Estepas de Uf’Faraclario, las desoladas Montañas Sinfa y finalmente llegar hasta las Ruinas de Ashemdrek para encender los Altares de Malien y restaurar las Flamas de la Fe, la única esperanza de que el orden vuelva al mundo.
+---
 
-### Gameplay
+## 2 – Scope and goals
 
-En Flames of Faith el jugador empieza con un simple objetivo: encender la Flama de la Fe en todas las iglesias y altares de la región. Deberá seguir avanzando la historia para lograr su objetivo, pero encontrará siempre obstáculos: mercenarios, bandidos, animales corrompidos y por supuesto, los misteriosos Drekos y sus torcidas creaciones.
-El juego estará dividido en actos, el objetivo de cada acto es avanzar por una serie de caminos bifurcados hasta llegar al jefe final del acto. Los actos estarán compuestos por nodos y los tipos de nodos son estos:
-- Combate contra 1-3 oleadas de enemigos. Deberá matar los más enemigos que pueda para progresar. Cada oleada otorga dinero y resta un punto de Gracia (empiezas con 10)
-- Tienda: Permite comprar un item o ignorar y continuar.
-- Descanso: Restaura +10 puntos de Gracia (a balancear)
-- Eventos: Situaciones aleatorias que contienen piezas de lore del mundo. Presentan decisiones al jugador, como por ejemplo encontrar una reliquia maldita, si la agarras te da un beneficio, pero con un efecto negativo o puedes no agarrarla y no arriesgarte.
-- Jefe: El nodo final siempre es el jefe y al matarlo se prosigue al siguiente acto.
+### Vision
+Short, readable runs where every wave is a small decision about **Grace**: fight cleanly and the holy power grows, take Corrupted hits or let the Corruptor escape and you slide into Corruption, which makes you weaker but the run more dangerous and rewarding to recover from.
 
-## 3 – Gameflow
+### Design goals
+1. **Easy to pick up.** Movement, an auto-attack that can be toggled, a special and a dash. A run is understood in one sitting.
+2. **Meaningful build-crafting.** Items (with quality tiers), level-up stat picks and class kits combine into builds that feel different run to run.
+3. **Grace as the central tension.** One signed resource that is both a damage bonus and a measure of how corrupted you are.
+4. **Replayability.** A branching overworld map per act, several map variants per act, random events, shop stock and item drops.
+5. **Long-term goals between runs.** Favors earned in runs buy class unlocks and upgrades in per-class skill trees.
+6. **Readable on screen.** A standardized UI with full gamepad support.
 
-Durante cada nivel el jugador va a encontrar los siguientes objetos:
-- Monedas: Todos los enemigos las dan. Permiten comprar objetos como llaves, pociones de curación, pociones etc. También permiten comprar objetos de mejoras permanentes
-- Gemas. También las dan todos los enemigos, funcionan como la experiencia y al subir de nivel te proporcionan una mejora permanente.
-Mecánica principal del jugador:
-Las acciones que el jugador tendrá son únicamente el movimiento, ataque normal(automático) y ataque especial.  El jugador tiene un recurso llamado Gracia que aumenta todo el daño que hace. Cada oleada que limpia se pierde un punto de Gracia. Hay lugares especiales donde se puede descansar y recuperar un poco de Gracia y algunos pickups la van a recuperar tambien
-Al inicio de cada partida el jugador elige su arma inicial (espada, arco o cetro)
+### Release scope
 
-## 4- Personaje y controles.
+| Release | Content | Status |
+|---|---|---|
+| **Steam demo** | Act I (Jesterwoods): 3 map variants, combat levels, shop, campfire, treasure, events, Holy Altar, Act I boss. Three classes, skill trees, Favors, run save. Keyboard/mouse and gamepad. | Exists and in tester builds |
+| **Full Steam release** | Acts I–IV, each with its own region, enemies, Corruptor and boss. More items, events and kit upgrades. Localization and input remapping. | Planned; Acts II–IV are **Proposed / TBD** |
+| **Later** | Xbox port; possible DLC | Not scheduled |
 
-Ayteel Alamoh será el único personaje jugable, aunque usará diferentes armas.
+### Out of scope (for the full release)
+- Multiplayer or co-op.
+- Procedurally generated level layouts (levels are hand-built scenes; variety comes from the map, waves and loot).
+- Story cutscenes with voice acting (see [Cutscenes](#11--cutscenes)).
 
-**En PC**
-Se mueve con WASD y apuntará su ataque hacia donde el mouse esté, siempre mirará hacia el mouse.
-Ataque básico en automático, click derecho para ataque especial
+---
 
-**En Control**
-Se mueve con el joystick izquierdo
-Y para ataque especial.
+## 3 – Story and gameplay overview
 
-## 5 – Conceptos principales de Gameplay
+### Story
+The story takes place shortly after the year 1000 of the Decadent Age, or so it is believed: the chaos of the era has left the records confused. In a hard time of hunger, crime and corruption, strange things began to happen: sudden illnesses, unknown plagues, food that spoiled from one day to the next. The augurs of the White Church concluded that the cause might be the **Pilgrimage of the Flame**, an ancient and sacred ritual that had not been performed for centuries because of the war that had only just ended. Evil had begun to take root in the world.
 
-Tipo de gameplay: Combate de acción en 2D.
-Secuencia de gameplay: Actos divididos en zonas o nodos
+All the altars that kept the **Flame of Faith** alight have gone out, and the **Years of the Miasma** have begun. The region of **Ashemdrek** is not what it used to be: it seems to shift with every step, and horrible creatures lurk around every corner. To bring order back, the pilgrims must cross the perilous **Jester Forest (Jesterwoods)**, the frozen **Uf'Faraclario Steppes**, the desolate **Sinfa Mountains**, and finally the **Ruins of Ashemdrek**, relighting the **Altars of Malien** and restoring the Flames of Faith.
 
-### Sistema de Combate – Devoción
+**Playable characters.** The player chooses one of **three pilgrims**, one per class (Warrior, Archer, Augur), each with their own background. Their names and stories are **TBD**. The earlier draft's heroine, **Ayteel Alamoh**, a Guardian descended from the infamous Gabien Alamoh who joins the Pilgrimage to atone for her ancestor's sins, can become one of them or stay as lore.
 
-**El combate será muy sencillo**, ataques en **automático** al enemigo más cercano. Cada cierto tiempo se puede utilizar un ataque especial que dependerá del arma elegida. El jugador inicia con 10 puntos de Gracia, los cuales otorgan 100% de daño adicional. Cada oleada limpiada restará un punto de Gracia. Los nodos de tipo descanso restauran los puntos de Gracia y algunas mejoras u objetos también.
-Espada – Ataca a todos los enemigos alrededor
-Arco – Lanza 6-8 flechas en todas las direcciones
-Cetro 1 – Ataque primario: misil de fuego que deja un dot. Ataque secundario: Invoca 4 llamas, una arriba, abajo, derecha e izquierda, que van a los enemigos más cercanos y explotan haciendo daño a todos alrededor.
-*o*
-Cetro 2 – ataque primario: misil mágico que deja un debuff que hace lentos a los enemigos. Ataque secundario: lanza rayos de magia que atraviesan todo hacia los enemigos que tengan el debuff
+**Enemies of the story:** mercenaries, bandits, corrupted animals and, above all, the mysterious **Drekos** and their twisted creations.
 
-### Atributos del jugador
+### Gameplay summary
+Each run is a pilgrimage through an act. The player moves across a branching **overworld map** of nodes, choosing a path toward the act's boss. Combat nodes are isometric arenas where waves of enemies spawn for a fixed time. The player auto-attacks (or attacks manually), uses a class special and a dash, collects experience tokens to level up, and picks stat upgrades. Between fights the player meets shops, campfires, treasure chests and random events. **Grace** rises and falls at the end of each wave, changing the player's damage and, below zero, making them Corrupted. Dying ends the run; the **Favors** earned are banked and spent on class unlocks and skill tree upgrades.
 
-Los atributos del jugador son los valores que van a cambiar poder subirse cuando se suba de nivel. Objetos pueden modificar estos atributos y algunos efectos de los enemigos podrían reducirlos
-- Vida máxima.
-- Armadura (reduce daño restándolo)
-- Velocidad de ataque.
-- Chance de bloqueo.
-- Chance de golpe crítico.
-- Potencia de critico
-- Daño cuerpo a cuerpo.
-- Daño a distancia.
-- Daño mágico.
-- Puntos de Gracia (aumenta daño en porcentaje)
-- Robar vida (porcentaje de chance de curarse al hacer daño)
-- Invocación (daño de las unidades invocadas)
-- Velocidad de movimiento.
-- % experiencia ganada.
-- Retribución (daña a los enemigos que te dañan)
-- Gracia máxima.
-- Pickup range
-- Debuff strenght (aumenta el tiempo y efecto de los debuffs)
+---
 
-### Stat especial
+## 4 – Game flow
 
-Agregar un stat especial o item que mejore la habilidad secundaria de cada arma. Ejemplo, para el arco en lugar de lanzar 6-8 flechas, subir a 8-10.
+```
+Main menu ──> Class select ──> Overworld map (Act N)
+                                   │
+                    ┌──────────────┼───────────────┬───────────────┐
+                 Combat         Shop / Campfire   Treasure / Event   Boss
+                 (waves)        / Holy Altar                         │
+                    │                                                ├─> next act (full game)
+                    └────────── back to the map ◄────────────────────┘
+Death or final victory ──> Favors banked ──> Skill tree (main menu) ──> new run
+```
 
-### Estadísticas del jugador
+### A run, step by step
+1. **Main menu.** New Game, Load Game (continue the single saved run), Settings, Skill Tree, Exit.
+2. **Class select.** Choose Warrior, Archer or Augur (Archer and Augur start locked). The details show the starting weapon at its upgraded tier.
+3. **Overworld map.** The act's map is picked at random from its variants (Act I has 3) and generated from the run's seed. Nodes are revealed as you advance (fog of war); you can only move forward along edges, never back. Some optional paths appear only in some runs. Each combat node shows its **Taint Level**.
+4. **Node types:**
+   - **Combat:** 2 waves of enemies (wave durations of 30–45 s in Act I).
+   - **Shop** (Elven Shop): buy items with coins.
+   - **Rest** (Campfire): gain Grace and health.
+   - **Treasure:** a chest with one reward.
+   - **Event** (Strange Encounter): a random story event with 2–3 options.
+   - **Holy Altar:** a fixed event focused on Grace.
+   - **Boss:** the act's final node.
+5. **Inside a combat level:**
+   1. A wave starts; enemies spawn from portals for the wave's duration.
+   2. When the timer ends, spawning stops and the **Corruptor** appears (see [Grace and Corruption](#mechanic-grace-and-corruption)). Kill it before it escapes.
+   3. The wave ends: remaining enemies die, experience is collected on the last wave, then the **Wave Results** window shows how Grace changed and any Favor earned.
+   4. The **item bag** opens for items picked up during the wave (take or sell each), then the **level-up** window for each level gained.
+   5. After the last wave the player returns to the map.
+6. **Saving.** The run autosaves on every map arrival and move. Quitting inside a level returns the player to the map as it was before entering it.
+7. **End of run.** Death, or beating the final boss, ends the run. The run's Favors are banked for the meta-progression.
 
-Las estadísticas son los valores que irán cambiando en el combate y usualmente derivan de un atributo. Ejemplo la vida, deriva de la vida máxima y durante el combate se irá reduciendo con forme se reciba daño.
+### Collectibles
+- **Golden Chronos (coins):** granted at the end of every wave, from events and treasure, and by selling items. Spent in shops.
+- **Experience tokens:** dropped by enemies in several denominations (bigger tokens from tougher enemies). Leveling up offers a choice of stat upgrades.
+- **Grace pickups:** occasional drops; more likely with Grace Affinity.
+- **Health pickups** and **random item pickups** (the item goes to the item bag).
 
-### Daño elemental
+---
 
-Algunos objetos o armas causarán daño elemental, lo cual dependiendo del daño colocará ciertos debuffs en los enemigos.
-Fuego: Daño por segundo, empezando con poco daño y aumentando cada segundo.
-Fórmula para daño: 1 + (x * y) + z
-Donde x = tiempo, y= stacks, z = Stat fuerza de debuff.
-Fórmula para tiempo: 3 + (x * 0.25)
-Donde x = stat fuerza de debuff
-Escarcha: Hace lentos a los enemigos y aumenta el daño que reciben.
-Energía: Hace que cuando el enemigo reciba daño, dañe a un enemigo adyacente y lo afecte con el mismo debuff
-Purificado: Chance de aturdir al enemigo cuando recibe daño y curar al jugador
-Caos: Chance de causar una explosión que daña a enemigos adyacentes, si estos tienen el debuff de Caos también tendrán 100% de chance de explotar, y si no entonces adquieren el Debuff. Stats aumentan rango y daño de explosiones.
+## 5 – Characters and controls
 
-### Mecánica: Corrupción
+### Classes
+Each class has a **kit** of six starting items: a weapon, an off-hand, an Emblem and three **Glyphs** (one per ability slot). Each kit item has upgrade tiers (+1 to +3) bought with Favors in the class's skill tree. Upgrades apply from the next run.
 
-Esta mecánica esta pensaba para balancear el juego y para introducir decisiones interesantes, así como darle una segunda utilidad al concepto de Gracia.
-Cada nivel por el que pase el jugador va a aumentar un poco de puntos de Corrupción. La Corrupción reduce la curación que el jugador recibe y la armadura. Si el jugador pasa por 4 niveles, tendría 4 puntos de Corrupción, por lo que, si recibe 4 puntos de curación, serían negados y su armadura se reduce en -4. Hay algunos nodos especiales que reducen los puntos de Corrupción.
-La Gracia tendría además una utilidad secundaria que sería proteger de la Corrupción. Siguiendo el mismo ejemplo, si el jugador adquiere 4 puntos de Corrupción, y tiene 3 puntos de Gracia, contaría como si solo tuviera un punto de Corrupción (4-3=1)
+| | **Warrior** | **Archer** | **Augur** |
+|---|---|---|---|
+| **Role** | Melee bruiser | Ranged skirmisher | Magic caster, area damage |
+| **Weapon** | Steeldawn Sword | Steeldawn Bow | Akeros Graceful Scepter |
+| **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Centinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
+| **Emblem** (+1 main stat per level) | Warrior Emblem: Melee Damage | Archer Emblem: Ranged Damage | Augur Emblem: Magic Damage |
+| **Basic attack** | Glyph of Crusader Strike: a sword swing in an arc; may inflict Bleed | Glyph of Holy Shot: a blessed arrow; upgrades add a cone of extra arrows | Glyph of Fireball: a fireball; may inflict Fire; upgrades add an impact explosion |
+| **Special** | Glyph of Whirlwind: spin hitting everything around you, invulnerable while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
+| **Dash** | Glyph of Crusader Charge: charge through enemies, damaging and knocking them back | Glyph of Trap Step: leaves a trap that damages the first enemy to step on it | Glyph of Flame Dash: pass through enemies and leave a trail of flames |
+| **Unlock** | Unlocked by default | 50 Favors | 50 Favors |
 
-## 6 – Mundo del juego
+Each class also has a **stat guide**: one **Key** stat (gold star) and some **Complementary** stats (silver star), shown in the Stats pane and on level-up choices so new players know what to pick.
 
-El juego va contar con 4 diferentes regiones, y los niveles se van a cambiar de forma aleatoria en cada partida. Se formará un camino con algunas bifurcaciones que lleguen hasta un nodo donde estará el altar junto con el jefe de la zona.
-Una vez avanzando de un nodo a otro, no se puede retroceder.
-Van a existir 4 regiones del juego (4 actos)
-Bosque de Jester - Bosque de fantasía regular, solitario y un poco lugubre
-Estepa Uf’Faraclario. – Nieve, frio, desolado
-Montañas Sinfa – montañoso, desolado, acantilados, rocoso
-Ruinas de Ashemdrek – Urbano, destruido, ruinas, oscuro
+### Controls
 
-## 7 – Jefes
+| Action | Keyboard and mouse | Gamepad (Xbox layout) |
+|---|---|---|
+| Move | WASD / arrow keys | Left stick |
+| Aim / face | Mouse position | Right stick (or movement direction) |
+| Basic attack (manual) | Left mouse button / Enter | X |
+| Special attack | Right mouse button | Y |
+| Dash | Space | A |
+| Toggle auto-attack | Ctrl | RT |
+| Lock on to a target | F | LT |
+| Show stat sources (in menus) | Left Shift | LT |
+| Pause | Esc | Start |
+| Switch UI windows | Mouse | LB / RB |
+| Back / cancel | Esc | B |
 
-### Acto 1
+- **Auto-attack** (on by default) attacks the nearest enemy in weapon range. With it off, the player attacks manually with light aim assist.
+- **Lock-on** marks one enemy (Toggle mode by default, or Hold mode in Settings). A locked target stays marked even out of range, and specials (Barrage, Fire Tornado explosions) aim at it.
+- The character faces the target while it is alive and in range, otherwise the mouse (or the stick).
 
-#### Taio’Sandir
+---
 
-### Historia
+## 6 – Main gameplay concepts
 
-Su nombre original se desconoce, por lo que se le dio este sobrenombre que en el Lenguaje Olvidado significa “impío”
-Es un Dreko antiguo que llegó durante la Edad Oscura, como todos. Desde entonces entró en el cuerpo de un soldado y se quedó allí, por lo que el cuerpo original ha cambiado y mutado por todos esos años (aproximadamente 6mil, sino es que más) quedando irreconocible y la monstruosidad que es hoy en día.
-Se cuentan relatos de la Edad oscura que sus gritos infernales solían atraer criaturas corruptas y alimañas, lanzaba poderosos ataques que desquebrajaban armaduras y hasta pequeñas estructuras, pero lo más terrorífico era que a pesar de su gran tamaño, lograba desaparecer entre la neblina que solía aparecer en su presencia, atacando por sorpresa a los soldados que defendían el mundo de estos seres.
+### Combat
+Combat is simple to control and deep in builds: auto-attacks on the nearest enemy, a special on a cooldown, and a dash with charges. Enemies come in timed waves from spawn portals. Damage scales with the player's damage stats, items, debuffs and Grace.
 
-### Gameplay
+### Mechanic: Grace and Corruption
+Grace is the core resource.
 
-##### Fase 1
+- **Grace** is a single signed value from **−50 to +50**, kept for the whole run.
+  - **Damage:** each point of Grace raises (or, below zero, lowers) all damage the player deals, with a minimum multiplier.
+  - **Corrupted:** below 0 the player is **Corrupted**. Each point below zero lowers Armor and Healing Received, and raises the chance that enemies spawn Corrupted. Corrupted players, enemies and the boss get a pulsing purple outline.
+- **Corruption** is counted **per wave only** and comes from two sources:
+  - **Corrupted Damage:** damage taken from Corrupted enemies, their projectiles and explosions (capped per wave).
+  - **The Corruptor:** at the end of every wave's timer a Corruptor appears. Spawning stops, the camera shows it, and a timer starts. The longer it lives, the more Corruption it gives. If it isn't killed in time it escapes through a portal and gives even more.
+- **Wave end:** `Grace = Grace + Grace Affinity − Corruption`. Then Corruption resets. The Wave Results window explains the change step by step.
+- **Other Grace sources:** the Campfire, the Holy Altar and some events, Grace pickups, and Retribution hits.
+- **Corrupted enemies** have more health and deal more damage. Their chance to appear grows with the level's **Taint Level** and the player's Corrupted level.
 
-El encuentro empieza con el Altar de Malien y el jugador intentando encender la Flama de la Fe. Deberá sobrevivir hasta que el fuego se encienda por completo, entonces pasará a la segunda fase.
-Durante la primera fase, algunos enemigos aparecerán e intentarán detener al jugador, como si de una oleada normal se tratase. Salen enemigos cada 5 segundos
-Ataque: Rayo de Oscuridad. De vez en cuando, cada 5-8 segundos, el jefe aparece desde la nada (como emergiendo de la niebla) y lanza un proyectil morado hacia el jugador, que después de 3 segundos se rompe en 8 ataques pequeños hacia todas las direcciones.
-Ataque: Invocar Ojos Dreko. Cada 30 segundos, el jefe aparece de nuevo e invoca un grupo de 4 enemigos de tipo Ojo Dreko, pero en lugar de atacar al jugador, intentarán ir al Altar y apagar el juego sagrado. Al contacto con el altar, el progreso de la flama de la fe se reduce un 5% (20% si los cuatro llegan)
-Mientras los ojos estan yendo al altar, el jefe empieza Rayos de Oscuridad cada 3 segundos.
-Al morir los ojos, el jefe se enoja y desaparece. La frecuencia con la que los enemigos aumenta en 1 segundo y ahora cada vez que aparezca el jefe a lanzar un proyectil, lanzará uno adicional. La siguiente vez que haga Invocar Ojos Dreko invocará uno adicional.
-La fase se repetirá, cada vez que los ojos mueran todo aumenta en rapidez hasta que el jugador muera o el altar se encienda por completo.
-Una vez se encienda, empieza la fase dos.
+### Mechanic: Favors and meta-progression
+- **Earned:** +1 for each wave that ends with Grace above 0, +5 for a boss kill, and from some events.
+- **Banking:** Favors count only when the level they were earned in is finished. They are banked only when the run ends (death or victory). Abandoning a run loses them.
+- **Spending** (between runs, in the Skill Tree): unlock classes (50 Favors), and upgrade each kit item one tier at a time (10 / 15 / 20 Favors). Favors are one shared pool across classes.
+- A typical lost run earns about 12–18 Favors.
 
-##### Fase 2
+### Platform-specific features
+- **PC (Steam):** keyboard and mouse or gamepad, with automatic glyph switching; scalable UI from 1920×1080; resolution and quality settings.
+- **Steam features** (achievements, cloud saves, Steam Deck verification): **TBD**.
+- **Xbox:** possible later port. The UI is already fully gamepad-navigable.
 
-Durante la fase dos el jefe aparece y los enemigos dejan de aparecer. El altar se ha llenado y el jefe ahora recibe más daño que antes (200% más) y se moverá de izquierda a derecha.
-Se detendrá cada 2 segundos a lanzar un Rayo de Oscuridad.
-Ataque: Ráfaga Corrupta. Cada 10 segundos se detendrá para hacer una habilidad que lanza una ráfaga de pequeños proyectiles hacia el jugador, los lanza en direcciones aleatorias, pero siempre en un arco hacia donde esté el jugador. Esta habilidad dura 5 segundos.
-Ataque: Zángano del abismo. Cada 30 segundos se detiene y lanza esta habilidad, creando un proyectil que lentamente sigue al jugador y dura hasta que el jefe muera.
-Los ataques se repiten hasta que el jefe llegue a 0 de vida y muera.
+---
 
-#### Animaciones
+## 7 – Game world
 
-Idle
-Walk
-Attack1: para Rayo de Oscuridad y Zangano del abismo. Deberá hacer un brazo hacia atrás y luego agresivamente hacia adelante, como lanzando una bola de beisbol.
-Attack2: Para Invocar Ojos Dreko y Ráfaga Corrupta. El jefe mira hacia en frente (hacia la camara) y dobla sus brazos, creando una mancha brillosa morada en cada puño.
-Die.
+Four regions, one per act. Each act is a branching map of about 25 nodes ending at an **Altar of Malien** guarded by the act's boss. You cannot go back once you leave a node.
 
-#### Animaciones opcionales
+| Act | Region | Mood | Status |
+|---|---|---|---|
+| I | **Jesterwoods** (Jester Forest) | Ordinary fantasy forest, lonely and a little gloomy | Built: 3 map variants. Levels include Jesterwood Glade, Jesterwood Cliffs, Heart of the Forest, Perkfandor Outskirts, Perkfandor Ruins, Moribairo Fields, Argent Coast Ruins, Seared Ruins and Sinfa Hillside, plus Campfire, Elven Shop, Treasure, Strange Encounter, Holy Altar and the Altar of Malien (boss) |
+| II | **Uf'Faraclario Steppes** | Snow, cold, desolate | **Proposed** |
+| III | **Sinfa Mountains** | Mountainous, rocky, desolate, cliffs | **Proposed** |
+| IV | **Ruins of Ashemdrek** | Urban, destroyed, ruins, dark | **Proposed** |
 
-Damage: Para la transición entre fase 1 y 2, la idea es que la Flama de la Fe daña al jefe y hace que el daño recibido aumente.
-StealthOff: Para la primera fase, cuando el jefe aparece de pronto para atacar al jugador, podría ser una animación de una nube de neblina que de pronto el jefe se haga visible, como saliendo de la neblina.
-StealthOn: Para la primera fase, una vez el jefe aparece y ataca al jugador, la neblina regresa y el jefe poco a poco se mueve hacia ella, despareciendo.
+Combat levels are hand-built isometric arenas with a few obstacles (tree trunks) that block enemy projectiles. The art team is redesigning the scenarios, which may make levels smaller.
 
-##### Phase 1
+---
 
-The encounter begins at the Altar of Malien, with the player attempting to ignite the Flame of Faith. They must survive until the flame is fully lit, at which point the second phase will begin.
-During the first phase, several enemies will appear and attempt to stop the player, similar to a normal wave of enemies. Enemies spawn every 5 seconds at first.
-Attack: Volt of Darkness. Occasionally, every 5-8 seconds, the boss appears out of nowhere (as if emerging from the fog) and launches a purple projectile at the player. After 3 seconds, this projectile breaks into 8 smaller attacks in all directions.
-Attack: Summon Dreko Eyes. Every 30 seconds, the boss reappears and summons a group of 4 Dreko Eye enemies. Instead of attacking the player, these enemies will attempt to reach the Altar and extinguish the sacred game. Upon contact with the altar, the Flame of Faith's progress is reduced by 5% (20% if all four eyes reach it). While the eyes are moving to the altar, the boss casts Volt of Darkness every 3 seconds.
-When the eyes die, the boss becomes enraged and disappears. The enemy spawn rate increases by 1 second, and now, each time the boss appears to launch a projectile, it will launch an additional one. The next time it uses Summon Eyes, Dreko will summon an additional eye.
-This phase will repeat; each time the eyes die, everything speeds up until the player dies or the altar is fully lit.
-Once lit, phase two begins.
+## 8 – Interface
 
-##### Phase 2
+The UI follows one standard: two font sizes, three icon sizes, two button sizes, framed windows, and a color code (Grace cyan, Corruption purple, Favors gold, yellow highlight, green positive, red negative). Every window works with mouse and gamepad; a pulsing frame shows the gamepad selection.
 
-During phase two, the boss appears, and enemies stop spawning. The altar is full, and the boss now takes 200% more damage and moves from left to right. It will stop every 2 seconds to cast a Volt of Darkness.
-Attack: Corrupted Barrage. Every 10 seconds, it will stop to unleash an ability that fires a barrage of small projectiles at the player, launching them in random directions, but always in an arc toward the player's position. This ability lasts 5 seconds.
-Attack: Abyssal Drone. Every 30 seconds, it will stop and unleash this ability, creating a projectile that slowly tracks the player and lasts until the boss dies.
-The attacks repeat until the boss reaches 0 HP and dies.
+- **HUD:**
+  - **Top left:** health, the signed Grace bar with the wave's pending Corruption, the wave number and its timer. Under it, an optional tutorial hint.
+  - **Top right:** level and experience bar.
+  - **Bottom left:** the three ability icons with cooldowns and input glyphs, plus the auto-attack and lock-on indicators.
+  - **Bottom center:** the boss's altar flame bar (boss level only).
+- **Side panes:** the **Inventory** (left) and **Stats** pane (right) open with every center window. Holding Shift / LT shows which items give each stat.
+- **Center windows:** level-up (with Now/After stat previews), item bag (take or sell), wave results, shop, campfire, event and results, pause, settings, death screen and victory screen.
+- **Overworld map:** act title, current level name, coins, Save & Exit, the Stats pane, and gamepad prompts.
+- **Main menu:** menu panel, class select with class details, Skill Tree, Settings.
+- **Tooltips:** one shared tooltip for items, stats and options, placed beside the hovered or selected element.
+
+---
+
+## 9 – Mechanics and power-ups
+
+### Player stats
+Stats are raised by level-up picks, items and kit Emblems. Their descriptions in game come from the same formulas as gameplay.
+
+| Stat | Effect |
+|---|---|
+| Max Health | Maximum health |
+| Armor | Reduces all damage taken, with diminishing returns; negative Armor increases damage taken. Lowered while Corrupted |
+| Evasion | Chance to avoid all damage from a hit |
+| Health Regen | Heals over time |
+| Healing Received | Adds health to every heal (not regeneration). Lowered while Corrupted |
+| Life Steal | Chance for hits to heal |
+| Melee Damage | Added to melee weapons, melee skills and Retribution |
+| Ranged Damage | Added to projectile weapons and skills |
+| Magic Damage | Added to magic weapons and some skills |
+| Attack Speed | Shortens basic and special attack cooldowns |
+| Range | Weapon reach and targeting range |
+| Pierce | Projectiles pass through more enemies; arrows may split on hit |
+| Skill Duration | Skills and item effects last longer |
+| Mastow Affinity | Stronger, longer elemental debuffs |
+| Retribution | Reflects part of the damage taken as melee damage; hits may grant Grace |
+| Grace Affinity | Grace gained at every wave end; more Grace pickups |
+| Move Speed | Movement speed |
+| Dash Cooldown | Faster dash recharge |
+| Pickup Range | Pickups fly to you from further away |
+| Experience to Level Up | Enemies drop more experience |
+| Luck | Better level-up tiers, more and better shop items, better event outcomes |
+| Shop Item Discount | Lower shop prices |
+
+_(Cleave was retired in Oct 2026.)_
+
+### Leveling up
+Experience needed grows by 20% per level (10, 12, 14.4...). Drops are sized so the player gains about the same number of levels per wave at any point. Each level gained offers stat upgrade choices in tiers (Luck improves the tiers).
+
+### Items
+- **43 items** outside the class kits. Six qualities exist (Common, Uncommon, Rare, Heroic, Epic, Legendary); items currently go up to Heroic, and Epic and Legendary items are **TBD**.
+- Items give flat or percentage stats, triggered effects (orbiting swords, holy missiles, daggers on being hit, thunder, energy orbs...), elemental infusions, and some give abilities.
+- **Sources:** shops (stock count and quality scale with Luck), treasure chests, events, random item pickups.
+- Kit items with stat bonus rules (e.g. "every N points of X give Y") are starting items only.
+
+### Elemental debuffs
+Inflicted by weapons, Glyphs and items; all scale with **Mastow Affinity**.
+
+| Debuff | Effect |
+|---|---|
+| **Fire** | Burn damage over time; can spread to enemies that touch a burning one |
+| **Frost** | Slows the target and makes it take more damage |
+| **Bleed** | Damage over time that stacks (up to 5) |
+| **Ley Charge** | When a charged enemy takes damage, a bolt jumps to a nearby enemy, damages it and charges it (limited jumps) |
+| Chaos, Holy | **Proposed** (designed, not implemented): Chaos makes enemies explode and spread Chaos; Holy may stun and heal the player |
+
+### Run encounters (events)
+Every event has 2–3 options, and each option costs something and gives something (no free "Ignore"). Outcomes use Luck-biased rolls. The current pool: Arcane Box, Bandits, Cursed Chest, Faraclarian Clan and House of Stars, plus the Holy Altar. Events can show art, but none has art yet.
+
+---
+
+## 10 – Enemies
+
+Enemy damage is sized against the *expected* player at each point of the run, using damage tiers. That way, a player who builds more health or armor than expected really does outscale the enemies. Enemy health grows per wave and per level. Any enemy can spawn **Corrupted**.
+
+### Act I enemies
+
+| Enemy | Behavior |
+|---|---|
+| **Slime Chaser** | Hops toward the player; contact damage |
+| **Slime Roamer** | Hops in random directions; contact damage |
+| **Explosive Slime** | Hops toward the player and explodes |
+| **Flame Shooter** | Floats after the player and shoots fireballs while moving |
+| **Dreko Eye** | Walks, stops and fires a three-way spread |
+| **Light Devourer** | Heavy melee attacker with high health |
+| **Corruptor (Act I)** | Always Corrupted; appears at every wave end, flees from the player and shoots; escapes through a portal if not killed in time |
+
+Acts II–IV enemies and Corruptors: **TBD**.
+
+### Bosses
+
+#### Act I: Taio'Sandir
+**Lore.** Its original name is unknown; Taio'Sandir means "impious" in the Forgotten Language. It is an ancient Dreko that came during the Dark Age, like all of them, and took the body of a soldier. Over some 6,000 years that body changed and mutated beyond recognition into today's monstrosity. Tales from the Dark Age say its infernal screams drew corrupted creatures and vermin, and its attacks shattered armor and even small buildings. Worst of all, despite its size it could vanish into the mist that rose in its presence and strike soldiers by surprise.
+
+**Phase 1: Light the altar.** The player stands at the Altar of Malien while its Flame of Faith fills over time (about 100 s). The boss can't be damaged.
+- Enemies keep spawning from portals.
+- **Bolt of Darkness:** the boss emerges from the mist at a random point, throws a dark bolt at the player, and fades away again.
+- **Summon Eyes** (every 30 s): it summons Dreko Eyes that walk to the altar instead of attacking. Each one that reaches the altar lowers the flame. While the eyes walk, the boss throws bolts more often (every 3 s).
+- Killing the eyes enrages the boss: each time, its bolts fire more projectiles (up to a cap) and the next summon brings an extra eye.
+
+**Phase 2: The real fight.** When the flame is full, the boss is struck by it (transition animation) and becomes vulnerable. Enemy spawns stop, and the boss patrols between points, casting:
+- **Bolt of Darkness** every 5 s.
+- **Corruption Burst** (every 15 s): a 5-second channel firing a stream of small projectiles in an arc toward the player.
+- **Summon Dark Drone** (every 30 s): a slow projectile that follows the player until the boss dies.
+
+The boss is Corrupted by default (more damage). Killing it ends the act and grants +5 Favors.
+
+**Animations:** Idle, Walk, Attack (throw), Channel / channel loop, Fade In / Fade Out (mist), Damage (phase transition), Die.
+
+#### Acts II–IV bosses
+**TBD.** Each is proposed to follow the same two-phase altar structure (survive while the altar fills, then fight), with a mechanic tied to its region.
+
+---
+
+## 11 – Cutscenes
+
+- **Current:** no cutscenes. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
+- **Proposed:** a short illustrated intro (still images and text) explaining the Pilgrimage of the Flame, a short scene when each altar is lit, and an ending scene. Scope **TBD**.
+
+---
+
+## 12 – Bonus materials
+
+- **Meta-progression:** class unlocks and skill tree tiers (already in the game).
+- **Proposed:** more classes, a lore codex unlocked by hidden objects ("discover the history of the world of Kanator"), higher difficulty levels, Steam achievements. All **TBD**.
+
+---
+
+## 13 – Open questions
+
+1. **Ship date** and demo release date on Steam.
+2. **The three pilgrims:** names, backgrounds, and whether Ayteel Alamoh is one of them.
+3. **Acts II–IV:** enemies, Corruptors, bosses and their mechanics.
+4. **Chaos and Holy debuffs:** implement or cut.
+5. **Cutscenes:** intro / altar / ending, and in what format.
+6. **Steam features:** achievements, cloud saves, Steam Deck support.
+7. **Difficulty levels:** the code has a difficulty setting; what should each level change?
+8. **Localization:** which languages (the design docs started in Spanish).
+9. **Key items** that unlock parts of the map (in the backlog): design needed.
+10. **DLC:** any planned content after release.
