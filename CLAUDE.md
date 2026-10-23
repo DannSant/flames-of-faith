@@ -611,7 +611,15 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
   - **Cloning a live source** (split arrows): `Instantiate` copies serialized fields only, so call `CopyRuntimeFrom(original)`.
   - **New damage source:** run `Tools/Flames of Faith/Balance Data/Create Damage Source Data`, which creates assets from prefab values and skips sources that have one.
   - **Tests:** `DamageSourceDataTests` checks that every source has its own asset, that its values are sane (speed only with a projectile movement, lifetime only with a lifetime component), and that runtime overrides win.
-- **CSV tables** (`BalanceData/` at the repo root, one CSV per table, next to `Database/`; code in `Scripts/BalanceData/Editor/`):
+- **CSV tables** (`BalanceData/` at the repo root, one CSV per table, next to `Database/`). The importer core is **runtime code** in `Scripts/BalanceData/`, so a test build can apply the designer's numbers too:
+  - **Reading and writing fields:** plain reflection, `FieldAccess` (Unity-style paths such as `expectedCurve.Array.data[2].armor` or `strafeFlipInterval.x`; structs in lists are written back).
+  - **Asset loading:** every table loads its assets from **Resources**.
+  - **Where an import writes** (`IBalanceStore`):
+    - `EditorBalanceStore` records Undo, creates new assets next to their siblings and saves;
+    - `RuntimeBalanceStore` only changes the loaded assets.
+  - **Reference columns** resolve by name in the Resources folder registered for their type (`CellCodec.ReferenceFolders`; debuffs → `Debuffs`).
+  - **Headers:** `BalanceTableDefinition.Nicify` mirrors the Editor-only `ObjectNames.NicifyVariableName`.
+  - **Editor-only code** (`Scripts/BalanceData/Editor/`): the tools, the reports and the sheet sync.
   - **Menu** (`Tools/Flames of Faith/Balance Data/`):
     - **Export CSV:** writes the tables and the reports.
     - **Import CSV (Dry Run):** lists every change (`asset.field: old -> new`) or every error with its file and line. Nothing changes.
@@ -646,6 +654,35 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
     - `BalanceTablesTests` checks that every table exports and imports back as no change, and that **the committed CSVs match the assets**.
     - After editing a balance asset in the Inspector, run Export CSV and commit the CSVs with it. After editing a CSV, run Import CSV.
   - **Tests:** `BalanceDataTests` covers the core (CSV, cells, the three kinds, errors cancel everything).
+- **The designer's sheet** ("Flames of Faith - Balance Data", in the owner's Drive folder `balance-data`): one tab per CSV, named exactly like it, plus a Read Me and `Report_*` tabs.
+  - **How it was built:** from the CSVs on 2026-10-23, with locale en_US so decimals are dots, checkboxes for TRUE/FALSE, dropdowns for enum and reference columns, and header rows and key columns protected.
+  - **Scratch tabs:** the designer's own tabs start with `_` and are ignored.
+  - **Script:** `BalanceData/Sheets/BalanceSync.gs` is pasted into the sheet's Apps Script and deployed once as a web app (Execute as: me, access: Anyone). Every request needs the token from Balance > Sync settings.
+  - **Publish** (Balance > Publish, with a note): freezes the data tabs as a numbered version in the script's properties, keeping the last 5. Rows with a blank first cell are skipped.
+  - **The web app:**
+    - `doGet` serves the latest version (or `action=ping`);
+    - `doPost` writes the `Report_` tabs (`reports`) or every tab (`tables`), keeping formatting and checks.
+- **Unity sync** (`BalanceSheetSync`, menu `Tools/Flames of Faith/Balance Data/`):
+  - **Sheet Settings:** the URL and token, in `UserSettings/BalanceSheetSync.json` (never committed); a connection test; and **Save test build config**.
+  - **Pull from Sheet:**
+    1. Downloads the latest published version.
+    2. Plans it; any error cancels everything.
+    3. Applies it after a confirm.
+    4. Re-exports the CSVs and reports from the assets, so the committed CSVs always match.
+    5. Records the version in `BalanceData/snapshot.json` (commit it with the CSVs).
+    6. Pushes the reports to the sheet and runs the guard tests.
+  - **Push Reports to Sheet.**
+  - **Push All to Sheet:** replaces every data tab with the project's numbers, losing unpublished sheet edits. Use it after balance edits made in Unity.
+  - **HTTP:** Apps Script answers with a redirect, which is followed by hand (a POST's redirect must be a GET).
+- **Test build override** (`BalanceOverride`), so the designer plays his own numbers without Unity:
+  - **Trigger:** a build that finds `balance-override.json` (url, token, enabled) next to its executable downloads the latest published version at startup.
+  - **Apply:** with the same importer, in memory for the session, and only if it has no errors. Otherwise none of it is applied and the errors stay on screen; a success message shows for 12 s.
+  - **Never** in the Editor, where runtime changes to assets would be saved. Builds without the file (releases) do nothing.
+  - **Making the file:** Sheet Settings > Save test build config.
+- **Tests:** `BalanceSyncTests` checks that:
+  - reflection field discovery equals the Inspector's fields and order, and headers equal `NicifyVariableName`;
+  - struct, vector and list writes work;
+  - a snapshot of the current data imports as no change, and a missing table is an error.
 - **Enemy speed:** `EnemyData.moveSpeed` is units per second for walkers: chasers, the Corruptor, and DrekoEye, whose `AIBehaviorMoveToSnapshot` no longer has its own speed. `hopForce` is the push per hop for slimes (`AIBehaviorChaseOnAnimIntervals` / `AIBehaviorRoamOnAnimIntervals`).
   - The old `speedBase` meant both, so the slimes' 100–150 and the chasers' 1–3 sat in the same column.
   - Frost's slow scales both.
