@@ -515,7 +515,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.
-- **New or changed windows** follow the same recipe: a restyler entry (or an existing restyler extended), style components and a guard test. Latest handoff: `Assets/Docs/handoff-2026-10-21.md`.
+- **New or changed windows** follow the same recipe: a restyler entry (or an existing restyler extended), style components and a guard test. Latest handoff: `Assets/Docs/handoff-2026-10-23.md`.
 
 ### Class kits, skill trees & Favors (reworked Oct 2026)
 
