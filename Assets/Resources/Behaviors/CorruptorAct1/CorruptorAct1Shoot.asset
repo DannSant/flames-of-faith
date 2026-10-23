@@ -18,3 +18,5 @@ MonoBehaviour:
   shootCooldown: 2
   projectilePrefab: {fileID: 4655842776331200841, guid: 0511eec49ac9963478359f4853ae1bc8, type: 3}
   firePointName: FirePoint
+  holdStillWhileShooting: 1
+  maxHoldTime: 1.5

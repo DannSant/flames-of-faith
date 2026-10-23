@@ -23,7 +23,9 @@ namespace Game.AI.Behaviors
             // knockback impulse, a collision shove) would persist forever and stack with the
             // next one. Writing the velocity every FixedUpdate - zero included - means the AI
             // fully reclaims the body the moment knockback ends, so nothing can accumulate.
-            if (!context.isMoving)
+            // A shot in progress holds position too (only shooters set to hold still flag it, e.g. the Corruptor's).
+            // isMoving is left alone: the logic behavior owns it, and the flee logic keeps it through its buffer.
+            if (!context.isMoving || context.isShooting)
             {
                 rb.linearVelocity = Vector2.zero;
                 return;

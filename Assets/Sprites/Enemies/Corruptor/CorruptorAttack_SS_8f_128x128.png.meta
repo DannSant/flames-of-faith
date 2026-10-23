@@ -1,0 +1,2921 @@
+fileFormatVersion: 2
+guid: 9316cf337a5d1f94f9c18fbbe9301319
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1952018966862193650
+    second: CorruptorAttack_SS_8f_128x128_0
+  - first:
+      213: -526900531733261892
+    second: CorruptorAttack_SS_8f_128x128_1
+  - first:
+      213: -341158886818701017
+    second: CorruptorAttack_SS_8f_128x128_2
+  - first:
+      213: -4403007687516391715
+    second: CorruptorAttack_SS_8f_128x128_3
+  - first:
+      213: 2451417841784444323
+    second: CorruptorAttack_SS_8f_128x128_4
+  - first:
+      213: 6661918852207138560
+    second: CorruptorAttack_SS_8f_128x128_5
+  - first:
+      213: -4608050974956763023
+    second: CorruptorAttack_SS_8f_128x128_6
+  - first:
+      213: 873727628777179055
+    second: CorruptorAttack_SS_8f_128x128_7
+  - first:
+      213: 4841550639805815346
+    second: CorruptorAttack_SS_8f_128x128_8
+  - first:
+      213: 8502556741065797404
+    second: CorruptorAttack_SS_8f_128x128_9
+  - first:
+      213: 7574713639934449141
+    second: CorruptorAttack_SS_8f_128x128_10
+  - first:
+      213: -4117301845257643294
+    second: CorruptorAttack_SS_8f_128x128_11
+  - first:
+      213: 4896601566371697445
+    second: CorruptorAttack_SS_8f_128x128_12
+  - first:
+      213: 3930249071675909927
+    second: CorruptorAttack_SS_8f_128x128_13
+  - first:
+      213: -413409972000329078
+    second: CorruptorAttack_SS_8f_128x128_14
+  - first:
+      213: 2750094038153857498
+    second: CorruptorAttack_SS_8f_128x128_15
+  - first:
+      213: 1309491389586919025
+    second: CorruptorAttack_SS_8f_128x128_16
+  - first:
+      213: -1786175444134414304
+    second: CorruptorAttack_SS_8f_128x128_17
+  - first:
+      213: -6400942519209512318
+    second: CorruptorAttack_SS_8f_128x128_18
+  - first:
+      213: 5593437168368227077
+    second: CorruptorAttack_SS_8f_128x128_19
+  - first:
+      213: 2690003806880753337
+    second: CorruptorAttack_SS_8f_128x128_20
+  - first:
+      213: 6470702481859513321
+    second: CorruptorAttack_SS_8f_128x128_21
+  - first:
+      213: -2644394203793252390
+    second: CorruptorAttack_SS_8f_128x128_22
+  - first:
+      213: 4616559555366122105
+    second: CorruptorAttack_SS_8f_128x128_23
+  - first:
+      213: -713547372361390939
+    second: CorruptorAttack_SS_8f_128x128_24
+  - first:
+      213: 928111759202557602
+    second: CorruptorAttack_SS_8f_128x128_25
+  - first:
+      213: 9197513287170417836
+    second: CorruptorAttack_SS_8f_128x128_26
+  - first:
+      213: -7557201037743921082
+    second: CorruptorAttack_SS_8f_128x128_27
+  - first:
+      213: -969592877318209792
+    second: CorruptorAttack_SS_8f_128x128_28
+  - first:
+      213: -4915033604521576187
+    second: CorruptorAttack_SS_8f_128x128_29
+  - first:
+      213: 3838072381161269064
+    second: CorruptorAttack_SS_8f_128x128_30
+  - first:
+      213: -497361362379967403
+    second: CorruptorAttack_SS_8f_128x128_31
+  - first:
+      213: -7639164629493583349
+    second: CorruptorAttack_SS_8f_128x128_32
+  - first:
+      213: -8297701107992981425
+    second: CorruptorAttack_SS_8f_128x128_33
+  - first:
+      213: 3090833807182249545
+    second: CorruptorAttack_SS_8f_128x128_34
+  - first:
+      213: 433179509891977892
+    second: CorruptorAttack_SS_8f_128x128_35
+  - first:
+      213: -7238077543292534129
+    second: CorruptorAttack_SS_8f_128x128_36
+  - first:
+      213: -5359396346475343804
+    second: CorruptorAttack_SS_8f_128x128_37
+  - first:
+      213: -5623218490670886239
+    second: CorruptorAttack_SS_8f_128x128_38
+  - first:
+      213: 4112815723301073345
+    second: CorruptorAttack_SS_8f_128x128_39
+  - first:
+      213: -3880316114655556027
+    second: CorruptorAttack_SS_8f_128x128_40
+  - first:
+      213: 7409549054532953998
+    second: CorruptorAttack_SS_8f_128x128_41
+  - first:
+      213: -2614463058569627317
+    second: CorruptorAttack_SS_8f_128x128_42
+  - first:
+      213: 2844749072008738114
+    second: CorruptorAttack_SS_8f_128x128_43
+  - first:
+      213: 2729736908299695604
+    second: CorruptorAttack_SS_8f_128x128_44
+  - first:
+      213: 4332123234306574483
+    second: CorruptorAttack_SS_8f_128x128_45
+  - first:
+      213: -1083012149547279562
+    second: CorruptorAttack_SS_8f_128x128_46
+  - first:
+      213: 975492366828813515
+    second: CorruptorAttack_SS_8f_128x128_47
+  - first:
+      213: 3961591569052679359
+    second: CorruptorAttack_SS_8f_128x128_48
+  - first:
+      213: -6035271610985278681
+    second: CorruptorAttack_SS_8f_128x128_49
+  - first:
+      213: -2895935248814109139
+    second: CorruptorAttack_SS_8f_128x128_50
+  - first:
+      213: -2060562904538478279
+    second: CorruptorAttack_SS_8f_128x128_51
+  - first:
+      213: -3220860714813869864
+    second: CorruptorAttack_SS_8f_128x128_52
+  - first:
+      213: 6619498299655092807
+    second: CorruptorAttack_SS_8f_128x128_53
+  - first:
+      213: -3350243547284546668
+    second: CorruptorAttack_SS_8f_128x128_54
+  - first:
+      213: 585596505843132963
+    second: CorruptorAttack_SS_8f_128x128_55
+  - first:
+      213: 4806133170647353303
+    second: CorruptorAttack_SS_8f_128x128_56
+  - first:
+      213: 3456355177561258981
+    second: CorruptorAttack_SS_8f_128x128_57
+  - first:
+      213: -769186444014374637
+    second: CorruptorAttack_SS_8f_128x128_58
+  - first:
+      213: -7013043319008925871
+    second: CorruptorAttack_SS_8f_128x128_59
+  - first:
+      213: 5194594522403997711
+    second: CorruptorAttack_SS_8f_128x128_60
+  - first:
+      213: 8979444584037745992
+    second: CorruptorAttack_SS_8f_128x128_61
+  - first:
+      213: 1183892978996840025
+    second: CorruptorAttack_SS_8f_128x128_62
+  - first:
+      213: -8052774702135516623
+    second: CorruptorAttack_SS_8f_128x128_63
+  - first:
+      213: 5104878180179430341
+    second: CorruptorAttack_SS_8f_128x128_64
+  - first:
+      213: -2151491063543172600
+    second: CorruptorAttack_SS_8f_128x128_65
+  - first:
+      213: 4659171146297235331
+    second: CorruptorAttack_SS_8f_128x128_66
+  - first:
+      213: 7609156335042054306
+    second: CorruptorAttack_SS_8f_128x128_67
+  - first:
+      213: -5201560693804057338
+    second: CorruptorAttack_SS_8f_128x128_68
+  - first:
+      213: 2696068472124591586
+    second: CorruptorAttack_SS_8f_128x128_69
+  - first:
+      213: -646596876450405329
+    second: CorruptorAttack_SS_8f_128x128_70
+  - first:
+      213: -3975162955623982051
+    second: CorruptorAttack_SS_8f_128x128_71
+  - first:
+      213: 7615561226733778601
+    second: CorruptorAttack_SS_8f_128x128_72
+  - first:
+      213: -6512875681471638272
+    second: CorruptorAttack_SS_8f_128x128_73
+  - first:
+      213: -2049153136051228562
+    second: CorruptorAttack_SS_8f_128x128_74
+  - first:
+      213: 8326808483975816972
+    second: CorruptorAttack_SS_8f_128x128_75
+  - first:
+      213: 910240146653818768
+    second: CorruptorAttack_SS_8f_128x128_76
+  - first:
+      213: -1810640290205396381
+    second: CorruptorAttack_SS_8f_128x128_77
+  - first:
+      213: -551546900545598920
+    second: CorruptorAttack_SS_8f_128x128_78
+  - first:
+      213: -7963980575759338653
+    second: CorruptorAttack_SS_8f_128x128_79
+  - first:
+      213: 8412577404159466158
+    second: CorruptorAttack_SS_8f_128x128_80
+  - first:
+      213: -8365419530536881357
+    second: CorruptorAttack_SS_8f_128x128_81
+  - first:
+      213: -7118330221180241146
+    second: CorruptorAttack_SS_8f_128x128_82
+  - first:
+      213: -1715163887720534412
+    second: CorruptorAttack_SS_8f_128x128_83
+  - first:
+      213: 6265726654454989265
+    second: CorruptorAttack_SS_8f_128x128_84
+  - first:
+      213: -5504028254222962702
+    second: CorruptorAttack_SS_8f_128x128_85
+  - first:
+      213: 570590210283386987
+    second: CorruptorAttack_SS_8f_128x128_86
+  - first:
+      213: 5027297523735878362
+    second: CorruptorAttack_SS_8f_128x128_87
+  - first:
+      213: -5717141769618385376
+    second: CorruptorAttack_SS_8f_128x128_88
+  - first:
+      213: 8780670176802022107
+    second: CorruptorAttack_SS_8f_128x128_89
+  - first:
+      213: -7925900548436298072
+    second: CorruptorAttack_SS_8f_128x128_90
+  - first:
+      213: -7295291393355023835
+    second: CorruptorAttack_SS_8f_128x128_91
+  - first:
+      213: 1011775521926991889
+    second: CorruptorAttack_SS_8f_128x128_92
+  - first:
+      213: 2167888354474746235
+    second: CorruptorAttack_SS_8f_128x128_93
+  - first:
+      213: 6592296886660681094
+    second: CorruptorAttack_SS_8f_128x128_94
+  - first:
+      213: -4257273794061046323
+    second: CorruptorAttack_SS_8f_128x128_95
+  - first:
+      213: 2370237921789816743
+    second: CorruptorAttack_SS_8f_128x128_96
+  - first:
+      213: 2727028572028621735
+    second: CorruptorAttack_SS_8f_128x128_97
+  - first:
+      213: -4459814446449170495
+    second: CorruptorAttack_SS_8f_128x128_98
+  - first:
+      213: -1541407781258023539
+    second: CorruptorAttack_SS_8f_128x128_99
+  - first:
+      213: 8067568634659603789
+    second: CorruptorAttack_SS_8f_128x128_100
+  - first:
+      213: -4777516514868733146
+    second: CorruptorAttack_SS_8f_128x128_101
+  - first:
+      213: 1032297965477698499
+    second: CorruptorAttack_SS_8f_128x128_102
+  - first:
+      213: -332787835550651768
+    second: CorruptorAttack_SS_8f_128x128_103
+  - first:
+      213: -110167324049755207
+    second: CorruptorAttack_SS_8f_128x128_104
+  - first:
+      213: -2132952043167098160
+    second: CorruptorAttack_SS_8f_128x128_105
+  - first:
+      213: -2835190485965804953
+    second: CorruptorAttack_SS_8f_128x128_106
+  - first:
+      213: -8053705131816780475
+    second: CorruptorAttack_SS_8f_128x128_107
+  - first:
+      213: 7306072231335163338
+    second: CorruptorAttack_SS_8f_128x128_108
+  - first:
+      213: 7104044855194018484
+    second: CorruptorAttack_SS_8f_128x128_109
+  - first:
+      213: 8742860263792233929
+    second: CorruptorAttack_SS_8f_128x128_110
+  - first:
+      213: -7901929683033876572
+    second: CorruptorAttack_SS_8f_128x128_111
+  - first:
+      213: 6259520828743031715
+    second: CorruptorAttack_SS_8f_128x128_112
+  - first:
+      213: -335056561811629250
+    second: CorruptorAttack_SS_8f_128x128_113
+  - first:
+      213: 7932764548902013421
+    second: CorruptorAttack_SS_8f_128x128_114
+  - first:
+      213: 6247875765597376844
+    second: CorruptorAttack_SS_8f_128x128_115
+  - first:
+      213: -6371096568774819812
+    second: CorruptorAttack_SS_8f_128x128_116
+  - first:
+      213: -2416996845670482097
+    second: CorruptorAttack_SS_8f_128x128_117
+  - first:
+      213: 343946428423666841
+    second: CorruptorAttack_SS_8f_128x128_118
+  - first:
+      213: -597700129264341532
+    second: CorruptorAttack_SS_8f_128x128_119
+  - first:
+      213: 1844247882539182698
+    second: CorruptorAttack_SS_8f_128x128_120
+  - first:
+      213: 6379759262844957333
+    second: CorruptorAttack_SS_8f_128x128_121
+  - first:
+      213: -689604788739869868
+    second: CorruptorAttack_SS_8f_128x128_122
+  - first:
+      213: -3797460605717624213
+    second: CorruptorAttack_SS_8f_128x128_123
+  - first:
+      213: -1348564457312805284
+    second: CorruptorAttack_SS_8f_128x128_124
+  - first:
+      213: -9095857839288099585
+    second: CorruptorAttack_SS_8f_128x128_125
+  - first:
+      213: 1467562312710988268
+    second: CorruptorAttack_SS_8f_128x128_126
+  - first:
+      213: 7807237537931069585
+    second: CorruptorAttack_SS_8f_128x128_127
+  - first:
+      213: -5563714251884694690
+    second: CorruptorAttack_SS_8f_128x128_128
+  - first:
+      213: -8640218924524412207
+    second: CorruptorAttack_SS_8f_128x128_129
+  - first:
+      213: -4679687697094163036
+    second: CorruptorAttack_SS_8f_128x128_130
+  - first:
+      213: 68665740207962790
+    second: CorruptorAttack_SS_8f_128x128_131
+  - first:
+      213: -5404944243962013536
+    second: CorruptorAttack_SS_8f_128x128_132
+  - first:
+      213: -3912058527828931039
+    second: CorruptorAttack_SS_8f_128x128_133
+  - first:
+      213: -2825076904990430680
+    second: CorruptorAttack_SS_8f_128x128_134
+  - first:
+      213: 3220876297672131997
+    second: CorruptorAttack_SS_8f_128x128_135
+  - first:
+      213: 3158460735932341258
+    second: CorruptorAttack_SS_8f_128x128_136
+  - first:
+      213: -5096823118644945872
+    second: CorruptorAttack_SS_8f_128x128_137
+  - first:
+      213: -3169782290447660284
+    second: CorruptorAttack_SS_8f_128x128_138
+  - first:
+      213: 5168149796912771263
+    second: CorruptorAttack_SS_8f_128x128_139
+  - first:
+      213: -4711501768656504622
+    second: CorruptorAttack_SS_8f_128x128_140
+  - first:
+      213: 5196606749481010568
+    second: CorruptorAttack_SS_8f_128x128_141
+  - first:
+      213: 535177173610491575
+    second: CorruptorAttack_SS_8f_128x128_142
+  - first:
+      213: 2471063489545195486
+    second: CorruptorAttack_SS_8f_128x128_143
+  - first:
+      213: 4344841568236846894
+    second: CorruptorAttack_SS_8f_128x128_144
+  - first:
+      213: 5253070962321395412
+    second: CorruptorAttack_SS_8f_128x128_145
+  - first:
+      213: -6194641986349813039
+    second: CorruptorAttack_SS_8f_128x128_146
+  - first:
+      213: 3798063927714263784
+    second: CorruptorAttack_SS_8f_128x128_147
+  - first:
+      213: 4432931347567781684
+    second: CorruptorAttack_SS_8f_128x128_148
+  - first:
+      213: -6889934906836035919
+    second: CorruptorAttack_SS_8f_128x128_149
+  - first:
+      213: 3434261441929081508
+    second: CorruptorAttack_SS_8f_128x128_150
+  - first:
+      213: 7313062733882794637
+    second: CorruptorAttack_SS_8f_128x128_151
+  - first:
+      213: 2492255471143324002
+    second: CorruptorAttack_SS_8f_128x128_152
+  - first:
+      213: 5126063139132779781
+    second: CorruptorAttack_SS_8f_128x128_153
+  - first:
+      213: 7772318856079751272
+    second: CorruptorAttack_SS_8f_128x128_154
+  - first:
+      213: 3399890226652131930
+    second: CorruptorAttack_SS_8f_128x128_155
+  - first:
+      213: -3418981887066959293
+    second: CorruptorAttack_SS_8f_128x128_156
+  - first:
+      213: 6691116875985698715
+    second: CorruptorAttack_SS_8f_128x128_157
+  - first:
+      213: -8182120841020802549
+    second: CorruptorAttack_SS_8f_128x128_158
+  - first:
+      213: -1931957443477301778
+    second: CorruptorAttack_SS_8f_128x128_159
+  - first:
+      213: 232848154862954923
+    second: CorruptorAttack_SS_8f_128x128_160
+  - first:
+      213: -3996318242978821372
+    second: CorruptorAttack_SS_8f_128x128_161
+  - first:
+      213: -3783846093449187628
+    second: CorruptorAttack_SS_8f_128x128_162
+  - first:
+      213: -1771570248564013840
+    second: CorruptorAttack_SS_8f_128x128_163
+  - first:
+      213: 7268032354296139695
+    second: CorruptorAttack_SS_8f_128x128_164
+  - first:
+      213: -1558991211861078413
+    second: CorruptorAttack_SS_8f_128x128_165
+  - first:
+      213: -7972727776005577596
+    second: CorruptorAttack_SS_8f_128x128_166
+  - first:
+      213: -5482131284440329741
+    second: CorruptorAttack_SS_8f_128x128_167
+  - first:
+      213: -7923907558741862374
+    second: CorruptorAttack_SS_8f_128x128_168
+  - first:
+      213: 433253945717710477
+    second: CorruptorAttack_SS_8f_128x128_169
+  - first:
+      213: 826919864029217126
+    second: CorruptorAttack_SS_8f_128x128_170
+  - first:
+      213: 4746029357449815736
+    second: CorruptorAttack_SS_8f_128x128_171
+  - first:
+      213: 5475267200146924789
+    second: CorruptorAttack_SS_8f_128x128_172
+  - first:
+      213: 6375444787052449259
+    second: CorruptorAttack_SS_8f_128x128_173
+  - first:
+      213: 2592531037813578912
+    second: CorruptorAttack_SS_8f_128x128_174
+  - first:
+      213: 5049193981180704010
+    second: CorruptorAttack_SS_8f_128x128_175
+  - first:
+      213: 1774464804251718203
+    second: CorruptorAttack_SS_8f_128x128_176
+  - first:
+      213: 8680369437044834661
+    second: CorruptorAttack_SS_8f_128x128_177
+  - first:
+      213: -3113044400576051438
+    second: CorruptorAttack_SS_8f_128x128_178
+  - first:
+      213: -1927424771587740243
+    second: CorruptorAttack_SS_8f_128x128_179
+  - first:
+      213: -3919560756180205783
+    second: CorruptorAttack_SS_8f_128x128_180
+  - first:
+      213: 6958750727901412954
+    second: CorruptorAttack_SS_8f_128x128_181
+  - first:
+      213: 6138463087801094663
+    second: CorruptorAttack_SS_8f_128x128_182
+  - first:
+      213: 7829668346498623921
+    second: CorruptorAttack_SS_8f_128x128_183
+  - first:
+      213: -8037667453655851990
+    second: CorruptorAttack_SS_8f_128x128_184
+  - first:
+      213: 1570799651388691098
+    second: CorruptorAttack_SS_8f_128x128_185
+  - first:
+      213: -2200235090184646394
+    second: CorruptorAttack_SS_8f_128x128_186
+  - first:
+      213: 7018104373129728892
+    second: CorruptorAttack_SS_8f_128x128_187
+  - first:
+      213: 5652876793205187564
+    second: CorruptorAttack_SS_8f_128x128_188
+  - first:
+      213: -3437259372882542612
+    second: CorruptorAttack_SS_8f_128x128_189
+  - first:
+      213: -1235536170475860229
+    second: CorruptorAttack_SS_8f_128x128_190
+  - first:
+      213: -9149334137342024782
+    second: CorruptorAttack_SS_8f_128x128_191
+  - first:
+      213: -1542774911793359869
+    second: CorruptorAttack_SS_8f_128x128_192
+  - first:
+      213: 4196406061592389991
+    second: CorruptorAttack_SS_8f_128x128_193
+  - first:
+      213: -3363792404581487400
+    second: CorruptorAttack_SS_8f_128x128_194
+  - first:
+      213: 1150926737884437533
+    second: CorruptorAttack_SS_8f_128x128_195
+  - first:
+      213: 8977550981951322992
+    second: CorruptorAttack_SS_8f_128x128_196
+  - first:
+      213: -899457878545041851
+    second: CorruptorAttack_SS_8f_128x128_197
+  - first:
+      213: -453240864579813162
+    second: CorruptorAttack_SS_8f_128x128_198
+  - first:
+      213: 2624301162185988391
+    second: CorruptorAttack_SS_8f_128x128_199
+  - first:
+      213: -4474463078131623641
+    second: CorruptorAttack_SS_8f_128x128_200
+  - first:
+      213: -2053869646105599674
+    second: CorruptorAttack_SS_8f_128x128_201
+  - first:
+      213: -402947416072033746
+    second: CorruptorAttack_SS_8f_128x128_202
+  - first:
+      213: -1212493973298936388
+    second: CorruptorAttack_SS_8f_128x128_203
+  - first:
+      213: -8339938785616582295
+    second: CorruptorAttack_SS_8f_128x128_204
+  - first:
+      213: 6310052019666814071
+    second: CorruptorAttack_SS_8f_128x128_205
+  - first:
+      213: 1526730375145783009
+    second: CorruptorAttack_SS_8f_128x128_206
+  - first:
+      213: 1359372991629992328
+    second: CorruptorAttack_SS_8f_128x128_207
+  - first:
+      213: -8600214855013253107
+    second: CorruptorAttack_SS_8f_128x128_208
+  - first:
+      213: -2715396296005088455
+    second: CorruptorAttack_SS_8f_128x128_209
+  - first:
+      213: 3774532414171910573
+    second: CorruptorAttack_SS_8f_128x128_210
+  - first:
+      213: 6160233421866798803
+    second: CorruptorAttack_SS_8f_128x128_211
+  - first:
+      213: -1248204825641247927
+    second: CorruptorAttack_SS_8f_128x128_212
+  - first:
+      213: 7799176105164779870
+    second: CorruptorAttack_SS_8f_128x128_213
+  - first:
+      213: -3187265897030792723
+    second: CorruptorAttack_SS_8f_128x128_214
+  - first:
+      213: -4688799295693053895
+    second: CorruptorAttack_SS_8f_128x128_215
+  - first:
+      213: 1695888564046478579
+    second: CorruptorAttack_SS_8f_128x128_216
+  - first:
+      213: 3006746094169256722
+    second: CorruptorAttack_SS_8f_128x128_217
+  - first:
+      213: 4461597001645199597
+    second: CorruptorAttack_SS_8f_128x128_218
+  - first:
+      213: -3662637733677720733
+    second: CorruptorAttack_SS_8f_128x128_219
+  - first:
+      213: -2571271578017390353
+    second: CorruptorAttack_SS_8f_128x128_220
+  - first:
+      213: 486143835555465749
+    second: CorruptorAttack_SS_8f_128x128_221
+  - first:
+      213: 4831042926338504769
+    second: CorruptorAttack_SS_8f_128x128_222
+  - first:
+      213: 7740175607579141869
+    second: CorruptorAttack_SS_8f_128x128_223
+  - first:
+      213: 6418961757767288377
+    second: CorruptorAttack_SS_8f_128x128_224
+  - first:
+      213: -3102683378821324078
+    second: CorruptorAttack_SS_8f_128x128_225
+  - first:
+      213: 4624077174718934777
+    second: CorruptorAttack_SS_8f_128x128_226
+  - first:
+      213: -2722845123954329082
+    second: CorruptorAttack_SS_8f_128x128_227
+  - first:
+      213: 2901357229580683020
+    second: CorruptorAttack_SS_8f_128x128_228
+  - first:
+      213: -4130788092711393175
+    second: CorruptorAttack_SS_8f_128x128_229
+  - first:
+      213: 4379573658788654842
+    second: CorruptorAttack_SS_8f_128x128_230
+  - first:
+      213: -2457597837348529719
+    second: CorruptorAttack_SS_8f_128x128_231
+  - first:
+      213: 127735863153141291
+    second: CorruptorAttack_SS_8f_128x128_232
+  - first:
+      213: -338589162293786367
+    second: CorruptorAttack_SS_8f_128x128_233
+  - first:
+      213: -6982964079743315911
+    second: CorruptorAttack_SS_8f_128x128_234
+  - first:
+      213: -6770446637017768842
+    second: CorruptorAttack_SS_8f_128x128_235
+  - first:
+      213: -8393396147296188906
+    second: CorruptorAttack_SS_8f_128x128_236
+  - first:
+      213: 2337462406712108551
+    second: CorruptorAttack_SS_8f_128x128_237
+  - first:
+      213: -8161236305298999855
+    second: CorruptorAttack_SS_8f_128x128_238
+  - first:
+      213: 5185132151387153559
+    second: CorruptorAttack_SS_8f_128x128_239
+  - first:
+      213: 2580223335774436745
+    second: CorruptorAttack_SS_8f_128x128_240
+  - first:
+      213: 14648172141014244
+    second: CorruptorAttack_SS_8f_128x128_241
+  - first:
+      213: 1790061653318406297
+    second: CorruptorAttack_SS_8f_128x128_242
+  - first:
+      213: -7399704579960565624
+    second: CorruptorAttack_SS_8f_128x128_243
+  - first:
+      213: 7606351254272737603
+    second: CorruptorAttack_SS_8f_128x128_244
+  - first:
+      213: 3634316553270570320
+    second: CorruptorAttack_SS_8f_128x128_245
+  - first:
+      213: -8060461507187286095
+    second: CorruptorAttack_SS_8f_128x128_246
+  - first:
+      213: 662097203034755029
+    second: CorruptorAttack_SS_8f_128x128_247
+  - first:
+      213: 1533578707516550311
+    second: CorruptorAttack_SS_8f_128x128_248
+  - first:
+      213: -7800659490635709791
+    second: CorruptorAttack_SS_8f_128x128_249
+  - first:
+      213: -5734371321492078453
+    second: CorruptorAttack_SS_8f_128x128_250
+  - first:
+      213: -8013533908057085064
+    second: CorruptorAttack_SS_8f_128x128_251
+  - first:
+      213: -2793948731203231794
+    second: CorruptorAttack_SS_8f_128x128_252
+  - first:
+      213: 2984963069349260778
+    second: CorruptorAttack_SS_8f_128x128_253
+  - first:
+      213: 8710530642424124267
+    second: CorruptorAttack_SS_8f_128x128_254
+  - first:
+      213: -458752876373140870
+    second: CorruptorAttack_SS_8f_128x128_255
+  - first:
+      213: 8273384115837470908
+    second: CorruptorAttack_SS_8f_128x128_256
+  - first:
+      213: -484999104326209053
+    second: CorruptorAttack_SS_8f_128x128_257
+  - first:
+      213: 7349829675627035843
+    second: CorruptorAttack_SS_8f_128x128_258
+  - first:
+      213: -2461540578563526181
+    second: CorruptorAttack_SS_8f_128x128_259
+  - first:
+      213: -3877614206066671805
+    second: CorruptorAttack_SS_8f_128x128_260
+  - first:
+      213: 5513253491712902413
+    second: CorruptorAttack_SS_8f_128x128_261
+  - first:
+      213: 8580945407675158927
+    second: CorruptorAttack_SS_8f_128x128_262
+  - first:
+      213: 9211369866820803500
+    second: CorruptorAttack_SS_8f_128x128_263
+  - first:
+      213: 3633762925911499450
+    second: CorruptorAttack_SS_8f_128x128_264
+  - first:
+      213: 6219196697023790331
+    second: CorruptorAttack_SS_8f_128x128_265
+  - first:
+      213: -7564939873717439342
+    second: CorruptorAttack_SS_8f_128x128_266
+  - first:
+      213: -7008959767772825577
+    second: CorruptorAttack_SS_8f_128x128_267
+  - first:
+      213: 6175809408823911178
+    second: CorruptorAttack_SS_8f_128x128_268
+  - first:
+      213: 5301092084103040665
+    second: CorruptorAttack_SS_8f_128x128_269
+  - first:
+      213: 5900833085489149280
+    second: CorruptorAttack_SS_8f_128x128_270
+  - first:
+      213: -8620241532464396680
+    second: CorruptorAttack_SS_8f_128x128_271
+  - first:
+      213: 1393027329370632507
+    second: CorruptorAttack_SS_8f_128x128_272
+  - first:
+      213: 1317815035758722988
+    second: CorruptorAttack_SS_8f_128x128_273
+  - first:
+      213: -3228040811348296551
+    second: CorruptorAttack_SS_8f_128x128_274
+  - first:
+      213: 2366838346111499160
+    second: CorruptorAttack_SS_8f_128x128_275
+  - first:
+      213: 3937917464313626490
+    second: CorruptorAttack_SS_8f_128x128_276
+  - first:
+      213: 3578163857071125232
+    second: CorruptorAttack_SS_8f_128x128_277
+  - first:
+      213: -3037934700162971226
+    second: CorruptorAttack_SS_8f_128x128_278
+  - first:
+      213: -7387555775952768252
+    second: CorruptorAttack_SS_8f_128x128_279
+  - first:
+      213: -7884308803076015492
+    second: CorruptorAttack_SS_8f_128x128_280
+  - first:
+      213: 2043310942962824957
+    second: CorruptorAttack_SS_8f_128x128_281
+  - first:
+      213: 8552247156206267262
+    second: CorruptorAttack_SS_8f_128x128_282
+  - first:
+      213: -9032141663496480457
+    second: CorruptorAttack_SS_8f_128x128_283
+  - first:
+      213: 5917676772723766701
+    second: CorruptorAttack_SS_8f_128x128_284
+  - first:
+      213: -4728139631836846289
+    second: CorruptorAttack_SS_8f_128x128_285
+  - first:
+      213: 6299317764150772389
+    second: CorruptorAttack_SS_8f_128x128_286
+  - first:
+      213: -8348027335700432764
+    second: CorruptorAttack_SS_8f_128x128_287
+  - first:
+      213: 2654971850614431558
+    second: CorruptorAttack_SS_8f_128x128_288
+  - first:
+      213: 9143079198686554093
+    second: CorruptorAttack_SS_8f_128x128_289
+  - first:
+      213: 6306948647502767509
+    second: CorruptorAttack_SS_8f_128x128_290
+  - first:
+      213: -8596727685557799256
+    second: CorruptorAttack_SS_8f_128x128_291
+  - first:
+      213: -7867214490759446746
+    second: CorruptorAttack_SS_8f_128x128_292
+  - first:
+      213: 11050892851338281
+    second: CorruptorAttack_SS_8f_128x128_293
+  - first:
+      213: 65235261973459974
+    second: CorruptorAttack_SS_8f_128x128_294
+  - first:
+      213: -5059362220341244437
+    second: CorruptorAttack_SS_8f_128x128_295
+  - first:
+      213: 6437979524417716961
+    second: CorruptorAttack_SS_8f_128x128_296
+  - first:
+      213: 1616977249377233115
+    second: CorruptorAttack_SS_8f_128x128_297
+  - first:
+      213: 3638119543993562584
+    second: CorruptorAttack_SS_8f_128x128_298
+  - first:
+      213: 3549204236684437578
+    second: CorruptorAttack_SS_8f_128x128_299
+  - first:
+      213: -1267000139896567363
+    second: CorruptorAttack_SS_8f_128x128_300
+  - first:
+      213: -8120855066667063053
+    second: CorruptorAttack_SS_8f_128x128_301
+  - first:
+      213: -8682408811932231992
+    second: CorruptorAttack_SS_8f_128x128_302
+  - first:
+      213: 4013521717511555494
+    second: CorruptorAttack_SS_8f_128x128_303
+  - first:
+      213: 7167155228112391510
+    second: CorruptorAttack_SS_8f_128x128_304
+  - first:
+      213: 3474371204982360318
+    second: CorruptorAttack_SS_8f_128x128_305
+  - first:
+      213: 2327441740192352130
+    second: CorruptorAttack_SS_8f_128x128_306
+  - first:
+      213: -6364647184686089249
+    second: CorruptorAttack_SS_8f_128x128_307
+  - first:
+      213: 644644144901542783
+    second: CorruptorAttack_SS_8f_128x128_308
+  - first:
+      213: 5708738622623201727
+    second: CorruptorAttack_SS_8f_128x128_309
+  - first:
+      213: 5191930916251990023
+    second: CorruptorAttack_SS_8f_128x128_310
+  - first:
+      213: 3328311051836994231
+    second: CorruptorAttack_SS_8f_128x128_311
+  - first:
+      213: 5647220730026196941
+    second: CorruptorAttack_SS_8f_128x128_312
+  - first:
+      213: 911034286418779788
+    second: CorruptorAttack_SS_8f_128x128_313
+  - first:
+      213: -166107123935251869
+    second: CorruptorAttack_SS_8f_128x128_314
+  - first:
+      213: -4593191944105458901
+    second: CorruptorAttack_SS_8f_128x128_315
+  - first:
+      213: 806423114853498588
+    second: CorruptorAttack_SS_8f_128x128_316
+  - first:
+      213: -8570692119738992973
+    second: CorruptorAttack_SS_8f_128x128_317
+  - first:
+      213: 76649625016045517
+    second: CorruptorAttack_SS_8f_128x128_318
+  - first:
+      213: 5658423864471680293
+    second: CorruptorAttack_SS_8f_128x128_319
+  - first:
+      213: 2984475489732511887
+    second: CorruptorAttack_SS_8f_128x128_320
+  - first:
+      213: 8645368544480755576
+    second: CorruptorAttack_SS_8f_128x128_321
+  - first:
+      213: 5771771759076191928
+    second: CorruptorAttack_SS_8f_128x128_322
+  - first:
+      213: -5837428443798910260
+    second: CorruptorAttack_SS_8f_128x128_323
+  - first:
+      213: -9039898860930603047
+    second: CorruptorAttack_SS_8f_128x128_324
+  - first:
+      213: 3582062498368322217
+    second: CorruptorAttack_SS_8f_128x128_325
+  - first:
+      213: 3835187267779937384
+    second: CorruptorAttack_SS_8f_128x128_326
+  - first:
+      213: -6862989582623142078
+    second: CorruptorAttack_SS_8f_128x128_327
+  - first:
+      213: 620192668305160300
+    second: CorruptorAttack_SS_8f_128x128_328
+  - first:
+      213: -5932701415724740219
+    second: CorruptorAttack_SS_8f_128x128_329
+  - first:
+      213: 5053173784657488047
+    second: CorruptorAttack_SS_8f_128x128_330
+  - first:
+      213: -8870336523220623969
+    second: CorruptorAttack_SS_8f_128x128_331
+  - first:
+      213: -5610126369137028756
+    second: CorruptorAttack_SS_8f_128x128_332
+  - first:
+      213: -1891377908684710918
+    second: CorruptorAttack_SS_8f_128x128_333
+  - first:
+      213: 7269392714547340565
+    second: CorruptorAttack_SS_8f_128x128_334
+  - first:
+      213: 724143748651007328
+    second: CorruptorAttack_SS_8f_128x128_335
+  - first:
+      213: 3568988120105858847
+    second: CorruptorAttack_SS_8f_128x128_336
+  - first:
+      213: 4990827221583638583
+    second: CorruptorAttack_SS_8f_128x128_337
+  - first:
+      213: -5468696361374106479
+    second: CorruptorAttack_SS_8f_128x128_338
+  - first:
+      213: 5548023893670538464
+    second: CorruptorAttack_SS_8f_128x128_339
+  - first:
+      213: -8542837192271648002
+    second: CorruptorAttack_SS_8f_128x128_340
+  - first:
+      213: -2213525678331400998
+    second: CorruptorAttack_SS_8f_128x128_341
+  - first:
+      213: 715687608222706296
+    second: CorruptorAttack_SS_8f_128x128_342
+  - first:
+      213: -4186892895266771986
+    second: CorruptorAttack_SS_8f_128x128_343
+  - first:
+      213: -2963728344738511312
+    second: CorruptorAttack_SS_8f_128x128_344
+  - first:
+      213: 1544933950055052133
+    second: CorruptorAttack_SS_8f_128x128_345
+  - first:
+      213: 4941835182531012074
+    second: CorruptorAttack_SS_8f_128x128_346
+  - first:
+      213: 8767153001905270550
+    second: CorruptorAttack_SS_8f_128x128_347
+  - first:
+      213: 6991558825539078599
+    second: CorruptorAttack_SS_8f_128x128_348
+  - first:
+      213: -9030283793453263489
+    second: CorruptorAttack_SS_8f_128x128_349
+  - first:
+      213: 4687325374205143487
+    second: CorruptorAttack_SS_8f_128x128_350
+  - first:
+      213: -3928302062404061321
+    second: CorruptorAttack_SS_8f_128x128_351
+  - first:
+      213: 5296964844115962114
+    second: CorruptorAttack_SS_8f_128x128_352
+  - first:
+      213: 5910152159866626279
+    second: CorruptorAttack_SS_8f_128x128_353
+  - first:
+      213: -597747834341109686
+    second: CorruptorAttack_SS_8f_128x128_354
+  - first:
+      213: 3656110882898286196
+    second: CorruptorAttack_SS_8f_128x128_355
+  - first:
+      213: 3934892609507238836
+    second: CorruptorAttack_SS_8f_128x128_356
+  - first:
+      213: -4600085169134019505
+    second: CorruptorAttack_SS_8f_128x128_357
+  - first:
+      213: 3015304682914095802
+    second: CorruptorAttack_SS_8f_128x128_358
+  - first:
+      213: 5775192343380950440
+    second: CorruptorAttack_SS_8f_128x128_359
+  - first:
+      213: -3582966873820816678
+    second: CorruptorAttack_SS_8f_128x128_360
+  - first:
+      213: 5399396159784674824
+    second: CorruptorAttack_SS_8f_128x128_361
+  - first:
+      213: -2685437213838984172
+    second: CorruptorAttack_SS_8f_128x128_362
+  - first:
+      213: 8373383253075172358
+    second: CorruptorAttack_SS_8f_128x128_363
+  - first:
+      213: 4975407477384529326
+    second: CorruptorAttack_SS_8f_128x128_364
+  - first:
+      213: -4777052366271378542
+    second: CorruptorAttack_SS_8f_128x128_365
+  - first:
+      213: 4325801552576527606
+    second: CorruptorAttack_SS_8f_128x128_366
+  - first:
+      213: -2345880843478106633
+    second: CorruptorAttack_SS_8f_128x128_367
+  - first:
+      213: -4782574155922561675
+    second: CorruptorAttack_SS_8f_128x128_368
+  - first:
+      213: -6119759713811479034
+    second: CorruptorAttack_SS_8f_128x128_369
+  - first:
+      213: -7759064242007538240
+    second: CorruptorAttack_SS_8f_128x128_370
+  - first:
+      213: 7534963338790321530
+    second: CorruptorAttack_SS_8f_128x128_371
+  - first:
+      213: -1451915310967739020
+    second: CorruptorAttack_SS_8f_128x128_372
+  - first:
+      213: -8633199522328271026
+    second: CorruptorAttack_SS_8f_128x128_373
+  - first:
+      213: 4430195972561312556
+    second: CorruptorAttack_SS_8f_128x128_374
+  - first:
+      213: -1893261414923587484
+    second: CorruptorAttack_SS_8f_128x128_375
+  - first:
+      213: -2324995213168485195
+    second: CorruptorAttack_SS_8f_128x128_376
+  - first:
+      213: -1308386749928128887
+    second: CorruptorAttack_SS_8f_128x128_377
+  - first:
+      213: 8840450971175340484
+    second: CorruptorAttack_SS_8f_128x128_378
+  - first:
+      213: -7701036737478101712
+    second: CorruptorAttack_SS_8f_128x128_379
+  - first:
+      213: 7122640682172360577
+    second: CorruptorAttack_SS_8f_128x128_380
+  - first:
+      213: 8095054408451880580
+    second: CorruptorAttack_SS_8f_128x128_381
+  - first:
+      213: -9010080314122921024
+    second: CorruptorAttack_SS_8f_128x128_382
+  - first:
+      213: -7534475088695695385
+    second: CorruptorAttack_SS_8f_128x128_383
+  - first:
+      213: 2003751879129991427
+    second: CorruptorAttack_SS_8f_128x128_384
+  - first:
+      213: 6510104494275850250
+    second: CorruptorAttack_SS_8f_128x128_385
+  - first:
+      213: -3024185511005533695
+    second: CorruptorAttack_SS_8f_128x128_386
+  - first:
+      213: -4792988014545660210
+    second: CorruptorAttack_SS_8f_128x128_387
+  - first:
+      213: 1616697424568474290
+    second: CorruptorAttack_SS_8f_128x128_388
+  - first:
+      213: 7636155960945063288
+    second: CorruptorAttack_SS_8f_128x128_389
+  - first:
+      213: -7510814292971044489
+    second: CorruptorAttack_SS_8f_128x128_390
+  - first:
+      213: 4177682086343660007
+    second: CorruptorAttack_SS_8f_128x128_391
+  - first:
+      213: -2588438740837554369
+    second: CorruptorAttack_SS_8f_128x128_392
+  - first:
+      213: -7748832412243512628
+    second: CorruptorAttack_SS_8f_128x128_393
+  - first:
+      213: -111626803577185731
+    second: CorruptorAttack_SS_8f_128x128_394
+  - first:
+      213: 7041615461678716644
+    second: CorruptorAttack_SS_8f_128x128_395
+  - first:
+      213: 19922276602211071
+    second: CorruptorAttack_SS_8f_128x128_396
+  - first:
+      213: -5521310061649082646
+    second: CorruptorAttack_SS_8f_128x128_397
+  - first:
+      213: -8494524962980366078
+    second: CorruptorAttack_SS_8f_128x128_398
+  - first:
+      213: 2656890427507092961
+    second: CorruptorAttack_SS_8f_128x128_399
+  - first:
+      213: 3358799037636094009
+    second: CorruptorAttack_SS_8f_128x128_400
+  - first:
+      213: 1595413911213566505
+    second: CorruptorAttack_SS_8f_128x128_401
+  - first:
+      213: -3626190752892373093
+    second: CorruptorAttack_SS_8f_128x128_402
+  - first:
+      213: 6866040235158325164
+    second: CorruptorAttack_SS_8f_128x128_403
+  - first:
+      213: 6563858509718969396
+    second: CorruptorAttack_SS_8f_128x128_404
+  - first:
+      213: -159987039595168331
+    second: CorruptorAttack_SS_8f_128x128_405
+  - first:
+      213: 1233798223712866492
+    second: CorruptorAttack_SS_8f_128x128_406
+  - first:
+      213: 1524618475656600928
+    second: CorruptorAttack_SS_8f_128x128_407
+  - first:
+      213: -5151635896846448955
+    second: CorruptorAttack_SS_8f_128x128_408
+  - first:
+      213: 3906111172963778550
+    second: CorruptorAttack_SS_8f_128x128_409
+  - first:
+      213: -869914283571144449
+    second: CorruptorAttack_SS_8f_128x128_410
+  - first:
+      213: 7181145377514755446
+    second: CorruptorAttack_SS_8f_128x128_411
+  - first:
+      213: 640623502730006610
+    second: CorruptorAttack_SS_8f_128x128_412
+  - first:
+      213: 2776699156108868479
+    second: CorruptorAttack_SS_8f_128x128_413
+  - first:
+      213: -2248375407363296209
+    second: CorruptorAttack_SS_8f_128x128_414
+  - first:
+      213: 1347028409803475817
+    second: CorruptorAttack_SS_8f_128x128_415
+  - first:
+      213: -3912186957332491116
+    second: CorruptorAttack_SS_8f_128x128_416
+  - first:
+      213: 2913616300851495874
+    second: CorruptorAttack_SS_8f_128x128_417
+  - first:
+      213: -7784622415745570105
+    second: CorruptorAttack_SS_8f_128x128_418
+  - first:
+      213: 602242210890218726
+    second: CorruptorAttack_SS_8f_128x128_419
+  - first:
+      213: 3657018233606583119
+    second: CorruptorAttack_SS_8f_128x128_420
+  - first:
+      213: 1215532438248515990
+    second: CorruptorAttack_SS_8f_128x128_421
+  - first:
+      213: -4783372441377936164
+    second: CorruptorAttack_SS_8f_128x128_422
+  - first:
+      213: -2132959411710280182
+    second: CorruptorAttack_SS_8f_128x128_423
+  - first:
+      213: 493393889921987818
+    second: CorruptorAttack_SS_8f_128x128_424
+  - first:
+      213: 8036744189151861781
+    second: CorruptorAttack_SS_8f_128x128_425
+  - first:
+      213: 417827304503826717
+    second: CorruptorAttack_SS_8f_128x128_426
+  - first:
+      213: -5157838130427215614
+    second: CorruptorAttack_SS_8f_128x128_427
+  - first:
+      213: -3324265679346660584
+    second: CorruptorAttack_SS_8f_128x128_428
+  - first:
+      213: 6779850253774259310
+    second: CorruptorAttack_SS_8f_128x128_429
+  - first:
+      213: -7200060914548972863
+    second: CorruptorAttack_SS_8f_128x128_430
+  - first:
+      213: -8119549097506239629
+    second: CorruptorAttack_SS_8f_128x128_431
+  - first:
+      213: -7538223540971349052
+    second: CorruptorAttack_SS_8f_128x128_432
+  - first:
+      213: 8482917098220606466
+    second: CorruptorAttack_SS_8f_128x128_433
+  - first:
+      213: 6141674317024395132
+    second: CorruptorAttack_SS_8f_128x128_434
+  - first:
+      213: -6709341970230618119
+    second: CorruptorAttack_SS_8f_128x128_435
+  - first:
+      213: -2072521566746966965
+    second: CorruptorAttack_SS_8f_128x128_436
+  - first:
+      213: 5925771806334063747
+    second: CorruptorAttack_SS_8f_128x128_437
+  - first:
+      213: 9132480806180353967
+    second: CorruptorAttack_SS_8f_128x128_438
+  - first:
+      213: 3038534478862302778
+    second: CorruptorAttack_SS_8f_128x128_439
+  - first:
+      213: 7503310300064001871
+    second: CorruptorAttack_SS_8f_128x128_440
+  - first:
+      213: 5920096014301544060
+    second: CorruptorAttack_SS_8f_128x128_441
+  - first:
+      213: -2335909634805552190
+    second: CorruptorAttack_SS_8f_128x128_442
+  - first:
+      213: 7133142010065997001
+    second: CorruptorAttack_SS_8f_128x128_443
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c9a55871909e4e0800000000000000
+      internalID: -1952018966862193650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1131e02c210b8f0800000000000000
+      internalID: -526900531733261892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721243bccc5f34bf0800000000000000
+      internalID: -341158886818701017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6754a16df55e2c0800000000000000
+      internalID: -4403007687516391715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5dd97f98f250220800000000000000
+      internalID: 2451417841784444323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007d84456e3e37c50800000000000000
+      internalID: 6661918852207138560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1784fc28d0aec00c0800000000000000
+      internalID: -4608050974956763023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa745bf26aa102c00800000000000000
+      internalID: 873727628777179055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ad0bfb7a4a03340800000000000000
+      internalID: 4841550639805815346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f64d9be462ff570800000000000000
+      internalID: 8502556741065797404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f559974ce9ce1960800000000000000
+      internalID: 7574713639934449141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea9b5049c76cd6c0800000000000000
+      internalID: -4117301845257643294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 523d43a6e2934f340800000000000000
+      internalID: 4896601566371697445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7272d0415bc0b8630800000000000000
+      internalID: 3930249071675909927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82f05022d5434af0800000000000000
+      internalID: -413409972000329078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_15
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9841305fb4a2620800000000000000
+      internalID: 2750094038153857498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ec2c81b7f3c2210800000000000000
+      internalID: 1309491389586919025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 028b7d9a5ea3637e0800000000000000
+      internalID: -1786175444134414304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282b2d241b84b27a0800000000000000
+      internalID: -6400942519209512318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5031e062871ef9d40800000000000000
+      internalID: 5593437168368227077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b66399c530d45520800000000000000
+      internalID: 2690003806880753337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eb897ebf9d8cc950800000000000000
+      internalID: 6470702481859513321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf1dc47b793d4bd0800000000000000
+      internalID: -2644394203793252390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_23
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972780eb470511040800000000000000
+      internalID: 4616559555366122105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a46cf30278f816f0800000000000000
+      internalID: -713547372361390939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae91274ab051ec00800000000000000
+      internalID: 928111759202557602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca46abaaa9124af70800000000000000
+      internalID: 9197513287170417836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6486f0922bd6f1790800000000000000
+      internalID: -7557201037743921082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ff2ba4a605b82f0800000000000000
+      internalID: -969592877318209792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50932674afa4acbb0800000000000000
+      internalID: -4915033604521576187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_30
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847ea55ee72934530800000000000000
+      internalID: 3838072381161269064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_31
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554765ed9740919f0800000000000000
+      internalID: -497361362379967403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b027e465e3c3cf590800000000000000
+      internalID: -7639164629493583349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4096bd2ec4a8dc80800000000000000
+      internalID: -8297701107992981425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ebdd0c8f8d4ea20800000000000000
+      internalID: 3090833807182249545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_35
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2d61b1876f20600800000000000000
+      internalID: 433179509891977892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_36
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f820157c2de2d8b90800000000000000
+      internalID: -7238077543292534129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_37
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4409fcd0b699f95b0800000000000000
+      internalID: -5359396346475343804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_38
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a25729639056f1b0800000000000000
+      internalID: -5623218490670886239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_39
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c170061c18a31930800000000000000
+      internalID: 4112815723301073345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e4bb17d09562ac0800000000000000
+      internalID: -3880316114655556027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e87a44d8b9104d660800000000000000
+      internalID: 7409549054532953998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_42
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49739343bf87bbd0800000000000000
+      internalID: -2614463058569627317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 245f33875349a7720800000000000000
+      internalID: 2844749072008738114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5f97d5149f1e520800000000000000
+      internalID: 2729736908299695604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_45
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3984f08012bce1c30800000000000000
+      internalID: 4332123234306574483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_46
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b5dc2203e58f0f0800000000000000
+      internalID: -1083012149547279562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_47
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccbfe5a325a98d00800000000000000
+      internalID: 975492366828813515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc319aea866af630800000000000000
+      internalID: 3961591569052679359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_49
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 723193032786e3ca0800000000000000
+      internalID: -6035271610985278681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_50
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e07e90c329fc7d0800000000000000
+      internalID: -2895935248814109139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93903a5a4f86763e0800000000000000
+      internalID: -2060562904538478279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_52
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d03286ae343d43d0800000000000000
+      internalID: -3220860714813869864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_53
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a7e36c1ae2ddb50800000000000000
+      internalID: 6619498299655092807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_54
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b5f0d7e3b8181d0800000000000000
+      internalID: -3350243547284546668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_55
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a6d706be4702800800000000000000
+      internalID: 585596505843132963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d748ab97a0d2b240800000000000000
+      internalID: 4806133170647353303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebfe10b8b077ff20800000000000000
+      internalID: 3456355177561258981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3113a76210d4355f0800000000000000
+      internalID: -769186444014374637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_59
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 157eb00124aacae90800000000000000
+      internalID: -7013043319008925871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_60
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08841c2238e61840800000000000000
+      internalID: 5194594522403997711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_61
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84500e726456d9c70800000000000000
+      internalID: 8979444584037745992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_62
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9568f2154680e6010800000000000000
+      internalID: 1183892978996840025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CorruptorAttack_SS_8f_128x128_63
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132e5f6e21cce3090800000000000000
+      internalID: -8052774702135516623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 63ca86758e50d99488a2a837ea8920b8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CorruptorAttack_SS_8f_128x128_0: -1952018966862193650
+      CorruptorAttack_SS_8f_128x128_1: -526900531733261892
+      CorruptorAttack_SS_8f_128x128_10: 7574713639934449141
+      CorruptorAttack_SS_8f_128x128_11: -4117301845257643294
+      CorruptorAttack_SS_8f_128x128_12: 4896601566371697445
+      CorruptorAttack_SS_8f_128x128_13: 3930249071675909927
+      CorruptorAttack_SS_8f_128x128_14: -413409972000329078
+      CorruptorAttack_SS_8f_128x128_15: 2750094038153857498
+      CorruptorAttack_SS_8f_128x128_16: 1309491389586919025
+      CorruptorAttack_SS_8f_128x128_17: -1786175444134414304
+      CorruptorAttack_SS_8f_128x128_18: -6400942519209512318
+      CorruptorAttack_SS_8f_128x128_19: 5593437168368227077
+      CorruptorAttack_SS_8f_128x128_2: -341158886818701017
+      CorruptorAttack_SS_8f_128x128_20: 2690003806880753337
+      CorruptorAttack_SS_8f_128x128_21: 6470702481859513321
+      CorruptorAttack_SS_8f_128x128_22: -2644394203793252390
+      CorruptorAttack_SS_8f_128x128_23: 4616559555366122105
+      CorruptorAttack_SS_8f_128x128_24: -713547372361390939
+      CorruptorAttack_SS_8f_128x128_25: 928111759202557602
+      CorruptorAttack_SS_8f_128x128_26: 9197513287170417836
+      CorruptorAttack_SS_8f_128x128_27: -7557201037743921082
+      CorruptorAttack_SS_8f_128x128_28: -969592877318209792
+      CorruptorAttack_SS_8f_128x128_29: -4915033604521576187
+      CorruptorAttack_SS_8f_128x128_3: -4403007687516391715
+      CorruptorAttack_SS_8f_128x128_30: 3838072381161269064
+      CorruptorAttack_SS_8f_128x128_31: -497361362379967403
+      CorruptorAttack_SS_8f_128x128_32: -7639164629493583349
+      CorruptorAttack_SS_8f_128x128_33: -8297701107992981425
+      CorruptorAttack_SS_8f_128x128_34: 3090833807182249545
+      CorruptorAttack_SS_8f_128x128_35: 433179509891977892
+      CorruptorAttack_SS_8f_128x128_36: -7238077543292534129
+      CorruptorAttack_SS_8f_128x128_37: -5359396346475343804
+      CorruptorAttack_SS_8f_128x128_38: -5623218490670886239
+      CorruptorAttack_SS_8f_128x128_39: 4112815723301073345
+      CorruptorAttack_SS_8f_128x128_4: 2451417841784444323
+      CorruptorAttack_SS_8f_128x128_40: -3880316114655556027
+      CorruptorAttack_SS_8f_128x128_41: 7409549054532953998
+      CorruptorAttack_SS_8f_128x128_42: -2614463058569627317
+      CorruptorAttack_SS_8f_128x128_43: 2844749072008738114
+      CorruptorAttack_SS_8f_128x128_44: 2729736908299695604
+      CorruptorAttack_SS_8f_128x128_45: 4332123234306574483
+      CorruptorAttack_SS_8f_128x128_46: -1083012149547279562
+      CorruptorAttack_SS_8f_128x128_47: 975492366828813515
+      CorruptorAttack_SS_8f_128x128_48: 3961591569052679359
+      CorruptorAttack_SS_8f_128x128_49: -6035271610985278681
+      CorruptorAttack_SS_8f_128x128_5: 6661918852207138560
+      CorruptorAttack_SS_8f_128x128_50: -2895935248814109139
+      CorruptorAttack_SS_8f_128x128_51: -2060562904538478279
+      CorruptorAttack_SS_8f_128x128_52: -3220860714813869864
+      CorruptorAttack_SS_8f_128x128_53: 6619498299655092807
+      CorruptorAttack_SS_8f_128x128_54: -3350243547284546668
+      CorruptorAttack_SS_8f_128x128_55: 585596505843132963
+      CorruptorAttack_SS_8f_128x128_56: 4806133170647353303
+      CorruptorAttack_SS_8f_128x128_57: 3456355177561258981
+      CorruptorAttack_SS_8f_128x128_58: -769186444014374637
+      CorruptorAttack_SS_8f_128x128_59: -7013043319008925871
+      CorruptorAttack_SS_8f_128x128_6: -4608050974956763023
+      CorruptorAttack_SS_8f_128x128_60: 5194594522403997711
+      CorruptorAttack_SS_8f_128x128_61: 8979444584037745992
+      CorruptorAttack_SS_8f_128x128_62: 1183892978996840025
+      CorruptorAttack_SS_8f_128x128_63: -8052774702135516623
+      CorruptorAttack_SS_8f_128x128_7: 873727628777179055
+      CorruptorAttack_SS_8f_128x128_8: 4841550639805815346
+      CorruptorAttack_SS_8f_128x128_9: 8502556741065797404
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

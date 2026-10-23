@@ -54,6 +54,26 @@ Levels have only a few small, convex obstacles (tree trunks on the `Obstacle` la
 - **Tunables:** `ObstacleAvoidanceSettings` (`Resources/AI/ObstacleAvoidanceSettings.asset`), including `debugDraw` (white = wanted, cyan = steered) and a master switch.
 - **New movement behaviors** should route their final direction through it. The math is pure and covered by `ObstacleSteeringTests`.
 
+### Enemy sprite sheets & animators
+
+- **Sheet layout** (Skull, DrekoEye, LightDevourer, Corruptor):
+  - one row per direction, top to bottom S, SW, W, NW, N, NE, E, SE, and one column per frame;
+  - the file name gives the frames and cell size: `Name_SS_<frames>f_<w>x<h>.png`;
+  - imported at **64 PPU** whatever the cell size, bilinear, Full Rect mesh (room for the Corrupted outline).
+- **Animators:** one 2D Simple Directional blend tree per action, on `DirectionX`/`DirectionY`, which `EnemyAnimationController` sets along with `IsMoving` and the `Shoot`/`Attack` triggers. Clips run at 12 fps. A shooter's attack clips carry `OnAnimationEventStart` at the same normalized time in every direction (`AnimationEventTests`); `AIBehaviorShooter` spawns the projectile there.
+- **Sprite clips need no extra closing key:** Unity makes a sprite clip one frame longer than its last key, so a duplicated last key plays that frame twice.
+- **Standing still to shoot:** `context.isShooting` means "a shot is in progress". `EnemyAnimationController` holds the shot's facing, and `AIBehaviorMoveToSnapshot` and `AIBehaviorChaserMovement` hold position. `AIBehaviorShootBurst` sets it for its burst. `AIBehaviorShooter` sets it only with **Hold Still While Shooting**, from the shot until the attack clip's `OnAnimationEventEnd`.
+  - **Release:** a stun or gameplay freeze also releases it, and so does `maxHoldTime` as a safety net, so the flag can never stick.
+  - **Who uses it:** the Corruptor walks, so it has the toggle on. The FlameShooter floats, so it keeps shooting on the move with the toggle off.
+  - **Shooters that walk with another movement behavior** must also hold position while `isShooting` is set.
+  - **Tests:** `ShooterHoldStillTests`.
+- **Corruptor** (Oct 2026, replaced a dark-tinted Skull placeholder): `Tools/Flames of Faith/Enemies/Build Corruptor Art` (`CorruptorArtBuilder`, batch `Game.Enemies.Editor.CorruptorArtBuilder.RunBatch`) does everything and can be run again after the art changes:
+  - slices `Sprites/Enemies/Corruptor`, with the pivot raised to 0.46 because the figure sits low in its 128 px cell;
+  - writes the 24 clips and `Animation/Enemies/Corruptor/Corruptor.controller`: Idle (default), Walk and Attack like DrekoEye, with Attack reachable from both. Attack clips fire on the 4th frame and end (`OnAnimationEventEnd`) on the last one;
+  - wires `EnemyCorruptor.prefab` (controller, first idle frame, the tint override reverted).
+  - The controller is emptied and refilled, not recreated, so its GUID survives a rerun.
+  - Tests: `CorruptorArtTests`.
+
 ### Two parallel map systems — know which one you're touching
 
 - **`Scripts/Map/`** (legacy, `MapGenerator` explicitly marked `[Obsolete]`) — layer-based procedural level-select map, rendered via uGUI with bezier connectors (`UIBezierConnector`). Being phased out; avoid extending it.
@@ -79,6 +99,7 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 
 - **The player is respawned on every scene load** (`PlayerManager.SpawnSelectedPlayer`). State survives only through `GameSession.PlayerData`: components write to it in `SaveState()` and read it back in `LoadState()`.
 - **Player state is saved only when a level is finished.** Every level except the boss ends through the same path. That includes shop, campfire, treasure and event encounters (`Scripts/RunEncounters/`), which are their own scenes. The path is `WaveSpawner.GoToNextLevel` → `PlayerManager.HandleWaveGroupFinished`, which calls `MapRunController.OnLevelCleared`, `SaveAllPlayerComponentStates` and `LoadLevelSelectorScene(false)`. So while inside a level, `PlayerData` still holds the pre-level snapshot.
+- **An exception during a load hangs the loading screen.** Each transition is one coroutine between `FadeIn` and `FadeOut`. It also runs whatever it calls synchronously: the `OnGameplayUISetupRequested` / `OnGameplayInitialSetup` / `OnGameplayStateResetRequested` subscribers, and the player components' `LoadState` / `ResetState` / `InitializeAfterStateReady`. If any of them throws, the coroutine dies before `FadeOut`, leaving a black screen with the spinner. Code running there must not throw on bad data: log and fall back instead. When a tester reports a stuck load, look for the exception in their `Player.log` / `Player-prev.log` (`%USERPROFILE%\AppData\LocalLow\QuestMarkerGames\FlamesOfFaith\`).
 - **`GameSession.IsNewRun`** decides whether entering a level resets the player components (new run) or loads them from `PlayerData`.
 - Meta-progression is separate from the run and persisted by `MetaProgressionManager` to `persistentDataPath/<player>_meta.dat` (through `SaveFileIO`). It holds unlocked effects (through `IMetaProgressionStateLoader`), Favors, class unlocks and skill tree tiers; see "Class kits, skill trees & Favors".
 
@@ -91,6 +112,12 @@ The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncount
 - **Rolls:** ranged rolls (`StatBiasedRoll`) lean toward the range's high end with Luck. For losses, that means losing less.
 - **Art:** `EventEncounterData.art` (optional sprite). When set, `EventEncounterUI` shows it in a framed panel to the left of the event window; no event has art yet. The window itself uses the standard frame (see "Run encounter windows" under UI standards).
 - **Treasure** (`TreasureEncounterController`, `Act1/Treasure.unity`): walking into the chest rolls one reward. An item goes to the player's `ItemBag` and the encounter ends, so the item bag window opens (take or sell), like event items. Currency and experience are given at once and shown in the Results window (`OnTreasureResolved`). There is no treasure window.
+- **Shop** (`ShopKeeper`, `Act1/Shop1.unity`): the stock is rolled in `OnGameplayInitialSetup`, so during the level load (see "Scene bootstrapping flow").
+  - **Count:** `ShopKeeper.GetDisplayCount`, `itemCount` (10) + Luck × `quantityScalePerStat`, clamped to `minItemCount` (3) .. `maxItemCount` (20).
+  - **Quality:** each slot rolls a tier with `EffectQualityScaler.RollQualityTier`, restricted to the tiers left in the pool. The event "random item" reward uses the same roll.
+  - **Negative Luck** (Cursed Coin −5, Faikan Boots −1) mirrors the positive curve, `1 / (1 + |Luck| / scale)`: better tiers get rarer, but no weight reaches 0. The old `1 + Luck / scale` hit 0 at −2 and went negative below it, so only Common could roll. The pool has only 6 Commons, so at −2/−3 Luck the shop threw once they ran out, and the map → shop load hung on the black loading screen (Oct 2026).
+  - **Tests:** `EffectQualityScalerTests`, `ShopStockTests`.
+  - **Cheats:** `DevTools/Stats/Increase Luck` / `Decrease Luck` (±1, logs the total). On the map they also write `PlayerData`, so the change survives the respawn on entering the next level. Other stat cheats don't, so use those inside a level.
 
 ### Combat/effect pipeline
 
@@ -99,7 +126,6 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
 - **`DamageSourceBase` hit modes:**
   - **Trigger enter:** one hit on contact.
   - **Trigger stay** (e.g. the Augur's flame trail): each target has its own timer, is hit on contact, then every `tickInterval` while it stays inside. One shared timer used to need 0.4 s of contact, so fleeing enemies such as the Corruptor never got hit.
-- **An exception during a load hangs the loading screen.** Each transition is one coroutine between `FadeIn` and `FadeOut`. It also runs whatever it calls synchronously: the `OnGameplayUISetupRequested` / `OnGameplayInitialSetup` / `OnGameplayStateResetRequested` subscribers, and the player components' `LoadState` / `ResetState` / `InitializeAfterStateReady`. If any of them throws, the coroutine dies before `FadeOut`, leaving a black screen with the spinner. Code running there must not throw on bad data: log and fall back instead. When a tester reports a stuck load, look for the exception in their `Player.log` / `Player-prev.log` (`%USERPROFILE%\AppData\LocalLow\QuestMarkerGames\FlamesOfFaith\`).
 - **Explosions:** `ExplosionDamage.SetExplosionDamage` lets a spawner set the damage of the explosion it sets off; without it the explosion prefab's own damage is used.
 - **Animation events in blend trees fire once per clip**, all in the same frame. The Warrior's attack is an 8-direction blend tree, so its start event ran the cleave 8 times per swing, and DrekoEye / FlameShooter shot 8 stacked volleys. `CharacterVisual` (player) and `BehaviorController` (enemies, per event name) forward each event once per frame (`OncePerFrame`). `AnimationEventTests` checks every controller under `Assets/Animation`: an event repeated across a blend tree's clips must go to one of those gated methods and fire at the same normalized time in each clip.
 - **Ley Charge debug log:** tick "Log Debug" on `Resources/Debuffs/LeyChargeDebuff.asset` (`ElementalDebuffData.logDebug`) to log every damage a charged enemy takes, each strike and why a chain stops.
@@ -112,12 +138,6 @@ The original spec is `Assets/Docs/corruption-rework.md`, but several decisions c
 - **Corrupted = Grace < 0.** `CorruptedLevel = max(0, −Grace)` reduces every stat flagged `affectedByCorruption` in `StatDatabase.asset` (Armor, HealingReceived) by `CorruptedLevel × corruptionReduceFactor`, through `PlayerProgression.GetCorruptionPenalty` (also used by the tooltip). Healing is reduced by a flat amount per heal, not zeroed. Corrupted players, enemies and the boss are marked by `CorruptedVisual` (see Corrupted outline below).
 - **Corruption** (`PlayerCorruption`) is **per wave only**, never saved, and reset when a wave starts. It comes from two sources:
   - **Corrupted Damage:** post-armor damage taken from anything tagged with `CorruptedDamageSource`, converted at +1 per `corruptedDamagePerCorruption`, capped at `maxCorruptionFromDamage`.
-- **Shop** (`ShopKeeper`, `Act1/Shop1.unity`): the stock is rolled in `OnGameplayInitialSetup`, so during the level load (see "Scene bootstrapping flow").
-  - **Count:** `ShopKeeper.GetDisplayCount`, `itemCount` (10) + Luck × `quantityScalePerStat`, clamped to `minItemCount` (3) .. `maxItemCount` (20).
-  - **Quality:** each slot rolls a tier with `EffectQualityScaler.RollQualityTier`, restricted to the tiers left in the pool. The event "random item" reward uses the same roll.
-  - **Negative Luck** (Cursed Coin −5, Faikan Boots −1) mirrors the positive curve, `1 / (1 + |Luck| / scale)`: better tiers get rarer, but no weight reaches 0. The old `1 + Luck / scale` hit 0 at −2 and went negative below it, so only Common could roll. The pool has only 6 Commons, so at −2/−3 Luck the shop threw once they ran out, and the map → shop load hung on the black loading screen (Oct 2026).
-  - **Tests:** `EffectQualityScalerTests`, `ShopStockTests`.
-  - **Cheats:** `DevTools/Stats/Increase Luck` / `Decrease Luck` (±1, logs the total). On the map they also write `PlayerData`, so the change survives the respawn on entering the next level. Other stat cheats don't, so use those inside a level.
   - **The Corruptor:** see below.
 - **Wave end** (`WaveEndSequenceController.ResolveWaveCorruption`): `Grace = Grace + Grace Affinity − Corruption`, then Corruption resets. Grace no longer drains per wave, and levels/events no longer add Corruption. The Cursed Chest and Holy Altar events change Grace instead.
 - **Grace Affinity** (`StatType.GraceAffinity`, enum index 5, formerly MaxGrace/GracePerWave) adds Grace at every wave end and raises the Grace pickup drop chance. The Grace pickup is rolled separately from `PickupSpawner`'s weighted pool (`gracePickupBaseChance + affinity × perPoint`, capped).

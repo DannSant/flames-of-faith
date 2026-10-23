@@ -8,7 +8,9 @@ namespace Game.AI.Behaviors
     public class ShooterBehaviorState
     {
         public float shootTimer = 0f;
-        public bool isShooting = false;
+        // Holding still for the shot in progress (holdStillWhileShooting), until the attack's end event or holdUntil
+        public bool isHolding = false;
+        public float holdUntil = 0f;
     }
 
     [CreateAssetMenu(menuName = "Behaviors/On Update/Shooter")]
@@ -20,21 +22,32 @@ namespace Game.AI.Behaviors
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private string firePointName = "FirePoint";
 
+        [Tooltip("Stand still for the whole shot: from the attack's start to its OnAnimationEventEnd. For enemies that walk " +
+            "(the Corruptor); a floating one (FlameShooter) can keep moving. Sets context.isShooting, which the movement " +
+            "behaviors (ChaserMovement, MoveToSnapshot) hold position for.")]
+        [SerializeField] private bool holdStillWhileShooting = false;
+        [Tooltip("Safety net for Hold Still While Shooting: the enemy moves again after this many seconds even if the " +
+            "attack's end event never arrives. Keep it above the attack clip's length.")]
+        [Min(0.1f)]
+        [SerializeField] private float maxHoldTime = 1.5f;
+
         public override void Tick(BehaviorContext context)
         {
             if (context.enemyTransform == null || context.playerTransform == null) return;
 
+            var state = context.GetState<ShooterBehaviorState>(this);
+            if (state.isHolding && Time.time >= state.holdUntil)
+            {
+                ReleaseHold(context, state);
+            }
+
             var rb = context.enemyTransform.GetComponent<Rigidbody2D>();
-            
+
             var firePoint = context.enemyTransform.Find(firePointName);
 
             if (rb == null  || firePoint == null) return;
 
             float distance = Vector2.Distance(rb.position, context.playerTransform.position);
-
-            var state = context.GetState<ShooterBehaviorState>(this);
-
-            //if (state.isShooting) return;
 
             if (distance <= maxRange)
             {
@@ -42,6 +55,12 @@ namespace Game.AI.Behaviors
                 {
                     var animator = context.enemyAnimController;
                     Shoot(animator, state);
+                    if (holdStillWhileShooting)
+                    {
+                        state.isHolding = true;
+                        state.holdUntil = Time.time + maxHoldTime;
+                        context.isShooting = true;
+                    }
                 }
                 else
                 {
@@ -51,7 +70,6 @@ namespace Game.AI.Behaviors
         }
         private void Shoot(EnemyAnimationController animator, ShooterBehaviorState state)
         {
-            //state.isShooting = true;
             state.shootTimer = shootCooldown;
            
             if (animator != null) { 
@@ -85,11 +103,33 @@ namespace Game.AI.Behaviors
             }
         }
 
-        // Call this from animation event
+        // Call this from animation event: the attack is over, so a held enemy can move again
         public void OnAnimationEventEnd(BehaviorContext context, string eventName)
         {
-            //var state = context.GetState<ShooterBehaviorState>(this);
-            //state.isShooting = false;
+            var state = context.GetState<ShooterBehaviorState>(this);
+            if (state.isHolding)
+            {
+                ReleaseHold(context, state);
+            }
+        }
+
+        // A stun or a gameplay freeze cuts the attack short (the animator freezes, so its end event may never
+        // come): release the hold rather than leave isShooting set, which would pin the enemy in place
+        public override void OnStunStateChanged(BehaviorContext context, bool isStunned)
+        {
+            if (!isStunned) return;
+
+            var state = context.GetState<ShooterBehaviorState>(this);
+            if (state.isHolding)
+            {
+                ReleaseHold(context, state);
+            }
+        }
+
+        private static void ReleaseHold(BehaviorContext context, ShooterBehaviorState state)
+        {
+            state.isHolding = false;
+            context.isShooting = false;
         }
 
         
