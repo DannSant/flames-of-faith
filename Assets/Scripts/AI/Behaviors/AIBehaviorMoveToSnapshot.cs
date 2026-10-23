@@ -1,6 +1,5 @@
 ﻿using Game.AI.Steering;
 using Game.Misc;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game.AI.Behaviors

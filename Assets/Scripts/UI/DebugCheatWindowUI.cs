@@ -70,7 +70,7 @@ namespace Game.UI
             }
         }
 
-        private static bool InLevel => FindFirstObjectByType<LevelSettings>() != null;
+        private static bool InLevel => FindAnyObjectByType<LevelSettings>() != null;
 
         private static bool OnMap =>
             MapRunController.Instance != null && MapRunController.Instance.IsInitialized

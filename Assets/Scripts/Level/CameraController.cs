@@ -30,10 +30,10 @@ namespace Game.Level
 
         public void SetPlayerCameraFollow()
         {
-            cinemachineCamera = FindFirstObjectByType<CinemachineCamera>();
+            cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
             if (PlayerManager.Instance.IsPlayerOnMap)
             {
-                cinemachineCamera.Follow = FindFirstObjectByType<OverworldMapRenderer>().PlayerMarkerTransform;
+                cinemachineCamera.Follow = FindAnyObjectByType<OverworldMapRenderer>().PlayerMarkerTransform;
             }
             else
             {                

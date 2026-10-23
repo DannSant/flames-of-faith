@@ -124,7 +124,7 @@ namespace Game.Combat.Elemental
         }
 
         private static string Label(EnemyHealth enemy) =>
-            enemy != null ? $"{enemy.name}#{enemy.GetInstanceID()}" : "(none)";
+            enemy != null ? $"{enemy.name}#{enemy.GetEntityId()}" : "(none)";
 
         // One visited set per chain, so its identity names the chain
         private static int ChainId(HashSet<EnemyHealth> visited) => RuntimeHelpers.GetHashCode(visited);

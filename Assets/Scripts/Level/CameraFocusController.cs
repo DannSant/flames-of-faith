@@ -25,7 +25,7 @@ namespace Game.Level
         /// </summary>
         public IEnumerator FocusRoutine(Transform target, float zoomMultiplier, float panInDuration, float holdDuration, float panOutDuration)
         {
-            cinemachineCamera = FindFirstObjectByType<CinemachineCamera>();
+            cinemachineCamera = FindAnyObjectByType<CinemachineCamera>();
             if (cinemachineCamera == null || target == null)
             {
                 yield break;
