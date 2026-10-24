@@ -15,11 +15,12 @@ namespace Game.Control
 {
     public abstract class DashBase : MonoBehaviour, IDependentStateLoader
     {
-        [SerializeField] protected float dashCooldownBase = 2f;
+        // Loaded from the class's CharacterClassData in Awake (the balance sheet's Classes table)
+        protected float dashCooldownBase = 2f;
         public float DashCooldownBase => dashCooldownBase;
-        [SerializeField] protected float dashSpeed = 3f;
-        [SerializeField] protected float dashDuration = .2f;
-        [SerializeField] protected int maxCharges = 1;
+        protected float dashSpeed = 3f;
+        protected float dashDuration = .2f;
+        protected int maxCharges = 1;
 
         [Header("Steering")]
         [Tooltip("Lets the move input change the dash direction while dashing. With no move input the dash " +
@@ -60,6 +61,7 @@ namespace Game.Control
 
         protected virtual void Awake()
         {
+            LoadClassValues();
             dashTrailRenderer = GetComponent<TrailRenderer>();
             characterCollider = GetComponent<Collider2D>();
             characterVisual = GetComponentInChildren<CharacterVisual>();
@@ -71,6 +73,21 @@ namespace Game.Control
             dashCooldownTimer.OnEventComplete += OnChargeRecharged;
 
             currentCharges = maxCharges;
+        }
+
+        private void LoadClassValues()
+        {
+            var classManager = GetComponentInParent<PlayerClassManager>();
+            var classData = classManager != null ? classManager.ClassData : null;
+            if (classData == null)
+            {
+                Debug.LogWarning($"{GetType().Name}: no class data found, using the default dash values.", this);
+                return;
+            }
+            dashCooldownBase = classData.dashCooldown;
+            dashSpeed = classData.dashSpeed;
+            dashDuration = classData.dashDuration;
+            maxCharges = classData.dashMaxCharges;
         }
 
         protected virtual void Start()

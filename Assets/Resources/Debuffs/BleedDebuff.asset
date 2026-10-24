@@ -35,3 +35,7 @@ MonoBehaviour:
     burstDamagePerStack: 5
     stackVfx: {fileID: 4750923977209644162, guid: 32d59b220a080fb43a2b7376fd4ba83e, type: 3}
     stackVfxLifetime: 0.5
+  maxSlow: 0.8
+  chainRadius: 6
+  maxChainDepth: 3
+  logDebug: 0

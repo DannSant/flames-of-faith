@@ -44,9 +44,7 @@ namespace Game.Combat {
 
         public event Action<float, GameObject> onDamageTaken;
 
-        // Invulnerability logic
-        [Header("Invulnerability Settings")]
-        [SerializeField] private float invulnerabilityDuration = 0.5f;
+        // Invulnerability after a hit (its duration is on PlayerStatSettings)
         private float invulnerableUntilTime = 0f;
 
         [Header("Testing")]
@@ -344,7 +342,7 @@ namespace Game.Combat {
             onDamageTaken?.Invoke(finalDamage, attacker);
 
             // Set invulnerability time
-            invulnerableUntilTime = Time.time + invulnerabilityDuration;
+            invulnerableUntilTime = Time.time + PlayerStatSettings.Instance.InvulnerabilityAfterHit;
             characterVisual?.TriggerFlash();
             if (currentHealth <= 0)
             {

@@ -24,16 +24,7 @@ namespace Game.Combat
 
     public class PlayerGrace : MonoBehaviour, IInitializeAfterStateReady, IDependentStateLoader
     {
-        [Header("Limits")]
-        [SerializeField] private float minGrace = -50f;
-        [SerializeField] private float maxGrace = 50f;
-        public float defaultStartingGrace = 5;
-
-        [Header("Damage")]
-        [Tooltip("Damage multiplier added (or removed, when Grace is negative) per point of Grace.")]
-        [SerializeField] private float damagePerGracePoint = 0.1f;
-        [Tooltip("Lowest damage multiplier negative Grace can push the player to.")]
-        [SerializeField] private float minDamageMultiplier = 0.1f;
+        // The range, starting Grace and damage per point are on CorruptionSettings
 
         private float currentGrace = 5;
         private bool wasCorrupted;
@@ -44,8 +35,8 @@ namespace Game.Combat
         public event Action<GraceStatus> OnGraceStatusChanged;
 
         public float CurrentGrace => currentGrace;
-        public float MinGrace => minGrace;
-        public float MaxGrace => maxGrace;
+        public float MinGrace => CorruptionSettings.Instance.MinGrace;
+        public float MaxGrace => CorruptionSettings.Instance.MaxGrace;
 
         // Grace below 0 means the player is Corrupted; how far below 0 drives the stat penalties
         public float CorruptedLevel => Mathf.Max(0f, -currentGrace);
@@ -70,7 +61,7 @@ namespace Game.Combat
 
         public float GetDamageMultiplier()
         {
-            return Mathf.Max(minDamageMultiplier, 1f + damagePerGracePoint * currentGrace);
+            return CorruptionSettings.Instance.GetGraceDamageMultiplier(currentGrace);
         }
 
         public void AddGrace(float amount)
@@ -108,8 +99,8 @@ namespace Game.Combat
 
         private void SetGrace(float value)
         {
-            currentGrace = Mathf.Clamp(value, minGrace, maxGrace);
-            onGraceChanged?.Invoke(currentGrace, maxGrace);
+            currentGrace = Mathf.Clamp(value, MinGrace, MaxGrace);
+            onGraceChanged?.Invoke(currentGrace, MaxGrace);
 
             if (IsCorrupted != wasCorrupted)
             {
@@ -148,10 +139,10 @@ namespace Game.Combat
 
         public void ResetState()
         {
-            SetGrace(defaultStartingGrace);
+            SetGrace(CorruptionSettings.Instance.StartingGrace);
         }
 
-        public bool IsAtMaxGrace() => currentGrace >= maxGrace;
+        public bool IsAtMaxGrace() => currentGrace >= MaxGrace;
 
     }
 

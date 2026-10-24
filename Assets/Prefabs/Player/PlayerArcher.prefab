@@ -121,6 +121,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1287471737441279788
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,6 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 1128186890, guid: cb93cedff29c2474c80341cdde76985b, type: 3}
   m_Color: {r: 0.9960785, g: 0.9960785, b: 0.5411765, a: 1}
   m_FlipX: 0
@@ -175,7 +177,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &4846639974642968440
 PrefabInstance:
@@ -375,10 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c0d3da34bf47f4eaf70d7b6943bf90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Control.ArcherDash
-  dashCooldownBase: 1.5
-  dashSpeed: 3
-  dashDuration: 0.15
-  maxCharges: 1
   allowSteering: 0
   steeringTurnRate: 0
   trapPrefab: {fileID: 100000, guid: 18248dcdaf98ac345b877b6b093a4a24, type: 3}

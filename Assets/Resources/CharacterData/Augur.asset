@@ -27,6 +27,10 @@ MonoBehaviour:
 
     Duration
     of the flames increases with the stat Skill Duration'
+  dashCooldown: 3
+  dashSpeed: 3
+  dashDuration: 0.3
+  dashMaxCharges: 2
   classDescription: 'One of the last remainings of the White Church of Ashemdrek.
 
     Main
@@ -41,10 +45,12 @@ MonoBehaviour:
   statPriorities:
   - stat: 12
     role: 1
-    justification: 'Your fireballs, Fire Tornadoes and flame trail all deal Magic damage.'
+    justification: Your fireballs, Fire Tornadoes and flame trail all deal Magic
+      damage.
   - stat: 19
     role: 2
-    justification: 'Your fire burns hotter and for longer: Mastow Affinity strengthens the debuffs you inflict.'
+    justification: 'Your fire burns hotter and for longer: Mastow Affinity strengthens
+      the debuffs you inflict.'
   - stat: 16
     role: 2
-    justification: 'Your flame trail, Fire Tornadoes and timed explosions last longer.'
+    justification: Your flame trail, Fire Tornadoes and timed explosions last longer.

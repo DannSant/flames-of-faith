@@ -5,7 +5,6 @@ namespace Game.Combat.Elemental
 {
     public class DebuffFrost : DebuffBase
     {
-        private float hardLimitReduction = 0.8f; // max 80% slow
         protected override void OnApplied()
         {
             ApplyModifiers();
@@ -23,7 +22,7 @@ namespace Game.Combat.Elemental
             var behaviorController = GetComponent<BehaviorController>();
             if (behaviorController != null)
             {
-                float clampedStrength = Mathf.Min(strength, hardLimitReduction);
+                float clampedStrength = Mathf.Min(strength, data.MaxSlow);
                 behaviorController.SetContextSpeedMultiplier(1f - clampedStrength);
             }
             var enemyHealth = GetComponent<EnemyHealth>();

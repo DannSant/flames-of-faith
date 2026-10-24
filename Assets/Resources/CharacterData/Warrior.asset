@@ -26,6 +26,10 @@ MonoBehaviour:
     of _melee_damage_
 
     Player is invulnerable while dashing'
+  dashCooldown: 4
+  dashSpeed: 3
+  dashDuration: 0.3
+  dashMaxCharges: 1
   classDescription: 'A fierce warrior trained in the Abidor Institute.
 
     Main
@@ -37,16 +41,19 @@ MonoBehaviour:
   statPriorities:
   - stat: 1
     role: 1
-    justification: 'Your sword swings, Whirlwind and Crusader Charge all deal Melee damage.'
+    justification: Your sword swings, Whirlwind and Crusader Charge all deal Melee
+      damage.
   - stat: 21
     role: 2
-    justification: 'You fight up close and get hit often: Retribution turns those hits back on your attackers.'
+    justification: 'You fight up close and get hit often: Retribution turns those
+      hits back on your attackers.'
   - stat: 6
     role: 2
-    justification: 'Armor reduces the damage you take while you hold the front line.'
+    justification: Armor reduces the damage you take while you hold the front line.
   - stat: 0
     role: 2
-    justification: 'More health lets you stay in the thick of the fight for longer.'
+    justification: More health lets you stay in the thick of the fight for longer.
   - stat: 4
     role: 2
-    justification: 'Crusader Charge is also an attack: a shorter cooldown means more charges through enemies.'
+    justification: 'Crusader Charge is also an attack: a shorter cooldown means more
+      charges through enemies.'

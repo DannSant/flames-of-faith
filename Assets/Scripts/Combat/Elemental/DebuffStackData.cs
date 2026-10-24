@@ -9,7 +9,9 @@ namespace Game.Combat.Elemental
     [System.Serializable]
     public class DebuffStackData
     {
+        [Tooltip("Applying the debuff again adds a stack instead of only refreshing it (Bleed).")]
         [SerializeField] private bool enabled = false;
+        [Tooltip("Most stacks an enemy can carry.")]
         [SerializeField] private int maxStacks = 5;
         [Tooltip("If false, adding a stack leaves the remaining duration untouched.")]
         [SerializeField] private bool refreshDurationOnStack = false;

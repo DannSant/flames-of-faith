@@ -18,6 +18,8 @@ namespace Game.BalanceData.Editor
             "Assets/Resources/Waves",
             "Assets/Resources/Behaviors",
             "Assets/Resources/Combat/DamageSources",
+            "Assets/Resources/Debuffs",
+            "Assets/Resources/CharacterData",
         };
 
         // Prefabs whose design numbers moved to an asset (damage sources -> DamageSourceData).
@@ -30,7 +32,13 @@ namespace Game.BalanceData.Editor
         public static readonly string[] Files =
         {
             "Assets/Prefabs/Pickups/HealthPickup.prefab",
+            // Grace, movement, invulnerability, Retribution and dash numbers moved to settings assets (step 3)
+            "Assets/Prefabs/Player/PlayerBase.prefab",
+            "Assets/Prefabs/Player/PlayerArcher.prefab",
+            "Assets/Prefabs/Player/PlayerAugur.prefab",
             "Assets/Prefabs/Player/PlayerWarrior.prefab",
+            "Assets/Resources/Combat/CorruptionSettings.asset",
+            "Assets/Resources/Progression/PlayerStatSettings.asset",
         };
 
         [MenuItem("Tools/Flames of Faith/Balance Data/Reserialize Data Assets")]

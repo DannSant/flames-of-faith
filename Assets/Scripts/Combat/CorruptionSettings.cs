@@ -19,6 +19,19 @@ namespace Game.Combat
     {
         private const string ResourcePath = "Combat/CorruptionSettings";
 
+        [Header("Grace")]
+        [Tooltip("Lowest Grace the player can fall to.")]
+        [SerializeField] private float minGrace = -50f;
+        [Tooltip("Highest Grace the player can reach.")]
+        [SerializeField] private float maxGrace = 50f;
+        [Tooltip("Grace at the start of a run.")]
+        [SerializeField] private float startingGrace = 5f;
+        [Tooltip("Damage multiplier added (or removed, when Grace is negative) per point of Grace (0.02 = +2% damage per point).")]
+        [SerializeField] private float damagePerGracePoint = 0.02f;
+        [Tooltip("Lowest damage multiplier negative Grace can push the player to (0.1 = 10% of normal damage).")]
+        [Min(0f)]
+        [SerializeField] private float minDamageMultiplier = 0.1f;
+
         [Header("Corrupted Enemies")]
         [Tooltip("Chance for a spawned enemy to be Corrupted, per point of negative Grace (0.02 = 2% per point).")]
         [SerializeField] private float corruptedChancePerNegativeGrace = 0.02f;
@@ -112,6 +125,13 @@ namespace Game.Combat
         public float CorruptorSpawnTimeout => corruptorSpawnTimeout;
         public float CorruptorPhaseDuration => corruptorPhaseDuration;
         public int CorruptorEscapeCorruption => corruptorEscapeCorruption;
+
+        public float MinGrace => minGrace;
+        public float MaxGrace => maxGrace;
+        public float StartingGrace => startingGrace;
+
+        /// <summary>The player's damage multiplier at <paramref name="grace"/>: 1 + per point x Grace, never below the floor.</summary>
+        public float GetGraceDamageMultiplier(float grace) => Mathf.Max(minDamageMultiplier, 1f + damagePerGracePoint * grace);
 
         public int GetCorruptorKillCorruption(float killTime)
         {

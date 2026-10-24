@@ -24,6 +24,23 @@ MonoBehaviour:
   shopDiscountHardCap: 80
   pickupBaseRange: 2
   pickupRangePerPoint: 0.1
+  baseMoveSpeed: 3.5
+  moveSpeedPerPoint: 0.01
+  invulnerabilityAfterHit: 0.5
+  retribution:
+    damageTier1Cap: 35
+    damageTier2Cap: 50
+    damageHardCap: 70
+    damageTier1Rate: 1
+    damageTier2Rate: 0.2
+    damageTier3Rate: 0.01
+    meleeDamageScaling: 0.2
+    graceTier1Cap: 25
+    graceHardCap: 50
+    graceTier1Rate: 1
+    graceTier2Rate: 0.5
+    graceGeneratedAmount: 1
+    graceGainCooldown: 20
   upgradeTierBaseChances:
   - 80
   - 10

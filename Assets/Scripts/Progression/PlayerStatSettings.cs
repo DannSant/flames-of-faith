@@ -1,3 +1,4 @@
+using Game.Combat;
 using UnityEngine;
 
 namespace Game.Progression
@@ -28,7 +29,9 @@ namespace Game.Progression
         [SerializeField] private float lifestealChancePerPoint = 0.01f;
         [Tooltip("Health healed per Life Steal point, clamped between the min and max below.")]
         [SerializeField] private float lifestealHealPerPoint = 0.1f;
+        [Tooltip("Smallest heal from Life Steal.")]
         [SerializeField] private float lifestealMinHeal = 1f;
+        [Tooltip("Largest heal from Life Steal.")]
         [SerializeField] private float lifestealMaxHeal = 20f;
 
         [Header("Dash Recovery")]
@@ -52,6 +55,28 @@ namespace Game.Progression
         [Min(0f)]
         [SerializeField] private float pickupRangePerPoint = 0.1f;
 
+        [Header("Movement")]
+        [Tooltip("Walking speed, in units per second, with 0 Move Speed points.")]
+        [Min(0f)]
+        [SerializeField] private float baseMoveSpeed = 3.5f;
+        [Tooltip("Walking speed, in units per second, added per Move Speed point.")]
+        [SerializeField] private float moveSpeedPerPoint = 0.01f;
+
+        [Header("Damage Taken")]
+        [Tooltip("Seconds the player can't be hurt again after taking a hit.")]
+        [Min(0f)]
+        [SerializeField] private float invulnerabilityAfterHit = 0.5f;
+
+        [Header("Retribution")]
+        [SerializeField] private RetributionCurve retribution = new RetributionCurve
+        {
+            damageTier1Cap = 35f, damageTier2Cap = 50f, damageHardCap = 70f,
+            damageTier1Rate = 1f, damageTier2Rate = 0.2f, damageTier3Rate = 0.01f,
+            meleeDamageScaling = 0.2f,
+            graceTier1Cap = 25f, graceHardCap = 50f, graceTier1Rate = 1f, graceTier2Rate = 0.5f,
+            graceGeneratedAmount = 1, graceGainCooldown = 20f,
+        };
+
         [Header("Luck: Level-up Upgrade Tiers")]
         [Tooltip("Base chance weight of each upgrade tier (1-4). Each Luck point moves 1 from tier 1, split evenly over tiers 2-4.")]
         [SerializeField] private float[] upgradeTierBaseChances = { 80f, 10f, 8f, 2f };
@@ -71,6 +96,10 @@ namespace Game.Progression
         public float PickupBaseRange => pickupBaseRange;
         public float PickupRangePerPoint => pickupRangePerPoint;
         public float[] UpgradeTierBaseChances => upgradeTierBaseChances;
+        public float BaseMoveSpeed => baseMoveSpeed;
+        public float MoveSpeedPerPoint => moveSpeedPerPoint;
+        public float InvulnerabilityAfterHit => invulnerabilityAfterHit;
+        public RetributionCurve Retribution => retribution;
 
         public static PlayerStatSettings Instance
         {

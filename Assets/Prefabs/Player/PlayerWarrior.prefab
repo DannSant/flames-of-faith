@@ -229,6 +229,7 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &3880352335953298912
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -274,6 +275,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 67269077, guid: fba39be398034bd4fa5fec352406408b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -283,7 +285,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1182452986366560625
 MonoBehaviour:
@@ -336,6 +337,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6839856001466938318
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -381,6 +383,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 131449278, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -390,7 +393,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8775844619638542999
 Animator:
@@ -815,10 +817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577d3f830294b3a4d93e6b3918b11ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Control.WarriorDash
-  dashCooldownBase: 4
-  dashSpeed: 3
-  dashDuration: 0.3
-  maxCharges: 1
   allowSteering: 0
   steeringTurnRate: 0
   dashHitbox: {fileID: 1038054260044299398}

@@ -8,8 +8,9 @@ namespace Game.Combat.Elemental
 {
     public class DebuffLeyCharge : DebuffBase
     {
-        [SerializeField] private float chainRadius = 6f;
-        [SerializeField] private int maxChainDepth = 3;
+        // On the debuff asset: this component is added at runtime, so its own fields could never be tuned
+        private float ChainRadius => data != null ? data.ChainRadius : 0f;
+        private int MaxChainDepth => data != null ? data.MaxChainDepth : 0;
 
         private GameObject chainVfxPrefab;
 
@@ -53,7 +54,7 @@ namespace Game.Combat.Elemental
                     ? $"chain {ChainId(sourceDamage.leyChargeChainVisited)}"
                     : "new chain";
                 Log($"{Label(enemyHealth)} took {sourceDamage.baseDamage:0.##} {sourceDamage.originWeaponClass} " +
-                    $"(depth {sourceDamage.leyChargeChainDepth}/{maxChainDepth}, {chain}, lifesteal {sourceDamage.canTriggerLifeSteal}) " +
+                    $"(depth {sourceDamage.leyChargeChainDepth}/{MaxChainDepth}, {chain}, lifesteal {sourceDamage.canTriggerLifeSteal}) " +
                     $"- Ley components on it: {GetComponents<DebuffLeyCharge>().Length}, subscriptions: {subscriptions}");
             }
 
@@ -62,9 +63,9 @@ namespace Game.Combat.Elemental
                 Log($"  {Label(enemyHealth)} is dead: no strike");
                 return;
             }
-            if (sourceDamage.leyChargeChainDepth >= maxChainDepth)
+            if (sourceDamage.leyChargeChainDepth >= MaxChainDepth)
             {
-                Log($"  {Label(enemyHealth)} stops the chain: depth {sourceDamage.leyChargeChainDepth} reached the max {maxChainDepth}");
+                Log($"  {Label(enemyHealth)} stops the chain: depth {sourceDamage.leyChargeChainDepth} reached the max {MaxChainDepth}");
                 return;
             }
 
@@ -74,10 +75,10 @@ namespace Game.Combat.Elemental
             // compensateForBodySize: true - a chain hop should reach a big enemy's body for the same
             // reason an attack should, and nothing here is gated on a collider landing the hit.
             EnemyHealth nearest = EnemyTargeting.FindClosest(
-                transform.position, chainRadius, compensateForBodySize: true, excluded: visited);
+                transform.position, ChainRadius, compensateForBodySize: true, excluded: visited);
             if (nearest == null)
             {
-                Log($"  {Label(enemyHealth)}: no unvisited enemy within {chainRadius} (chain {ChainId(visited)}, {visited.Count} visited)");
+                Log($"  {Label(enemyHealth)}: no unvisited enemy within {ChainRadius} (chain {ChainId(visited)}, {visited.Count} visited)");
                 return;
             }
 

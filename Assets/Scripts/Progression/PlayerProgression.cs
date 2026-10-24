@@ -158,11 +158,10 @@ namespace Game.Progression {
             var dash = GetComponent<Game.Control.DashBase>();
             if (dash != null) ctx.dashCooldownBase = dash.DashCooldownBase;
 
-            var controller = GetComponent<Game.Control.PlayerController>();
-            if (controller != null)
+            if (GetComponent<Game.Control.PlayerController>() != null)
             {
-                ctx.moveSpeedBase = controller.BaseMoveSpeed;
-                ctx.moveSpeedScale = controller.BaseMoveScale;
+                ctx.moveSpeedBase = ctx.statSettings.BaseMoveSpeed;
+                ctx.moveSpeedScale = ctx.statSettings.MoveSpeedPerPoint;
             }
 
             var retribution = GetComponent<RetributionHandler>();

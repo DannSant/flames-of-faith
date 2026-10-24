@@ -14,10 +14,7 @@ namespace Game.Control
     public class PlayerController : MonoBehaviour, IDependentStateLoader, IInitializeAfterStateReady, IMapComponentDisabler
     {
         [SerializeField] private float defaultMoveSpeed = 1f;
-        [SerializeField] private float baseMoveSpeed = 5f;
-        [SerializeField] private float baseMoveScale = 0.25f;
-        public float BaseMoveSpeed => baseMoveSpeed;
-        public float BaseMoveScale => baseMoveScale;
+        // Walking speed and its per-point scale are on PlayerStatSettings
         [Tooltip("Right-stick magnitude needed before it overrides the facing direction.")]
         [SerializeField] private float aimDeadzone = 0.25f;
         [Tooltip("Debug: while attack is held, logs whatever is stopping the primary attack each time it changes.")]
@@ -209,7 +206,8 @@ namespace Game.Control
 
         private void RecalculateMoveSpeed() 
         { 
-            moveSpeed = StatsCalculations.CalculateMoveSpeed(playerProgression.GetStatTotal(StatType.MoveSpeed), baseMoveSpeed, baseMoveScale);           
+            moveSpeed = StatsCalculations.CalculateMoveSpeed(playerProgression.GetStatTotal(StatType.MoveSpeed),
+                PlayerStatSettings.Instance.BaseMoveSpeed, PlayerStatSettings.Instance.MoveSpeedPerPoint);           
         }
 
         private void MovementInput()

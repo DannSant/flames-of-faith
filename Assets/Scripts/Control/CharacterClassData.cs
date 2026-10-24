@@ -19,6 +19,18 @@ namespace Game.Control
         [Header("Dash Ability")]
         public string dashName;
         [TextArea] public string dashDescription;
+        [Tooltip("Seconds for a used dash charge to come back, before the Dash Cooldown stat.")]
+        [Min(0.01f)]
+        public float dashCooldown = 2f;
+        [Tooltip("Speed while dashing, as a multiple of the walking speed (3 = three times as fast).")]
+        [Min(0f)]
+        public float dashSpeed = 3f;
+        [Tooltip("Seconds a dash lasts. The class's dash Glyph can override it.")]
+        [Min(0.01f)]
+        public float dashDuration = 0.2f;
+        [Tooltip("Dashes that can be stored and used back to back. The class's dash Glyph can override it.")]
+        [Min(1)]
+        public int dashMaxCharges = 1;
 
         [Header("Menu Display")]
         [TextArea] public string classDescription;
