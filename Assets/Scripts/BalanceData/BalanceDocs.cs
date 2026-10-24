@@ -40,6 +40,9 @@ namespace Game.BalanceData
             ["Pierce"] = "How the Pierce stat works: the extra enemies a projectile goes through, and the chance for an arrow to split on a hit.",
             ["Stats"] = "One row per player stat: the points a run starts with, whether level-up can offer it and how many points each level-up tier gives, its Stats pane tab, and how Corruption weakens it. Retired stats are not listed.",
             ["Classes"] = "One row per class: its dash. A class's dash Glyph can override the duration and charges with its own tier values.",
+            ["Items"] = "Every item that can drop, one row each: where it can come from (the four checkboxes), from how far into the run (Min Levels Beaten), and how likely it is next to the other items of its quality (Weight). Quality, Buy Price and Unlocked are shown for reference and edited in the Effects database. An item that isn't unlocked never drops. New items get a row from Unity (Sync Item Drop Table): shop only, from the start.",
+            ["LootSources"] = "The quality odds of each place items come from. A drop first picks a quality by these weights, then an item of that quality by its Weight in Items. Luck tilts the weights toward rarer qualities (negative Luck toward Common). Qualities with no item that can drop right now are skipped. See Report_LootOdds for the resulting percentages.",
+            ["Loot"] = "How many items the shop offers and how Luck changes it, how often killed enemies drop a pickup, and the coins a treasure gives when no item can drop yet.",
         };
 
         // Columns that are not a field with a tooltip: keys and the list elements. "Table.Column"; "EnemyBehaviors_*.Column"
@@ -80,6 +83,11 @@ namespace Game.BalanceData
             ["Stats.Tier 3"] = "Points a tier 3 level-up choice gives.",
             ["Stats.Tier 4"] = "Points a tier 4 level-up choice gives (the rarest tier).",
             ["Classes.Class"] = "The class.",
+            ["Items.Item"] = "The item (its name in the Effects database).",
+            ["Items.Quality"] = "The item's quality (read-only here; set in the Effects database). Its drop odds come from LootSources.",
+            ["Items.Buy Price"] = "What the shop charges before discounts (read-only here; set in the Effects database).",
+            ["Items.Unlocked"] = "Whether the item is unlocked from the start (read-only). Locked items never drop until a meta-unlock unlocks them.",
+            ["LootSources.Source"] = "Where items come from: Enemy Pickup (the random item enemies drop), Shop, Treasure (chests) or Event (an event option's random item).",
             // Setting rows (their text goes in the Notes column)
             ["PlayerStats.Level-up Tier 1 Weight"] = "How likely a tier 1 level-up choice is, against the other tiers' weights. Each Luck point moves 1 from tier 1, split evenly over tiers 2 to 4.",
             ["PlayerStats.Level-up Tier 2 Weight"] = "How likely a tier 2 level-up choice is, against the other tiers' weights.",

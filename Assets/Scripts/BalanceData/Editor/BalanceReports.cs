@@ -1,6 +1,8 @@
 using Game.AI;
 using Game.Combat;
+using Game.Effects;
 using Game.Enemies;
+using Game.Loot;
 using Game.Progression;
 using Game.Waves;
 using System.Collections.Generic;
@@ -12,12 +14,13 @@ namespace Game.BalanceData.Editor
 {
     /// <summary>
     /// Read-only tables computed from the balance data with the game's own formulas (EnemyDamageCalculator,
-    /// Enemy.CalculateHealth, ExperienceSettings), so the designer sees what the numbers do without Unity. Written to
+    /// Enemy.CalculateHealth, ExperienceSettings, LootRoller), so the designer sees what the numbers do without Unity. Written to
     /// BalanceData/Reports on every export and import; editing them changes nothing.
     /// </summary>
     public static class BalanceReports
     {
         private const int XpLevels = 30;
+        private static readonly int[] LootLuck = { -5, 0, 5, 10 };
         private static readonly CultureInfo Invariant = CultureInfo.InvariantCulture;
 
         private static string F(float value, string format = "0.##") => value.ToString(format, Invariant);
@@ -35,6 +38,7 @@ namespace Game.BalanceData.Editor
                 EnemyDamage(damage, enemies, lastLevel, maxWaves),
                 EnemyHealth(enemies, lastLevel, maxWaves),
                 Experience(experience),
+                LootOdds(Resources.Load<ItemDropTable>(ItemDropTable.ResourcePath), Resources.Load<LootSettings>(LootSettings.ResourcePath), lastLevel),
             };
         }
 
@@ -107,6 +111,36 @@ namespace Game.BalanceData.Editor
                 total += required;
             }
             return table;
+        }
+
+        /// <summary>
+        /// For each source, levels beaten and Luck: how many items can drop and the chance of each quality, with the
+        /// roll's own math (LootRoller). Items locked by default count as locked.
+        /// </summary>
+        public static BalanceTable LootOdds(ItemDropTable table, LootSettings settings, int lastLevel)
+        {
+            var qualities = System.Enum.GetNames(typeof(EffectQuality));
+            var report = new BalanceTable("LootOdds", new[] { "Source", "Levels Beaten", "Luck", "Eligible Items" }
+                .Concat(qualities.Select(q => q + " %")).ToArray());
+            if (table == null || settings == null) return report;
+
+            int maxMin = table.Entries.Where(e => e != null).Select(e => e.minLevelsBeaten).DefaultIfEmpty(0).Max();
+            int levels = Mathf.Max(lastLevel, maxMin);
+            foreach (LootSource source in System.Enum.GetValues(typeof(LootSource)))
+            {
+                var sourceSettings = settings.GetSource(source);
+                for (int level = 0; level <= levels; level++)
+                {
+                    var eligible = LootRoller.GetEligible(table.Entries, source, level, e => e.UnlockedByDefault);
+                    foreach (int luck in LootLuck)
+                    {
+                        var odds = LootRoller.GetTierOdds(eligible, sourceSettings, luck);
+                        report.AddRow(new[] { source.ToString(), level.ToString(), luck.ToString(), eligible.Count.ToString() }
+                            .Concat(odds.Select(o => F(o * 100f, "0.#"))).ToArray());
+                    }
+                }
+            }
+            return report;
         }
     }
 }

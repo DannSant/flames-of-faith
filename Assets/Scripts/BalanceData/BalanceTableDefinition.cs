@@ -412,7 +412,8 @@ namespace Game.BalanceData
     /// <summary>
     /// The elements of a list field, one row each, keyed by one of their own fields (e.g. the Stat Database's entries
     /// by stat). Rows can't be added or removed, and the key can't change: it says which element a row is.
-    /// <c>include</c> leaves elements out of the table (retired stats).
+    /// <c>include</c> leaves elements out of the table (retired stats). Info columns (<see cref="WithInfoColumns"/>)
+    /// come right after the key and show read-only context (an item's quality): exported, ignored on import.
     /// </summary>
     public class KeyedListTable<T> : BalanceTableDefinition where T : Object
     {
@@ -423,6 +424,7 @@ namespace Game.BalanceData
         private readonly string keyPath;
         private readonly Func<object, bool> include;
         private readonly (string header, string path)[] items;
+        private (string header, Func<object, string> value)[] info = Array.Empty<(string, Func<object, string>)>();
 
         public KeyedListTable(string name, string keyColumn, Func<T> asset, string listPath, string keyPath,
             Func<object, bool> include, params (string header, string path)[] items)
@@ -436,12 +438,23 @@ namespace Game.BalanceData
             this.items = items;
         }
 
+        /// <summary>Read-only columns after the key, each computed from the list element.</summary>
+        public KeyedListTable<T> WithInfoColumns(params (string header, Func<object, string> value)[] columns)
+        {
+            info = columns;
+            return this;
+        }
+
         public override string Name => name;
-        public override IReadOnlyList<string> Columns => new[] { keyColumn }.Concat(items.Select(i => i.header)).ToList();
+        public override IReadOnlyList<string> Columns =>
+            new[] { keyColumn }.Concat(info.Select(i => i.header)).Concat(items.Select(i => i.header)).ToList();
 
         public override IReadOnlyList<string> ColumnNotes =>
             new[] { BalanceDocs.ColumnNote(Name, keyColumn, null) }
+                .Concat(info.Select(i => BalanceDocs.ColumnNote(Name, i.header, null)))
                 .Concat(FieldNotes(typeof(T), items.Select(i => (i.header, ElementPath(0, i.path))))).ToList();
+
+        private object Element(T target, int index) => FieldAccess.Get(target, $"{listPath}.Array.data[{index}]");
 
         private string ElementPath(int index, string item) => $"{listPath}.Array.data[{index}].{item}";
 
@@ -452,7 +465,7 @@ namespace Game.BalanceData
             int count = FieldAccess.Count(target, listPath);
             for (int i = 0; i < count; i++)
             {
-                if (!include(FieldAccess.Get(target, $"{listPath}.Array.data[{i}]"))) continue;
+                if (!include(Element(target, i))) continue;
                 result.Add((FormatField(target, ElementPath(i, keyPath)), i));
             }
             return result;
@@ -464,7 +477,10 @@ namespace Game.BalanceData
             var target = asset();
             foreach (var (key, index) in Elements(target))
             {
-                table.AddRow(new[] { key }.Concat(items.Select(item => FormatField(target, ElementPath(index, item.path)))).ToArray());
+                var element = Element(target, index);
+                table.AddRow(new[] { key }
+                    .Concat(info.Select(column => column.value(element) ?? string.Empty))
+                    .Concat(items.Select(item => FormatField(target, ElementPath(index, item.path)))).ToArray());
             }
             return table;
         }
@@ -498,7 +514,7 @@ namespace Game.BalanceData
                 }
                 for (int c = 0; c < items.Length; c++)
                 {
-                    PlanCell(plan, line, rowKey, target, target, ElementPath(index, items[c].path), row[c + 1], column: items[c].header);
+                    PlanCell(plan, line, rowKey, target, target, ElementPath(index, items[c].path), row[1 + info.Length + c], column: items[c].header);
                 }
             }
 

@@ -3,6 +3,7 @@ using Game.Combat;
 using Game.Combat.Elemental;
 using Game.Control;
 using Game.Enemies;
+using Game.Loot;
 using Game.Progression;
 using Game.Scene;
 using Game.Waves;
@@ -154,6 +155,21 @@ namespace Game.BalanceData
                     ("Corruption Reduce Factor", "corruptionReduceFactor")),
                 new AssetTable<CharacterClassData>("Classes", "Class", () => LoadAll<CharacterClassData>(ClassesFolder), c => c.name,
                     "dashCooldown", "dashSpeed", "dashDuration", "dashMaxCharges"),
+
+                // Item drops (step 4): where and when each lootable item drops, and the odds per source
+                new KeyedListTable<ItemDropTable>("Items", "Item", () => Load<ItemDropTable>(ItemDropTable.ResourcePath), "entries", "item", null,
+                        ("Enemy Pickup", "enemyPickup"), ("Shop", "shop"), ("Treasure", "treasure"), ("Event", "events"),
+                        ("Min Levels Beaten", "minLevelsBeaten"), ("Weight", "weight"))
+                    .WithInfoColumns(
+                        ("Quality", e => ((ItemDropEntry)e).item != null ? ((ItemDropEntry)e).item.Quality.ToString() : string.Empty),
+                        ("Buy Price", e => ((ItemDropEntry)e).item != null ? ((ItemDropEntry)e).item.BuyPrice.ToString() : string.Empty),
+                        ("Unlocked", e => ((ItemDropEntry)e).item != null && ((ItemDropEntry)e).item.UnlockedByDefault ? "TRUE" : "FALSE")),
+                new KeyedListTable<LootSettings>("LootSources", "Source", () => Load<LootSettings>(LootSettings.ResourcePath), "sources", "source", null,
+                    ("Common", "commonWeight"), ("Uncommon", "uncommonWeight"), ("Rare", "rareWeight"), ("Heroic", "heroicWeight"),
+                    ("Epic", "epicWeight"), ("Legendary", "legendaryWeight"), ("Luck Scale", "luckScalePerStep")),
+                new SettingsTable<LootSettings>("Loot", () => Load<LootSettings>(LootSettings.ResourcePath),
+                    "shopItemCount", "shopItemsPerLuck", "shopMinItemCount", "shopMaxItemCount",
+                    "enemyDropChance", "enemyItemShare", "treasureFallbackMinCoins", "treasureFallbackMaxCoins"),
             });
             return tables;
         }

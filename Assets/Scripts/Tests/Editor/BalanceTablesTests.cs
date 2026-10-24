@@ -61,7 +61,7 @@ namespace Game.Tests
         public void Reports_UseTheGamesFormulas()
         {
             var reports = BalanceReports.All();
-            CollectionAssert.AreEquivalent(new[] { "EnemyDamage", "EnemyHealth", "Experience" }, reports.Select(r => r.Name));
+            CollectionAssert.AreEquivalent(new[] { "EnemyDamage", "EnemyHealth", "Experience", "LootOdds" }, reports.Select(r => r.Name));
             foreach (var report in reports) Assert.IsNotEmpty(report.Rows, report.Name);
 
             var slime = BalanceTables.LoadAll<EnemyData>(BalanceTables.EnemiesFolder).Single(e => e.enemyType == EnemyType.SlimeChaser);
@@ -71,6 +71,13 @@ namespace Game.Tests
 
             var experience = reports.Single(r => r.Name == "Experience");
             Assert.AreEqual(new[] { "1", "10", "0" }, experience.Rows[0], "Level 1 needs 10 XP");
+
+            // At Luck 0 the shop's odds are its base quality weights over the qualities it has
+            var loot = reports.Single(r => r.Name == "LootOdds");
+            var shopStart = loot.Rows.First(r => r[0] == "Shop" && r[1] == "0" && r[2] == "0");
+            var odds = shopStart.Skip(4).Select(c => float.Parse(c, System.Globalization.CultureInfo.InvariantCulture)).ToArray();
+            Assert.AreEqual(100f, odds.Sum(), 0.5f, "The quality chances add up to 100%");
+            Assert.Greater(int.Parse(shopStart[3]), 0, "The shop has items at the start of a run");
         }
     }
 }

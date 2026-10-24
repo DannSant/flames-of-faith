@@ -1,0 +1,9 @@
+Setting,Value,Notes
+Shop Item Count,10,Items the shop offers with 0 Luck.
+Shop Items Per Luck,1,"Items added (or removed, with negative Luck) per Luck point."
+Shop Min Item Count,3,"The fewest items the shop offers, however low the player's Luck."
+Shop Max Item Count,20,"The most items the shop offers, however high the player's Luck. The shop window fits 20."
+Enemy Drop Chance,0.05,Chance that a killed enemy drops a pickup (an item or a health pickup).
+Enemy Item Share,0.5,Share of those pickups that are a random item; the rest are health pickups (0.5 = half).
+Treasure Fallback Min Coins,40,Coins a treasure gives instead when no item can drop yet (the lowest amount).
+Treasure Fallback Max Coins,80,Coins a treasure gives instead when no item can drop yet (the highest amount).
