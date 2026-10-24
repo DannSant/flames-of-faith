@@ -30,7 +30,6 @@ namespace Game.Effects{
         [SerializeField] private List<EffectBehavior> behaviors = new();
         [SerializeField] private bool unlockedByDefault = false;
         [SerializeField] private EffectQuality quality = EffectQuality.Common;
-        [SerializeField] private bool availableForShop = true;
         [Header("Class Kit")]
         [Tooltip("Upgrade tier of a class kit item (0 = base). Selects the row of its ability behaviors' tier tables.")]
         [SerializeField] private int tier = 0;
@@ -54,7 +53,6 @@ namespace Game.Effects{
         public bool HasStatDependencies => statDependencies != null && statDependencies.Count > 0;
         public bool UnlockedByDefault { get => unlockedByDefault; set => unlockedByDefault = value; }
         public EffectQuality Quality { get => quality; set => quality = value; }
-        public bool AvailableForShop { get => availableForShop; set => availableForShop = value; }
         public int Tier { get => tier; set => tier = Mathf.Max(0, value); }
         public bool StartingOnly { get => startingOnly; set => startingOnly = value; }
         /// <summary>Starting items only: never sold, dropped or rewarded. Items with stat bonus rules count too.</summary>
@@ -111,14 +109,10 @@ namespace Game.Effects{
             BuyPrice = row.priceBuy;
             SellPrice = row.priceSell;
             // A row that predates this column reads back 0, and 0 would zero out the damage share
-            // of everything this effect spawns - so treat it as "not authored" and keep the full
-            // share, the same way a null availableForShop means "available".
+            // of everything this effect spawns - so treat it as "not authored" and keep the full share.
             ScalingValue = row.scalingValue > 0f ? row.scalingValue : 1f;
             UnlockedByDefault = row.unlockedByDefault == 1 ? true : false;
             Quality = (EffectQuality)row.quality;
-            // null means the row predates this column - treat pre-existing effects as
-            // available for shop so they don't silently vanish from it.
-            AvailableForShop = !row.availableForShop.HasValue || row.availableForShop.Value == 1;
             // null means the row predates these columns: a base-tier, regular item.
             Tier = row.tier ?? 0;
             StartingOnly = row.startingOnly.HasValue && row.startingOnly.Value == 1;

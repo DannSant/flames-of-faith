@@ -236,11 +236,6 @@ namespace Game.Editor.Database
             selectedRow.unlockedByDefault = EditorGUILayout.IntField("Unlocked by default", selectedRow.unlockedByDefault);
             selectedRow.quality = (int)(EffectQuality)EditorGUILayout.EnumPopup("Quality", (EffectQuality)selectedRow.quality);
 
-            // null (never saved) means the same thing as true - see EffectRow.availableForShop
-            bool availableForShop = !selectedRow.availableForShop.HasValue || selectedRow.availableForShop.Value == 1;
-            availableForShop = EditorGUILayout.Toggle("Available For Shop", availableForShop);
-            selectedRow.availableForShop = availableForShop ? 1 : 0;
-
             // null (never saved) means tier 0 / not starting-only - see EffectRow.tier/startingOnly
             selectedRow.tier = Mathf.Max(0, EditorGUILayout.IntField("Tier", selectedRow.tier ?? 0));
             bool startingOnly = selectedRow.startingOnly.HasValue && selectedRow.startingOnly.Value == 1;
