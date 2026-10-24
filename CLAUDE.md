@@ -107,18 +107,51 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 ### Run encounter events
 
 The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncounterData` (title, text, options) lists `EventOptionsList` assets (a label plus actions). The actions (`OptionActions/`) are `Change{Currency,Grace,Health,Favors}Option` and `GiveRandomItemOptionAction`.
+- **Random items** (`GiveRandomItemOptionAction`) roll from the drop table's Event items, with the option's `biasStat` (Luck) as the Luck (see "Item drops"). There are no per-event item lists any more.
 - **Random pool:** `encountersList` on `Prefabs/RunEncounters/EventEncounter.prefab` holds the Arcane Box, Bandits, Cursed Chest, Faraclarian Clan and House of Stars. The Holy Altar has its own map node and scene, which overrides the list.
 - **No Ignore options** (reworked Oct 2026): every event has 2–3 options, and each one costs and gives something.
 - **Action names:** an action is named `Lose…` or `Gain…`, and it must lose or gain accordingly. `EventEncounterTests` checks this; the lever's "Lose1To5Grace" used to give +3.
 - **Rolls:** ranged rolls (`StatBiasedRoll`) lean toward the range's high end with Luck. For losses, that means losing less.
 - **Art:** `EventEncounterData.art` (optional sprite). When set, `EventEncounterUI` shows it in a framed panel to the left of the event window; no event has art yet. The window itself uses the standard frame (see "Run encounter windows" under UI standards).
-- **Treasure** (`TreasureEncounterController`, `Act1/Treasure.unity`): walking into the chest rolls one reward. An item goes to the player's `ItemBag` and the encounter ends, so the item bag window opens (take or sell), like event items. Currency and experience are given at once and shown in the Results window (`OnTreasureResolved`). There is no treasure window.
+- **Treasure** (`TreasureEncounterController`, `Act1/Treasure.unity`): walking into the chest rolls one reward. An item reward rolls `itemCount` items from the drop table's Treasure items (see "Item drops"); they go to the player's `ItemBag` and the encounter ends, so the item bag window opens (take or sell), like event items. When no item can drop yet, the chest gives coins instead (`LootSettings` treasure fallback). Currency and experience are given at once and shown in the Results window (`OnTreasureResolved`). There is no treasure window.
 - **Shop** (`ShopKeeper`, `Act1/Shop1.unity`): the stock is rolled in `OnGameplayInitialSetup`, so during the level load (see "Scene bootstrapping flow").
-  - **Count:** `ShopKeeper.GetDisplayCount`, `itemCount` (10) + Luck × `quantityScalePerStat`, clamped to `minItemCount` (3) .. `maxItemCount` (20).
-  - **Quality:** each slot rolls a tier with `EffectQualityScaler.RollQualityTier`, restricted to the tiers left in the pool. The event "random item" reward uses the same roll.
+  - **Count:** `LootSettings.GetShopItemCount`: Shop Item Count (10) + Luck × Shop Items Per Luck, clamped to the min (3) .. max (20).
+  - **Stock:** `ItemProvider.Roll(Shop, unique)`: each slot rolls a quality, then an item, from the drop table's Shop items (see "Item drops"). A short pool gives a shorter shop; it never throws.
   - **Negative Luck** (Cursed Coin −5, Faikan Boots −1) mirrors the positive curve, `1 / (1 + |Luck| / scale)`: better tiers get rarer, but no weight reaches 0. The old `1 + Luck / scale` hit 0 at −2 and went negative below it, so only Common could roll. The pool has only 6 Commons, so at −2/−3 Luck the shop threw once they ran out, and the map → shop load hung on the black loading screen (Oct 2026).
-  - **Tests:** `EffectQualityScalerTests`, `ShopStockTests`.
+  - **Tests:** `LootRollerTests`, `ShopStockTests`.
   - **Cheats:** `DevTools/Stats/<Increase +1 | Decrease -1 | Increase +10 | Increase +50>/<Stat>`, one item per stat (`DeveloperCheats.ChangeStat`, logs the total). On the map they also write `PlayerData`, so the change survives the respawn on entering the next level.
+
+### Item drops (data-driven step 4, Oct 2026)
+
+Every random item comes from **one table**. Before, four hand-written lists (the enemy pickup prefab, the treasure table, two event actions, and the shop's `availableForShop` flag) each needed editing for a new item. A strong item could also drop on level 1, and at Luck 0 every quality was equally likely. Spec: `docs/features/item-drops.md`.
+- **Data** (`Scripts/Loot/`, assets in `Resources/Loot/`, the balance sheet's Items / LootSources / Loot tabs):
+  - **`ItemDropTable`:** one `ItemDropEntry` per lootable item (every Effect that isn't starting-only). Each entry has four source flags (Enemy Pickup, Shop, Treasure, Event), `minLevelsBeaten`, and `weight` within its quality. What an item *is* stays in the Effects DB; where and when it drops lives here.
+  - **`LootSettings`:**
+    - per `LootSource`: a base weight per quality and `luckScalePerStep`;
+    - the shop's count;
+    - the enemy drop chance and item share (they were the `PickupSpawner` pool on `EnemyBase.prefab`);
+    - the treasure's fallback coins.
+- **The roll** (`LootRoller`, pure, `LootRollerTests`):
+  1. **Eligible:** flagged for the source, weight > 0, `minLevelsBeaten <= GameSession.LevelsBeaten`, not starting-only, and unlocked (`EffectsDatabaseProvider.GetAvailableEffects`, so the 3 locked lootable items never drop yet).
+  2. **Quality:** weight = base × luckFactor^tier, with the mirrored Luck curve. Qualities with no eligible item are skipped.
+  3. **Item:** by `weight` within that quality.
+- **`ItemProvider`** is the runtime entry: `RollOne` / `Roll` / `CanDrop` / `GetExpectedQuality`. It never throws (the shop rolls inside the level load). Nothing eligible returns nothing:
+  - an enemy spawns a health pickup instead of the item pickup;
+  - an event gives nothing;
+  - a treasure gives coins;
+  - the shop is shorter.
+- **Callers:** `RandomItemPickup` (rolls when picked up), `PickupSpawner`, `TreasureEncounterController`, `GiveRandomItemOptionAction`, `ShopKeeper`.
+- **New items:** `Tools/Flames of Faith/Loot/Sync Item Drop Table` (`ItemDropTableSync`, batch `SyncBatch`).
+  - It adds a row for every new lootable Effect: shop only, from the start, weight 1.
+  - It removes rows for deleted or starting-only items, and sorts rows by name.
+  - Run it after generating the Effect ScriptableObjects. `ItemDropTableTests` fails until it has run, and also checks that the shop has stock at 0 levels beaten.
+- **Report:** `Report_LootOdds` shows each source's quality chances by levels beaten and Luck (−5, 0, 5, 10), with the roll's own math.
+- **Defaults** (Oct 2026) reproduce the old odds at Luck 0 for the old pools:
+  - Enemy Pickup: 35/25/20/20;
+  - Treasure: 0/0/40/60;
+  - Shop and Event: 25/25/25/25.
+
+  Luck Scale is 2 everywhere, so enemy pickups and treasures now respond to Luck too.
 
 ### Combat/effect pipeline
 
@@ -582,7 +615,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
 
 `Effect` (`Assets/Scripts/Effects/Effect.cs`) is authored in a SQLite database (via `Tools/Effects/Effect Database`), not hand-edited as ScriptableObjects — the `.asset` files under `Assets/Resources/Effects/` are generated output, not source of truth. Whenever a field is added/changed/removed on `Effect`, update all of these together or the DB and the runtime SOs silently drift apart:
 
-1. **`EffectRow`** (`Assets/Scripts/Database/EffectRow.cs`) — the SQLite row shape. Prefer a nullable type (e.g. `int?`) for a new column rather than a non-nullable value type: `SQLiteConnection.CreateTable` auto-migrates missing columns onto the existing table via `ALTER TABLE ADD COLUMN` with no default value, so pre-existing rows read back as SQLite `NULL` for that column — assigning `null` into a non-nullable value-type property via this ORM's reflection-based `SetValue` throws at load time. Treat `null` as "column didn't exist yet" and pick whatever meaning is backward-compatible (e.g. `availableForShop`'s `null` means "true", so old effects don't silently disappear from the shop).
+1. **`EffectRow`** (`Assets/Scripts/Database/EffectRow.cs`) — the SQLite row shape. Prefer a nullable type (e.g. `int?`) for a new column rather than a non-nullable value type: `SQLiteConnection.CreateTable` auto-migrates missing columns onto the existing table via `ALTER TABLE ADD COLUMN` with no default value, so pre-existing rows read back as SQLite `NULL` for that column — assigning `null` into a non-nullable value-type property via this ORM's reflection-based `SetValue` throws at load time. Treat `null` as "column didn't exist yet" and pick whatever meaning is backward-compatible (e.g. `tier`'s `null` means 0, so old effects stay base-tier items). `availableForShop` (retired Oct 2026, replaced by the drop table's Shop column) is a column that stays in the DB unread.
 2. **`Effect`** — add the `[SerializeField]` + property, and map it in `InitializeFromData(EffectRow row)`.
 3. **`EffectLoader.CreateEffectSO(EffectRow row)`** (`Assets/Scripts/Database/EffectLoader.cs`) — a second, separate row→SO mapper used by the DB window's "Test Load" button; easy to update `Effect.InitializeFromData` and forget this one exists.
 4. **`EffectLoader.GenerateAndSaveAllEffects`** — the actual DB→`.asset` generator (menu `Tools/Effects/Generate ScriptableObjects`), run after editing rows so the generated SOs pick up the change; it calls `InitializeFromData` under the hood, so it needs no edits itself, but you must re-run it.
@@ -590,7 +623,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
 
 **Stat bonuses (stat dependency rules, `StatDependencyRule`):** "every N points of stat X give ±amount of stat Y", stored in `EffectRow.statDependenciesJson` and edited under "Stat Bonuses" in the window.
 - `PlayerProgression.RecalculateFinalStats` applies them in a second pass, from the totals before any bonus (corruption included), through the pure `StatDependencyCalculator`. Rules never chain, and one that feeds its own stat just doubles it.
-- Items with rules are **starting items only**: `ShopKeeper` filters them out, and `StatDependencyTests` guards the hand-authored treasure, event and drop lists.
+- Items with rules are **starting items only**: they never drop (`LootRoller` skips starting-only items, and `ItemDropTableTests` keeps them out of the drop table).
 - The stats pane's Shift view shows them as "(+N from Retribution)".
 
 **Item behaviors are loaded by file name.** A row lists its behaviors by id (`behaviorsJson`), and the generator loads each one from `Resources/Effects/EffectBehaviors/<id>`. So a behavior asset's file name must equal its `behaviorId`. Renaming the file silently drops the behavior from every item using it: Fire Arrows lost its fire this way in Oct 2026. `EffectAssetTests.EveryEffectBehavior_IsNamedAfterItsId` guards it.
@@ -650,13 +683,14 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
     - Experience and ExperienceTokenTiers;
     - EnemyDamage, EnemyDamageCurve and EnemyDamageTiers;
     - DamageSources;
+    - step 4 (Oct 2026): Items (the drop table, with read-only Quality / Buy Price / Unlocked), LootSources and Loot; report LootOdds;
     - step 3 (Oct 2026): Debuffs, Corruption (Grace and Corrupted enemies, the Corruptor phase; camera and visuals stay in Unity), PlayerStats (stat formula parameters, Retribution, level-up tier weights), Pierce, Stats (the Stat Database without retired stats) and Classes (dash).
   - **Table kinds** (`BalanceTableDefinition`):
     - `AssetTable`: a row per asset, keyed.
     - `SettingsTable`: Setting / Value / Notes. Notes are the field tooltips: written on export, ignored on import.
     - `ChildListTable`: a list's elements. Resizable lists follow the rows; a fixed one keeps its count, e.g. token tiers, which have sprites.
     - `WaveTable`: a row with the next wave number creates a `WaveData` and appends it. `WaveEnemyTable` runs after it, so the new wave gets its enemies (`ImportPlan` pending assets).
-    - `KeyedListTable`: a list's elements keyed by one of their fields (the Stat Database by stat). Rows can't be added or removed, the key can't change, and a filter leaves elements out (retired stats).
+    - `KeyedListTable`: a list's elements keyed by one of their fields (the Stat Database by stat, the drop table by item). Rows can't be added or removed, the key can't change, and a filter leaves elements out (retired stats). `WithInfoColumns` adds read-only columns after the key (exported, ignored on import; grey and protected in the sheet).
     - `AssetTable` and `SettingsTable` take `(header, path)` pairs when a nested field's own name would clash or read badly (`contactSpread.enabled` / `stacking.enabled`, `retribution.damageTier1Cap`, array elements).
   - **Cells** (`CellCodec`):
     - **Formats:** invariant numbers, `TRUE`/`FALSE`, enums by **name** (never index), references by asset name.
