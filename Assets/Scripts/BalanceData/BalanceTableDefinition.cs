@@ -26,11 +26,18 @@ namespace Game.BalanceData
 
         /// <summary>The notes of columns that edit <paramref name="fields"/> of <paramref name="type"/> (tooltips unless documented).</summary>
         protected IEnumerable<string> FieldNotes(Type type, IEnumerable<string> fields) =>
-            fields.Select(f =>
+            FieldNotes(type, fields.Select(f => (Header(f), f)));
+
+        /// <summary>The notes of columns (header, field path) of <paramref name="type"/> (tooltips unless documented).</summary>
+        protected IEnumerable<string> FieldNotes(Type type, IEnumerable<(string header, string path)> columns) =>
+            columns.Select(column =>
             {
-                FieldAccess.TryDescribe(type, f, out _, out var info);
-                return BalanceDocs.ColumnNote(Name, Header(f), info);
+                FieldAccess.TryDescribe(type, column.path, out _, out var info);
+                return BalanceDocs.ColumnNote(Name, column.header, info);
             });
+
+        /// <summary>Field paths as columns named after the field (see <see cref="Header"/>).</summary>
+        protected static (string header, string path)[] Named(string[] fields) => fields.Select(f => (Header(f), f)).ToArray();
 
         /// <summary>
         /// A field path's column header: its name made readable ("healthPerWave" -> "Health Per Wave"; a vector's
@@ -141,9 +148,15 @@ namespace Game.BalanceData
         private readonly string keyColumn;
         private readonly Func<IEnumerable<T>> assets;
         private readonly Func<T, string> key;
-        private readonly string[] fields;
+        private readonly (string header, string path)[] fields;
 
         public AssetTable(string name, string keyColumn, Func<IEnumerable<T>> assets, Func<T, string> key, params string[] fields)
+            : this(name, keyColumn, assets, key, Named(fields))
+        {
+        }
+
+        /// <param name="fields">Column header and field path, for nested fields whose own names would clash or read badly.</param>
+        public AssetTable(string name, string keyColumn, Func<IEnumerable<T>> assets, Func<T, string> key, params (string header, string path)[] fields)
         {
             this.name = name;
             this.keyColumn = keyColumn;
@@ -153,7 +166,7 @@ namespace Game.BalanceData
         }
 
         public override string Name => name;
-        public override IReadOnlyList<string> Columns => new[] { keyColumn }.Concat(fields.Select(Header)).ToList();
+        public override IReadOnlyList<string> Columns => new[] { keyColumn }.Concat(fields.Select(f => f.header)).ToList();
 
         public override IReadOnlyList<string> ColumnNotes =>
             new[] { BalanceDocs.ColumnNote(Name, keyColumn, null) }
@@ -164,7 +177,7 @@ namespace Game.BalanceData
             var table = new BalanceTable(Name, Columns);
             foreach (var asset in assets().OrderBy(key, StringComparer.Ordinal))
             {
-                table.AddRow(new[] { key(asset) }.Concat(fields.Select(f => FormatField(asset, f))).ToArray());
+                table.AddRow(new[] { key(asset) }.Concat(fields.Select(f => FormatField(asset, f.path))).ToArray());
             }
             return table;
         }
@@ -197,7 +210,7 @@ namespace Game.BalanceData
                 }
                 for (int f = 0; f < fields.Length; f++)
                 {
-                    PlanCell(plan, line, rowKey, asset, asset, fields[f], row[f + 1]);
+                    PlanCell(plan, line, rowKey, asset, asset, fields[f].path, row[f + 1], column: fields[f].header);
                 }
             }
 
@@ -216,9 +229,14 @@ namespace Game.BalanceData
     {
         private readonly string name;
         private readonly Func<T> asset;
-        private readonly string[] fields;
+        private readonly (string header, string path)[] fields;
 
-        public SettingsTable(string name, Func<T> asset, params string[] fields)
+        public SettingsTable(string name, Func<T> asset, params string[] fields) : this(name, asset, Named(fields))
+        {
+        }
+
+        /// <param name="fields">Setting name and field path, for nested or array fields whose own names would read badly.</param>
+        public SettingsTable(string name, Func<T> asset, params (string header, string path)[] fields)
         {
             this.name = name;
             this.asset = asset;
@@ -232,10 +250,10 @@ namespace Game.BalanceData
         {
             var table = new BalanceTable(Name, Columns);
             var target = asset();
-            foreach (string field in fields)
+            foreach (var (header, path) in fields)
             {
-                FieldAccess.TryDescribe(target.GetType(), field, out _, out var info);
-                table.AddRow(Header(field), FormatField(target, field), CellCodec.TooltipOf(info));
+                FieldAccess.TryDescribe(target.GetType(), path, out _, out var info);
+                table.AddRow(header, FormatField(target, path), BalanceDocs.ColumnNote(Name, header, info));
             }
             return table;
         }
@@ -244,7 +262,7 @@ namespace Game.BalanceData
         {
             if (!CheckColumns(table, plan)) return;
             var target = asset();
-            var byHeader = fields.ToDictionary(Header, f => f, StringComparer.OrdinalIgnoreCase);
+            var byHeader = fields.ToDictionary(f => f.header, f => f.path, StringComparer.OrdinalIgnoreCase);
 
             var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             for (int i = 0; i < table.Rows.Count; i++)
@@ -262,7 +280,7 @@ namespace Game.BalanceData
                     plan.Error(Name, line, $"{setting} has two rows");
                     continue;
                 }
-                PlanCell(plan, line, target.name, target, target, field, row[1]);
+                PlanCell(plan, line, target.name, target, target, field, row[1], column: setting);
             }
 
             foreach (string missing in byHeader.Keys.Where(k => !seen.Contains(k)))
@@ -387,6 +405,106 @@ namespace Game.BalanceData
             finally
             {
                 if (scratch != null) Object.DestroyImmediate(scratch);
+            }
+        }
+    }
+
+    /// <summary>
+    /// The elements of a list field, one row each, keyed by one of their own fields (e.g. the Stat Database's entries
+    /// by stat). Rows can't be added or removed, and the key can't change: it says which element a row is.
+    /// <c>include</c> leaves elements out of the table (retired stats).
+    /// </summary>
+    public class KeyedListTable<T> : BalanceTableDefinition where T : Object
+    {
+        private readonly string name;
+        private readonly string keyColumn;
+        private readonly Func<T> asset;
+        private readonly string listPath;
+        private readonly string keyPath;
+        private readonly Func<object, bool> include;
+        private readonly (string header, string path)[] items;
+
+        public KeyedListTable(string name, string keyColumn, Func<T> asset, string listPath, string keyPath,
+            Func<object, bool> include, params (string header, string path)[] items)
+        {
+            this.name = name;
+            this.keyColumn = keyColumn;
+            this.asset = asset;
+            this.listPath = listPath;
+            this.keyPath = keyPath;
+            this.include = include ?? (_ => true);
+            this.items = items;
+        }
+
+        public override string Name => name;
+        public override IReadOnlyList<string> Columns => new[] { keyColumn }.Concat(items.Select(i => i.header)).ToList();
+
+        public override IReadOnlyList<string> ColumnNotes =>
+            new[] { BalanceDocs.ColumnNote(Name, keyColumn, null) }
+                .Concat(FieldNotes(typeof(T), items.Select(i => (i.header, ElementPath(0, i.path))))).ToList();
+
+        private string ElementPath(int index, string item) => $"{listPath}.Array.data[{index}].{item}";
+
+        /// <summary>The included elements, by key, in list order.</summary>
+        private List<(string key, int index)> Elements(T target)
+        {
+            var result = new List<(string, int)>();
+            int count = FieldAccess.Count(target, listPath);
+            for (int i = 0; i < count; i++)
+            {
+                if (!include(FieldAccess.Get(target, $"{listPath}.Array.data[{i}]"))) continue;
+                result.Add((FormatField(target, ElementPath(i, keyPath)), i));
+            }
+            return result;
+        }
+
+        public override BalanceTable Export()
+        {
+            var table = new BalanceTable(Name, Columns);
+            var target = asset();
+            foreach (var (key, index) in Elements(target))
+            {
+                table.AddRow(new[] { key }.Concat(items.Select(item => FormatField(target, ElementPath(index, item.path)))).ToArray());
+            }
+            return table;
+        }
+
+        public override void Plan(BalanceTable table, ImportPlan plan)
+        {
+            if (!CheckColumns(table, plan)) return;
+            var target = asset();
+
+            var byKey = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            foreach (var (key, index) in Elements(target))
+            {
+                if (!byKey.TryAdd(key, index)) plan.Error(Name, $"two entries have the key {key}");
+            }
+
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                var row = table.Rows[i];
+                int line = BalanceTable.LineOf(i);
+                string rowKey = row[0].Trim();
+                if (!byKey.TryGetValue(rowKey, out int index))
+                {
+                    plan.Error(Name, line, $"no {keyColumn} \"{rowKey}\" (rows can't be added to this table; add it in Unity)");
+                    continue;
+                }
+                if (!seen.Add(rowKey))
+                {
+                    plan.Error(Name, line, $"{rowKey} has two rows");
+                    continue;
+                }
+                for (int c = 0; c < items.Length; c++)
+                {
+                    PlanCell(plan, line, rowKey, target, target, ElementPath(index, items[c].path), row[c + 1], column: items[c].header);
+                }
+            }
+
+            foreach (string missing in byKey.Keys.Where(k => !seen.Contains(k)))
+            {
+                plan.Error(Name, $"the row for {missing} is missing (rows can't be removed)");
             }
         }
     }

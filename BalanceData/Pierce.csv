@@ -1,0 +1,6 @@
+Setting,Value,Notes
+Extra Pierce Per Point,0.25,"Extra enemies pierced per Pierce point, rounded down (0.25 = one more enemy every 4 points)."
+Split Chance Per Point,0.03,Chance per Pierce point for a linear arrow to split when it hits an enemy (0.03 = 3%).
+Split Max Chance,0.4,Highest split chance (0.4 = 40%).
+Split Damage Multiplier,0.5,Damage of the split arrow as a fraction of the original's base damage.
+Split Max Travel Distance,4,How far a split arrow flies before it's removed.

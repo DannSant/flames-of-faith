@@ -36,6 +36,20 @@ namespace Game.Tests
         }
 
         [Test]
+        public void EverySetting_HasANote()
+        {
+            foreach (var definition in BalanceTables.All().Where(t => t.Columns.Contains("Notes")))
+            {
+                int notes = definition.Columns.ToList().IndexOf("Notes");
+                foreach (var row in definition.Export().Rows)
+                {
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(row[notes]),
+                        $"{definition.Name}: {row[0]} has no note: add a [Tooltip] to the field, or an entry in BalanceDocs.Columns");
+                }
+            }
+        }
+
+        [Test]
         public void NoDescription_IsLeftOverFromARemovedTable()
         {
             var names = BalanceTables.All().Select(t => t.Name).ToList();
@@ -48,14 +62,15 @@ namespace Game.Tests
         [Test]
         public void NoColumnNote_IsLeftOverFromARemovedColumn()
         {
+            // Columns, plus the rows of Setting / Value / Notes tables (their notes are looked up the same way)
             var columns = BalanceTables.All()
-                .SelectMany(t => t.Columns.Select(c => t.Name + "." + c))
+                .SelectMany(t => t.Columns.Select(c => t.Name + "." + c)
+                    .Concat(t.Columns.Contains("Setting") ? t.Export().Rows.Select(r => t.Name + "." + r[0]) : Enumerable.Empty<string>()))
                 .ToList();
             foreach (string key in BalanceDocs.DocumentedColumns)
             {
-                bool all = key.Contains("_*.");
-                bool found = all
-                    ? columns.Any(c => c.StartsWith(key.Substring(0, key.IndexOf('*')) ) && c.EndsWith(key.Substring(key.IndexOf('*') + 1)))
+                bool found = key.Contains("*")
+                    ? columns.Any(c => c.StartsWith(key.Substring(0, key.IndexOf('*'))) && c.EndsWith(key.Substring(key.IndexOf('*') + 1)))
                     : columns.Contains(key);
                 Assert.IsTrue(found, $"BalanceDocs has a note for {key}, which is no column any more");
             }

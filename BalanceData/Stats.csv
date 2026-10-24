@@ -1,0 +1,23 @@
+Stat,Initial Value,Allow Level Upgrades,Tier 1,Tier 2,Tier 3,Tier 4,Category,Affected By Corruption,Corruption Reduce Factor
+MaxHealth,20,TRUE,5,10,15,20,Primary,FALSE,0
+MeleeDamage,0,TRUE,1,2,3,4,Primary,FALSE,0
+AttackSpeed,0,TRUE,1,2,3,4,Primary,FALSE,0
+MoveSpeed,0,TRUE,1,2,3,4,Secondary,FALSE,0
+DashCooldown,0,FALSE,1,2,3,4,Primary,FALSE,0
+GraceAffinity,0,FALSE,1,2,3,4,Primary,FALSE,0
+Armor,0,TRUE,1,2,3,4,Primary,TRUE,1
+ExperienceToLevelUpReduction,0,FALSE,1,2,3,4,Secondary,FALSE,0
+Luck,0,TRUE,1,2,3,4,Primary,FALSE,0
+RangedDamage,0,TRUE,1,2,3,4,Primary,FALSE,0
+Range,0,FALSE,1,2,3,4,Primary,FALSE,0
+Pierce,0,FALSE,1,2,3,4,Secondary,FALSE,0
+MagicDamage,0,TRUE,1,2,3,4,Primary,FALSE,0
+HealthRegen,0,TRUE,1,2,3,4,Primary,FALSE,0
+LifeSteal,0,FALSE,1,2,3,4,Primary,FALSE,0
+SkillDuration,0,TRUE,1,2,3,4,Secondary,FALSE,0
+PickupRange,0,TRUE,1,2,3,4,Secondary,FALSE,0
+MastowAffinity,0,TRUE,1,2,3,4,Primary,FALSE,0
+HealingReceived,0,FALSE,1,2,3,4,Secondary,TRUE,1
+ShopItemDiscount,0,FALSE,1,2,3,4,Secondary,FALSE,1
+Retribution,0,TRUE,1,2,3,4,Primary,FALSE,0
+Evasion,0,TRUE,1,2,3,4,Primary,FALSE,0

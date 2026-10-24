@@ -13,9 +13,13 @@ namespace Game.Progression
     public class StatData
     {
         [SerializeField] private StatType statType;
+        [Tooltip("Points the player starts a run with.")]
         [SerializeField] private int initialValue;
+        [Tooltip("Level-up can offer this stat.")]
         [SerializeField] private bool allowLevelUpgrades;
+        [Tooltip("Points a level-up choice gives, per tier (tier 1 is the most common, tier 4 the rarest; Luck makes higher tiers likelier).")]
         [SerializeField] private int[] tierValues;
+        [Tooltip("The Stats pane tab it shows on: Primary or Secondary.")]
         [SerializeField] private StatCategory category = StatCategory.Primary;
         [TextArea]
         [SerializeField] private string description;

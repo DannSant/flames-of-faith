@@ -1,6 +1,7 @@
 using Game.AI.Behaviors;
 using Game.Combat;
 using Game.Combat.Elemental;
+using Game.Control;
 using Game.Enemies;
 using Game.Progression;
 using Game.Scene;
@@ -31,13 +32,19 @@ namespace Game.BalanceData
         public const string DamageSourcesFolder = "Combat/DamageSources";
         public const string ExperienceSettingsPath = "Progression/ExperienceSettings";
         public const string EnemyDamageSettingsPath = "Combat/EnemyDamageSettings";
+        public const string DebuffsFolder = "Debuffs";
+        public const string ClassesFolder = "CharacterData";
+        public const string CorruptionSettingsPath = "Combat/CorruptionSettings";
+        public const string PierceSettingsPath = "Combat/PierceSettings";
+        public const string PlayerStatSettingsPath = "Progression/PlayerStatSettings";
+        public const string StatDatabasePath = "Progression/StatDatabase";
 
         // Technical switches on every enemy behavior, not balance numbers
         private static readonly HashSet<string> BehaviorFieldsSkipped = new() { "stopDuringGameplayFreeze", "avoidObstacles" };
 
         static BalanceTables()
         {
-            CellCodec.ReferenceFolders[typeof(ElementalDebuffData)] = "Debuffs";
+            CellCodec.ReferenceFolders[typeof(ElementalDebuffData)] = DebuffsFolder;
         }
 
         public static IEnumerable<T> LoadAll<T>(string resourcesPath) where T : Object =>
@@ -87,6 +94,66 @@ namespace Game.BalanceData
                     "baseDamage", "weaponClass", "attackScale", "useTriggerEnter", "useTriggerStay", "tickInterval", "shouldStackDamage",
                     "enablePierce", "pierceCount", "addPierceStat", "applyKnockback", "knockbackForce", "canTriggerLifesteal",
                     "directElementalDebuffData", "projectileSpeed", "lifetime", "lifetimePerSkillDuration"),
+
+                // Step 3: debuffs, Grace / Corruption, player stats and formulas, class dashes
+                new AssetTable<ElementalDebuffData>("Debuffs", "Debuff", () => LoadAll<ElementalDebuffData>(DebuffsFolder), d => d.name,
+                    ("Base Duration", "baseDuration"), ("Duration Per Mastow", "durationStatScale"),
+                    ("Base Strength", "baseStrength"), ("Strength Per Mastow", "strengthStatScale"),
+                    ("Chance To Apply", "chanceToApply"), ("Extra Chance To Reapply", "additionalChanceToReapply"),
+                    ("Tick Interval", "tickInterval"),
+                    ("Spread Enabled", "contactSpread.enabled"), ("Spread Chance", "contactSpread.chance"),
+                    ("Spread Cooldown", "contactSpread.cooldown"), ("Spread Max Generations", "contactSpread.maxGenerations"),
+                    ("Spread Duration Falloff", "contactSpread.durationFalloff"), ("Spread Strength Falloff", "contactSpread.strengthFalloff"),
+                    ("Stacking Enabled", "stacking.enabled"), ("Max Stacks", "stacking.maxStacks"),
+                    ("Refresh Duration On Stack", "stacking.refreshDurationOnStack"), ("Burst Damage Per Stack", "stacking.burstDamagePerStack"),
+                    ("Max Slow", "maxSlow"), ("Chain Radius", "chainRadius"), ("Max Chain Depth", "maxChainDepth")),
+                new SettingsTable<CorruptionSettings>("Corruption", () => Load<CorruptionSettings>(CorruptionSettingsPath),
+                    "minGrace", "maxGrace", "startingGrace", "damagePerGracePoint", "minDamageMultiplier",
+                    "corruptedChancePerNegativeGrace", "corruptedChancePerTaintLevel", "maxCorruptedChance",
+                    "corruptedDamageMultiplier", "corruptedHealthBonus",
+                    "corruptedDamagePerCorruption", "maxCorruptionFromDamage",
+                    "gracePickupBaseChance", "gracePickupChancePerAffinity", "gracePickupMaxChance",
+                    "corruptorSpawnTimeout", "corruptorPhaseDuration", "corruptorFastKillTime", "corruptorBaseCorruption",
+                    "corruptorSecondsPerExtraCorruption", "corruptorMaxCorruption", "corruptorEscapeCorruption"),
+                new SettingsTable<PlayerStatSettings>("PlayerStats", () => Load<PlayerStatSettings>(PlayerStatSettingsPath),
+                    ("Base Move Speed", "baseMoveSpeed"), ("Move Speed Per Point", "moveSpeedPerPoint"),
+                    ("Invulnerability After Hit", "invulnerabilityAfterHit"),
+                    ("Regen Base Interval", "regenBaseInterval"), ("Regen Interval Divisor", "regenIntervalDivisor"),
+                    ("Lifesteal Base Chance", "lifestealBaseChance"), ("Lifesteal Chance Per Point", "lifestealChancePerPoint"),
+                    ("Lifesteal Heal Per Point", "lifestealHealPerPoint"), ("Lifesteal Min Heal", "lifestealMinHeal"),
+                    ("Lifesteal Max Heal", "lifestealMaxHeal"),
+                    ("Dash Cooldown Scale Per Point", "dashCooldownScalePerPoint"),
+                    ("Shop Discount Soft Cap", "shopDiscountSoftCap"), ("Shop Discount Hard Cap", "shopDiscountHardCap"),
+                    ("Pickup Base Range", "pickupBaseRange"), ("Pickup Range Per Point", "pickupRangePerPoint"),
+                    ("Level-up Tier 1 Weight", "upgradeTierBaseChances.Array.data[0]"),
+                    ("Level-up Tier 2 Weight", "upgradeTierBaseChances.Array.data[1]"),
+                    ("Level-up Tier 3 Weight", "upgradeTierBaseChances.Array.data[2]"),
+                    ("Level-up Tier 4 Weight", "upgradeTierBaseChances.Array.data[3]"),
+                    ("Retribution Damage Tier 1 Cap", "retribution.damageTier1Cap"),
+                    ("Retribution Damage Tier 2 Cap", "retribution.damageTier2Cap"),
+                    ("Retribution Damage Hard Cap", "retribution.damageHardCap"),
+                    ("Retribution Damage Tier 1 Rate", "retribution.damageTier1Rate"),
+                    ("Retribution Damage Tier 2 Rate", "retribution.damageTier2Rate"),
+                    ("Retribution Damage Tier 3 Rate", "retribution.damageTier3Rate"),
+                    ("Retribution Melee Damage Scaling", "retribution.meleeDamageScaling"),
+                    ("Retribution Grace Tier 1 Cap", "retribution.graceTier1Cap"),
+                    ("Retribution Grace Hard Cap", "retribution.graceHardCap"),
+                    ("Retribution Grace Tier 1 Rate", "retribution.graceTier1Rate"),
+                    ("Retribution Grace Tier 2 Rate", "retribution.graceTier2Rate"),
+                    ("Retribution Grace Gained", "retribution.graceGeneratedAmount"),
+                    ("Retribution Grace Cooldown", "retribution.graceGainCooldown")),
+                new SettingsTable<PierceSettings>("Pierce", () => Load<PierceSettings>(PierceSettingsPath),
+                    "extraPiercePerPoint", "splitChancePerPoint", "splitMaxChance", "splitDamageMultiplier", "splitMaxTravelDistance"),
+                // Retired stats (Cleave) stay in the database, because stats are stored by index, but not in the sheet
+                new KeyedListTable<StatDatabase>("Stats", "Stat", () => Load<StatDatabase>(StatDatabasePath), "stats", "statType",
+                    entry => !((StatData)entry).Retired,
+                    ("Initial Value", "initialValue"), ("Allow Level Upgrades", "allowLevelUpgrades"),
+                    ("Tier 1", "tierValues.Array.data[0]"), ("Tier 2", "tierValues.Array.data[1]"),
+                    ("Tier 3", "tierValues.Array.data[2]"), ("Tier 4", "tierValues.Array.data[3]"),
+                    ("Category", "category"), ("Affected By Corruption", "affectedByCorruption"),
+                    ("Corruption Reduce Factor", "corruptionReduceFactor")),
+                new AssetTable<CharacterClassData>("Classes", "Class", () => LoadAll<CharacterClassData>(ClassesFolder), c => c.name,
+                    "dashCooldown", "dashSpeed", "dashDuration", "dashMaxCharges"),
             });
             return tables;
         }

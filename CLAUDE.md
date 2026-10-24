@@ -132,13 +132,15 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
   - On a level load, `InitializeAfterStateReady` sets the max directly and restores the saved health as is. Going through `SetMaxHealth` there would apply the change twice.
   - `HealthBar` animates on unscaled time, so it updates while a level-up window pauses the game.
 - **Animation events in blend trees fire once per clip**, all in the same frame. The Warrior's attack is an 8-direction blend tree, so its start event ran the cleave 8 times per swing, and DrekoEye / FlameShooter shot 8 stacked volleys. `CharacterVisual` (player) and `BehaviorController` (enemies, per event name) forward each event once per frame (`OncePerFrame`). `AnimationEventTests` checks every controller under `Assets/Animation`: an event repeated across a blend tree's clips must go to one of those gated methods and fire at the same normalized time in each clip.
+- **Debuffs** (`ElementalDebuffData`, `Resources/Debuffs`): duration and strength = base + Mastow Affinity × scale. Element-specific numbers are on the same asset: Frost's `maxSlow` (it was hardcoded) and Ley Charge's `chainRadius` / `maxChainDepth` (they sat on the component added at runtime, so nothing could tune them).
+  - **Frost** slows by its strength (capped at `maxSlow`) and makes the enemy take that share of each hit as extra damage, at least 1 (`EnemyHealth.CalculateExtraDamage`, `FrostDamageTests`). Until Oct 2026 it subtracted the hit a second time, so Frost doubled every hit whatever its strength.
 - **Ley Charge debug log:** tick "Log Debug" on `Resources/Debuffs/LeyChargeDebuff.asset` (`ElementalDebuffData.logDebug`) to log every damage a charged enemy takes, each strike and why a chain stops.
 
 ### Corruption & Grace (reworked Oct 2026)
 
 The original spec is `Assets/Docs/corruption-rework.md`, but several decisions changed during implementation; this section is the source of truth. Every tunable lives in **`CorruptionSettings`** (`Assets/Resources/Combat/CorruptionSettings.asset`, loaded via `CorruptionSettings.Instance`) or on Inspector fields — never hardcode these numbers.
 
-- **Grace** (`PlayerGrace`) is a single signed value clamped to `minGrace..maxGrace` (−50..+50), saved per run. It changes only through `SetGrace`, which fires `onGraceChanged`, `OnCorruptedStateChanged` (only on flips) and `OnGraceStatusChanged`. Damage multiplier = `max(minDamageMultiplier, 1 + damagePerGracePoint × Grace)`, applied in `DamageCalculator`.
+- **Grace** (`PlayerGrace`) is a single signed value clamped to `minGrace..maxGrace` (−50..+50), saved per run. The range, the starting Grace and the damage per point are on `CorruptionSettings` (moved off the player prefab in Oct 2026). It changes only through `SetGrace`, which fires `onGraceChanged`, `OnCorruptedStateChanged` (only on flips) and `OnGraceStatusChanged`. Damage multiplier = `max(minDamageMultiplier, 1 + damagePerGracePoint × Grace)`, applied in `DamageCalculator`.
 - **Corrupted = Grace < 0.** `CorruptedLevel = max(0, −Grace)` reduces every stat flagged `affectedByCorruption` in `StatDatabase.asset` (Armor, HealingReceived) by `CorruptedLevel × corruptionReduceFactor`, through `PlayerProgression.GetCorruptionPenalty` (also used by the tooltip). Healing is reduced by a flat amount per heal, not zeroed. Corrupted players, enemies and the boss are marked by `CorruptedVisual` (see Corrupted outline below).
 - **Corruption** (`PlayerCorruption`) is **per wave only**, never saved, and reset when a wave starts. It comes from two sources:
   - **Corrupted Damage:** post-armor damage taken from anything tagged with `CorruptedDamageSource`, converted at +1 per `corruptedDamagePerCorruption`, capped at `maxCorruptionFromDamage`.
@@ -242,7 +244,8 @@ Enemy → player damage is sized against an *expected* player, never the real on
 - Level-up choices show "Now / After": `UpgradeManager.OnUpgradeOptionsAvailable` pushes a preview function along with the choices, per the UI rule.
   - "After" comes from `PlayerProgression.PreviewFinalStats`, which runs the same pure math as the real stats (`FinalStatsCalculator`: flat and % item bonuses, corruption, then stat bonus rules). It can't disagree with the result.
   - An "Also:" line lists other stats the pick changes through stat bonus rules (e.g. the Archer Emblem: Evasion also adds Pierce).
-- **Formerly hardcoded numbers live on `PlayerStatSettings`** (`Resources/Progression/PlayerStatSettings.asset`): Health Regen, Life Steal, dash recovery scale, shop discount caps, pickup range, and the level-up tier weights for Luck.
+- **Formerly hardcoded numbers live on `PlayerStatSettings`** (`Resources/Progression/PlayerStatSettings.asset`): Health Regen, Life Steal, dash recovery scale, shop discount caps, pickup range, and the level-up tier weights for Luck. Since Oct 2026 (data-driven step 3) also the walking speed and its per-point scale (from `PlayerController`), the invulnerability after a hit (from `PlayerHealth`) and the Retribution curve (`RetributionCurve`, from `RetributionHandler`, which keeps only the reflection VFX).
+- **Each class's dash** (cooldown, speed, duration, charges) is on its `CharacterClassData`. `DashBase.LoadClassValues` reads it in `Awake` through the `PlayerClassManager`; the class prefabs no longer hold dash numbers. The dash Glyphs still override duration and charges (`PlayerSettingsTests`).
 - **Negative speed stats:** attack and dash speed divide by at least 0.1 (`StatsCalculations.SafeSpeedDivisor`). Large negative Attack Speed used to wrap around into near-instant attacks; it now slows them down by at most 10×.
 - **Evasion** (index 22) is rolled in `PlayerHealth.TakeDamage` before armor.
   - Non-lethal event damage can't be dodged.
@@ -605,16 +608,17 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
   - the sheet's contents: Push All to Sheet (or Push Table Notes to Sheet for explanations only), and the Unity-side sync code (`BalanceSheetSync`, `BalanceOverride`);
   - this section, and the `todo.md` manual checklist.
   A change that only touches the assets or CSVs without these leaves the designer's sheet out of date.
+- **Settings tables' Notes** come from the same place as column notes (`BalanceDocs`, else the field's tooltip); `BalanceDocsTests.EverySetting_HasANote` fails on an empty one.
 - **Explanation panel:** every data tab has, right of the table after one empty column, an "About this table" line and one note per column, for new team members. `BalanceDocs` holds the texts; column notes default to the field's `[Tooltip]`, so the Inspector and the sheet say the same. The sheet reads a table's width as the header cells up to the first empty one (`headerWidth_`), so keep that gap. *Push Table Notes to Sheet* rewrites only the panels (script action `notes`); Push All rewrites them with the numbers.
 
 - **No dead data.** Every field a designer can see must do something.
   - Unused content was deleted: the old level scenes, `Sandbox2`, `Boss1.unity`, the old enemy prefabs, test waves, `WarriorOld`, unused level data, behaviors and treasure tables.
-  - Dead fields were removed: `WaveData.enemies` / `cooldownDuration`, `EnemyData.attackRangeBase`.
+  - Dead fields were removed: `WaveData.enemies` / `cooldownDuration`, `EnemyData.attackRangeBase`, and (Oct 24) `AIBehaviorShooter.minRange`, `AIBehaviorChaserLogic.useChasePause`, `KnockbackBehavior.forceMode`.
   - `DataHygieneTests` keeps it that way:
     - every enemy behavior asset is used by an enemy prefab;
     - every `LevelData` is on a map, and its scene is in the build;
     - every `WaveDatabase` is used by a build scene.
-- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`). It covers the enemy, wave, behavior and damage-source assets and the damage-source prefabs. `ForceReserializeAssets` keeps removed fields in prefabs, so the tool loads and saves prefabs instead.
+- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`). It covers the enemy, wave, behavior, damage-source, debuff and class assets, the Corruption and player stat settings, the damage-source prefabs and the player prefabs. `ForceReserializeAssets` keeps removed fields in prefabs, so the tool loads and saves prefabs instead.
 - **Damage sources** (`DamageSourceData`, one asset per player damage source in `Resources/Combat/DamageSources`, named after its prefab):
   - **What it holds:** base damage, weapon class (= which damage stat it adds), attack scale, hit mode and tick, pierce, knockback, lifesteal, the direct debuff, and the projectile's speed and lifetime.
   - **On the prefab:** only wiring (`effectID`, layer mask, origin).
@@ -645,12 +649,15 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
     - Levels (taint), WaveLevels, Waves, WaveEnemies;
     - Experience and ExperienceTokenTiers;
     - EnemyDamage, EnemyDamageCurve and EnemyDamageTiers;
-    - DamageSources.
+    - DamageSources;
+    - step 3 (Oct 2026): Debuffs, Corruption (Grace and Corrupted enemies, the Corruptor phase; camera and visuals stay in Unity), PlayerStats (stat formula parameters, Retribution, level-up tier weights), Pierce, Stats (the Stat Database without retired stats) and Classes (dash).
   - **Table kinds** (`BalanceTableDefinition`):
     - `AssetTable`: a row per asset, keyed.
     - `SettingsTable`: Setting / Value / Notes. Notes are the field tooltips: written on export, ignored on import.
     - `ChildListTable`: a list's elements. Resizable lists follow the rows; a fixed one keeps its count, e.g. token tiers, which have sprites.
     - `WaveTable`: a row with the next wave number creates a `WaveData` and appends it. `WaveEnemyTable` runs after it, so the new wave gets its enemies (`ImportPlan` pending assets).
+    - `KeyedListTable`: a list's elements keyed by one of their fields (the Stat Database by stat). Rows can't be added or removed, the key can't change, and a filter leaves elements out (retired stats).
+    - `AssetTable` and `SettingsTable` take `(header, path)` pairs when a nested field's own name would clash or read badly (`contactSpread.enabled` / `stacking.enabled`, `retribution.damageTier1Cap`, array elements).
   - **Cells** (`CellCodec`):
     - **Formats:** invariant numbers, `TRUE`/`FALSE`, enums by **name** (never index), references by asset name.
     - **Checks:** `[Min]`/`[Range]`.

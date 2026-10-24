@@ -34,9 +34,16 @@ namespace Game.BalanceData
             ["EnemyDamageCurve"] = "The expected player: the max health and armor we assume the player has after N levels beaten (in-between values are interpolated). Enemy damage is sized to this. Keep the rows sorted by Levels Beaten; rows can be added or removed.",
             ["EnemyDamageTiers"] = "How many hits the expected player survives from an attack of each damage tier. Row 1 is tier 1, row 2 is tier 2, and so on. An enemy's Contact / Projectile Damage Tier picks a row (fractions blend two rows; 0 = no damage).",
             ["DamageSources"] = "Every damage dealer of the player (arrows, fireballs, sword swings, dash trails...), one row each, named after its prefab. Final damage = Base Damage + the player's damage stat of the Weapon Class x Attack Scale, then the player's other bonuses.",
+            ["Debuffs"] = "The elemental debuffs items apply: Bleed, Fire, Frost and Ley Charge. Duration = Base Duration + Mastow Affinity x Duration Per Mastow, and the same for Strength. Some columns only apply to one element (their notes say so); the others ignore them.",
+            ["Corruption"] = "Grace and Corruption: the player's Grace range and how it changes damage, how often enemies spawn Corrupted and how much stronger they are, the Grace pickup, and the Corruptor phase at the end of each wave.",
+            ["PlayerStats"] = "The numbers inside the player's stat formulas: movement, health regen, life steal, dash recovery, shop discount, pickup range, Retribution, and the level-up tier weights. The formulas' shapes are code; these are their parameters.",
+            ["Pierce"] = "How the Pierce stat works: the extra enemies a projectile goes through, and the chance for an arrow to split on a hit.",
+            ["Stats"] = "One row per player stat: the points a run starts with, whether level-up can offer it and how many points each level-up tier gives, its Stats pane tab, and how Corruption weakens it. Retired stats are not listed.",
+            ["Classes"] = "One row per class: its dash. A class's dash Glyph can override the duration and charges with its own tier values.",
         };
 
-        // Columns that are not a field with a tooltip: keys and the list elements. "Table.Column"
+        // Columns that are not a field with a tooltip: keys and the list elements. "Table.Column"; "EnemyBehaviors_*.Column"
+        // is every table with that prefix, "*.Column" every table. A settings table's rows are looked up the same way.
         private static readonly Dictionary<string, string> Columns = new()
         {
             ["Enemies.Enemy"] = "The enemy type (its name in the game).",
@@ -62,12 +69,22 @@ namespace Game.BalanceData
             ["EnemyBehaviors_FleeLogic.Strafe Flip Interval X"] = "Shortest time in seconds before the enemy switches its strafe side.",
             ["EnemyBehaviors_FleeLogic.Strafe Flip Interval Y"] = "Longest time in seconds before the enemy switches its strafe side (each switch picks a random time between X and Y).",
             ["DamageSources.Damage Source"] = "The name of the damage source (the prefab it belongs to).",
-            ["Experience.Setting"] = "The setting's name.",
-            ["Experience.Value"] = "The number to edit.",
-            ["Experience.Notes"] = "What the setting does (read-only, filled by Unity).",
-            ["EnemyDamage.Setting"] = "The setting's name.",
-            ["EnemyDamage.Value"] = "The number to edit.",
-            ["EnemyDamage.Notes"] = "What the setting does (read-only, filled by Unity).",
+            // Every Setting / Value / Notes table
+            ["*.Setting"] = "The setting's name.",
+            ["*.Value"] = "The number to edit.",
+            ["*.Notes"] = "What the setting does (read-only, filled by Unity).",
+            ["Debuffs.Debuff"] = "The name of the debuff asset (Bleed has a second, likelier version used by some items).",
+            ["Stats.Stat"] = "The stat.",
+            ["Stats.Tier 1"] = "Points a tier 1 level-up choice gives (the most common tier).",
+            ["Stats.Tier 2"] = "Points a tier 2 level-up choice gives.",
+            ["Stats.Tier 3"] = "Points a tier 3 level-up choice gives.",
+            ["Stats.Tier 4"] = "Points a tier 4 level-up choice gives (the rarest tier).",
+            ["Classes.Class"] = "The class.",
+            // Setting rows (their text goes in the Notes column)
+            ["PlayerStats.Level-up Tier 1 Weight"] = "How likely a tier 1 level-up choice is, against the other tiers' weights. Each Luck point moves 1 from tier 1, split evenly over tiers 2 to 4.",
+            ["PlayerStats.Level-up Tier 2 Weight"] = "How likely a tier 2 level-up choice is, against the other tiers' weights.",
+            ["PlayerStats.Level-up Tier 3 Weight"] = "How likely a tier 3 level-up choice is, against the other tiers' weights.",
+            ["PlayerStats.Level-up Tier 4 Weight"] = "How likely a tier 4 level-up choice is, against the other tiers' weights.",
         };
 
         public static string TableDescription(string table) => Tables.TryGetValue(table, out var text) ? text : string.Empty;
@@ -78,6 +95,7 @@ namespace Game.BalanceData
             if (Columns.TryGetValue(table + "." + column, out var text)) return text;
             int underscore = table.IndexOf('_');
             if (underscore > 0 && Columns.TryGetValue(table.Substring(0, underscore) + "_*." + column, out text)) return text;
+            if (Columns.TryGetValue("*." + column, out text)) return text;
             return CellCodec.TooltipOf(field);
         }
 

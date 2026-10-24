@@ -1,0 +1,23 @@
+Setting,Value,Notes
+Min Grace,-50,Lowest Grace the player can fall to.
+Max Grace,50,Highest Grace the player can reach.
+Starting Grace,5,Grace at the start of a run.
+Damage Per Grace Point,0.02,"Damage multiplier added (or removed, when Grace is negative) per point of Grace (0.02 = +2% damage per point)."
+Min Damage Multiplier,0.1,Lowest damage multiplier negative Grace can push the player to (0.1 = 10% of normal damage).
+Corrupted Chance Per Negative Grace,0.01,"Chance for a spawned enemy to be Corrupted, per point of negative Grace (0.02 = 2% per point)."
+Corrupted Chance Per Taint Level,0.05,Base Corrupted spawn chance per Taint Level of the current level (0.05 = 5% per level).
+Max Corrupted Chance,0.5,Upper limit for the Corrupted spawn chance.
+Corrupted Damage Multiplier,1.5,Damage multiplier applied to everything a Corrupted enemy deals.
+Corrupted Health Bonus,1,Extra health for Corrupted enemies (1 = +100%). Enemies can override it in their EnemyData.
+Corrupted Damage Per Corruption,5,Corrupted Damage the player must take to gain 1 Corruption.
+Max Corruption From Damage,5,Maximum Corruption gained per wave from Corrupted Damage.
+Grace Pickup Base Chance,0,Chance for a killed enemy to drop a Grace pickup with 0 Grace Affinity.
+Grace Pickup Chance Per Affinity,0.01,Extra Grace pickup drop chance per point of Grace Affinity (0.01 = 1% per point).
+Grace Pickup Max Chance,0.2,Upper limit for the Grace pickup drop chance.
+Corruptor Spawn Timeout,3,Seconds to wait for the Corruptor to come out of its spawn portal before skipping the phase.
+Corruptor Phase Duration,30,Seconds the player has to kill the Corruptor before it escapes.
+Corruptor Fast Kill Time,15,Killing the Corruptor within this many seconds only grants the base Corruption.
+Corruptor Base Corruption,1,Corruption gained when the Corruptor is killed within the fast kill time.
+Corruptor Seconds Per Extra Corruption,3,"After the fast kill time, +1 Corruption for every this many seconds (rounded up)."
+Corruptor Max Corruption,5,Maximum Corruption the Corruptor can grant when killed.
+Corruptor Escape Corruption,5,Corruption gained when the Corruptor escapes (not killed in time).

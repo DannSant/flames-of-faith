@@ -1,0 +1,33 @@
+Setting,Value,Notes
+Base Move Speed,3.5,"Walking speed, in units per second, with 0 Move Speed points."
+Move Speed Per Point,0.01,"Walking speed, in units per second, added per Move Speed point."
+Invulnerability After Hit,0.5,Seconds the player can't be hurt again after taking a hit.
+Regen Base Interval,5,Seconds between each 1 HP healed at 1 point of Health Regen.
+Regen Interval Divisor,2.25,Interval = base / (1 + (points - 1) / this). Lower = each point speeds regen up more.
+Lifesteal Base Chance,0.2,"Chance to heal on a hit with 1+ Life Steal, before the per-point bonus (0.2 = 20%)."
+Lifesteal Chance Per Point,0.01,Extra chance per Life Steal point (0.01 = 1%).
+Lifesteal Heal Per Point,0.1,"Health healed per Life Steal point, clamped between the min and max below."
+Lifesteal Min Heal,1,Smallest heal from Life Steal.
+Lifesteal Max Heal,20,Largest heal from Life Steal.
+Dash Cooldown Scale Per Point,0.08,Dash cooldown = base / (1 + points × this).
+Shop Discount Soft Cap,50,"1% off per point up to this many points, then 0.5% per point."
+Shop Discount Hard Cap,80,Points beyond this give no more discount.
+Pickup Base Range,2,"Distance at which pickups start flying to the player, with 0 Pickup Range."
+Pickup Range Per Point,0.1,Extra pickup distance per Pickup Range point.
+Level-up Tier 1 Weight,80,"How likely a tier 1 level-up choice is, against the other tiers' weights. Each Luck point moves 1 from tier 1, split evenly over tiers 2 to 4."
+Level-up Tier 2 Weight,10,"How likely a tier 2 level-up choice is, against the other tiers' weights."
+Level-up Tier 3 Weight,8,"How likely a tier 3 level-up choice is, against the other tiers' weights."
+Level-up Tier 4 Weight,2,"How likely a tier 4 level-up choice is, against the other tiers' weights."
+Retribution Damage Tier 1 Cap,35,Retribution points up to which each point reflects Damage Tier 1 Rate % of the damage taken.
+Retribution Damage Tier 2 Cap,50,Retribution points up to which each point past Tier 1 Cap reflects Damage Tier 2 Rate %.
+Retribution Damage Hard Cap,70,Retribution points past which more points reflect nothing more.
+Retribution Damage Tier 1 Rate,1,"% of the damage taken reflected per point, up to Damage Tier 1 Cap."
+Retribution Damage Tier 2 Rate,0.2,% of the damage taken reflected per point between Damage Tier 1 Cap and Tier 2 Cap.
+Retribution Damage Tier 3 Rate,0.01,% of the damage taken reflected per point between Damage Tier 2 Cap and the Hard Cap.
+Retribution Melee Damage Scaling,0.2,Reflected damage also adds this share of the player's Melee Damage stat (0.2 = 20%).
+Retribution Grace Tier 1 Cap,25,Retribution points up to which each point adds Grace Tier 1 Rate % chance to gain Grace on a weapon hit.
+Retribution Grace Hard Cap,50,Retribution points past which more points add no more Grace chance.
+Retribution Grace Tier 1 Rate,1,"% chance to gain Grace on a weapon hit per point, up to Grace Tier 1 Cap."
+Retribution Grace Tier 2 Rate,0.5,% chance to gain Grace on a weapon hit per point between Grace Tier 1 Cap and the Hard Cap.
+Retribution Grace Gained,1,Grace gained each time the chance succeeds.
+Retribution Grace Cooldown,20,"Minimum time, in seconds, between Grace gains from Retribution."
