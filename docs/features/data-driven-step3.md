@@ -51,8 +51,8 @@ _Written by the implementation session when it finishes. Nobody else edits this 
 
 - **Done:** dead behavior fields removed; Frost double damage fixed; Frost cap and Ley chain numbers on the debuff assets; Grace numbers on `CorruptionSettings`; movement, invulnerability and the Retribution curve on `PlayerStatSettings`; dashes on `CharacterClassData`; six new tables (Debuffs, Corruption, PlayerStats, Pierce, Stats, Classes) with CSVs and notes; CLAUDE.md updated. EditMode: 717/719 pass.
 - **Not done / follow-ups:**
-  - The workbook: the six new tabs, their checkboxes / dropdowns / protection, the Read Me, then Push All (waiting on the owner's OK to edit the sheet).
-  - The 2 failing tests are `MainMenuStyleTests.SceneInstances_UseThePrefabsLayout` (MainMenuPanel, CharacterSelect): `MainMenu.unity` overrides child anchors. This branch doesn't touch those files; not re-run on `develop` to confirm.
+  - Workbook done through the connector: six new tabs (sheetIds 124-129) with values, formatting, checkboxes, the Stats Category dropdown and protection; the Read Me (an Explanations rule and the six tabs); the dead columns deleted from the ChaserLogic, Shooter and Knockback tabs. Left for the owner: Push Table Notes to Sheet (fills the explanation panels), and decide CorruptorAct1 Health Base (sheet 200, game 250).
+  - Fixed: `MainMenuStyleTests.SceneInstances_UseThePrefabsLayout` failed because saving `MainMenu.unity` (commit 0825984) wrote layout-group-driven values of StartButton and ClassName as overrides. The guard now ignores driven values and values equal to the prefab's (`SceneInstanceLayoutTests`). 722/722 pass.
   - For the designer: Move Speed adds 0.01 units/s per point (0.3% of the 3.5 base), and Frost's strength per Mastow point is 0.001; both look too small to matter. Frost no longer doubles hits, so Frost items are weaker than testers are used to.
 - **Commits / branch:** `feature/data-driven-step3`: 9c73de6 (spec), 762faf9, 5992853, 8af10ff, 2f31285, 00bd931.
 - **Gotchas for the next session:**
