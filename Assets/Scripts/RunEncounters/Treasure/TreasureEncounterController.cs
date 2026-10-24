@@ -1,20 +1,23 @@
 ﻿using Game.Currency;
 using Game.Effects;
 using Game.Items;
+using Game.Loot;
 using Game.Progression;
 using Game.Scene;
 using Game.Utils;
 using Game.Waves;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.RunEncounters
 {
     /// <summary>
-    /// A treasure chest: walking into it rolls one reward from the table. An item goes to the player's item bag
-    /// and the encounter ends, so the item bag window opens (take or sell), like items from events.
-    /// Currency and experience are given at once and reported through OnTreasureResolved (the Results window,
-    /// whose Continue ends the encounter).
+    /// A treasure chest: walking into it rolls one reward from the table. An item reward rolls from the drop table's
+    /// Treasure items (ItemProvider); the items go to the player's item bag and the encounter ends, so the item bag
+    /// window opens (take or sell), like items from events. When no item can drop yet (min levels beaten), the chest
+    /// gives coins instead (LootSettings' treasure fallback). Currency and experience are given at once and reported
+    /// through OnTreasureResolved (the Results window, whose Continue ends the encounter).
     /// </summary>
     public class TreasureEncounterController : MonoBehaviour
     {
@@ -44,7 +47,7 @@ namespace Game.RunEncounters
                 return;
 
             resolved = true;
-            if (!RollReward(out var type, out var item, out int amount))
+            if (!RollReward(out var type, out var items, out int amount))
             {
                 ExitEncounter();
                 return;
@@ -54,7 +57,7 @@ namespace Game.RunEncounters
             {
                 case TreasureRewardType.Item:
                     var itemBag = PlayerManager.Instance.GetPlayerComponent<ItemBag>();
-                    for (int i = 0; i < amount; i++)
+                    foreach (var item in items)
                     {
                         itemBag.AddEffectItem(item);
                     }
@@ -84,10 +87,10 @@ namespace Game.RunEncounters
             }
         }
 
-        private bool RollReward(out TreasureRewardType type, out Effect item, out int amount)
+        private bool RollReward(out TreasureRewardType type, out List<Effect> items, out int amount)
         {
             type = TreasureRewardType.Item;
-            item = null;
+            items = null;
             amount = 0;
 
             if (data.rewardTable == null || data.rewardTable.Count == 0)
@@ -121,9 +124,14 @@ namespace Game.RunEncounters
             switch (type)
             {
                 case TreasureRewardType.Item:
-                    item = entry.item;
-                    amount = Mathf.Max(1, entry.itemCount);
-                    return item != null;
+                    items = ItemProvider.Roll(LootSource.Treasure, ItemProvider.GetPlayerStat(), Mathf.Max(1, entry.itemCount), false);
+                    if (items.Count > 0) return true;
+
+                    // Nothing can drop yet: coins instead of an empty chest
+                    type = TreasureRewardType.Currency;
+                    var loot = LootSettings.Instance;
+                    amount = rng.Next(loot.TreasureFallbackMinCoins, loot.TreasureFallbackMaxCoins + 1);
+                    return true;
 
                 case TreasureRewardType.Currency:
                     amount = rng.Next(entry.minCurrency, entry.maxCurrency + 1);

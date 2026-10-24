@@ -12,14 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4c6ba3a120802439722953314c390f, type: 3}
   m_Name: GiveRandomItemOptionAction
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.GiveRandomItemOptionAction
-  possibleItems:
-  - item: {fileID: 11400000, guid: 11efb14754fda7c43a47350eb602165b, type: 2}
-    weight: 1
-  - item: {fileID: 11400000, guid: e8aab90266c1b324497ccf08e1a321db, type: 2}
-    weight: 1
-  - item: {fileID: 11400000, guid: e4fa4250e87e4074289f1ea26dc0c2f8, type: 2}
-    weight: 1
-  - item: {fileID: 11400000, guid: e1daefd2e8ec1184abfa0d62642674db, type: 2}
-    weight: 1
-  - item: {fileID: 11400000, guid: a43e0f53fbdd40646a7fba1a2be071bc, type: 2}
-    weight: 1
+  resourceName: 
+  amount: 10
+  isPlainReward: 1
+  amountRange: {x: -10, y: 10}
+  baseChance: 0
+  biasStat: 8

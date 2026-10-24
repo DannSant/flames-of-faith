@@ -1,23 +1,17 @@
 using Game.Effects;
 using Game.Items;
+using Game.Loot;
 using Game.Scene;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Pickups
 {
-    [System.Serializable]
-    public struct ItemRandomConfig
-    {
-        public Effect itemEffect;
-        [Range(0f, 100f)]
-        public float weight;
-    }
-
+    /// <summary>
+    /// The random item an enemy sometimes drops. The item is rolled when it's picked up, from the drop table's Enemy
+    /// Pickup items (ItemProvider), with the player's Luck and levels beaten at that moment.
+    /// </summary>
     public class RandomItemPickup : BasePickup
     {
-        [SerializeField] private List<ItemRandomConfig> possibleItems;      
-
         private ItemBag itemBag;
 
         protected override void Start()
@@ -33,63 +27,18 @@ namespace Game.Pickups
 
         public override void OnPickup(GameObject picker)
         {
-            if(itemBag==null)
+            if (itemBag == null)
             {
                 Debug.LogWarning("ItemBag component not found on player.");
                 return;
             }
 
-            if (possibleItems == null || possibleItems.Count == 0)
+            Effect selected = ItemProvider.RollOne(LootSource.EnemyPickup, ItemProvider.GetPlayerStat());
+            if (selected != null)
             {
-                Debug.LogWarning("No available items to pick up.");
-                return;
+                itemBag.AddEffectItem(selected);
             }
-
-            Effect selected = GetWeightedRandomEffect();
-            if (selected == null)
-            {
-                Debug.LogWarning("RandomItemPickup: Weighted selection returned null.");
-                return;
-            }
-
-            itemBag.AddEffectItem(selected);
             Destroy(gameObject);
-
-        }
-
-        private Effect GetWeightedRandomEffect()
-        {
-            float totalWeight = 0f;
-
-            // Sum all valid weights
-            foreach (var cfg in possibleItems)
-            {
-                if (cfg.weight > 0f && cfg.itemEffect != null)
-                    totalWeight += cfg.weight;
-            }
-
-            if (totalWeight <= 0f)
-            {
-                Debug.LogWarning("RandomItemPickup: Total weight <= 0.");
-                return possibleItems[0].itemEffect;
-            }
-
-            float randomValue = Random.value * totalWeight;
-            float cumulative = 0f;
-
-            foreach (var cfg in possibleItems)
-            {
-                if (cfg.weight <= 0f || cfg.itemEffect == null)
-                    continue;
-
-                cumulative += cfg.weight;
-
-                if (randomValue <= cumulative)
-                    return cfg.itemEffect;
-            }
-
-            // Fallback (rare floating-point edge case)
-            return possibleItems[possibleItems.Count - 1].itemEffect;
         }
     }
 

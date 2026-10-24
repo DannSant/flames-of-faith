@@ -1,11 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Game.Effects;
-using Game.Pickups;
 using Game.Progression;
-using Game.RunEncounters;
 using NUnit.Framework;
-using UnityEditor;
 using UnityEngine;
 
 namespace Game.Tests
@@ -168,59 +165,7 @@ namespace Game.Tests
 
         // --- Guards: bonus items are starting items only ----------------------------------------
 
-        private static IEnumerable<T> LoadAll<T>(string filter, params string[] folders) where T : Object
-        {
-            var guids = folders.Length > 0 ? AssetDatabase.FindAssets(filter, folders) : AssetDatabase.FindAssets(filter);
-            return guids
-                .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<T>)
-                .Where(a => a != null);
-        }
-
-        [Test]
-        public void TreasureTables_NeverRewardStartingOnlyItems()
-        {
-            foreach (var data in LoadAll<TreasureEncounterData>("t:TreasureEncounterData"))
-            {
-                if (data.rewardTable == null) continue;
-                foreach (var entry in data.rewardTable)
-                {
-                    Assert.IsFalse(entry.item != null && entry.item.IsStartingOnly,
-                        $"{data.name} rewards {entry.item?.name}, which is a starting-only item");
-                }
-            }
-        }
-
-        [Test]
-        public void EventOptions_NeverGiveStartingOnlyItems()
-        {
-            foreach (var action in LoadAll<GiveRandomItemOptionAction>("t:GiveRandomItemOptionAction"))
-            {
-                foreach (var entry in action.PossibleItems)
-                {
-                    Assert.IsFalse(entry.item != null && entry.item.IsStartingOnly,
-                        $"{action.name} can give {entry.item?.name}, which is a starting-only item");
-                }
-            }
-        }
-
-        [Test]
-        public void RandomItemDrops_NeverDropStartingOnlyItems()
-        {
-            foreach (var prefab in LoadAll<GameObject>("t:Prefab", "Assets/Prefabs"))
-            {
-                foreach (var pickup in prefab.GetComponentsInChildren<RandomItemPickup>(true))
-                {
-                    var list = new SerializedObject(pickup).FindProperty("possibleItems");
-                    if (list == null) continue;
-                    for (int i = 0; i < list.arraySize; i++)
-                    {
-                        var effect = list.GetArrayElementAtIndex(i).FindPropertyRelative("itemEffect").objectReferenceValue as Effect;
-                        Assert.IsFalse(effect != null && effect.IsStartingOnly,
-                            $"{prefab.name} can drop {effect?.name}, which is a starting-only item");
-                    }
-                }
-            }
-        }
+        // Items with rules never drop: ItemDropTableTests.NoRow_IsEmptyOrAStartingOnlyItem guards the drop table,
+        // which replaced the hand-written treasure, event and pickup lists checked here before.
     }
 }

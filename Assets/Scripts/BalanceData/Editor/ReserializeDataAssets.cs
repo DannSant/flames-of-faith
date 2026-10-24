@@ -20,6 +20,10 @@ namespace Game.BalanceData.Editor
             "Assets/Resources/Combat/DamageSources",
             "Assets/Resources/Debuffs",
             "Assets/Resources/CharacterData",
+            "Assets/Resources/Loot",
+            // The hand-written item lists moved to the drop table (item drops)
+            "Assets/Resources/RunEncounters/Treasures",
+            "Assets/Resources/RunEncounters/EventEncounter/OptionActions",
         };
 
         // Prefabs whose design numbers moved to an asset (damage sources -> DamageSourceData).
@@ -39,6 +43,10 @@ namespace Game.BalanceData.Editor
             "Assets/Prefabs/Player/PlayerWarrior.prefab",
             "Assets/Resources/Combat/CorruptionSettings.asset",
             "Assets/Resources/Progression/PlayerStatSettings.asset",
+            // Item lists and drop chances moved to the drop table and LootSettings (item drops)
+            "Assets/Prefabs/Pickups/RandomItemPickup.prefab",
+            "Assets/Prefabs/Enemies/EnemyBase.prefab",
+            "Assets/Prefabs/RunEncounters/Shopkeeper.prefab",
         };
 
         [MenuItem("Tools/Flames of Faith/Balance Data/Reserialize Data Assets")]

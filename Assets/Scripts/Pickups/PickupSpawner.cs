@@ -1,26 +1,21 @@
 using Game.Combat;
+using Game.Loot;
 using Game.Scene;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Game.Pickups
 {
-    [System.Serializable]
-    public class PickupEntry
-    {
-        public BasePickup pickupPrefab;
-        [Range(0f, 1f)] public float weight = 1f;
-    }
-
+    /// <summary>
+    /// Drops on an enemy's death: sometimes a random item or a health pickup (chance and split on LootSettings, the
+    /// balance sheet's Loot tab), and separately a Grace pickup.
+    /// </summary>
     public class PickupSpawner : MonoBehaviour
     {
-        [Header("Spawn Settings")]
-        [Range(0f, 1f)]
-        [SerializeField] private float spawnChance = 0.1f;
-
-        [Header("Pickup Pool")]
-        [SerializeField] private List<PickupEntry> pickups = new List<PickupEntry>();
+        [Header("Pickups")]
+        [Tooltip("Dropped as the item share of LootSettings' enemy drops; it rolls its item when picked up.")]
+        [SerializeField] private RandomItemPickup itemPickupPrefab;
+        [Tooltip("Dropped as the rest of LootSettings' enemy drops.")]
+        [SerializeField] private BasePickup healthPickupPrefab;
 
         [Header("Grace Pickup")]
         [Tooltip("Rolled separately from the pool above, with a chance based on the player's Grace Affinity (see CorruptionSettings).")]
@@ -60,22 +55,23 @@ namespace Game.Pickups
 
         private void OnEnemyDeath()
         {
-            TrySpawnFromPool();
+            TrySpawnDrop();
             TrySpawnGracePickup();
         }
 
-        private void TrySpawnFromPool()
+        private void TrySpawnDrop()
         {
-            // Roll for spawn chance
-            if (Random.value > spawnChance || pickups.Count == 0)
+            var settings = LootSettings.Instance;
+            if (Random.value >= settings.EnemyDropChance)
                 return;
 
-            // Choose pickup using weighted probability
-            BasePickup selectedPickup = GetWeightedPickup();
-
-            if (selectedPickup != null)
+            // An item pickup only while some item can drop from enemies (min levels beaten can hold them all back early)
+            BasePickup selected = Random.value < settings.EnemyItemShare && ItemProvider.CanDrop(LootSource.EnemyPickup)
+                ? itemPickupPrefab
+                : healthPickupPrefab;
+            if (selected != null)
             {
-                Instantiate(selectedPickup, FindSpawnPosition(), Quaternion.identity);
+                Instantiate(selected, FindSpawnPosition(), Quaternion.identity);
             }
         }
 
@@ -126,22 +122,6 @@ namespace Game.Pickups
                     return true;
             }
             return false;
-        }
-
-        private BasePickup GetWeightedPickup()
-        {
-            float totalWeight = pickups.Sum(p => p.weight);
-            float randomRoll = Random.value * totalWeight;
-            float cumulative = 0f;
-
-            foreach (var entry in pickups)
-            {
-                cumulative += entry.weight;
-                if (randomRoll <= cumulative)
-                    return entry.pickupPrefab;
-            }
-
-            return null;
         }
     }
 }

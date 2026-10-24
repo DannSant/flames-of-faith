@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053578b7ecb91b046a83717ef265a41c, type: 3}
   m_Name: ItemTreasure
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.TreasureEncounterData
-  allowReject: 1
-  pickSingleReward: 1
   rewardTable:
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 1553ad9befb23ba4f9ca0489147f652f, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -25,7 +22,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: a5dee07b6aac9ac4198d02f64964e652, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -33,7 +29,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 430f514c9ddcbc34fa5e5057e7974bff, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -41,7 +36,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: ab9dc22facff247418b86fd0f2051d0f, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -49,7 +43,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: b47de3bf31797af41a96bf4d79722a9e, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -57,7 +50,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 999bcadec92e0b74ba63acf0f5a3d74b, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -65,7 +57,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 6ed4dae1151309643989d4ad721421bb, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -73,7 +64,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: cb9ff1b4e41389f45b97737cfebce787, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -81,7 +71,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: 11efb14754fda7c43a47350eb602165b, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -89,7 +78,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: b45cd42e46365a7458b125a135ec83be, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -97,7 +85,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: f6a1f3f99bc9a46469452d817cbb426d, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0
@@ -105,7 +92,6 @@ MonoBehaviour:
     maxExperience: 0
   - rewardType: 0
     weight: 50
-    item: {fileID: 11400000, guid: d66d144393c8fde43905516e89d2f4f3, type: 2}
     itemCount: 1
     minCurrency: 0
     maxCurrency: 0

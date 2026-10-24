@@ -2,6 +2,7 @@ using Game.Effects;
 using Game.Progression;
 using Game.Scene;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Loot
@@ -39,6 +40,20 @@ namespace Game.Loot
             {
                 Debug.LogException(e);
                 return new List<Effect>();
+            }
+        }
+
+        /// <summary>Whether any item can drop from <paramref name="source"/> now (an eligible item in a quality with some weight).</summary>
+        public static bool CanDrop(LootSource source)
+        {
+            try
+            {
+                return LootRoller.GetTierOdds(GetEligible(source), LootSettings.Instance.GetSource(source), 0).Sum() > 0f;
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+                return false;
             }
         }
 

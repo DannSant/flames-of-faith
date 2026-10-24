@@ -1,5 +1,3 @@
-using Game.Effects;
-using NUnit.Framework.Interfaces;
 using System;
 using UnityEngine;
 
@@ -22,7 +20,7 @@ namespace Game.RunEncounters
         public float weight = 1f;
 
         [Header("Item Reward")]
-        public Effect item;
+        [Tooltip("Items rolled from the drop table's Treasure items (with the player's Luck and levels beaten).")]
         public int itemCount = 1;
 
         [Header("Currency Reward")]

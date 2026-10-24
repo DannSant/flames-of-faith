@@ -2,10 +2,10 @@
 using Game.Control;
 using Game.Currency;
 using Game.Effects;
+using Game.Loot;
 using Game.Progression;
 using Game.Scene;
 using Game.UI;
-using Game.Utils;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,13 +14,7 @@ namespace Game.RunEncounters
 {
     public class ShopKeeper : MonoBehaviour
     {
-        [SerializeField] private int itemCount = 10;
-        [SerializeField] private float qualityScalePerStat = 2f;
-        [SerializeField] private int quantityScalePerStat = 1;
-        [Tooltip("The fewest items the shop offers, however low the player's Luck.")]
-        [Min(0)]
-        [SerializeField] private int minItemCount = 3;
-        [SerializeField] private int maxItemCount = 20;
+        // The stock comes from the drop table's Shop items, and its size from LootSettings (ItemProvider)
         public List<Effect> items;
 
         public event System.Action<bool, List<Effect>, ShopKeeper> onShopWindowToggle;
@@ -65,48 +59,15 @@ namespace Game.RunEncounters
 
         private void BuildItemList()
         {
-            // Items with stat dependency rules are starting items only, never sold.
-            var availableEffects = EffectsDatabaseProvider.Instance.GetAvailableEffects()
-                .Where(e => e.AvailableForShop && !e.IsStartingOnly)
-                .ToList();
-
+            // Each slot rolls its quality on its own (weighted by Luck, never fully excluding a quality) rather than
+            // sorting and cutting, so common items still show up next to rare ones at high Luck. Items never repeat.
+            // This runs inside the level load, so ItemProvider never throws: a short pool just gives a shorter shop.
             int luck = playerProgression != null ? playerProgression.GetStatTotal(StatType.Luck) : 0;
+            int displayCount = LootSettings.Instance.GetShopItemCount(luck);
+            var selectedEffects = ItemProvider.Roll(LootSource.Shop, luck, displayCount, true);
 
-            int displayCount = GetDisplayCount(itemCount, luck, quantityScalePerStat, minItemCount, maxItemCount);
-
-            // Roll each slot's quality independently (weighted by Luck, never fully excluding
-            // any tier) rather than sorting-and-cutting, so common items can still show up
-            // alongside rare ones instead of being pushed out entirely at high Luck.
-            var remainingPool = new List<Effect>(availableEffects);
-            var selectedEffects = new List<Effect>();
-
-            for (int i = 0; i < displayCount && remainingPool.Count > 0; i++)
-            {
-                EffectQuality rolledQuality = EffectQualityScaler.RollQualityTier(luck, qualityScalePerStat, remainingPool);
-                var candidates = remainingPool.Where(e => e.Quality == rolledQuality).ToList();
-                // This runs inside the level load: throwing here leaves the game stuck on the loading screen
-                if (candidates.Count == 0)
-                {
-                    Debug.LogError($"ShopKeeper: rolled {rolledQuality} but no item of that quality is left, stopping at {selectedEffects.Count} items.");
-                    break;
-                }
-                var chosen = candidates[Random.Range(0, candidates.Count)];
-
-                selectedEffects.Add(chosen);
-                remainingPool.Remove(chosen);
-            }
-
-            // Shuffle final display order so it doesn't read as grouped/sorted by quality.
+            // Shuffle the display order so it doesn't read as grouped by quality
             items = selectedEffects.OrderBy(x => Random.value).ToList();
-        }
-
-        /// <summary>
-        /// How many items the shop offers: the base count plus (or, with negative Luck, minus) the Luck bonus,
-        /// kept between the min and the max. If the min is set above the max, the min wins.
-        /// </summary>
-        public static int GetDisplayCount(int baseCount, int luck, int perLuck, int minCount, int maxCount)
-        {
-            return Mathf.Clamp(baseCount + luck * perLuck, minCount, Mathf.Max(minCount, maxCount));
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

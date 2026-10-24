@@ -74,10 +74,10 @@ namespace Game.Tests
             Assert.AreEqual(((RectTransform)Load(CellPath).transform).sizeDelta, layout.cellSize, "Cells are the cell prefab's size");
             Assert.IsNull(grid.GetComponentInParent<ScrollRect>(true), "No scroll view: everything fits");
 
-            // The shop's item cap (the Shopkeeper's maxItemCount) fits without scrolling
-            var shopKeeper = Load("Assets/Prefabs/RunEncounters/Shopkeeper.prefab").GetComponentInChildren<ShopKeeper>(true);
-            Assert.IsNotNull(shopKeeper, "The Shopkeeper prefab has no ShopKeeper");
-            int maxItems = new SerializedObject(shopKeeper).FindProperty("maxItemCount").intValue;
+            // The shop's item cap (LootSettings' Shop Max Item Count) fits without scrolling
+            var loot = AssetDatabase.LoadAssetAtPath<Game.Loot.LootSettings>("Assets/Resources/Loot/LootSettings.asset");
+            Assert.IsNotNull(loot, "Missing LootSettings");
+            int maxItems = new SerializedObject(loot).FindProperty("shopMaxItemCount").intValue;
             int rows = Mathf.CeilToInt(maxItems / (float)layout.constraintCount);
             float needed = rows * layout.cellSize.y + (rows - 1) * layout.spacing.y;
             float width = layout.constraintCount * layout.cellSize.x + (layout.constraintCount - 1) * layout.spacing.x;
