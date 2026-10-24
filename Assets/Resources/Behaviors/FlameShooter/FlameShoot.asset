@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FlameShoot
   m_EditorClassIdentifier: 
   stopDuringGameplayFreeze: 1
-  minRange: 3
   maxRange: 5
   shootCooldown: 3
   projectilePrefab: {fileID: 4655842776331200841, guid: 0511eec49ac9963478359f4853ae1bc8, type: 3}
   firePointName: FirePoint
+  holdStillWhileShooting: 0
+  maxHoldTime: 1.5

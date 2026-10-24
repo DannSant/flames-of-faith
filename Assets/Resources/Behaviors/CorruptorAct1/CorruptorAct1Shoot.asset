@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: CorruptorAct1Shoot
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.Behaviors.AIBehaviorShooter
   stopDuringGameplayFreeze: 1
-  minRange: 0
   maxRange: 8
   shootCooldown: 2
   projectilePrefab: {fileID: 4655842776331200841, guid: 0511eec49ac9963478359f4853ae1bc8, type: 3}

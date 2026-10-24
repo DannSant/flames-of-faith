@@ -1,7 +1,6 @@
 using Game.Combat;
 using Game.Misc;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Game.AI.Behaviors
 {
@@ -10,8 +9,6 @@ namespace Game.AI.Behaviors
     {
         [Tooltip("Strength of the push the player gets when this enemy touches them.")]
         [SerializeField] private float force = 5f;
-        [Tooltip("Unity force mode. Currently the knockback ignores it and uses Force only.")]
-        [SerializeField] private ForceMode2D forceMode = ForceMode2D.Impulse;
 
         public override void HandleCollision(Collision2D collision, BehaviorContext context)
         {
@@ -21,14 +18,6 @@ namespace Game.AI.Behaviors
             Knockback knockback = collision.gameObject.GetComponent<Knockback>();
             if (knockback == null) return;          
             knockback.ApplyKnockback(context.enemyTransform, force);
-
-            /*Rigidbody2D targetRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (targetRb == null) return;
-            Debug.Log("Rigidbody2D not null");
-            Vector2 direction = (collision.transform.position - context.enemyTransform.position).normalized;
-            targetRb.AddForce(direction * force, forceMode);*/
-
-
         }
     }
 
