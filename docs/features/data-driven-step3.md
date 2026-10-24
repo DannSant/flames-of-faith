@@ -49,8 +49,13 @@ The designer can tune debuffs, Grace / Corruption, the player's stats and stat f
 ## Handoff
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
-- **Done:**
+- **Done:** dead behavior fields removed; Frost double damage fixed; Frost cap and Ley chain numbers on the debuff assets; Grace numbers on `CorruptionSettings`; movement, invulnerability and the Retribution curve on `PlayerStatSettings`; dashes on `CharacterClassData`; six new tables (Debuffs, Corruption, PlayerStats, Pierce, Stats, Classes) with CSVs and notes; CLAUDE.md updated. EditMode: 717/719 pass.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - The workbook: the six new tabs, their checkboxes / dropdowns / protection, the Read Me, then Push All (waiting on the owner's OK to edit the sheet).
+  - The 2 failing tests are `MainMenuStyleTests.SceneInstances_UseThePrefabsLayout` (MainMenuPanel, CharacterSelect): `MainMenu.unity` overrides child anchors. This branch doesn't touch those files; not re-run on `develop` to confirm.
+  - For the designer: Move Speed adds 0.01 units/s per point (0.3% of the 3.5 base), and Frost's strength per Mastow point is 0.001; both look too small to matter. Frost no longer doubles hits, so Frost items are weaker than testers are used to.
+- **Commits / branch:** `feature/data-driven-step3`: 9c73de6 (spec), 762faf9, 5992853, 8af10ff, 2f31285, 00bd931.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - `develop` had `CorruptorAct1` health 250 in the asset but 200 in `Enemies.csv`; 00bd931 matched the CSV to the asset. If the sheet still says 200, a Pull would set it back.
+  - Re-saving prefabs in 6.3 also rewrites unrelated ones (`serializedVersion: 2`, `m_MaskInteraction` order); restore those instead of committing them.
+- **Manual tests added to todo.md:** "Data-driven step 3 and pilot leftovers (2026-10-24)" (todo.md itself left uncommitted: it holds the owner's own edits).
