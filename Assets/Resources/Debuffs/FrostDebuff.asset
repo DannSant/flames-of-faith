@@ -16,7 +16,7 @@ MonoBehaviour:
   baseDuration: 5
   durationStatScale: 0.25
   baseStrength: 0.1
-  strengthStatScale: 0.001
+  strengthStatScale: 0.01
   chanceToApply: 0.5
   additionalChanceToReapply: 0
   tickInterval: 0.5

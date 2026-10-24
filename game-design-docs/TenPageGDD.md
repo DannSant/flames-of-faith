@@ -61,7 +61,7 @@ The story takes place shortly after the year 1000 of the Decadent Age, or so it 
 
 All the altars that kept the **Flame of Faith** alight have gone out, and the **Years of the Miasma** have begun. The region of **Ashemdrek** is not what it used to be: it seems to shift with every step, and horrible creatures lurk around every corner. To bring order back, the pilgrims must cross the perilous **Jester Forest (Jesterwoods)**, the frozen **Uf'Faraclario Wastes**, the desolate **Sinfa Mountains**, and finally the **Ruins of Ashemdrek**, relighting the **Altars of Malien** and restoring the Flames of Faith.
 
-**Background.** Long ago the **Drekos** invaded. **Gabien Alamoh**, a mighty warrior of the **Abidor Kingdom** (part of the former **Glenos Empire**), stood against them, but it is said he lost and let the darkness spread. Ashemdrek fell, and people blamed the Alamoh family. The church of Ashemdrek fled and became the **Shardless Church**, devoted to **Malien**, god of light and justice.
+**Background.** Long ago the **Drekos** invaded the world of **Kanator** but after years of warfare, they were defeated. Recently they tried to rise again, but **Gabien Alamoh**, a mighty warrior of the **Ashemdrek Kingdom**  stood against them, but it is said he lost and let the darkness spread. Ashemdrek fell, and people blamed the Alamoh family. The church of Ashemdrek fled and became the **Shardless Church**, devoted to **Malien**, god of light and justice.
 
 **Playable characters.** The player chooses one of **three pilgrims**, one per class. Their stories are bound together through their grandparents.
 
