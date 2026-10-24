@@ -1,6 +1,6 @@
 Enemy,Health Base,Health Per Wave,Health Per Level,Contact Damage Tier,Projectile Damage Tier,Move Speed,Hop Force,Xp Tier,Always Corrupted,Override Corrupted Health Bonus,Corrupted Health Bonus
 Boss,2000,30,40,1,0,0,0,1,FALSE,FALSE,1
-CorruptorAct1,200,10,20,2.5,2,2.5,0,3,TRUE,TRUE,0
+CorruptorAct1,250,10,20,2.5,2,2.5,0,3,TRUE,TRUE,0
 DrekoEye,35,4,20,1.5,1.5,2,0,2,FALSE,FALSE,1
 FlameShooter,40,5,15,2,1.5,2,0,2,FALSE,FALSE,1
 LightDevourerAttacker,100,10,40,4,0,1,0,3,FALSE,FALSE,1
