@@ -40,7 +40,7 @@ MonoBehaviour:
   corruptedOutlineMaterial: {fileID: 2100000, guid: 0e0c822a05944f7e80b4b72440766447, type: 2}
   corruptedOutlineStyle:
     color: {r: 0.72, g: 0.3, b: 1, a: 1}
-    thickness: 1
-    pulseSpeed: 2.5
-    pulseMinAlpha: 0.55
+    thickness: 2
+    pulseSpeed: 0.2
+    pulseMinAlpha: 0.25
     sortingOrderOffset: 1

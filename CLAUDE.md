@@ -118,7 +118,7 @@ The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncount
   - **Quality:** each slot rolls a tier with `EffectQualityScaler.RollQualityTier`, restricted to the tiers left in the pool. The event "random item" reward uses the same roll.
   - **Negative Luck** (Cursed Coin −5, Faikan Boots −1) mirrors the positive curve, `1 / (1 + |Luck| / scale)`: better tiers get rarer, but no weight reaches 0. The old `1 + Luck / scale` hit 0 at −2 and went negative below it, so only Common could roll. The pool has only 6 Commons, so at −2/−3 Luck the shop threw once they ran out, and the map → shop load hung on the black loading screen (Oct 2026).
   - **Tests:** `EffectQualityScalerTests`, `ShopStockTests`.
-  - **Cheats:** `DevTools/Stats/Increase Luck` / `Decrease Luck` (±1, logs the total). On the map they also write `PlayerData`, so the change survives the respawn on entering the next level. Other stat cheats don't, so use those inside a level.
+  - **Cheats:** `DevTools/Stats/<Increase +1 | Decrease -1 | Increase +10 | Increase +50>/<Stat>`, one item per stat (`DeveloperCheats.ChangeStat`, logs the total). On the map they also write `PlayerData`, so the change survives the respawn on entering the next level.
 
 ### Combat/effect pipeline
 

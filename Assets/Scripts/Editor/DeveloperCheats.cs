@@ -69,157 +69,114 @@ public class DeveloperCheats
         }
     }
 
-    [MenuItem("DevTools/Stats/Increase Max Health")]
-    public static void IncreaseMaxHealth()
+    // --- Stats: one menu per amount, one item per stat (Cleave is retired, so it's left out) ---
+
+    [MenuItem("DevTools/Stats/Increase +1/MaxHealth")] public static void Increase1MaxHealth() => ChangeStat(StatType.MaxHealth, 1);
+    [MenuItem("DevTools/Stats/Increase +1/MeleeDamage")] public static void Increase1MeleeDamage() => ChangeStat(StatType.MeleeDamage, 1);
+    [MenuItem("DevTools/Stats/Increase +1/AttackSpeed")] public static void Increase1AttackSpeed() => ChangeStat(StatType.AttackSpeed, 1);
+    [MenuItem("DevTools/Stats/Increase +1/MoveSpeed")] public static void Increase1MoveSpeed() => ChangeStat(StatType.MoveSpeed, 1);
+    [MenuItem("DevTools/Stats/Increase +1/DashCooldown")] public static void Increase1DashCooldown() => ChangeStat(StatType.DashCooldown, 1);
+    [MenuItem("DevTools/Stats/Increase +1/GraceAffinity")] public static void Increase1GraceAffinity() => ChangeStat(StatType.GraceAffinity, 1);
+    [MenuItem("DevTools/Stats/Increase +1/Armor")] public static void Increase1Armor() => ChangeStat(StatType.Armor, 1);
+    [MenuItem("DevTools/Stats/Increase +1/ExperienceToLevelUpReduction")] public static void Increase1ExperienceToLevelUpReduction() => ChangeStat(StatType.ExperienceToLevelUpReduction, 1);
+    [MenuItem("DevTools/Stats/Increase +1/Luck")] public static void Increase1Luck() => ChangeStat(StatType.Luck, 1);
+    [MenuItem("DevTools/Stats/Increase +1/RangedDamage")] public static void Increase1RangedDamage() => ChangeStat(StatType.RangedDamage, 1);
+    [MenuItem("DevTools/Stats/Increase +1/Range")] public static void Increase1Range() => ChangeStat(StatType.Range, 1);
+    [MenuItem("DevTools/Stats/Increase +1/Pierce")] public static void Increase1Pierce() => ChangeStat(StatType.Pierce, 1);
+    [MenuItem("DevTools/Stats/Increase +1/MagicDamage")] public static void Increase1MagicDamage() => ChangeStat(StatType.MagicDamage, 1);
+    [MenuItem("DevTools/Stats/Increase +1/HealthRegen")] public static void Increase1HealthRegen() => ChangeStat(StatType.HealthRegen, 1);
+    [MenuItem("DevTools/Stats/Increase +1/LifeSteal")] public static void Increase1LifeSteal() => ChangeStat(StatType.LifeSteal, 1);
+    [MenuItem("DevTools/Stats/Increase +1/SkillDuration")] public static void Increase1SkillDuration() => ChangeStat(StatType.SkillDuration, 1);
+    [MenuItem("DevTools/Stats/Increase +1/HealingReceived")] public static void Increase1HealingReceived() => ChangeStat(StatType.HealingReceived, 1);
+    [MenuItem("DevTools/Stats/Increase +1/PickupRange")] public static void Increase1PickupRange() => ChangeStat(StatType.PickupRange, 1);
+    [MenuItem("DevTools/Stats/Increase +1/MastowAffinity")] public static void Increase1MastowAffinity() => ChangeStat(StatType.MastowAffinity, 1);
+    [MenuItem("DevTools/Stats/Increase +1/ShopItemDiscount")] public static void Increase1ShopItemDiscount() => ChangeStat(StatType.ShopItemDiscount, 1);
+    [MenuItem("DevTools/Stats/Increase +1/Retribution")] public static void Increase1Retribution() => ChangeStat(StatType.Retribution, 1);
+    [MenuItem("DevTools/Stats/Increase +1/Evasion")] public static void Increase1Evasion() => ChangeStat(StatType.Evasion, 1);
+
+    [MenuItem("DevTools/Stats/Decrease -1/MaxHealth")] public static void Decrease1MaxHealth() => ChangeStat(StatType.MaxHealth, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/MeleeDamage")] public static void Decrease1MeleeDamage() => ChangeStat(StatType.MeleeDamage, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/AttackSpeed")] public static void Decrease1AttackSpeed() => ChangeStat(StatType.AttackSpeed, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/MoveSpeed")] public static void Decrease1MoveSpeed() => ChangeStat(StatType.MoveSpeed, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/DashCooldown")] public static void Decrease1DashCooldown() => ChangeStat(StatType.DashCooldown, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/GraceAffinity")] public static void Decrease1GraceAffinity() => ChangeStat(StatType.GraceAffinity, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/Armor")] public static void Decrease1Armor() => ChangeStat(StatType.Armor, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/ExperienceToLevelUpReduction")] public static void Decrease1ExperienceToLevelUpReduction() => ChangeStat(StatType.ExperienceToLevelUpReduction, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/Luck")] public static void Decrease1Luck() => ChangeStat(StatType.Luck, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/RangedDamage")] public static void Decrease1RangedDamage() => ChangeStat(StatType.RangedDamage, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/Range")] public static void Decrease1Range() => ChangeStat(StatType.Range, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/Pierce")] public static void Decrease1Pierce() => ChangeStat(StatType.Pierce, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/MagicDamage")] public static void Decrease1MagicDamage() => ChangeStat(StatType.MagicDamage, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/HealthRegen")] public static void Decrease1HealthRegen() => ChangeStat(StatType.HealthRegen, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/LifeSteal")] public static void Decrease1LifeSteal() => ChangeStat(StatType.LifeSteal, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/SkillDuration")] public static void Decrease1SkillDuration() => ChangeStat(StatType.SkillDuration, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/HealingReceived")] public static void Decrease1HealingReceived() => ChangeStat(StatType.HealingReceived, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/PickupRange")] public static void Decrease1PickupRange() => ChangeStat(StatType.PickupRange, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/MastowAffinity")] public static void Decrease1MastowAffinity() => ChangeStat(StatType.MastowAffinity, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/ShopItemDiscount")] public static void Decrease1ShopItemDiscount() => ChangeStat(StatType.ShopItemDiscount, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/Retribution")] public static void Decrease1Retribution() => ChangeStat(StatType.Retribution, -1);
+    [MenuItem("DevTools/Stats/Decrease -1/Evasion")] public static void Decrease1Evasion() => ChangeStat(StatType.Evasion, -1);
+
+    [MenuItem("DevTools/Stats/Increase +10/MaxHealth")] public static void Increase10MaxHealth() => ChangeStat(StatType.MaxHealth, 10);
+    [MenuItem("DevTools/Stats/Increase +10/MeleeDamage")] public static void Increase10MeleeDamage() => ChangeStat(StatType.MeleeDamage, 10);
+    [MenuItem("DevTools/Stats/Increase +10/AttackSpeed")] public static void Increase10AttackSpeed() => ChangeStat(StatType.AttackSpeed, 10);
+    [MenuItem("DevTools/Stats/Increase +10/MoveSpeed")] public static void Increase10MoveSpeed() => ChangeStat(StatType.MoveSpeed, 10);
+    [MenuItem("DevTools/Stats/Increase +10/DashCooldown")] public static void Increase10DashCooldown() => ChangeStat(StatType.DashCooldown, 10);
+    [MenuItem("DevTools/Stats/Increase +10/GraceAffinity")] public static void Increase10GraceAffinity() => ChangeStat(StatType.GraceAffinity, 10);
+    [MenuItem("DevTools/Stats/Increase +10/Armor")] public static void Increase10Armor() => ChangeStat(StatType.Armor, 10);
+    [MenuItem("DevTools/Stats/Increase +10/ExperienceToLevelUpReduction")] public static void Increase10ExperienceToLevelUpReduction() => ChangeStat(StatType.ExperienceToLevelUpReduction, 10);
+    [MenuItem("DevTools/Stats/Increase +10/Luck")] public static void Increase10Luck() => ChangeStat(StatType.Luck, 10);
+    [MenuItem("DevTools/Stats/Increase +10/RangedDamage")] public static void Increase10RangedDamage() => ChangeStat(StatType.RangedDamage, 10);
+    [MenuItem("DevTools/Stats/Increase +10/Range")] public static void Increase10Range() => ChangeStat(StatType.Range, 10);
+    [MenuItem("DevTools/Stats/Increase +10/Pierce")] public static void Increase10Pierce() => ChangeStat(StatType.Pierce, 10);
+    [MenuItem("DevTools/Stats/Increase +10/MagicDamage")] public static void Increase10MagicDamage() => ChangeStat(StatType.MagicDamage, 10);
+    [MenuItem("DevTools/Stats/Increase +10/HealthRegen")] public static void Increase10HealthRegen() => ChangeStat(StatType.HealthRegen, 10);
+    [MenuItem("DevTools/Stats/Increase +10/LifeSteal")] public static void Increase10LifeSteal() => ChangeStat(StatType.LifeSteal, 10);
+    [MenuItem("DevTools/Stats/Increase +10/SkillDuration")] public static void Increase10SkillDuration() => ChangeStat(StatType.SkillDuration, 10);
+    [MenuItem("DevTools/Stats/Increase +10/HealingReceived")] public static void Increase10HealingReceived() => ChangeStat(StatType.HealingReceived, 10);
+    [MenuItem("DevTools/Stats/Increase +10/PickupRange")] public static void Increase10PickupRange() => ChangeStat(StatType.PickupRange, 10);
+    [MenuItem("DevTools/Stats/Increase +10/MastowAffinity")] public static void Increase10MastowAffinity() => ChangeStat(StatType.MastowAffinity, 10);
+    [MenuItem("DevTools/Stats/Increase +10/ShopItemDiscount")] public static void Increase10ShopItemDiscount() => ChangeStat(StatType.ShopItemDiscount, 10);
+    [MenuItem("DevTools/Stats/Increase +10/Retribution")] public static void Increase10Retribution() => ChangeStat(StatType.Retribution, 10);
+    [MenuItem("DevTools/Stats/Increase +10/Evasion")] public static void Increase10Evasion() => ChangeStat(StatType.Evasion, 10);
+
+    [MenuItem("DevTools/Stats/Increase +50/MaxHealth")] public static void Increase50MaxHealth() => ChangeStat(StatType.MaxHealth, 50);
+    [MenuItem("DevTools/Stats/Increase +50/MeleeDamage")] public static void Increase50MeleeDamage() => ChangeStat(StatType.MeleeDamage, 50);
+    [MenuItem("DevTools/Stats/Increase +50/AttackSpeed")] public static void Increase50AttackSpeed() => ChangeStat(StatType.AttackSpeed, 50);
+    [MenuItem("DevTools/Stats/Increase +50/MoveSpeed")] public static void Increase50MoveSpeed() => ChangeStat(StatType.MoveSpeed, 50);
+    [MenuItem("DevTools/Stats/Increase +50/DashCooldown")] public static void Increase50DashCooldown() => ChangeStat(StatType.DashCooldown, 50);
+    [MenuItem("DevTools/Stats/Increase +50/GraceAffinity")] public static void Increase50GraceAffinity() => ChangeStat(StatType.GraceAffinity, 50);
+    [MenuItem("DevTools/Stats/Increase +50/Armor")] public static void Increase50Armor() => ChangeStat(StatType.Armor, 50);
+    [MenuItem("DevTools/Stats/Increase +50/ExperienceToLevelUpReduction")] public static void Increase50ExperienceToLevelUpReduction() => ChangeStat(StatType.ExperienceToLevelUpReduction, 50);
+    [MenuItem("DevTools/Stats/Increase +50/Luck")] public static void Increase50Luck() => ChangeStat(StatType.Luck, 50);
+    [MenuItem("DevTools/Stats/Increase +50/RangedDamage")] public static void Increase50RangedDamage() => ChangeStat(StatType.RangedDamage, 50);
+    [MenuItem("DevTools/Stats/Increase +50/Range")] public static void Increase50Range() => ChangeStat(StatType.Range, 50);
+    [MenuItem("DevTools/Stats/Increase +50/Pierce")] public static void Increase50Pierce() => ChangeStat(StatType.Pierce, 50);
+    [MenuItem("DevTools/Stats/Increase +50/MagicDamage")] public static void Increase50MagicDamage() => ChangeStat(StatType.MagicDamage, 50);
+    [MenuItem("DevTools/Stats/Increase +50/HealthRegen")] public static void Increase50HealthRegen() => ChangeStat(StatType.HealthRegen, 50);
+    [MenuItem("DevTools/Stats/Increase +50/LifeSteal")] public static void Increase50LifeSteal() => ChangeStat(StatType.LifeSteal, 50);
+    [MenuItem("DevTools/Stats/Increase +50/SkillDuration")] public static void Increase50SkillDuration() => ChangeStat(StatType.SkillDuration, 50);
+    [MenuItem("DevTools/Stats/Increase +50/HealingReceived")] public static void Increase50HealingReceived() => ChangeStat(StatType.HealingReceived, 50);
+    [MenuItem("DevTools/Stats/Increase +50/PickupRange")] public static void Increase50PickupRange() => ChangeStat(StatType.PickupRange, 50);
+    [MenuItem("DevTools/Stats/Increase +50/MastowAffinity")] public static void Increase50MastowAffinity() => ChangeStat(StatType.MastowAffinity, 50);
+    [MenuItem("DevTools/Stats/Increase +50/ShopItemDiscount")] public static void Increase50ShopItemDiscount() => ChangeStat(StatType.ShopItemDiscount, 50);
+    [MenuItem("DevTools/Stats/Increase +50/Retribution")] public static void Increase50Retribution() => ChangeStat(StatType.Retribution, 50);
+    [MenuItem("DevTools/Stats/Increase +50/Evasion")] public static void Increase50Evasion() => ChangeStat(StatType.Evasion, 50);
+
+    private static void ChangeStat(StatType stat, int amount)
     {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.MaxHealth, 30);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Max Health x200")]
-    public static void IncreaseMaxHealth200()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.MaxHealth, 200);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Health Regen")]
-    public static void IncreaseHealthRegen()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression!=null)
-        {
-            playerProgression.UpdateStat(StatType.HealthRegen, 10);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Melee Damage")]
-    public static void IncreaseMeleeDamage()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.MeleeDamage, 10);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Melee Damage x50")]
-    public static void IncreaseMeleeDamage50()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.MeleeDamage, 50);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Ranged Damage")]
-    public static void IncreaseRangedDamage()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.RangedDamage, 10);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Skill Duration")]
-    public static void IncreaseSkillDuration()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.SkillDuration, 10);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Lifesteal")]
-    public static void IncreaseSkillLifesteal()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.LifeSteal, 10);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Attack Speed")]
-    public static void IncreaseAttackSpeed()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.AttackSpeed, 1);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Dash Cooldown")]
-    public static void IncreaseDashCooldown()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.DashCooldown, 1);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Move Speed")]
-    public static void IncreaseMoveSpeed()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.MoveSpeed, 1);
-        }
-    }
-    
-
-    [MenuItem("DevTools/Stats/Increase Luck")]
-    public static void IncreaseLuck() => ChangeLuck(1);
-
-    // Negative Luck makes shop and event items rarer (see EffectQualityScaler) and shrinks the shop
-    [MenuItem("DevTools/Stats/Decrease Luck")]
-    public static void DecreaseLuck() => ChangeLuck(-1);
-
-    private static void ChangeLuck(int amount)
-    {
+        if (PlayerManager.Instance == null) return;
         var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
         if (playerProgression == null) return;
 
-        playerProgression.UpdateStat(StatType.Luck, amount);
-        Debug.Log($"[DevTools] Luck is now {playerProgression.GetStatTotal(StatType.Luck)}");
+        playerProgression.UpdateStat(stat, amount);
+        Debug.Log($"[DevTools] {stat} is now {playerProgression.GetStatTotal(stat)}");
 
         // The next level respawns the player from PlayerData, which is only written when a level ends,
-        // so on the map write it now or the change is lost on entering a shop
+        // so on the map write it now or the change is lost on entering the next level
         if (PlayerManager.Instance.IsPlayerOnMap)
         {
             PlayerManager.Instance.SaveAllPlayerComponentStates();
-        }
-    }
-
-        [MenuItem("DevTools/Stats/Increase Retribution")]
-    public static void IncreaseRetribution()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.Retribution, 1);
-        }
-    }
-
-    [MenuItem("DevTools/Stats/Increase Evasion +10")]
-    public static void IncreaseEvasion()
-    {
-        var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-        if (playerProgression != null)
-        {
-            playerProgression.UpdateStat(StatType.Evasion, 10);
         }
     }
 
