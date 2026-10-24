@@ -82,10 +82,10 @@ namespace Game.Combat {
             // Every state loader has run by now, so the stats include item modifiers and this is
             // the first point where maxHealth can be trusted.
             //
-            // Assign it directly rather than through SetMaxHealth: that method proportionally
-            // rescales currentHealth, which is correct for a max change during play (an upgrade,
-            // an item picked up) but wrong for initial setup - applying it here is what was
-            // scaling saved health by the ratio between the item-less and real max.
+            // Assign it directly rather than through SetMaxHealth: that method moves currentHealth
+            // by the change in max, which is correct for a max change during play (an upgrade,
+            // an item picked up) but wrong for initial setup, where the saved health is already
+            // the real value.
             maxHealth = Mathf.Max(1f, playerProgression.GetStatTotal(StatType.MaxHealth));
             armor = playerProgression.GetStatTotal(StatType.Armor);
 
@@ -192,34 +192,21 @@ namespace Game.Combat {
                 return;
             }
 
-            float newCurrent = currentHealth;
-
-            // Avoid division by zero and handle scaling when max increases/decreases
-            if (oldMax > 0f && currentHealth > 0f)
-            {
-                // If player was exactly at full health, keep them full after the change
-                if (Mathf.Approximately(currentHealth, oldMax))
-                {
-                    newCurrent = newMax;
-                }
-                else
-                {
-                    float ratio = newMax / oldMax;
-                    newCurrent = currentHealth * ratio;
-
-                    // When increasing max health the requirement is to round down the resulting current health
-                    if (ratio > 1f)
-                    {
-                        newCurrent = Mathf.Floor(newCurrent);
-                    }
-                }
-            }
-
-            // Apply new max and clamp current between 0 and newMax
             maxHealth = newMax;
-            currentHealth = Mathf.Clamp(newCurrent, 0f, maxHealth);
+            currentHealth = CalculateHealthAfterMaxChange(currentHealth, oldMax, newMax);
             onHealthChanged?.Invoke(currentHealth, maxHealth);
-            
+        }
+
+        /// <summary>
+        /// Current health after max health changes during play: it moves by the same amount as the max,
+        /// so +5 Max Health at 5/15 gives 10/20 and the missing health stays the same. It used to scale
+        /// by newMax / oldMax and round down, so the same upgrade at 5/15 gave 6/20 (and 10/20 gave 12/25).
+        /// A max loss never kills: a living player keeps at least 1. A dead player stays at 0.
+        /// </summary>
+        public static float CalculateHealthAfterMaxChange(float current, float oldMax, float newMax)
+        {
+            if (current <= 0f) return 0f;
+            return Mathf.Clamp(current + (newMax - oldMax), Mathf.Min(1f, newMax), newMax);
         }
 
         private void SetArmor(int value)
@@ -469,9 +456,8 @@ namespace Game.Combat {
             // Load order across IDependentStateLoader components follows their order on the
             // player prefab, and PlayerHealth sits before EffectStore. Asking PlayerProgression
             // for MaxHealth at this point returns the base stat without any item modifiers, so
-            // the max would be wrong - and the later correction went through SetMaxHealth, whose
-            // proportional rescale then silently multiplied the player's health on every single
-            // level transition. The derivation happens in InitializeAfterStateReady instead,
+            // the max would be wrong - and the later correction went through SetMaxHealth, which
+            // then changed the player's health on every single level transition. The derivation happens in InitializeAfterStateReady instead,
             // which by contract runs once all state loaders have finished.
             pendingSavedHealth = GameSession.Instance.LoadCurrentHealth();
         }

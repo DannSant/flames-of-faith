@@ -86,11 +86,13 @@ namespace Game.UI {
             }
         }
 
+        // Unscaled time: a Max Health level-up is picked while the game is paused, and with scaled time
+        // the bar froze on the old health over the new max (10/25) until the window closed.
         private IEnumerator AnimateSliderValue(float target)
         {
             while (Mathf.Abs(healthSlider.value - target) > 0.01f)
             {
-                healthSlider.value = Mathf.Lerp(healthSlider.value, target, Time.deltaTime * fillSpeed);
+                healthSlider.value = Mathf.Lerp(healthSlider.value, target, Time.unscaledDeltaTime * fillSpeed);
                 healthText.text = FormatHealth(healthSlider.value, healthSlider.maxValue);
                 yield return null;
             }
