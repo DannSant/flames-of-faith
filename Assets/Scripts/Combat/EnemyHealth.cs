@@ -141,8 +141,8 @@ namespace Game.Combat
 
         private void InflictExtraDamage(float damage)
         {
-            float extraDamage = Mathf.Max(damage * (extraDamageTakenPercentage), 1f);
-            currentHealth -= damage;
+            float extraDamage = CalculateExtraDamage(damage, extraDamageTakenPercentage);
+            currentHealth -= extraDamage;
             onHealthChanged?.Invoke(currentHealth, maxHealth);
             healthbar.SetHealth(currentHealth, maxHealth);
             DamageNumberSpawner.Instance.SpawnFrostDebuffDamageNumber(transform.position, extraDamage);
@@ -152,6 +152,12 @@ namespace Game.Combat
                 DetectDeath();
             }
         }
+
+        /// <summary>
+        /// The extra damage Frost adds on top of a hit: <paramref name="percentage"/> of it, at least 1. It used to
+        /// subtract the hit's damage a second time instead, so Frost doubled every hit whatever its strength.
+        /// </summary>
+        public static float CalculateExtraDamage(float damage, float percentage) => Mathf.Max(damage * percentage, 1f);
 
         public void SetExtraDamageTakenPercentage(float percentage)
         {
