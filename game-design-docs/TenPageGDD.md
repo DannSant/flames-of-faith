@@ -84,7 +84,7 @@ Main menu ──> Class select ──> Overworld map (Act N)
                     ┌──────────────┼───────────────┬───────────────┐
                  Combat         Shop / Campfire   Treasure / Event   Boss
                  (waves)        / Holy Altar                         │
-                    │                                                ├─> next act (full game)
+                    │                                                ├─> next act? (open question 14)
                     └────────── back to the map ◄────────────────────┘
 Death or final victory ──> Favors banked ──> Skill tree (main menu) ──> new run
 ```
@@ -428,3 +428,8 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 11. **Epic and Legendary items:** none exist yet.
 12. **Localization extras:** whether Chinese and Japanese make it into 1.0.
 13. **Lore timeline:** Taio'Sandir's lore says the Drekos came in the Dark Age, about 6,000 years ago, yet Gabien fought "the Drekos invasion" only two generations ago. Was that a second invasion, or a war against Drekos already in the world?
+14. **Run structure across acts (decision needed):** two options.
+    - **One run through all acts in a row:** a run goes Act I → IV without stopping, and death means starting over from Act I. Builds grow across the whole game and the ending is earned in one sitting, but runs get long (4 acts) and early acts get replayed a lot.
+    - **One act per run:** after beating an act, the player goes back to the main menu and chooses to replay a cleared act or start the next one. Runs stay short and later acts are reachable without replaying Act I. Open points with this option: what a new act starts with (a fresh level 1 kit or a scaled starting point), how difficulty is set, and how Favors are paced.
+
+    The choice affects run saves, difficulty scaling (`levelsBeaten`, the expected-player curve), Favor pacing, the cutscene placement and the achievements.
