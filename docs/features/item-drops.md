@@ -71,8 +71,14 @@ One table in the balance sheet lists every lootable item and says where it can d
 ## Handoff
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
-- **Done:**
+- **Done:** loot core (`Scripts/Loot/`, `Resources/Loot/`), the four sources rewired through `ItemProvider`, the hand-written lists and `Effect.availableForShop` removed, `EffectQualityScaler` folded into `LootRoller`, balance tables Items / LootSources / Loot and Report_LootOdds, CLAUDE.md "Item drops". Workbook: tabs Items (130), LootSources (131), Loot (132) with values, checkboxes and protection (Quality / Buy Price / Unlocked grey and locked), Report_LootOdds (133, protected, filled by Unity), Read Me rows. EditMode: 728/728.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - Owner: Push Table Notes (or Push All) to fill the new tabs' explanation panels and Report_LootOdds.
+  - Designer: set Min Levels Beaten per item (all 0 now), and look at Report_LootOdds: Luck Scale 2 is steep (Luck 5 makes ~70% of enemy pickups Heroic).
+  - Item weights start at 1: the old pickup weights (2-20) mostly encoded rarity, which the quality weights now do.
+  - The 3 locked lootable items never drop until something unlocks them during play (nothing does yet).
+- **Commits / branch:** `feature/item-drops`: 29a0d98 (spec), 139f297, c768c81, db20b90, adad920, 0ab39bb.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - The migration ran once (`ItemDropSeed`, deleted in c768c81). New items only need Sync Item Drop Table.
+  - Re-saving prefabs in 6.3 rewrites unrelated ones (`serializedVersion: 2`, `m_MaskInteraction`); restore those.
+- **Manual tests added to todo.md:** "Item drops (2026-10-24)" (todo.md left uncommitted: it holds the owner's own edits).
