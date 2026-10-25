@@ -1,6 +1,7 @@
 using Game.AI;
 using Game.Combat;
 using Game.Effects;
+using Game.Effects.Abilities;
 using Game.Enemies;
 using Game.Loot;
 using Game.Progression;
@@ -39,6 +40,7 @@ namespace Game.BalanceData.Editor
                 EnemyHealth(enemies, lastLevel, maxWaves),
                 Experience(experience),
                 LootOdds(Resources.Load<ItemDropTable>(ItemDropTable.ResourcePath), Resources.Load<LootSettings>(LootSettings.ResourcePath), lastLevel),
+                ItemDamage(ItemDamageInputs()),
             };
         }
 
@@ -142,5 +144,110 @@ namespace Game.BalanceData.Editor
             }
             return report;
         }
+
+        private static readonly int[] DamageStatPoints = { 0, 10, 20 };
+
+        /// <summary>What one spawned attack deals before Grace: base, the damage stat it scales with, and how much.</summary>
+        public struct DamageInput
+        {
+            public string source;
+            public string name;
+            public int tier;
+            public int baseDamage;
+            public WeaponClass damageStat;
+            public float statScale;
+            /// <summary>Damage multiplier at 2 copies of the item (stack scaling); 1 for abilities.</summary>
+            public float twoStackMultiplier;
+        }
+
+        /// <summary>
+        /// The damage of every item behavior and of the dash and explosion abilities whose prefab damage moved to
+        /// their spawner, at 0 / 10 / 20 points of their damage stat and 1 / 2 copies:
+        /// floor((base + points x scale) x stack multiplier), at least 1, as DamageCalculator computes it at 0 Grace.
+        /// </summary>
+        public static BalanceTable ItemDamage(List<DamageInput> inputs)
+        {
+            var table = new BalanceTable("ItemDamage", new[] { "Source", "Name", "Tier", "Damage Stat", "Stat Points", "Copies", "Damage" });
+            foreach (var input in inputs.OrderBy(i => i.source, System.StringComparer.Ordinal).ThenBy(i => i.name, System.StringComparer.Ordinal).ThenBy(i => i.tier))
+            {
+                foreach (int points in DamageStatPoints)
+                {
+                    int copiesMax = input.source == "Item" ? 2 : 1;
+                    for (int copies = 1; copies <= copiesMax; copies++)
+                    {
+                        float multiplier = copies == 1 ? 1f : input.twoStackMultiplier;
+                        int damage = Mathf.Max(1, Mathf.FloorToInt((input.baseDamage + points * input.statScale) * multiplier));
+                        table.AddRow(input.source, input.name, input.tier.ToString(), input.damageStat.ToString(), points.ToString(),
+                            copies.ToString(), damage.ToString());
+                    }
+                }
+            }
+            return table;
+        }
+
+        // --- Where each attack's damage comes from (the damage-ownership move changes only this part) ---------------
+
+        private static DamageSourceData SourceData(string name) =>
+            Resources.Load<DamageSourceData>(BalanceTables.DamageSourcesFolder + "/" + name);
+
+        public static List<DamageInput> ItemDamageInputs()
+        {
+            var inputs = new List<DamageInput>();
+
+            // Item behaviors: the spawned prefab's data, times the item's scaling value
+            foreach (var effect in BalanceTables.LoadAll<Effect>(BalanceTables.EffectsFolder))
+            {
+                foreach (var behavior in effect.Behaviors.Where(b => b != null && !(b is AbilityBehavior)))
+                {
+                    var prefabField = FieldAccess.FindField(behavior.GetType(), "prefabToSpawn");
+                    var prefab = prefabField?.GetValue(behavior) as GameObject;
+                    var source = prefab != null ? prefab.GetComponentInChildren<DamageSourceBase>(true) : null;
+                    if (source == null || source.Data == null) continue;
+                    var rules = (List<StackScalingRule>)FieldAccess.Get(behavior, "stackScaling");
+                    inputs.Add(new DamageInput
+                    {
+                        source = "Item", name = effect.name + " / " + behavior.name, tier = 0,
+                        baseDamage = source.Data.BaseDamage, damageStat = source.Data.WeaponClass,
+                        statScale = source.Data.AttackScale * (effect.scalingValue > 0f ? effect.scalingValue : 1f),
+                        twoStackMultiplier = new StackScaling(rules, 2).Get(StackScalingTarget.Damage),
+                    });
+                }
+            }
+
+            // Dashes and the Fire Tornado explosion: tier base damage, the prefab's stat and scale
+            var trap = SourceData("Trap");
+            var flame = SourceData("TrailFlame");
+            var hitbox = SourceData("PlayerWarrior_DashHitbox");
+            var explosion = SourceData("FireballExplotion");
+            foreach (var ability in BalanceTables.LoadAll<AbilityBehavior>(BalanceTables.EffectBehaviorsFolder))
+            {
+                for (int tier = 0; tier < ability.TierCount; tier++)
+                {
+                    switch (ability)
+                    {
+                        case TrapStepAbility trapStep:
+                            inputs.Add(Ability(ability, tier, trapStep.GetTier(tier).trapDamage, trap.WeaponClass, trap.AttackScale));
+                            break;
+                        case FlameDashAbility flameDash:
+                            inputs.Add(Ability(ability, tier, flameDash.GetTier(tier).flameDamage, flame.WeaponClass, flame.AttackScale));
+                            break;
+                        case CrusaderChargeAbility charge:
+                            var row = charge.GetTier(tier);
+                            inputs.Add(Ability(ability, tier, row.damage, hitbox.WeaponClass, row.meleeDamageScale));
+                            break;
+                        case FireTornadoesAbility tornadoes:
+                            inputs.Add(Ability(ability, tier, tornadoes.GetTier(tier).tornadoExplosionDamage, explosion.WeaponClass, explosion.AttackScale));
+                            break;
+                    }
+                }
+            }
+            return inputs;
+        }
+
+        private static DamageInput Ability(AbilityBehavior ability, int tier, int baseDamage, WeaponClass stat, float scale) => new()
+        {
+            source = "Ability", name = ability.name, tier = tier, baseDamage = baseDamage, damageStat = stat, statScale = scale,
+            twoStackMultiplier = 1f,
+        };
     }
 }

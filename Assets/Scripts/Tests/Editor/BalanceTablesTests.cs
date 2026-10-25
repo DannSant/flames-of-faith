@@ -61,7 +61,7 @@ namespace Game.Tests
         public void Reports_UseTheGamesFormulas()
         {
             var reports = BalanceReports.All();
-            CollectionAssert.AreEquivalent(new[] { "EnemyDamage", "EnemyHealth", "Experience", "LootOdds" }, reports.Select(r => r.Name));
+            CollectionAssert.AreEquivalent(new[] { "EnemyDamage", "EnemyHealth", "Experience", "LootOdds", "ItemDamage" }, reports.Select(r => r.Name));
             foreach (var report in reports) Assert.IsNotEmpty(report.Rows, report.Name);
 
             var slime = BalanceTables.LoadAll<EnemyData>(BalanceTables.EnemiesFolder).Single(e => e.enemyType == EnemyType.SlimeChaser);
