@@ -36,6 +36,20 @@ namespace Game.Tests
             }
         }
 
+        /// <summary>
+        /// Every spawning item can be owned more than once, so a second copy must do something. Consecrate and Holy
+        /// Missiles had no rule (found in the items step 5 play-test), so their extra copies did nothing.
+        /// </summary>
+        [Test]
+        public void EverySpawningBehavior_HasAStackingRule()
+        {
+            foreach (var behavior in Load<SpawningEffectBehavior>(BehaviorsPath))
+            {
+                int rules = new SerializedObject(behavior).FindProperty("stackScaling").arraySize;
+                Assert.Greater(rules, 0, $"{behavior.name} has no stacking rule (ItemBehaviorStacking), so extra copies do nothing");
+            }
+        }
+
         [Test]
         public void EveryClass_HasADashDamageStat()
         {

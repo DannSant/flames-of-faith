@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: SpawnHolyMissiles
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehavior_SpawnOnDamage
   behaviorId: SpawnHolyMissiles
-  stackScaling: []
+  stackScaling:
+  - target: 0
+    perStack: 1
+    mode: 0
+    maxTotal: 0
   prefabToSpawn: {fileID: 5262266157608048503, guid: 0fd8d56699f6083429a35c36cb88c83b, type: 3}
   damage:
     baseDamage: 1

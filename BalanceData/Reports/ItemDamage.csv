@@ -48,11 +48,11 @@ Ability,TrapStepAbility,3,Ranged,0,1,12
 Ability,TrapStepAbility,3,Ranged,10,1,19
 Ability,TrapStepAbility,3,Ranged,20,1,26
 Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,0,1,5
-Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,0,2,5
+Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,0,2,10
 Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,10,1,15
-Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,10,2,15
+Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,10,2,30
 Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,20,1,25
-Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,20,2,25
+Item,Glyph of Consecrate / SpawnHolyCross,0,Magic,20,2,50
 Item,Glyph of Ether Thunder / SpawnEtherThunderOvertime,0,Magic,0,1,10
 Item,Glyph of Ether Thunder / SpawnEtherThunderOvertime,0,Magic,0,2,12
 Item,Glyph of Ether Thunder / SpawnEtherThunderOvertime,0,Magic,10,1,20
@@ -84,11 +84,11 @@ Item,Glyph of Strafe / SpawnArrowsOnDash,0,Ranged,10,2,24
 Item,Glyph of Strafe / SpawnArrowsOnDash,0,Ranged,20,1,22
 Item,Glyph of Strafe / SpawnArrowsOnDash,0,Ranged,20,2,44
 Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,0,1,5
-Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,0,2,5
+Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,0,2,10
 Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,10,1,15
-Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,10,2,15
+Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,10,2,30
 Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,20,1,25
-Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,20,2,25
+Item,Glyph of Swords of Fire / SpawnOrbitingSwords,0,Melee,20,2,50
 Item,Glyph of Vengeance Daggers / SpawnDaggersOnDamageReceived,0,Melee,0,1,5
 Item,Glyph of Vengeance Daggers / SpawnDaggersOnDamageReceived,0,Melee,0,2,10
 Item,Glyph of Vengeance Daggers / SpawnDaggersOnDamageReceived,0,Melee,10,1,25

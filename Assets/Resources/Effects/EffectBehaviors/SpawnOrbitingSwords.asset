@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.SpawnAttachedObjectBehaviorEffect
   behaviorId: SpawnOrbitingSwords
   stackScaling:
-  - target: 0
+  - target: 1
     perStack: 1
     mode: 0
     maxTotal: 0
