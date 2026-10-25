@@ -1,3 +1,5 @@
+// NOTE (Oct 2026): only the retired Effects DB pipeline (Game.Database, [Obsolete]) uses this library and the
+// native sqlite3 plugins in Assets/Plugins. They are deleted together once the sheet-based item pipeline is verified.
 //
 // Copyright (c) 2009-2012 Krueger Systems, Inc.
 // 

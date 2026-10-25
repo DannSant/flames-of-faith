@@ -2,6 +2,7 @@ using Game.AI.Behaviors;
 using Game.Combat;
 using Game.Combat.Elemental;
 using Game.Control;
+using Game.Effects;
 using Game.Enemies;
 using Game.Loot;
 using Game.Progression;
@@ -34,6 +35,9 @@ namespace Game.BalanceData
         public const string ExperienceSettingsPath = "Progression/ExperienceSettings";
         public const string EnemyDamageSettingsPath = "Combat/EnemyDamageSettings";
         public const string DebuffsFolder = "Debuffs";
+        public const string EffectsFolder = "Effects";
+        public const string EffectBehaviorsFolder = "Effects/EffectBehaviors";
+        public const string IconsFolder = "Icons";
         public const string ClassesFolder = "CharacterData";
         public const string CorruptionSettingsPath = "Combat/CorruptionSettings";
         public const string PierceSettingsPath = "Combat/PierceSettings";
@@ -46,6 +50,8 @@ namespace Game.BalanceData
         static BalanceTables()
         {
             CellCodec.ReferenceFolders[typeof(ElementalDebuffData)] = DebuffsFolder;
+            CellCodec.ReferenceFolders[typeof(Sprite)] = IconsFolder;
+            CellCodec.ReferenceFolders[typeof(EffectBehavior)] = EffectBehaviorsFolder;
         }
 
         public static IEnumerable<T> LoadAll<T>(string resourcesPath) where T : Object =>
@@ -156,8 +162,18 @@ namespace Game.BalanceData
                 new AssetTable<CharacterClassData>("Classes", "Class", () => LoadAll<CharacterClassData>(ClassesFolder), c => c.name,
                     "dashCooldown", "dashSpeed", "dashDuration", "dashMaxCharges"),
 
+                // Items (step 5): what each item is. Structure (class kit tier, starting-only) stays in Unity
+                new AssetTable<Effect>("Items", "Item", () => LoadAll<Effect>(EffectsFolder), e => e.name,
+                    "description", "quality", "buyPrice", "sellPrice", "icon", "unlockedByDefault"),
+                new ChildListTable<Effect>("ItemStats", "Item", () => LoadAll<Effect>(EffectsFolder), e => e.name, "effectStatModifiers", true,
+                    ("Stat", "stat"), ("Value", "value"), ("Type", "type")).AllowingEmpty(),
+                new ChildListTable<Effect>("ItemStatBonuses", "Item", () => LoadAll<Effect>(EffectsFolder), e => e.name, "statDependencies", true,
+                    ("Source Stat", "sourceStat"), ("Per Points", "perPoints"), ("Target Stat", "targetStat"), ("Amount", "amount")).AllowingEmpty(),
+                new ChildListTable<Effect>("ItemBehaviors", "Item", () => LoadAll<Effect>(EffectsFolder), e => e.name, "behaviors", true,
+                    ("Behavior", "")).AllowingEmpty(),
+
                 // Item drops (step 4): where and when each lootable item drops, and the odds per source
-                new KeyedListTable<ItemDropTable>("Items", "Item", () => Load<ItemDropTable>(ItemDropTable.ResourcePath), "entries", "item", null,
+                new KeyedListTable<ItemDropTable>("ItemDrops", "Item", () => Load<ItemDropTable>(ItemDropTable.ResourcePath), "entries", "item", null,
                         ("Enemy Pickup", "enemyPickup"), ("Shop", "shop"), ("Treasure", "treasure"), ("Event", "events"),
                         ("Min Levels Beaten", "minLevelsBeaten"), ("Weight", "weight"))
                     .WithInfoColumns(
@@ -181,6 +197,7 @@ namespace Game.BalanceData
         public static ImportPlan Plan(IReadOnlyDictionary<string, BalanceTable> tables, IBalanceStore store)
         {
             var plan = new ImportPlan(store);
+            CellCodec.ClearReferenceCache();
             foreach (var definition in All())
             {
                 if (tables.TryGetValue(definition.Name, out var table))

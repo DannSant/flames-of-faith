@@ -23,6 +23,12 @@ namespace Game.BalanceData
         /// </summary>
         public static readonly System.Collections.Generic.Dictionary<Type, string> ReferenceFolders = new();
 
+        // The assets of each reference folder, loaded once per import (an item table has a reference in every row)
+        private static readonly System.Collections.Generic.Dictionary<(Type, string), Object[]> referenceCache = new();
+
+        /// <summary>Forgets the loaded reference folders; BalanceTables.Plan calls it before every import.</summary>
+        public static void ClearReferenceCache() => referenceCache.Clear();
+
         public static bool IsSupported(Type type) =>
             type == typeof(int) || type == typeof(float) || type == typeof(bool) || type == typeof(string)
             || type.IsEnum || typeof(Object).IsAssignableFrom(type);
@@ -101,7 +107,11 @@ namespace Game.BalanceData
                     error = $"{type.Name} references can't be set from a table (no Resources folder registered for them)";
                     return false;
                 }
-                var matches = Resources.LoadAll(folder, type).Where(o => o != null && o.name == text).Distinct().ToList();
+                if (!referenceCache.TryGetValue((type, folder), out var assets))
+                {
+                    referenceCache[(type, folder)] = assets = Resources.LoadAll(folder, type).Where(o => o != null).Distinct().ToArray();
+                }
+                var matches = assets.Where(o => o.name == text).ToList();
                 if (matches.Count != 1)
                 {
                     error = matches.Count == 0 ? $"no {type.Name} named \"{text}\" in Resources/{folder}" : $"{matches.Count} {type.Name} assets are named \"{text}\"";

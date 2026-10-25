@@ -1,44 +1,195 @@
-Item,Quality,Buy Price,Unlocked,Enemy Pickup,Shop,Treasure,Event,Min Levels Beaten,Weight
-Ancient Talisman Of Power,Heroic,150,TRUE,TRUE,TRUE,FALSE,TRUE,0,1
-Arcana Belt,Common,15,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Blacksmith Tools,Common,15,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Blessed Arrows,Rare,75,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Bloody Amulet,Rare,75,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Book of Vixa's Sight,Rare,75,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Book of the Crusader,Rare,75,FALSE,FALSE,TRUE,FALSE,FALSE,0,1
-Call of the Aylinean,Uncommon,50,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Charisma amulet,Rare,75,TRUE,FALSE,FALSE,TRUE,FALSE,0,1
-Crusader Blessing,Heroic,150,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Cursed Coin,Rare,25,TRUE,TRUE,TRUE,TRUE,TRUE,0,1
-Faikan Boots,Uncommon,25,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Faraclarian Quiver,Common,15,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Fire Arrows,Rare,75,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Flaming Skull of Endurance,Rare,75,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Frost Arrows,Rare,75,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Fustina wand,Common,15,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Glyph of Consecrate,Heroic,150,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Glyph of Ether Thunder,Heroic,150,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Glyph of Holy Missiles,Heroic,150,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Glyph of Holy Orb,Heroic,150,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Glyph of Ley Fracture,Heroic,150,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Glyph of Strafe,Heroic,150,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Glyph of Swords of Fire,Heroic,150,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Glyph of Vengeance Daggers,Heroic,150,TRUE,TRUE,TRUE,TRUE,FALSE,0,1
-Goblet of Sacrifice,Rare,50,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Grace Imbued Necklace,Heroic,150,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Heavy Plate Armor,Uncommon,25,TRUE,TRUE,TRUE,FALSE,TRUE,0,1
-Holy Candle,Heroic,150,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Ley Arrows,Rare,75,TRUE,FALSE,TRUE,TRUE,FALSE,0,1
-Ley Flower,Uncommon,25,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Malien Blessing Of Protection,Heroic,75,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Mask of Evasion,Uncommon,25,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Mastow Potion,Common,15,TRUE,FALSE,TRUE,FALSE,TRUE,0,1
-Necrotic Potion,Rare,75,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Potion of Accuracy,Common,15,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Ring Of Vitality,Heroic,75,TRUE,TRUE,TRUE,FALSE,TRUE,0,1
-Sacred Writtings,Heroic,150,FALSE,FALSE,TRUE,FALSE,FALSE,0,1
-Scepter of the Old Empire,Rare,50,TRUE,FALSE,TRUE,FALSE,FALSE,0,1
-Shadow Touched Talisman,Heroic,50,TRUE,FALSE,TRUE,FALSE,TRUE,0,1
-Steeldawn Shard,Rare,75,FALSE,FALSE,TRUE,FALSE,TRUE,0,1
-Traveler Coin,Uncommon,25,TRUE,TRUE,TRUE,FALSE,FALSE,0,1
-Tribesmen Necklace,Heroic,150,TRUE,TRUE,TRUE,FALSE,TRUE,0,1
+Item,Description,Quality,Buy Price,Sell Price,Icon,Unlocked By Default
+Akeros Graceful Scepter,Powerful scepter that lets humans channel their Grace into deathly flames.,Epic,0,0,AkerosGracefulScepter,FALSE
+Akeros Graceful Scepter +1,Powerful scepter that lets humans channel their Grace into deathly flames.,Epic,0,0,AkerosGracefulScepter,FALSE
+Akeros Graceful Scepter +2,Powerful scepter that lets humans channel their Grace into deathly flames.,Epic,0,0,AkerosGracefulScepter,FALSE
+Akeros Graceful Scepter +3,Powerful scepter that lets humans channel their Grace into deathly flames.,Epic,0,0,AkerosGracefulScepter,FALSE
+Ancient Talisman Of Power,Ancient talisman crafted by the army who fough against the Drekos during the Dark Age,Heroic,150,50,TalismanOfPower,TRUE
+Arcana Belt,A belt created by the Abidor Institute to store Crisalia.,Common,15,5,ArcanaBelt,TRUE
+Archer Emblem,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
+",Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem +1,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
+",Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem +2,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
+",Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem +3,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
+",Epic,0,0,ArcherEmblem,FALSE
+Augur Emblem,"Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every level gained grants +1 _magic_damage_.
+",Epic,0,0,AugurEmblem,FALSE
+Augur Emblem +1,"Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every level gained grants +1 _magic_damage_.
+",Epic,0,0,AugurEmblem,FALSE
+Augur Emblem +2,"Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every level gained grants +1 _magic_damage_.
+",Epic,0,0,AugurEmblem,FALSE
+Augur Emblem +3,"Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every level gained grants +1 _magic_damage_.
+",Epic,0,0,AugurEmblem,FALSE
+Blacksmith Tools,Tools that improve your armor and weapon.,Common,15,5,BlacksmithTools,TRUE
+Blessed Arrows,"Arrows blessed by a poweful spell.
+",Rare,75,15,BlessedArrows,TRUE
+Bloody Amulet,"Powerful amulet created by the Primordials and imbued with forbidden blood magic.
+Gives your weapon a chance to inflict Bleed.",Rare,75,10,BloodyAmulet,TRUE
+Book of Vixa's Sight,"Ancient writings made by old druids in Ashemdrek forests
+",Rare,75,15,BookOfVixasSight,TRUE
+Book of the Crusader,"A holy book written in the times of the Chaos Age by the Glenian Crusaders, still used today for meditation and holy studies",Rare,75,15,BookOfTheCrusader,FALSE
+Call of the Aylinean,"Special trinked found in a forest, it is rumored to summon an Aylinean if you say the proper words. ",Uncommon,50,10,CallOftheAylinean,TRUE
+Charisma amulet,"An elegant jewel, made by the craftsmen of For Shandor in the distant south",Rare,75,15,CharismaAmulet,TRUE
+Crusader Blessing,A poweful blessing bested upon your weapon.,Heroic,150,50,CrusaderBlessing,TRUE
+Cursed Coin,"A coin touched by a terrible being known as a Dawner, men who sell their sould for power but become monsters in the process",Rare,25,10,CursedCoin,TRUE
+Faikan Boots,High quality boots make with Faikan skin,Uncommon,25,10,FaikanBoots,TRUE
+Faraclarian Quiver,Fine quiver crafted by the tribes from Fara Uf'clario,Common,15,5,FaraclarianQuiver,TRUE
+Fire Arrows,"50% chance to inflict Fire, which cause damage over time. This scales with Mastow Afinity (damage and duration)",Rare,75,15,FireArrows,TRUE
+Flaming Skull of Endurance,A strange ornament that emanates mystic energy.,Rare,75,15,FlamingSkullOfEndurance,TRUE
+Frost Arrows,50% chance to inflict Frost in the target which makes them move slower and take more damage. Scales with Mastow Affinity(damage and duration),Rare,75,15,FrostArrows,TRUE
+Fustina wand,"A handcrafted wand made by the elves of Fustina. ",Common,15,5,FustinaWand,TRUE
+Glyph of Barrage,"Skill item. Your special attack releases a ring of arrows dealing _ranged_damage_, then a volley of homing arrows at your marked target. You can't be hurt while drawing.
+",Epic,0,0,ScrollOfBarrage,FALSE
+Glyph of Barrage +1,"Skill item. Your special attack releases a ring of arrows dealing _ranged_damage_, then a volley of homing arrows at your marked target. You can't be hurt while drawing.
+",Epic,0,0,ScrollOfBarrage,FALSE
+Glyph of Barrage +2,"Skill item. Your special attack releases a ring of arrows dealing _ranged_damage_, then a volley of homing arrows at your marked target. You can't be hurt while drawing.
+",Epic,0,0,ScrollOfBarrage,FALSE
+Glyph of Barrage +3,"Skill item. Your special attack releases a ring of arrows dealing _ranged_damage_, then a volley of homing arrows at your marked target. You can't be hurt while drawing.
+",Epic,0,0,ScrollOfBarrage,FALSE
+Glyph of Consecrate,"Skill item. Chance to Spawn a number of holy crosses that damages enemies who cross it. Scales with _magic_damage_. T
+he crosses last longer with more Skill Duration",Heroic,150,50,Concecrate,TRUE
+Glyph of Crusader Charge,"Skill item. Your dash charges through enemies dealing damage and knocking them back.
+",Epic,0,0,ScrollOfCrusaderCharge,FALSE
+Glyph of Crusader Charge +1,"Skill item. Your dash charges through enemies dealing damage and knocking them back.
+",Epic,0,0,ScrollOfCrusaderCharge,FALSE
+Glyph of Crusader Charge +2,"Skill item. Your dash charges through enemies dealing damage and knocking them back.
+",Epic,0,0,ScrollOfCrusaderCharge,FALSE
+Glyph of Crusader Charge +3,"Skill item. Your dash charges through enemies dealing damage and knocking them back.
+",Epic,0,0,ScrollOfCrusaderCharge,FALSE
+Glyph of Crusader Strike,"Skill item. Your basic attack swings the sword dealing _melee_damage_. May inflict Bleed.
+",Epic,0,0,ScrollOfCrusaderStrike,FALSE
+Glyph of Crusader Strike +1,"Skill item. Your basic attack swings the sword dealing _melee_damage_. May inflict Bleed.
+",Epic,0,0,ScrollOfCrusaderStrike,FALSE
+Glyph of Crusader Strike +2,"Skill item. Your basic attack swings the sword dealing _melee_damage_. May inflict Bleed.
+",Epic,0,0,ScrollOfCrusaderStrike,FALSE
+Glyph of Crusader Strike +3,"Skill item. Your basic attack swings the sword dealing _melee_damage_. May inflict Bleed.
+",Epic,0,0,ScrollOfCrusaderStrike,FALSE
+Glyph of Ether Thunder,"Skill item. Summons an Ether Thunder every 10 seconds over a random nearby enemy dealing _magic_damage_. Inflicts Ley Charge debuff,
+More item will increase damage done by the thunder",Heroic,150,50,ScrollOfEtherFocus,TRUE
+Glyph of Fire Tornadoes,"Skill item. Your special attack summons fire tornadoes around you that seek enemies dealing _magic_damage_, then explosions strike your marked target. You can't be hurt while casting.
+",Epic,0,0,ScrollOfFireTornadoes,FALSE
+Glyph of Fire Tornadoes +1,"Skill item. Your special attack summons fire tornadoes around you that seek enemies dealing _magic_damage_, then explosions strike your marked target. You can't be hurt while casting.
+",Epic,0,0,ScrollOfFireTornadoes,FALSE
+Glyph of Fire Tornadoes +2,"Skill item. Your special attack summons fire tornadoes around you that seek enemies dealing _magic_damage_, then explosions strike your marked target. You can't be hurt while casting.
+",Epic,0,0,ScrollOfFireTornadoes,FALSE
+Glyph of Fire Tornadoes +3,"Skill item. Your special attack summons fire tornadoes around you that seek enemies dealing _magic_damage_, then explosions strike your marked target. You can't be hurt while casting.
+",Epic,0,0,ScrollOfFireTornadoes,FALSE
+Glyph of Fireball,"Skill item. Your basic attack hurls a fireball dealing _magic_damage_. May inflict Fire.
+",Epic,0,0,ScrollOfFireball,FALSE
+Glyph of Fireball +1,"Skill item. Your basic attack hurls a fireball dealing _magic_damage_. May inflict Fire.
+",Epic,0,0,ScrollOfFireball,FALSE
+Glyph of Fireball +2,"Skill item. Your basic attack hurls a fireball dealing _magic_damage_. May inflict Fire.
+",Epic,0,0,ScrollOfFireball,FALSE
+Glyph of Fireball +3,"Skill item. Your basic attack hurls a fireball dealing _magic_damage_. May inflict Fire.
+",Epic,0,0,ScrollOfFireball,FALSE
+Glyph of Flame Dash,"Skill item. Your dash passes through enemies and leaves a trail of flames behind.
+",Epic,0,0,ScrollOfFlameDash,FALSE
+Glyph of Flame Dash +1,"Skill item. Your dash passes through enemies and leaves a trail of flames behind.
+",Epic,0,0,ScrollOfFlameDash,FALSE
+Glyph of Flame Dash +2,"Skill item. Your dash passes through enemies and leaves a trail of flames behind.
+",Epic,0,0,ScrollOfFlameDash,FALSE
+Glyph of Flame Dash +3,"Skill item. Your dash passes through enemies and leaves a trail of flames behind.
+",Epic,0,0,ScrollOfFlameDash,FALSE
+Glyph of Holy Missiles,"Skill Item. Spawns a holy projectile that deals _magic_damage_ when dealing any kind of damage. Additional items increase the number of missiles spawned.
+Skill Duration makes the missile reach further",Heroic,150,50,HolyMissiles,TRUE
+Glyph of Holy Orb,"Skill Item. When you execute an special sttack (right click) spawns 4 holy orbs in a random direction and bounce against enemies. Scales with _magic_damage_. 
+Each stack adds an additional bounce",Heroic,150,50,HolyOrb,TRUE
+Glyph of Holy Shot,"Skill item. Your basic attack shoots a blessed arrow dealing _ranged_damage_.
+",Epic,0,0,ScrollOfHolyShot,FALSE
+Glyph of Holy Shot +1,"Skill item. Your basic attack shoots a blessed arrow dealing _ranged_damage_.
+",Epic,0,0,ScrollOfHolyShot,FALSE
+Glyph of Holy Shot +2,"Skill item. Your basic attack shoots a blessed arrow dealing _ranged_damage_.
+",Epic,0,0,ScrollOfHolyShot,FALSE
+Glyph of Holy Shot +3,"Skill item. Your basic attack shoots a blessed arrow dealing _ranged_damage_.
+",Epic,0,0,ScrollOfHolyShot,FALSE
+Glyph of Ley Fracture,"Skill Item. A strong spell fueled by Grace. Each time you execute your secondary skill, a concetrated ley energy ball will spawn and rotate around, causing _magic_damage_ and infusing the condition Ley Charge
+Skill Duration increases the duration of the energy ball lifetime",Heroic,150,50,LeyFracture,TRUE
+Glyph of Strafe,"Skill item. When Dashing you will shoot arrows in random directions dealing _ranged_damage_. Skil Duration will increase the reach of the arrows
+",Heroic,150,50,ScrollOfStrafe,TRUE
+Glyph of Swords of Fire,"Skill Item. Creates 2 swords that deal _melee_damage_ around the player, and may inflict Fire debuff.
+Each stack adds additional damage. Adds a chance to melee attacks to inflict Fire
+",Heroic,150,50,SwordOfFire,TRUE
+Glyph of Trap Step,"Skill item. Your dash leaves a trap behind that damages the first enemy to step on it. Setting too many traps removes the oldest.
+",Epic,0,0,ScrollOfTrapStep,FALSE
+Glyph of Trap Step +1,"Skill item. Your dash leaves a trap behind that damages the first enemy to step on it. Setting too many traps removes the oldest.
+",Epic,0,0,ScrollOfTrapStep,FALSE
+Glyph of Trap Step +2,"Skill item. Your dash leaves a trap behind that damages the first enemy to step on it. Setting too many traps removes the oldest.
+",Epic,0,0,ScrollOfTrapStep,FALSE
+Glyph of Trap Step +3,"Skill item. Your dash leaves a trap behind that damages the first enemy to step on it. Setting too many traps removes the oldest.
+",Epic,0,0,ScrollOfTrapStep,FALSE
+Glyph of Vengeance Daggers,"Skill item. When hit have a chance to spawn up to 5 daggers and throw them in random directions.
+Damage scales with _melee_damage_ and how far they travel with Skill Duration. May inflict Bleed on enemies",Heroic,150,50,ScrollOfVenganceDaggers,TRUE
+Glyph of Whirlwind,"Skill item. Your special attack spins the sword around you dealing _melee_damage_ to every enemy it touches. You can't be hurt while spinning.
+",Epic,0,0,ScrollOfWhirlwind,FALSE
+Glyph of Whirlwind +1,"Skill item. Your special attack spins the sword around you dealing _melee_damage_ to every enemy it touches. You can't be hurt while spinning.
+",Epic,0,0,ScrollOfWhirlwind,FALSE
+Glyph of Whirlwind +2,"Skill item. Your special attack spins the sword around you dealing _melee_damage_ to every enemy it touches. You can't be hurt while spinning.
+",Epic,0,0,ScrollOfWhirlwind,FALSE
+Glyph of Whirlwind +3,"Skill item. Your special attack spins the sword around you dealing _melee_damage_ to every enemy it touches. You can't be hurt while spinning.
+",Epic,0,0,ScrollOfWhirlwind,FALSE
+Goblet of Sacrifice,Sacred goblet used in holy ceremonies at Abidor,Rare,50,15,GobletOfSacrifice,TRUE
+Grace Imbued Necklace,"An object that has been imbued with Grace. ",Heroic,150,50,GraceImbuedNecklace,TRUE
+Heavy Plate Armor,Heavy armor crafted by a skilled smith from the Glenos Empire.,Uncommon,25,10,HeavyPlateArmor,TRUE
+Holy Candle,A candle blessed by the White Church of Ashemdrek,Heroic,150,50,HolyCandle,TRUE
+Ley Arrows,Arrows infused with Ley Energy. Inflict the debuff Energy to the target,Rare,75,15,LeyArrows,TRUE
+Ley Flower,"Rare flowe that usually grows on Ley Lines or Ley Pools. ",Uncommon,25,10,LeyFlower,TRUE
+Ley Shield,"A ward woven from Ley energy. It deepens the bond with Mastow but leaves the body unprotected.
+",Epic,0,0,LeyShield,FALSE
+Ley Shield +1,"A ward woven from Ley energy. It deepens the bond with Mastow but leaves the body unprotected.
+",Epic,0,0,LeyShield,FALSE
+Ley Shield +2,"A ward woven from Ley energy. It deepens the bond with Mastow but leaves the body unprotected.
+",Epic,0,0,LeyShield,FALSE
+Ley Shield +3,"A ward woven from Ley energy. It deepens the bond with Mastow but leaves the body unprotected.
+",Epic,0,0,LeyShield,FALSE
+Malien Blessing Of Protection,A scroll with ancient holy writtings blessed by the god of light Malien,Heroic,75,15,MalienBlessingOfProtection,TRUE
+Mask of Evasion,"A mask worn by the nobles of the Kingdom of Kardresh. 
+",Uncommon,25,10,MaskOfEvasion,TRUE
+Mastow Potion,Potion designed to increase your Mastow Affinity. Not recommended for humans,Common,15,5,MastowPotion,TRUE
+Necrotic Potion,Strange potion with uncommon properties. It is said it was used during the Dark Age to emmulate death and stay hidden,Rare,75,15,NecroticPotion,TRUE
+Potion of Accuracy,"Typical potion crafted by an alchemist to boost your accuracy
+",Common,15,5,PotionOfAccuracy,TRUE
+Quiver of the Centinel,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
+",Epic,0,0,QuiverOfTheCentinel,FALSE
+Quiver of the Centinel +1,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
+",Epic,0,0,QuiverOfTheCentinel,FALSE
+Quiver of the Centinel +2,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
+",Epic,0,0,QuiverOfTheCentinel,FALSE
+Quiver of the Centinel +3,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
+",Epic,0,0,QuiverOfTheCentinel,FALSE
+Ring Of Vitality,"Blessed ring, it was used by the Paladins of the Order of Light from Ashemdrek",Heroic,75,15,RingOfVitality,TRUE
+Sacred Writtings,"Powerful ancient book used during the Dark Age to fight againts the Crescent Darkness Empire
+",Heroic,150,50,SacredWrittings,FALSE
+Scepter of the Old Empire,"A very old scepter, dated from the Creation Age when the Primordials and their Old Empire took power",Rare,50,15,ScepterOfTheOldEmpire,TRUE
+Shadow Touched Talisman,Cursed talisman created by the Drekos cultists,Heroic,50,10,ShadowTouchedTalisman,TRUE
+Shield of the Crusader,"Shield carried by the Crusaders of the Faith. Heavy, but it keeps its bearer standing.
+",Epic,0,0,ShieldOfTheCrusader,FALSE
+Shield of the Crusader +1,"Shield carried by the Crusaders of the Faith. Heavy, but it keeps its bearer standing.
+",Epic,0,0,ShieldOfTheCrusader,FALSE
+Shield of the Crusader +2,"Shield carried by the Crusaders of the Faith. Heavy, but it keeps its bearer standing.
+",Epic,0,0,ShieldOfTheCrusader,FALSE
+Shield of the Crusader +3,"Shield carried by the Crusaders of the Faith. Heavy, but it keeps its bearer standing.
+",Epic,0,0,ShieldOfTheCrusader,FALSE
+Steeldawn Bow,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow +1,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow +2,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow +3,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Shard,Special and blessed material that can be used to craft powerful and blessed weapons,Rare,75,15,SteeldawnShard,FALSE
+Steeldawn Sword,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
+",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword +1,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
+",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword +2,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
+",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword +3,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
+",Epic,0,0,SteeldawnSword,FALSE
+Traveler Coin,"An old coin, crafted with some strange metals",Uncommon,25,10,TravelerCoin,TRUE
+Tribesmen Necklace,"Necklace bless by Omiara, crafted by the tribes of the frozen wastes of Fara Uf'clario",Heroic,150,50,TribesmenNecklace,TRUE
+Warrior Emblem,"Emblem of the Crusaders of the Faith. Every level gained grants +1 _melee_damage_.
+",Epic,0,0,WarriorEmblem,FALSE
+Warrior Emblem +1,"Emblem of the Crusaders of the Faith. Every level gained grants +1 _melee_damage_.
+",Epic,0,0,WarriorEmblem,FALSE
+Warrior Emblem +2,"Emblem of the Crusaders of the Faith. Every level gained grants +1 _melee_damage_.
+",Epic,0,0,WarriorEmblem,FALSE
+Warrior Emblem +3,"Emblem of the Crusaders of the Faith. Every level gained grants +1 _melee_damage_.
+",Epic,0,0,WarriorEmblem,FALSE

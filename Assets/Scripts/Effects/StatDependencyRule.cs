@@ -7,8 +7,8 @@ namespace Game.Effects
     /// <summary>
     /// A stat bonus that depends on another stat ("stat dependency enhancer"): every
     /// <see cref="perPoints"/> points of <see cref="sourceStat"/> give <see cref="amount"/> of
-    /// <see cref="targetStat"/> (negative = a cost). Authored on items in the Effect Database
-    /// window; used on starting items to give each class an identity.
+    /// <see cref="targetStat"/> (negative = a cost). Authored in the balance sheet's ItemStatBonuses
+    /// table; used on starting items to give each class an identity.
     /// </summary>
     [Serializable]
     public class StatDependencyRule

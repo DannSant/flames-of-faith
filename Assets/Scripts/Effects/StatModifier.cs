@@ -12,8 +12,11 @@ namespace Game.Effects
     [Serializable]
     public class StatModifier
     {
-        public StatType stat;      // You already have StatType in your project
+        [Tooltip("The stat the item changes.")]
+        public StatType stat;
+        [Tooltip("How much it adds (negative values reduce it).")]
         public float value;
+        [Tooltip("Flat adds the value as points; PercentAdd adds it as a share of the stat (0.1 = +10%).")]
         public ModifierType type = ModifierType.Flat;
     }
 

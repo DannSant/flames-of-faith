@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Game.Database
 {
+    [System.Obsolete("Retired Oct 2026 (data-driven step 5): items are edited through the balance sheet tables (Items, ItemStats, ItemStatBonuses, ItemBehaviors) and Tools/Flames of Faith/Items/New Item. Kept until a play-test round confirms the sheet path, then deleted with the SQLite library.")]
     public class EffectRow 
     {
         [PrimaryKey, AutoIncrement]

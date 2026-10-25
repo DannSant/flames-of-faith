@@ -14,12 +14,18 @@ namespace Game.Effects{
     {
         [Header("Effect data")]
         [SerializeField] private string effectID;
+        [Tooltip("The item's icon (a sprite in Resources/Icons, by name).")]
         [SerializeField] private Sprite icon;
         [SerializeField] public string effectName = "New Effect";
         [Tooltip("This value will be multiplied by the level of the item when calculating damage or other state")]
         [SerializeField] public float scalingValue = 1;
+        [Tooltip("The text shown in the item's tooltip. _melee_damage_ and similar placeholders become stat names. Keep numbers out: tier lines and stat lines are added from the data.")]
         [SerializeField] [TextArea] public string description;
+        [Tooltip("What the shop charges, before the Shop Item Discount stat.")]
+        [Min(0)]
         [SerializeField] private int buyPrice = 0;
+        [Tooltip("Coins the player gets for selling it from the item bag.")]
+        [Min(0)]
         [SerializeField] private int sellPrice = 0;
         [Header("Stat Modifiers")]
         [SerializeField] private List<StatModifier> effectStatModifiers = new();
@@ -28,7 +34,9 @@ namespace Game.Effects{
         [SerializeField] private List<StatDependencyRule> statDependencies = new();
         [Header("Behaviors")]
         [SerializeField] private List<EffectBehavior> behaviors = new();
+        [Tooltip("Available from the start. A locked item never drops until a meta-unlock unlocks it.")]
         [SerializeField] private bool unlockedByDefault = false;
+        [Tooltip("The item's quality: its tooltip color and the drop odds it uses (LootSources).")]
         [SerializeField] private EffectQuality quality = EffectQuality.Common;
         [Header("Class Kit")]
         [Tooltip("Upgrade tier of a class kit item (0 = base). Selects the row of its ability behaviors' tier tables.")]
@@ -100,6 +108,7 @@ namespace Game.Effects{
         /// <param name="target">The GameObject this effect should affect (typically the player).</param>
         public virtual void UpdateEffect(GameObject config) { }
 
+        [System.Obsolete("Retired Oct 2026 (data-driven step 5): items are edited through the balance sheet tables (Items, ItemStats, ItemStatBonuses, ItemBehaviors) and Tools/Flames of Faith/Items/New Item. Kept until a play-test round confirms the sheet path, then deleted with the SQLite library.")]
         public void InitializeFromData(EffectRow row)
         {          
 

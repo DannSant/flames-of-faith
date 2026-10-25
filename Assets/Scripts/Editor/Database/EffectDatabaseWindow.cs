@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Game.Editor.Database
 {
+    [System.Obsolete("Retired Oct 2026 (data-driven step 5): items are edited through the balance sheet tables (Items, ItemStats, ItemStatBonuses, ItemBehaviors) and Tools/Flames of Faith/Items/New Item. Kept until a play-test round confirms the sheet path, then deleted with the SQLite library.")]
     public class EffectDatabaseWindow : EditorWindow
     {
         private Vector2 scroll;
@@ -19,7 +20,7 @@ namespace Game.Editor.Database
         private List<EffectBehavior> behaviors = new List<EffectBehavior>();
         private List<StatDependencyRule> statDependencies = new List<StatDependencyRule>();
 
-        [MenuItem("Tools/Effects/Effect Database")]
+        // Menu item removed (Oct 2026): the DB no longer feeds the Effect assets
         public static void Open()
         {
             var w = GetWindow<EffectDatabaseWindow>("Effects DB");
