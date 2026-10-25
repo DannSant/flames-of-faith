@@ -66,7 +66,17 @@ The designer edits every item and class ability number in the balance sheet: wha
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
 - **Done:**
+  - Importer: nested and reference `DesignFields`, `ChildListTable.WithInfoColumns` / `AllowingEmpty`, text normalization, Sprite and EffectBehavior reference columns.
+  - Items in the sheet: Items, ItemStats, ItemStatBonuses, ItemBehaviors; the drop tab renamed ItemDrops; `Tools/Flames of Faith/Items/New Item`; the SQLite pipeline `[Obsolete]` with its menus removed.
+  - Spawner owns damage: `DamageProfile`, `SpawningEffectBehavior`, `CharacterClassData.dashDamageStat`, stat shares on the Trap Step / Flame Dash / Fire Tornadoes tiers; `DamageSourceData` lost its damage fields, `Effect.scalingValue` is `[Obsolete]` and unread. `Report_ItemDamage` was byte-identical before and after.
+  - Tables: `ItemBehaviors_<Type>` x 8, ItemBehaviorStacking, `Ability_<Name>` x 9, Weapons; report ItemDamage. `WeaponData.graceGenerated` (unread) removed.
+  - Docs: CLAUDE.md (Effect data pipeline rewritten; Combat/effect pipeline, Class kits, Item drops, Balance data), the analysis's progress note.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - Delete the SQLite pipeline (`Database/*`, `Editor/Database/EffectDatabaseWindow.cs`, `SQLite.cs`, the sqlite3 plugins, `Database/effects.db`, `Effect.InitializeFromData`, `Effect.scalingValue`) after a play-test round.
+  - Weapons has no Base Damage / Projectile Amount columns: the ability Glyphs set them, so the `WeaponData` values are only a fallback no class uses.
+- **Commits / branch:** `feature/items-abilities` off `develop`: 5415e7e spec, 0d3686f importer, 5d61e2d item tables, ecec875 ItemDamage report, b65ca97 damage ownership, 9352bed item behavior tables, c3feedb vector note fix, 54c27e3 ability and Weapons tables, then the docs commit. Not merged.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - A new damaging spawner must set damage (`DamageProfile.ApplyTo`, `SetDamage` or `Initialize`); otherwise it deals 0 and warns once. `DamageOwnershipTests` covers item behaviors, dashes and explosions.
+  - Item rows can't be added from the sheet: New Item, Export CSV, Push All.
+  - Ability tier rows can't be added from the sheet either; they follow the skill tree.
+- **Manual tests added to todo.md:** "Items and abilities (2026-10-24)".

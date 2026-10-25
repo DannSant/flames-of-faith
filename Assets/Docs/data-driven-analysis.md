@@ -9,6 +9,8 @@ Analysis only, no code changes. Written 2026-10-21 from the code and assets on `
 
 Step 5, the Google Sheets transport, followed on 2026-10-23: the designer's workbook, the sheet script (Publish, web app), Pull / Push in Unity, and the test build override (the analysis's step 6, needed because the designer tests his own changes).
 
+On 2026-10-24 came step 3 (debuffs, Grace / Corruption, stat formulas, class dash), the item drop table (3.4, `docs/features/item-drops.md`) and items and abilities (3.6, `docs/features/items-abilities.md`). The Effects DB moved into the sheet (Items tabs; the SQLite pipeline is obsolete), item behaviors and ability tiers got tables, and the spawner now owns an attack's damage (`DamageProfile`), so `DamageSourceData` and `Effect.scalingValue` no longer hold damage. See CLAUDE.md "Effect data pipeline" and "Combat/effect pipeline".
+
 **The question:** what would it take to make every system data-driven, with its numbers fed from a database that a game designer can edit outside Unity, the way the Effects already come from a database?
 
 ## 1. Verdict

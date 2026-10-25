@@ -124,8 +124,8 @@ The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncount
 ### Item drops (data-driven step 4, Oct 2026)
 
 Every random item comes from **one table**. Before, four hand-written lists (the enemy pickup prefab, the treasure table, two event actions, and the shop's `availableForShop` flag) each needed editing for a new item. A strong item could also drop on level 1, and at Luck 0 every quality was equally likely. Spec: `docs/features/item-drops.md`.
-- **Data** (`Scripts/Loot/`, assets in `Resources/Loot/`, the balance sheet's Items / LootSources / Loot tabs):
-  - **`ItemDropTable`:** one `ItemDropEntry` per lootable item (every Effect that isn't starting-only). Each entry has four source flags (Enemy Pickup, Shop, Treasure, Event), `minLevelsBeaten`, and `weight` within its quality. What an item *is* stays in the Effects DB; where and when it drops lives here.
+- **Data** (`Scripts/Loot/`, assets in `Resources/Loot/`, the balance sheet's ItemDrops / LootSources / Loot tabs):
+  - **`ItemDropTable`:** one `ItemDropEntry` per lootable item (every Effect that isn't starting-only). Each entry has four source flags (Enemy Pickup, Shop, Treasure, Event), `minLevelsBeaten`, and `weight` within its quality. What an item *is* stays on its Effect asset (the sheet's Items tabs, see "Effect data pipeline"); where and when it drops lives here.
   - **`LootSettings`:**
     - per `LootSource`: a base weight per quality and `luckScalePerStep`;
     - the shop's count;
@@ -144,7 +144,7 @@ Every random item comes from **one table**. Before, four hand-written lists (the
 - **New items:** `Tools/Flames of Faith/Loot/Sync Item Drop Table` (`ItemDropTableSync`, batch `SyncBatch`).
   - It adds a row for every new lootable Effect: shop only, from the start, weight 1.
   - It removes rows for deleted or starting-only items, and sorts rows by name.
-  - Run it after generating the Effect ScriptableObjects. `ItemDropTableTests` fails until it has run, and also checks that the shop has stock at 0 levels beaten.
+  - New Item runs it for you. `ItemDropTableTests` fails until it has run, and also checks that the shop has stock at 0 levels beaten.
 - **Report:** `Report_LootOdds` shows each source's quality chances by levels beaten and Luck (−5, 0, 5, 10), with the roll's own math.
 - **Defaults** (Oct 2026) reproduce the old odds at Luck 0 for the old pools:
   - Enemy Pickup: 35/25/20/20;
@@ -160,7 +160,14 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
 - **`DamageSourceBase` hit modes:**
   - **Trigger enter:** one hit on contact.
   - **Trigger stay** (e.g. the Augur's flame trail): each target has its own timer, is hit on contact, then every `tickInterval` while it stays inside. One shared timer used to need 0.4 s of contact, so fleeing enemies such as the Corruptor never got hit.
-- **Explosions:** `ExplosionDamage.SetExplosionDamage` lets a spawner set the damage of the explosion it sets off; without it the explosion prefab's own damage is used.
+- **The spawner owns an attack's damage** (data-driven step 5, Oct 2026). A prefab's `DamageSourceData` only says *how* it hits; whatever spawns it says how hard:
+  - **`DamageProfile`** (`Game.Combat`): Base Damage, Damage Stat (`WeaponClass`: which of Melee / Ranged / Magic Damage it adds) and Stat Scale. Damage = base + stat × scale, then the usual multipliers. `ApplyTo(DamageSourceBase)` sets all three.
+  - **Item behaviors** that spawn things derive from `SpawningEffectBehavior` (prefab + `damage` profile); `EffectBehavior.SpawnEffectObject` applies the profile to every `DamageSourceBase` it spawns.
+  - **Weapons and their abilities** set it through `DamageSourceBase.Initialize(..., weaponData)`, base damage from the ability Glyph's tier.
+  - **Dashes:** the base damage and stat share come from the dash Glyph's tier (Crusader Charge `meleeDamageScale`, Trap Step `trapStatScale`, Flame Dash `flameStatScale`), the stat from `CharacterClassData.dashDamageStat`. Without the Glyph a dash deals no damage.
+  - **Explosions:** `ExplosionDamage.SetExplosionDamage(DamageProfile)` sets the damage of the explosion a projectile sets off (Fire Tornadoes: `explosionDamage` and `explosionStatScale`); without it the explosion deals none.
+  - **A source with no damage set** starts at 0 / None and logs a warning on its first hit. `DamageOwnershipTests` checks that every spawning behavior with a damaging prefab has a profile, every class has a dash stat and every dash / explosion tier has a stat share.
+  - **Retired:** `Effect.scalingValue` (unread, `[Obsolete]`; it multiplied the prefab's `attackScale`, now folded into the profile's Stat Scale) and `DamageSourceData`'s base damage, weapon class and attack scale. `Report_ItemDamage` was identical before and after the move.
 - **Max Health changes during play** (a level-up, an item): current health moves by the same amount as the max, so the missing health stays the same (+5 at 5/15 gives 10/20). A loss never takes a living player below 1. The rule is `PlayerHealth.CalculateHealthAfterMaxChange` (pure, `MaxHealthChangeTests`). It used to scale by new max / old max and round down (10/20 → 12/25), fixed Oct 2026.
   - On a level load, `InitializeAfterStateReady` sets the max directly and restores the saved health as is. Going through `SetMaxHealth` there would apply the change twice.
   - `HealthBar` animates on unscaled time, so it updates while a level-up window pauses the game.
@@ -565,7 +572,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   - **Glyphs carry an ability** (`Scripts/Effects/Abilities/`): `AbilityBehavior<TValues>` is a data-only `EffectBehavior` with a per-tier table, one per slot (`AbilitySlot` Primary/Special/Dash).
   - **The class components still perform the ability** and read their numbers with `EffectStore.TryGetAbility<T>`: `SwordWeapon`/`BowWeapon`/`ScepterWeapon` and the `*Dash` classes.
   - **Hooks:** `WeaponBase.ApplyAbilityItems` (on initialize and on item changes); `DashBase.ApplyAbilityItems` (before each dash and on item changes, so a new duration counts for that dash and charges are right from the start).
-  - **Without the item**, each falls back to its own `WeaponData`/Inspector values.
+  - **Without the item**, a weapon falls back to its own `WeaponData` values and a dash deals no damage (`ClassKitTests` make sure every class has its Glyphs).
   - **Upgrade-only mechanics** (tier 0 has none):
     - Holy Shot extra cone arrows; they don't raise `onBowAttackLaunched`, so on-hit spawn items trigger once per volley.
     - Fireball impact explosion.
@@ -605,34 +612,39 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
 - **Tests:** `ClassKitTests`, `SkillTreeTests`, `SkillTreeRulesTests`, `FavorTests`, `AbilityTierTests`, `AbilityDescriptionTests`, `ProjectileShieldTests`.
 - **Current costs:** each node's tiers cost 10 / 15 / 20 Favors; Archer and Augur unlocks cost 50. A normal lost run earns about 12–18 Favors.
 - **Adding kit content:**
-  1. Add the DB rows: tier 0 with Starting Only, then `+1..+N` with `tier` set.
-  2. Generate ScriptableObjects.
+  1. Create the items with `Tools/Flames of Faith/Items/New Item`: tier 0, then `"<item> +N"` for each tier. On each asset tick Starting Only and set `tier` in the Inspector (they're structural, so not in the sheet).
+  2. Fill their text, stats and behaviors in the Items tabs (or the Inspector, then Export CSV).
   3. Add the items to the class's tree node.
-  4. For a Glyph, give its ability asset at least as many table rows as the node has tiers (a test checks this).
+  4. For a Glyph, give its ability asset at least as many table rows as the node has tiers (a test checks this). Its numbers are then in that ability's `Ability_<Name>` tab.
   5. A new ability type also needs a `Describe(row)` override, or its tooltips show no tier line (`AbilityDescriptionTests` fails).
 
-### Effect data pipeline — every field change touches 5 places
+### Effect data pipeline (items in the balance sheet, data-driven step 5, Oct 2026)
 
-`Effect` (`Assets/Scripts/Effects/Effect.cs`) is authored in a SQLite database (via `Tools/Effects/Effect Database`), not hand-edited as ScriptableObjects — the `.asset` files under `Assets/Resources/Effects/` are generated output, not source of truth. Whenever a field is added/changed/removed on `Effect`, update all of these together or the DB and the runtime SOs silently drift apart:
+Items are `Effect` ScriptableObjects in `Resources/Effects/` (`Assets/Scripts/Effects/Effect.cs`), and **the assets are the source of truth**, like every other balance table. The designer edits them in the sheet; Unity edits them in the Inspector, then Export CSV. Spec: `docs/features/items-abilities.md`.
+- **Tables:**
+  - `Items`: Description, Quality, Buy Price, Sell Price, Icon (a sprite name in `Resources/Icons`), Unlocked By Default;
+  - `ItemStats` (`effectStatModifiers`: Stat, Value, Flat / PercentAdd) and `ItemStatBonuses` (`statDependencies`), one row per entry;
+  - `ItemBehaviors`: which behavior assets each item has, by name;
+  - `ItemBehaviors_<Type>`: the numbers of each item behavior type (counts, chances, intervals, the damage profile, the infusion's element), and `ItemBehaviorStacking` (`stackScaling`: what extra copies scale);
+  - `ItemDrops`: where and when it drops (see "Item drops");
+  - the class kits' numbers are in `Ability_<Name>` (see "Class kits") and `Weapons`.
+- **Stay in Unity:** the asset name (the sheet's key; renaming an item is a Unity rename), `effectID`, `tier` and Starting Only. Saves, meta unlocks, skill trees and the drop table refer to items by `effectID`, so it must never change.
+- **New item:** `Tools/Flames of Faith/Items/New Item` (`NewItemTool`, name + quality) creates the asset with a new GUID `effectID`, unlocked by default, and syncs the drop table. Then Export CSV and Push All to Sheet, so the row reaches the sheet (the sheet can't add item rows). `NewItemToolTests`.
+- **Adding a field to `Effect`:** add it with a `[Tooltip]`, list it in the `Items` table in `BalanceTables.All()` if the designer should see it, then follow the pipeline rule under "Balance data".
+- **The SQLite pipeline is obsolete** (`Database/effects.db`, `EffectDatabase`, `EffectRow`, `EffectLoader`, `ScriptableObjectGenerator`, `DBEditorHelper`, `EffectDatabaseWindow`, `Effect.InitializeFromData`). All are `[Obsolete]` and their menus are gone: regenerating the assets from the DB would overwrite the sheet's edits. The DB is no longer updated. They will be deleted after a play-test round confirms the sheet path.
 
-1. **`EffectRow`** (`Assets/Scripts/Database/EffectRow.cs`) — the SQLite row shape. Prefer a nullable type (e.g. `int?`) for a new column rather than a non-nullable value type: `SQLiteConnection.CreateTable` auto-migrates missing columns onto the existing table via `ALTER TABLE ADD COLUMN` with no default value, so pre-existing rows read back as SQLite `NULL` for that column — assigning `null` into a non-nullable value-type property via this ORM's reflection-based `SetValue` throws at load time. Treat `null` as "column didn't exist yet" and pick whatever meaning is backward-compatible (e.g. `tier`'s `null` means 0, so old effects stay base-tier items). `availableForShop` (retired Oct 2026, replaced by the drop table's Shop column) is a column that stays in the DB unread.
-2. **`Effect`** — add the `[SerializeField]` + property, and map it in `InitializeFromData(EffectRow row)`.
-3. **`EffectLoader.CreateEffectSO(EffectRow row)`** (`Assets/Scripts/Database/EffectLoader.cs`) — a second, separate row→SO mapper used by the DB window's "Test Load" button; easy to update `Effect.InitializeFromData` and forget this one exists.
-4. **`EffectLoader.GenerateAndSaveAllEffects`** — the actual DB→`.asset` generator (menu `Tools/Effects/Generate ScriptableObjects`), run after editing rows so the generated SOs pick up the change; it calls `InitializeFromData` under the hood, so it needs no edits itself, but you must re-run it.
-5. **`EffectDatabaseWindow`** (`Assets/Scripts/Editor/Database/EffectDatabaseWindow.cs`) — the custom `EditorWindow` (`Tools/Effects/Effect Database`) for authoring rows; add a control for the new field in `DrawEditPanel`, mirroring its existing `unlockedByDefault`/`quality` fields.
-
-**Stat bonuses (stat dependency rules, `StatDependencyRule`):** "every N points of stat X give ±amount of stat Y", stored in `EffectRow.statDependenciesJson` and edited under "Stat Bonuses" in the window.
+**Stat bonuses (stat dependency rules, `StatDependencyRule`):** "every N points of stat X give ±amount of stat Y", `Effect.statDependencies`, edited in the `ItemStatBonuses` tab.
 - `PlayerProgression.RecalculateFinalStats` applies them in a second pass, from the totals before any bonus (corruption included), through the pure `StatDependencyCalculator`. Rules never chain, and one that feeds its own stat just doubles it.
 - Items with rules are **starting items only**: they never drop (`LootRoller` skips starting-only items, and `ItemDropTableTests` keeps them out of the drop table).
 - The stats pane's Shift view shows them as "(+N from Retribution)".
 
-**Item behaviors are loaded by file name.** A row lists its behaviors by id (`behaviorsJson`), and the generator loads each one from `Resources/Effects/EffectBehaviors/<id>`. So a behavior asset's file name must equal its `behaviorId`. Renaming the file silently drops the behavior from every item using it: Fire Arrows lost its fire this way in Oct 2026. `EffectAssetTests.EveryEffectBehavior_IsNamedAfterItsId` guards it.
+**Item behaviors are named by file name.** The `ItemBehaviors` tab names each behavior by its asset name in `Resources/Effects/EffectBehaviors/`, and that name must equal its `behaviorId` (the old generator loaded them by id, and Fire Arrows lost its fire in Oct 2026 when a file was renamed). `EffectAssetTests.EveryEffectBehavior_IsNamedAfterItsId` guards it.
 
 At runtime, look effects up through **`EffectsDatabaseProvider`**. It loads every `Effect` from `Resources/Effects`, and `GetEffectById` searches available and unlockable effects. The static `EffectsDatabase` class is legacy: the `Resources/Effects/EffectsDatabase` asset it loads doesn't exist, so its lookups return null.
 
 ### Balance data (data-driven pilot, Oct 2026)
 
-The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal is that the game designer can tune the numbers outside Unity. The pilot covers enemies, waves and XP.
+The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal is that the game designer can tune the numbers outside Unity. It covers enemies, waves and XP (pilot), debuffs, Grace / Corruption, player stats and classes (step 3), item drops (step 4), and items, item behaviors, class abilities and weapons (step 5).
 - **Keep the Google Sheets pipeline in step (required).** Every time we add, rename, remove or reinterpret a column or field of a balance table, add a table, or change the data-driven structure (importer, CSV format, table kinds, sync, `balance-override.json`), update the whole pipeline in the same change:
   - the table definition in `BalanceTables.All()` and its committed CSV (Export CSV);
   - the explanation panel: a description in `BalanceDocs.Tables` and a note for each column (a `[Tooltip]` on the field, or an entry in `BalanceDocs.Columns`); `BalanceDocsTests` fails without them;
@@ -646,17 +658,17 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
 
 - **No dead data.** Every field a designer can see must do something.
   - Unused content was deleted: the old level scenes, `Sandbox2`, `Boss1.unity`, the old enemy prefabs, test waves, `WarriorOld`, unused level data, behaviors and treasure tables.
-  - Dead fields were removed: `WaveData.enemies` / `cooldownDuration`, `EnemyData.attackRangeBase`, and (Oct 24) `AIBehaviorShooter.minRange`, `AIBehaviorChaserLogic.useChasePause`, `KnockbackBehavior.forceMode`.
+  - Dead fields were removed: `WaveData.enemies` / `cooldownDuration`, `EnemyData.attackRangeBase`, and (Oct 24) `AIBehaviorShooter.minRange`, `AIBehaviorChaserLogic.useChasePause`, `KnockbackBehavior.forceMode`, and in step 5 `WeaponData.graceGenerated` (read nowhere) and `Effect.scalingValue` (see "Combat/effect pipeline").
   - `DataHygieneTests` keeps it that way:
     - every enemy behavior asset is used by an enemy prefab;
     - every `LevelData` is on a map, and its scene is in the build;
     - every `WaveDatabase` is used by a build scene.
-- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`). It covers the enemy, wave, behavior, damage-source, debuff and class assets, the Corruption and player stat settings, the damage-source prefabs and the player prefabs. `ForceReserializeAssets` keeps removed fields in prefabs, so the tool loads and saves prefabs instead.
+- **Stale YAML:** Unity keeps values of removed fields in an asset until it's saved again. After removing or renaming a field, run `Tools/Flames of Faith/Balance Data/Reserialize Data Assets` (batch: `Game.BalanceData.Editor.ReserializeDataAssets.RunBatch`). It covers the enemy, wave, behavior, damage-source, debuff, class, loot, effect (items and their behaviors) and weapon assets, the Corruption and player stat settings, the damage-source prefabs and the player prefabs. `ForceReserializeAssets` keeps removed fields in prefabs, so the tool loads and saves prefabs instead.
 - **Damage sources** (`DamageSourceData`, one asset per player damage source in `Resources/Combat/DamageSources`, named after its prefab):
-  - **What it holds:** base damage, weapon class (= which damage stat it adds), attack scale, hit mode and tick, pierce, knockback, lifesteal, the direct debuff, and the projectile's speed and lifetime.
+  - **What it holds:** how the source hits: hit mode and tick, pierce, knockback, lifesteal, the direct debuff, and the projectile's speed and lifetime. Not its damage, which its spawner sets (see "Combat/effect pipeline").
   - **On the prefab:** only wiring (`effectID`, layer mask, origin).
   - **How the components read it:**
-    - `DamageSourceBase`'s design values are non-serialized runtime state, loaded from the asset on first use (`EnsureLoaded`, called by `Awake` and every setter/getter, since spawners can configure a source before it's active). Spawners and ability tiers still override them (`Initialize`, `SetBaseDamage`...).
+    - `DamageSourceBase`'s design values are non-serialized runtime state, loaded from the asset on first use (`EnsureLoaded`, called by `Awake` and every setter/getter, since spawners can configure a source before it's active). Spawners and ability tiers override them (`Initialize`, `SetDamage`...).
     - `ProjectileMovementBase.speed` (hoisted from the subclasses), `LifetimeByStat` and `DestroyAfterTime` take the asset's values in `Awake` when the sibling source has data. Enemy projectiles have no data and keep their own.
   - **Cloning a live source** (split arrows): `Instantiate` copies serialized fields only, so call `CopyRuntimeFrom(original)`.
   - **New damage source:** run `Tools/Flames of Faith/Balance Data/Create Damage Source Data`, which creates assets from prefab values and skips sources that have one.
@@ -667,7 +679,7 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
   - **Where an import writes** (`IBalanceStore`):
     - `EditorBalanceStore` records Undo, creates new assets next to their siblings and saves;
     - `RuntimeBalanceStore` only changes the loaded assets.
-  - **Reference columns** resolve by name in the Resources folder registered for their type (`CellCodec.ReferenceFolders`; debuffs → `Debuffs`).
+  - **Reference columns** resolve by name in the Resources folder registered for their type (`CellCodec.ReferenceFolders`: debuffs → `Debuffs`, sprites → `Icons`, item behaviors → `Effects/EffectBehaviors`).
   - **Headers:** `BalanceTableDefinition.Nicify` mirrors the Editor-only `ObjectNames.NicifyVariableName`.
   - **Editor-only code** (`Scripts/BalanceData/Editor/`): the tools, the reports and the sheet sync.
   - **Menu** (`Tools/Flames of Faith/Balance Data/`):
@@ -678,17 +690,18 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
     - **Batch:** `Game.BalanceData.Editor.BalanceDataTools.ExportBatch` / `DryRunBatch` / `ImportBatch`. `ImportBatch` fails with a non-zero exit on errors.
   - **Tables** (`BalanceTables.All`, in import order):
     - Enemies, keyed by `EnemyType` name, the same names `WaveEnemies` uses;
-    - `EnemyBehaviors_<Type>`, one per AI behavior type, its numbers found from the assets (`DesignFields`);
+    - `EnemyBehaviors_<Type>`, one per AI behavior type, its numbers found from the assets (`DesignFields`; with `nested` it also walks one level into a `[Serializable]` record such as a damage profile, with `references` it includes reference fields a table can name);
     - Levels (taint), WaveLevels, Waves, WaveEnemies;
     - Experience and ExperienceTokenTiers;
     - EnemyDamage, EnemyDamageCurve and EnemyDamageTiers;
     - DamageSources;
-    - step 4 (Oct 2026): Items (the drop table, with read-only Quality / Buy Price / Unlocked), LootSources and Loot; report LootOdds;
+    - step 4 (Oct 2026): ItemDrops (the drop table, with read-only Quality / Buy Price / Unlocked; it was called Items), LootSources and Loot; report LootOdds;
+    - step 5 (Oct 2026): Items, ItemStats, ItemStatBonuses, ItemBehaviors, `ItemBehaviors_<Type>` (one per item behavior type), ItemBehaviorStacking, `Ability_<Name>` (one per class ability, its tier rows with a read-only Tier column) and Weapons (base damage and projectile count aren't in it: the ability Glyphs set them); report ItemDamage;
     - step 3 (Oct 2026): Debuffs, Corruption (Grace and Corrupted enemies, the Corruptor phase; camera and visuals stay in Unity), PlayerStats (stat formula parameters, Retribution, level-up tier weights), Pierce, Stats (the Stat Database without retired stats) and Classes (dash).
   - **Table kinds** (`BalanceTableDefinition`):
     - `AssetTable`: a row per asset, keyed.
     - `SettingsTable`: Setting / Value / Notes. Notes are the field tooltips: written on export, ignored on import.
-    - `ChildListTable`: a list's elements. Resizable lists follow the rows; a fixed one keeps its count, e.g. token tiers, which have sprites.
+    - `ChildListTable`: a list's elements. Resizable lists follow the rows; a fixed one keeps its count, e.g. token tiers, which have sprites, and ability tiers, which follow the skill tree. `WithInfoColumns` adds read-only columns (the ability Tier), and `AllowingEmpty` lets an owner have no rows (an item with no stats).
     - `WaveTable`: a row with the next wave number creates a `WaveData` and appends it. `WaveEnemyTable` runs after it, so the new wave gets its enemies (`ImportPlan` pending assets).
     - `KeyedListTable`: a list's elements keyed by one of their fields (the Stat Database by stat, the drop table by item). Rows can't be added or removed, the key can't change, and a filter leaves elements out (retired stats). `WithInfoColumns` adds read-only columns after the key (exported, ignored on import; grey and protected in the sheet).
     - `AssetTable` and `SettingsTable` take `(header, path)` pairs when a nested field's own name would clash or read badly (`contactSpread.enabled` / `stacking.enabled`, `retribution.damageTier1Cap`, array elements).
@@ -696,6 +709,7 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
     - **Formats:** invariant numbers, `TRUE`/`FALSE`, enums by **name** (never index), references by asset name.
     - **Checks:** `[Min]`/`[Range]`.
     - **Floats:** compared with a tolerance, so an export imports back as no change.
+    - **Text:** line breaks are normalized (CRLF → LF) and the ends trimmed, so multi-line descriptions round-trip.
   - **Rules:**
     - Any error cancels the whole import.
     - Asset rows can't be added or removed (retire instead); list rows can.
@@ -703,7 +717,9 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
   - **Reports** (`BalanceData/Reports`, read-only, `BalanceReports`) use the game's own formulas:
     - **EnemyDamage:** damage per hit and hits-to-die at each point of the run (`EnemyDamageCalculator`, like the Enemy Damage Preview);
     - **EnemyHealth:** `Enemy.CalculateHealth`, the pure formula `Enemy.Initialize` uses;
-    - **Experience.**
+    - **Experience;**
+    - **LootOdds:** each source's quality chances by levels beaten and Luck;
+    - **ItemDamage:** the damage of every item behavior, ability tier, dash and explosion at 0 / 10 / 20 stat points and 1 / 2 copies.
   - **Keeping them in sync:**
     - `BalanceTablesTests` checks that every table exports and imports back as no change, and that **the committed CSVs match the assets**.
     - After editing a balance asset in the Inspector, run Export CSV and commit the CSVs with it. After editing a CSV, run Import CSV.
