@@ -216,9 +216,10 @@ namespace Game.BalanceData
 
         /// <summary>
         /// The serialized numbers, toggles, enums and vector components a type shows in the Inspector, in Inspector
-        /// order (base class first), without references or text.
+        /// order (base class first), without references or text. With <paramref name="nested"/>, a field holding a
+        /// [Serializable] struct or class (an item behavior's damage profile) adds its own fields as "field.subField".
         /// </summary>
-        public static List<string> DesignFields(Type type)
+        public static List<string> DesignFields(Type type, bool nested = false)
         {
             var chain = new List<Type>();
             for (var t = type; t != null && t != typeof(ScriptableObject) && t != typeof(Object); t = t.BaseType) chain.Insert(0, t);
@@ -239,10 +240,18 @@ namespace Game.BalanceData
                         fields.Add(field.Name + ".x");
                         fields.Add(field.Name + ".y");
                     }
+                    else if (nested && IsNestedRecord(fieldType))
+                    {
+                        fields.AddRange(DesignFields(fieldType).Select(sub => field.Name + "." + sub));
+                    }
                 }
             }
             return fields;
         }
+
+        private static bool IsNestedRecord(Type type) =>
+            type.GetCustomAttribute<SerializableAttribute>() != null && !typeof(Object).IsAssignableFrom(type)
+            && !type.IsPrimitive && !type.IsEnum && type != typeof(string) && !typeof(System.Collections.IEnumerable).IsAssignableFrom(type);
 
         private static bool IsShownInInspector(FieldInfo field) =>
             !field.IsInitOnly && !field.IsNotSerialized

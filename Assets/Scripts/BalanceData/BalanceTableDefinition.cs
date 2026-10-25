@@ -293,7 +293,9 @@ namespace Game.BalanceData
     /// <summary>
     /// The elements of a list field, one row each, under their asset's key (e.g. the enemy damage curve's rows). Row
     /// order is list order. A resizable list grows or shrinks to the number of rows; a fixed one (its elements hold
-    /// things only Unity sets, like sprites) must keep its count.
+    /// things only Unity sets, like sprites) must keep its count. A list that may be empty (<see cref="AllowingEmpty"/>,
+    /// an item's stat modifiers) has no rows when empty, and an asset without rows gets an empty list. Info columns
+    /// (<see cref="WithInfoColumns"/>) come right after the key and show read-only context (an ability's tier).
     /// </summary>
     public class ChildListTable<T> : BalanceTableDefinition where T : Object
     {
@@ -304,6 +306,8 @@ namespace Game.BalanceData
         private readonly string listPath;
         private readonly bool resizable;
         private readonly (string header, string path)[] items;
+        private (string header, Func<object, int, string> value)[] info = Array.Empty<(string, Func<object, int, string>)>();
+        private bool allowEmpty;
 
         /// <param name="items">Column header and path inside one element ("" for a list of plain values).</param>
         public ChildListTable(string name, string keyColumn, Func<IEnumerable<T>> parents, Func<T, string> key,
@@ -318,8 +322,31 @@ namespace Game.BalanceData
             this.items = items;
         }
 
+        /// <summary>Read-only columns after the key, each computed from the list element and its index.</summary>
+        public ChildListTable<T> WithInfoColumns(params (string header, Func<object, int, string> value)[] columns)
+        {
+            info = columns;
+            return this;
+        }
+
+        /// <summary>The list may be empty: an asset with no rows gets an empty list instead of an error.</summary>
+        public ChildListTable<T> AllowingEmpty()
+        {
+            allowEmpty = true;
+            return this;
+        }
+
         public override string Name => name;
-        public override IReadOnlyList<string> Columns => new[] { keyColumn }.Concat(items.Select(i => i.header)).ToList();
+        public override IReadOnlyList<string> Columns =>
+            new[] { keyColumn }.Concat(info.Select(i => i.header)).Concat(items.Select(i => i.header)).ToList();
+
+        // Documented columns first, else the element field's tooltip
+        public override IReadOnlyList<string> ColumnNotes =>
+            new[] { BalanceDocs.ColumnNote(Name, keyColumn, null) }
+                .Concat(info.Select(i => BalanceDocs.ColumnNote(Name, i.header, null)))
+                .Concat(FieldNotes(ParentType(), items.Select(i => (i.header, ElementPath(0, i.path))))).ToList();
+
+        private Type ParentType() => parents().FirstOrDefault()?.GetType() ?? typeof(T);
 
         private string ElementPath(int index, string item) =>
             $"{listPath}.Array.data[{index}]" + (string.IsNullOrEmpty(item) ? string.Empty : "." + item);
@@ -332,7 +359,11 @@ namespace Game.BalanceData
                 int count = FieldAccess.Count(parent, listPath);
                 for (int i = 0; i < count; i++)
                 {
-                    table.AddRow(new[] { key(parent) }.Concat(items.Select(item => FormatField(parent, ElementPath(i, item.path)))).ToArray());
+                    var element = FieldAccess.Get(parent, $"{listPath}.Array.data[{i}]");
+                    int index = i;
+                    table.AddRow(new[] { key(parent) }
+                        .Concat(info.Select(column => column.value(element, index) ?? string.Empty))
+                        .Concat(items.Select(item => FormatField(parent, ElementPath(index, item.path)))).ToArray());
                 }
             }
             return table;
@@ -359,16 +390,20 @@ namespace Game.BalanceData
             foreach (var (parentKey, parent) in byKey)
             {
                 var rows = rowsByParent.TryGetValue(parentKey, out var r) ? r : new List<int>();
-                PlanList(plan, parentKey, parent, rows.Select(i => (BalanceTable.LineOf(i), table.Rows[i])).ToList(), () => parent);
+                // PlanList reads the key then the item cells: the info columns are left out
+                PlanList(plan, parentKey, parent, rows.Select(i => (BalanceTable.LineOf(i), WithoutInfo(table.Rows[i]))).ToList(), () => parent);
             }
         }
+
+        private string[] WithoutInfo(string[] cells) =>
+            info.Length == 0 ? cells : new[] { cells[0] }.Concat(cells.Skip(1 + info.Length)).ToArray();
 
         /// <summary>Plans one parent's list from its rows (line, cells); also used for parents created by the import.</summary>
         public void PlanList(ImportPlan plan, string parentKey, Object current, List<(int line, string[] cells)> rows, Func<Object> target)
         {
             int count = FieldAccess.Count(current, listPath);
 
-            if (rows.Count == 0 && count > 0)
+            if (rows.Count == 0 && count > 0 && !allowEmpty)
             {
                 plan.Error(Name, $"{parentKey} has no rows (it needs at least one)");
                 return;

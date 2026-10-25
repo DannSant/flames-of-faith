@@ -79,7 +79,7 @@ namespace Game.BalanceData
             }
             if (type == typeof(string))
             {
-                value = text;
+                value = NormalizeText(text);
                 return true;
             }
             if (type.IsEnum)
@@ -126,8 +126,15 @@ namespace Game.BalanceData
             }
             if (type == typeof(bool)) return TryParseBool(text, out bool b) && b == (bool)current;
             if (type.IsEnum) return string.Equals(Format(current, type), text, StringComparison.OrdinalIgnoreCase);
+            if (type == typeof(string)) return NormalizeText(Format(current, type)) == NormalizeText(text);
             return Format(current, type) == text;
         }
+
+        /// <summary>
+        /// Text as a cell holds it: Windows line ends become \n and outer whitespace goes (sheets trim cells), so a
+        /// description with a trailing line break still reads back as unchanged.
+        /// </summary>
+        public static string NormalizeText(string text) => (text ?? string.Empty).Replace("\r\n", "\n").Replace('\r', '\n').Trim();
 
         private static bool TryParseBool(string text, out bool value)
         {
