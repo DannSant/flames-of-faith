@@ -13,7 +13,7 @@ namespace Game.Tests
 {
     /// <summary>
     /// The end-of-wave item bag (UI revamp step 5): a 6-column grid of the Inventory's slots, no built-in
-    /// description panel (the shared tooltip shows the selected item), a subtitle, the selected-slot outline,
+    /// description panel (the shared tooltip shows the hovered or focused item), a subtitle, the selected-slot outline,
     /// and the Inventory opened alongside. The window's shared layout is in CenterWindowStyleTests.
     /// </summary>
     public class ItemBagStyleTests

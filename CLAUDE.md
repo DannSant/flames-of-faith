@@ -461,13 +461,13 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
     - **Anchor:** the given `anchor`, else the gamepad selection, else the pointer.
     - **Side:** to its right if it fits, else to its left.
     - **Height:** top-aligned with the anchor, and kept on screen with the margin (pure `TooltipPlacement.TopLeft`).
-    - **Item bag:** anchors to its selected slot.
+    - **Item bag:** anchors to the hovered or focused slot.
   - **Item text:** `Effect.GetDescriptionText()` (description + ability tier lines) and `Effect.GetStatLines()` (modifier + bonus rule lines). `GetFormattedDescription()` still returns both joined, for the shop, main menu and skill tree.
 - **Item bag** (`ItemBagPane`, `ItemBagControllerUI`), the end-of-wave window where each picked-up item is taken or sold:
   - **Header:** "Items found", and "Take or sell each item" in muted text.
   - **Grid:** a 6-column grid of the **Inventory's slot** (`EffectIconUI`, the only item slot prefab; `ItemBagIconButton` is gone).
   - **Selection:** the selected slot shows a yellow `SelectedMark` ring (`EffectIconUI.SetSelected`, sprite `UISettings.selectedOutline`).
-  - **Tooltip:** the shared tooltip keeps showing the selected item. Hovering another item previews it, and moving off returns to the selected one. With the gamepad, moving onto an item selects it.
+  - **Tooltip:** like the Inventory's: it shows while an item is hovered or focused, beside its slot, and hides when the pointer or focus leaves it (tester feedback, Oct 25; it used to stay up for the selected item). Opening the bag, Take and Sell select the next item without a tooltip, and Take / Sell show none. With the gamepad, moving onto an item selects it. `SlotTooltipTests`.
   - **Buttons:** Take sits in the progress spot, with "Sell (N)" above it.
   - **Panes:** opens the Stats pane and the Inventory beside it (`inventoryUI`, wired in UIMain).
 - **Stats pane** (`StatsPane`, `StatsPaneUI`, `StatRow`):

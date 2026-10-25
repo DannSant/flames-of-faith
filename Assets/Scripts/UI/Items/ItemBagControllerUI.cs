@@ -17,8 +17,9 @@ namespace Game.UI.Items
     /// End-of-wave item bag: the player resolves every item picked up during the wave, one at a time,
     /// with Take (into the inventory) or Sell (coins). The window closes when the bag is empty and the
     /// wave end continues (level-up).
-    /// Items are the Inventory's slots (EffectIconUI). The selected item is outlined and shown in the shared
-    /// tooltip; hovering another item previews it. With the gamepad, moving onto an item selects it.
+    /// Items are the Inventory's slots (EffectIconUI). The selected item (Take/Sell's target) is outlined.
+    /// The shared tooltip works like the Inventory's: it shows while an item is hovered or focused and hides
+    /// when the pointer or focus leaves it. With the gamepad, moving onto an item selects it.
     /// </summary>
     public class ItemBagControllerUI : MonoBehaviour
     {
@@ -98,7 +99,7 @@ namespace Game.UI.Items
         {
             if (itemBag.PickedUpItems.Count > 0)
             {
-                SelectItem(itemBag.PickedUpItems[0]);
+                SelectItem(itemBag.PickedUpItems[0], false);
             }
             else
             {
@@ -111,24 +112,27 @@ namespace Game.UI.Items
             foreach (var item in itemBag.PickedUpItems)
             {
                 var icon = Instantiate(itemIconPrefab, itemIconsContainer);
-                icon.Setup(item, item.EffectIcon, 1, HandleItemPointed, ShowSelectedTooltip);
-                icon.GetComponent<Button>().onClick.AddListener(() => SelectItem(item));
+                icon.Setup(item, item.EffectIcon, 1, HandleItemPointed, HideTooltip);
+                // A click happens over the item, so its tooltip shows as with a hover
+                icon.GetComponent<Button>().onClick.AddListener(() => SelectItem(item, true));
                 icons.Add(icon);
             }
         }
 
-        // Hover (mouse) previews an item; moving onto it with the gamepad selects it
+        // Hover (mouse) shows an item's tooltip; moving onto it with the gamepad also selects it
         private void HandleItemPointed(Effect item)
         {
             if (InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive)
             {
-                SelectItem(item);
+                SelectItem(item, true);
                 return;
             }
             ShowTooltip(item);
         }
 
-        private void SelectItem(Effect item)
+        // showTooltip: only when the item is being pointed at. Opening the bag or taking / selling an item
+        // selects the next one without a tooltip, like the Inventory shows none until something is hovered.
+        private void SelectItem(Effect item, bool showTooltip)
         {
             selectedItem = item;
             foreach (var icon in icons)
@@ -136,7 +140,7 @@ namespace Game.UI.Items
                 if (icon != null) icon.SetSelected(icon.Effect == item);
             }
             if (itemSellText != null) itemSellText.text = FormatSellLabel(sellFormat, item.SellPrice);
-            ShowTooltip(item);
+            if (showTooltip) ShowTooltip(item);
         }
 
         private void TakeSelected()
@@ -187,7 +191,7 @@ namespace Game.UI.Items
                 tooltipPane = FindAnyObjectByType<GeneralTooltipPaneUI>();
                 if (tooltipPane == null) return;
             }
-            // Pinned beside the item's slot (it stays shown for the selected item while the pointer moves)
+            // Beside the item's slot
             LayOutNow((RectTransform)itemIconsContainer);
             var slot = icons.Find(icon => icon != null && icon.Effect == item);
             tooltipPane.ShowTooltip(item.GetDescriptionText(), EffectQualityDisplayHelper.ColorizeName(item), null,
@@ -202,12 +206,7 @@ namespace Game.UI.Items
         /// </summary>
         public static void LayOutNow(RectTransform grid) => LayoutRebuilder.ForceRebuildLayoutImmediate(grid);
 
-        // The pointer left an item: back to the selected one, which the tooltip keeps showing
-        private void ShowSelectedTooltip()
-        {
-            ShowTooltip(selectedItem);
-        }
-
+        // The pointer or the gamepad focus left an item, or its slot was destroyed on a refresh
         private void HideTooltip()
         {
             tooltipPane?.HideTooltip();
@@ -229,7 +228,7 @@ namespace Game.UI.Items
 
         private void ClearUI()
         {
-            // No selection while the slots are rebuilt, so their OnDisable doesn't bring the tooltip back
+            // The slots' OnDisable hides a tooltip they were showing
             selectedItem = null;
             foreach (Transform child in itemIconsContainer)
             {
