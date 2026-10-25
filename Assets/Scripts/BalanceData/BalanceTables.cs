@@ -38,6 +38,7 @@ namespace Game.BalanceData
         public const string EffectsFolder = "Effects";
         public const string EffectBehaviorsFolder = "Effects/EffectBehaviors";
         public const string IconsFolder = "Icons";
+        public const string WeaponsFolder = "Weapons";
         public const string ClassesFolder = "CharacterData";
         public const string CorruptionSettingsPath = "Combat/CorruptionSettings";
         public const string PierceSettingsPath = "Combat/PierceSettings";
@@ -74,6 +75,12 @@ namespace Game.BalanceData
             };
             tables.AddRange(BehaviorTables());
             tables.AddRange(ItemBehaviorTables());
+            tables.AddRange(AbilityTables());
+            // The weapons' own numbers. Base damage and projectile count aren't here: every class kit's ability Glyph
+            // sets them (the Ability_ tabs), so the weapon's values would never be used
+            tables.Add(new AssetTable<WeaponData>("Weapons", "Weapon", () => LoadAll<WeaponData>(WeaponsFolder), w => w.name,
+                "attackCooldownBase", "attackScale", "attackSpeedScale", "weaponClass", "rangeBase", "isRangeBased", "rangeScale",
+                "pierceAmount", "knockbackForce", "shouldApplyKnockback", "elementalDebuffData"));
             tables.AddRange(new BalanceTableDefinition[]
             {
                 new AssetTable<LevelData>("Levels", "Level", () => LoadAll<LevelData>(LevelsFolder), l => l.name, "taintLevel"),
@@ -246,6 +253,35 @@ namespace Game.BalanceData
 
             yield return new ChildListTable<EffectBehavior>("ItemBehaviorStacking", "Behavior", ItemBehaviors, b => b.name, "stackScaling", true,
                 ("Target", "target"), ("Per Stack", "perStack"), ("Mode", "mode"), ("Max Total", "maxTotal")).AllowingEmpty();
+        }
+
+        /// <summary>
+        /// One table per class ability: its tier rows (row 0 = the base item, then +1, +2...), with a read-only Tier
+        /// column. The rows follow the skill tree's tiers, so they can't be added or removed here.
+        /// </summary>
+        private static IEnumerable<BalanceTableDefinition> AbilityTables()
+        {
+            var abilities = LoadAll<Game.Effects.Abilities.AbilityBehavior>(EffectBehaviorsFolder).ToList();
+            foreach (var type in abilities.Select(a => a.GetType()).Distinct().OrderBy(t => t.Name, StringComparer.Ordinal))
+            {
+                var valuesType = AbilityValuesType(type);
+                if (valuesType == null) continue;
+                var items = DesignFields(valuesType).Select(f => (BalanceTableDefinition.Header(f), f)).ToArray();
+                yield return new ChildListTable<Game.Effects.Abilities.AbilityBehavior>("Ability_" + type.Name.Replace("Ability", string.Empty), "Ability",
+                        () => LoadAll<Game.Effects.Abilities.AbilityBehavior>(EffectBehaviorsFolder).Where(a => a.GetType() == type), a => a.name,
+                        "tiers", false, items)
+                    .WithInfoColumns(("Tier", (element, index) => index.ToString()));
+            }
+        }
+
+        /// <summary>The tier row type of an AbilityBehavior&lt;TValues&gt; subclass.</summary>
+        private static Type AbilityValuesType(Type type)
+        {
+            for (var t = type; t != null; t = t.BaseType)
+            {
+                if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Game.Effects.Abilities.AbilityBehavior<>)) return t.GetGenericArguments()[0];
+            }
+            return null;
         }
 
         private static string ItemBehaviorName(string typeName) =>

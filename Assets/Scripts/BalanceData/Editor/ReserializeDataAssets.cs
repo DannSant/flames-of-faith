@@ -26,6 +26,7 @@ namespace Game.BalanceData.Editor
             "Assets/Resources/RunEncounters/EventEncounter/OptionActions",
             // Damage moved from the damage-source data to the spawners (items and abilities)
             "Assets/Resources/Effects",
+            "Assets/Resources/Weapons",
         };
 
         // Prefabs whose design numbers moved to an asset (damage sources -> DamageSourceData).

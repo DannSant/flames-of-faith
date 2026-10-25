@@ -52,9 +52,6 @@ namespace Game.Combat {
         [Tooltip("Wether the attack should apply knockback force")]
         public bool shouldApplyKnockback = true;
 
-        [Tooltip("Amount of grace generated when damage is inflicted")]
-        public int graceGenerated = 1;
-
         [Tooltip("Inflict an elemental type debuff")]
         public ElementalDebuffData elementalDebuffData;
 
