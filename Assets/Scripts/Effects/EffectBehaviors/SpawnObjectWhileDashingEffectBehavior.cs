@@ -9,6 +9,7 @@ namespace Game.Effects.EffectBehaviors
     public class SpawnObjectWhileDashingEffectBehavior : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
+        [Tooltip("Seconds between spawns while the dash lasts.")]
         [SerializeField] private float spawnInterval = 0.1f;
 
         // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly

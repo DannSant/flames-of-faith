@@ -12,11 +12,15 @@ namespace Game.Effects.EffectBehaviors
         [Tooltip("Upper bound on how many instances can spawn per proc. Each one from 0 to this count independently rolls chanceToSpawn.")]
         [SerializeField] private int maxSpawnCount = 5;
 
+        [Tooltip("Offset from the player where they appear (X right, Y up).")]
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
 
+        [Tooltip("Each one starts facing a random direction.")]
         [SerializeField] private bool randomRotation = true;
+        [Tooltip("Spread them around the player instead of stacking them on one spot.")]
         [SerializeField] private bool randomPositionOffset = false;
 
+        [Tooltip("Chance (0 to 1) for each of them when the player is hit.")]
         [Range(0f, 1f)]
         [SerializeField] private float chanceToSpawn = 0.3f;
 

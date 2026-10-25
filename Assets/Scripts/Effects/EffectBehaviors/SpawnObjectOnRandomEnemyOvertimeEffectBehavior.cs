@@ -9,7 +9,9 @@ namespace Game.Effects.EffectBehaviors
     public class SpawnObjectOnRandomEnemyOvertimeEffectBehavior : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
+        [Tooltip("How many spawn each time.")]
         [SerializeField] private int spawnCount = 1;
+        [Tooltip("Offset from the target enemy where it appears (X right, Y up).")]
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
 
         [Header("Timing")]

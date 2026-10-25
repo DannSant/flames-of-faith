@@ -8,6 +8,7 @@ namespace Game.Effects.EffectBehaviors
     [CreateAssetMenu(menuName = "Effects/Behaviors/SpawnAttachedObjects")]
     public class SpawnAttachedObjectBehaviorEffect : SpawningEffectBehavior
     {
+        [Tooltip("How many orbit the player at once (stacking can add more).")]
         [SerializeField] private int count = 2;
 
         // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly

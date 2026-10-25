@@ -73,6 +73,7 @@ namespace Game.BalanceData
                     "moveSpeed", "hopForce", "xpTier", "alwaysCorrupted", "overrideCorruptedHealthBonus", "corruptedHealthBonus"),
             };
             tables.AddRange(BehaviorTables());
+            tables.AddRange(ItemBehaviorTables());
             tables.AddRange(new BalanceTableDefinition[]
             {
                 new AssetTable<LevelData>("Levels", "Level", () => LoadAll<LevelData>(LevelsFolder), l => l.name, "taintLevel"),
@@ -225,6 +226,31 @@ namespace Game.BalanceData
             }
         }
 
+        /// <summary>
+        /// One table per item behavior type (not the class abilities, which have their Ability_ tables): counts,
+        /// chances, intervals, the damage profile, the infusion's element. Plus the stack scaling of every behavior.
+        /// </summary>
+        private static IEnumerable<BalanceTableDefinition> ItemBehaviorTables()
+        {
+            IEnumerable<EffectBehavior> ItemBehaviors() =>
+                LoadAll<EffectBehavior>(EffectBehaviorsFolder).Where(b => !(b is Game.Effects.Abilities.AbilityBehavior));
+
+            foreach (var group in ItemBehaviors().GroupBy(b => b.GetType()).OrderBy(g => g.Key.Name, StringComparer.Ordinal))
+            {
+                var fields = DesignFields(group.Key, nested: true, references: true);
+                if (fields.Count == 0) continue;
+                var type = group.Key;
+                yield return new AssetTable<EffectBehavior>("ItemBehaviors_" + ItemBehaviorName(type.Name), "Behavior",
+                    () => LoadAll<EffectBehavior>(EffectBehaviorsFolder).Where(b => b.GetType() == type), b => b.name, fields.ToArray());
+            }
+
+            yield return new ChildListTable<EffectBehavior>("ItemBehaviorStacking", "Behavior", ItemBehaviors, b => b.name, "stackScaling", true,
+                ("Target", "target"), ("Per Stack", "perStack"), ("Mode", "mode"), ("Max Total", "maxTotal")).AllowingEmpty();
+        }
+
+        private static string ItemBehaviorName(string typeName) =>
+            typeName.Replace("EffectBehavior", string.Empty).Replace("BehaviorEffect", string.Empty).Replace("Behavior", string.Empty);
+
         private static string ShortName(string typeName)
         {
             string name = typeName.Replace("AIBehavior", string.Empty).Replace("Behavior", string.Empty);
@@ -235,8 +261,10 @@ namespace Game.BalanceData
         /// The serialized numbers, toggles, enums and vector components a type shows in the Inspector, in Inspector
         /// order (base class first), without references or text. With <paramref name="nested"/>, a field holding a
         /// [Serializable] struct or class (an item behavior's damage profile) adds its own fields as "field.subField".
+        /// With <paramref name="references"/>, asset references of a type a table can name
+        /// (<see cref="CellCodec.ReferenceFolders"/>: a debuff) are included too.
         /// </summary>
-        public static List<string> DesignFields(Type type, bool nested = false)
+        public static List<string> DesignFields(Type type, bool nested = false, bool references = false)
         {
             var chain = new List<Type>();
             for (var t = type; t != null && t != typeof(ScriptableObject) && t != typeof(Object); t = t.BaseType) chain.Insert(0, t);
@@ -256,6 +284,10 @@ namespace Game.BalanceData
                     {
                         fields.Add(field.Name + ".x");
                         fields.Add(field.Name + ".y");
+                    }
+                    else if (references && CellCodec.ReferenceFolders.ContainsKey(fieldType))
+                    {
+                        fields.Add(field.Name);
                     }
                     else if (nested && IsNestedRecord(fieldType))
                     {

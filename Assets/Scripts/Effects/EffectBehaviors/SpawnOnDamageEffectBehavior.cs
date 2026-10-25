@@ -11,13 +11,18 @@ namespace Game.Effects.EffectBehaviors
     {
         [Header("Spawn Settings")]
 
+        [Tooltip("How many spawn per weapon hit.")]
         [SerializeField] private int spawnCount = 1;
 
+        [Tooltip("Offset from the hit enemy where they appear (X right, Y up).")]
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
 
+        [Tooltip("Each one starts facing a random direction.")]
         [SerializeField] private bool randomRotation = true;
+        [Tooltip("Spread them around the hit point instead of stacking them on it.")]
         [SerializeField] private bool randomPositionOffset = false;
 
+        [Tooltip("Chance (0 to 1) per weapon hit.")]
         [Range(0f, 1f)]
         [SerializeField] private float chanceToSpawn = 1f;
 

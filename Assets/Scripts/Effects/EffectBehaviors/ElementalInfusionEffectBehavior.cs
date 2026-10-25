@@ -32,11 +32,14 @@ namespace Game.Effects.EffectBehaviors
     public class ElementalInfusionEffectBehavior : EffectBehavior
     {
         [Header("Element to Apply")]
+        [Tooltip("The element this item adds to hits.")]
         public ElementalType element = ElementalType.None;
 
         [Header("When Should It Apply?")]
+        [Tooltip("Which hits it applies to: Always, only weapon or only item damage, only Melee / Ranged / Magic, or a mix.")]
         public ElementalCondition condition = ElementalCondition.Always;
 
+        [Tooltip("The debuff asset it applies (e.g. FireDebuff, BleedDebuffHighChance); its numbers are in the Debuffs tab.")]
         public ElementalDebuffData elementalDebuffData;
 
         public override void Initialize(EffectBehaviorContext context, Effect parentEffect)

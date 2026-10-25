@@ -1,0 +1,6 @@
+Behavior,Element,Condition,Elemental Debuff Data
+BleedElementalInfusion,Bleed,OnlyWeaponDamage,BleedDebuff
+FireElementalInfusion,Fire,OnlyRanged,FireDebuff
+FrostElementalInfusion,Frost,OnlyRanged,FrostDebuff
+LeyChargeElementalInfusion,LeyCharge,OnlyWeaponDamage,LeyChargeDebuff
+MeleeFireElementalInfusion,Fire,OnlyMelee,FireDebuff

@@ -1,0 +1,3 @@
+Behavior,Base Damage,Damage Stat,Stat Scale,Spawn Count,Spawn Offset X,Spawn Offset Y,Random Rotation,Chance To Spawn
+SpawnEnergyBallOnSpecialAttack,15,Magic,2,1,0,0,TRUE,1
+SpawnHolyOrbOnSpecialAttack,5,Magic,1,4,0,0,TRUE,1

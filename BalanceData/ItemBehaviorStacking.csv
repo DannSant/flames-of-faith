@@ -1,0 +1,7 @@
+Behavior,Target,Per Stack,Mode,Max Total
+SpawnArrowsOnDash,Damage,1,Additive,0
+SpawnDaggersOnDamageReceived,Damage,1,Additive,0
+SpawnEnergyBallOnSpecialAttack,Damage,1,Additive,0
+SpawnEtherThunderOvertime,Damage,0.25,Additive,0
+SpawnHolyOrbOnSpecialAttack,Bounces,1,Additive,0
+SpawnOrbitingSwords,SpawnCount,1,Additive,0
