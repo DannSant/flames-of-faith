@@ -18,12 +18,16 @@ MonoBehaviour:
   - baseDamage: 30
     tornadoCount: 2
     tornadoExplosionDamage: 5
+    explosionStatScale: 1
   - baseDamage: 33
     tornadoCount: 3
     tornadoExplosionDamage: 6
+    explosionStatScale: 1
   - baseDamage: 36
     tornadoCount: 4
     tornadoExplosionDamage: 7
+    explosionStatScale: 1
   - baseDamage: 40
     tornadoCount: 5
     tornadoExplosionDamage: 8
+    explosionStatScale: 1

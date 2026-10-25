@@ -28,6 +28,7 @@ MonoBehaviour:
   dashSpeed: 3
   dashDuration: 0.15
   dashMaxCharges: 1
+  dashDamageStat: 2
   classDescription: "A skilled archer, member of the Sentinels, defenders of Divinity.
     \nMain stat: _ranged_damage_\nDash skill: Trap Step. Quick Dash that leaves a
     trap behind for a few seconds. Deals _ranged_damage_ to an enemy who steps on

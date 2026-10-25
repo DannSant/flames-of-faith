@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be19defc7094bec880d75016c271009, type: 3}
   m_Name: HolyCross
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.DamageSourceData
-  baseDamage: 5
-  weaponClass: 3
-  attackScale: 1
   useTriggerEnter: 1
   useTriggerStay: 0
   tickInterval: 1

@@ -19,4 +19,8 @@ MonoBehaviour:
     mode: 0
     maxTotal: 0
   prefabToSpawn: {fileID: 1399671665664677946, guid: 944e796622eba564fa5168208e42bd70, type: 3}
+  damage:
+    baseDamage: 2
+    damageStat: 2
+    statScale: 1
   spawnInterval: 0.05

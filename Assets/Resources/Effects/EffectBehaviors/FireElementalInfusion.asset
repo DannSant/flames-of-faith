@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FireElementalInfusion
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.ElementalInfusionEffectBehavior
   behaviorId: FireElementalInfusion
+  stackScaling: []
   element: 1
   condition: 4
   elementalDebuffData: {fileID: 11400000, guid: d14759c9cd789d541b8813542a28a43f, type: 2}

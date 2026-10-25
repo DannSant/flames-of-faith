@@ -18,8 +18,8 @@ namespace Game.Control
 
         // The dash's own values, used when the player has no Glyph of Trap Step.
         private float defaultDashDuration;
-        // Null = keep the trap prefab's own damage.
-        private int? trapDamageOverride;
+        // The trap's damage from the Glyph of Trap Step; none without it (every Archer kit has it).
+        private DamageProfile trapDamage;
         private int currentMaxTraps;
 
         protected override void Awake()
@@ -33,7 +33,7 @@ namespace Game.Control
         {
             var trapStep = GetAbilityValues<TrapStepAbility, TrapStepAbility.Values>();
             SetDashDuration(trapStep != null ? trapStep.dashDuration : defaultDashDuration);
-            trapDamageOverride = trapStep?.trapDamage;
+            trapDamage = trapStep != null ? new DamageProfile(trapStep.trapDamage, dashDamageStat, trapStep.trapStatScale) : default;
             currentMaxTraps = trapStep != null ? trapStep.maxTraps : maxActiveTraps;
         }
 
@@ -46,11 +46,7 @@ namespace Game.Control
             trapLimiter.SetMaxCount(currentMaxTraps);
 
             var trap = Instantiate(trapPrefab, transform.position, Quaternion.identity);
-            if (trapDamageOverride.HasValue)
-            {
-                var damage = trap.GetComponentInChildren<DamageSourceBase>();
-                if (damage != null) damage.SetBaseDamage(trapDamageOverride.Value);
-            }
+            trapDamage.ApplyTo(trap.GetComponentInChildren<DamageSourceBase>());
 
             foreach (var oldTrap in trapLimiter.Register(trap))
             {

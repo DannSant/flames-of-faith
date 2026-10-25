@@ -21,6 +21,8 @@ namespace Game.Control
         protected float dashSpeed = 3f;
         protected float dashDuration = .2f;
         protected int maxCharges = 1;
+        // The stat the dash's damage scales with (the class's CharacterClassData)
+        protected WeaponClass dashDamageStat = WeaponClass.None;
 
         [Header("Steering")]
         [Tooltip("Lets the move input change the dash direction while dashing. With no move input the dash " +
@@ -88,6 +90,7 @@ namespace Game.Control
             dashSpeed = classData.dashSpeed;
             dashDuration = classData.dashDuration;
             maxCharges = classData.dashMaxCharges;
+            dashDamageStat = classData.dashDamageStat;
         }
 
         protected virtual void Start()

@@ -3,10 +3,9 @@ using UnityEngine;
 namespace Game.Effects.EffectBehaviors
 {
     [CreateAssetMenu(menuName = "Effects/Behaviors/Spawn On Special Attack")]
-    public class SpawnObjectOnSpecialAttack : EffectBehavior
+    public class SpawnObjectOnSpecialAttack : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
-        [SerializeField] private GameObject prefabToSpawn;
 
         [SerializeField] private int spawnCount = 1;
 

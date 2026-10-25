@@ -31,6 +31,8 @@ namespace Game.Control
         [Tooltip("Dashes that can be stored and used back to back. The class's dash Glyph can override it.")]
         [Min(1)]
         public int dashMaxCharges = 1;
+        [Tooltip("The damage stat the dash's damage scales with (the Warrior's charge, the Archer's traps, the Augur's flames).")]
+        public Game.Combat.WeaponClass dashDamageStat = Game.Combat.WeaponClass.None;
 
         [Header("Menu Display")]
         [TextArea] public string classDescription;

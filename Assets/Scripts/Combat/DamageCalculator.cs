@@ -95,30 +95,19 @@ namespace Game.Combat
                  
             }
 
-            // How much of the player's damage stat this source is entitled to. A source that
-            // belongs to an effect (a spawned missile, an orbiting sword) takes the share defined
-            // by that effect's scalingValue, so an ability can be tuned to deal a fraction of the
-            // stat instead of all of it. Anything without an effect id is the weapon itself and
-            // gets the full stat.
-            //
-            // The default of 1 matters: GetEffectMultiplierConfig returns an empty struct
-            // (scaleValue 0) for an empty/unknown id, so multiplying by it directly would zero out
-            // all normal weapon damage.
+            // The share of the damage stat is the source's own (WeaponScaleDamage): its spawner set it, from the
+            // item behavior's damage profile, the ability tier or the weapon (the item's old scalingValue is folded
+            // into the item behaviors' Stat Scale, Oct 2026).
             //
             // Stack count is deliberately not looked up here - an effect that stacks its damage
             // hands the resolved multiplier in via StackDamageMultiplier instead. Deriving it from
             // the id at this point would apply it to effects that stack their spawn count too, and
             // N times as many objects each hitting N times as hard is quadratic.
-            float effectStatScale = 1f;
-            if (!string.IsNullOrEmpty(damageRequest.EffectID))
-            {
-                effectStatScale = effectStore.GetEffectMultiplierConfig(damageRequest.EffectID).scaleValue;
-            }
 
             // The multiplier covers the whole sum, not just the progression term: effect prefabs
             // are commonly WeaponClass.None, where that term is 0 and scaling it would be a no-op.
             totalDamage = Mathf.FloorToInt(
-                (baseDamage + progressionStatDamage * effectStatScale * damageRequest.WeaponScaleDamage)
+                (baseDamage + progressionStatDamage * damageRequest.WeaponScaleDamage)
                 * damageRequest.StackDamageMultiplier);
             finalDamage = totalDamage * GetGraceDamageMultiplier();
             if (finalDamage<=0)

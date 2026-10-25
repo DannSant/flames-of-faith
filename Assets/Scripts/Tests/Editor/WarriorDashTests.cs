@@ -122,8 +122,8 @@ namespace Game.Tests
             var (_, hitbox) = LoadDash();
             var damage = hitbox.GetComponent<DamageSourceBase>();
             Assert.IsNotNull(damage, "The dash hitbox has no DamageSourceBase");
-            Assert.AreEqual(WeaponClass.Melee, damage.WeaponClass, "The dash scales with Melee Damage only as WeaponClass.Melee");
-            Assert.Greater(damage.AttackScale, 0f, "The hitbox's own Melee Damage share (used without the Glyph)");
+            var warrior = AssetDatabase.LoadAssetAtPath<CharacterClassData>("Assets/Resources/CharacterData/Warrior.asset");
+            Assert.AreEqual(WeaponClass.Melee, warrior.dashDamageStat, "The Warrior's charge scales with Melee Damage (its dash damage stat)");
         }
 
         [Test]

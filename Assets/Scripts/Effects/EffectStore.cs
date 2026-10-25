@@ -209,8 +209,7 @@ namespace Game.Effects
             {                
                 return new EffectMultiplierConfig
                 {
-                    count = effectInstance.count,
-                    scaleValue = effectInstance.effect.scalingValue
+                    count = effectInstance.count
                 };
             }
 

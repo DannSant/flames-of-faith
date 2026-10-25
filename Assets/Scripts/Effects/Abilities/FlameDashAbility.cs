@@ -17,6 +17,9 @@ namespace Game.Effects.Abilities
             [Min(0.01f)] public float dashDuration = 0.3f;
             [Tooltip("Base damage of each flame left behind.")]
             public int flameDamage = 2;
+            [Tooltip("Share of Magic Damage each flame tick adds (1 = the full stat).")]
+            [Min(0f)]
+            public float flameStatScale = 0.1f;
             [Tooltip("Dash charges.")]
             [Min(1)] public int maxCharges = 2;
             [Tooltip("Seconds between flames while dashing (lower = more flames).")]

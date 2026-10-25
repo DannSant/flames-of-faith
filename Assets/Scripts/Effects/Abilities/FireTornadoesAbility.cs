@@ -20,6 +20,9 @@ namespace Game.Effects.Abilities
             [Min(1)] public int tornadoCount = 4;
             [Tooltip("Base damage of the explosion each tornado sets off on its first hit (replaces the explosion prefab's damage).")]
             public int tornadoExplosionDamage = 5;
+            [Tooltip("Share of Magic Damage a tornado's explosion adds (1 = the full stat).")]
+            [Min(0f)]
+            public float explosionStatScale = 1f;
         }
 
         protected override string Describe(Values v) => AbilityTiers.Lines(

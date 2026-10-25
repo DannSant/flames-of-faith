@@ -24,7 +24,6 @@ namespace Game.BalanceData.Editor
         // Same names on DamageSourceBase (inline, before the move) and on DamageSourceData.
         private static readonly string[] SharedFields =
         {
-            "baseDamage", "weaponClass", "attackScale",
             "useTriggerEnter", "useTriggerStay", "tickInterval", "shouldStackDamage",
             "enablePierce", "pierceCount", "addPierceStat",
             "applyKnockback", "knockbackForce", "canTriggerLifesteal", "directElementalDebuffData",

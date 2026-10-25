@@ -17,6 +17,9 @@ namespace Game.Effects.Abilities
             [Min(0.01f)] public float dashDuration = 0.15f;
             [Tooltip("Base damage of each trap.")]
             public int trapDamage = 2;
+            [Tooltip("Share of Ranged Damage each trap hit adds (1 = the full stat).")]
+            [Min(0f)]
+            public float trapStatScale = 0.7f;
             [Tooltip("Most traps set at once; setting another removes the oldest.")]
             [Min(1)] public int maxTraps = 3;
         }

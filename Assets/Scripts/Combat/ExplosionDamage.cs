@@ -14,11 +14,11 @@ namespace Game.Combat
 
         private DamageSourceBase damageSource;
         private bool hasExploded = false;
-        // Null = the explosion prefab's own damage
-        private int? explosionDamageOverride;
+        // Set by the spawner (the scepter, from the Glyph of Fire Tornadoes); none = the explosion deals no damage
+        private DamageProfile? explosionDamage;
 
-        /// <summary>Base damage of the explosion this spawns (e.g. from an ability item's tier).</summary>
-        public void SetExplosionDamage(int baseDamage) => explosionDamageOverride = baseDamage;
+        /// <summary>The damage of the explosion this spawns (e.g. from an ability item's tier).</summary>
+        public void SetExplosionDamage(DamageProfile damage) => explosionDamage = damage;
 
         private void Awake()
         {
@@ -53,9 +53,9 @@ namespace Game.Combat
             if (explosionDamagePrefab == null) return;
 
             var explosionInstance = Instantiate(explosionDamagePrefab, position, Quaternion.identity);
-            if (explosionDamageOverride.HasValue && explosionInstance.TryGetComponent<DamageSourceBase>(out var explosionDamage))
+            if (explosionDamage.HasValue && explosionInstance.TryGetComponent<DamageSourceBase>(out var source))
             {
-                explosionDamage.SetBaseDamage(explosionDamageOverride.Value);
+                explosionDamage.Value.ApplyTo(source);
             }
             if (explosionInstance.TryGetComponent<DestroyAfterTime>(out var destroyAfterTime))
             {

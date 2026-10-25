@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeyChargeElementalInfusion
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.ElementalInfusionEffectBehavior
   behaviorId: LeyChargeElementalInfusion
-  stackBehavior: 0
+  stackScaling: []
   element: 4
   condition: 1
   elementalDebuffData: {fileID: 11400000, guid: c4e18fd50c884bb7b647ef4ce79ce7fa, type: 2}

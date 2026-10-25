@@ -24,6 +24,8 @@ namespace Game.BalanceData.Editor
             // The hand-written item lists moved to the drop table (item drops)
             "Assets/Resources/RunEncounters/Treasures",
             "Assets/Resources/RunEncounters/EventEncounter/OptionActions",
+            // Damage moved from the damage-source data to the spawners (items and abilities)
+            "Assets/Resources/Effects",
         };
 
         // Prefabs whose design numbers moved to an asset (damage sources -> DamageSourceData).

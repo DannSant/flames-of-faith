@@ -106,10 +106,13 @@ namespace Game.Effects
             return Mathf.Max(1, Mathf.RoundToInt(authoredCount * multiplier));
         }
 
+        /// <summary>The damage a spawned object deals (<see cref="SpawningEffectBehavior"/>); null = leave it as is.</summary>
+        protected virtual Game.Combat.DamageProfile? SpawnDamage => null;
+
         /// <summary>
         /// The one way a behavior should spawn anything: instantiates the prefab, tags every
-        /// damage source on it with the parent effect's id, and pushes the resolved stack scaling
-        /// into every component that responds to it.
+        /// damage source on it with the parent effect's id, pushes the behavior's damage into it,
+        /// and pushes the resolved stack scaling into every component that responds to it.
         /// </summary>
         protected GameObject SpawnEffectObject(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent = null)
         {
@@ -131,6 +134,14 @@ namespace Game.Effects
             foreach (var multiplier in instance.GetComponentsInChildren<IEffectMultiplier>(true))
             {
                 multiplier.SetEffectID(effectID);
+            }
+
+            if (SpawnDamage.HasValue)
+            {
+                foreach (var source in instance.GetComponentsInChildren<Game.Combat.DamageSourceBase>(true))
+                {
+                    SpawnDamage.Value.ApplyTo(source);
+                }
             }
 
             foreach (var scalable in instance.GetComponentsInChildren<IStackScalable>(true))

@@ -17,13 +17,17 @@ MonoBehaviour:
   tiers:
   - dashDuration: 0.15
     trapDamage: 4
+    trapStatScale: 0.7
     maxTraps: 3
   - dashDuration: 0.17
     trapDamage: 6
+    trapStatScale: 0.7
     maxTraps: 4
   - dashDuration: 0.19
     trapDamage: 8
+    trapStatScale: 0.7
     maxTraps: 5
   - dashDuration: 0.21
     trapDamage: 12
+    trapStatScale: 0.7
     maxTraps: 5

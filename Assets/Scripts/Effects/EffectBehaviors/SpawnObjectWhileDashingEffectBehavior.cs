@@ -6,11 +6,9 @@ using UnityEngine;
 namespace Game.Effects.EffectBehaviors
 {
     [CreateAssetMenu(menuName = "Effects/Behaviors/Spawn Object While Dashing")]
-    public class SpawnObjectWhileDashingEffectBehavior : EffectBehavior
+    public class SpawnObjectWhileDashingEffectBehavior : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
-        [Tooltip("Prefab spawned at the player's position, repeatedly, for as long as the dash lasts.")]
-        [SerializeField] private GameObject prefabToSpawn;
         [SerializeField] private float spawnInterval = 0.1f;
 
         // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly

@@ -6,10 +6,9 @@ using UnityEngine;
 namespace Game.Effects.EffectBehaviors
 {
     [CreateAssetMenu(menuName = "Effects/Behaviors/Spawn Object On Random Enemy Overtime")]
-    public class SpawnObjectOnRandomEnemyOvertimeEffectBehavior : EffectBehavior
+    public class SpawnObjectOnRandomEnemyOvertimeEffectBehavior : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
-        [SerializeField] private GameObject prefabToSpawn;
         [SerializeField] private int spawnCount = 1;
         [SerializeField] private Vector2 spawnOffset = Vector2.zero;
 

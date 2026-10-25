@@ -1,4 +1,4 @@
-Class,Dash Cooldown,Dash Speed,Dash Duration,Dash Max Charges
-Archer,1.5,3,0.15,1
-Augur,3,3,0.3,2
-Warrior,4,3,0.3,1
+Class,Dash Cooldown,Dash Speed,Dash Duration,Dash Max Charges,Dash Damage Stat
+Archer,1.5,3,0.15,1,Ranged
+Augur,3,3,0.3,2,Magic
+Warrior,4,3,0.3,1,Melee

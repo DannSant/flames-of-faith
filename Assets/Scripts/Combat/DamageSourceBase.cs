@@ -12,8 +12,8 @@ namespace Game.Combat
 {
     public class DamageSourceBase : MonoBehaviour, IEffectMultiplier, IDamageDealtNotifier, IStackScalable
     {
-        [Tooltip("This source's design numbers: damage, hit mode, pierce, knockback, debuff, and its projectile's " +
-            "speed and lifetime. Edit them on the asset (Resources/Combat/DamageSources), not here.")]
+        [Tooltip("How this source hits: hit mode, pierce, knockback, debuff, and its projectile's speed and lifetime. " +
+            "Edit them on the asset (Resources/Combat/DamageSources), not here. Its damage comes from its spawner.")]
         [SerializeField] private DamageSourceData data;
 
         [Header("Wiring")]
@@ -22,10 +22,10 @@ namespace Game.Combat
         [SerializeField] private LayerMask enemyLayerMask = 0;
         [SerializeField] private DamageOriginType originType = DamageOriginType.Weapon;
 
-        // The design numbers, loaded from data (EnsureLoaded) and then changed at runtime by spawners
-        // (Initialize, the setters below) and item stacking. Not serialized: the asset is their only source.
-        // The defaults are for a source without data (tests, a component added in code).
-        private int baseDamage = 5;
+        // The damage is set by the spawner (Initialize, SetDamage: weapons, item behaviors, abilities); the other
+        // design numbers are loaded from data (EnsureLoaded) and can be changed at runtime by spawners and item
+        // stacking. Not serialized: the asset and the spawner are their only sources.
+        private int baseDamage = 0;
         private WeaponClass weaponClass = WeaponClass.None;
         private float attackScale = 1f;
         private bool useTriggerEnter = true;
@@ -42,6 +42,11 @@ namespace Game.Combat
         private float knockbackForce = 5f;
         private bool canTriggerLifesteal = true;
         private ElementalDebuffData directElementalDebuffData;
+
+        // Set when a spawner set the damage (Initialize, SetDamage, SetBaseDamage). The damage numbers belong to the
+        // spawner, not to the prefab's data, so a source that hits without it warns once.
+        private bool damageSet;
+        private bool warnedNoDamage;
 
         // Set once the values above are loaded from data. Every entry point loads first, because a
         // spawner can configure a source before its object is active, i.e. before Awake.
@@ -82,9 +87,6 @@ namespace Game.Combat
             loaded = true;
             if (data == null) return;
 
-            baseDamage = data.BaseDamage;
-            weaponClass = data.WeaponClass;
-            attackScale = data.AttackScale;
             useTriggerEnter = data.UseTriggerEnter;
             useTriggerStay = data.UseTriggerStay;
             tickInterval = data.TickInterval;
@@ -124,6 +126,7 @@ namespace Game.Combat
             effectID = other.effectID;
             weaponData = other.weaponData;
             stackDamageMultiplier = other.stackDamageMultiplier;
+            damageSet = other.damageSet;
         }
 
         private void Start()
@@ -141,6 +144,7 @@ namespace Game.Combat
         public void Initialize(int baseDamage, int pierceAmount, string effectId, WeaponClass weaponClass, WeaponData weaponData)
         {
             EnsureLoaded();
+            damageSet = true;
             this.baseDamage = baseDamage;
             this.pierceCount = pierceAmount;
             pierceSetExplicitly = true;
@@ -295,7 +299,13 @@ namespace Game.Combat
         }
 
         private float CalculateTotalDamage()
-        {          
+        {
+            if (!damageSet && !warnedNoDamage)
+            {
+                warnedNoDamage = true;
+                Debug.LogWarning($"{name}: hit with no damage set by its spawner (item behavior, ability or weapon).", this);
+            }
+
             if (effectStore == null || playerProgression == null)
             {
                 Debug.LogWarning("DamageSourceBase: Missing EffectStore or PlayerProgression.");
@@ -334,7 +344,17 @@ namespace Game.Combat
 
         public void SetElementalDebuffData(ElementalDebuffData debuffData) { EnsureLoaded(); directElementalDebuffData = debuffData; }
 
-        public void SetBaseDamage(int value) { EnsureLoaded(); baseDamage = value; }
+        public void SetBaseDamage(int value) { EnsureLoaded(); baseDamage = value; damageSet = true; }
+
+        /// <summary>The spawner's damage (an item behavior, a dash ability, an explosion): base, stat and its share.</summary>
+        public void SetDamage(DamageProfile profile)
+        {
+            EnsureLoaded();
+            baseDamage = profile.baseDamage;
+            weaponClass = profile.damageStat;
+            attackScale = profile.statScale;
+            damageSet = true;
+        }
         public int BaseDamage { get { EnsureLoaded(); return baseDamage; } }
 
         // Targets this source never damages, e.g. the enemy a split arrow broke off from (it spawns

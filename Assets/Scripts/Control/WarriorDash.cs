@@ -13,10 +13,8 @@ namespace Game.Control
         [SerializeField] private GameObject dashHitbox;
 
         private DamageSourceBase hitboxDamage;
-        // The hitbox's own values, used when the player has no Glyph of Crusader Charge.
-        private int defaultDamage;
+        // The hitbox's own knockback (its DamageSourceData), used when the player has no Glyph of Crusader Charge.
         private float defaultKnockback;
-        private float defaultAttackScale;
 
         protected override void Awake()
         {
@@ -24,21 +22,19 @@ namespace Game.Control
             hitboxDamage = dashHitbox != null ? dashHitbox.GetComponent<DamageSourceBase>() : null;
             if (hitboxDamage != null)
             {
-                defaultDamage = hitboxDamage.BaseDamage;
                 defaultKnockback = hitboxDamage.KnockbackForce;
-                defaultAttackScale = hitboxDamage.AttackScale;
             }
         }
 
+        // The damage is the Glyph of Crusader Charge's (its tier's damage and share of the class's dash damage stat).
+        // Without the glyph the charge deals no damage: every Warrior kit has it (ClassKitTests).
         protected override void ApplyAbilityItems()
         {
             if (hitboxDamage == null) return;
 
             var charge = GetAbilityValues<CrusaderChargeAbility, CrusaderChargeAbility.Values>();
-            hitboxDamage.SetBaseDamage(charge != null ? charge.damage : defaultDamage);
+            hitboxDamage.SetDamage(charge != null ? new DamageProfile(charge.damage, dashDamageStat, charge.meleeDamageScale) : default);
             hitboxDamage.SetKnockbackForce(charge != null ? charge.knockbackForce : defaultKnockback);
-            // The hitbox is WeaponClass.Melee, so its attack scale is its share of Melee Damage.
-            hitboxDamage.SetAttackScale(charge != null ? charge.meleeDamageScale : defaultAttackScale);
         }
 
         protected override void StartDashing()

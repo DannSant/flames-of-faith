@@ -1,5 +1,6 @@
 using Game.AI;
 using Game.Combat;
+using Game.Control;
 using Game.Effects;
 using Game.Effects.Abilities;
 using Game.Enemies;
@@ -187,38 +188,34 @@ namespace Game.BalanceData.Editor
 
         // --- Where each attack's damage comes from (the damage-ownership move changes only this part) ---------------
 
-        private static DamageSourceData SourceData(string name) =>
-            Resources.Load<DamageSourceData>(BalanceTables.DamageSourcesFolder + "/" + name);
+        private static CharacterClassData ClassData(string name) =>
+            Resources.Load<CharacterClassData>(BalanceTables.ClassesFolder + "/" + name);
 
         public static List<DamageInput> ItemDamageInputs()
         {
             var inputs = new List<DamageInput>();
 
-            // Item behaviors: the spawned prefab's data, times the item's scaling value
+            // Item behaviors: their damage profile
             foreach (var effect in BalanceTables.LoadAll<Effect>(BalanceTables.EffectsFolder))
             {
-                foreach (var behavior in effect.Behaviors.Where(b => b != null && !(b is AbilityBehavior)))
+                foreach (var behavior in effect.Behaviors.OfType<SpawningEffectBehavior>())
                 {
-                    var prefabField = FieldAccess.FindField(behavior.GetType(), "prefabToSpawn");
-                    var prefab = prefabField?.GetValue(behavior) as GameObject;
-                    var source = prefab != null ? prefab.GetComponentInChildren<DamageSourceBase>(true) : null;
-                    if (source == null || source.Data == null) continue;
+                    var prefab = behavior.PrefabToSpawn;
+                    if (prefab == null || prefab.GetComponentInChildren<DamageSourceBase>(true) == null) continue;
                     var rules = (List<StackScalingRule>)FieldAccess.Get(behavior, "stackScaling");
                     inputs.Add(new DamageInput
                     {
                         source = "Item", name = effect.name + " / " + behavior.name, tier = 0,
-                        baseDamage = source.Data.BaseDamage, damageStat = source.Data.WeaponClass,
-                        statScale = source.Data.AttackScale * (effect.scalingValue > 0f ? effect.scalingValue : 1f),
+                        baseDamage = behavior.Damage.baseDamage, damageStat = behavior.Damage.damageStat, statScale = behavior.Damage.statScale,
                         twoStackMultiplier = new StackScaling(rules, 2).Get(StackScalingTarget.Damage),
                     });
                 }
             }
 
-            // Dashes and the Fire Tornado explosion: tier base damage, the prefab's stat and scale
-            var trap = SourceData("Trap");
-            var flame = SourceData("TrailFlame");
-            var hitbox = SourceData("PlayerWarrior_DashHitbox");
-            var explosion = SourceData("FireballExplotion");
+            // Dashes and the Fire Tornado explosion: the tier's damage and stat share, the class's dash stat
+            var warrior = ClassData("Warrior");
+            var archer = ClassData("Archer");
+            var augur = ClassData("Augur");
             foreach (var ability in BalanceTables.LoadAll<AbilityBehavior>(BalanceTables.EffectBehaviorsFolder))
             {
                 for (int tier = 0; tier < ability.TierCount; tier++)
@@ -226,17 +223,21 @@ namespace Game.BalanceData.Editor
                     switch (ability)
                     {
                         case TrapStepAbility trapStep:
-                            inputs.Add(Ability(ability, tier, trapStep.GetTier(tier).trapDamage, trap.WeaponClass, trap.AttackScale));
+                            var trap = trapStep.GetTier(tier);
+                            inputs.Add(Ability(ability, tier, trap.trapDamage, archer.dashDamageStat, trap.trapStatScale));
                             break;
                         case FlameDashAbility flameDash:
-                            inputs.Add(Ability(ability, tier, flameDash.GetTier(tier).flameDamage, flame.WeaponClass, flame.AttackScale));
+                            var flame = flameDash.GetTier(tier);
+                            inputs.Add(Ability(ability, tier, flame.flameDamage, augur.dashDamageStat, flame.flameStatScale));
                             break;
                         case CrusaderChargeAbility charge:
                             var row = charge.GetTier(tier);
-                            inputs.Add(Ability(ability, tier, row.damage, hitbox.WeaponClass, row.meleeDamageScale));
+                            inputs.Add(Ability(ability, tier, row.damage, warrior.dashDamageStat, row.meleeDamageScale));
                             break;
                         case FireTornadoesAbility tornadoes:
-                            inputs.Add(Ability(ability, tier, tornadoes.GetTier(tier).tornadoExplosionDamage, explosion.WeaponClass, explosion.AttackScale));
+                            var tornado = tornadoes.GetTier(tier);
+                            // The scepter's special weapon is Magic (ScepterWeapon passes its weapon class)
+                            inputs.Add(Ability(ability, tier, tornado.tornadoExplosionDamage, WeaponClass.Magic, tornado.explosionStatScale));
                             break;
                     }
                 }

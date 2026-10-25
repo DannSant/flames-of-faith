@@ -25,8 +25,8 @@ namespace Game.Control
         private float defaultDashDuration;
         private int defaultMaxCharges;
         private float currentTrailSpawnInterval;
-        // Null = keep the flame prefab's own damage.
-        private int? flameDamageOverride;
+        // The flames' damage from the Glyph of Flame Dash; none without it (every Augur kit has it).
+        private DamageProfile flameDamage;
 
         protected override void Awake()
         {
@@ -42,7 +42,7 @@ namespace Game.Control
             SetDashDuration(flameDash != null ? flameDash.dashDuration : defaultDashDuration);
             SetMaxCharges(flameDash != null ? flameDash.maxCharges : defaultMaxCharges);
             currentTrailSpawnInterval = flameDash != null ? flameDash.flameSpawnInterval : trailSpawnInterval;
-            flameDamageOverride = flameDash?.flameDamage;
+            flameDamage = flameDash != null ? new DamageProfile(flameDash.flameDamage, dashDamageStat, flameDash.flameStatScale) : default;
         }
 
         protected override void Update()
@@ -79,11 +79,7 @@ namespace Game.Control
             if (flameTrailSegmentPrefab != null)
             {
                 var flame = Instantiate(flameTrailSegmentPrefab, transform.position, Quaternion.identity);
-                if (flameDamageOverride.HasValue)
-                {
-                    var damage = flame.GetComponentInChildren<DamageSourceBase>();
-                    if (damage != null) damage.SetBaseDamage(flameDamageOverride.Value);
-                }
+                flameDamage.ApplyTo(flame.GetComponentInChildren<DamageSourceBase>());
             }
         }
 

@@ -30,6 +30,7 @@ MonoBehaviour:
   dashSpeed: 3
   dashDuration: 0.3
   dashMaxCharges: 1
+  dashDamageStat: 1
   classDescription: 'A fierce warrior trained in the Abidor Institute.
 
     Main

@@ -17,7 +17,8 @@ namespace Game.Effects{
         [Tooltip("The item's icon (a sprite in Resources/Icons, by name).")]
         [SerializeField] private Sprite icon;
         [SerializeField] public string effectName = "New Effect";
-        [Tooltip("This value will be multiplied by the level of the item when calculating damage or other state")]
+        [HideInInspector]
+        [System.Obsolete("Retired Oct 2026: folded into the item behaviors' damage profiles (Stat Scale). Not read; kept for the retired DB loader.")]
         [SerializeField] public float scalingValue = 1;
         [Tooltip("The text shown in the item's tooltip. _melee_damage_ and similar placeholders become stat names. Keep numbers out: tier lines and stat lines are added from the data.")]
         [SerializeField] [TextArea] public string description;
@@ -50,6 +51,7 @@ namespace Game.Effects{
         public string EffectID { get => effectID; set => effectID = value; }
         public Sprite EffectIcon { get => icon; set => icon = value; }
         public string EffectName { get => effectName; set => effectName = value; }
+        [System.Obsolete("Retired Oct 2026: folded into the item behaviors' damage profiles (Stat Scale). Not read; kept for the retired DB loader.")]
         public float ScalingValue { get => scalingValue; set => scalingValue = value; }
         public string Description { get => description; set => description = value; }
         public int BuyPrice { get => buyPrice; set => buyPrice = value; }
@@ -241,7 +243,6 @@ namespace Game.Effects{
         {
             return $"EffectID: {effectID}, " +
                    $"EffectName: {effectName}, " +
-                   $"ScalingValue: {scalingValue}, " +
                    $"Description: {description}, " +
                    $"OwnerStore: {ownerStore}, " +
                    $"EffectIcon: {(icon != null ? icon.name : "None")}";

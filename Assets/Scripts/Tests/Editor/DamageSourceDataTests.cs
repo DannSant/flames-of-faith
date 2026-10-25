@@ -70,7 +70,6 @@ namespace Game.Tests
             {
                 var data = source.Data;
                 string name = data.name;
-                if (data.BaseDamage < 0) problems.Add($"{name}: negative base damage");
                 if (!data.UseTriggerEnter && !data.UseTriggerStay) problems.Add($"{name}: neither trigger enter nor stay, it never hits");
                 if (data.UseTriggerStay && data.TickInterval <= 0f) problems.Add($"{name}: trigger stay needs a tick interval > 0");
                 if (data.EnablePierce && data.PierceCount < 1) problems.Add($"{name}: pierce count below 1");
@@ -97,14 +96,13 @@ namespace Game.Tests
             created.Clear();
         }
 
-        private DamageSourceData MakeData(int baseDamage, WeaponClass weaponClass, float attackScale)
+        private DamageSourceData MakeData(int pierceCount = 1, float knockbackForce = 5f)
         {
             var data = ScriptableObject.CreateInstance<DamageSourceData>();
             created.Add(data);
             var so = new SerializedObject(data);
-            so.FindProperty("baseDamage").intValue = baseDamage;
-            so.FindProperty("weaponClass").enumValueIndex = (int)weaponClass;
-            so.FindProperty("attackScale").floatValue = attackScale;
+            so.FindProperty("pierceCount").intValue = pierceCount;
+            so.FindProperty("knockbackForce").floatValue = knockbackForce;
             so.ApplyModifiedPropertiesWithoutUndo();
             return data;
         }
@@ -121,35 +119,37 @@ namespace Game.Tests
         }
 
         [Test]
-        public void Source_LoadsItsData()
+        public void Source_LoadsHowItHits_AndNoDamage()
         {
-            var source = MakeSource(MakeData(12, WeaponClass.Magic, 0.5f));
+            var source = MakeSource(MakeData(pierceCount: 3, knockbackForce: 7f));
 
-            Assert.AreEqual(12, source.BaseDamage);
-            Assert.AreEqual(WeaponClass.Magic, source.WeaponClass);
-            Assert.AreEqual(0.5f, source.AttackScale, 1e-5f);
+            Assert.AreEqual(3, source.PierceCount);
+            Assert.AreEqual(7f, source.KnockbackForce, 1e-5f);
+            Assert.AreEqual(0, source.BaseDamage, "The damage comes from the spawner, not the data");
+            Assert.AreEqual(WeaponClass.None, source.WeaponClass);
         }
 
         [Test]
-        public void SpawnerValues_WinOverTheData_EvenBeforeTheSourceIsActive()
+        public void SpawnerDamage_SticksEvenBeforeTheSourceIsActive()
         {
             // Nothing has read the data yet (no Awake in edit mode), like a source configured before activation.
-            var source = MakeSource(MakeData(12, WeaponClass.Magic, 0.5f));
-            source.SetBaseDamage(40);
-            source.SetWeaponClass(WeaponClass.Ranged);
+            var source = MakeSource(MakeData(knockbackForce: 7f));
+            new DamageProfile(40, WeaponClass.Ranged, 0.5f).ApplyTo(source);
 
-            Assert.AreEqual(40, source.BaseDamage, "The data must not overwrite a value a spawner already set");
+            Assert.AreEqual(40, source.BaseDamage, "Loading the data must not clear the spawner's damage");
             Assert.AreEqual(WeaponClass.Ranged, source.WeaponClass);
+            Assert.AreEqual(0.5f, source.AttackScale, 1e-5f);
+            Assert.AreEqual(7f, source.KnockbackForce, 1e-5f);
         }
 
         [Test]
         public void SplitClone_KeepsTheOriginalsRuntimeValues()
         {
-            var original = MakeSource(MakeData(5, WeaponClass.None, 1f));
+            var original = MakeSource(MakeData());
             original.Initialize(9, 3, "item-id", WeaponClass.Ranged, null);
             original.SetAttackScale(0.75f);
 
-            var clone = MakeSource(MakeData(5, WeaponClass.None, 1f));
+            var clone = MakeSource(MakeData());
             clone.CopyRuntimeFrom(original);
 
             Assert.AreEqual(9, clone.BaseDamage);

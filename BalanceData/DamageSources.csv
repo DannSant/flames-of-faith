@@ -1,17 +1,17 @@
-Damage Source,Base Damage,Weapon Class,Attack Scale,Use Trigger Enter,Use Trigger Stay,Tick Interval,Should Stack Damage,Enable Pierce,Pierce Count,Add Pierce Stat,Apply Knockback,Knockback Force,Can Trigger Lifesteal,Direct Elemental Debuff Data,Projectile Speed,Lifetime,Lifetime Per Skill Duration
-ArrowEffectProjectile,2,Ranged,0.5,TRUE,FALSE,1,TRUE,TRUE,2,TRUE,FALSE,5,TRUE,,10,1,1
-ArrowProjectile,5,Ranged,1,TRUE,FALSE,1,TRUE,TRUE,2,FALSE,FALSE,5,TRUE,,10,3,1
-BarrageArrow,5,Ranged,1,TRUE,FALSE,1,TRUE,TRUE,2,FALSE,FALSE,5,TRUE,,10,3,1
-Dagger,5,Melee,1,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,5,FALSE,BleedDebuff,5,0.5,0.1
-EnergyBall,15,Magic,2,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,5,TRUE,LeyChargeDebuff,0,6,0.5
-EtherThunder,10,Magic,1,TRUE,FALSE,1,FALSE,FALSE,5,FALSE,FALSE,5,TRUE,LeyChargeDebuff,0,0.6,0
-FireTornado,5,Magic,1,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,,1.5,3,1
-Fireball,5,Magic,1,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,,5,3,1
-FireballExplotion,5,Magic,1,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,FireDebuff,5,0.5,0
-HolyCross,5,Magic,1,TRUE,FALSE,1,FALSE,FALSE,1,FALSE,FALSE,0,TRUE,,0,3,1
-HolyOrb,5,Magic,1,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,5,TRUE,,5,3,1
-HolyProjectile,1,Magic,1,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,,5,3,1
-OrbitingSword,5,Melee,1,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,FALSE,5,TRUE,FireDebuff,0,0,0
-PlayerWarrior_DashHitbox,2,Melee,1.5,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,10,TRUE,,0,0,0
-TrailFlame,2,Magic,0.1,FALSE,TRUE,0.4,FALSE,FALSE,1,FALSE,FALSE,0,TRUE,FireDebuff,0,3,1
-Trap,2,Ranged,0.7,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,FALSE,5,FALSE,,0,0,0
+Damage Source,Use Trigger Enter,Use Trigger Stay,Tick Interval,Should Stack Damage,Enable Pierce,Pierce Count,Add Pierce Stat,Apply Knockback,Knockback Force,Can Trigger Lifesteal,Direct Elemental Debuff Data,Projectile Speed,Lifetime,Lifetime Per Skill Duration
+ArrowEffectProjectile,TRUE,FALSE,1,TRUE,TRUE,2,TRUE,FALSE,5,TRUE,,10,1,1
+ArrowProjectile,TRUE,FALSE,1,TRUE,TRUE,2,FALSE,FALSE,5,TRUE,,10,3,1
+BarrageArrow,TRUE,FALSE,1,TRUE,TRUE,2,FALSE,FALSE,5,TRUE,,10,3,1
+Dagger,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,5,FALSE,BleedDebuff,5,0.5,0.1
+EnergyBall,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,5,TRUE,LeyChargeDebuff,0,6,0.5
+EtherThunder,TRUE,FALSE,1,FALSE,FALSE,5,FALSE,FALSE,5,TRUE,LeyChargeDebuff,0,0.6,0
+FireTornado,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,,1.5,3,1
+Fireball,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,,5,3,1
+FireballExplotion,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,FireDebuff,5,0.5,0
+HolyCross,TRUE,FALSE,1,FALSE,FALSE,1,FALSE,FALSE,0,TRUE,,0,3,1
+HolyOrb,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,5,TRUE,,5,3,1
+HolyProjectile,TRUE,FALSE,1,TRUE,TRUE,5,FALSE,FALSE,5,TRUE,,5,3,1
+OrbitingSword,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,FALSE,5,TRUE,FireDebuff,0,0,0
+PlayerWarrior_DashHitbox,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,TRUE,10,TRUE,,0,0,0
+TrailFlame,FALSE,TRUE,0.4,FALSE,FALSE,1,FALSE,FALSE,0,TRUE,FireDebuff,0,3,1
+Trap,TRUE,FALSE,1,TRUE,FALSE,1,FALSE,FALSE,5,FALSE,,0,0,0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FrostElementalInfusion
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.EffectBehaviors.ElementalInfusionEffectBehavior
   behaviorId: FrostElementalInfusion
+  stackScaling: []
   element: 2
   condition: 4
   elementalDebuffData: {fileID: 11400000, guid: 9057f9cd711c8554eb2c4b5e33a29c77, type: 2}

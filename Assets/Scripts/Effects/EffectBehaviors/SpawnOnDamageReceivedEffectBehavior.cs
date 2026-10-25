@@ -5,10 +5,9 @@ using UnityEngine;
 namespace Game.Effects.EffectBehaviors
 {
     [CreateAssetMenu(menuName = "Effects/Behaviors/Spawn On Damage Received")]
-    public class SpawnOnDamageReceivedEffectBehavior : EffectBehavior
+    public class SpawnOnDamageReceivedEffectBehavior : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
-        [SerializeField] private GameObject prefabToSpawn;
 
         [Tooltip("Upper bound on how many instances can spawn per proc. Each one from 0 to this count independently rolls chanceToSpawn.")]
         [SerializeField] private int maxSpawnCount = 5;

@@ -6,9 +6,8 @@ using UnityEngine;
 namespace Game.Effects.EffectBehaviors
 {
     [CreateAssetMenu(menuName = "Effects/Behaviors/SpawnAttachedObjects")]
-    public class SpawnAttachedObjectBehaviorEffect : EffectBehavior
+    public class SpawnAttachedObjectBehaviorEffect : SpawningEffectBehavior
     {
-        [SerializeField] private GameObject prefabToSpawn;
         [SerializeField] private int count = 2;
 
         // Per-owner runtime state - see EffectBehaviorContext for why this can't live directly

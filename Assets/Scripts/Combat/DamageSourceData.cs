@@ -4,29 +4,19 @@ using UnityEngine;
 namespace Game.Combat
 {
     /// <summary>
-    /// The design numbers of one player damage source (a weapon hitbox, a projectile, an item's spawned
-    /// object), in one asset instead of spread over the prefab's components. <see cref="DamageSourceBase"/>
-    /// loads its damage, hit, pierce, knockback and debuff values from here; the prefab's projectile
-    /// movement (<see cref="Projectiles.ProjectileMovementBase"/>) and lifetime components
-    /// (<c>LifetimeByStat</c>, <c>DestroyAfterTime</c>) load the projectile values.
+    /// How one player damage source hits (a weapon hitbox, a projectile, an item's spawned object), in one asset
+    /// instead of spread over the prefab's components. <see cref="DamageSourceBase"/> loads its hit mode, pierce,
+    /// knockback, lifesteal and debuff from here; the prefab's projectile movement
+    /// (<see cref="Projectiles.ProjectileMovementBase"/>) and lifetime components (<c>LifetimeByStat</c>,
+    /// <c>DestroyAfterTime</c>) load the projectile values.
     ///
-    /// These are defaults: a weapon or ability that fires the source can still override them at spawn
-    /// (<see cref="DamageSourceBase.Initialize"/>, ability tier tables), and item stacking scales them.
+    /// How hard it hits is not here (Oct 2026): the spawner sets it (<see cref="DamageProfile"/> on item behaviors,
+    /// ability tiers, weapons; <see cref="DamageSourceBase.Initialize"/>, <see cref="DamageSourceBase.SetDamage"/>).
     /// One asset per prefab, in Resources/Combat/DamageSources, named after the prefab.
     /// </summary>
     [CreateAssetMenu(fileName = "DamageSourceData", menuName = "Combat/Damage Source Data")]
     public class DamageSourceData : ScriptableObject
     {
-        [Header("Damage")]
-        [Tooltip("Damage before the player's damage stat is added.")]
-        [Min(0)]
-        [SerializeField] private int baseDamage = 5;
-        [Tooltip("Which damage stat is added: Melee, Ranged or Magic Damage. None adds no stat.")]
-        [SerializeField] private WeaponClass weaponClass = WeaponClass.None;
-        [Tooltip("Share of that damage stat added to each hit (1 = the full stat, 0.5 = half).")]
-        [Min(0f)]
-        [SerializeField] private float attackScale = 1f;
-
         [Header("Hit Mode")]
         [Tooltip("Hit an enemy when it enters the hitbox.")]
         [SerializeField] private bool useTriggerEnter = true;
@@ -73,9 +63,6 @@ namespace Game.Combat
         [Min(0f)]
         [SerializeField] private float lifetimePerSkillDuration = 0f;
 
-        public int BaseDamage => baseDamage;
-        public WeaponClass WeaponClass => weaponClass;
-        public float AttackScale => attackScale;
         public bool UseTriggerEnter => useTriggerEnter;
         public bool UseTriggerStay => useTriggerStay;
         public float TickInterval => tickInterval;

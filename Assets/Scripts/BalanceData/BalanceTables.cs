@@ -98,7 +98,7 @@ namespace Game.BalanceData
                     () => new[] { Load<EnemyDamageSettings>(EnemyDamageSettingsPath) }, s => s.name, "tierHitsToKill", true,
                     ("Hits To Kill", "")),
                 new AssetTable<DamageSourceData>("DamageSources", "Damage Source", () => LoadAll<DamageSourceData>(DamageSourcesFolder), d => d.name,
-                    "baseDamage", "weaponClass", "attackScale", "useTriggerEnter", "useTriggerStay", "tickInterval", "shouldStackDamage",
+                    "useTriggerEnter", "useTriggerStay", "tickInterval", "shouldStackDamage",
                     "enablePierce", "pierceCount", "addPierceStat", "applyKnockback", "knockbackForce", "canTriggerLifesteal",
                     "directElementalDebuffData", "projectileSpeed", "lifetime", "lifetimePerSkillDuration"),
 
@@ -160,7 +160,7 @@ namespace Game.BalanceData
                     ("Category", "category"), ("Affected By Corruption", "affectedByCorruption"),
                     ("Corruption Reduce Factor", "corruptionReduceFactor")),
                 new AssetTable<CharacterClassData>("Classes", "Class", () => LoadAll<CharacterClassData>(ClassesFolder), c => c.name,
-                    "dashCooldown", "dashSpeed", "dashDuration", "dashMaxCharges"),
+                    "dashCooldown", "dashSpeed", "dashDuration", "dashMaxCharges", "dashDamageStat"),
 
                 // Items (step 5): what each item is. Structure (class kit tier, starting-only) stays in Unity
                 new AssetTable<Effect>("Items", "Item", () => LoadAll<Effect>(EffectsFolder), e => e.name,

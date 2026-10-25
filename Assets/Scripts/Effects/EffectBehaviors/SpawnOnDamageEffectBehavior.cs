@@ -7,10 +7,9 @@ using UnityEngine;
 namespace Game.Effects.EffectBehaviors
 {
     [CreateAssetMenu(menuName = "Effects/Behaviors/Spawn On Damage")]
-    public class SpawnOnDamageEffectBehavior : EffectBehavior
+    public class SpawnOnDamageEffectBehavior : SpawningEffectBehavior
     {
         [Header("Spawn Settings")]
-        [SerializeField] private GameObject prefabToSpawn;
 
         [SerializeField] private int spawnCount = 1;
 
