@@ -88,6 +88,16 @@ namespace Game.UI
             owner?.NotifyHoverEnded();
         }
 
+        // Rows are hidden with the pane, which sends neither pointer exit nor deselect.
+        // Unity null check: on a scene unload the pane may already be destroyed.
+        private void OnDisable()
+        {
+            if (owner != null)
+            {
+                owner.NotifyRowDisabled(statType);
+            }
+        }
+
         public void UpdateValue(int statValue, Color color)
         {
             statValueText.text = statValue.ToString();

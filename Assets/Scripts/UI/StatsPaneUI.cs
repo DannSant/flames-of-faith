@@ -139,8 +139,23 @@ namespace Game.UI
         public void NotifyHoverEnded()
         {
             hoveredStat = null;
-            generalTooltipPaneUI?.HideTooltip();
+            if (generalTooltipPaneUI != null)
+            {
+                generalTooltipPaneUI.HideTooltip();
+            }
             OnStatHoverEnded?.Invoke();
+        }
+
+        /// <summary>
+        /// A row was hidden (pane closed, tab switched). A hidden row never gets pointer exit or
+        /// deselect, so if it was the hovered one its tooltip would stay on screen.
+        /// </summary>
+        public void NotifyRowDisabled(StatType statType)
+        {
+            if (hoveredStat == statType)
+            {
+                NotifyHoverEnded();
+            }
         }
 
         private void RefreshHoveredTooltip()
@@ -458,6 +473,12 @@ namespace Game.UI
 
         public void HideStatsWindow(int _)
         {
+            // Forget the hovered stat too, or pressing Shift later would show its tooltip again
+            if (hoveredStat.HasValue)
+            {
+                NotifyHoverEnded();
+            }
+
             primaryContentPanel.SetActive(false);
             secondaryContentPanel.SetActive(false);
             backgroundPanel.SetActive(false);
