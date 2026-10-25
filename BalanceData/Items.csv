@@ -47,8 +47,8 @@ Glyph of Barrage +2,"Skill item. Your special attack releases a ring of arrows d
 ",Epic,0,0,ScrollOfBarrage,FALSE
 Glyph of Barrage +3,"Skill item. Your special attack releases a ring of arrows dealing _ranged_damage_, then a volley of homing arrows at your marked target. You can't be hurt while drawing.
 ",Epic,0,0,ScrollOfBarrage,FALSE
-Glyph of Consecrate,"Skill item. Chance to Spawn a number of holy crosses that damages enemies who cross it. Scales with _magic_damage_. T
-he crosses last longer with more Skill Duration",Heroic,150,50,Concecrate,TRUE
+Glyph of Consecrate,"Skill item. Chance to Spawn a holy cross that damages enemies who step on it. Scales with _magic_damage_. T
+he crosses last longer with more Skill Duration. Additional items increase damage done",Heroic,150,50,Concecrate,TRUE
 Glyph of Crusader Charge,"Skill item. Your dash charges through enemies dealing damage and knocking them back.
 ",Epic,0,0,ScrollOfCrusaderCharge,FALSE
 Glyph of Crusader Charge +1,"Skill item. Your dash charges through enemies dealing damage and knocking them back.

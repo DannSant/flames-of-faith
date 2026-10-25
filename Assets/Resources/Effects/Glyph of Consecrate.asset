@@ -16,11 +16,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8c9822441c7f6064dbc16cb6d5f13cf2, type: 3}
   effectName: Glyph of Consecrate
   scalingValue: 1
-  description: 'Skill item. Chance to Spawn a number of holy crosses that damages
-    enemies who cross it. Scales with _magic_damage_. T
+  description: 'Skill item. Chance to Spawn a holy cross that damages enemies who
+    step on it. Scales with _magic_damage_. T
 
-    he crosses last longer
-    with more Skill Duration'
+    he crosses last longer with more
+    Skill Duration. Additional items increase damage done'
   buyPrice: 150
   sellPrice: 50
   effectStatModifiers:

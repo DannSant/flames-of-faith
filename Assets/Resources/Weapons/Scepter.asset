@@ -17,7 +17,7 @@ MonoBehaviour:
   attackScale: 1
   attackSpeedScale: 0.075
   weaponClass: 3
-  rangeBase: 2
+  rangeBase: 3
   isRangeBased: 1
   rangeScale: 0.1
   compensateForEnemyBodySize: 1
