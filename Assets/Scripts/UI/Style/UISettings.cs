@@ -100,6 +100,11 @@ namespace Game.UI.Style
         [SerializeField] private Sprite tabSelectedSprite;
         [Tooltip("Thin ring (9-sliced) drawn around the selected slot, tinted with the Highlight color.")]
         [SerializeField] private Sprite selectedOutline;
+        [Tooltip("Inventory with Shift held on a stat: opacity of the items that don't grant it. The items that do get the selected ring.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float statFilterAlpha = 0.15f;
+        [Tooltip("Inventory with Shift held on a stat: tint of the icon and frame of the items that don't grant it (darker = less visible).")]
+        [SerializeField] private Color statFilterTint = new Color(0.35f, 0.35f, 0.35f, 1f);
         [Tooltip("The shared tooltip's frame opacity. Opaque: over the Stats pane and the Inventory, see-through looked messy.")]
         [Range(0f, 1f)]
         [SerializeField] private float tooltipOpacity = 1f;
@@ -148,6 +153,8 @@ namespace Game.UI.Style
         public Sprite TabSprite => tabSprite;
         public Sprite TabSelectedSprite => tabSelectedSprite;
         public Sprite SelectedOutline => selectedOutline;
+        public float StatFilterAlpha => statFilterAlpha;
+        public Color StatFilterTint => statFilterTint;
 
         public Sprite GetTabSprite(bool selected) => selected && tabSelectedSprite != null ? tabSelectedSprite : tabSprite;
         public Sprite PanelFrame => panelFrame;

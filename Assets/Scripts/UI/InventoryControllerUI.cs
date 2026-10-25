@@ -106,10 +106,10 @@ namespace Game.UI
                 return;
             }
 
+            // Same rule as the Stats pane's Shift list, stat bonus rules included (e.g. the Emblems)
             foreach (var icon in spawnedIcons)
             {
-                bool grantsStat = icon.Effect.StatModifiers.Any(m => m.stat == stat);
-                icon.SetDimmed(!grantsStat);
+                icon.SetStatFilter(icon.Effect.GrantsStat(stat) ? StatFilter.Grants : StatFilter.Other);
             }
         }
 
@@ -122,7 +122,7 @@ namespace Game.UI
         {
             foreach (var icon in spawnedIcons)
             {
-                icon.SetDimmed(false);
+                icon.SetStatFilter(StatFilter.None);
             }
         }
 

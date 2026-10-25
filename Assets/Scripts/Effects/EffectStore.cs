@@ -282,9 +282,7 @@ namespace Game.Effects
 
         public IEnumerable<EffectInstance> GetEffectInstancesGrantingStat(StatType statType)
         {
-            return activeEffects
-                .Where(ei => ei.effect.StatModifiers.Any(m => m.stat == statType)
-                    || (ei.effect.HasStatDependencies && ei.effect.StatDependencies.Any(r => r != null && r.targetStat == statType)));
+            return activeEffects.Where(ei => ei.effect.GrantsStat(statType));
         }
 
         /// <summary>Every stat dependency rule of the active effects, with how many times each item is owned.</summary>

@@ -427,6 +427,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - **Grid:** a `Grid` child holds 8 columns × 10 rows of Small slots, and icons spawn there (`iconContainer`).
   - **Slots:** each slot is a Slot frame tinted by item quality, the icon inside it, and a count badge shown only above 1.
   - **Tooltip:** item tooltips use the scene's shared `GeneralTooltipPane`. The title is the quality-colored name (`EffectQualityDisplayHelper.ColorizeName`, also used by `TreasureUI`).
+  - **Shift view:** while Shift is held on a stat, the items granting it (`Effect.GrantsStat`, stat bonus rules included, the same rule as the Stats pane's list) get the selected ring and the others fade and darken (`EffectIconUI.SetStatFilter`, `UISettings` Stat Filter Alpha / Tint). It's separate from `SetDimmed`, the shop's lighter dimming of items you can't afford. `StatFilterTests`.
   - **Hiding:** `EffectIconUI.OnDisable` hides its tooltip, because icons are destroyed on refresh and hidden with the window without a pointer exit. The controller only hides a tooltip it opened.
 - **Center windows** (`CenterWindowLayout`): level-up, pause, death screen and Settings.
   - **Size and position:** the Inventory's height (645) and vertical position, centered, 400 wide (Settings 640). The tops and bottoms line up with the Inventory.

@@ -61,6 +61,11 @@ namespace Game.Effects{
         public List<StatDependencyRule> StatDependencies { get => statDependencies; set => statDependencies = value ?? new List<StatDependencyRule>(); }
         /// <summary>Items with stat dependency rules are starting items only: never sold or rewarded.</summary>
         public bool HasStatDependencies => statDependencies != null && statDependencies.Count > 0;
+
+        /// <summary>The item changes this stat: a modifier, or a stat bonus rule that targets it.</summary>
+        public bool GrantsStat(Game.Progression.StatType stat) =>
+            (effectStatModifiers != null && effectStatModifiers.Any(m => m.stat == stat))
+            || (HasStatDependencies && statDependencies.Any(r => r != null && r.targetStat == stat));
         public bool UnlockedByDefault { get => unlockedByDefault; set => unlockedByDefault = value; }
         public EffectQuality Quality { get => quality; set => quality = value; }
         public int Tier { get => tier; set => tier = Mathf.Max(0, value); }

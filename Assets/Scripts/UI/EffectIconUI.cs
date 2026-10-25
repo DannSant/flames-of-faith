@@ -1,4 +1,5 @@
 using Game.Effects;
+using Game.UI.Style;
 using System;
 using TMPro;
 using UnityEngine;
@@ -7,6 +8,9 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
+    /// <summary>How a slot shows under the Inventory's Shift view (items granting the hovered stat).</summary>
+    public enum StatFilter { None, Grants, Other }
+
     // An item slot: frame tinted by the item's quality, the item icon, and a stack count badge.
     // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
     // Needs a Selectable on the same GameObject to be reachable with the gamepad.
@@ -53,6 +57,11 @@ namespace Game.UI
 
         public void SetDimmed(bool dimmed)
         {
+            EnsureCanvasGroup().alpha = dimmed ? dimmedAlpha : 1f;
+        }
+
+        private CanvasGroup EnsureCanvasGroup()
+        {
             if (canvasGroup == null)
             {
                 canvasGroup = GetComponent<CanvasGroup>();
@@ -61,8 +70,32 @@ namespace Game.UI
                     canvasGroup = gameObject.AddComponent<CanvasGroup>();
                 }
             }
-            canvasGroup.alpha = dimmed ? dimmedAlpha : 1f;
+            return canvasGroup;
         }
+
+        /// <summary>
+        /// The Inventory's Shift view: the items granting the hovered stat get the selected ring, the others
+        /// fade and darken (UISettings), much more than the shop's dimming. None restores the slot.
+        /// </summary>
+        public void SetStatFilter(StatFilter filter)
+        {
+            var settings = UISettings.Instance;
+            SetSelected(filter == StatFilter.Grants);
+            if (icon != null) icon.color = GetStatFilterColor(Color.white, filter, settings);
+            if (frame != null && effect != null)
+            {
+                frame.color = GetStatFilterColor(EffectQualityDisplayHelper.GetQualityColor(effect.Quality), filter, settings);
+            }
+            EnsureCanvasGroup().alpha = GetStatFilterAlpha(filter, settings);
+        }
+
+        /// <summary>A slot color under the Shift view: darkened by the filter tint for the items that don't grant the stat.</summary>
+        public static Color GetStatFilterColor(Color color, StatFilter filter, UISettings settings) =>
+            filter == StatFilter.Other ? color * settings.StatFilterTint : color;
+
+        /// <summary>A slot's opacity under the Shift view: faded for the items that don't grant the stat.</summary>
+        public static float GetStatFilterAlpha(StatFilter filter, UISettings settings) =>
+            filter == StatFilter.Other ? settings.StatFilterAlpha : 1f;
 
         public void OnPointerEnter(PointerEventData eventData) => ShowTooltip();
         public void OnPointerExit(PointerEventData eventData) => HideTooltip();
