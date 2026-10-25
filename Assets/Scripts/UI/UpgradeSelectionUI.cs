@@ -36,6 +36,10 @@ namespace Game.UI
 
         private PlayerProgression playerProgression;
 
+        // Coins given since the window last closed. Non-combat levels (events, treasures) give none,
+        // and the row would show a lone coin icon with an empty text.
+        private int coinsGained;
+
         private void Start()
         {
             TogglePanel(false);
@@ -83,9 +87,18 @@ namespace Game.UI
 
         private void TogglePanel(bool value)
         {
-            coinsGainedObject.SetActive(value);
+            if (!value)
+            {
+                // The next window only shows the coins given after this one
+                coinsGained = 0;
+                coinsGainedText.text = "";
+            }
+            coinsGainedObject.SetActive(value && ShowsCoinsGained(coinsGained));
             mainPanel.SetActive(value);
         }
+
+        /// <summary>The "Coins gained" row shows only when coins were given (combat waves).</summary>
+        public static bool ShowsCoinsGained(int coinsGained) => coinsGained > 0;
 
         private void ShowUpgradeChoices(UpgradeChoices upgradeChoices)
         {
@@ -168,11 +181,12 @@ namespace Game.UI
 
         private void UpdateCoinsGainedText(int coinsGained)
         {
-            /*if (!mainPanel.activeInHierarchy)
-            {
-                TogglePanel(true);
-            }*/
+            this.coinsGained = coinsGained;
             coinsGainedText.text = string.Format(coinsGainedFormat, coinsGained);
+            if (mainPanel.activeSelf)
+            {
+                coinsGainedObject.SetActive(ShowsCoinsGained(coinsGained));
+            }
         }
     }
 
