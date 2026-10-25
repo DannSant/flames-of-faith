@@ -33,6 +33,11 @@ namespace Game.BalanceData
             columns.Select(column =>
             {
                 FieldAccess.TryDescribe(type, column.path, out _, out var info);
+                // A vector component ("spawnOffset.x") ends at Unity's own x field: the tooltip is on the vector
+                if (info != null && (info.DeclaringType == typeof(UnityEngine.Vector2) || info.DeclaringType == typeof(UnityEngine.Vector3)))
+                {
+                    FieldAccess.TryDescribe(type, column.path.Substring(0, column.path.LastIndexOf('.')), out _, out info);
+                }
                 return BalanceDocs.ColumnNote(Name, column.header, info);
             });
 
