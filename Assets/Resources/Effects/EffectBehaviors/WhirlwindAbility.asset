@@ -15,23 +15,23 @@ MonoBehaviour:
   behaviorId: WhirlwindAbility
   stackScaling: []
   tiers:
-  - baseDamage: 20
+  - baseDamage: 10
     spinDuration: 2
-    tickInterval: 0.5
+    tickInterval: 0.7
     shieldDuration: 0
-    absorbHealFraction: 0.5
-  - baseDamage: 23
+    absorbHealFraction: 0
+  - baseDamage: 13
     spinDuration: 2
-    tickInterval: 0.4
+    tickInterval: 0.6
     shieldDuration: 3
     absorbHealFraction: 0.5
-  - baseDamage: 26
+  - baseDamage: 15
     spinDuration: 2
-    tickInterval: 0.3
+    tickInterval: 0.5
     shieldDuration: 3.5
     absorbHealFraction: 0.6
-  - baseDamage: 30
+  - baseDamage: 20
     spinDuration: 2
-    tickInterval: 0.25
+    tickInterval: 0.4
     shieldDuration: 4
     absorbHealFraction: 0.7

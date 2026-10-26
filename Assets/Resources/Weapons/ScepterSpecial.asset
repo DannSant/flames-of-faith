@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f372df0d47c6dc4bb8ab406e652e8ef, type: 3}
   m_Name: ScepterSpecial
   m_EditorClassIdentifier: Assembly-CSharp::Game.Combat.WeaponData
-  attackCooldownBase: 6
+  attackCooldownBase: 8
   baseDamage: 30
   attackScale: 2
   attackSpeedScale: 0.075

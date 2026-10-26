@@ -8,8 +8,8 @@ namespace Game.Tests
 {
     /// <summary>
     /// The Whirlwind rework (tester feedback, 2026-10-26): a 2 s spin that hits each enemy on contact, then
-    /// every Tick Interval (0.5 / 0.4 / 0.3 / 0.25 s by tier), with a longer projectile shield (3 s or more on
-    /// the upgraded tiers) and no invulnerability.
+    /// every Tick Interval (shorter with each tier), with a longer projectile shield (3 s or more on the
+    /// upgraded tiers) and no invulnerability.
     /// </summary>
     public class WhirlwindTests
     {
@@ -75,12 +75,17 @@ namespace Game.Tests
             return ability.Tiers.ToArray();
         }
 
+        // The numbers are the designer's (sheet tab Ability_Whirlwind); these check the rules, not the values
         [Test]
         public void Tiers_SpinTwoSecondsAndTickFasterWithEachUpgrade()
         {
             var tiers = Tiers();
             Assert.AreEqual(4, tiers.Length);
-            CollectionAssert.AreEqual(new[] { 0.5f, 0.4f, 0.3f, 0.25f }, tiers.Select(t => t.tickInterval));
+            Assert.IsTrue(tiers.All(t => t.tickInterval > 0f), "Every tier ticks (0 would hit once per spin)");
+            for (int i = 1; i < tiers.Length; i++)
+            {
+                Assert.Less(tiers[i].tickInterval, tiers[i - 1].tickInterval, $"Tier {i} must tick faster than tier {i - 1}");
+            }
             Assert.IsTrue(tiers.All(t => t.spinDuration >= 2f), "The new animation lasts 2 s");
         }
 
@@ -96,8 +101,10 @@ namespace Game.Tests
         public void Tooltip_SaysHowOftenAndHowLong()
         {
             var ability = AssetDatabase.LoadAssetAtPath<WhirlwindAbility>(AbilityPath);
+            var tier = ability.Tiers[0];
             string line = ability.DescribeTier(0);
-            StringAssert.Contains("every 0.5s for 2s", line);
+            StringAssert.Contains(
+                $"every {AbilityTiers.Number(tier.tickInterval)}s for {AbilityTiers.Number(tier.spinDuration)}s", line);
         }
     }
 }
