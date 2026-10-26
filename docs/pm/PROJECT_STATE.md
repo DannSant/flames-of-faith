@@ -30,4 +30,7 @@ See `BACKLOG.md`. Proposed first picks: finish the open manual tests (they gate 
 - Frost may deal double damage in `EnemyHealth.InflictExtraDamage`.
 - Ley Charge chain radius and depth stuck on a runtime-added component.
 - Warrior crowd balance without Cleave.
+- **High Attack Speed stops primary attacks from landing** (found 2026-10-26, tester play, Archer at Attack Speed 50). The attack animation always plays at speed 1 while the cooldown shrinks (`base / (1 + Attack Speed × 0.075)`), and each attack trigger restarts the attack state. Once the cooldown is shorter than the time to the shot or hit, the shot or hit never happens: the Archer and Augur fire at 60% of a 0.67 s clip (`BowAttackAnimBehavior`, 0.4 s), and the Warrior's hit window opens at 0.25 s (`AttackStartAnimEvent`). Breaks above about **37** Attack Speed (Archer, base 1.5 s), **20** (Augur, base 1.0 s) and **40** (Warrior, base 1.0 s). Two fixes are on the table, waiting on the team:
+  - speed up the attack animation with Attack Speed (`base cooldown / current cooldown`; needs the animator's OK);
+  - a per-weapon minimum cooldown above the shot / hit point, with the Attack Speed scaling changed so the cap lands higher (needs a design decision; a new Weapons column, so the balance sheet pipeline too).
 - `BanditsEncounter.unity` and `CursedChestEncounter.unity` look unused (ask before deleting). `MapUtils.cs` (legacy Map) may be unused.
