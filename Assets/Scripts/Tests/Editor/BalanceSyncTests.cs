@@ -33,6 +33,26 @@ namespace Game.Tests
             return asset;
         }
 
+        // --- Pushes are split into small requests ----------------------------------------------------------------
+
+        // Push All sent every tab in one request and timed out ("A task was canceled", 2026-10-25)
+        [Test]
+        public void Push_SplitsTabsIntoBatches_InOrder_WithNoneLost()
+        {
+            var tabs = Enumerable.Range(0, 58).ToList();
+            var batches = Game.BalanceData.Editor.BalanceSheetSync.Batches(tabs, 6);
+
+            Assert.AreEqual(10, batches.Count);
+            Assert.IsTrue(batches.All(b => b.Length >= 1 && b.Length <= 6));
+            CollectionAssert.AreEqual(tabs, batches.SelectMany(b => b));
+        }
+
+        [Test]
+        public void Push_NothingToWrite_SendsNoRequest()
+        {
+            Assert.IsEmpty(Game.BalanceData.Editor.BalanceSheetSync.Batches(new int[0], 6));
+        }
+
         // --- Field discovery and names match the Inspector ------------------------------------------------------
 
         [Test]

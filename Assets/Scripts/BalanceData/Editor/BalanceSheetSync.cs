@@ -198,28 +198,59 @@ namespace Game.BalanceData.Editor
 
         private static string TryPushReports(BalanceOverride.Config config) => TryPush(config, "reports", Reports().ToArray());
 
+        // Tabs per request. The script writes each tab on its own, and all of Push All in one request (58 tabs
+        // since step 5) took longer than the HTTP timeout: Unity gave up with "A task was canceled".
+        private const int TabsPerRequest = 6;
+
         private static string TryPush(BalanceOverride.Config config, string action, BalanceSnapshotTable[] tables)
         {
+            var written = new List<string>();
+            var batches = Batches(tables, TabsPerRequest);
             try
             {
-                EditorUtility.DisplayProgressBar("Balance sheet", "Writing to the sheet...", 0.5f);
-                string json = Post(config.url, JsonUtility.ToJson(new PushRequest { token = config.token, action = action, tables = tables }));
-                var response = JsonUtility.FromJson<PushResponse>(json);
-                if (response == null || !response.ok)
+                for (int i = 0; i < batches.Count; i++)
                 {
-                    return "The sheet refused the update: " + (response?.error ?? json);
+                    EditorUtility.DisplayProgressBar("Balance sheet",
+                        $"Writing to the sheet ({written.Count}/{tables.Length} tabs)...", (float)i / batches.Count);
+                    string json = Post(config.url, JsonUtility.ToJson(new PushRequest { token = config.token, action = action, tables = batches[i] }));
+                    var response = JsonUtility.FromJson<PushResponse>(json);
+                    if (response == null || !response.ok)
+                    {
+                        return PartialResult(written, "The sheet refused the update: " + (response?.error ?? json));
+                    }
+                    written.AddRange(response.written ?? Array.Empty<string>());
                 }
-                Debug.Log($"[BalanceData] Wrote to the sheet: {string.Join(", ", response.written ?? Array.Empty<string>())}");
-                return $"Wrote {response.written?.Length ?? 0} tabs to the sheet.";
+                Debug.Log($"[BalanceData] Wrote to the sheet: {string.Join(", ", written)}");
+                return $"Wrote {written.Count} tabs to the sheet.";
             }
             catch (Exception e)
             {
-                return "Writing to the sheet failed: " + e.Message;
+                return PartialResult(written, "Writing to the sheet failed: " + e.Message);
             }
             finally
             {
                 EditorUtility.ClearProgressBar();
             }
+        }
+
+        // A failed batch leaves the earlier ones written; say which, so a retry isn't a guess
+        private static string PartialResult(List<string> written, string error)
+        {
+            if (written.Count == 0) return error;
+            Debug.Log($"[BalanceData] Wrote to the sheet before the error: {string.Join(", ", written)}");
+            return $"{error}\n\n{written.Count} tabs were written before it (listed in the Console). Running it again rewrites them all.";
+        }
+
+        /// <summary>Splits the tabs into requests of at most <paramref name="size"/>, in order.</summary>
+        public static List<T[]> Batches<T>(IReadOnlyList<T> items, int size)
+        {
+            if (size < 1) throw new ArgumentOutOfRangeException(nameof(size));
+            var batches = new List<T[]>();
+            for (int start = 0; start < items.Count; start += size)
+            {
+                batches.Add(items.Skip(start).Take(size).ToArray());
+            }
+            return batches;
         }
 
         // --- HTTP --------------------------------------------------------------------------------------------

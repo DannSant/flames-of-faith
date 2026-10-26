@@ -748,6 +748,7 @@ The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal 
   - **Push Reports to Sheet.**
   - **Push All to Sheet:** replaces every data tab with the project's numbers, losing unpublished sheet edits. Use it after balance edits made in Unity.
   - **HTTP:** Apps Script answers with a redirect, which is followed by hand (a POST's redirect must be a GET).
+  - **Batches:** every push sends at most `TabsPerRequest` (6) tabs per request (`BalanceSheetSync.Batches`, tested in `BalanceSyncTests`). Since step 5 Push All has 58 tabs, and one request outlasted the 60 s timeout ("A task was canceled", Oct 25). A failed batch lists the tabs already written in the Console; running it again rewrites them all.
 - **Test build override** (`BalanceOverride`), so the designer plays his own numbers without Unity:
   - **Trigger:** a build that finds `balance-override.json` (url, token, enabled) next to its executable downloads the latest published version at startup.
   - **Apply:** with the same importer, in memory for the session, and only if it has no errors. Otherwise none of it is applied and the errors stay on screen; a success message shows for 12 s.
