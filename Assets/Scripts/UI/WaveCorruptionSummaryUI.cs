@@ -26,6 +26,9 @@ namespace Game.UI
         [Tooltip("Optional. Used to fade the panel in and out.")]
         [SerializeField] private CanvasGroup canvasGroup;
 
+        /// <summary>The summary is on screen. The pause menu stays shut meanwhile (PauseMenuController).</summary>
+        public bool IsShown => panel != null && panel.activeSelf;
+
         [Header("Rows (hidden when they don't apply)")]
         [SerializeField] private TextMeshProUGUI corruptorRowText;
         [SerializeField] private TextMeshProUGUI corruptedDamageRowText;

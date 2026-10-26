@@ -23,6 +23,7 @@ namespace Game.UI
         private StatsPaneUI statsPaneUI;
         private InventoryControllerUI inventoryControllerUI;
         private EndscreenControllerUI endscreen;
+        private WaveCorruptionSummaryUI waveSummary;
         private LevelData levelData;
 
 
@@ -35,6 +36,7 @@ namespace Game.UI
             statsPaneUI = FindAnyObjectByType<StatsPaneUI>();
             inventoryControllerUI = FindAnyObjectByType<InventoryControllerUI>();
             endscreen = FindAnyObjectByType<EndscreenControllerUI>();
+            waveSummary = FindAnyObjectByType<WaveCorruptionSummaryUI>();
 
             if (settingsWindow != null)
             {
@@ -71,7 +73,7 @@ namespace Game.UI
                 var data = GetLevelData();
                 bool canOpen = CanOpenPauseMenu(
                     playerHealth != null && playerHealth.IsDead(),
-                    endscreen != null && endscreen.IsShown,
+                    (endscreen != null && endscreen.IsShown) || (waveSummary != null && waveSummary.IsShown),
                     PauseManager.Instance != null && PauseManager.Instance.IsPaused,
                     data == null || data.allowPause);
                 if (!canOpen)
@@ -119,11 +121,13 @@ namespace Game.UI
         /// Whether Pause (Esc / Start) may open the pause menu. Not after death: the UI map stays on for the
         /// death screen, but there's nothing to pause. Not while another window already paused the game (the
         /// item bag, the level-up window, the end screen): Resume would unpause the game behind that window
-        /// and hide its Stats and Inventory panes. Not over the end screen, nor in a level that doesn't allow
-        /// pausing.
+        /// and hide its Stats and Inventory panes. Not over a window that ends a wave or the run without pausing
+        /// (the wave results, the end screen before it pauses): the pause would freeze its count, and its
+        /// Continue stays clickable behind the menu, so the item bag or level-up window could open under the
+        /// pause menu and Resume would unpause them. Nor in a level that doesn't allow pausing.
         /// </summary>
-        public static bool CanOpenPauseMenu(bool playerDead, bool endscreenShown, bool gameAlreadyPaused, bool levelAllowsPause) =>
-            !playerDead && !endscreenShown && !gameAlreadyPaused && levelAllowsPause;
+        public static bool CanOpenPauseMenu(bool playerDead, bool blockingWindowShown, bool gameAlreadyPaused, bool levelAllowsPause) =>
+            !playerDead && !blockingWindowShown && !gameAlreadyPaused && levelAllowsPause;
 
         public void ResumeGame()
         {

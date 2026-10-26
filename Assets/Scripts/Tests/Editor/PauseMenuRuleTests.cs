@@ -6,7 +6,8 @@ namespace Game.Tests
     /// <summary>
     /// When Pause (Esc / Start) may open the pause menu (tester feedback, 2026-10-25): over the item bag or the
     /// level-up window, which pause the game themselves, the menu's Resume unpaused the game behind them and
-    /// hid their Stats and Inventory panes.
+    /// hid their Stats and Inventory panes. Over the wave results (which don't pause), Continue stayed clickable
+    /// behind the menu and opened those windows under it.
     /// </summary>
     public class PauseMenuRuleTests
     {
@@ -24,7 +25,7 @@ namespace Game.Tests
         }
 
         [TestCase(true, false, false, true, TestName = "Dead")]
-        [TestCase(false, true, false, true, TestName = "EndScreen")]
+        [TestCase(false, true, false, true, TestName = "WaveResultsOrEndScreen")]
         [TestCase(false, false, false, false, TestName = "LevelDisallowsPause")]
         public void DoesNotOpen(bool dead, bool endscreen, bool paused, bool levelAllows)
         {
