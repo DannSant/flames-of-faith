@@ -317,8 +317,14 @@ Enemy → player damage is sized against an *expected* player, never the real on
 `WeaponManager` owns the player's **marked target** (`CurrentTarget`, `OnTargetChanged`). This is separate from the weapon's per-shot target (`WeaponBase.currentTarget` / `GetCurrentTarget()`), which manual aim assist can set without marking anything. Player facing and the Sword orbit use the per-shot target, but only while it is alive and within weapon range (`WeaponManager.GetCurrentTarget` / `TargetIfInRange`, `WeaponTargetTests`): it is only set when attacking, so the player used to keep facing an enemy left far behind.
 
 - **Lock-on input:** the `LockTarget` action (F / gamepad LT; Left Shift is taken by `ShowStatSources` and the Ctrl+Shift+D cheat window), read by `PlayerController`. Its mode is `SettingsManager.LockOnToggleMode`, saved in PlayerPrefs and shown in `SettingsPanelController.lockOnToggleModeToggle`.
-  - **Toggle mode (default):** each press calls `WeaponManager.ToggleLock`. It locks the current target, or the nearest one in `weapon range × lockOnRangeMultiplier`, and does nothing if there is none. Pressing again unlocks. The lock also ends when that enemy dies.
+  - **Toggle mode (default):** each tap calls `WeaponManager.TapLock`, which follows the pure `LockOnRules.DecideTap` ("nearby" = within lock range, `weapon range × lockOnRangeMultiplier`; reworked Oct 26 from tester feedback):
+    - not locked: lock the current target, or the nearest enemy nearby; nothing if there's none;
+    - locked, other enemies nearby: cycle to the next one **clockwise around the player** (`LockOnRules.NextClockwise`; by direction, so the order stays stable while enemies move);
+    - locked, no enemy nearby (the player walked away): release the lock;
+    - locked, only the locked enemy nearby: nothing (the lock stays).
+    The lock also ends when that enemy dies.
   - **Hold mode:** `SetLockHeld` every frame. While held, a dead target is replaced by the nearest one in lock range.
+  - **Mouse click lock:** a left click on an enemy (within `PlayerController.clickLockRadius` of its body, `EnemyTargeting.FindUnderPoint`) locks it in Toggle mode, or switches a held lock in Hold mode (`WeaponManager.ClickLock`); the same click's attack fires at it. Gamepad and keyboard attacks never lock. `LockOnRulesTests`.
 - **Rules**, applied every frame in `UpdateCurrentTarget`:
   1. **Locked:** the target never changes, even out of range.
   2. **Auto-attack on:** the nearest enemy in weapon range, or none.

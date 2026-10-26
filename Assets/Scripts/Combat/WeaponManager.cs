@@ -23,8 +23,12 @@ namespace Game.Combat
         [SerializeField] private float aimAssistAngleMouse = 8f;
 
         [Header("Target Lock")]
-        [Tooltip("Search range when the lock input is pressed with no target, as a multiple of the weapon range.")]
+        [Tooltip("Lock range, as a multiple of the weapon range: where a tap of the lock input looks for an enemy to lock or cycle to, and the 'nearby' that decides whether a tap releases the lock.")]
         [SerializeField] private float lockOnRangeMultiplier = 1f;
+
+        private readonly System.Collections.Generic.List<EnemyHealth> nearbyEnemies = new();
+        private readonly System.Collections.Generic.List<Vector2> otherPositions = new();
+        private readonly System.Collections.Generic.List<EnemyHealth> otherEnemies = new();
 
         private WeaponBase currentWeapon;
         private PlayerHealth playerHealth;
@@ -114,25 +118,59 @@ namespace Game.Combat
         }
 
         /// <summary>
-        /// Toggle mode: one press of the lock-on input. Locks the current target, or the nearest
-        /// enemy in lock range; does nothing if there's none. Pressed again, it unlocks.
+        /// Toggle mode: one tap of the lock-on input (<see cref="LockOnRules.DecideTap"/>). Not locked: locks
+        /// the current target, or the nearest enemy in lock range. Locked: moves to the next enemy in lock range,
+        /// clockwise around the player; with no enemy in range any more, releases the lock. While only the locked
+        /// enemy is in range, the tap does nothing.
         /// </summary>
-        public void ToggleLock()
+        public void TapLock()
         {
-            if (lockActive)
-            {
-                SetLockActive(false, false);
-                return;
-            }
             if (currentWeapon == null) return;
 
-            var target = EnemyTargeting.IsTargetable(currentTarget)
-                ? currentTarget
-                : FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange() * lockOnRangeMultiplier);
-            if (target == null) return;
+            Vector2 origin = transform.position;
+            EnemyTargeting.FindAllWithin(origin, currentWeapon.GetWeaponRange() * lockOnRangeMultiplier,
+                currentWeapon.ShouldCompensateForEnemyBodySize, nearbyEnemies);
 
-            SetCurrentTarget(target);
-            SetLockActive(true, true);
+            bool locked = lockActive && EnemyTargeting.IsTargetable(currentTarget);
+            otherEnemies.Clear();
+            otherPositions.Clear();
+            foreach (var enemy in nearbyEnemies)
+            {
+                if (locked && enemy == currentTarget) continue;
+                otherEnemies.Add(enemy);
+                otherPositions.Add(enemy.transform.position);
+            }
+
+            switch (LockOnRules.DecideTap(locked, nearbyEnemies.Count, otherEnemies.Count))
+            {
+                case LockTap.Lock:
+                    var target = EnemyTargeting.IsTargetable(currentTarget) && nearbyEnemies.Contains(currentTarget)
+                        ? currentTarget
+                        : FindClosestEnemyWithinRange(currentWeapon.GetWeaponRange() * lockOnRangeMultiplier);
+                    if (target == null) return;
+                    SetCurrentTarget(target);
+                    SetLockActive(true, true);
+                    break;
+                case LockTap.Cycle:
+                    int next = LockOnRules.NextClockwise(origin, currentTarget.transform.position, otherPositions);
+                    if (next >= 0) SetCurrentTarget(otherEnemies[next]);
+                    break;
+                case LockTap.Unlock:
+                    SetLockActive(false, false);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// A mouse click on an enemy locks it (Toggle mode). In Hold mode it only switches a lock that's held.
+        /// </summary>
+        public void ClickLock(EnemyHealth enemy, bool holdMode)
+        {
+            if (!EnemyTargeting.IsTargetable(enemy)) return;
+            if (holdMode && !lockActive) return;
+
+            SetCurrentTarget(enemy);
+            SetLockActive(true, !holdMode);
         }
 
         private void SetLockActive(bool active, bool toggled)

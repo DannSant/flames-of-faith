@@ -144,6 +144,39 @@ namespace Game.Combat
         }
 
         /// <summary>
+        /// Every live, non-immune enemy whose body is within <paramref name="range"/> of
+        /// <paramref name="origin"/>, measured like <see cref="FindClosest"/>. Fills
+        /// <paramref name="results"/> (cleared first), so callers can reuse one list.
+        /// </summary>
+        public static void FindAllWithin(Vector2 origin, float range, bool compensateForBodySize, List<EnemyHealth> results)
+        {
+            results.Clear();
+            if (range <= 0f) return;
+
+            EnsureContactFilter();
+            float queryRadius = range + (compensateForBodySize ? MaxTargetingBodyRadius : 0f);
+
+            overlapResults.Clear();
+            Physics2D.OverlapCircle(origin, queryRadius, contactFilter, overlapResults);
+
+            foreach (var hit in overlapResults)
+            {
+                EnemyHealth enemy = hit.GetComponent<EnemyHealth>();
+                if (enemy == null || enemy.IsImmune() || enemy.IsDead() || results.Contains(enemy)) continue;
+                if (EffectiveDistance(origin, hit, enemy, compensateForBodySize) > range) continue;
+                results.Add(enemy);
+            }
+        }
+
+        /// <summary>
+        /// The targetable enemy whose body is under <paramref name="point"/> (a mouse click), within
+        /// <paramref name="pickRadius"/> so small enemies are easy to click; the closest one if several.
+        /// Big enemies count their visible body (<see cref="EnemyHealth.TargetingBodyRadius"/>).
+        /// </summary>
+        public static EnemyHealth FindUnderPoint(Vector2 point, float pickRadius) =>
+            FindClosest(point, Mathf.Max(pickRadius, 0.001f), true);
+
+        /// <summary>
         /// Whether an enemy can be targeted at all: alive and not immune. Also false for a
         /// destroyed enemy.
         /// </summary>

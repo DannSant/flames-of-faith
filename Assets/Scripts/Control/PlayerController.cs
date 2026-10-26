@@ -19,6 +19,9 @@ namespace Game.Control
         [SerializeField] private float aimDeadzone = 0.25f;
         [Tooltip("Debug: while attack is held, logs whatever is stopping the primary attack each time it changes.")]
         [SerializeField] private bool logAttackBlocks = false;
+        [Tooltip("Mouse: clicking within this distance (world units) of an enemy's body locks it, like the lock key.")]
+        [Min(0f)]
+        [SerializeField] private float clickLockRadius = 0.3f;
 
         private float moveSpeed = 1f;
         private string lastAttackBlockReason;
@@ -74,6 +77,7 @@ namespace Game.Control
             }
 
             inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
+            inputHandler.Player.Attack.performed += HandleAttackClickLock;
             inputHandler.Player.Attack.performed += ctx => StartAttacking();
             inputHandler.Player.Attack.canceled += ctx => StopAttacking();
             inputHandler.Player.Special.performed += ctx => StartSpecialAttack();
@@ -90,7 +94,7 @@ namespace Game.Control
                 Debug.LogWarning("PlayerController: no Player/ToggleAutoAttack input action, the auto-attack hotkey is disabled.");
             }
 
-            // Lock-on (F / LT). Toggle mode reacts to presses; hold mode is polled in Update.
+            // Lock-on (F / LT). Toggle mode reacts to taps (lock, cycle, release); hold mode is polled in Update.
             lockTargetAction = inputHandler.Player.Get().FindAction("LockTarget", throwIfNotFound: false);
             if (lockTargetAction != null)
             {
@@ -113,7 +117,20 @@ namespace Game.Control
             if (playerHealth.IsDead() || disabledInput) return;
             if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
-            weaponManager?.ToggleLock();
+            weaponManager?.TapLock();
+        }
+
+        // Mouse only: a left click on an enemy locks it (Toggle mode) or switches a held lock (Hold mode). The
+        // attack it also starts then fires at that enemy. Gamepad and keyboard attacks never lock.
+        private void HandleAttackClickLock(InputAction.CallbackContext context)
+        {
+            if (!(context.control?.device is Mouse)) return;
+            if (playerHealth.IsDead() || disabledInput) return;
+            if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
+            if (weaponManager == null) return;
+
+            var enemy = EnemyTargeting.FindUnderPoint(GetMouseWorldPosition(), clickLockRadius);
+            if (enemy != null) weaponManager.ClickLock(enemy, !IsLockOnToggleMode());
         }
 
         private void OnDisable()
@@ -125,6 +142,10 @@ namespace Game.Control
             if (lockTargetAction != null)
             {
                 lockTargetAction.performed -= HandleLockTargetPressed;
+            }
+            if (inputHandler != null)
+            {
+                inputHandler.Player.Attack.performed -= HandleAttackClickLock;
             }
             playerProgression.onDerivedStatsChanged -= PlayerController_onStatUpdatedEvent;
             if (MainSceneController.Instance != null)
