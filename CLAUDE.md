@@ -379,6 +379,7 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
   - **Manual panels set to `GameObjectActive`.** They count as permanently open and steal focus.
   - **The selection marker drawn under a window** (fixed: the marker now has its own sorting Canvas).
 - **Player death** blocks only the Player action map (`PlayerInputHandler` gameplay block). The UI map stays on, so the death screen's Stats pane and Inventory still get Shift, LB/RB and gamepad navigation. `PauseMenuController` ignores Pause while dead.
+- **The pause menu** opens only when nothing else has paused the game (`PauseMenuController.CanOpenPauseMenu`, `PauseMenuRuleTests`): over the item bag, the level-up window or the end screen, Esc / Start does nothing, because Resume would unpause the game behind them and hide their Stats / Inventory panes (tester feedback, Oct 25). It also stays shut after death and in levels without `allowPause`.
 - `PauseManager.SetPause` sets `timeScale` to 0. Upgrade selection, the item bag and the pause menu pause the game, but the wave-end sequence (including `WaveCorruptionSummaryUI`) does not. Anything time-based that must stop there checks `WaveSpawner.Instance.EndingWave` and/or `GameplayFreeze.IsActive`, as `HealthRegen` does.
 
 ### UI standards & revamp (Oct 2026, done)

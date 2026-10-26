@@ -65,17 +65,19 @@ namespace Game.UI
 
         private void TogglePauseMenu(CallbackContext _)
         {
-            // The UI map stays on after death (for the death screen), but there's nothing to pause then
-            var playerHealth = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<PlayerHealth>() : null;
-            if (!isPaused && playerHealth != null && playerHealth.IsDead())
+            if (!isPaused)
             {
-                return;
-            }
-
-            // Nor over the end screen: it paused the game itself, and Resume would unpause it behind
-            if (!isPaused && endscreen != null && endscreen.IsShown)
-            {
-                return;
+                var playerHealth = PlayerManager.Instance != null ? PlayerManager.Instance.GetPlayerComponent<PlayerHealth>() : null;
+                var data = GetLevelData();
+                bool canOpen = CanOpenPauseMenu(
+                    playerHealth != null && playerHealth.IsDead(),
+                    endscreen != null && endscreen.IsShown,
+                    PauseManager.Instance != null && PauseManager.Instance.IsPaused,
+                    data == null || data.allowPause);
+                if (!canOpen)
+                {
+                    return;
+                }
             }
 
             // Pause closes the Save & Exit dialog first instead of resuming behind it
@@ -90,15 +92,6 @@ namespace Game.UI
             {
                 CloseSettings();
                 return;
-            }
-
-            if (!isPaused)
-            {
-                var data = GetLevelData();
-                if (data != null && !data.allowPause)
-                {
-                    return;
-                }
             }
 
             isPaused = !isPaused;
@@ -121,6 +114,16 @@ namespace Game.UI
 
             }
         }
+
+        /// <summary>
+        /// Whether Pause (Esc / Start) may open the pause menu. Not after death: the UI map stays on for the
+        /// death screen, but there's nothing to pause. Not while another window already paused the game (the
+        /// item bag, the level-up window, the end screen): Resume would unpause the game behind that window
+        /// and hide its Stats and Inventory panes. Not over the end screen, nor in a level that doesn't allow
+        /// pausing.
+        /// </summary>
+        public static bool CanOpenPauseMenu(bool playerDead, bool endscreenShown, bool gameAlreadyPaused, bool levelAllowsPause) =>
+            !playerDead && !endscreenShown && !gameAlreadyPaused && levelAllowsPause;
 
         public void ResumeGame()
         {
