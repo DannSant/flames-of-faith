@@ -4,4 +4,4 @@ BowSpecial,4,2,0.075,Ranged,10,TRUE,0.4,10,4,TRUE,
 Scepter,1,1,0.075,Magic,3,TRUE,0.1,0,15,TRUE,FireDebuff
 ScepterSpecial,6,2,0.075,Magic,2,TRUE,0.2,0,15,TRUE,FireDebuff
 Sword,1,1,0.075,Melee,2,FALSE,0,1,2,TRUE,BleedDebuff
-SwordSpecial,3,3,0.045,Melee,2,FALSE,0.2,1,4,TRUE,BleedDebuffHighChance
+SwordSpecial,3,3,0.075,Melee,2,FALSE,0.2,1,4,TRUE,BleedDebuffHighChance

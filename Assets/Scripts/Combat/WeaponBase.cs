@@ -20,6 +20,12 @@ namespace Game.Combat
             "so free aim can't out-range auto-targeting. Only used by projectile weapons.")]
         [SerializeField] protected float freeAimRangeMultiplier = 1f;
 
+        [Header("Debug")]
+        [Tooltip("Logs every special attack with the tag [SpecialCooldown]: Attack Speed, the cooldown it set, " +
+            "and the game time since the previous special, then when it's ready again. Game time stops while paused.")]
+        [SerializeField] private bool logSpecialCooldown;
+        private float lastSpecialStartTime = -1f;
+
         protected EnemyHealth currentTarget;
 
         protected CharacterVisual characterVisual;
@@ -49,6 +55,8 @@ namespace Game.Combat
         {
             attackTimer = new UpdateTimer(1);
             specialAttackTimer = new UpdateTimer(1);
+            specialAttackTimer.OnEventStarted += LogSpecialStarted;
+            specialAttackTimer.OnEventComplete += LogSpecialReady;
             playerController = PlayerManager.Instance.GetPlayerComponent<PlayerController>();
             playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
             weaponManager = PlayerManager.Instance.GetPlayerComponent<WeaponManager>();
@@ -149,6 +157,23 @@ namespace Game.Combat
             specialAttackTimer.SetEventDuration(specialAttackDelay);
 
             
+        }
+
+        private void LogSpecialStarted()
+        {
+            if (!logSpecialCooldown) return;
+            int attackSpeed = playerProgression != null ? playerProgression.GetStatTotal(StatType.AttackSpeed) : 0;
+            string sinceLast = lastSpecialStartTime < 0f ? "first special" : $"{Time.time - lastSpecialStartTime:0.00}s since the last special";
+            Debug.Log($"[SpecialCooldown] {name}: special at t={Time.time:0.00}, Attack Speed {attackSpeed}, " +
+                $"cooldown {specialAttackTimer.GetEventDuration():0.00}s (base {specialWeaponData.attackCooldownBase}, " +
+                $"scale {specialWeaponData.attackSpeedScale}), {sinceLast}");
+            lastSpecialStartTime = Time.time;
+        }
+
+        private void LogSpecialReady()
+        {
+            if (!logSpecialCooldown) return;
+            Debug.Log($"[SpecialCooldown] {name}: special ready at t={Time.time:0.00}, {Time.time - lastSpecialStartTime:0.00}s after it was used");
         }
 
         protected virtual void OnDerivedStatUpdated()
