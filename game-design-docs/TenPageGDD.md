@@ -74,6 +74,14 @@ All the altars that kept the **Flame of Faith** alight have gone out, and the **
 ### Gameplay summary
 Each run is a pilgrimage through an act. The player moves across a branching **overworld map** of nodes, choosing a path toward the act's boss. Combat nodes are isometric arenas where waves of enemies spawn for a fixed time. The player auto-attacks (or attacks manually), uses a class special and a dash, collects experience tokens to level up, and picks stat upgrades. Between fights the player meets shops, campfires, treasure chests and random events. **Grace** rises and falls at the end of each wave, changing the player's damage and, below zero, making them Corrupted. Dying ends the run; the **Favors** earned are banked and spent on class unlocks and skill tree upgrades.
 
+### Terms
+Some of this document's words are internal. The player always sees the lore name instead:
+
+| Internal term | Shown to the player | Meaning |
+|---|---|---|
+| Run | **Pilgrimage** | One attempt: from the start of a new game until the player dies or defeats the final boss (in the demo, the Act I boss). Coins, items, Grace and level are lost when it ends; the Favors earned are banked. |
+| Coins, gold | **Golden Chronos** | The currency of the lore, used during a Pilgrimage: earned in waves, events and treasures and by selling items, spent at Shops, lost when the Pilgrimage ends. |
+
 ---
 
 ## 4 – Game flow
@@ -111,7 +119,7 @@ Death or final victory ──> Favors banked ──> Skill tree (main menu) ─�
 7. **End of run.** Death, or beating the final boss, ends the run. The run's Favors are banked for the meta-progression.
 
 ### Collectibles
-- **Golden Chronos (coins):** granted at the end of every wave, from events and treasure, and by selling items. Spent in shops.
+- **Golden Chronos (coins):** granted at the end of every wave, from events and treasure, and by selling items. Spent in shops, and lost when the Pilgrimage ends.
 - **Experience tokens:** dropped by enemies in several denominations (bigger tokens from tougher enemies). Leveling up offers a choice of stat upgrades.
 - **Grace pickups:** occasional drops; more likely with Grace Affinity.
 - **Health pickups** and **random item pickups** (the item goes to the item bag).
@@ -218,9 +226,9 @@ The UI follows one standard: two font sizes, three icon sizes, two button sizes,
   - **Top right:** level and experience bar.
   - **Bottom left:** the three ability icons with cooldowns and input glyphs, plus the auto-attack and lock-on indicators.
   - **Bottom center:** the boss's altar flame bar (boss level only).
-- **Side panes:** the **Inventory** (left) and **Stats** pane (right) open with every center window. Holding Shift / LT shows which items give each stat.
+- **Side panes:** the **Inventory** (left) and **Stats** pane (right) open with every center window. Holding Shift / LT shows which items give each stat. The Inventory's title row shows the Favors (banked, and in brackets those earned this Pilgrimage, e.g. "42 (+5)") and the Golden Chronos, each with a tooltip that explains it.
 - **Center windows:** level-up (with Now/After stat previews), item bag (take or sell), wave results, shop, campfire, event and results, pause, settings, death screen and victory screen.
-- **Overworld map:** act title, current level name, coins, Save & Exit, the Stats pane, and gamepad prompts.
+- **Overworld map:** act title, current level name, Favors and Golden Chronos (with the same tooltips as the Inventory), Save & Exit, the Stats pane, and gamepad prompts.
 - **Main menu:** menu panel, class select with class details, Skill Tree, Settings.
 - **Tooltips:** one shared tooltip for items, stats and options, placed beside the hovered or selected element.
 

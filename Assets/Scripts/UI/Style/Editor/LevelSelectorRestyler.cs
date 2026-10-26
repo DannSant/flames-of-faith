@@ -30,6 +30,8 @@ namespace Game.UI.Style.Editor
         /// <summary>The map window is as wide as the Stats pane under it.</summary>
         public const float WindowWidth = 486f;
         public const float CoinsWidth = 150f;
+        // Favors + coins on row 2, right-aligned (CurrencyRowBuilder)
+        public const float WalletWidth = 260f;
 
         public static float WindowHeight(UISettings s) =>
             s.Margin + InventoryRestyler.TitleRowHeight + s.Spacing + s.TinyIconSize + s.Spacing + s.GetButtonHeight(UIButtonSize.Small) + s.Margin;
@@ -85,14 +87,14 @@ namespace Game.UI.Style.Editor
             title.transform.SetSiblingIndex(0);
             CenterWindowLayout.PlaceTitle(title, s, UIColorRole.Highlight);
 
-            // Row 2: the level under the player on the left, the coins on the right
+            // Row 2: the level under the player on the left, the Favors and coins on the right
             var level = (Find(root.transform, "LevelName") ?? FindDeep(root.transform, "LevelNameTxt")).GetComponent<TextMeshProUGUI>();
             level.transform.SetParent(root.transform, false);
             level.name = "LevelName";
             level.transform.SetSiblingIndex(1);
             DestroyChild(root.transform, "LevelNamePane");
             Place(level.rectTransform, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(m, -rowTop),
-                new Vector2(WindowWidth - 2f * m - CoinsWidth - s.Spacing, rowHeight));
+                new Vector2(WindowWidth - 2f * m - WalletWidth - s.Spacing, rowHeight));
             CenterWindowLayout.PlainText(level, TextAlignmentOptions.MidlineLeft);
             level.textWrappingMode = TextWrappingModes.NoWrap;
             level.overflowMode = TextOverflowModes.Ellipsis;
@@ -100,8 +102,10 @@ namespace Game.UI.Style.Editor
             level.text = "Jesterwood glade";
             StyleText(level, UIFontSize.Small, false, UIColorRole.Text, s);
 
-            var coins = FindOrCreate(root.transform, "Coins");
-            coins.SetSiblingIndex(2);
+            var wallet = FindOrCreate(root.transform, CurrencyRowBuilder.WalletName);
+            wallet.SetSiblingIndex(2);
+            Place(wallet, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(-m, -rowTop), new Vector2(WalletWidth, rowHeight));
+            var coins = Find(wallet, "Coins") ?? FindOrCreate(root.transform, "Coins");
             Place(coins, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(-m, -rowTop), new Vector2(CoinsWidth, rowHeight));
             var row = GetOrAdd<HorizontalLayoutGroup>(coins.gameObject);
             row.padding = new RectOffset(0, 0, 0, 0);
@@ -126,6 +130,8 @@ namespace Game.UI.Style.Editor
             coinsText.textWrappingMode = TextWrappingModes.NoWrap;
             coinsText.text = "1250";
             StyleText(coinsText, UIFontSize.Small, false, UIColorRole.Text, s);
+
+            var favorsText = CurrencyRowBuilder.Build(wallet, coins, s);
 
             // Save & Exit (Small) bottom right, its (Y) prompt just left of it
             var exit = Find(root.transform, "ExitButton");
@@ -154,6 +160,9 @@ namespace Game.UI.Style.Editor
             info.FindProperty("actTitleText").objectReferenceValue = title;
             info.FindProperty("levelNameText").objectReferenceValue = level;
             info.FindProperty("coinsText").objectReferenceValue = coinsText;
+            info.FindProperty("favorsText").objectReferenceValue = favorsText;
+            info.FindProperty("coinsTooltip").objectReferenceValue = coins.GetComponent<TooltipTriggerUI>();
+            info.FindProperty("favorsTooltip").objectReferenceValue = favorsText.transform.parent.GetComponent<TooltipTriggerUI>();
             info.ApplyModifiedPropertiesWithoutUndo();
         }
 

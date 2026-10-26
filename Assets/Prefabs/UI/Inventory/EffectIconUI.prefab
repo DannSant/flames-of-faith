@@ -104,6 +104,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -276,8 +277,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5611695612082028907}
-  - {fileID: 5813215501962359035}
   - {fileID: 171327365374482939}
+  - {fileID: 5813215501962359035}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleFrame
   kind: 2
+  opacity: 1
 --- !u!1 &9145590334929254268
 GameObject:
   m_ObjectHideFlags: 0

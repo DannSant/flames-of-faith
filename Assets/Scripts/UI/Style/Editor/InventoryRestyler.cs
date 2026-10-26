@@ -27,6 +27,8 @@ namespace Game.UI.Style.Editor
         public const float TitleRowHeight = 28f;
         private const float SlotIconInset = 5f;
         private const float CoinsWidth = 160f;
+        // Favors + coins on the title row, right-aligned (CurrencyRowBuilder)
+        private const float WalletWidth = 300f;
 
         public static Vector2 PaneSize(UISettings s)
         {
@@ -166,8 +168,10 @@ namespace Game.UI.Style.Editor
             gridStyle.Configure(UIIconSize.Small);
             gridStyle.Apply(s);
 
-            // Coins on the title row, right-aligned: [coin icon 28] 9999
-            var coins = FindOrCreate(mainPanel, "Coins");
+            // Favors and coins on the title row, right-aligned: [Favor icon] 42 (+5)  [coin icon 28] 9999
+            var wallet = FindOrCreate(mainPanel, CurrencyRowBuilder.WalletName);
+            Place(wallet, Vector2.one, Vector2.one, new Vector2(-m, -m), new Vector2(WalletWidth, TitleRowHeight));
+            var coins = Find(wallet, "Coins") ?? FindOrCreate(mainPanel, "Coins");
             Place(coins, Vector2.one, Vector2.one, new Vector2(-m, -m), new Vector2(CoinsWidth, TitleRowHeight));
             var coinsLayout = GetOrAdd<HorizontalLayoutGroup>(coins.gameObject);
             coinsLayout.padding = new RectOffset(0, 0, 0, 0);
@@ -202,8 +206,13 @@ namespace Game.UI.Style.Editor
             coinsText.textWrappingMode = TextWrappingModes.NoWrap;
             StyleText(coinsText, UIFontSize.Small, false, UIColorRole.Text, s);
 
+            var favorsText = CurrencyRowBuilder.Build(wallet, coins, s);
+
             var controller = new SerializedObject(root.GetComponent<InventoryControllerUI>());
             controller.FindProperty("iconContainer").objectReferenceValue = gridRect;
+            controller.FindProperty("favorsText").objectReferenceValue = favorsText;
+            controller.FindProperty("coinsTooltip").objectReferenceValue = coins.GetComponent<TooltipTriggerUI>();
+            controller.FindProperty("favorsTooltip").objectReferenceValue = favorsText.transform.parent.GetComponent<TooltipTriggerUI>();
             controller.ApplyModifiedPropertiesWithoutUndo();
         }
 

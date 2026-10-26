@@ -1,3 +1,4 @@
+using Game.Metaprogression;
 using Game.GameSettings;
 using Game.Overworld;
 using Game.Saving;
@@ -76,6 +77,11 @@ namespace Game.UI.Overworld
             if (session != null && mapInfo != null)
             {
                 mapInfo.SetCoins(session.LoadCurrencyAmount().ToString());
+            }
+            var meta = MetaProgressionManager.Instance;
+            if (meta != null && mapInfo != null)
+            {
+                mapInfo.SetFavors(meta.BankedFavorsForDisplay, meta.RunFavorsForDisplay);
             }
             RefreshLocation();
         }

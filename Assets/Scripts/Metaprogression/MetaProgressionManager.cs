@@ -83,6 +83,12 @@ namespace Game.Metaprogression
         public event Action<CharacterClass> OnClassUnlocked;
         /// <summary>Favors earned in the current level (amount gained), not banked yet.</summary>
         public event Action<int> OnRunFavorsGained;
+        /// <summary>
+        /// The Favors to show the player changed: banked (spendable by the class being played, all classes' with
+        /// the shared pool) and earned this run, not banked yet (the run's total plus the current level's). Also
+        /// pushed when a level's UI is set up, so a display starts with the right numbers.
+        /// </summary>
+        public event Action<int, int> OnFavorTotalsChanged;
 
         /// <summary>Favors earned in the current level, not added to the run yet.</summary>
         public int PendingLevelFavors => levelFavors;
@@ -96,6 +102,30 @@ namespace Game.Metaprogression
             BuildMetaProgressionList();
             LoadMetaProgression();
         }
+
+        private void Start()
+        {
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayUISetupRequested += RaiseFavorTotals;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (MainSceneController.Instance != null)
+            {
+                MainSceneController.Instance.OnGameplayUISetupRequested -= RaiseFavorTotals;
+            }
+        }
+
+        /// <summary>Banked Favors the player can spend between runs (see <see cref="OnFavorTotalsChanged"/>).</summary>
+        public int BankedFavorsForDisplay => GetSpendableFavors(GetPlayedClass());
+
+        /// <summary>Favors earned this run and not banked yet: the run's total plus the current level's.</summary>
+        public int RunFavorsForDisplay => levelFavors + (GameSession.Instance != null ? GameSession.Instance.RunFavors : 0);
+
+        private void RaiseFavorTotals() => OnFavorTotalsChanged?.Invoke(BankedFavorsForDisplay, RunFavorsForDisplay);
 
         private void BuildMetaProgressionList()
         {
@@ -227,6 +257,7 @@ namespace Game.Metaprogression
             if (amount == 0) return;
             levelFavors += amount;
             OnRunFavorsGained?.Invoke(amount);
+            RaiseFavorTotals();
         }
 
         /// <summary>The level was finished: its Favors join the run's total (saved with the run).</summary>
@@ -263,12 +294,14 @@ namespace Game.Metaprogression
 
             SaveMetaProgression();
             OnFavorsChanged?.Invoke();
+            RaiseFavorTotals();
         }
 
         /// <summary>Drops the Favors earned in the current level (it was left without finishing it).</summary>
         public void DiscardLevelFavors()
         {
             levelFavors = 0;
+            RaiseFavorTotals();
         }
 
         // --- Class unlocks ----------------------------------------------------------------------
@@ -309,6 +342,7 @@ namespace Game.Metaprogression
             SaveMetaProgression();
 
             OnFavorsChanged?.Invoke();
+            RaiseFavorTotals();
             OnClassUnlocked?.Invoke(characterClass);
             return true;
         }
@@ -350,6 +384,7 @@ namespace Game.Metaprogression
             SaveMetaProgression();
 
             OnFavorsChanged?.Invoke();
+            RaiseFavorTotals();
             OnNodeTierChanged?.Invoke(characterClass, node.nodeId);
             return true;
         }
@@ -365,6 +400,7 @@ namespace Game.Metaprogression
             favorsByClass[key] = Mathf.Max(0, current + debugFavors);
             SaveMetaProgression();
             OnFavorsChanged?.Invoke();
+            RaiseFavorTotals();
             Debug.Log($"[Meta] {key} now has {favorsByClass[key]} Favors.");
         }
 
@@ -404,6 +440,7 @@ namespace Game.Metaprogression
             m_MetaState.unlockedClasses.Clear();
             SaveMetaProgression();
             OnFavorsChanged?.Invoke();
+            RaiseFavorTotals();
             Debug.Log("[Meta] Favors, skill tree tiers and class unlocks reset.");
         }
 

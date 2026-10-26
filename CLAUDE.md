@@ -6,6 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 FlamesOfFaith is a 2D action roguelite built in Unity 6.3 LTS (`6000.3.13f1`, URP). Runs (attempts) proceed through an act-based overworld map, into isometric combat levels with waves of enemies, elemental debuffs, boss fights, and between-run meta-progression / relic ("Effect") systems.
 
+### Glossary: internal terms vs. what the player sees
+
+Use the player-facing term in anything the player reads (UI text, tooltips, item and event texts, patch notes); the internal term is fine in code, comments and team docs.
+
+| Internal | Player-facing | Meaning |
+|---|---|---|
+| run | **Pilgrimage** | One attempt: from the start of a new game until the player dies or defeats the final boss (in the demo, the Act I boss). Run-scoped state (coins, items, Grace, level) is lost when it ends; Favors are banked. |
+| coins, gold, currency (`CurrencyWallet`) | **Golden Chronos** | The in-run currency: earned in waves, events and treasures and by selling items, spent at Shops, lost when the Pilgrimage ends. |
+
 ## Working with this repo
 
 - **Git (changed 2026-10-23): `develop` is the integration branch and `main` is for releases.** Feature work happens on feature branches off `develop`, and the Orchestrator session (see `docs/pm/`) owns `docs/pm/PROJECT_STATE.md` and `BACKLOG.md`, on `develop` only. Don't create branches on your own: an implementation session works on the branch its feature spec in `docs/features/` names. Never merge into `main` without the user's OK. Before 2026-10-23 everything was committed directly on `main`.
@@ -432,7 +441,8 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - **Grace label:** cyan at 0 and above, purple below 0 (`GraceBar.GetLabelColor`). The pending label reads "Corruption -N".
   - **Ability slots:** Medium icons. Each slot's input glyph is its child, centered on the bottom edge.
 - **Inventory** (`InventoryPane`, `InventoryControllerUI`, `EffectIconUI`):
-  - **Window:** framed, on the left between the HUD's top-left stack and IconsPane. The title row has "Inventory" (Big, bold) and the coins (Small, 28px icon).
+  - **Window:** framed, on the left between the HUD's top-left stack and IconsPane. The title row has "Inventory" (Big, bold) and, right-aligned in a `Wallet` row, the Favors and the coins (Small, 28px icons).
+  - **Favors and coins** (Oct 26, `CurrencyRowBuilder` builds the row for both this window and the map's): the Favors read "banked (+earned this Pilgrimage)", e.g. "42 (+5)", in Favors gold, with a placeholder icon (the stat star, tinted) until the art team draws one. `MetaProgressionManager.OnFavorTotalsChanged(banked, earnedThisRun)` pushes them (banked = spendable by the played class, the shared pool; earned = the run's total plus the current level's); it also fires when a level's UI is set up. Both groups have a tooltip (`TooltipTriggerUI`, texts in `CurrencyTooltipTexts` on the controller, editable in the Inspector). `CurrencyRowTests`.
   - **Grid:** a `Grid` child holds 8 columns × 10 rows of Small slots, and icons spawn there (`iconContainer`).
   - **Slots:** each slot is a Slot frame tinted by item quality, the icon inside it, and a count badge shown only above 1.
   - **Tooltip:** item tooltips use the scene's shared `GeneralTooltipPane`. The title is the quality-colored name (`EffectQualityDisplayHelper.ColorizeName`, also used by `TreasureUI`).
@@ -544,7 +554,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - **Map window** (`LevelSelectorUI.prefab`, `OverworldMapInfoUI`): top right, 486 wide, the Stats pane's width and right edge, ending above it. It shows:
     - the act title (Big, bold, yellow; `OverworldPlayerStatePresenter.FormatActTitle`, "Act I - Jesterwoods", from `RunMapGraph.displayName`);
     - the level under the player (Small, the current node's `LevelData.DisplayName`; it changes as the player moves);
-    - the coins (Tiny coin, Small);
+    - the Favors and the coins, as in the Inventory (`OverworldMapInfoUI.SetFavors`, fed by `OverworldPlayerStatePresenter` from `MetaProgressionManager`);
     - Save & Exit (Small) with its (Y) prompt.
 
     The coins were a separate CurrencyPane, merged in. The window stays the Primary, OnDemand `UIWindow`.

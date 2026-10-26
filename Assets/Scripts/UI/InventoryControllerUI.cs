@@ -1,5 +1,6 @@
 using Game.Currency;
 using Game.Effects;
+using Game.Metaprogression;
 using Game.Progression;
 using Game.Scene;
 using Game.RunEncounters;
@@ -23,6 +24,13 @@ namespace Game.UI
 
         [Header("Currency UI Elements")]
         [SerializeField] private TextMeshProUGUI currencyText;
+        [Tooltip("Hover / select target of the coins; shows the Golden Chronos tooltip.")]
+        [SerializeField] private TooltipTriggerUI coinsTooltip;
+        [Tooltip("The Favors next to the coins: banked (+earned this Pilgrimage).")]
+        [SerializeField] private TextMeshProUGUI favorsText;
+        [Tooltip("Hover / select target of the Favors; shows the Favors tooltip.")]
+        [SerializeField] private TooltipTriggerUI favorsTooltip;
+        [SerializeField] private CurrencyTooltipTexts currencyTooltips = new();
 
         [Header("Prefab Settings")]
         [SerializeField] private EffectIconUI effectIconPrefab;
@@ -37,10 +45,16 @@ namespace Game.UI
 
         private Transform IconContainer => iconContainer != null ? iconContainer : mainPanel.transform;
 
+        // Last Favors pushed by MetaProgressionManager.OnFavorTotalsChanged
+        private int bankedFavors;
+        private int runFavors;
+
         private void Start()
         {
             TogglePanel(false);
-
+            if (coinsTooltip != null) coinsTooltip.Setup(currencyTooltips.CoinsTitle, () => currencyTooltips.CoinsText);
+            if (favorsTooltip != null) favorsTooltip.Setup(currencyTooltips.FavorsTitle, () => currencyTooltips.FormatFavors(bankedFavors, runFavors));
+            UpdateFavorsText();
         }
 
         private void OnEnable()
@@ -69,6 +83,11 @@ namespace Game.UI
                 statsPaneUI.OnStatHovered += HandleStatHovered;
                 statsPaneUI.OnStatHoverEnded += HandleStatHoverEnded;
             }
+
+            if (MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.OnFavorTotalsChanged += HandleFavorTotalsChanged;
+            }
         }
 
         private void OnDisable()
@@ -96,6 +115,23 @@ namespace Game.UI
                 statsPaneUI.OnStatHovered -= HandleStatHovered;
                 statsPaneUI.OnStatHoverEnded -= HandleStatHoverEnded;
             }
+
+            if (MetaProgressionManager.Instance != null)
+            {
+                MetaProgressionManager.Instance.OnFavorTotalsChanged -= HandleFavorTotalsChanged;
+            }
+        }
+
+        private void HandleFavorTotalsChanged(int banked, int earnedThisRun)
+        {
+            bankedFavors = banked;
+            runFavors = earnedThisRun;
+            UpdateFavorsText();
+        }
+
+        private void UpdateFavorsText()
+        {
+            if (favorsText != null) favorsText.text = CurrencyTooltipTexts.FormatFavorsAmount(bankedFavors, runFavors);
         }
 
         private void HandleStatHovered(StatType stat, bool shiftHeld)
