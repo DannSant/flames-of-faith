@@ -16,14 +16,22 @@ MonoBehaviour:
   stackScaling: []
   tiers:
   - baseDamage: 20
+    spinDuration: 2
+    tickInterval: 0.5
     shieldDuration: 0
     absorbHealFraction: 0.5
   - baseDamage: 23
-    shieldDuration: 1
+    spinDuration: 2
+    tickInterval: 0.4
+    shieldDuration: 3
     absorbHealFraction: 0.5
   - baseDamage: 26
-    shieldDuration: 1.5
+    spinDuration: 2
+    tickInterval: 0.3
+    shieldDuration: 3.5
     absorbHealFraction: 0.6
   - baseDamage: 30
-    shieldDuration: 1.5
+    spinDuration: 2
+    tickInterval: 0.25
+    shieldDuration: 4
     absorbHealFraction: 0.7

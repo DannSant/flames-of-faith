@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e7e072706bb6f8f4097434493f40ddaf, type: 3}
   effectName: Glyph of Whirlwind
   scalingValue: 1
-  description: 'Skill item. Your special attack spins the sword around you dealing
-    _melee_damage_ to every enemy it touches. You can''t be hurt while spinning.
+  description: 'Skill item. Your special attack spins the sword around you for
+    a while, repeatedly dealing _melee_damage_ to every enemy it touches.
 
 '
   buyPrice: 0

@@ -30,6 +30,12 @@ namespace Game.Combat
 
         private GameObject activeShieldVfx;
 
+        // The Whirlwind's spin: the hitbox stays on for the Glyph's Spin Duration, the special animation
+        // replaying until then. Without the Glyph (or at 0) it lasts the animation once.
+        private float spinDuration;
+        private bool spinning;
+        private float spinEndTime;
+
         [Header("Sound Effects")]
         [SerializeField] private List<AudioClip> swordAttackSounds = new();        
 
@@ -44,7 +50,7 @@ namespace Game.Combat
             mainDamageSource.OnDamageDealt += OnDamageDealt;
             specialDamageSource.WeaponData = specialWeaponData;
             specialDamageSource.OnDamageDealt += OnSpecialDamageDealt;
-            
+            characterVisual.OnActionInterrupted += EndSpin;
         }
 
         // Glyph of Crusader Strike sets the basic attack's damage and bleed chance; Glyph of
@@ -59,6 +65,8 @@ namespace Game.Combat
 
             var whirlwind = GetAbilityValues<WhirlwindAbility, WhirlwindAbility.Values>();
             specialDamageSource.BaseDamageOverride = whirlwind?.baseDamage;
+            specialDamageSource.TickInterval = whirlwind != null ? whirlwind.tickInterval : 0f;
+            spinDuration = whirlwind != null ? whirlwind.spinDuration : 0f;
         }
 
         protected override void OnDisable()
@@ -66,11 +74,18 @@ namespace Game.Combat
             base.OnDisable();
             mainDamageSource.OnDamageDealt -= OnDamageDealt;
             specialDamageSource.OnDamageDealt -= OnSpecialDamageDealt;
+            if (characterVisual != null) characterVisual.OnActionInterrupted -= EndSpin;
         }
 
         protected override void Update()
         {
             base.Update();
+
+            // A timed spin ends on time, even mid-animation (its end event then finds nothing to do)
+            if (spinning && spinDuration > 0f && !IsSpinOngoing(Time.time, spinEndTime))
+            {
+                EndSpin();
+            }
 
             if (weaponManager!= null && weaponManager.GetCurrentTarget()!=null)
             {
@@ -97,10 +112,13 @@ namespace Game.Combat
         {
             if (specialAttackTimer.GetIsEventActive()) return;
 
-            playerHealth.ToggleIsInvulnerable(true);
+            // No invulnerability while spinning (tester feedback, Oct 26): with a 2 s spin the Warrior was
+            // untouchable most of the time. The upgraded Glyph's projectile shield still protects.
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();
             specialAttackCollider.SetActive(true);
+            spinning = true;
+            spinEndTime = Time.time + spinDuration;
             RaiseProjectileShield();
             effectStore?.Trigger(Effects.EffectTrigger.OnSpecialAttack);
         }
@@ -132,9 +150,23 @@ namespace Game.Combat
 
         protected override void OnSpecialAttackAnimationPlayed()
         {
-            playerHealth.ToggleIsInvulnerable(false);
-            specialAttackCollider.SetActive(false);
+            // The current spin clip is shorter than the spin: play it again until the spin ends
+            if (spinning && IsSpinOngoing(Time.time, spinEndTime))
+            {
+                characterVisual.PlayAttackSpecialAnimation();
+                return;
+            }
+            EndSpin();
         }
+
+        private void EndSpin()
+        {
+            spinning = false;
+            if (specialAttackCollider != null) specialAttackCollider.SetActive(false);
+        }
+
+        /// <summary>The spin keeps hitting (and its animation replays) until its end time.</summary>
+        public static bool IsSpinOngoing(float now, float spinEndTime) => now < spinEndTime;
 
         private void OnDamageDealt(float damage, GameObject target)
         {

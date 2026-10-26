@@ -1,5 +1,5 @@
-Ability,Tier,Base Damage,Shield Duration,Absorb Heal Fraction
-WhirlwindAbility,0,20,0,0.5
-WhirlwindAbility,1,23,1,0.5
-WhirlwindAbility,2,26,1.5,0.6
-WhirlwindAbility,3,30,1.5,0.7
+Ability,Tier,Base Damage,Spin Duration,Tick Interval,Shield Duration,Absorb Heal Fraction
+WhirlwindAbility,0,20,2,0.5,0,0.5
+WhirlwindAbility,1,23,2,0.4,3,0.5
+WhirlwindAbility,2,26,2,0.3,3.5,0.6
+WhirlwindAbility,3,30,2,0.25,4,0.7

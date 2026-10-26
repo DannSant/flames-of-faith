@@ -36,6 +36,8 @@ namespace Game.Control
         public event Action OnAttackEndAnimEvent;
         public event Action OnSpecialAttackStartAnimEvent;
         public event Action OnSpecialAttackEndAnimEvent;
+        /// <summary>A dash, the cleanse or death cut the current action short (e.g. the Whirlwind stops spinning).</summary>
+        public event Action OnActionInterrupted;
 
         private const string DeathStateName = "Death";
 
@@ -144,6 +146,7 @@ namespace Game.Control
             // true forever, which permanently blocks auto-attack (WeaponManager.ManageAutoAttack).
             IsAttackAnimationPlaying = false;
             IsSpecialAttackAnimationPlaying = false;
+            OnActionInterrupted?.Invoke();
             animator.SetTrigger("Dash");
         }
 
@@ -152,6 +155,7 @@ namespace Game.Control
             // Same interruption risk as Dash above (e.g. wave-end cleanse firing mid-attack).
             IsAttackAnimationPlaying = false;
             IsSpecialAttackAnimationPlaying = false;
+            OnActionInterrupted?.Invoke();
             animator.SetTrigger("Cleanse");
         }
 
@@ -223,6 +227,7 @@ namespace Game.Control
         public IEnumerator PlayDeathAnimationRoutine()
         {
             if (animator == null) yield break;
+            OnActionInterrupted?.Invoke();
 
             // Clear any queued triggers so a stray Dash/Attack/Special/Cleanse
             // input right before death can't leave a trigger sitting around

@@ -38,8 +38,30 @@ namespace Game.Combat
             effectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>();
         }
 
+        /// <summary>
+        /// Seconds between hits on an enemy that stays in the hitbox (the Whirlwind, set by its Glyph). 0 = the
+        /// basic swing's behavior: a hit each time an enemy enters.
+        /// </summary>
+        public float TickInterval
+        {
+            get => ticker.Interval;
+            set => ticker.Interval = value;
+        }
+
+        private readonly HitTicker ticker = new();
+
+        // The hitbox is switched on for each attack, so every activation starts with fresh timers
+        private void OnEnable() => ticker.Clear();
+
         private void OnTriggerEnter2D(Collider2D collision)
-        {            
+        {
+            if (TickInterval > 0f && !ticker.TryHit(collision.gameObject, Time.time)) return;
+            ProcessDamageToEnemies(collision);
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (TickInterval <= 0f || !ticker.TryHit(collision.gameObject, Time.time)) return;
             ProcessDamageToEnemies(collision);
         }
 
