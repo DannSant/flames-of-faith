@@ -108,7 +108,8 @@ namespace Game.Combat
 
                 if (target is not Component targetComponent) continue;
 
-                if (target.ShouldSpawnDamageNumber())
+                // An immune target shows IMMUNE itself (EnemyHealth); this number would look like it landed
+                if (target.ShouldSpawnDamageNumber() && !target.IsImmune())
                 {
                     DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(
                         targetComponent.transform.position, areaDamage, damageSource.WeaponClass);

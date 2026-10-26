@@ -95,7 +95,8 @@ namespace Game.Combat.Elemental
                 leyChargeChainVisited = visited
             };
             nearest.TakeDamage(chainDamage);
-            DamageNumberSpawner.Instance.SpawnLeyChargeDebuffDamageNumber(nearest.transform.position, strength);
+            // An immune enemy shows IMMUNE itself (EnemyHealth)
+            if (!nearest.IsImmune()) DamageNumberSpawner.Instance.SpawnLeyChargeDebuffDamageNumber(nearest.transform.position, strength);
 
             if (debuffHandler != null)
                 debuffHandler.ApplyDebuff(data, duration, strength);

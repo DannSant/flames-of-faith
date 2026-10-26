@@ -22,6 +22,10 @@ namespace Game.Combat
         [SerializeField] private AudioClip damagedSFX;
         [SerializeField] private AudioClip deathSFX;
         [SerializeField] private bool shouldSpawnDamageNumbers = true;
+        [Tooltip("While immune (the boss's first phase), a hit shows IMMUNE at most once per this many seconds, " +
+            "so fast repeated hits (Whirlwind, flame trail ticks, volleys) don't stack a pile of them.")]
+        [Min(0f)]
+        [SerializeField] private float immuneNumberInterval = 0.4f;
 
         [Header("Targeting")]
         [Tooltip("Extra targeting reach standing in for the visible body, used only by " +
@@ -46,6 +50,7 @@ namespace Game.Combat
         private float extraDamageTakenPercentage = 0f;
         private bool isImmune = false;
         private bool deathDetected = false;
+        private float lastImmuneNumberTime = float.NegativeInfinity;
 
         public bool IsImmuneFlag
         {
@@ -104,7 +109,13 @@ namespace Game.Combat
 
             if (IsImmuneFlag)
             {
-                DamageNumberSpawner.Instance.SpawnDamageToEnemyNumber(transform.position, 0f, damageRequest.originWeaponClass);
+                // The hitters skip their own number on an immune target; this is the only one shown
+                if (shouldSpawnDamageNumbers && !damageRequest.silent && DamageNumberSpawner.Instance != null
+                    && ShouldShowImmuneNumber(Time.time, lastImmuneNumberTime, immuneNumberInterval))
+                {
+                    lastImmuneNumberTime = Time.time;
+                    DamageNumberSpawner.Instance.SpawnImmuneNumber(transform.position);
+                }
                 return;
             }
            
@@ -214,6 +225,9 @@ namespace Game.Combat
         {
             return isImmune;
         }
+
+        /// <summary>IMMUNE shows on the first hit, then at most once per <paramref name="interval"/> seconds.</summary>
+        public static bool ShouldShowImmuneNumber(float now, float lastShown, float interval) => now - lastShown >= interval;
 
         public bool IsDead()
         {

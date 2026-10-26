@@ -32,7 +32,8 @@ namespace Game.Combat.Elemental
 
             float tickDamage = strength * stacks;
 
-            DamageNumberSpawner.Instance.SpawnBleedDebuffDamageNumber(enemyHealth.transform.position, tickDamage);
+            // An immune enemy shows IMMUNE itself (EnemyHealth)
+            if (!enemyHealth.IsImmune()) DamageNumberSpawner.Instance.SpawnBleedDebuffDamageNumber(enemyHealth.transform.position, tickDamage);
             enemyHealth.TakeDamage(new DamageRequest(tickDamage, WeaponClass.Melee, false));
         }
 
@@ -49,7 +50,7 @@ namespace Game.Combat.Elemental
             if (burstDamage <= 0f) return;
 
             SpawnOneShotVfx(stacking.StackVfx, stacking.StackVfxLifetime);
-            DamageNumberSpawner.Instance.SpawnBleedDebuffDamageNumber(enemyHealth.transform.position, burstDamage);
+            if (!enemyHealth.IsImmune()) DamageNumberSpawner.Instance.SpawnBleedDebuffDamageNumber(enemyHealth.transform.position, burstDamage);
             enemyHealth.TakeDamage(new DamageRequest(burstDamage, WeaponClass.Melee, false));
         }
     }

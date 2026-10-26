@@ -20,6 +20,11 @@ namespace Game.Misc
         [SerializeField] private DamageNumber favorNumberPrefab;
         [SerializeField] private Color favorColor = new Color(1f, 0.85f, 0.35f);
         [SerializeField] private string dodgeText = "Dodge";
+        [Tooltip("Optional. Shown when an immune enemy is hit (the boss's first phase). Falls back to the damage-to-enemy style.")]
+        [SerializeField] private DamageNumber immuneNumberPrefab;
+        [SerializeField] private string immuneText = "IMMUNE";
+        [Tooltip("Tint of the IMMUNE text when it uses the fallback damage-to-enemy style.")]
+        [SerializeField] private Color immuneColor = new Color(0.75f, 0.75f, 0.75f);
         [SerializeField] private DamageNumber graceGainedNumberPrefab;
         [SerializeField] private DamageNumber graceLostNumberPrefab;
         [SerializeField] private DamageNumber corruptionGainedNumberPrefab;
@@ -84,6 +89,18 @@ namespace Game.Misc
             var prefab = dodgeNumberPrefab != null ? dodgeNumberPrefab : damageToPlayerNumberPrefab;
             if (prefab == null) return;
             prefab.Spawn(positionTospawn, dodgeText);
+        }
+
+        /// <summary>A hit on an immune enemy: "IMMUNE" instead of a 0 (EnemyHealth throttles how often).</summary>
+        public void SpawnImmuneNumber(Vector3 positionTospawn)
+        {
+            if (immuneNumberPrefab != null)
+            {
+                immuneNumberPrefab.Spawn(positionTospawn, immuneText);
+                return;
+            }
+            if (damageToEnemyNumberPrefab == null) return;
+            damageToEnemyNumberPrefab.Spawn(positionTospawn, immuneText).SetColor(immuneColor);
         }
 
         public void SpawnHealToPlayerNumber(Vector3 positionTospawn, float number)

@@ -743,7 +743,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3818960930260642805}
   animator: {fileID: 8759434879841373480}
   bossCollider: {fileID: 0}
-  enableFirstPhaseTransparency: 1
+  enableFirstPhaseTransparency: 0
   firstPhaseAlpha: 0.5
 --- !u!114 &5108861510679237834
 MonoBehaviour:

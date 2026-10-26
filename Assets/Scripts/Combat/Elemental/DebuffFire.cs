@@ -22,8 +22,8 @@ namespace Game.Combat.Elemental
 
             float finalDamage = strength;
 
-            // spawn damage numbers
-            DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(enemyHealth.transform.position, finalDamage);
+            // spawn damage numbers (an immune enemy shows IMMUNE itself, in EnemyHealth)
+            if (!enemyHealth.IsImmune()) DamageNumberSpawner.Instance.SpawnFireDebuffDamageNumber(enemyHealth.transform.position, finalDamage);
 
             enemyHealth.TakeDamage(new DamageRequest(finalDamage, WeaponClass.Magic, false));
         }
