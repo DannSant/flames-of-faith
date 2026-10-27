@@ -41,10 +41,54 @@ For each event: title, intro text, per-class variants (if any), options (label +
 3. Which stats can modify which outcomes, and how strongly compared with Luck?
 4. How much number detail stays visible: none before choosing, exact numbers after?
 5. Event count for the demo (December 2026): rework the 5 + Holy Altar only, or add new ones?
-6. Lore contradictions to settle first, see below.
+6. ~~Lore contradictions to settle first~~ **Settled with the owner on 2026-10-26**, see "Lore decisions" below. The story bible is `game-design-docs/Lore.md`.
+
+### Lore decisions (narrative session, 2026-10-26)
+The owner's novels (*Aceros del Alba*, "Steeldawn") and notes in `lore-docs/` (gitignored, Spanish, reference only) are the canon. The game follows them, with the changes below.
+1. **Timeline.**
+   - **The Dark Age:** the Drekos first invaded in the Dark Age, thousands of years ago. They were driven underground and became a children's tale.
+   - **Gabien's time:** in year 350 of the Decadent Age, Malizante, leader of the Drekos, woke and began putting out the Altars of Malien. She invaded Ashemdrek with Gracoy mercenaries and the Forsaken. Gabien Alamoh fought her (see 5).
+   - **The game:** about **60 years later** (about year 410). The **Years of the Miasma** are those 60 years.
+   - **The GDD's "year 1000"** and Taio'Sandir's "6,000 years" become "thousands of years".
+   - **`lore-docs/Timeline.docx`** puts the game 150 years after Gabien; the owner chose 60.
+2. **Churches:** one church, two names.
+   - **The White Church** of Ashemdrek is about 2,000 years old. It started the Pilgrimage of the Flame, and its Keepers of the Flame tended the altars.
+   - **The shards:** it split into factions (military, civic, commerce...) that people called "shards", and they were too slow to answer the invasion.
+   - **In exile in Abidor** it renamed itself the **Shardless Church**, to mean "never divided again". Its augurs start this Pilgrimage, and Werlem is one of them.
+3. **Places.**
+   - **Kanator** is the world.
+   - **Abidor** is a kingdom of the **Glenos Empire**, on the continent of **Rousatan** across the Fauner Sea; its capital is **Divinity**.
+   - **The game takes place in the continent of Sialant.** Its four nations were **Fustina** (elves), **Gracoy**, **Fara Uf'Clario** and **Ashemdrek**, and only Fustina still stands.
+   - **The four acts:** the Jesterwoods, Fara Uf'Clario, the Sinfa Mountains and the ruins of Ashemdrek City.
+   - **Perkfandor** is a walled city that fell in the invasion.
+   - **The Seared Ruins** are ancient ruins where Gabien found his power.
+   - **The Argent Coast** is Gabien's home town (the level "Argent Coast Ruins").
+4. **Names and spelling.**
+   - **Sentinels** (not "Centinels") are Abidor's.
+   - **Jesterwoods** is the region's name, and "Jester Forest" goes.
+   - **Fara Uf'Clario** is the northern land and its first clan; its people are the **Faraclarians**. This replaces "Uf'Faraclario Wastes" and "Fara Uf'clario".
+5. **Gabien** was a **Seared Soul**: born with so much Grace that it burns the soul. Everyone took him for Disgraced (born without Grace) until the Seared Ruins showed what he was.
+   - **The Seal of Malien:** he found it, the relic the prophecies said would banish Malizante. He broke it to cure his sister **Liah**, who was Soulless; the cure was why he set out in the first place. Its power also held back the fatal Mastow condition of **Dayla**, his partner.
+   - **The fall:** in fallen Ashemdrek he beat Malizante but couldn't kill her, so his party threw her into the last lit Altar of Malien. Nobody knew the altars held most of the Drekos, so the darkness broke loose over the region, and Malizante died in it. Gabien died of his wounds soon after. **Orleone Vidal** and **Kyro Feth** escaped.
+   - **The truth:** only Orleone, Kyro and Dayla knew what happened. Before Abidor's nobles, Orleone and Kyro defended him, but under questioning they had to confess that he misused the Seal.
+   - **The blame:** common folk hate Gabien because he lost; the nobles hate him because he misused a sacred relic.
+6. **The other proper nouns.**
+   - **Mastow** is a substance in the blood that lets a body capture ley energy. Elves have a lot of it and humans almost none. A human born with a lot can cast spells, but it is fatal; Dayla was one.
+   - **Runic Math** is a new science built on Kyro's findings. Calculated runes, written on **Blue Parchment**, replace Mastow; **Crisalia** wakes the rune into a **Glyph** drawn in the air. Glyphs themselves are the traditional way of casting, not runic math.
+   - **The Forger** is the Faraclarians' word for a Seared Soul, because only a Seared Soul can forge Steeldawn.
+   - **The House of Stars** is an elven house that is a rival of nearly every other house, the **Vega Unit** among them (for elves, a "Unit" is a family).
+   - **Gracoy** is the Mercenary Kingdom.
+   - **Golden Chronos** is the old currency of Ashemdrek, kept alive by people who won't let their country die; traders don't care, gold is gold.
+   - **Altars:** the Holy Altar node becomes the **Wayside Shrine of Malien**; the great Altars of Malien are the act bosses' altars.
+   - **Grace** is Malien's gift to every human and dwarf soul, and other races don't have it.
+   - **The Forsaken** are cultists who renounced their Grace.
+   - **The Awoken** are Forsaken who spent a night in a grave and rose at dawn without their will, with dark power and immortality. This replaces "Dawner".
+7. **Protagonist:** the three pilgrims travel together, and the chosen one fights. Events can let the others speak.
+8. **Corruptors:** Act I **Dreko Spawn** (a working name), Act II **Echo of Malizante**, Act III **Echo of Pal'bor** (the oldest Dreko, who led the Forsaken and was stopped by Gabien), Act IV **Echo of Gabien**. The Act III boss "The Forsaken" will be renamed (TBD).
+9. **Liah** may still be alive, and very old, and the party can meet her. **Dayla is dead**: she kept the cracked, powerless Seal.
 
 ### Lore integrity issues found by the Orchestrator (2026-10-26)
-Settle these in `Lore.md` before writing event text; then fix the GDD to match.
+_Kept for the record; resolved by "Lore decisions" above._
 1. **Timeline:** the story is set "shortly after the year 1000 of the Decadent Age", Taio'Sandir came "during the Dark Age" about 6,000 years ago, and Gabien fought the Drekos two generations ago (GDD open question 13). How many eras and invasions are there?
 2. **Churches:** the "augurs of the White Church" start the Pilgrimage, but the church of Ashemdrek became the "Shardless Church", and Werlem is an Augur of the Shardless Church. One church or two?
 3. **Places:** Ashemdrek is the region, a fallen kingdom and Act IV's ruins; Kanator is the world; Abidor is where Ayteel and Faelin grew up. Which kingdom do the Centinels defend? Is Abidor a city or a kingdom?
