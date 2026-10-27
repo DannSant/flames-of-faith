@@ -1,6 +1,6 @@
 # Feature: Data-driven step 3 (debuffs, Grace / Corruption, player stats) and pilot leftovers
 
-- **Status:** in progress
+- **Status:** done (merged into `develop` 2026-10-25)
 - **Branch:** `feature/data-driven-step3` (off `develop`)
 - **Owner session:** data-driven pilot session (2026-10-24)
 - **Related docs:** CLAUDE.md "Balance data (data-driven pilot, Oct 2026)", `Assets/Docs/data-driven-analysis.md` sections 3.5, 3.7, 3.8 and 7 (step 0 leftovers, step 3)

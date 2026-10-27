@@ -1,3 +1,5 @@
+> **Outdated (2026-10-26).** This one-pager predates the Corruption rework and the three pilgrims (e.g. Grace no longer drains per wave, there are three classes). `TenPageGDD.md` is the current design; a rewrite of this page is in the backlog.
+
 # Flames of Faith – One Page GDD
 
 

@@ -1,6 +1,6 @@
 # Feature: Item drops (data-driven step 4)
 
-- **Status:** in progress
+- **Status:** done (merged into `develop` 2026-10-25)
 - **Branch:** `feature/item-drops` (off `develop`, after step 3 was merged)
 - **Owner session:** data-driven pilot session (2026-10-24)
 - **Related docs:** CLAUDE.md "Balance data", "Run encounter events" (Shop, Treasure), "Effect data pipeline"; `Assets/Docs/data-driven-analysis.md` 3.4

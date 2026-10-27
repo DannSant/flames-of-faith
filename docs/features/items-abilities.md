@@ -1,6 +1,6 @@
 # Feature: Items and abilities in the sheet (data-driven step 5)
 
-- **Status:** in progress
+- **Status:** done (merged into `develop` 2026-10-25)
 - **Branch:** `feature/items-abilities` (off `develop`, after item drops was merged)
 - **Owner session:** data-driven pilot session (2026-10-24)
 - **Related docs:** CLAUDE.md "Effect data pipeline", "Combat/effect pipeline", "Class kits, skill trees & Favors", "Balance data", "Item drops"; `Assets/Docs/data-driven-analysis.md` 3.6

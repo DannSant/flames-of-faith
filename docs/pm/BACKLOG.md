@@ -1,31 +1,37 @@
 # Backlog
 
-_Last updated: 2026-10-23. Order is a PROPOSAL, to be confirmed in the interview. Each line: item, then why._
+_Last updated: 2026-10-26. Ordered around the next tester build, then the Steam demo (December 2026). Each line: item, then why._
 
-## Now (gates the next tester build)
-1. **Run the open manual tests** (`todo.md`, 80 items). Why: the 6.3 upgrade and the pilot changed a lot of code paths and none of it is verified in a build.
-2. **Sheet round trip** (deploy script, publish, pull, test build). Why: the designer is waiting and the pilot is untested against the real sheet.
+## Now
+1. **Narrative design for the run encounter events** (design session; spec `docs/features/run-encounter-events.md`). Why: the events rework needs its content first, and the lore has contradictions that block writing (listed in the spec).
+2. **Run encounter events rework, systems** (implementation, after 1). Why: the last open tester-feedback item; events are the demo's main lore delivery.
+3. **Next tester build** (merge `develop` → `main`, tag, patch notes). Why: a lot changed since v0.5.1 and testers haven't played it.
 
-## Next
-3. **Balance pass: enemy and player damage.** Why: tester feedback; tooling now exists (sheet, damage preview, reports).
-4. **ItemBagPane, attack speed stats and other known bugs.** Why: reported by testers, needs a triage list first.
-5. **Small rework on the Whirlwind.** Why: Warrior balance without Cleave is unproven.
-6. **Run encounter events improvements.** Why: events now have an art slot but no art; more events add replay value.
-
-## Later
-7. **Add items to the meta-progression unlock system.** Why: more reasons to spend Favors.
-8. **Key items that unlock parts of the map.** Why: new feature, touches the Overworld map system, needs a spec.
-9. **Input remapping.** Why: expected on Steam; gamepad is already supported.
-10. **Localization.** Why: Steam reach. The design docs are in Spanish; UI is English. Needs a decision on scope.
-11. **Data-driven phase 2:** debuffs, Grace/Corruption, stat formulas, item drops (`ItemProvider`), Effects DB into the sheet. Why: designer asked for it; do after the pilot proves out.
+## Next (before the demo)
+4. **High Attack Speed fix** (decision pending, see PROJECT_STATE). Why: builds break at high Attack Speed.
+5. **Balance pass: enemy and player damage**, with the designer in the sheet. Why: tester feedback; the Whirlwind now deals several times its old crowd damage.
+6. **Delete the obsolete SQLite pipeline.** Why: dead code; deferred until a play-test round confirms the sheet path.
+7. **Rewrite `OnePageGDD.md`** in English from the Ten Page GDD. Why: it's outdated and Spanish (marked as such).
+8. **Steam demo prep:** store page, demo build settings, Steam Deck text-size check. Why: December 2026 date.
 
 ## Delivery (not started)
-12. **CI/CD:** GitHub Actions Unity build on merge to the release branch, Steam deploy (SteamPipe). Needs a Unity license strategy (GameCI) and a decision on the branch model.
-13. **Unity Test Framework in CI:** the 699 EditMode tests already exist; run them on every push.
+9. **CI/CD:** GitHub Actions Unity build when `develop` is merged into `main`, Steam deploy (SteamPipe). Needs a Unity license strategy (GameCI). Why: repeatable demo and tester builds.
+10. **EditMode tests in CI** on every push (~730 tests exist).
+
+## For 1.0
+11. **Decide the run structure across acts** (GDD Q14). Why: blocks Act II–IV planning, saves and difficulty scaling.
+12. **Chaos and Holy debuffs** (decided: implement). Why: in the 1.0 scope.
+13. **Steam achievements.** Why: achievement hunters are a target audience.
+14. **Spanish localization** (Chinese and Japanese optional). Why: 1.0 scope; needs a font for CJK.
+15. **Input remapping.** Why: expected on Steam.
+16. **Acts II–IV content:** bosses, enemies, act mechanics (Frozen, Pools of Corruption, Will Break, Darkness). Why: 1.0 scope; boss designs are TBD.
+17. **Epic and Legendary items; items in the meta-progression unlocks.** Why: build variety and more reasons to spend Favors.
+18. **Cutscenes** (8 static scenes). Why: 1.0 scope; content follows the narrative work.
+19. **Key items that unlock parts of the map.** Why: planned, needs a design.
 
 ## Non-programming (art/design team)
-- Player re-design sprites.
-- Level scenario design (could change level sizes).
+- Player re-design sprites; level scenario design (may shrink levels); event art; Favor icon; boss invulnerable look; 2 s Whirlwind animation; melee telegraph sprites.
 
 ## Parked / cut
-- Nothing cut yet.
+- Hard mode: not planned, not ruled out.
+- Xbox port: after 1.0.

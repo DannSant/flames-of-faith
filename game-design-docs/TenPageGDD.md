@@ -1,6 +1,6 @@
 # Flames of Faith – Ten Page GDD
 
-_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-10-23. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
+_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-10-26. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
 
 ---
 
@@ -139,7 +139,7 @@ Each class has a **kit** of six starting items: a weapon, an off-hand, an Emblem
 | **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Centinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
 | **Emblem** (+1 main stat per level) | Warrior Emblem: Melee Damage | Archer Emblem: Ranged Damage | Augur Emblem: Magic Damage |
 | **Basic attack** | Glyph of Crusader Strike: a sword swing in an arc; may inflict Bleed | Glyph of Holy Shot: a blessed arrow; upgrades add a cone of extra arrows | Glyph of Fireball: a fireball; may inflict Fire; upgrades add an impact explosion |
-| **Special** | Glyph of Whirlwind: spin hitting everything around you, invulnerable while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
+| **Special** | Glyph of Whirlwind: a 2 s spin that hits every enemy in it on contact and again at a regular interval (faster on upgrades); the Warrior can still be hurt while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
 | **Dash** | Glyph of Crusader Charge: charge through enemies, damaging and knocking them back | Glyph of Trap Step: leaves a trap that damages the first enemy to step on it | Glyph of Flame Dash: pass through enemies and leave a trail of flames |
 | **Unlock** | Unlocked by default | 50 Favors | 50 Favors |
 
@@ -162,7 +162,7 @@ Each class also has a **stat guide**: one **Key** stat (gold star) and some **Co
 | Back / cancel | Esc | B |
 
 - **Auto-attack** (on by default) attacks the nearest enemy in weapon range. With it off, the player attacks manually with light aim assist.
-- **Lock-on** marks one enemy (Toggle mode by default, or Hold mode in Settings). A locked target stays marked even out of range, and specials (Barrage, Fire Tornado explosions) aim at it.
+- **Lock-on** marks one enemy (Toggle mode by default, or Hold mode in Settings). In Toggle mode a tap locks the nearest enemy, the next taps cycle clockwise through the enemies in range, and a tap with no enemy in range releases the lock. With the mouse, clicking an enemy locks it. A locked target stays marked even out of range, and specials (Barrage, Fire Tornado explosions) aim at it.
 - The character faces the target while it is alive and in range, otherwise the mouse (or the stick).
 
 ---
@@ -290,7 +290,7 @@ Inflicted by weapons, Glyphs and items; all scale with **Mastow Affinity**.
 From Act II, some enemies also inflict **Frost on the player** (see [Act II](#act-ii-ufaraclario-wastes)).
 
 ### Run encounters (events)
-Every event has 2–3 options, and each option costs something and gives something (no free "Ignore"). Outcomes use Luck-biased rolls. The current pool: Arcane Box, Bandits, Cursed Chest, Faraclarian Clan and House of Stars, plus the Holy Altar. Events can show art, but none has art yet.
+Every event has 2–3 options, and each option costs something and gives something (no free "Ignore"). Outcomes use Luck-biased rolls. The current random pool, by the titles players see: **The Vega Casket**, **Raiders from Gracoy**, **The Weeping Chest**, **The Faraclarian Clan** and **Gift of the House of Stars**; plus the **Forgotten Altar of Malien** (the Holy Altar node). Events can show art, but none has art yet. A rework is planned: vaguer option hints, narrated results, more stats as modifiers, multi-step events and class-specific options (see `docs/features/run-encounter-events.md`).
 
 ---
 
