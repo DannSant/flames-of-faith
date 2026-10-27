@@ -8,9 +8,9 @@ _Last updated: 2026-10-26 by the Orchestrator._
 - **Since v0.5.1 (on `develop`):** Unity 6.3 upgrade; data-driven steps 1–5 (enemies, waves, XP, debuffs, Grace/Corruption, player stats, item drops, items, abilities and weapons all in the Google Sheet, round trip and test-build override verified 2026-10-25); English Ten Page GDD; tester-feedback pass (tooltips, pause rules, Shift view, Whirlwind rework, lock-on rework, Favors display, IMMUNE numbers, melee attack warning).
 
 ## Git reality (checked 2026-10-26)
-- `develop` is 3 commits ahead of `origin/develop` (e0b4a72, cfd61f7, 36f6cff), not pushed.
+- `develop` = `origin/develop` (pushed 2026-10-26).
 - `main` = `ff779dc` = `origin/main`; 50 commits behind `develop`. No release merge yet.
-- **Stale branches** (fully merged into `develop`, 0 commits ahead): `feature/data-driven-step3`, `feature/item-drops` (also on origin), `feature/items-abilities`. Delete on your OK.
+- No feature branches open. `feature/data-driven-step3`, `feature/item-drops` (local and remote) and `feature/items-abilities` were deleted 2026-10-26 (fully merged).
 - **Uncommitted, the owner's:** `Assets/Scenes/Act1/Level1_Iso.unity` (your edits) and `Assets/Prefabs/Enemies/EnemyLightDevourer.prefab` (a reserialize-only diff). Not committed by any session.
 
 ## In progress
