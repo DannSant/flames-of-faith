@@ -198,6 +198,7 @@ Events are the main way the player meets all this. Rules for event writers:
 - **The companions can speak**, one line at most.
 - **Show, don't explain.** No event says "Gabien broke the Seal for Liah" before a pilgrim's turning point. Before that, the truth only comes in hints.
 - **Secrets** (§1, §3) are never stated.
+- **Reward the reader.** A pure gain (an option with no cost) appears only in a follow-up step, reached by a lore-correct answer, and the answer must be findable in the game. The Wayside Shrine, a rest node, is the only exception.
 
 The event content itself is in `docs/features/run-encounter-events.md`, "Narrative".
 
@@ -215,6 +216,7 @@ These live in assets, so the implementation session fixes them (asset names are 
 | Item **Cursed Coin** | "a Dawner, men who sell their soul…" | "one of the Awoken: Forsaken who rose from a night in the grave with dark power and no will" |
 | Item **Sacred Writtings** | "Crescent Darkness Empire" | "the Rising Darkness" (and the name's typo: "Sacred Writings") |
 | Item **Ring Of Vitality** | "Paladins of the Order of Light" | "Paladins of the Illuminated Order" |
+| Item **Steeldawn Bow** (+1..+3) | "created with bones and Steeldawn by the tribe of the Faraclarians" | "A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel." **Required:** the Faraclarian event's lore question depends on it |
 | Item **Steeldawn Sword** (+1..+3) | "created by a Seared Soul" | optional: "forged by Gabien Alamoh, a Seared Soul…" |
 | Level names | "Jesterwood clifs", "Heart of the forest" | "Jesterwood Cliffs", "Heart of the Forest" |
 | Shop node | "Elven Shop" | **Plerian Shop** (a travelling Plerian trader; the shopkeeper's art is the art team's) |
