@@ -27,6 +27,8 @@ namespace Game.Overworld
             CurrentAct.nodes[CurrentAct.currentNodeId];
 
         public bool IsInitialized => runState != null;
+        /// <summary>The run's map seed (0 before the run is set up).</summary>
+        public int RunSeed => runState != null ? runState.seed : 0;
         // Set once the last act's boss is cleared, so the finished run isn't saved again
         public bool IsRunComplete { get; private set; }
 

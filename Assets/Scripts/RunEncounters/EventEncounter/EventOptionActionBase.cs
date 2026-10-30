@@ -1,4 +1,5 @@
 using Game.Progression;
+using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
@@ -20,7 +21,16 @@ namespace Game.RunEncounters
         public float BaseChance => baseChance;
         public StatType BiasStat => biasStat;
 
-        public abstract string Apply(EventContext context);
+        /// <summary>The placeholder this action fills in a result text ({health}, {grace}...).</summary>
+        public abstract EventResultKind Kind { get; }
+
+        /// <summary>Applies the action and reports what it actually changed.</summary>
+        public abstract EventActionResult Apply(EventContext context);
+
+        /// <summary>The fixed amount, or a roll in the range that leans toward its high end with the bias stat.</summary>
+        protected float RollAmount(EventContext context) => isPlainReward
+            ? amount
+            : StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat);
     }
 
 }

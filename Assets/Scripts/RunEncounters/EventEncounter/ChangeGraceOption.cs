@@ -1,23 +1,23 @@
-using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
 {
+    /// <summary>Gives or takes Grace; reports the change after Grace's range clamp.</summary>
     [CreateAssetMenu(menuName = "RunEncounters/EventOptionsActions/Change Grace", fileName = "ChangeGraceOption")]
     public class ChangeGraceOption : EventOptionActionBase
     {
-        public override string Apply(EventContext context)
+        public override EventResultKind Kind => EventResultKind.Grace;
+
+        public override EventActionResult Apply(EventContext context)
         {
             if (context.playerGrace == null)
             {
-                Debug.LogError("[ChangeGraceOption] PlayeeGRace missing from context.");
-                return string.Empty;
+                Debug.LogError("[ChangeGraceOption] PlayerGrace missing from context.");
+                return EventActionResult.Nothing(Kind);
             }
 
-            float finalAmount = isPlainReward
-                ? amount
-                : StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat);
-
+            float finalAmount = RollAmount(context);
+            float before = context.playerGrace.CurrentGrace;
             if (finalAmount >= 0)
             {
                 context.playerGrace.AddGrace(finalAmount);
@@ -27,7 +27,7 @@ namespace Game.RunEncounters
                 context.playerGrace.RemoveGrace(-finalAmount);
             }
 
-            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
+            return EventActionResult.Of(Kind, context.playerGrace.CurrentGrace - before);
         }
     }
 

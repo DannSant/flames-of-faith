@@ -14,7 +14,316 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: faraclarianClan
   title: "The Faraclarian Clan"
-  fullText: "Warriors of a Faraclarian clan surround you, their faces painted with ash. Their chieftain steps forward: \"We seek the Forger, the one who walks between fire and iron.\" You have never heard the name. Every spear waits for your answer.\n\nWhat will you do?"
+  fullText: "Warriors with ash-painted faces surround you, spears lowered: a Faraclarian clan, a long way south of their frozen home. Their Golden Spear steps forward. \"Our land is dark and our Forger is dead. We seek a new one: one who walks between fire and iron. Have you seen such a soul?\" Every spear waits for your answer."
+  classIntroLines:
+  - characterClass: 1
+    text: "Ayteel's hand drifts to her sword. The Golden Spear's eyes follow it."
+  - characterClass: 3
+    text: "\"We're pilgrims of the Flame,\" Faelin says, the way Sentinels are taught. Her bow, Faraclarian-made, earns a long look."
+  - characterClass: 2
+    text: "Werlem bows the northern way, fist to heart. \"Omiara.\" Two of the spears lift a little."
   options:
-  - {fileID: 11400000, guid: feb26ac040774d478b128563c6ad878d, type: 2}
-  - {fileID: 11400000, guid: 2def52f5e5cc41c587340626262351d3, type: 2}
+  - label: "Say you've seen the Forger."
+    classLabels: []
+    onlyForClass: 0
+    hint: "They want to believe you. Faraclarians prize honor above life, and despise a liar above all."
+    outcome: 0
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: "describe"
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Tell them the truth: you've never heard of the Forger."
+    classLabels: []
+    onlyForClass: 0
+    hint: "Honor costs nothing but the hope you might have given them."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "The Golden Spear studies you a long time. 'Honest. Rare, south of the snow.' He asks the road toll their custom demands, {chronos} Golden Chronos, and gives you Omiara's blessing in return: +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Claim to be the Forger."
+    classLabels: []
+    onlyForClass: 0
+    hint: "A bold lie. Forgers are tested in fire."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 0
+      difficulty: 2
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      resultText: "They hold a coal to your palm, as their custom demands. You don't flinch, for long enough. 'Not a Forger,' the Golden Spear decides, 'but not nothing.' [They give you {item} for your nerve.] Your hand: {health} health."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      resultText: "You flinch. The clan laughs, then fines the liar as their law demands: {chronos} Golden Chronos, and the burn, {health} health."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Show them Gabien's sword."
+    classLabels: []
+    onlyForClass: 1
+    hint: "The north knows its steel. It will know who forged this one."
+    outcome: 0
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: "steel"
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  steps:
+  - id: "describe"
+    prompt: "'Then tell us,' says the Golden Spear. 'What did the Forger look like?'"
+    options:
+    - label: "\"A soul that burns. Eyes like embers, forge-heat in the hands.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "You remember the old tales, or you think you do."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: cd0a13a6dfac4ca28e9ac640e9c4bfbb, type: 2}
+        - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+        resultText: "The Golden Spear lowers his spear. 'Yes. That is a Forger.' The clan presses {chronos} Golden Chronos on you for the news. The lie sits heavy all the same: {grace} Grace."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"A giant of a man, with a hammer of black iron.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "Every smith in every tale looks like that."
+      outcome: 1
+      result:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 1
+        stat: 8
+        difficulty: 1
+        introLine: "'A smith,' the Golden Spear says flatly. 'You've seen a smith.' The spears come up."
+      success:
+        actions:
+        - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+        - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+        resultText: "You fight your way out, {health} health poorer. [One of them drops {item} in the snowmelt.] They'll sing about you, and not kindly."
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions:
+        - {fileID: 11400000, guid: 5449d0c515ea429ea15f26476a1c6656, type: 2}
+        resultText: "They beat you the way the north beats liars: thoroughly. {health} health."
+        classResultLines: []
+        nextStepId: ""
+  - id: "steel"
+    prompt: "The Golden Spear takes the blade in both hands, and the whole clan goes quiet. 'Ashem Elwyn. The Shining Tide. Gabien's work, the southern Alamoh.' He looks at you again, harder. 'Rondo's eldest stayed in the snow, and his line still rides with the clans. If you are kin, tell me: what do we call this steel?'"
+    options:
+    - label: "\"Malien's Steel.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "What the Faraclarians who made Faelin's bow call it."
+      outcome: 0
+      result:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: "kin"
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"Steeldawn.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "Every smith in the south knows the word."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+        resultText: "'The southern word.' He hands the blade back, a little cooler. 'Kin, then, but a stranger to our ways.' The clan takes the road toll from a stranger: {chronos} Golden Chronos."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"Gabien's steel.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "It was his, after all."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+        - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+        resultText: "'No man owns Malien's gifts,' the Golden Spear says sharply. Honor demands a toll for the insult: {chronos} Golden Chronos, and a cold silence that costs you {grace} Grace."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+  - id: "kin"
+    prompt: "He smiles for the first time. 'Kin.' Then, softer: 'Do you burn, cousin?'"
+    options:
+    - label: "\"Yes. Sometimes I feel it.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "You've never said it aloud."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+        - {fileID: 11400000, guid: 4c4ec80058ac4108a2526347106066d6, type: 2}
+        resultText: "'Then you are what we seek, or will be.' They kneel, not to you but to what you carry. Before they go, they swear to keep the north's Altar of Malien for you until you come. +{grace} Grace, +{favors} Favor."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"No. I'm only his granddaughter.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "Only."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+        resultText: "'Only.' The Golden Spear smiles for the first time. 'Gabien said the same at your age, my father told me.' [He gives you a gift of the north for the road: {item}.]"
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+  oncePerPilgrimage: 0
+  art: {fileID: 0}

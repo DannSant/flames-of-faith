@@ -14,8 +14,154 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: cursedChest
   title: "The Weeping Chest"
-  fullText: "An iron-bound chest lies in your path. When you lift the lid, a black ichor seeps between the gold coins, whispering in a tongue that makes your teeth ache. Something else glints at the very bottom.\n\nWhat will you do?"
+  fullText: "An iron-bound chest sits in a ring of burnt-out candles: a Forsaken tithe, left for whatever crawls up from below. When you lift the lid, black ichor seeps between the gold, and a voice like wet leaves whispers the oldest lie there is. <i>Malien left you.</i> Something glints at the very bottom."
+  classIntroLines:
+  - characterClass: 1
+    text: "The voice finds the name it wants. \"Alamoh. They will never forgive you. Why serve them?\""
+  - characterClass: 3
+    text: "Faelin's jaw tightens. \"This is how they take you. Not with claws. With doubt.\""
+  - characterClass: 2
+    text: "Werlem knows this from his novice years: a tithe chest can be sealed, if someone has the Grace to spare."
   options:
-  - {fileID: 11400000, guid: 1ff6a2203069300459dc262567d5df9f, type: 2}
-  - {fileID: 11400000, guid: 94ce79b8f68048e48a7c54bfe523e2f8, type: 2}
-  - {fileID: 11400000, guid: 9cea3c4f445872244bc8e357f9528665, type: 2}
+  - label: "Take the gold."
+    classLabels: []
+    onlyForClass: 0
+    hint: "Gold is gold, the traders say. The voice agrees with them a little too warmly."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 36a9b94d53ab48f6b662797cb29302a7, type: 2}
+      - {fileID: 11400000, guid: d1fd4384aec44ccca90fbe41121a0f98, type: 2}
+      resultText: "You scoop out {chronos} Golden Chronos. The ichor clings to your fingers, and the voice laughs as {grace} Grace drains out of you. It got what it wanted, too."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Reach for what lies beneath."
+    classLabels: []
+    onlyForClass: 0
+    hint: "Deeper means longer in the whisper's reach. A steady soul might bear it."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 2
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+      resultText: "You shut your ears to the voice and reach down through the cold. [Your fingers close on {item}.] The whisper costs you only {grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: "whisper"
+  - label: "Seal it with a prayer."
+    classLabels: []
+    onlyForClass: 0
+    hint: "A tithe chest can be sealed. It takes something of yours to do it."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
+      - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+      resultText: "You press your palm to the lid and pray until the ichor hisses. It burns ({health} health), but when you lift your hand the chest is cold and silent, and you are stronger for it: +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  steps:
+  - id: "whisper"
+    prompt: "The voice is inside now, gentle as a mother. <i>Say it. Say He left you, and it all stops.</i>"
+    options:
+    - label: "Say the words."
+      classLabels: []
+      onlyForClass: 0
+      hint: "It would be so easy. It would stop the cold."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+        - {fileID: 11400000, guid: cd0a13a6dfac4ca28e9ac640e9c4bfbb, type: 2}
+        - {fileID: 11400000, guid: 7ad735715d2440b7b673f435579aa7f6, type: 2}
+        resultText: "You say it. The cold stops at once. The voice gives you everything at the bottom: {chronos} Golden Chronos[, and {item}]. Nothing stops you, and that is the worst part. {grace} Grace, gone."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "Pray the Opening Prayer."
+      classLabels: []
+      onlyForClass: 0
+      hint: "Ashemdrek's oldest prayer. Without it, they say, Malien doesn't listen."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
+        - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+        resultText: "<i>Malien, who fills this world with your goodness…</i> The voice shrieks. The lid slams on your hand ({health} health), and the ichor boils away. You walk off empty-handed, with {grace} Grace that is truly yours."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+  oncePerPilgrimage: 0
+  art: {fileID: 0}

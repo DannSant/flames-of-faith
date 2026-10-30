@@ -45,6 +45,15 @@ namespace Game.Scene
             runFavors = Mathf.Max(0, runFavors + amount);
         }
 
+        // Events already offered in this Pilgrimage (EventPool.IdOf), so none repeats. Saved with the run.
+        private readonly List<string> seenEvents = new();
+        public IReadOnlyList<string> SeenEvents => seenEvents;
+
+        public void MarkEventSeen(string eventId)
+        {
+            if (!string.IsNullOrEmpty(eventId) && !seenEvents.Contains(eventId)) seenEvents.Add(eventId);
+        }
+
         /// <summary>Returns the run's Favors and clears them (when they're banked).</summary>
         public int TakeRunFavors()
         {
@@ -70,6 +79,7 @@ namespace Game.Scene
         {
             levelsBeaten = 0;
             runFavors = 0;
+            seenEvents.Clear();
             //LevelSelectionController.Instance.InitialSetup();            
         }
 
@@ -191,6 +201,7 @@ namespace Game.Scene
                 difficulty = selectedDifficulty.ToString(),
                 levelsBeaten = levelsBeaten,
                 runFavors = runFavors,
+                seenEvents = new List<string>(seenEvents),
                 runStarted = !isNewRun,
                 currentHealth = playerData.currentHealth,
                 currentGrace = playerData.currentGrace,
@@ -247,6 +258,11 @@ namespace Game.Scene
             }
             levelsBeaten = data.levelsBeaten;
             runFavors = data.runFavors;
+            seenEvents.Clear();
+            if (data.seenEvents != null)
+            {
+                foreach (var id in data.seenEvents) MarkEventSeen(id);
+            }
             isNewRun = !data.runStarted;
 
             playerData = new PlayerData

@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861bc016933547642bf2de40bc14f38c, type: 3}
+  m_Name: LiahEncounter
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
+  eventName: liah
+  title: "A Hut in the Jesterwoods"
+  fullText: "Smoke rises from a hut at the forest's edge, within sound of the sea. An old woman sits mending nets with hands that shake. She doesn't look at your faces. She looks at the sword at Ayteel's hip, and her hands go still. \"Steeldawn,\" she says. \"I haven't seen that light in sixty years.\""
+  classIntroLines:
+  - characterClass: 1
+    text: "The sword feels warm against Ayteel's side, as if it knows the voice."
+  - characterClass: 3
+    text: "Faelin glances at Ayteel. Ayteel hasn't moved."
+  - characterClass: 2
+    text: "Werlem feels her Grace before he understands it: old and patched, a soul mended once by a hand far stronger than hers."
+  options:
+  - label: "Tell her whose sword it is."
+    classLabels:
+    - characterClass: 1
+      text: "Tell her who you are."
+    onlyForClass: 0
+    hint: "She already knows. She wants to hear it said."
+    outcome: 0
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: "name"
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Buy smoked fish and move on."
+    classLabels: []
+    onlyForClass: 0
+    hint: "She sells what the sea gives. Pilgrims have to eat."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      - {fileID: 11400000, guid: 1aee1acc903f4dbc94772f1e0bb7f4cf, type: 2}
+      resultText: "She sells you smoked fish for {chronos} Golden Chronos and watches you go. You eat well for the first time in days: +{health} health. Behind you, very quietly, she says a name."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Ask about the Devourers."
+    classLabels: []
+    onlyForClass: 0
+    hint: "She speaks of them the way survivors do: low, as if they might hear."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 5
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "'They hunt by the soul's light,' she says, and teaches you the old way of hiding your Grace, the way children did in the Dark Age. You learn quickly. +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "She makes you practice hiding your Grace until your head pounds ({health} health). It's worth it: +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+  steps:
+  - id: "name"
+    prompt: "'Alamoh,' she whispers. 'Then you've come for the truth, or to spit on it like the rest.'"
+    options:
+    - label: "\"The truth.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "Sixty years she's waited for someone to ask."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+        - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+        resultText: "'I am Liah. His sister. When I was nine a Devourer ate my soul, and for six years I was nothing. A doll they fed and washed. Then my brother came home with a broken Seal in his hands and gave me back.' Her voice hardens. 'They call it a sin. I call it my life.' Before you go, you fill her pantry ({chronos} Golden Chronos). +{grace} Grace."
+        classResultLines:
+        - characterClass: 1
+          text: "'He broke it for you,' Ayteel says. Liah looks at her a long time. 'Not only for me, child.'"
+        - characterClass: 3
+          text: "Liah sees the Vidal crest on Faelin's quiver. 'The Grand Crusader told them the truth. Good. Gabien would have hated a lie told for him.'"
+        - characterClass: 2
+          text: "'Kyro cried at the altar,' she tells Werlem. 'He was the only one who didn't pray. He was counting.'"
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"To clear his name.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "Names matter a great deal to the living."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+        - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+        resultText: "'Names.' She laughs, and it turns into a cough. 'He never cared about his.' [She presses something into your hand: {item}. 'He left this with me. He'd want it walking again.'] You leave her what you can spare for the winter: {chronos} Golden Chronos."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+  oncePerPilgrimage: 1
+  art: {fileID: 0}

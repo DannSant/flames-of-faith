@@ -42,6 +42,22 @@ namespace Game.Progression
         public static StatRole GetRole(IReadOnlyList<ClassStatPriority> priorities, StatType stat) =>
             Find(priorities, stat)?.role ?? StatRole.None;
 
+        /// <summary>The class's Key stat (the first one listed); false when it has none.</summary>
+        public static bool TryGetKeyStat(IReadOnlyList<ClassStatPriority> priorities, out StatType stat)
+        {
+            stat = default;
+            if (priorities == null) return false;
+            foreach (var priority in priorities)
+            {
+                if (priority != null && priority.role == StatRole.Key)
+                {
+                    stat = priority.stat;
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>A class's Key and Complementary stats always show on the Primary tab, whatever their category.</summary>
         public static bool ShowsOnPrimaryTab(StatCategory category, StatRole role) =>
             role != StatRole.None || category == StatCategory.Primary;

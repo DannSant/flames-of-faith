@@ -1,34 +1,31 @@
-using Game.RunEncounters;
-using Game.Utils;
 using UnityEngine;
 
 namespace Game.RunEncounters
 {
+    /// <summary>Gives or takes Golden Chronos. A loss takes no more than the player has.</summary>
     [CreateAssetMenu(menuName = "RunEncounters/EventOptionsActions/Change Currency", fileName = "ChangeCurrencyOption")]
     public class ChangeCurrencyOption : EventOptionActionBase
     {
-        public override string Apply(EventContext context)
+        public override EventResultKind Kind => EventResultKind.Chronos;
+
+        public override EventActionResult Apply(EventContext context)
         {
             if (context.playerWallet == null)
             {
                 Debug.LogError("[ChangeCurrencyOption] PlayerWallet missing from context.");
-                return string.Empty;
+                return EventActionResult.Nothing(Kind);
             }
 
-            int finalAmount = isPlainReward
-                ? Mathf.RoundToInt(amount)
-                : Mathf.RoundToInt(StatBiasedRoll.Roll(amountRange, baseChance, context.playerProgression, biasStat));
-
+            int finalAmount = Mathf.RoundToInt(RollAmount(context));
             if (finalAmount >= 0)
             {
                 context.playerWallet.AddCurrency(finalAmount);
-            }
-            else
-            {
-                context.playerWallet.RemoveCurrency(-finalAmount);
+                return EventActionResult.Of(Kind, finalAmount);
             }
 
-            return $"{(finalAmount >= 0 ? "Gained" : "Lost")} {Mathf.Abs(finalAmount)} {resourceName}";
+            int lost = Mathf.Min(-finalAmount, Mathf.Max(0, context.playerWallet.CurrencyAmount));
+            context.playerWallet.RemoveCurrency(lost);
+            return EventActionResult.Of(Kind, -lost);
         }
     }
 

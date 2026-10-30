@@ -25,6 +25,9 @@ namespace Game.Saving
         // Favors earned in the run's finished levels, banked when the run ends. Missing from older
         // saves, which then read 0 (no version bump needed).
         public int runFavors;
+        // Events already offered in this Pilgrimage, by EventPool.IdOf, so none repeats. Missing from
+        // older saves, which then read empty (no version bump needed).
+        public List<string> seenEvents = new();
         // False while the player hasn't entered a level yet; continuing then starts the run fresh
         public bool runStarted;
 
