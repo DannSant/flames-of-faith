@@ -47,6 +47,17 @@ namespace Game.Progression
         [Min(0)]
         [SerializeField] private int shopDiscountHardCap = 80;
 
+        [Header("Attack Speed")]
+        [Tooltip("Every Attack Speed point counts in full up to this many points.")]
+        [Min(0)]
+        [SerializeField] private int attackSpeedSoftCap = 30;
+        [Tooltip("Attack Speed points beyond this make attacks no faster.")]
+        [Min(0)]
+        [SerializeField] private int attackSpeedHardCap = 60;
+        [Tooltip("What each Attack Speed point between the soft cap and the hard cap counts for (0.5 = half a point).")]
+        [Range(0f, 1f)]
+        [SerializeField] private float attackSpeedPastSoftCapRate = 0.5f;
+
         [Header("Pickup Range")]
         [Tooltip("Distance at which pickups start flying to the player, with 0 Pickup Range.")]
         [Min(0f)]
@@ -93,6 +104,8 @@ namespace Game.Progression
         public float DashCooldownScalePerPoint => dashCooldownScalePerPoint;
         public int ShopDiscountSoftCap => shopDiscountSoftCap;
         public int ShopDiscountHardCap => shopDiscountHardCap;
+        public int AttackSpeedSoftCap => attackSpeedSoftCap;
+        public int AttackSpeedHardCap => attackSpeedHardCap;
         public float PickupBaseRange => pickupBaseRange;
         public float PickupRangePerPoint => pickupRangePerPoint;
         public float[] UpgradeTierBaseChances => upgradeTierBaseChances;
@@ -132,6 +145,13 @@ namespace Game.Progression
 
         public float GetShopDiscountMultiplier(int points) =>
             StatsCalculations.CalculateShopDiscountMultiplier(points, shopDiscountSoftCap, shopDiscountHardCap);
+
+        public float GetEffectiveAttackSpeed(int points) =>
+            StatsCalculations.CalculateEffectiveAttackSpeed(points, attackSpeedSoftCap, attackSpeedHardCap, attackSpeedPastSoftCapRate);
+
+        /// <summary>The one cooldown formula: the weapons and the Attack Speed tooltip both use it.</summary>
+        public float GetAttackDelay(int points, float baseCooldown, float attackSpeedScale) =>
+            StatsCalculations.CalculateAttackDelay(GetEffectiveAttackSpeed(points), baseCooldown, attackSpeedScale);
 
         public float GetPickupRange(int points) =>
             StatsCalculations.CalculatePickupRange(points, pickupBaseRange, pickupRangePerPoint);

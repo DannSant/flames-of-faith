@@ -144,19 +144,14 @@ namespace Game.Combat
 
         public virtual void SetupAttackSpeedVariables()
         {
-            float attackDelay = StatsCalculations.CalculateAttackDelay(
-                playerProgression.GetStatTotal(StatType.AttackSpeed),
-                weaponData.attackCooldownBase,
-                weaponData.attackSpeedScale);
+            int attackSpeed = playerProgression.GetStatTotal(StatType.AttackSpeed);
+            var settings = PlayerStatSettings.Instance;
+
+            float attackDelay = settings.GetAttackDelay(attackSpeed, weaponData.attackCooldownBase, weaponData.attackSpeedScale);
             attackTimer.SetEventDuration(attackDelay);
 
-            float specialAttackDelay = StatsCalculations.CalculateAttackDelay(
-                playerProgression.GetStatTotal(StatType.AttackSpeed),
-                specialWeaponData.attackCooldownBase,
-                specialWeaponData.attackSpeedScale);
+            float specialAttackDelay = settings.GetAttackDelay(attackSpeed, specialWeaponData.attackCooldownBase, specialWeaponData.attackSpeedScale);
             specialAttackTimer.SetEventDuration(specialAttackDelay);
-
-            
         }
 
         private void LogSpecialStarted()

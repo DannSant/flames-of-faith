@@ -22,6 +22,9 @@ MonoBehaviour:
   dashCooldownScalePerPoint: 0.08
   shopDiscountSoftCap: 50
   shopDiscountHardCap: 80
+  attackSpeedSoftCap: 30
+  attackSpeedHardCap: 60
+  attackSpeedPastSoftCapRate: 0.5
   pickupBaseRange: 2
   pickupRangePerPoint: 0.1
   baseMoveSpeed: 3.5

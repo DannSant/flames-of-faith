@@ -117,13 +117,14 @@ namespace Game.Progression
 
         private static string DescribeAttackSpeed(int points, StatBenefitContext ctx)
         {
-            if (!ctx.hasWeapon) return null;
+            var s = ctx.statSettings;
+            if (s == null || !ctx.hasWeapon) return null;
 
-            float delay = StatsCalculations.CalculateAttackDelay(points, ctx.attackCooldownBase, ctx.attackSpeedScale);
+            float delay = s.GetAttackDelay(points, ctx.attackCooldownBase, ctx.attackSpeedScale);
             string text = $"Basic attack every {Num(delay)}s";
             if (ctx.hasSpecial)
             {
-                float special = StatsCalculations.CalculateAttackDelay(points, ctx.specialCooldownBase, ctx.specialAttackSpeedScale);
+                float special = s.GetAttackDelay(points, ctx.specialCooldownBase, ctx.specialAttackSpeedScale);
                 text += $", special every {Num(special)}s";
             }
             return text;
