@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861bc016933547642bf2de40bc14f38c, type: 3}
+  m_Name: StarReaderEncounter
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
+  eventName: starReader
+  title: "The Star Reader"
+  fullText: "A Wanderer caravan has camped by the road: three wagons and a cookfire. Their Star Reader, a woman older than her braids, beckons you over. \"Sit, pilgrim. The stars have been talking about you.\" Wanderers live by Good-for-Good: what you take, you repay. She hasn't said yet what she'll take."
+  classIntroLines: []
+  options:
+  - label: "Have your fortune read."
+    classLabels: []
+    onlyForClass: 0
+    hint: "Most call her readings charlatanry. Most have never had one."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "She takes {chronos} Golden Chronos, turns your palm to the sky and reads it by starlight. +{grace} Grace."
+      classResultLines:
+      - characterClass: 1
+        text: "'You carry a dead man's sword, and a broken thing you hide even from your friends. The sword will cut. The broken thing…' She frowns. 'The broken thing isn't finished.'"
+      - characterClass: 3
+        text: "'Your grandfather kept a promise that cost him everything. One day you'll choose between a promise and the truth. Choose both, if you can.'"
+      - characterClass: 2
+        text: "'You're walking away from your family's road and toward it at the same time. The stars find that very funny.'"
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Make a wish on the Eye of Malien."
+    classLabels: []
+    onlyForClass: 0
+    hint: "The Eye of Malien is in the sky tonight. Wishes are free. Wanderers say nothing is."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+      resultText: "The Eye of Malien flares as you wish. 'Judged worthy,' the Star Reader murmurs. 'Don't waste it.' +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+      resultText: "The Eye winks out behind a cloud. 'You asked for something you hadn't earned,' she says, not unkindly. {grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Help them mend a wagon."
+    classLabels: []
+    onlyForClass: 0
+    hint: "A broken axle and a long road. Good-for-Good: strong arms are repaid."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 0
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      resultText: "You lift while they hammer. It's done by moonrise ({health} health). [Good-for-Good: they repay you in kind with {item}.]"
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+      - {fileID: 11400000, guid: 0784079ed9e04addb57472939095b5ba, type: 2}
+      resultText: "The axle slips and takes some skin with it ({health} health). They finish it together, and pay what they can: {chronos} Golden Chronos."
+      classResultLines: []
+      nextStepId: ""
+  steps: []
+  oncePerPilgrimage: 0
+  art: {fileID: 0}
+  legacyOptions: []

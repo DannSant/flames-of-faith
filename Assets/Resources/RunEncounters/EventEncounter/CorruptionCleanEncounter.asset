@@ -13,9 +13,98 @@ MonoBehaviour:
   m_Name: CorruptionCleanEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: holyAltar
-  title: "Forgotten Altar of Malien"
-  fullText: "Beneath a ruined arch stands an altar to Malien, god of light. No priest has tended it in years, yet the stone is still warm, and a faint radiance lingers over the offerings of pilgrims long gone.\n\nWhat will you do?"
+  title: "Wayside Shrine of Malien"
+  fullText: "Beneath a ruined arch stands a wayside shrine to Malien, built by Pilgrimages long gone. The Sandir on its face, eight points and a tear, is worn almost smooth. No Keeper has tended it in sixty years, yet the stone is warm, and a faint light lingers over the offerings of the last pilgrims who passed."
+  classIntroLines:
+  - characterClass: 1
+    text: "Among the names scratched into the stone, one stops Ayteel cold: GABIEN. Beside it, in a careful hand: DAYLA."
+  - characterClass: 3
+    text: "Faelin finds her grandfather's mark, cut deep and square, the way he did everything: O. VIDAL, GRAND CRUSADER."
+  - characterClass: 2
+    text: "Werlem finds a row of tiny runes no priest would carve, and under them a signature: K. FETH. Even here, his grandfather was taking notes."
   options:
-  - {fileID: 11400000, guid: 06fc5c44feb27fe438707566212b9672, type: 2}
-  - {fileID: 11400000, guid: be5fc16e1962ba6439ee1d1b56c6d1e1, type: 2}
-  - {fileID: 11400000, guid: 75e9aae5fd9245c3808ce53a98286d92, type: 2}
+  - label: "Kneel and pray."
+    classLabels: []
+    onlyForClass: 0
+    hint: "Old shrines answer old prayers. The warmth is faint, but it's there."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 5
+      difficulty: 0
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+      resultText: "The warmth rises through your knees and settles behind your ribs. +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "The shrine is tired, and so are you. Still, something answers: +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Leave an offering of Golden Chronos."
+    classLabels: []
+    onlyForClass: 0
+    hint: "The old Keepers said the Flame remembers generosity."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 2797a11bc59c4d54be3baf0d131ff7c4, type: 2}
+      - {fileID: 11400000, guid: 77c6c4ff42134ad4b8e138d7bfeb05e3, type: 2}
+      resultText: "You lay {chronos} Golden Chronos among the old offerings. For a moment the shrine burns white, the way the Flames of Faith once did, and the light goes into you: +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Take the old offerings."
+    classLabels: []
+    onlyForClass: 0
+    hint: "No one has come for them in sixty years. No one but Malien, anyway."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      - {fileID: 11400000, guid: d1fd4384aec44ccca90fbe41121a0f98, type: 2}
+      resultText: "You take what the last pilgrims left[: {item}]. The warmth goes out of the stone as you do, and out of you: {grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  steps: []
+  oncePerPilgrimage: 0
+  art: {fileID: 0}
+  legacyOptions: []

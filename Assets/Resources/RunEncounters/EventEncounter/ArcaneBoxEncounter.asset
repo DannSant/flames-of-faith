@@ -14,7 +14,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: arcaneBox
   title: "The Vega Casket"
-  fullText: "Half-buried in the moss lies a casket of elven make, its seams humming with a cold blue light. Faded runes along the lid read: Property of the Vega Unit. Whatever slumbers inside was never meant for human hands.\n\nWhat will you do?"
+  fullText: "Half-buried in the moss lies a casket of elven make, its seams humming with a cold blue light. Elvish letters run along the lid: <i>Property of the Vega Unit.</i> Someone has tried to pry it open before you. The scratches end in a small star, cut deep into the wood."
+  classIntroLines:
+  - characterClass: 1
+    text: "Ayteel keeps a hand on her sword. \"Elves don't lose things. They leave them.\""
+  - characterClass: 3
+    text: "Faelin kneels by the scratches. \"Whoever did this wanted it badly, and stopped in a hurry.\""
+  - characterClass: 2
+    text: "Werlem's breath catches. The same maker's mark is cut into the haft of his scepter: <i>Akeros the Observer.</i>"
   options:
-  - {fileID: 11400000, guid: ec8682424ed327544a9cddefd61d6043, type: 2}
-  - {fileID: 11400000, guid: 43076ba2944edc5458f1876f073fa512, type: 2}
+  - label: "Pull the silver lever."
+    classLabels: []
+    onlyForClass: 0
+    hint: "The casket hums louder as you reach for the lever. Elven work rarely forgives clumsy hands."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 17
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      resultText: "The lid slides open on a bed of blue light. Inside are vials of Crisalia, pages of notes on human Grace[, and {item}]."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: d1fd4384aec44ccca90fbe41121a0f98, type: 2}
+      resultText: "The lever bites back. Crisalia sprays across your hands, and your Grace gutters like a candle in the wind: {grace} Grace. When the light fades, the casket is empty."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Smash it open."
+    classLabels: []
+    onlyForClass: 0
+    hint: "The wood is old; the light inside is not. Whatever guards it will answer force with force."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 6
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: cd0a13a6dfac4ca28e9ac640e9c4bfbb, type: 2}
+      resultText: "The casket splits. A ward bursts against your armor and dies. Under the splinters lies an elf's travelling purse: {chronos} Golden Chronos."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 0784079ed9e04addb57472939095b5ba, type: 2}
+      - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+      resultText: "The ward bursts in your face: blue fire, then silence. You find {chronos} Golden Chronos among the splinters, and the burns cost you {health} health."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Read the maker's runes."
+    classLabels: []
+    onlyForClass: 2
+    hint: "Akeros wrote the way scholars do: for whoever could understand."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "The lock needs Crisalia to wake, and you spend {chronos} Golden Chronos' worth of it. The runes answer to a name: Kyro Feth. Inside are Akeros's notes on human Grace, a letter to Kyro that was never sent, [and {item}.] The ink on the letter has run, as if someone wept on it. +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  steps: []
+  oncePerPilgrimage: 0
+  art: {fileID: 0}
+  legacyOptions: []

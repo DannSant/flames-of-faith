@@ -197,9 +197,279 @@ namespace Game.Tests
                 .Select(i => list.GetArrayElementAtIndex(i).objectReferenceValue as EventEncounterData)
                 .ToList();
             Assert.IsTrue(names.All(e => e != null), "The random event pool has an empty slot");
-            CollectionAssert.IsSubsetOf(
-                new[] { "ArcaneBoxEncounter", "BanditsEncounter", "CursedChestEncounter", "FaraclarianEncounter", "HouseOfStarsEncounter" },
-                names.Select(e => e.name).ToList());
+            CollectionAssert.AreEquivalent(
+                new[] { "arcaneBox", "bandits", "cursedChest", "faraclarianClan", "houseOfStars", "liah", "aylinean", "starReader", "lastTorch" },
+                names.Select(e => e.eventName).ToList(),
+                "Act I's random pool holds the 9 events; the Wayside Shrine has its own node");
+        }
+
+        // --- The authored events (spec: docs/features/run-encounter-events.md) -----------------------
+
+        private const string ShrineId = "holyAltar";
+        private const string AylineanId = "aylinean";
+        private static readonly System.Text.RegularExpressions.Regex Digit = new(@"\d");
+
+        private static List<EventEncounterData> Events() => LoadAll<EventEncounterData>(EventsFolder);
+
+        /// <summary>Every option of an event, first screen and steps, with where it sits.</summary>
+        private static IEnumerable<(EventOption option, string where, bool firstScreen)> AllOptions(EventEncounterData e)
+        {
+            foreach (var o in e.options.Where(o => o != null)) yield return (o, $"{e.name} '{o.label}'", true);
+            foreach (var s in e.steps.Where(s => s != null))
+            {
+                foreach (var o in s.options.Where(o => o != null)) yield return (o, $"{e.name} step '{s.id}' '{o.label}'", false);
+            }
+        }
+
+        private static bool IsCost(EventOptionActionBase a) =>
+            a.Kind != EventResultKind.Item && (a.IsPlainReward ? a.Amount < 0f : a.AmountRange.x < 0f);
+
+        /// <summary>True when some outcome of the option, or of the steps it leads to, costs something.</summary>
+        private static bool RisksACost(EventEncounterData e, EventOption option, HashSet<string> visited = null)
+        {
+            visited ??= new HashSet<string>();
+            foreach (var branch in option.Branches())
+            {
+                if (branch.actions.Any(a => a != null && IsCost(a))) return true;
+                if (!branch.HasNextStep || !visited.Add(branch.nextStepId)) continue;
+                var step = e.FindStep(branch.nextStepId);
+                if (step != null && step.options.Any(o => o != null && RisksACost(e, o, visited))) return true;
+            }
+            return false;
+        }
+
+        [Test]
+        public void EveryEvent_IsAuthoredWithOptions()
+        {
+            foreach (var e in Events())
+            {
+                Assert.IsTrue(e.UsesOptions, $"{e.name} still runs on the old option assets");
+                Assert.IsEmpty(e.legacyOptions, $"{e.name} still lists old option assets");
+                Assert.IsFalse(string.IsNullOrWhiteSpace(e.eventName), $"{e.name} has no event id");
+            }
+        }
+
+        [Test]
+        public void EveryOption_HasALabelAndAnInWorldHint_WithoutNumbers()
+        {
+            foreach (var e in Events())
+            {
+                foreach (var (o, where, _) in AllOptions(e))
+                {
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(o.label), $"{where} has no label");
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(o.hint), $"{where} has no hint");
+                    Assert.IsFalse(Digit.IsMatch(o.hint), $"{where}: no numbers before choosing (hint)");
+                    Assert.IsFalse(Digit.IsMatch(o.label), $"{where}: no numbers before choosing (label)");
+                }
+            }
+        }
+
+        [Test]
+        public void EveryOutcome_EndsWithANarratedResult_OrLeadsToAStep()
+        {
+            foreach (var e in Events())
+            {
+                foreach (var (o, where, _) in AllOptions(e))
+                {
+                    foreach (var b in o.Branches())
+                    {
+                        Assert.IsTrue(b.actions.All(a => a != null), $"{where} has an empty action slot");
+                        if (b.HasNextStep) continue;
+                        Assert.IsFalse(string.IsNullOrWhiteSpace(b.resultText), $"{where}: an outcome ends without a result text");
+                        Assert.IsNotEmpty(b.actions, $"{where}: an outcome ends without costing or giving anything");
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void Placeholders_MatchTheActionsOfTheirBranch()
+        {
+            foreach (var e in Events())
+            {
+                foreach (var (o, where, _) in AllOptions(e))
+                {
+                    foreach (var b in o.Branches())
+                    {
+                        var texts = new List<string> { b.resultText };
+                        if (o.outcome == EventOutcomeKind.Check) texts.Add(o.check.introLine);
+                        texts.AddRange(b.classResultLines.Select(l => l.text));
+                        var placeholders = new HashSet<EventResultKind>(texts.SelectMany(EventResultFormatter.PlaceholdersIn));
+                        var kinds = new HashSet<EventResultKind>(b.actions.Where(a => a != null).Select(a => a.Kind));
+
+                        foreach (var p in placeholders)
+                        {
+                            Assert.IsTrue(kinds.Contains(p), $"{where}: {EventResultFormatter.Placeholder(p)} has no action in its branch");
+                        }
+                        foreach (var k in kinds)
+                        {
+                            Assert.IsTrue(placeholders.Contains(k), $"{where}: an action changes {k} but the result never says how much");
+                        }
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void EveryResultText_FormatsCleanly_WithAndWithoutAnItem()
+        {
+            var item = ScriptableObject.CreateInstance<Game.Effects.Effect>();
+            item.effectName = "Relic";
+            item.Quality = Game.Effects.EffectQuality.Rare;
+            foreach (var e in Events())
+            {
+                foreach (var (o, where, _) in AllOptions(e))
+                {
+                    foreach (var b in o.Branches())
+                    {
+                        foreach (bool itemDrops in new[] { true, false })
+                        {
+                            var results = b.actions.Where(a => a != null).Select(a => a.Kind == EventResultKind.Item
+                                ? EventActionResult.Item(itemDrops ? item : null)
+                                : EventActionResult.Of(a.Kind, IsCost(a) ? -5f : 5f)).ToList();
+                            string text = EventResultFormatter.Format(b.resultText, results);
+                            foreach (string leftover in new[] { "{", "}", "[", "]", " ,", " .", ",." })
+                            {
+                                StringAssert.DoesNotContain(leftover, text, $"{where} (item: {itemDrops}): '{text}'");
+                            }
+                            // A missing item fills {item} with "nothing": its mention belongs in an optional [sentence]
+                            if (!itemDrops && b.actions.Any(a => a != null && a.Kind == EventResultKind.Item))
+                            {
+                                int Nothings(string s) => System.Text.RegularExpressions.Regex.Matches(s, "nothing").Count;
+                                Assert.LessOrEqual(Nothings(text), Nothings(b.resultText),
+                                    $"{where}: an item mention should be an optional [sentence]: '{text}'");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void FirstScreenOptions_AlwaysRiskACost_ExceptTheShrinePrayer()
+        {
+            foreach (var e in Events())
+            {
+                foreach (var (o, where, firstScreen) in AllOptions(e))
+                {
+                    if (!firstScreen) continue;
+                    if (e.eventName == ShrineId && o.label == "Kneel and pray.") continue;
+                    Assert.IsTrue(RisksACost(e, o), $"{where}: a first-step option must risk a cost (pure gains are earned in a step)");
+                }
+            }
+        }
+
+        [Test]
+        public void FirstScreen_HasTwoOrThreeOptionsForEveryone_AndAtMostOneClassOption()
+        {
+            foreach (var e in Events())
+            {
+                int forEveryone = e.options.Count(o => o.onlyForClass == CharacterClass.None);
+                Assert.That(forEveryone, Is.InRange(2, 3), $"{e.name}: options for everyone");
+                foreach (var cls in new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage })
+                {
+                    Assert.LessOrEqual(e.options.Count(o => o.onlyForClass == cls), 1, $"{e.name}: class options for {cls}");
+                }
+            }
+        }
+
+        [Test]
+        public void ClassOnlyOptions_AreWhereTheSpecPutsThem()
+        {
+            var events = Events();
+            CharacterClass[] ClassesIn(string id) => events.Single(e => e.eventName == id).options
+                .Select(o => o.onlyForClass).Where(c => c != CharacterClass.None).ToArray();
+
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Mage }, ClassesIn("arcaneBox"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Mage }, ClassesIn("bandits"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Warrior }, ClassesIn("faraclarianClan"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Archer, CharacterClass.Mage }, ClassesIn("houseOfStars"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Archer }, ClassesIn("lastTorch"));
+
+            foreach (var cls in new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage })
+            {
+                Assert.IsTrue(events.Any(e => AllOptions(e).Any(x => x.option.onlyForClass == cls)), $"{cls} has no class-only option");
+            }
+        }
+
+        [Test]
+        public void ClassTexts_AreForARealClass()
+        {
+            var classes = new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage };
+            foreach (var e in Events())
+            {
+                var texts = e.classIntroLines.Select(t => (t, "intro")).ToList();
+                foreach (var (o, where, _) in AllOptions(e))
+                {
+                    texts.AddRange(o.classLabels.Select(t => (t, where + " label")));
+                    foreach (var b in o.Branches()) texts.AddRange(b.classResultLines.Select(t => (t, where + " result")));
+                    Assert.IsTrue(o.onlyForClass == CharacterClass.None || classes.Contains(o.onlyForClass), $"{where}: class filter");
+                }
+                foreach (var (t, where) in texts)
+                {
+                    CollectionAssert.Contains(classes, t.characterClass, $"{e.name} {where}: class text without a playable class");
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(t.text), $"{e.name} {where}: empty class text");
+                }
+                Assert.AreEqual(texts.Count(x => x.Item2 == "intro"), e.classIntroLines.Select(t => t.characterClass).Distinct().Count(),
+                    $"{e.name}: two intro lines for the same class");
+            }
+        }
+
+        [Test]
+        public void EveryEventButTheAylinean_HasANonLuckCheck()
+        {
+            foreach (var e in Events())
+            {
+                var checks = AllOptions(e).Where(x => x.option.outcome == EventOutcomeKind.Check).Select(x => x.option.check).ToList();
+                bool IsLuck(EventCheck c) => c.source == EventCheckSource.Stat && c.stat == Game.Progression.StatType.Luck;
+                if (e.eventName == AylineanId)
+                {
+                    Assert.IsTrue(checks.All(IsLuck), "Laughter in the Leaves is Luck-only on purpose");
+                    continue;
+                }
+                Assert.IsTrue(checks.Any(c => !IsLuck(c)), $"{e.name} needs at least one non-Luck check");
+            }
+        }
+
+        [Test]
+        public void OnlyLiah_IsOncePerPilgrimage()
+        {
+            CollectionAssert.AreEquivalent(new[] { "liah" }, Events().Where(e => e.oncePerPilgrimage).Select(e => e.eventName));
+        }
+
+        [Test]
+        public void TheShrine_IsTheWaysideShrineOfMalien()
+        {
+            Assert.AreEqual("Wayside Shrine of Malien", Events().Single(e => e.eventName == ShrineId).title);
+        }
+
+        [Test]
+        public void PlayerFacingTexts_UseTheGlossarySpellings()
+        {
+            var banned = new[] { "Centinel", "Jester Forest", "Uf'Faraclario", "Fara Uf'clario", "Dawner", "Elven Shop" };
+            foreach (var e in Events())
+            {
+                var all = new List<string> { e.title, e.fullText };
+                all.AddRange(e.classIntroLines.Select(t => t.text));
+                all.AddRange(e.steps.Select(s => s.prompt));
+                foreach (var (o, _, _) in AllOptions(e))
+                {
+                    all.Add(o.label);
+                    all.Add(o.hint);
+                    all.AddRange(o.classLabels.Select(t => t.text));
+                    if (o.outcome == EventOutcomeKind.Check) all.Add(o.check.introLine);
+                    foreach (var b in o.Branches())
+                    {
+                        all.Add(b.resultText);
+                        all.AddRange(b.classResultLines.Select(t => t.text));
+                    }
+                }
+                foreach (var text in all.Where(t => !string.IsNullOrEmpty(t)))
+                {
+                    foreach (var word in banned) StringAssert.DoesNotContain(word, text, $"{e.name}: '{word}' isn't in the glossary");
+                    StringAssert.DoesNotContain("—", text, $"{e.name}: the font has no em dash");
+                }
+            }
         }
 
         [Test]

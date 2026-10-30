@@ -14,8 +14,288 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: houseOfStars
   title: "Gift of the House of Stars"
-  fullText: "Elves of the House of Stars bar the road, their cloaks shimmering like the night sky. Their lady holds out a small box wrapped in silver thread. \"A gift, traveller. From the stars to you.\" Her smile does not reach her eyes.\n\nWhat will you do?"
+  fullText: "Elves in cloaks that shimmer like the night sky bar the road: the House of Stars, whom every other elven house distrusts. Their lady holds out a small box wrapped in silver thread. \"A gift, traveller. From the stars to you.\" She studies you the way a jeweller studies a stone. Her smile doesn't reach her eyes."
+  classIntroLines:
+  - characterClass: 1
+    text: "Her gaze rests on Ayteel longer than on the others. \"Alamoh,\" she says, as if tasting it. \"How very interesting.\""
+  - characterClass: 3
+    text: "Faelin doesn't lower her bow. \"Sentinels learn one thing about elves: when they give, ask what it costs.\""
+  - characterClass: 2
+    text: "Werlem's scepter hums. The lady glances at the Vega mark on its haft, and her smile thins."
   options:
-  - {fileID: 11400000, guid: f2c362a938b8478da456bd04bb360892, type: 2}
-  - {fileID: 11400000, guid: 37cb9ad191af4f84b779a337896d1228, type: 2}
-  - {fileID: 11400000, guid: d894b9112b7349da89bacdd927cb34e6, type: 2}
+  - label: "Accept the gift."
+    classLabels: []
+    onlyForClass: 0
+    hint: "Star relics are said to be wondrous. They are also said to take something back."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      - {fileID: 11400000, guid: 5449d0c515ea429ea15f26476a1c6656, type: 2}
+      resultText: "Inside the box lies a relic of black glass and starlight[: {item}]. When you touch it, something leaves you. A few years, maybe, or a memory you won't miss until you need it. {health} health. The lady seems satisfied, and that worries you more than the cost."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Refuse politely."
+    classLabels: []
+    onlyForClass: 0
+    hint: "The House of Stars is not used to hearing no. Courtesy might soften it."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      resultText: "'Another time,' the lady says. As they pass, one of them brushes against you, and your purse is lighter: {chronos} Golden Chronos. Still, your soul is your own: +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 2797a11bc59c4d54be3baf0d131ff7c4, type: 2}
+      - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+      resultText: "'No one refuses the stars,' she says pleasantly. Her people take a toll for the insult, {chronos} Golden Chronos, and something colder slips into your mind and out again: {grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Draw your weapon."
+    classLabels: []
+    onlyForClass: 0
+    hint: "They are few, and elves bleed like anyone. But they came here for a reason, and the reason might be you."
+    outcome: 1
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 1
+      stat: 8
+      difficulty: 2
+      introLine: ""
+    success:
+      actions:
+      - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+      - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+      resultText: "Steel against starlight. When it's over they're simply gone, the way no elf should be able to vanish. [The box lies in the grass. Inside: {item}.] It cost you {health} health."
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 5449d0c515ea429ea15f26476a1c6656, type: 2}
+      resultText: "They don't fight fair. You never see the blow that lands. When you wake, they're gone, and so is {health} health."
+      classResultLines: []
+      nextStepId: ""
+  - label: "Ask what the gift costs."
+    classLabels: []
+    onlyForClass: 3
+    hint: "Elves rarely lie outright. They let you assume."
+    outcome: 0
+    result:
+      actions:
+      - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+      - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
+      resultText: "'Answers have a price too, Sentinel.' The lady takes {chronos} Golden Chronos before she answers. 'Years,' she admits. 'Only a few.' You decline the gift. Faelin doesn't take her eyes off them until they're gone. +{grace} Grace."
+      classResultLines: []
+      nextStepId: ""
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  - label: "Show them the Vega mark."
+    classLabels: []
+    onlyForClass: 2
+    hint: "The House of Stars and the Vega Unit have been rivals for ages. Elves remember debts."
+    outcome: 0
+    result:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: "observer"
+    check:
+      source: 0
+      stat: 8
+      difficulty: 1
+      introLine: ""
+    success:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+    failure:
+      actions: []
+      resultText: ""
+      classResultLines: []
+      nextStepId: ""
+  steps:
+  - id: "observer"
+    prompt: "The lady's smile disappears. 'Akeros's toy. And what does the Observer study these days, little augur?'"
+    options:
+    - label: "\"Human Grace.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "What the Vega Casket's notes were about."
+      outcome: 0
+      result:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: "pride"
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"The stars, like you.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "Elves of every house watch the sky."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+        resultText: "'Then he's wasting his time,' she says, and something cold brushes your mind as they pass: {grace} Grace."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "\"Whatever you're afraid of.\""
+      classLabels: []
+      onlyForClass: 0
+      hint: "A guess, and a bold one."
+      outcome: 1
+      result:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 2
+        introLine: ""
+      success:
+        actions:
+        - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
+        resultText: "She laughs, genuinely, and charges you for the entertainment: {chronos} Golden Chronos."
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions:
+        - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
+        resultText: "She doesn't laugh. You never see what hits you: {health} health."
+        classResultLines: []
+        nextStepId: ""
+  - id: "pride"
+    prompt: "'Grace,' she repeats, as if it were a dirty word. 'Tell the Observer we are not finished.' They leave the box behind, out of pride, not kindness."
+    options:
+    - label: "Open the box."
+      classLabels: []
+      onlyForClass: 0
+      hint: "Whatever's inside, it was meant to cost someone."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
+        resultText: "Unclaimed, the relic asks nothing of you. [It's simply {item}.] You'll wonder, later, what it would have cost."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+    - label: "Leave it closed, for the Vega Unit's honor."
+      classLabels: []
+      onlyForClass: 0
+      hint: "Akeros would want to know what they were carrying."
+      outcome: 0
+      result:
+        actions:
+        - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+        resultText: "You wrap the box back in its silver thread, unopened, to bring to Akeros one day. Turning down a star feels like Grace: +{grace} Grace."
+        classResultLines: []
+        nextStepId: ""
+      check:
+        source: 0
+        stat: 8
+        difficulty: 1
+        introLine: ""
+      success:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+      failure:
+        actions: []
+        resultText: ""
+        classResultLines: []
+        nextStepId: ""
+  oncePerPilgrimage: 0
+  art: {fileID: 0}
+  legacyOptions: []
