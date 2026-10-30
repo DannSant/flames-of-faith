@@ -72,6 +72,7 @@ namespace Game.RunEncounters
                 playerGrace = PlayerManager.Instance.GetPlayerComponent<PlayerGrace>(),
                 playerWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>(),
                 playerEffectStore = PlayerManager.Instance.GetPlayerComponent<EffectStore>(),
+                classData = PlayerManager.Instance.GetPlayerComponent<PlayerClassManager>()?.ClassData,
                 encounter = this
             };
         }

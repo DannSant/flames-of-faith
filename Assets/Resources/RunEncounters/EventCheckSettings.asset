@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b43298133444b9197e9eef962150fa4, type: 3}
+  m_Name: EventCheckSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventCheckSettings
+  easyChance: 0.75
+  evenChance: 0.5
+  hardChance: 0.3
+  defaultChancePerPoint: 0.03
+  statScales:
+  - stat: 0
+    baseline: 20
+    chancePerPoint: 0.01
+  - stat: 5
+    baseline: 0
+    chancePerPoint: 0.05
+  graceChancePerPoint: 0.02
+  minChance: 0.05
+  maxChance: 0.95
+  logChecks: 0
