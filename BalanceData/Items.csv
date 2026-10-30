@@ -5,14 +5,10 @@ Akeros Graceful Scepter +2,Powerful scepter that lets humans channel their Grace
 Akeros Graceful Scepter +3,Powerful scepter that lets humans channel their Grace into deathly flames.,Epic,0,0,AkerosGracefulScepter,FALSE
 Ancient Talisman Of Power,Ancient talisman crafted by the army who fough against the Drekos during the Dark Age,Heroic,150,50,TalismanOfPower,TRUE
 Arcana Belt,A belt created by the Abidor Institute to store Crisalia.,Common,15,5,ArcanaBelt,TRUE
-Archer Emblem,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
-",Epic,0,0,ArcherEmblem,FALSE
-Archer Emblem +1,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
-",Epic,0,0,ArcherEmblem,FALSE
-Archer Emblem +2,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
-",Epic,0,0,ArcherEmblem,FALSE
-Archer Emblem +3,"Emblem of the Abidor Centinels. Every level gained grants +1 _ranged_damage_.
-",Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem,Emblem of the Abidor Sentinels. Every level gained grants +1 _ranged_damage_.,Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem +1,Emblem of the Abidor Sentinels. Every level gained grants +1 _ranged_damage_.,Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem +2,Emblem of the Abidor Sentinels. Every level gained grants +1 _ranged_damage_.,Epic,0,0,ArcherEmblem,FALSE
+Archer Emblem +3,Emblem of the Abidor Sentinels. Every level gained grants +1 _ranged_damage_.,Epic,0,0,ArcherEmblem,FALSE
 Augur Emblem,"Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every level gained grants +1 _magic_damage_.
 ",Epic,0,0,AugurEmblem,FALSE
 Augur Emblem +1,"Emblem of the Augurs of Ashemdrek who joined the Glenos Empire. Every level gained grants +1 _magic_damage_.
@@ -32,9 +28,9 @@ Book of the Crusader,"A holy book written in the times of the Chaos Age by the G
 Call of the Aylinean,"Special trinked found in a forest, it is rumored to summon an Aylinean if you say the proper words. ",Uncommon,50,10,CallOftheAylinean,TRUE
 Charisma amulet,"An elegant jewel, made by the craftsmen of For Shandor in the distant south",Rare,75,15,CharismaAmulet,TRUE
 Crusader Blessing,A poweful blessing bested upon your weapon.,Heroic,150,50,CrusaderBlessing,TRUE
-Cursed Coin,"A coin touched by a terrible being known as a Dawner, men who sell their sould for power but become monsters in the process",Rare,25,10,CursedCoin,TRUE
+Cursed Coin,A coin touched by one of the Awoken: Forsaken who rose from a night in the grave with dark power and no will,Rare,25,10,CursedCoin,TRUE
 Faikan Boots,High quality boots make with Faikan skin,Uncommon,25,10,FaikanBoots,TRUE
-Faraclarian Quiver,Fine quiver crafted by the tribes from Fara Uf'clario,Common,15,5,FaraclarianQuiver,TRUE
+Faraclarian Quiver,Fine quiver crafted by the tribes from Fara Uf'Clario,Common,15,5,FaraclarianQuiver,TRUE
 Fire Arrows,"50% chance to inflict Fire, which cause damage over time. This scales with Mastow Afinity (damage and duration)",Rare,75,15,FireArrows,TRUE
 Flaming Skull of Endurance,A strange ornament that emanates mystic energy.,Rare,75,15,FlamingSkullOfEndurance,TRUE
 Frost Arrows,50% chance to inflict Frost in the target which makes them move slower and take more damage. Scales with Mastow Affinity(damage and duration),Rare,75,15,FrostArrows,TRUE
@@ -149,17 +145,12 @@ Mastow Potion,Potion designed to increase your Mastow Affinity. Not recommended 
 Necrotic Potion,Strange potion with uncommon properties. It is said it was used during the Dark Age to emmulate death and stay hidden,Rare,75,15,NecroticPotion,TRUE
 Potion of Accuracy,"Typical potion crafted by an alchemist to boost your accuracy
 ",Common,15,5,PotionOfAccuracy,TRUE
-Quiver of the Centinel,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
-",Epic,0,0,QuiverOfTheCentinel,FALSE
-Quiver of the Centinel +1,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
-",Epic,0,0,QuiverOfTheCentinel,FALSE
-Quiver of the Centinel +2,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
-",Epic,0,0,QuiverOfTheCentinel,FALSE
-Quiver of the Centinel +3,"Quiver worn by the Centinels of the Faraclarian tribe. Its arrows fly further, but it leaves its bearer exposed.
-",Epic,0,0,QuiverOfTheCentinel,FALSE
-Ring Of Vitality,"Blessed ring, it was used by the Paladins of the Order of Light from Ashemdrek",Heroic,75,15,RingOfVitality,TRUE
-Sacred Writtings,"Powerful ancient book used during the Dark Age to fight againts the Crescent Darkness Empire
-",Heroic,150,50,SacredWrittings,FALSE
+Quiver of the Centinel,"Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed",Epic,0,0,QuiverOfTheCentinel,FALSE
+Quiver of the Centinel +1,"Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed",Epic,0,0,QuiverOfTheCentinel,FALSE
+Quiver of the Centinel +2,"Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed",Epic,0,0,QuiverOfTheCentinel,FALSE
+Quiver of the Centinel +3,"Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed",Epic,0,0,QuiverOfTheCentinel,FALSE
+Ring Of Vitality,"Blessed ring, it was used by the Paladins of the Illuminated Order from Ashemdrek",Heroic,75,15,RingOfVitality,TRUE
+Sacred Writings,Powerful ancient book used during the Dark Age to fight againts the Rising Darkness Empire,Heroic,150,50,SacredWrittings,FALSE
 Scepter of the Old Empire,"A very old scepter, dated from the Creation Age when the Primordials and their Old Empire took power",Rare,50,15,ScepterOfTheOldEmpire,TRUE
 Shadow Touched Talisman,Cursed talisman created by the Drekos cultists,Heroic,50,10,ShadowTouchedTalisman,TRUE
 Shield of the Crusader,"Shield carried by the Crusaders of the Faith. Heavy, but it keeps its bearer standing.
@@ -170,21 +161,17 @@ Shield of the Crusader +2,"Shield carried by the Crusaders of the Faith. Heavy, 
 ",Epic,0,0,ShieldOfTheCrusader,FALSE
 Shield of the Crusader +3,"Shield carried by the Crusaders of the Faith. Heavy, but it keeps its bearer standing.
 ",Epic,0,0,ShieldOfTheCrusader,FALSE
-Steeldawn Bow,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
-Steeldawn Bow +1,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
-Steeldawn Bow +2,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
-Steeldawn Bow +3,Powerful Bow created with bones and Steeldawn by the tribe of the Faraclarians,Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow,"A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel.",Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow +1,"A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel.",Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow +2,"A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel.",Epic,0,0,SteeldawnBow,FALSE
+Steeldawn Bow +3,"A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel.",Epic,0,0,SteeldawnBow,FALSE
 Steeldawn Shard,Special and blessed material that can be used to craft powerful and blessed weapons,Rare,75,15,SteeldawnShard,FALSE
-Steeldawn Sword,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
-",Epic,0,0,SteeldawnSword,FALSE
-Steeldawn Sword +1,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
-",Epic,0,0,SteeldawnSword,FALSE
-Steeldawn Sword +2,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
-",Epic,0,0,SteeldawnSword,FALSE
-Steeldawn Sword +3,"Powerful sword created by a Seared Soul, a person with an excess of Grace.
-",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword,"Powerful sword forged by Gabien Alamoh, a Seared Soul…",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword +1,"Powerful sword forged by Gabien Alamoh, a Seared Soul…",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword +2,"Powerful sword forged by Gabien Alamoh, a Seared Soul…",Epic,0,0,SteeldawnSword,FALSE
+Steeldawn Sword +3,"Powerful sword forged by Gabien Alamoh, a Seared Soul…",Epic,0,0,SteeldawnSword,FALSE
 Traveler Coin,"An old coin, crafted with some strange metals",Uncommon,25,10,TravelerCoin,TRUE
-Tribesmen Necklace,"Necklace bless by Omiara, crafted by the tribes of the frozen wastes of Fara Uf'clario",Heroic,150,50,TribesmenNecklace,TRUE
+Tribesmen Necklace,"Necklace bless by Omiara, crafted by the tribes of the frozen wastes of Fara Uf'Clario",Heroic,150,50,TribesmenNecklace,TRUE
 Warrior Emblem,"Emblem of the Crusaders of the Faith. Every level gained grants +1 _melee_damage_.
 ",Epic,0,0,WarriorEmblem,FALSE
 Warrior Emblem +1,"Emblem of the Crusaders of the Faith. Every level gained grants +1 _melee_damage_.

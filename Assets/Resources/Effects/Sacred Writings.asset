@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Sacred Writtings
+  m_Name: Sacred Writings
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
   effectID: 8064e3c0-a56e-4051-bcc4-53ff6e120290
   icon: {fileID: 21300000, guid: 87cf69cff1b82d3499b13efa1f0b4409, type: 3}
   effectName: Sacred Writtings
   scalingValue: 1
-  description: 'Powerful ancient book used during the Dark Age to fight againts the
-    Crescent Darkness Empire
-
-'
+  description: Powerful ancient book used during the Dark Age to fight againts the
+    Rising Darkness Empire
   buyPrice: 150
   sellPrice: 50
   effectStatModifiers:

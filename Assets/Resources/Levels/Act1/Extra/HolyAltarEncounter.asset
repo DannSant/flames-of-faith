@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: HolyAltarEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scene.LevelData
   SceneName: HolyAltarEncounter
-  DisplayName: Holy Altar
+  DisplayName: Wayside Shrine of Malien
   actNumber: 1
   type: 3
+  taintLevel: 0
   preventHealthRegen: 1
   preventAttacks: 1
   allowPause: 0

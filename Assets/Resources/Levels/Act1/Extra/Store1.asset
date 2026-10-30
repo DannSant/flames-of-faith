@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Store1
   m_EditorClassIdentifier: 
   SceneName: Shop1
-  DisplayName: Elven Shop
+  DisplayName: Plerian Shop
   actNumber: 1
   type: 1
+  taintLevel: 0
   preventHealthRegen: 1
   preventAttacks: 1
   allowPause: 0
