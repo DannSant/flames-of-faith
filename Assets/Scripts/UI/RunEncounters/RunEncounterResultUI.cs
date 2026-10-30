@@ -21,6 +21,9 @@ namespace Game.UI.RunEncounters
 
         [SerializeField] private GameObject mainPanel;
         [SerializeField] private TextMeshProUGUI resultsText;
+        [Tooltip("An event's summary line, centered above Continue. Hidden for a treasure. Without it the summary " +
+            "is appended to the results text.")]
+        [SerializeField] private TextMeshProUGUI summaryText;
 
         [SerializeField] private Button okButton;
 
@@ -74,13 +77,25 @@ namespace Game.UI.RunEncounters
             resultsText.text = ColorizeResultLines(results,
                 settings != null ? settings.ToHex(UIColorRole.Positive) : "FFFFFF",
                 settings != null ? settings.ToHex(UIColorRole.Negative) : "FFFFFF");
+            if (summaryText != null) summaryText.gameObject.SetActive(false);
             mainPanel.SetActive(true);
         }
 
         /// <summary>An event's narrated result, then the compact summary line of what changed.</summary>
         public void ShowEventResults(EventResolution resolution)
         {
-            resultsText.text = BuildEventResultText(resolution, GetSummaryColors(UISettings.Instance));
+            var colors = GetSummaryColors(UISettings.Instance);
+            if (summaryText == null)
+            {
+                resultsText.text = BuildEventResultText(resolution, colors);
+            }
+            else
+            {
+                string summary = resolution != null ? EventResultFormatter.BuildSummary(resolution.AllResults, colors) : string.Empty;
+                resultsText.text = EventResultFormatter.FormatResolution(resolution);
+                summaryText.text = summary;
+                summaryText.gameObject.SetActive(!string.IsNullOrEmpty(summary));
+            }
             mainPanel.SetActive(true);
         }
 

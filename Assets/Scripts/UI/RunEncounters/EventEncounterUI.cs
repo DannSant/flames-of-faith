@@ -64,7 +64,6 @@ namespace Game.UI.RunEncounters
         private void ShowScreen(EventScreen screen)
         {
             CleanupComponent();
-            ShowPanel();
             titleText.text = screen.title;
             descriptionText.text = screen.text;
             if (artPanel != null) artPanel.SetActive(screen.art != null);
@@ -86,6 +85,9 @@ namespace Game.UI.RunEncounters
                     screen.choose?.Invoke(index);
                 });
             }
+
+            // Opened last, so the window's gamepad focus lands on this screen's first option
+            ShowPanel();
         }
 
         private void CleanupComponent()

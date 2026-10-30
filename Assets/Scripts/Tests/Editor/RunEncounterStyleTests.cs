@@ -1,6 +1,7 @@
 using Game.RunEncounters;
 using Game.UI.RunEncounters;
 using Game.UI.Style;
+using Game.UI.Style.Editor;
 using NUnit.Framework;
 using System.Linq;
 using TMPro;
@@ -111,6 +112,31 @@ namespace Game.Tests
             var button = Child(pane, "ContinueButton").GetComponent<Button>();
             Assert.AreEqual("Continue", button.GetComponentInChildren<TMP_Text>(true).text);
             AssertWiredInCode(button, Ref<Button>(pane.GetComponent<RunEncounterResultUI>(), "okButton"));
+        }
+
+        [Test]
+        public void Results_NarrationIsLeftAligned_AndTheSummarySitsCenteredAboveContinue()
+        {
+            var pane = Load(ResultsPath);
+            var ui = pane.GetComponent<RunEncounterResultUI>();
+            var text = Ref<TextMeshProUGUI>(ui, "resultsText");
+            var summary = Ref<TextMeshProUGUI>(ui, "summaryText");
+            var settings = Settings();
+
+            Assert.AreEqual("Summary", summary.name);
+            AssertSmallText(summary, settings);
+            Assert.AreEqual(TextAlignmentOptions.TopLeft, text.alignment, "The narration reads like the event text");
+            Assert.AreEqual(TextAlignmentOptions.Bottom, summary.alignment, "The summary is centered on its last line");
+            Assert.IsTrue(summary.richText);
+
+            // Top-anchored rows: the narration ends before the summary starts, and the summary ends above Continue
+            float textBottom = -text.rectTransform.anchoredPosition.y + text.rectTransform.sizeDelta.y;
+            float summaryTop = -summary.rectTransform.anchoredPosition.y;
+            float summaryBottom = summaryTop + summary.rectTransform.sizeDelta.y;
+            float continueTop = CenterWindowLayout.WindowSize(settings).y - CenterWindowLayout.ButtonsTop(settings, 1);
+            Assert.LessOrEqual(textBottom, summaryTop + 0.01f, "The narration overlaps the summary");
+            Assert.LessOrEqual(summaryBottom, continueTop - settings.Margin + 0.01f, "The summary overlaps Continue");
+            Assert.AreEqual(RunEncounterRestyler.SummaryHeight(settings), summary.rectTransform.sizeDelta.y, 0.01f);
         }
 
         [TestCase("Gained 10 health\n", "<color=#0F0>Gained 10 health</color>")]

@@ -11,7 +11,8 @@ namespace Game.UI.Style.Editor
 {
     /// <summary>
     /// UI revamp, step 8: restyles the run encounter windows in place as center windows with a yellow title.
-    /// Campfire: one rested line and Continue. Results: the result lines and Continue. Event: the text above a
+    /// Campfire: one rested line and Continue. Results: the narration (or a treasure's reward lines), the event's
+    /// summary line centered above Continue, and Continue. Event: the text above a
     /// bottom column of full-width option buttons that grow with their label, plus an art panel to the left of
     /// the window (shown only for events with art). The treasure no longer has a window (its item goes to the
     /// item bag), so its UIMain instance is removed.
@@ -73,11 +74,18 @@ namespace Game.UI.Style.Editor
 
         private static float ContentTop(UISettings s) => s.Margin + InventoryRestyler.TitleRowHeight + s.Spacing;
 
-        /// <summary>A Small text in the space between the title row and the progress button.</summary>
-        private static void PlaceBodyText(TextMeshProUGUI text, UISettings s, TextAlignmentOptions alignment)
+        /// <summary>The space between the title row and the progress button.</summary>
+        private static float BodyHeight(UISettings s) =>
+            CenterWindowLayout.WindowSize(s).y - ContentTop(s) - CenterWindowLayout.ButtonsTop(s, 1) - s.Margin;
+
+        /// <summary>The Results' summary line: room for two Small lines, right above Continue.</summary>
+        public static float SummaryHeight(UISettings s) => Mathf.Ceil(2f * s.SmallFontSize * 1.5f);
+
+        /// <summary>A Small text in the space between the title row and the progress button (minus roomBelow).</summary>
+        private static void PlaceBodyText(TextMeshProUGUI text, UISettings s, TextAlignmentOptions alignment, float roomBelow = 0f)
         {
             float top = ContentTop(s);
-            float height = CenterWindowLayout.WindowSize(s).y - top - CenterWindowLayout.ButtonsTop(s, 1) - s.Margin;
+            float height = BodyHeight(s) - roomBelow;
             UpgradeRestyler.PlaceTopRow(text.rectTransform, s, top, height);
             var element = text.GetComponent<LayoutElement>();
             if (element != null) element.ignoreLayout = true;
@@ -164,11 +172,31 @@ namespace Game.UI.Style.Editor
             title.transform.SetSiblingIndex(0);
             CenterWindowLayout.PlaceTitle(title, s, UIColorRole.Highlight);
 
+            // The narration (an event) or the reward lines (a treasure), left-aligned like the event text
             text.transform.SetSiblingIndex(1);
-            text.text = "Gained 10 health\nLost 5 Grace";
-            PlaceBodyText(text, s, TextAlignmentOptions.Top);
+            text.text = "They break at the first real blow. You lose only 4 health, and a saddlebag left behind holds a ring.";
+            float summaryHeight = SummaryHeight(s);
+            PlaceBodyText(text, s, TextAlignmentOptions.TopLeft, summaryHeight + s.Spacing);
+
+            // The event's compact summary line, centered right above Continue (RunEncounterResultUI.summaryText)
+            var summary = FindOrCreateText(mainPanel, "Summary");
+            summary.transform.SetSiblingIndex(2);
+            UpgradeRestyler.PlaceTopRow(summary.rectTransform, s, ContentTop(s) + BodyHeight(s) - summaryHeight, summaryHeight);
+            var summaryLayout = summary.GetComponent<LayoutElement>();
+            if (summaryLayout != null) summaryLayout.ignoreLayout = true;
+            CenterWindowLayout.PlainText(summary, TextAlignmentOptions.Bottom);
+            summary.textWrappingMode = TextWrappingModes.Normal;
+            summary.overflowMode = TextOverflowModes.Overflow;
+            summary.richText = true;
+            summary.raycastTarget = false;
+            StyleText(summary, UIFontSize.Small, false, UIColorRole.Text, s);
+            summary.text = "-4 health  /  Ring";
 
             PlaceContinue(continueRect, s);
+
+            var ui = new SerializedObject(root.GetComponent<RunEncounterResultUI>());
+            ui.FindProperty("summaryText").objectReferenceValue = summary;
+            ui.ApplyModifiedPropertiesWithoutUndo();
         }
 
         // --- Event -------------------------------------------------------------------------------------
