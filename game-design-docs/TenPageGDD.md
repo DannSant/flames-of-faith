@@ -37,8 +37,8 @@ Short, readable runs where every wave is a small decision about **Grace**: fight
 
 | Release | Content | Status |
 |---|---|---|
-| **Steam demo** (December 2026) | The full Act I (Jesterwoods): 3 map variants, combat levels, Plerian Shop, campfire, treasure, events, Wayside Shrine of Malien, Act I boss. Three classes, skill trees, Favors, run save. Keyboard/mouse and gamepad. | Act I is playable in tester builds; polish and balance in progress |
-| **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. Act intro and ending cutscenes. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Acts II–IV are designed at concept level (see [Enemies](#10--enemies)); bosses II–IV are **TBD** |
+| **Steam demo** (December 2026) | The full Act I (Jesterwoods): 3 map variants, combat levels, Plerian Shop, campfire, treasure, events, Wayside Shrine of Malien, Act I boss. Three classes with re-designed sprites, skill trees with item unlocks, more items (including higher qualities), Favors, run save. The reworked events, the redesigned overworld map, the art team's new scenarios (companions in non-combat levels), the opening cutscene. Keyboard/mouse and gamepad. | Act I is playable in tester builds; the demo additions are in the backlog |
+| **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. 26 cutscenes (an opening, an ending, and one per pilgrim before and after each act). A pick-1-of-3 boss reward. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Acts II–IV are designed at concept level (see [Enemies](#10--enemies)); bosses II–IV are **TBD** |
 | **Nice to have for 1.0** | Steam Cloud saves, Steam Deck verification, Chinese and Japanese localization, a Hard mode | Optional |
 | **After 1.0** | Xbox port; content updates. No DLC planned. | Not scheduled |
 
@@ -50,7 +50,7 @@ Short, readable runs where every wave is a small decision about **Grace**: fight
 ### Out of scope (for the full release)
 - Multiplayer or co-op.
 - Procedurally generated level layouts (levels are hand-built scenes; variety comes from the map, waves and loot).
-- Story cutscenes with voice acting (see [Cutscenes](#11--cutscenes)).
+- Animated cutscenes (see [Cutscenes](#11--cutscenes); voice narration of the static scenes is being researched).
 
 ---
 
@@ -411,12 +411,13 @@ _Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase whi
 
 ## 11 – Cutscenes
 
-- **Format:** static illustrations with text (no animation or voice acting).
-- **When:** one cutscene at the **start of each act** and one at the **end of each act**: 8 in total for 1.0.
-  - **Act I intro:** the Pilgrimage of the Flame, the extinguished altars, and the three pilgrims setting out.
-  - **Act ends:** the Altar of Malien is relit and the next region comes into view.
-  - **Act IV end:** the game's ending.
-  - The content of each scene is **TBD**.
+- **Format:** static illustrations with text (no animation). Voice narration is being researched (owner, 2026-10-29).
+- **When** (scope changed 2026-10-29): **26 scenes** for 1.0.
+  - **Opening:** the general story: the Pilgrimage of the Flame, the extinguished altars, the three pilgrims setting out.
+  - **Per character, before and after each act:** 3 pilgrims × 4 acts × 2 = 24 scenes, telling each pilgrim's arc (`Lore.md` §6).
+  - **Ending:** the game's ending.
+- **Steam demo:** the opening scene only.
+- The lore and art direction of each scene is **TBD** (a design task in the backlog).
 - **Current state:** no cutscenes yet. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
 
 ---
@@ -441,7 +442,7 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 4. **Will Break (Act IV):** how it stacks, how it carries over between levels, and how the player clears it.
 5. **Act mechanics carrying over:** do Frozen and the Frozen Enemies continue into Acts III–IV? (Pools of Corruption do continue into Act IV.)
 6. **Missing values:** the Crawler's and the Cursed Sword's damage and health.
-7. **Cutscene content:** what each of the 8 scenes shows.
+7. **Cutscene content:** what each of the 26 scenes shows, and whether they are narrated.
 8. **Achievements:** the final list.
 9. **Key items:** design.
 10. **Hard mode:** whether to make it, and what it changes.

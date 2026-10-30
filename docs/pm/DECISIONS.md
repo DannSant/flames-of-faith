@@ -3,6 +3,10 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-10-29
+- **High Attack Speed fix:** the attack animation speeds up with Attack Speed (the art team agreed), plus a soft cap and a hard cap on Attack Speed, like Shop Discount's. Replaces the two options left open on 2026-10-26.
+- **Cutscene scope:** 26 scenes for 1.0 (an opening, an ending, and one per pilgrim before and after each act), static images and text. The Steam demo gets the opening one. Voice narration to be researched. Replaces the 8 scenes of 2026-10-23.
+- **Demo scope grows:** skill-tree item unlocks, more and higher-quality items, the re-designed characters, the new scenarios with companions in non-combat levels, the map redesign, the opening cutscene, the boss's invulnerability shield (art). See BACKLOG "Before the Steam demo".
+- **For 1.0:** a pick-1-of-3 boss reward of boss-only items, and a boss architecture refactor before the second boss.
 - **Lore canon:** `game-design-docs/Lore.md` is the story bible and its glossary sets every name. The owner's novels and notes in `lore-docs/` (gitignored, Spanish) are reference only; where they differ, `Lore.md` wins. The lore decisions themselves are recorded in `docs/features/run-encounter-events.md`, "Lore decisions".
 - **Lore choices from the narrative session:**
   - The game is set about **60 years after Gabien** (`lore-docs/Timeline.docx` said 150).

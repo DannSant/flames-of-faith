@@ -1,6 +1,6 @@
 # Project state
 
-_Last updated: 2026-10-29 by the Orchestrator._
+_Last updated: 2026-10-29 by the Orchestrator (backlog update)._
 
 ## Milestone
 - **Current:** next tester build, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
@@ -22,9 +22,9 @@ _Last updated: 2026-10-29 by the Orchestrator._
 - Closed specs are in `docs/archive/features/` (GDD update, data-driven step 3, item drops, items and abilities).
 
 ## Waiting on others / decisions
-- **High Attack Speed stops primary attacks from landing** (found 2026-10-26). Breaks above about 37 Attack Speed (Archer), 53 (Augur) and 67 (Warrior). Two fixes, waiting on the team: speed up the attack animation with Attack Speed (animator's OK), or a per-weapon minimum cooldown (design decision plus a Weapons column in the sheet).
+- **Demo scope risk (2026-10-29):** the demo list grew to 14 items (BACKLOG "Before the Steam demo"), four of them waiting on art (characters, scenarios with companion animations, map decorations, boss shield, cutscene art), with about 5–7 weeks to a December release. Decide what is a must for the demo and what can follow in a demo update, or move the date.
 - **Run structure across acts** (GDD open question 14). Blocks Act II planning, not the demo.
-- **Art team:** player re-design, level scenarios, event art (the events now have texts to illustrate), the Plerian trader, the Favor icon, the boss's invulnerable look, the 2 s Whirlwind animation, melee telegraph sprites.
+- **Art team:** re-designed characters, scenarios and companion idle animations, map decorations, the boss shield, cutscene art, event art, the Plerian trader, the Favor icon, the 2 s Whirlwind animation, melee telegraph sprites.
 - **Designer:** Min Levels Beaten per item (all 0), Luck Scale 2 looks steep in `Report_LootOdds`, Move Speed and Frost per-point values look too small.
 
 ## Open manual tests
