@@ -8,9 +8,9 @@ _Last updated: 2026-10-30 by the Orchestrator._
 - **Since v0.5.1 (on `develop`):** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework.
 
 ## Git reality (checked 2026-10-30)
-- `develop` includes the events rework merge (`ac9a22a`), which is on origin. Docs commits after it may not be pushed; check `git status`.
+- `develop` = `origin/develop` (pushed 2026-10-30), including the events rework merge (`ac9a22a`).
 - `main` = `ff779dc` = `origin/main`, well behind `develop`. No release merge yet.
-- **Stale branch:** `feature/run-encounter-events` (local and origin) is fully merged. Delete on your OK.
+- No feature branches open. `feature/run-encounter-events` was deleted 2026-10-30 (fully merged).
 - Uncommitted: `todo.md` (the owner's file, holding the events' manual tests).
 
 ## In progress
