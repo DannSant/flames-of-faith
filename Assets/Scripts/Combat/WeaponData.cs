@@ -17,7 +17,7 @@ namespace Game.Combat {
         [Tooltip("For each MeleeDamage or RangeDamage stat, damage will increase by this number ")]
         public int attackScale = 1;
 
-        [Tooltip("For each AttackSpeed stat, regular damage will increase by this number ")]
+        [Tooltip("How much each effective Attack Speed point shortens this attack's cooldown. Cooldown = base / (1 + effective points x this). Points past the soft cap count for less, see the PlayerStats tab.")]
         public float attackSpeedScale = 0.0075f;
 
         [Tooltip("Depending on the weapon class damage will scale diferently. Example Melee weapons only scale if damage is done through a weapon collider instead of a projectile")]
