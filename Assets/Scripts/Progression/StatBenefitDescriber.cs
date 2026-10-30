@@ -127,6 +127,14 @@ namespace Game.Progression
                 float special = s.GetAttackDelay(points, ctx.specialCooldownBase, ctx.specialAttackSpeedScale);
                 text += $", special every {Num(special)}s";
             }
+            if (points >= s.AttackSpeedHardCap)
+            {
+                text += $". At the {s.AttackSpeedHardCap} point cap: more points do nothing";
+            }
+            else if (points > s.AttackSpeedSoftCap)
+            {
+                text += $". Past {s.AttackSpeedSoftCap} points each one counts for less (cap {s.AttackSpeedHardCap})";
+            }
             return text;
         }
 
