@@ -25,6 +25,7 @@ MonoBehaviour:
   attackSpeedSoftCap: 30
   attackSpeedHardCap: 60
   attackSpeedPastSoftCapRate: 0.5
+  minMeleeHitboxTime: 0.04
   pickupBaseRange: 2
   pickupRangePerPoint: 0.1
   baseMoveSpeed: 3.5

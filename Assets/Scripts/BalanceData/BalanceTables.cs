@@ -141,6 +141,7 @@ namespace Game.BalanceData
                     ("Shop Discount Soft Cap", "shopDiscountSoftCap"), ("Shop Discount Hard Cap", "shopDiscountHardCap"),
                     ("Attack Speed Soft Cap", "attackSpeedSoftCap"), ("Attack Speed Hard Cap", "attackSpeedHardCap"),
                     ("Attack Speed Past Soft Cap Rate", "attackSpeedPastSoftCapRate"),
+                    ("Min Melee Hitbox Time", "minMeleeHitboxTime"),
                     ("Pickup Base Range", "pickupBaseRange"), ("Pickup Range Per Point", "pickupRangePerPoint"),
                     ("Level-up Tier 1 Weight", "upgradeTierBaseChances.Array.data[0]"),
                     ("Level-up Tier 2 Weight", "upgradeTierBaseChances.Array.data[1]"),

@@ -57,6 +57,9 @@ namespace Game.Progression
         [Tooltip("What each Attack Speed point between the soft cap and the hard cap counts for (0.5 = half a point).")]
         [Range(0f, 1f)]
         [SerializeField] private float attackSpeedPastSoftCapRate = 0.5f;
+        [Tooltip("Seconds a melee swing's hitbox stays on at least. At high Attack Speed the swing can be shorter than a frame or two, and a hitbox that doesn't last until the next physics step hits nothing.")]
+        [Min(0f)]
+        [SerializeField] private float minMeleeHitboxTime = 0.04f;
 
         [Header("Pickup Range")]
         [Tooltip("Distance at which pickups start flying to the player, with 0 Pickup Range.")]
@@ -106,6 +109,7 @@ namespace Game.Progression
         public int ShopDiscountHardCap => shopDiscountHardCap;
         public int AttackSpeedSoftCap => attackSpeedSoftCap;
         public int AttackSpeedHardCap => attackSpeedHardCap;
+        public float MinMeleeHitboxTime => minMeleeHitboxTime;
         public float PickupBaseRange => pickupBaseRange;
         public float PickupRangePerPoint => pickupRangePerPoint;
         public float[] UpgradeTierBaseChances => upgradeTierBaseChances;
