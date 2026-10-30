@@ -1,10 +1,8 @@
 using Game.Combat;
 using Game.Currency;
 using Game.Effects;
-using Game.Overworld;
 using Game.Progression;
 using Game.Scene;
-using Game.Waves;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,15 +10,20 @@ using UnityEngine;
 
 namespace Game.RunEncounters
 {
+    /// <summary>
+    /// Runs the event of an event node: picks it, then shows each screen (the intro, then any step its options lead
+    /// to) and pushes the final resolution to the Results window. The UI only gets plain screens and a callback.
+    /// </summary>
     public class EventEncounterController : MonoBehaviour
     {
         [SerializeField] private List<EventEncounterData> encountersList;
 
-        public event Action<EventEncounterData> OnEventPresented;
+        public event Action<EventScreen> OnEventPresented;
         public event Action<EventResolution> OnEventResolved;
 
         private EventContext context;
         private EventEncounterData data;
+        private EventRunner runner;
 
         private void Start()
         {
@@ -31,6 +34,10 @@ namespace Game.RunEncounters
             }
             data = encountersList[UnityEngine.Random.Range(0, encountersList.Count)];
             BuildContext();
+            var settings = EventCheckSettings.Instance;
+            runner = new EventRunner(data, context.CharacterClass,
+                check => EventCheckRoller.Roll(check, context, settings),
+                actions => EventActions.ApplyAll(actions, context));
             StartCoroutine(TriggerEventRoutine());
         }
 
@@ -42,27 +49,28 @@ namespace Game.RunEncounters
 
         public void TriggerEncounter()
         {
-            OnEventPresented?.Invoke(data);
+            Present();
         }
 
-        public void SelectOption(EventOptionsList option)
+        private void Present()
         {
-            // Old option assets have no result text: the Results window shows only the summary line
-            var resolution = new EventResolution();
-            resolution.parts.Add(new EventNarration { results = option.Apply(context) });
-            Resolve(resolution);
+            var screen = runner.BuildScreen();
+            screen.choose = Choose;
+            OnEventPresented?.Invoke(screen);
         }
 
-        private void Resolve(EventResolution resolution)
+        private void Choose(int index)
         {
-            OnEventResolved?.Invoke(resolution);
-            //StartCoroutine(DelayedWaveComplete());
-        }
+            if (runner == null || !runner.Choose(index)) return;
 
-        private IEnumerator DelayedWaveComplete()
-        {
-            yield return new WaitForSeconds(5f);
-            WaveSpawner.Instance.InvokeOnWaveComplete();
+            if (runner.IsFinished)
+            {
+                OnEventResolved?.Invoke(runner.Resolution);
+            }
+            else
+            {
+                Present();
+            }
         }
 
         private void BuildContext()

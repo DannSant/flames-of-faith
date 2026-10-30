@@ -1,27 +1,26 @@
-using System.Text;
-using Game.Effects;
-using Game.Progression;
-using Game.RunEncounters;
-using Game.Scene;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Game.UI.RunEncounters
 {
-    // Select/Deselect mirror pointer enter/exit so gamepad navigation shows the same tooltip.
+    /// <summary>
+    /// One event option button: its label, and its in-world hint in the shared tooltip beside it. No numbers
+    /// before choosing; the result narrates them. Select/Deselect mirror pointer enter/exit so gamepad
+    /// navigation shows the same tooltip.
+    /// </summary>
     public class EventEncounterOptionUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         [SerializeField] private TextMeshProUGUI optionText;
 
-        private EventOptionsList optionsList;
+        private string hint;
         private GeneralTooltipPaneUI generalTooltipPaneUI;
 
-        public void Initialize(EventOptionsList optionsList, GeneralTooltipPaneUI generalTooltipPaneUI)
+        public void Initialize(string label, string hint, GeneralTooltipPaneUI generalTooltipPaneUI)
         {
-            this.optionsList = optionsList;
+            this.hint = hint;
             this.generalTooltipPaneUI = generalTooltipPaneUI;
-            optionText.text = optionsList.OptionDescription;
+            optionText.text = label;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -46,69 +45,18 @@ namespace Game.UI.RunEncounters
 
         private void ShowTooltip()
         {
-            string tooltip = BuildTooltip();
-            if (string.IsNullOrEmpty(tooltip))
+            if (string.IsNullOrWhiteSpace(hint))
             {
                 return;
             }
 
             // Beside the option button, not at the pointer
-            generalTooltipPaneUI?.ShowTooltip(tooltip, anchor: (RectTransform)transform);
+            generalTooltipPaneUI?.ShowTooltip($"<i>{hint}</i>", anchor: (RectTransform)transform);
         }
 
         public void HideTooltip()
         {
             generalTooltipPaneUI?.HideTooltip();
-        }
-
-        private string BuildTooltip()
-        {
-            if (optionsList == null)
-            {
-                return string.Empty;
-            }
-
-            var sb = new StringBuilder();
-            foreach (var action in optionsList.OptionActionsList)
-            {
-                if (action == null)
-                {
-                    continue;
-                }
-
-                sb.AppendLine(BuildActionLine(action));
-            }
-
-            return sb.ToString();
-        }
-
-        private string BuildActionLine(EventOptionActionBase action)
-        {
-            if(action is GiveRandomItemOptionAction giveRandomItemAction)
-            {
-                var playerProgression = PlayerManager.Instance.GetPlayerComponent<PlayerProgression>();
-                EffectQuality expectedQuality = giveRandomItemAction.GetExpectedQuality(playerProgression);
-
-                return $"Might receive an item of any quality, averaging around {expectedQuality} (higher Luck favors rarer items)";
-            }
-            
-            if (action.IsPlainReward)
-            {
-                bool isGain = action.Amount >= 0;
-                return $"{(isGain ? "Gain" : "Lose")} {Mathf.Abs(action.Amount)} {action.ResourceName}";
-            }
-
-            // Assumes a range that is entirely positive or entirely negative.
-            // Ranges that straddle zero (hybrid gain/loss) aren't handled precisely yet.
-            bool rangeIsGain = action.AmountRange.y > 0;
-            string statName = StatDisplayNameHelper.GetDisplayName(action.BiasStat);
-
-            float magnitudeX = Mathf.Abs(action.AmountRange.x);
-            float magnitudeY = Mathf.Abs(action.AmountRange.y);
-            float lowMagnitude = Mathf.Min(magnitudeX, magnitudeY);
-            float highMagnitude = Mathf.Max(magnitudeX, magnitudeY);
-
-            return $"Might {(rangeIsGain ? "get" : "lose")} {action.ResourceName} {lowMagnitude} to {highMagnitude} based on {statName}";
         }
     }
 }

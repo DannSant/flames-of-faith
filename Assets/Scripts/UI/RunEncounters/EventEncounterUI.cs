@@ -8,7 +8,9 @@ namespace Game.UI.RunEncounters
 {
     /// <summary>
     /// The event window: title, text and one button per option (a column at the bottom), plus a panel beside
-    /// it for the event's art when it has any. Layout: RunEncounterRestyler.
+    /// it for the event's art when it has any. It shows the screens EventEncounterController pushes (the intro,
+    /// then each follow-up step) and reports the picked choice through the screen's callback. An option's
+    /// tooltip is its in-world hint, never its numbers. Layout: RunEncounterRestyler.
     /// </summary>
     public class EventEncounterUI : MonoBehaviour
     {
@@ -38,7 +40,7 @@ namespace Game.UI.RunEncounters
             MainSceneController.Instance.OnGameplayUISetupRequested -= SubscribeToEvents;
             if (eventController != null)
             {
-                eventController.OnEventPresented -= UpdateEventEncounterData;
+                eventController.OnEventPresented -= ShowScreen;
             }
 
             CleanupComponent();
@@ -49,36 +51,39 @@ namespace Game.UI.RunEncounters
             eventController = FindAnyObjectByType<EventEncounterController>();
             if (eventController != null)
             {
-                eventController.OnEventPresented += UpdateEventEncounterData;
+                eventController.OnEventPresented += ShowScreen;
             }
             
 
         }
 
-        private void UpdateEventEncounterData(EventEncounterData data)
+        /// <summary>
+        /// Shows one screen of the event: the intro or a step's prompt, and its choices. Picking one hides the
+        /// window; the controller then pushes the next step's screen, or the result to the Results window.
+        /// </summary>
+        private void ShowScreen(EventScreen screen)
         {
+            CleanupComponent();
             ShowPanel();
-            titleText.text = data.title;
-            descriptionText.text = data.fullText;
-            if (artPanel != null) artPanel.SetActive(data.art != null);
-            if (artImage != null) artImage.sprite = data.art;
-            foreach (Transform child in optionsContainer)
-            {
-                Destroy(child.gameObject);
-            }
+            titleText.text = screen.title;
+            descriptionText.text = screen.text;
+            if (artPanel != null) artPanel.SetActive(screen.art != null);
+            if (artImage != null) artImage.sprite = screen.art;
 
-            foreach (var option in data.legacyOptions)
+            for (int i = 0; i < screen.choices.Count; i++)
             {
+                int index = i;
+                var choice = screen.choices[i];
                 var optionUI = Instantiate(optionPrefab, optionsContainer);
-                optionUI.Initialize(option, generalTooltipPaneUI);
+                optionUI.Initialize(choice.label, choice.hint, generalTooltipPaneUI);
 
                 var optionButton = optionUI.GetComponent<Button>();
                 optionButton.onClick.AddListener(() =>
                 {
-                    eventController.SelectOption(option);
+                    generalTooltipPaneUI?.HideTooltip();
                     HidePanel();
                     CleanupComponent();
-                    generalTooltipPaneUI?.HideTooltip();
+                    screen.choose?.Invoke(index);
                 });
             }
         }
@@ -94,6 +99,9 @@ namespace Game.UI.RunEncounters
             {
                 var optionButton = child.GetComponent<Button>();
                 optionButton.onClick.RemoveAllListeners();
+                // Hidden at once: Destroy waits for the end of the frame, and a step's options are spawned
+                // in the same frame, so the old buttons would still take layout room and gamepad focus.
+                child.gameObject.SetActive(false);
                 Destroy(child.gameObject);
             }
         }
