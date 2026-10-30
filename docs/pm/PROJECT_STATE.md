@@ -22,7 +22,7 @@ _Last updated: 2026-10-29 by the Orchestrator (backlog update)._
 - Closed specs are in `docs/archive/features/` (GDD update, data-driven step 3, item drops, items and abilities).
 
 ## Waiting on others / decisions
-- **Demo scope risk (2026-10-29):** the demo list grew to 14 items (BACKLOG "Before the Steam demo"), four of them waiting on art (characters, scenarios with companion animations, map decorations, boss shield, cutscene art), with about 5–7 weeks to a December release. Decide what is a must for the demo and what can follow in a demo update, or move the date.
+- **Demo scope risk (2026-10-29):** the demo list grew to 14 items (BACKLOG "Before the Steam demo"), and five depend on art (characters, scenarios with companion animations, map decorations, boss shield, cutscene art), with about 5–7 weeks to a December release. Decide what is a must for the demo and what can follow in a demo update, or move the date.
 - **Run structure across acts** (GDD open question 14). Blocks Act II planning, not the demo.
 - **Art team:** re-designed characters, scenarios and companion idle animations, map decorations, the boss shield, cutscene art, event art, the Plerian trader, the Favor icon, the 2 s Whirlwind animation, melee telegraph sprites.
 - **Designer:** Min Levels Beaten per item (all 0), Luck Scale 2 looks steep in `Report_LootOdds`, Move Speed and Frost per-point values look too small.
