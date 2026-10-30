@@ -1,6 +1,6 @@
 # Flames of Faith – Ten Page GDD
 
-_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-10-26. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
+_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-10-29. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
 
 ---
 
@@ -37,7 +37,7 @@ Short, readable runs where every wave is a small decision about **Grace**: fight
 
 | Release | Content | Status |
 |---|---|---|
-| **Steam demo** (December 2026) | The full Act I (Jesterwoods): 3 map variants, combat levels, shop, campfire, treasure, events, Holy Altar, Act I boss. Three classes, skill trees, Favors, run save. Keyboard/mouse and gamepad. | Act I is playable in tester builds; polish and balance in progress |
+| **Steam demo** (December 2026) | The full Act I (Jesterwoods): 3 map variants, combat levels, Plerian Shop, campfire, treasure, events, Wayside Shrine of Malien, Act I boss. Three classes, skill trees, Favors, run save. Keyboard/mouse and gamepad. | Act I is playable in tester builds; polish and balance in progress |
 | **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. Act intro and ending cutscenes. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Acts II–IV are designed at concept level (see [Enemies](#10--enemies)); bosses II–IV are **TBD** |
 | **Nice to have for 1.0** | Steam Cloud saves, Steam Deck verification, Chinese and Japanese localization, a Hard mode | Optional |
 | **After 1.0** | Xbox port; content updates. No DLC planned. | Not scheduled |
@@ -67,11 +67,11 @@ Since then, the **Years of the Miasma**: a dark mist breathed out by Dreko creat
 
 **Playable characters.** Three pilgrims set out together, the grandchildren of the three who were there when Ashemdrek fell. The player chooses which one fights; the other two walk beside them and speak in events. Each has an arc, told mostly through events: a start in Act I, a turning point in Acts II–III, a resolution in Act IV.
 
-- **Ayteel Alamoh – Warrior (Crusader of the Faith).** Granddaughter of Gabien and of **Dayla**, raised in Abidor among refugees by a family nobody would speak to. She carries Gabien's Steeldawn sword, and calls herself a Crusader of the Faith, a rank the Church never granted an Alamoh. She means to clear her family's name by finishing what Gabien failed. Along the road she learns why he broke the Seal, and that she is alive because he did.
+- **Ayteel Alamoh – Warrior (Crusader of the Faith).** Granddaughter of Gabien and of **Dayla**, raised in Abidor among refugees by a family nobody would speak to. She carries Gabien's Steeldawn sword, **Ashem Elwyn** ("Shining Tide"), and calls herself a Crusader of the Faith, a rank the Church never granted an Alamoh. She means to clear her family's name by finishing what Gabien failed. Along the road she learns why he broke the Seal, and that she is alive because he did.
 - **Faelin Vidal – Archer (Sentinel of Abidor).** Granddaughter of Orleone Vidal, Grand Crusader of Abidor and Gabien's mentor, recruited young by Abidor's **Sentinels**. Learning that some blame Orleone for Gabien's failure shook her beliefs; Ayteel, a true outcast who kept going anyway, gave her back her nerve. Her question: was Orleone's confession honor or betrayal?
 - **Werlem Feth – Augur (Shardless Church).** Grandson of Kyro Feth, whose findings founded **Runic Math**, the new science that lets humans cast without the Mastow elves are born with. Against the wishes of his academic parents he chose faith and became an Augur of the Shardless Church. Along the road he finds what Kyro spent his life calculating, and the one term his science could never write.
 
-**Enemies of the story:** Gracoy mercenaries, the Forsaken and the will-less **Awoken**, corrupted beasts, the soul-eating **Devourers**, and above all the **Drekos**, their Miasma creatures and the **echoes** of the great dead (Malizante, Pal'bor, Gabien).
+**Enemies of the story:** Gracoy mercenaries, the Forsaken and the will-less **Awoken**, corrupted beasts, the soul-eating **Devourers**, and above all the **Drekos**, their Miasma creatures and the **echoes** of the great dead (Malizante, Pal'bor, Gabien). In Act III the pilgrims face **Forsaken Daviro the Unholy**, a Forsaken from Gabien's time.
 
 ### Gameplay summary
 Each run is a pilgrimage through an act. The player moves across a branching **overworld map** of nodes, choosing a path toward the act's boss. Combat nodes are isometric arenas where waves of enemies spawn for a fixed time. The player auto-attacks (or attacks manually), uses a class special and a dash, collects experience tokens to level up, and picks stat upgrades. Between fights the player meets shops, campfires, treasure chests and random events. **Grace** rises and falls at the end of each wave, changing the player's damage and, below zero, making them Corrupted. Dying ends the run; the **Favors** earned are banked and spent on class unlocks and skill tree upgrades.
@@ -93,7 +93,7 @@ Main menu ──> Class select ──> Overworld map (Act N)
                                    │
                     ┌──────────────┼───────────────┬───────────────┐
                  Combat         Shop / Campfire   Treasure / Event   Boss
-                 (waves)        / Holy Altar                         │
+                 (waves)        / Wayside Shrine                     │
                     │                                                ├─> next act? (open question 14)
                     └────────── back to the map ◄────────────────────┘
 Death or final victory ──> Favors banked ──> Skill tree (main menu) ──> new run
@@ -105,11 +105,11 @@ Death or final victory ──> Favors banked ──> Skill tree (main menu) ─�
 3. **Overworld map.** The act's map is picked at random from its variants (Act I has 3) and generated from the run's seed. Nodes are revealed as you advance (fog of war); you can only move forward along edges, never back. Some optional paths appear only in some runs. Each combat node shows its **Taint Level**.
 4. **Node types:**
    - **Combat:** 2 waves of enemies (wave durations of 30–45 s in Act I).
-   - **Shop** (Elven Shop): buy items with coins.
+   - **Shop** (Plerian Shop): buy items with Golden Chronos from a travelling Plerian trader.
    - **Rest** (Campfire): gain Grace and health.
    - **Treasure:** a chest with one reward.
    - **Event** (Strange Encounter): a random story event with 2–3 options.
-   - **Holy Altar:** a fixed event focused on Grace.
+   - **Wayside Shrine of Malien:** a fixed event focused on Grace (a rest node).
    - **Boss:** the act's final node.
 5. **Inside a combat level:**
    1. A wave starts; enemies spawn from portals for the wave's duration.
@@ -138,7 +138,7 @@ Each class has a **kit** of six starting items: a weapon, an off-hand, an Emblem
 | **Character** | Ayteel Alamoh | Faelin Vidal | Werlem Feth |
 | **Role** | Melee bruiser | Ranged skirmisher | Magic caster, area damage |
 | **Weapon** | Steeldawn Sword | Steeldawn Bow | Akeros Graceful Scepter |
-| **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Centinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
+| **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Centinel, to be renamed Quiver of the Sentinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
 | **Emblem** (+1 main stat per level) | Warrior Emblem: Melee Damage | Archer Emblem: Ranged Damage | Augur Emblem: Magic Damage |
 | **Basic attack** | Glyph of Crusader Strike: a sword swing in an arc; may inflict Bleed | Glyph of Holy Shot: a blessed arrow; upgrades add a cone of extra arrows | Glyph of Fireball: a fireball; may inflict Fire; upgrades add an impact explosion |
 | **Special** | Glyph of Whirlwind: a 2 s spin that hits every enemy in it on contact and again at a regular interval (faster on upgrades); the Warrior can still be hurt while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
@@ -184,7 +184,7 @@ Grace is the core resource.
   - **Corrupted Damage:** damage taken from Corrupted enemies, their projectiles and explosions (capped per wave).
   - **The Corruptor:** at the end of every wave's timer a Corruptor appears. Spawning stops, the camera shows it, and a timer starts. The longer it lives, the more Corruption it gives. If it isn't killed in time it escapes through a portal and gives even more.
 - **Wave end:** `Grace = Grace + Grace Affinity − Corruption`. Then Corruption resets. The Wave Results window explains the change step by step.
-- **Other Grace sources:** the Campfire, the Holy Altar and some events, Grace pickups, and Retribution hits.
+- **Other Grace sources:** the Campfire, the Wayside Shrine and some events, Grace pickups, and Retribution hits.
 - **Corrupted enemies** have more health and deal more damage. Their chance to appear grows with the level's **Taint Level** and the player's Corrupted level.
 
 ### Mechanic: Favors and meta-progression
@@ -208,9 +208,9 @@ Four regions, one per act. Each act is a branching map of about 25 nodes ending 
 
 | Act | Region | Mood | Act mechanic | Boss | Status |
 |---|---|---|---|---|---|
-| I | **Jesterwoods** (Jester Forest) | Ordinary fantasy forest, lonely and a little gloomy | Grace and the Corruptor (the core loop) | Taio'Sandir | Built: 3 map variants. Levels include Jesterwood Glade, Jesterwood Cliffs, Heart of the Forest, Perkfandor Outskirts, Perkfandor Ruins, Moribairo Fields, Argent Coast Ruins, Seared Ruins and Sinfa Hillside, plus Campfire, Elven Shop, Treasure, Strange Encounter, Holy Altar and the Altar of Malien (boss) |
-| II | **Uf'Faraclario Wastes** | Snow, cold, desolate | Frozen (frost on the player) and Frozen Enemies | The Ice Bull | Designed (enemies), boss mechanics **TBD** |
-| III | **Sinfa Mountains** | Mountainous, rocky, desolate, cliffs | Pools of Corruption | The Forsaken | Designed (enemies), boss mechanics **TBD** |
+| I | **Jesterwoods** | Ordinary fantasy forest, lonely and a little gloomy | Grace and the Corruptor (the core loop) | Taio'Sandir | Built: 3 map variants. Levels include Jesterwood Glade, Jesterwood Cliffs, Heart of the Forest, Perkfandor Outskirts, Perkfandor Ruins, Moribairo Fields, Argent Coast Ruins, Seared Ruins and Sinfa Hillside, plus Campfire, Plerian Shop, Treasure, Strange Encounter, Wayside Shrine of Malien and the Altar of Malien (boss) |
+| II | **Fara Uf'Clario** | Snow, cold, desolate | Frozen (frost on the player) and Frozen Enemies | The Ice Bull | Designed (enemies), boss mechanics **TBD** |
+| III | **Sinfa Mountains** | Mountainous, rocky, desolate, cliffs | Pools of Corruption | Forsaken Daviro the Unholy | Designed (enemies), boss mechanics **TBD** |
 | IV | **Ruins of Ashemdrek** | Urban, destroyed, ruins, dark | Pools of Corruption, Will Break and Darkness | **TBD** | Designed (enemies), boss **TBD** |
 
 Each act adds one new mechanic on top of the previous ones, so the core loop stays the same while the pressure grows. The act mechanics are described with the act's enemies in [Enemies](#10--enemies).
@@ -289,10 +289,18 @@ Inflicted by weapons, Glyphs and items; all scale with **Mastow Affinity**.
 | **Chaos** _(planned for 1.0)_ | On damage or death, the target may explode, damaging nearby enemies and spreading Chaos to them; enemies already affected also explode |
 | **Holy** _(planned for 1.0)_ | Chance to stun the target briefly; when it triggers, the player heals a little and gains 1 Grace |
 
-From Act II, some enemies also inflict **Frost on the player** (see [Act II](#act-ii-ufaraclario-wastes)).
+From Act II, some enemies also inflict **Frost on the player** (see [Act II](#act-ii-fara-ufclario)).
 
 ### Run encounters (events)
-Every event has 2–3 options, and each option costs something and gives something (no free "Ignore"). Outcomes use Luck-biased rolls. The current random pool, by the titles players see: **The Vega Casket**, **Raiders from Gracoy**, **The Weeping Chest**, **The Faraclarian Clan** and **Gift of the House of Stars**; plus the **Forgotten Altar of Malien** (the Holy Altar node). Events can show art, but none has art yet. A rework is planned: vaguer option hints, narrated results, more stats as modifiers, multi-step events and class-specific options (see `docs/features/run-encounter-events.md`).
+Every event has 2–3 options, and each option costs something and gives something (no free "Ignore"). **In the current build:** outcomes use Luck-biased rolls, and the random pool is **The Vega Casket**, **Raiders from Gracoy**, **The Weeping Chest**, **The Faraclarian Clan** and **Gift of the House of Stars**, plus the **Wayside Shrine of Malien** node. Events can show art, but none has art yet.
+
+**Rework (written 2026-10-26, implementation pending; content in `docs/features/run-encounter-events.md`, "Narrative"):**
+- **Options** show an in-world hint instead of numbers, and results are narrated.
+- **Outcomes** can be stat checks (Easy / Even / Hard plus a stat such as the class's Key stat, Armor, Move Speed or current Grace).
+- **Steps:** events can have follow-up steps, up to 3 deep.
+- **Class content:** each pilgrim gets class lines, plus a few class-only options.
+- **Pure gains** (options with no cost) are earned only by answering a lore question correctly.
+- **The pool** grows to 9 random events: the 5 above plus **A Hut in the Jesterwoods** (Liah, Gabien's sister; once per Pilgrimage), **Laughter in the Leaves** (an Aylinean), **The Star Reader** and **The Last Torch**.
 
 ---
 
@@ -310,11 +318,11 @@ Enemy damage is sized against the *expected* player at each point of the run, us
 | **Flame Shooter** | Floats after the player and shoots fireballs while moving |
 | **Dreko Eye** | Walks, stops and fires a three-way spread |
 | **Light Devourer** | Heavy melee attacker with high health |
-| **Corruptor (Act I)** | Always Corrupted; appears at every wave end, flees from the player and shoots; escapes through a portal if not killed in time. Its name is **TBD** |
+| **Dreko Spawn (Corruptor, Act I)** | Always Corrupted; appears at every wave end, flees from the player and shoots; escapes through a portal if not killed in time. Working name **Dreko Spawn**, a creature of the Miasma (a better name may come later) |
 
 _Acts II–IV below are concept designs. "Damage" and "health" are relative (low / medium / high) and will be set as damage tiers and health values in the balance sheet._
 
-### Act II: Uf'Faraclario Wastes
+### Act II: Fara Uf'Clario
 
 **New mechanics**
 - **Frozen** _(optional)_: Frost now hits the player too. After **3 frost hits** the player is **Frozen** for a few seconds: unable to move or attack, and enemy hits knock them back further, sliding like a block of ice.
@@ -324,11 +332,11 @@ _Acts II–IV below are concept designs. "Damage" and "health" are relative (low
 |---|---|---|---|---|
 | **Frozen Slime** | Like the Slime Chaser, but now and then shoots ice shards at the player | High (projectiles), low (contact) | Low | Inflicts Frost |
 | **Ice Sprite** | Small icy creature that shoots bursts of many weak projectiles | Low | Low | Inflicts Frost |
-| **Awoken** | A soulless, will-less semi-human that casts big fire projectiles from long range | Very high (projectiles) | Medium | A fire caster in the frozen act |
+| **Awoken** | A Forsaken who rose from a night in the grave, will-less and deathless; casts big fire projectiles from long range | Very high (projectiles) | Medium | A fire caster in the frozen act |
 | **Ice Golem** | Big, slow and heavy; contact damage only | High | High | Inflicts Frost |
 | **Frost Ghoul** | Undead that chases the player and attacks with its claws | Medium | Medium | Fast. Inflicts Frost |
 | **Death Witch** | Flies in a circle around the player and casts a slow, clearly telegraphed beam at them | Very high (beam), low (contact) | Low | Fast |
-| **Malizante (Corruptor)** | A winged Dreko that appears near the player for a few seconds, always within the player's line of sight, fires an ice projectile and vanishes | – | – | Replaces the flee-and-shoot pattern of the Act I Corruptor |
+| **Echo of Malizante (Corruptor)** | The lingering echo of the Sea Witch, the winged Dreko who led the invasion; it appears near the player for a few seconds, always within the player's line of sight, fires an ice projectile and vanishes | – | – | Replaces the flee-and-shoot pattern of the Act I Corruptor |
 
 ### Act III: Sinfa Mountains
 
@@ -345,8 +353,8 @@ _Acts II–IV below are concept designs. "Damage" and "health" are relative (low
 | **Crawler** | A four-armed creature that crawls slowly and now and then launches a homing projectile | TBD | TBD | |
 | **Atractor** | Disguised as a flower; when the player gets close it becomes a huge worm that spits bursts of acid | High | High | Can't move |
 | **Incinerator** | Fiery humanoid that shoots a flame projectile that splits into smaller ones; bursts into flames around it when it dies | High | Medium | |
-| **Awoken Zealot** | A fallen, corrupted Crusader that charges at the player and heals nearby enemies | Medium | High | Healer: a priority target |
-| **Pal'bor (Corruptor)** | A creature wrapped in dark flames that shoots bursts of projectiles | – | – | Becomes immune while standing in a Pool of Corruption |
+| **Awoken Zealot** | A fallen Crusader who renounced Grace and rose as one of the Awoken; charges at the player and heals nearby enemies | Medium | High | Healer: a priority target |
+| **Echo of Pal'bor (Corruptor)** | The echo of the oldest Dreko, who once led the Forsaken: a shape wrapped in dark flames that shoots bursts of projectiles | – | – | Becomes immune while standing in a Pool of Corruption |
 
 ### Act IV: Ruins of Ashemdrek
 
@@ -364,12 +372,12 @@ _Acts II–IV below are concept designs. "Damage" and "health" are relative (low
 | **Darkness Shooter** | Like the Flame Shooter, but fires very fast in random directions | Medium | Low | Only spawns from the Amalgamated Meat |
 | **Cursed Sword** | A sword that spins toward the player. It can only be killed after it enters a Pool of Corruption, which turns it into a Fallen Defender | TBD | TBD | Puzzle enemy: lure it into a pool |
 | **Revenant** | A powerful Dreko soldier that throws spears while chasing the player | High | Medium | Fast |
-| **Echo of Gabien (Corruptor)** | A dark echo of Gabien's soul that lingers in the ruins. Shoots projectiles and flees from the player | – | – | A story beat for Ayteel |
+| **Echo of Gabien (Corruptor)** | The burnt echo of Gabien's Seared Soul, bound to the ruins where he fell and twisted by the darkness he let loose. Shoots projectiles and flees from the player | – | – | A story beat for Ayteel |
 
 ### Bosses
 
 #### Act I: Taio'Sandir
-**Lore.** Its original name is unknown; Taio'Sandir means "impious" in the Forgotten Language. It is an ancient Dreko that came during the Dark Age, like all of them, and took the body of a soldier. Over some 6,000 years that body changed and mutated beyond recognition into today's monstrosity. Tales from the Dark Age say its infernal screams drew corrupted creatures and vermin, and its attacks shattered armor and even small buildings. Worst of all, despite its size it could vanish into the mist that rose in its presence and strike soldiers by surprise.
+**Lore.** Its original name is unknown; Taio'Sandir means "impious" in the Forgotten Language. It is an ancient Dreko that came during the Dark Age, like all of them, and took the body of a soldier. Over thousands of years that body changed and mutated beyond recognition into today's monstrosity. Tales from the Dark Age say its infernal screams drew corrupted creatures and vermin, and its attacks shattered armor and even small buildings. Worst of all, despite its size it could vanish into the mist that rose in its presence and strike soldiers by surprise.
 
 **Phase 1: Light the altar.** The player stands at the Altar of Malien while its Flame of Faith fills over time (about 100 s). The boss can't be damaged.
 - Enemies keep spawning from portals.
@@ -389,13 +397,15 @@ The boss is Corrupted by default (more damage). Killing it ends the act and gran
 #### Act II: The Ice Bull
 Mechanics **TBD**.
 
-#### Act III: The Forsaken
+#### Act III: Forsaken Daviro the Unholy
+**Lore.** Daviro Piktuon was secretary to the governor of the Argent Coast, Gabien's home town. Ruined and about to end his life, he was taken in by the Forsaken in Gabien's time. Sixty years later he waits in the Sinfa Mountains. How he has lived so long is **TBD** (see [`Lore.md`](Lore.md)).
+
 Mechanics **TBD**.
 
 #### Act IV: TBD
 Name and mechanics **TBD**.
 
-_Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase while the Altar of Malien fills, then the real fight). Each boss would use its act's mechanic, for example the Ice Bull freezing the player, the Forsaken spawning Pools of Corruption, and the Act IV boss using Will Break and Darkness.
+_Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase while the Altar of Malien fills, then the real fight). Each boss would use its act's mechanic, for example the Ice Bull freezing the player, Daviro spawning Pools of Corruption, and the Act IV boss using Will Break and Darkness.
 
 ---
 
@@ -425,8 +435,8 @@ _Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase whi
 
 _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pilgrims, Acts II–IV mechanics and enemies, Chaos and Holy (to implement), cutscene format, Steam features, difficulty, localization and DLC._
 
-1. **Bosses:** the Ice Bull's and the Forsaken's mechanics; the Act IV boss's name and mechanics.
-2. **Corruptor names:** Act I is "Dreko Spawn" for now (a better name may come later); Acts II–IV are the **Echo of Malizante**, the **Echo of Pal'bor** and the **Echo of Gabien** (decided 2026-10-26). The Act III boss "The Forsaken" will be renamed, since the Forsaken are now the Dreko cultists.
+1. **Bosses:** the Ice Bull's and Forsaken Daviro the Unholy's mechanics; the Act IV boss's name and mechanics.
+2. **Corruptor names:** Act I is "Dreko Spawn" for now (a better name may come later); Acts II–IV are the **Echo of Malizante**, the **Echo of Pal'bor** and the **Echo of Gabien** (decided 2026-10-26). The Act III boss is **Forsaken Daviro the Unholy** (decided 2026-10-29).
 3. **Frozen Enemies (Act II):** is breaking the ice optional, and does it reward anything?
 4. **Will Break (Act IV):** how it stacks, how it carries over between levels, and how the player clears it.
 5. **Act mechanics carrying over:** do Frozen and the Frozen Enemies continue into Acts III–IV? (Pools of Corruption do continue into Act IV.)
@@ -437,14 +447,7 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 10. **Hard mode:** whether to make it, and what it changes.
 11. **Epic and Legendary items:** none exist yet.
 12. **Localization extras:** whether Chinese and Japanese make it into 1.0.
-13. **Lore:** the timeline and the other contradictions were settled on 2026-10-26 (see [`Lore.md`](Lore.md) and `docs/features/run-encounter-events.md`, "Lore decisions"). Still open:
-    - the name of Gabien's sword, which Ayteel carries;
-    - whether the Faraclarian Faun Chief is of Alamoh blood;
-    - **the rest of this document uses outdated lore names**, to align in a later pass:
-      - §4 and §7: Elven Shop → **Plerian Shop**, and Holy Altar → **Wayside Shrine of Malien**;
-      - §7 and §10: "Uf'Faraclario Wastes" → **Fara Uf'Clario**, and "Jester Forest" → **Jesterwoods**;
-      - §9: the event list (now 9 random events plus the Wayside Shrine);
-      - §10: Malizante → **Echo of Malizante**, Pal'bor → **Echo of Pal'bor**, and Taio'Sandir's "some 6,000 years" → "thousands of years".
+13. **Lore:** the timeline and the other contradictions were settled on 2026-10-26 and 2026-10-29 (see [`Lore.md`](Lore.md) and `docs/features/run-encounter-events.md`, "Lore decisions"). Gabien's sword is **Ashem Elwyn** ("Shining Tide"), and the Faraclarian Faun Chief is not of Alamoh blood. Still open: how Daviro has lived sixty years past Gabien's time.
 14. **Run structure across acts (decision needed):** two options.
     - **One run through all acts in a row:** a run goes Act I → IV without stopping, and death means starting over from Act I. Builds grow across the whole game and the ending is earned in one sitting, but runs get long (4 acts) and early acts get replayed a lot.
     - **One act per run:** after beating an act, the player goes back to the main menu and chooses to replay a cleared act or start the next one. Runs stay short and later acts are reachable without replaying Act I. Open points with this option: what a new act starts with (a fresh level 1 kit or a scaled starting point), how difficulty is set, and how Favors are paced.

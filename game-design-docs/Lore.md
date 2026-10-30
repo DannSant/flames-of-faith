@@ -88,7 +88,7 @@ Dates are approximate. The game uses age names, rarely years. Years count within
   - **Faith:** they worship Malien above all. They call Grace **Omiara** ("miracle") and value Malien's gift of **Honor** above everything.
   - **Orders:** the **Golden Spears** (warrior priests), the **Crystal Maidens** (scouts, women only), the **Colossal Soldiers** (shield and maul, men only) and the **Winter Shamans** (Grace mixed with the elements). The **Honor of Malien** rank stands one step below the **Faun Chief**.
   - **Forgers:** about one is born each generation. A Forger is a Seared Soul, and only a Forger can forge **Steeldawn**, which they call Malien's Steel.
-  - **The Alamohs:** the Alamoh family is Faraclarian. Gabien's grandfather Rondo left the north, while his eldest son stayed.
+  - **The Alamohs:** the Alamoh family is Faraclarian. Gabien's grandfather Rondo left the north, while his eldest son stayed, and that line still lives among the clans. The **Faun Chief is not** of Alamoh blood (owner, 2026-10-29).
   - **Since the fall:** their clans are scattered, and their Flame of Faith is dark.
 
 ### Elves
@@ -112,7 +112,7 @@ Dates are approximate. The game uses age names, rarely years. Years count within
 - **Drekos** ("dark beings" in the Forgotten Language) came from the stars, riding Gargalon's passage like parasites.
   - They give off Corruption. They can take a mortal shape, and they can possess a body until the person inside is gone.
   - In the game: the Dreko Eyes, the winged and armored Drekos of later acts, Taio'Sandir.
-- **The Forsaken:** humans (and the rare dwarf) who renounced their Grace for a Dreko's promises. They are cultists who can be corrupted, and who use dark magic. Their leader bears the title **Vinek Dresh**. _(Secret: in Gabien's time it was Pal'bor, in a stolen body.)_
+- **The Forsaken:** humans (and the rare dwarf) who renounced their Grace for a Dreko's promises. They are cultists who can be corrupted, and who use dark magic. Their leader bears the title **Vinek Dresh**. **Daviro Piktuon**, a ruined official of the Argent Coast whom they saved from despair in Gabien's time, is the Act III boss, **Forsaken Daviro the Unholy**. _(Secret: in Gabien's time it was Pal'bor, in a stolen body.)_
 - **The Awoken:** Forsaken buried for a night. Those who live to see the dawn rise without will, with dark power and no death.
 - **Devourers:** monsters that curse people into becoming **Soulless**: they devour the soul. People believe stagnant ley energy breeds them, because they gather around Ley Pools and magic users. _(Secret: the House of Stars makes them, in its old labs in the Sinfa Mountains, from a secret Enith gave it. Hint at most, in Act III.)_ A Devourer is what left Liah Alamoh Soulless.
 - **Light Devourers:** ogres twisted by Corruption in the Dark Age, blind beasts hungry for any light.
@@ -128,7 +128,7 @@ The Pilgrimage lands on the **Argent Coast**, crosses Ashemdrek's lost lands, go
 |---|---|---|---|---|
 | I | **The Jesterwoods** | Ashemdrek's great northeastern forest (in the Forgotten Language, "Green Forest"). Aylinean country, with old altars and the Seared Ruins. Also Perkfandor (a walled border city that fell in the invasion), Moribairo (a mining region under Moribairo Peak), the Argent Coast (a fishing town on the Fauner Sea, Gabien's home) and the Sinfa hillside | **Dreko Spawn** (working name): a creature of the Miasma | **Taio'Sandir** ("impious"), an ancient Dreko that took a soldier's body in the Dark Age and has mutated over thousands of years. It vanishes into the mist it raises |
 | II | **Fara Uf'Clario** | The frozen north, home of the scattered Faraclarian clans. One of the last two Flames burned here in Gabien's time | **Echo of Malizante**: the Sea Witch's lingering echo, which appears, strikes and fades | The Ice Bull (TBD) |
-| III | **The Sinfa Mountains** | The range between Ashemdrek and Fustina, including the Shadowland, where the House of Stars once ran its experiments. Its strange hybrid beasts, such as the Jumper (a leopard with elven ears), are **Devourers** the House of Stars made | **Echo of Pal'bor**: the oldest Dreko, who once led the Forsaken and was stopped by Gabien | Renamed, TBD (was "The Forsaken") |
+| III | **The Sinfa Mountains** | The range between Ashemdrek and Fustina, including the Shadowland, where the House of Stars once ran its experiments. Its strange hybrid beasts, such as the Jumper (a leopard with elven ears), are **Devourers** the House of Stars made | **Echo of Pal'bor**: the oldest Dreko, who once led the Forsaken and was stopped by Gabien | **Forsaken Daviro the Unholy**: Daviro Piktuon, once secretary to the governor of the Argent Coast, taken in by the Forsaken in Gabien's time. How he has lived sixty years since is TBD (Awoken?) |
 | IV | **The Ruins of Ashemdrek** | The fallen capital, once the White Citadel, and the altar where Malizante burned | **Echo of Gabien**: the burnt spirit of a Seared Soul, bound to where he fell and twisted by the darkness he let loose | TBD |
 
 **The Altars of Malien** are the great altars, one guarding each region. A boss waits at each one, and relighting it ends the act. The **Wayside Shrines of Malien** are small roadside shrines built by old Pilgrimages, which still hold a little warmth (the Holy Altar node).
@@ -168,7 +168,7 @@ _The spine of all three arcs. What the world believes and what really happened a
 The three set out together, and the chosen pilgrim is the one who fights. The other two walk beside them and can speak in events. Each arc has a **start** (shown in Act I, so the demo has it), a **turning point** (Acts II–III) and a **resolution** (Act IV and the ending). _The turning points and resolutions are a proposal for the owner to confirm._
 
 ### Ayteel Alamoh: Warrior (Crusader of the Faith)
-- **Who:** granddaughter of Gabien and Dayla, raised in Abidor by a family nobody would talk to. She carries **Gabien's Steeldawn Sword** (it needs a name; TBD) and, hidden, the cracked Seal. Her rank is self-declared, because the Church would never grant an Alamoh the title.
+- **Who:** granddaughter of Gabien and Dayla, raised in Abidor by a family nobody would talk to. She carries Gabien's Steeldawn sword, **Ashem Elwyn** ("Shining Tide"), and, hidden, the cracked Seal. Her rank is self-declared, because the Church would never grant an Alamoh the title.
 - **Start:** she believes her grandfather was slandered, and she means to clear the Alamoh name by finishing the work he failed. In the Jesterwoods she walks his country: the Argent Coast, the Seared Ruins, people who still spit at the name.
 - **Turning point:** she learns *why* he broke the Seal, for Liah and for Dayla, and so, in the end, for her: without the Seal, Dayla would have died before bearing Ayteel's parent. The accusation is true, and she is alive because of it. Liah, if they find her, is the one who can tell her.
 - **Resolution:** she stops trying to clear the name with arguments. At the ruins of Ashemdrek she faces the **Echo of Gabien**, lays him to rest, and relights the altar he couldn't save. The name is cleared by deed, or not at all, and she is at peace with that.
@@ -206,22 +206,23 @@ The event content itself is in `docs/features/run-encounter-events.md`, "Narrati
 
 ## 8. In-game texts that contradict this bible
 
-These live in assets, so the implementation session fixes them (asset names are keys: renaming an item is a Unity rename, and its `effectID` doesn't change).
+These live in assets (asset names are keys: renaming an item is a Unity rename, and its `effectID` doesn't change). **The owner made most of them on 2026-10-29**; the table shows what is left.
 
-| Where | Now | Fix |
-|---|---|---|
-| Item **Quiver of the Centinel** (+1..+3) | name and "Centinels of the Faraclarian tribe" | **Quiver of the Sentinel**, "Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed." |
-| Item **Archer Emblem** (+1..+3) | "Abidor Centinels" | "Abidor Sentinels" |
-| Items **Faraclarian Quiver**, **Tribesmen Necklace** | "Fara Uf'clario" | "Fara Uf'Clario" |
-| Item **Cursed Coin** | "a Dawner, men who sell their soul…" | "one of the Awoken: Forsaken who rose from a night in the grave with dark power and no will" |
-| Item **Sacred Writtings** | "Crescent Darkness Empire" | "the Rising Darkness" (and the name's typo: "Sacred Writings") |
-| Item **Ring Of Vitality** | "Paladins of the Order of Light" | "Paladins of the Illuminated Order" |
-| Item **Steeldawn Bow** (+1..+3) | "created with bones and Steeldawn by the tribe of the Faraclarians" | "A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel." **Required:** the Faraclarian event's lore question depends on it |
-| Item **Steeldawn Sword** (+1..+3) | "created by a Seared Soul" | optional: "forged by Gabien Alamoh, a Seared Soul…" |
-| Level names | "Jesterwood clifs", "Heart of the forest" | "Jesterwood Cliffs", "Heart of the Forest" |
-| Shop node | "Elven Shop" | **Plerian Shop** (a travelling Plerian trader; the shopkeeper's art is the art team's) |
-| Holy Altar node and event | "Holy Altar", "Forgotten Altar of Malien" | **Wayside Shrine of Malien** |
-| Act II map titles (when built) | "Uf'Faraclario Wastes" | "Fara Uf'Clario" |
+| Where | Was | Now / fix | Status |
+|---|---|---|---|
+| Item **Quiver of the Centinel** (+1..+3) | "Centinels of the Faraclarian tribe" | "Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed" | Done (owner). **Left:** rename the item to **Quiver of the Sentinel** |
+| Item **Archer Emblem** (+1..+3) | "Abidor Centinels" | "Abidor Sentinels" | Done (owner) |
+| Items **Faraclarian Quiver**, **Tribesmen Necklace** | "Fara Uf'clario" | "Fara Uf'Clario" | Done (owner) |
+| Item **Cursed Coin** | "a Dawner, men who sell their soul…" | "one of the Awoken: Forsaken who rose from a night in the grave with dark power and no will" | Done (owner) |
+| Item **Sacred Writings** (was "Sacred Writtings") | "Crescent Darkness Empire" | "the Rising Darkness Empire", item renamed | Done (owner) |
+| Item **Ring Of Vitality** | "Paladins of the Order of Light" | "Paladins of the Illuminated Order" | Done (owner) |
+| Item **Steeldawn Bow** (+1..+3) | "created with bones and Steeldawn by the tribe of the Faraclarians" | "A bow of bone and Steeldawn, which its Faraclarian makers call Malien's Steel." The Faraclarian event's lore question depends on it | Done (owner) |
+| Item **Steeldawn Sword** (+1..+3) | "created by a Seared Soul" | "forged by Gabien Alamoh, a Seared Soul…" | Done (owner). _Optional:_ name it in the text, "Ashem Elwyn, the Shining Tide" |
+| Level names | "Jesterwood clifs", "Heart of the forest" | "Jesterwood Cliffs", "Heart of the Forest" | Done (owner) |
+| Shop node | "Elven Shop" | **Plerian Shop** (a travelling Plerian trader; the shopkeeper's art is the art team's) | Done (owner) |
+| Holy Altar node | "Holy Altar" | **Wayside Shrine of Malien** | Done (owner) |
+| Holy Altar event title (`CorruptionCleanEncounter`) | "Forgotten Altar of Malien" | **Wayside Shrine of Malien** | **Left:** the implementation session does it with the event rework |
+| Act II map titles (when built) | "Uf'Faraclario Wastes" | "Fara Uf'Clario" | Later |
 
 ---
 
@@ -237,6 +238,7 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Alam | Alam | Leader of the Golden Riders in the Dark Age; the Alamohs descend from him |
 | Altar of Malien | Altar de Malien | A great altar holding a Flame of Faith; one per region, each act's goal |
 | Argent Coast | Costa Argenta | Fishing town east of the Jesterwoods; Gabien's home |
+| Ashem Elwyn | – | "Shining Tide": Gabien's Steeldawn sword, which Ayteel carries |
 | Ashemdrek | Ashemdrek | Fallen human kingdom in the middle of Sialant; also its capital (once the White Citadel) |
 | Augur | Augur | Healer-priest of the White / Shardless Church; some see visions |
 | Awoken | Amanecidos | Forsaken who rose from a night in the grave, willless and deathless |
@@ -249,6 +251,7 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Crisalia | Crisalia | Blue star-liquid that eases magic |
 | Crusader of the Faith | Cruzado de la Fe | Warrior rank created by the Flame Pilgrims; Ayteel's is self-declared |
 | Dayla Rohairo | Dayla Rohairo | Gabien's love, Ayteel's grandmother; from Abidor; a human born with Mastow; dead |
+| Daviro the Unholy | Daviro Piktuon | Forsaken from Gabien's time; Act III boss |
 | Devourers | Devoradores | Monsters that curse people into becoming Soulless; believed to come from stagnant ley energy |
 | Disgraced | Desgraciado | Someone born without Grace; shunned |
 | Divine Stars | Estrellas Divinas | Abidor's elite Grace warriors |

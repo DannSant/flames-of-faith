@@ -174,7 +174,7 @@ _Written by the narrative session with the owner, 2026-10-26. The lore behind ev
   - **Failure:** Health lost M, Golden Chronos lost S. "You flinch. The clan laughs, then fines the liar as their law demands: {chronos} Golden Chronos, and the burn, {health} health."
 - _[Ayteel]_ **Show them Gabien's sword.** *The north knows its steel. It will know who forged this one.*
   - Go to **Step: The Steel**.
-  - **Step: The Steel.** "The Golden Spear takes the blade in both hands, and the whole clan goes quiet. 'Gabien's work. The southern Alamoh.' He looks at you again, harder. 'Rondo's eldest stayed in the snow. Our Faun Chief carries his blood. If you are kin, tell me: what do we call this steel?'"
+  - **Step: The Steel.** "The Golden Spear takes the blade in both hands, and the whole clan goes quiet. 'Ashem Elwyn. The Shining Tide. Gabien's work, the southern Alamoh.' He looks at you again, harder. 'Rondo's eldest stayed in the snow, and his line still rides with the clans. If you are kin, tell me: what do we call this steel?'"
     - **"Malien's Steel."** *What the Faraclarians who made Faelin's bow call it.* (Lore-correct: the Steeldawn Bow's description says so; see `Lore.md` §8.)
       - Go to **Step: Kin**.
     - **"Steeldawn."** *Every smith in the south knows the word.*
@@ -196,7 +196,6 @@ _Written by the narrative session with the owner, 2026-10-26. The lore behind ev
   - The Alamohs are Faraclarian by blood (Ayteel).
   - Ayteel may be a Seared Soul; it stays open.
   - The north's altar sets up Act II.
-  - _"Our Faun Chief carries his blood" is a proposal for the owner._
 
 #### 5. Gift of the House of Stars (`houseOfStars`, reworked)
 **Intro:** Elves in cloaks that shimmer like the night sky bar the road: the House of Stars, whom every other elven house distrusts. Their lady holds out a small box wrapped in silver thread. "A gift, traveller. From the stars to you." She studies you the way a jeweller studies a stone. Her smile doesn't reach her eyes.
@@ -408,8 +407,10 @@ _Questions 1–5 were answered by the owner on 2026-10-26; the answers are in "N
 4. ~~Numbers~~ None before choosing; the result narrates them, and a compact summary line follows.
 5. ~~Event count~~ The 5 events and the Shrine reworked, plus 4 new ones: Liah, the Aylinean, the Star Reader, the Last Torch.
 7. ~~Pure-gain options~~ Earned only through a lore-correct answer, in a follow-up step; the Shrine is the exception (owner, 2026-10-26).
-8. **Open (for the owner):** in the Faraclarian event, is the Faun Chief of Ayteel's Alamoh blood (Rondo's eldest son's line)?
-9. **Open:** the name of Gabien's sword (Ayteel's Steeldawn Sword).
+8. ~~Faun Chief's blood~~ The Faun Chief is **not** of Alamoh blood; Rondo's eldest son's line lives among the clans (owner, 2026-10-29).
+9. ~~Gabien's sword~~ **Ashem Elwyn**, "Shining Tide" (owner, 2026-10-29). The Faraclarian event names it.
+10. ~~Aylinean checks~~ Laughter in the Leaves stays Luck-only, as written (owner, 2026-10-29).
+11. **Open:** how Forsaken Daviro the Unholy (Act III boss) has lived sixty years past Gabien's time. It doesn't affect Act I.
 6. ~~Lore contradictions to settle first~~ **Settled with the owner on 2026-10-26**, see "Lore decisions" below. The story bible is `game-design-docs/Lore.md`.
 
 ### Lore decisions (narrative session, 2026-10-26)
@@ -453,7 +454,7 @@ The owner's novels (*Aceros del Alba*, "Steeldawn") and notes in `lore-docs/` (g
    - **The Forsaken** are cultists who renounced their Grace.
    - **The Awoken** are Forsaken who spent a night in a grave and rose at dawn without their will, with dark power and immortality. This replaces "Dawner".
 7. **Protagonist:** the three pilgrims travel together, and the chosen one fights. Events can let the others speak.
-8. **Corruptors:** Act I **Dreko Spawn** (a working name), Act II **Echo of Malizante**, Act III **Echo of Pal'bor** (the oldest Dreko, who led the Forsaken and was stopped by Gabien), Act IV **Echo of Gabien**. The Act III boss "The Forsaken" will be renamed (TBD).
+8. **Corruptors:** Act I **Dreko Spawn** (a working name), Act II **Echo of Malizante**, Act III **Echo of Pal'bor** (the oldest Dreko, who led the Forsaken and was stopped by Gabien), Act IV **Echo of Gabien**. The Act III boss is **Forsaken Daviro the Unholy** (Daviro Piktuon, a Forsaken from Gabien's time; owner, 2026-10-29).
 9. **Liah** may still be alive, and very old, and the party can meet her. **Dayla is dead**: she kept the cracked, powerless Seal.
 
 ### Lore integrity issues found by the Orchestrator (2026-10-26)
