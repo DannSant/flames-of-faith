@@ -3,7 +3,7 @@
 - **Status:** done
 - **Branch:** `develop` (docs only)
 - **Owner session:** gdd-update
-- **Related docs:** `CLAUDE.md` (source of truth for mechanics), `game-design-docs/TenPageGDD.md`, `game-design-docs/OnePageGDD.md`, `Assets/Docs/corruption-rework.md`
+- **Related docs:** `CLAUDE.md` (source of truth for mechanics), `game-design-docs/TenPageGDD.md`, `game-design-docs/OnePageGDD.md`, `docs/archive/design/corruption-rework.md`
 
 ## Goal
 Bring the Ten Page GDD up to date: English only, mechanics that match the game as built, and a complete document (all 4 acts, scope and goals) that new team members (designer, artists) can read instead of the code.

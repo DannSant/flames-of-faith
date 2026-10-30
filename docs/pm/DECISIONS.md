@@ -2,6 +2,17 @@
 
 Newest first. Format: date, decision, reason.
 
+## 2026-10-29
+- **Lore canon:** `game-design-docs/Lore.md` is the story bible and its glossary sets every name. The owner's novels and notes in `lore-docs/` (gitignored, Spanish) are reference only; where they differ, `Lore.md` wins. The lore decisions themselves are recorded in `docs/features/run-encounter-events.md`, "Lore decisions".
+- **Lore choices from the narrative session:**
+  - The game is set about **60 years after Gabien** (`lore-docs/Timeline.docx` said 150).
+  - The English for the Amanecidos is **"Awoken"** (not "Dawner").
+  - Renames: Shop → **Plerian Shop**, Holy Altar → **Wayside Shrine of Malien**, Centinel → **Sentinel**.
+  - Act III boss: **Forsaken Daviro the Unholy**. Corruptors: Dreko Spawn (Act I, working name), Echo of Malizante, Echo of Pal'bor, Echo of Gabien.
+- **Event design rule: pure gains are earned.** A first-step option always risks a cost; a pure gain only appears in a step reached by a lore-correct answer. The Wayside Shrine's "Kneel and pray" is the one exception.
+- **Event scope for the demo:** the 5 events and the Shrine reworked, plus 4 new ones (Liah, the Aylinean, the Star Reader, the Last Torch).
+- **Docs cleanup:** closed specs moved to `docs/archive/features/`; the old handoffs, the corruption rework spec, the data-driven analysis and the 2026-10-09 tester feedback moved from `Assets/Docs/` to `docs/archive/` (out of the Unity project). The `.docx` GDDs were deleted (the Markdown versions replace them; git history keeps them). Applied handoffs are deleted once their content is in the spec and `docs/pm/`.
+
 ## 2026-10-26
 - **Narrative before systems for the events rework.** A design session writes the lore bible (`game-design-docs/Lore.md`) and the event content into the Narrative section of `docs/features/run-encounter-events.md`; the implementation session builds the systems from it afterwards. Reason: the rework's goal is lore delivery, and the lore has contradictions (listed in the spec) that would leak into event text. A design session may edit `Lore.md`, the GDD's story sections and that spec's Narrative section, on `develop`.
 - **`OnePageGDD.md` marked outdated** rather than deleted; rewrite is in the backlog. The Ten Page GDD is the current design.
@@ -26,7 +37,7 @@ Newest first. Format: date, decision, reason.
 - **Game design docs converted from `.docx` to Markdown** in `game-design-docs/` (`OnePageGDD.md`, `TenPageGDD.md`). The `.docx` files were kept. They are in Spanish, and parts predate the Corruption rework (e.g. Grace drains per wave, Corruption per level), so `CLAUDE.md` is the source of truth where they disagree.
 
 ## Earlier (from `CLAUDE.md` and handoffs, for reference)
-- 2026-10: Balance data goes through Google Sheets + CSV importer, with a test-build override. Why: designer works without Unity. Details: `Assets/Docs/data-driven-analysis.md`.
-- 2026-10: Corruption and Grace reworked (Grace changes at wave end, Corruption per wave). Spec: `Assets/Docs/corruption-rework.md`.
+- 2026-10: Balance data goes through Google Sheets + CSV importer, with a test-build override. Why: designer works without Unity. Details: `docs/archive/design/data-driven-analysis.md`.
+- 2026-10: Corruption and Grace reworked (Grace changes at wave end, Corruption per wave). Spec: `docs/archive/design/corruption-rework.md`.
 - 2026-10: Enemies use local context steering, not a NavMesh.
 - 2026-10: Cleave stat retired. The `StatType` index stays because stats are stored by index.

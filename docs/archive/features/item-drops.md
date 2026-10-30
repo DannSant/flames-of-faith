@@ -3,7 +3,7 @@
 - **Status:** done (merged into `develop` 2026-10-25)
 - **Branch:** `feature/item-drops` (off `develop`, after step 3 was merged)
 - **Owner session:** data-driven pilot session (2026-10-24)
-- **Related docs:** CLAUDE.md "Balance data", "Run encounter events" (Shop, Treasure), "Effect data pipeline"; `Assets/Docs/data-driven-analysis.md` 3.4
+- **Related docs:** CLAUDE.md "Balance data", "Run encounter events" (Shop, Treasure), "Effect data pipeline"; `docs/archive/design/data-driven-analysis.md` 3.4
 
 ## Goal
 One table in the balance sheet lists every lootable item and says where it can drop (enemy pickup, shop, treasure, event) and from how far into the run (levels beaten). Luck still tilts the quality odds and the shop's size. Today four code paths keep four hand-written lists, so a new item needs up to three manual edits, a strong item can drop on level 1, and at Luck 0 a Heroic is as likely as a Common.

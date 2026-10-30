@@ -3,7 +3,7 @@
 - **Status:** done (merged into `develop` 2026-10-25)
 - **Branch:** `feature/items-abilities` (off `develop`, after item drops was merged)
 - **Owner session:** data-driven pilot session (2026-10-24)
-- **Related docs:** CLAUDE.md "Effect data pipeline", "Combat/effect pipeline", "Class kits, skill trees & Favors", "Balance data", "Item drops"; `Assets/Docs/data-driven-analysis.md` 3.6
+- **Related docs:** CLAUDE.md "Effect data pipeline", "Combat/effect pipeline", "Class kits, skill trees & Favors", "Balance data", "Item drops"; `docs/archive/design/data-driven-analysis.md` 3.6
 
 ## Goal
 The designer edits every item and class ability number in the balance sheet: what an item is (text, quality, prices, icon, stats, stat bonuses, behaviors), what its behaviors do (counts, chances, cooldowns, damage, stacking), the class abilities' tier tables and the weapons. Damage comes from one place per attack: whoever spawns it.

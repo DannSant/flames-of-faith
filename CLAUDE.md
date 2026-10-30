@@ -138,7 +138,7 @@ The data lives under `Resources/RunEncounters/EventEncounter/`. An `EventEncount
 
 ### Item drops (data-driven step 4, Oct 2026)
 
-Every random item comes from **one table**. Before, four hand-written lists (the enemy pickup prefab, the treasure table, two event actions, and the shop's `availableForShop` flag) each needed editing for a new item. A strong item could also drop on level 1, and at Luck 0 every quality was equally likely. Spec: `docs/features/item-drops.md`.
+Every random item comes from **one table**. Before, four hand-written lists (the enemy pickup prefab, the treasure table, two event actions, and the shop's `availableForShop` flag) each needed editing for a new item. A strong item could also drop on level 1, and at Luck 0 every quality was equally likely. Spec (archived): `docs/archive/features/item-drops.md`.
 - **Data** (`Scripts/Loot/`, assets in `Resources/Loot/`, the balance sheet's ItemDrops / LootSources / Loot tabs):
   - **`ItemDropTable`:** one `ItemDropEntry` per lootable item (every Effect that isn't starting-only). Each entry has four source flags (Enemy Pickup, Shop, Treasure, Event), `minLevelsBeaten`, and `weight` within its quality. What an item *is* stays on its Effect asset (the sheet's Items tabs, see "Effect data pipeline"); where and when it drops lives here.
   - **`LootSettings`:**
@@ -193,7 +193,7 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
 
 ### Corruption & Grace (reworked Oct 2026)
 
-The original spec is `Assets/Docs/corruption-rework.md`, but several decisions changed during implementation; this section is the source of truth. Every tunable lives in **`CorruptionSettings`** (`Assets/Resources/Combat/CorruptionSettings.asset`, loaded via `CorruptionSettings.Instance`) or on Inspector fields — never hardcode these numbers.
+The original spec is `docs/archive/design/corruption-rework.md`, but several decisions changed during implementation; this section is the source of truth. Every tunable lives in **`CorruptionSettings`** (`Assets/Resources/Combat/CorruptionSettings.asset`, loaded via `CorruptionSettings.Instance`) or on Inspector fields — never hardcode these numbers.
 
 - **Grace** (`PlayerGrace`) is a single signed value clamped to `minGrace..maxGrace` (−50..+50), saved per run. The range, the starting Grace and the damage per point are on `CorruptionSettings` (moved off the player prefab in Oct 2026). It changes only through `SetGrace`, which fires `onGraceChanged`, `OnCorruptedStateChanged` (only on flips) and `OnGraceStatusChanged`. Damage multiplier = `max(minDamageMultiplier, 1 + damagePerGracePoint × Grace)`, applied in `DamageCalculator`.
 - **Corrupted = Grace < 0.** `CorruptedLevel = max(0, −Grace)` reduces every stat flagged `affectedByCorruption` in `StatDatabase.asset` (Armor, HealingReceived) by `CorruptedLevel × corruptionReduceFactor`, through `PlayerProgression.GetCorruptionPenalty` (also used by the tooltip). Healing is reduced by a flat amount per heal, not zeroed. Corrupted players, enemies and the boss are marked by `CorruptedVisual` (see Corrupted outline below).
@@ -588,7 +588,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - `HudStyleTests`: every HUD text is a styled Small/Big text, frames, icon sizes, Grace split and colors, margins, scene placement.
   - `InventoryStyleTests`: frame, bold title, coins, grid, slot, shared tooltip, scene placement.
   - `CooldownSweepTests`.
-- **New or changed windows** follow the same recipe: a restyler entry (or an existing restyler extended), style components and a guard test. Latest handoff: `Assets/Docs/handoff-2026-10-23.md`.
+- **New or changed windows** follow the same recipe: a restyler entry (or an existing restyler extended), style components and a guard test. Project state and handoffs: `docs/pm/` and each feature spec's Handoff in `docs/features/` (older handoffs in `docs/archive/handoffs/`).
 
 ### Class kits, skill trees & Favors (reworked Oct 2026)
 
@@ -647,7 +647,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
 
 ### Effect data pipeline (items in the balance sheet, data-driven step 5, Oct 2026)
 
-Items are `Effect` ScriptableObjects in `Resources/Effects/` (`Assets/Scripts/Effects/Effect.cs`), and **the assets are the source of truth**, like every other balance table. The designer edits them in the sheet; Unity edits them in the Inspector, then Export CSV. Spec: `docs/features/items-abilities.md`.
+Items are `Effect` ScriptableObjects in `Resources/Effects/` (`Assets/Scripts/Effects/Effect.cs`), and **the assets are the source of truth**, like every other balance table. The designer edits them in the sheet; Unity edits them in the Inspector, then Export CSV. Spec (archived): `docs/archive/features/items-abilities.md`.
 - **Tables:**
   - `Items`: Description, Quality, Buy Price, Sell Price, Icon (a sprite name in `Resources/Icons`), Unlocked By Default;
   - `ItemStats` (`effectStatModifiers`: Stat, Value, Flat / PercentAdd) and `ItemStatBonuses` (`statDependencies`), one row per entry;
@@ -672,7 +672,7 @@ At runtime, look effects up through **`EffectsDatabaseProvider`**. It loads ever
 
 ### Balance data (data-driven pilot, Oct 2026)
 
-The plan and its reasons are in `Assets/Docs/data-driven-analysis.md`. The goal is that the game designer can tune the numbers outside Unity. It covers enemies, waves and XP (pilot), debuffs, Grace / Corruption, player stats and classes (step 3), item drops (step 4), and items, item behaviors, class abilities and weapons (step 5).
+The plan and its reasons are in `docs/archive/design/data-driven-analysis.md`. The goal is that the game designer can tune the numbers outside Unity. It covers enemies, waves and XP (pilot), debuffs, Grace / Corruption, player stats and classes (step 3), item drops (step 4), and items, item behaviors, class abilities and weapons (step 5).
 - **Keep the Google Sheets pipeline in step (required).** Every time we add, rename, remove or reinterpret a column or field of a balance table, add a table, or change the data-driven structure (importer, CSV format, table kinds, sync, `balance-override.json`), update the whole pipeline in the same change:
   - the table definition in `BalanceTables.All()` and its committed CSV (Export CSV);
   - the explanation panel: a description in `BalanceDocs.Tables` and a note for each column (a `[Tooltip]` on the field, or an entry in `BalanceDocs.Columns`); `BalanceDocsTests` fails without them;

@@ -3,7 +3,7 @@
 - **Status:** done (merged into `develop` 2026-10-25)
 - **Branch:** `feature/data-driven-step3` (off `develop`)
 - **Owner session:** data-driven pilot session (2026-10-24)
-- **Related docs:** CLAUDE.md "Balance data (data-driven pilot, Oct 2026)", `Assets/Docs/data-driven-analysis.md` sections 3.5, 3.7, 3.8 and 7 (step 0 leftovers, step 3)
+- **Related docs:** CLAUDE.md "Balance data (data-driven pilot, Oct 2026)", `docs/archive/design/data-driven-analysis.md` sections 3.5, 3.7, 3.8 and 7 (step 0 leftovers, step 3)
 
 ## Goal
 The designer can tune debuffs, Grace / Corruption, the player's stats and stat formulas, and each class's dash from the balance sheet, like the enemies and waves of the pilot. The pilot's dead fields go, so every number in the sheet does something.
