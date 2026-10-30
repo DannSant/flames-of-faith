@@ -138,7 +138,7 @@ Each class has a **kit** of six starting items: a weapon, an off-hand, an Emblem
 | **Character** | Ayteel Alamoh | Faelin Vidal | Werlem Feth |
 | **Role** | Melee bruiser | Ranged skirmisher | Magic caster, area damage |
 | **Weapon** | Steeldawn Sword | Steeldawn Bow | Akeros Graceful Scepter |
-| **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Centinel, to be renamed Quiver of the Sentinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
+| **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Sentinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
 | **Emblem** (+1 main stat per level) | Warrior Emblem: Melee Damage | Archer Emblem: Ranged Damage | Augur Emblem: Magic Damage |
 | **Basic attack** | Glyph of Crusader Strike: a sword swing in an arc; may inflict Bleed | Glyph of Holy Shot: a blessed arrow; upgrades add a cone of extra arrows | Glyph of Fireball: a fireball; may inflict Fire; upgrades add an impact explosion |
 | **Special** | Glyph of Whirlwind: a 2 s spin that hits every enemy in it on contact and again at a regular interval (faster on upgrades); the Warrior can still be hurt while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
@@ -292,15 +292,14 @@ Inflicted by weapons, Glyphs and items; all scale with **Mastow Affinity**.
 From Act II, some enemies also inflict **Frost on the player** (see [Act II](#act-ii-fara-ufclario)).
 
 ### Run encounters (events)
-Every event has 2–3 options, and each option costs something and gives something (no free "Ignore"). **In the current build:** outcomes use Luck-biased rolls, and the random pool is **The Vega Casket**, **Raiders from Gracoy**, **The Weeping Chest**, **The Faraclarian Clan** and **Gift of the House of Stars**, plus the **Wayside Shrine of Malien** node. Events can show art, but none has art yet.
+Every event has 2–3 options, and a first-screen option always risks a cost (no free "Ignore"). Events read as small stories that carry the lore and each pilgrim's arc.
 
-**Rework (written 2026-10-26, implementation pending; content in `docs/features/run-encounter-events.md`, "Narrative"):**
-- **Options** show an in-world hint instead of numbers, and results are narrated.
+- **Options** show an in-world hint instead of numbers, and results are narrated, with the numbers woven in and a short summary line at the end.
 - **Outcomes** can be stat checks (Easy / Even / Hard plus a stat such as the class's Key stat, Armor, Move Speed or current Grace).
-- **Steps:** events can have follow-up steps, up to 3 deep.
-- **Class content:** each pilgrim gets class lines, plus a few class-only options.
-- **Pure gains** (options with no cost) are earned only by answering a lore question correctly.
-- **The pool** grows to 9 random events: the 5 above plus **A Hut in the Jesterwoods** (Liah, Gabien's sister; once per Pilgrimage), **Laughter in the Leaves** (an Aylinean), **The Star Reader** and **The Last Torch**.
+- **Steps:** events can have follow-up steps, up to 3 deep. Pure gains appear only in a step reached by a lore-correct answer (the Wayside Shrine's "Kneel and pray" is the exception).
+- **Class content:** class lines in most events, plus a few class-only options.
+- **Pool:** 9 random events in Act I (**The Vega Casket**, **Raiders from Gracoy**, **The Weeping Chest**, **The Faraclarian Clan**, **Gift of the House of Stars**, **A Hut in the Jesterwoods**, **Laughter in the Leaves**, **The Star Reader**, **The Last Torch**), plus the **Wayside Shrine of Malien** on its own node. An event doesn't repeat within a Pilgrimage until all have been seen, and Liah's appears at most once.
+- **Art:** events can show art, but none has art yet.
 
 ---
 

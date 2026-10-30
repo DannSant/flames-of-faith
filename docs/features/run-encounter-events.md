@@ -1,8 +1,8 @@
 # Feature: Run encounter events rework (narrative + systems)
 
-- **Status:** ready for implementation. The narrative is done (design session, 2026-10-26 to 2026-10-29); the systems work is next.
+- **Status:** done, merged into `develop` (`ac9a22a`, 2026-10-30). Stays here until its manual tests pass (`todo.md`), then moves to `docs/archive/features/`.
 - **Branch:** `feature/run-encounter-events` (off `develop`) for the implementation. The narrative session only writes docs, on `develop`.
-- **Owner session:** narrative session (done; its notes were applied to this spec and `docs/pm/`), then an implementation session (not started)
+- **Owner session:** narrative session (done; its notes were applied to this spec and `docs/pm/`), then an implementation session (done, see Handoff)
 - **Related docs:** `game-design-docs/TenPageGDD.md` (§3 Story, §9 Run encounters, §13 Open questions), `game-design-docs/Lore.md` (the story bible; its glossary sets every name), `CLAUDE.md` "Run encounter events", "Item drops", glossary; tester feedback archived in `docs/archive/todo-2026-10-26.md`
 
 ## Goal

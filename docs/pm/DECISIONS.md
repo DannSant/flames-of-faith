@@ -2,6 +2,10 @@
 
 Newest first. Format: date, decision, reason.
 
+## 2026-10-30
+- **Attack Speed spec written** (`docs/features/attack-speed-caps.md`). Primary attack animations scale with the cooldown; specials stay at speed 1, with a guard test that each special's cooldown stays longer than its action at the hard cap. Cap values are a starting proposal for the designer.
+- **A finished spec stays in `docs/features/` until its manual tests pass**, then moves to `docs/archive/features/`.
+
 ## 2026-10-29
 - **Demo scope trimmed** (owner, after the scope risk was flagged): the demo keeps the events rework, the Attack Speed fix, the opening cutscene and its design, the balance pass, the re-designed characters, the new scenarios **with the companions in non-combat levels** (the owner kept them), the boss shield and Steam prep. Skill-tree item unlocks, more items, the map redesign, the other cutscenes' design, voice research, the SQLite deletion and the one-page GDD move to a post-launch **demo update**. Reason: protect the December date; five of the musts depend on art.
 - **High Attack Speed fix:** the attack animation speeds up with Attack Speed (the art team agreed), plus a soft cap and a hard cap on Attack Speed, like Shop Discount's. Replaces the two options left open on 2026-10-26.
