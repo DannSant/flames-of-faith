@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace Game.RunEncounters
 {
+    /// <summary>An old option asset: a label and its actions. Being replaced by EventOption inside the event asset.</summary>
     [CreateAssetMenu(menuName = "RunEncounters/EventOptions/Options List", fileName = "OptionsList")]
     public class EventOptionsList : ScriptableObject
     {
@@ -14,26 +14,21 @@ namespace Game.RunEncounters
 
         public string OptionDescription => optionDescription;
 
-        public string Apply(EventContext context)
+        public List<EventActionResult> Apply(EventContext context) => EventActions.ApplyAll(optionActionsList, context);
+    }
+
+    public static class EventActions
+    {
+        /// <summary>Runs every action in order, skipping empty slots, and collects what each one did.</summary>
+        public static List<EventActionResult> ApplyAll(List<EventOptionActionBase> actions, EventContext context)
         {
-            var sb = new StringBuilder();
-            foreach (var action in optionActionsList)
+            var results = new List<EventActionResult>();
+            if (actions == null) return results;
+            foreach (var action in actions)
             {
-                if (action == null)
-                {
-                    continue;
-                }
-
-                string result = action.Apply(context);
-                if (string.IsNullOrEmpty(result))
-                {
-                    continue;
-                }
-
-                sb.AppendLine(result);
+                if (action != null) results.Add(action.Apply(context));
             }
-
-            return sb.ToString();
+            return results;
         }
     }
 }

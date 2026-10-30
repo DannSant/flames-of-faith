@@ -19,25 +19,27 @@ namespace Game.RunEncounters
             return ItemProvider.GetExpectedQuality(LootSource.Event, statValue);
         }
 
-        public override string Apply(EventContext context)
+        public override EventResultKind Kind => EventResultKind.Item;
+
+        public override EventActionResult Apply(EventContext context)
         {
-            var itemBag = context.playerEffectStore.GetComponent<ItemBag>();
+            var itemBag = context.playerEffectStore != null ? context.playerEffectStore.GetComponent<ItemBag>() : null;
 
             if (itemBag == null)
             {
                 Debug.LogWarning("ItemBag component not found on player.");
-                return string.Empty;
+                return EventActionResult.Item(null);
             }
 
             int statValue = context.playerProgression != null ? context.playerProgression.GetStatTotal(biasStat) : 0;
             Effect item = ItemProvider.RollOne(LootSource.Event, statValue);
             if (item == null)
             {
-                return string.Empty;
+                return EventActionResult.Item(null);
             }
 
             itemBag.AddEffectItem(item);
-            return $"Found item: {item.effectName}";
+            return EventActionResult.Item(item);
         }
     }
 }

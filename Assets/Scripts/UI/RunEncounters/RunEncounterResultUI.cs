@@ -10,8 +10,9 @@ using UnityEngine.UI;
 namespace Game.UI.RunEncounters
 {
     /// <summary>
-    /// The Results window: what an event option (or a currency / experience treasure) gave and took, one line
-    /// each, gains in green and losses in red. Continue ends the encounter. Layout: RunEncounterRestyler.
+    /// The Results window. An event shows its narrated result, then a compact summary line of what changed
+    /// (EventResultFormatter); a currency / experience treasure shows one line per reward, gains in green and
+    /// losses in red. Continue ends the encounter. Layout: RunEncounterRestyler.
     /// </summary>
     public class RunEncounterResultUI : MonoBehaviour
     {
@@ -44,7 +45,7 @@ namespace Game.UI.RunEncounters
             MainSceneController.Instance.OnGameplayUISetupRequested -= SubscribeToEvents;
             if (eventController != null)
             {
-                eventController.OnEventResolved -= ShowResults;
+                eventController.OnEventResolved -= ShowEventResults;
             }
             if (treasureController != null)
             {
@@ -57,7 +58,7 @@ namespace Game.UI.RunEncounters
             eventController = FindAnyObjectByType<EventEncounterController>();
             if (eventController != null)
             {
-                eventController.OnEventResolved += ShowResults;
+                eventController.OnEventResolved += ShowEventResults;
             }
 
             treasureController = FindAnyObjectByType<TreasureEncounterController>();
@@ -74,6 +75,34 @@ namespace Game.UI.RunEncounters
                 settings != null ? settings.ToHex(UIColorRole.Positive) : "FFFFFF",
                 settings != null ? settings.ToHex(UIColorRole.Negative) : "FFFFFF");
             mainPanel.SetActive(true);
+        }
+
+        /// <summary>An event's narrated result, then the compact summary line of what changed.</summary>
+        public void ShowEventResults(EventResolution resolution)
+        {
+            resultsText.text = BuildEventResultText(resolution, GetSummaryColors(UISettings.Instance));
+            mainPanel.SetActive(true);
+        }
+
+        public static string BuildEventResultText(EventResolution resolution, EventSummaryColors colors)
+        {
+            string narration = EventResultFormatter.FormatResolution(resolution);
+            string summary = resolution != null ? EventResultFormatter.BuildSummary(resolution.AllResults, colors) : string.Empty;
+            if (string.IsNullOrEmpty(narration)) return summary;
+            if (string.IsNullOrEmpty(summary)) return narration;
+            return $"{narration}\n\n{summary}";
+        }
+
+        public static EventSummaryColors GetSummaryColors(UISettings settings)
+        {
+            if (settings == null) return default;
+            return new EventSummaryColors
+            {
+                positive = settings.ToHex(UIColorRole.Positive),
+                negative = settings.ToHex(UIColorRole.Negative),
+                grace = settings.ToHex(UIColorRole.Grace),
+                favors = settings.ToHex(UIColorRole.Favors)
+            };
         }
 
         public void HideResults()

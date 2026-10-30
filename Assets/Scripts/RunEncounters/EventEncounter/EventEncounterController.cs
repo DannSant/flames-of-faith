@@ -17,7 +17,7 @@ namespace Game.RunEncounters
         [SerializeField] private List<EventEncounterData> encountersList;
 
         public event Action<EventEncounterData> OnEventPresented;
-        public event Action<string> OnEventResolved;
+        public event Action<EventResolution> OnEventResolved;
 
         private EventContext context;
         private EventEncounterData data;
@@ -47,13 +47,15 @@ namespace Game.RunEncounters
 
         public void SelectOption(EventOptionsList option)
         {
-            string results = option.Apply(context);
-            Resolve(results);
+            // Old option assets have no result text: the Results window shows only the summary line
+            var resolution = new EventResolution();
+            resolution.parts.Add(new EventNarration { results = option.Apply(context) });
+            Resolve(resolution);
         }
 
-        private void Resolve(string results)
+        private void Resolve(EventResolution resolution)
         {
-            OnEventResolved?.Invoke(results);
+            OnEventResolved?.Invoke(resolution);
             //StartCoroutine(DelayedWaveComplete());
         }
 
