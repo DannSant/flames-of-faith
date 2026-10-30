@@ -1,6 +1,7 @@
 using Game.Combat;
 using Game.Currency;
 using Game.Effects;
+using Game.Overworld;
 using Game.Progression;
 using Game.Scene;
 using System;
@@ -32,13 +33,34 @@ namespace Game.RunEncounters
                 Debug.LogWarning("No encounters assigned to EventEncounterController.");
                 return;
             }
-            data = encountersList[UnityEngine.Random.Range(0, encountersList.Count)];
+            data = PickEvent();
+            if (data == null)
+            {
+                Debug.LogWarning("[EventEncounter] No event could be picked.");
+                return;
+            }
+            if (GameSession.Instance != null) GameSession.Instance.MarkEventSeen(EventPool.IdOf(data));
             BuildContext();
             var settings = EventCheckSettings.Instance;
             runner = new EventRunner(data, context.CharacterClass,
                 check => EventCheckRoller.Roll(check, context, settings),
                 actions => EventActions.ApplyAll(actions, context));
             StartCoroutine(TriggerEventRoutine());
+        }
+
+        /// <summary>
+        /// An event not seen yet in this Pilgrimage, chosen from the run seed and this node, so leaving the level and
+        /// coming back (Save &amp; Exit, Continue) offers the same one. A single-event list (the Wayside Shrine) always
+        /// gives its event.
+        /// </summary>
+        private EventEncounterData PickEvent()
+        {
+            var map = MapRunController.Instance;
+            bool onMap = map != null && map.IsInitialized;
+            int seed = onMap ? map.RunSeed : UnityEngine.Random.Range(1, int.MaxValue);
+            string nodeId = onMap ? map.CurrentNode.id : string.Empty;
+            var seen = GameSession.Instance != null ? GameSession.Instance.SeenEvents : null;
+            return EventPool.Pick(encountersList, seen != null ? new HashSet<string>(seen) : null, seed, nodeId);
         }
 
         private IEnumerator TriggerEventRoutine()
