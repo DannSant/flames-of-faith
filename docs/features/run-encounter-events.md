@@ -532,13 +532,13 @@ _Implementation session, 2026-10-29._
   - The 9-event pool, plus the Wayside Shrine of Malien (title fixed) on its own node.
   - Quiver of the Sentinel (all tiers, effectIDs kept, CSVs exported). Also fixed: the Sacred Writings display name still read "Sacred Writtings" on `develop`, which failed `EffectAssetTests`.
   - CLAUDE.md "Run encounter events" rewritten.
+  - Cleanup (owner's OK, Oct 30): deleted the 16 old `EventOptionsList` assets, the 11 action sizes no event uses, the unused scenes `BanditsEncounter.unity` / `CursedChestEncounter.unity` (and their Build Settings entries), and the legacy code path (`EventOptionsList`, `EventEncounterData.legacyOptions`, the runner's legacy branch). `EventActions.ApplyAll` moved to its own file. `CorruptionCleanEncounter.asset` stays: it's the Wayside Shrine.
   - Every acceptance criterion except the manual play-tests is covered by EditMode tests: `EventEncounterTests`, `EventCheckTests`, `EventResultFormatterTests`, `EventRunnerTests`, `EventPoolTests` and `RunEncounterStyleTests`.
 - **Not done / follow-ups:**
   - **Push All to Sheet** (Balance Data menu) for the Quiver rename: the sheet's Items / ItemStats / ItemDrops rows still say "Centinel", and a Pull fails on a row naming a missing item.
-  - **Cleanup, waiting on the owner's OK:** the old option assets (16 `EventOptionsList` assets), the action sizes no event uses any more, the two unused scenes `BanditsEncounter.unity` / `CursedChestEncounter.unity` (in Build Settings, but no level uses them), and the legacy code path (`EventOptionsList`, `EventEncounterData.legacyOptions`, the runner's legacy branch). `CorruptionCleanEncounter.asset` is **not** unused: it's the Wayside Shrine.
   - The check tunables are not a balance table yet (agreed: a follow-up). The amount sizes aren't either.
   - Edge texts the guard tests can't see: "+0 health" when healed at full health (Liah's fish), and "weighs your 0 Golden Chronos" with an empty purse.
-- **Commits / branch:** `feature/run-encounter-events`, one commit per step (steps 4 and 5 share `EventRunner`, so they're one commit). Not merged, not pushed.
+- **Commits / branch:** `feature/run-encounter-events`, one commit per step (steps 4 and 5 share `EventRunner`, so they're one commit), plus the cleanup commit. Not merged, not pushed.
 - **Gotchas for the next session:**
   - The seen-events list lives in `GameSession` (like `runFavors`), not `PlayerData`: it isn't a player component's state.
   - The pick must stay deterministic. Changing `EventPool.StableHash` or the `seed:nodeId` key re-rolls the events of saved runs (a test pins the hash).

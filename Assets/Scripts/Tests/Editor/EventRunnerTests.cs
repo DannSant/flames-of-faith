@@ -177,20 +177,5 @@ namespace Game.Tests
             runner.Choose(0);
             Assert.IsTrue(runner.IsFinished);
         }
-
-        [Test]
-        public void LegacyEvent_OffersItsOldOptionAssets()
-        {
-            var data = ScriptableObject.CreateInstance<EventEncounterData>();
-            data.fullText = "Old.";
-            var old = ScriptableObject.CreateInstance<EventOptionsList>();
-            data.legacyOptions = new List<EventOptionsList> { old, old };
-
-            var runner = Run(data);
-            Assert.AreEqual(2, runner.BuildScreen().choices.Count);
-            Assert.IsTrue(runner.Choose(1));
-            Assert.IsTrue(runner.IsFinished);
-            Assert.IsTrue(string.IsNullOrEmpty(runner.Resolution.parts[0].text));
-        }
     }
 }

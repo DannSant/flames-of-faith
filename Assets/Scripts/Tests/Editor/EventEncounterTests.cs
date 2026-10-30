@@ -36,17 +36,9 @@ namespace Game.Tests
             {
                 Assert.IsFalse(string.IsNullOrWhiteSpace(e.title), $"{e.name} has no title");
                 Assert.IsFalse(string.IsNullOrWhiteSpace(e.fullText), $"{e.name} has no text");
-                if (e.UsesOptions)
-                {
-                    Assert.GreaterOrEqual(e.options.Count(o => o != null && o.onlyForClass == CharacterClass.None), 2,
-                        $"{e.name} needs at least two options for everyone to be a choice");
-                    Assert.IsTrue(e.options.All(o => o != null), $"{e.name} has an empty option slot");
-                    continue;
-                }
-
-                Assert.IsNotNull(e.legacyOptions, $"{e.name} has no options");
-                Assert.GreaterOrEqual(e.legacyOptions.Count, 2, $"{e.name} needs at least two options to be a choice");
-                Assert.IsTrue(e.legacyOptions.All(o => o != null), $"{e.name} has an empty option slot");
+                Assert.GreaterOrEqual(e.options.Count(o => o != null && o.onlyForClass == CharacterClass.None), 2,
+                    $"{e.name} needs at least two options for everyone to be a choice");
+                Assert.IsTrue(e.options.All(o => o != null), $"{e.name} has an empty option slot");
             }
         }
 
@@ -140,15 +132,32 @@ namespace Game.Tests
         }
 
         [Test]
-        public void EveryOption_DoesSomething()
+        public void EveryOption_HasALabelAndNoEmptyActionSlot()
         {
-            foreach (var option in LoadAll<EventOptionsList>(EventsFolder))
+            foreach (var e in LoadAll<EventEncounterData>(EventsFolder))
             {
-                Assert.IsFalse(string.IsNullOrWhiteSpace(option.OptionDescription), $"{option.name} has no label");
-                Assert.IsNotEmpty(option.OptionActionsList, $"{option.name} has no actions: an option must cost or give something");
-                Assert.IsTrue(option.OptionActionsList.All(a => a != null), $"{option.name} has an empty action slot");
-                StringAssert.DoesNotContain("ignore", option.OptionDescription.ToLowerInvariant(),
-                    $"{option.name}: Ignore options were removed");
+                foreach (var (option, _, _) in AllOptions(e))
+                {
+                    Assert.IsFalse(string.IsNullOrWhiteSpace(option.label), $"{e.name} has an option with no label");
+                    StringAssert.DoesNotContain("ignore", option.label.ToLowerInvariant(), $"{e.name}: Ignore options were removed");
+                    foreach (var branch in option.Branches())
+                    {
+                        Assert.IsTrue(branch.actions.All(a => a != null), $"{e.name} '{option.label}' has an empty action slot");
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void EveryAction_IsUsedByAnEvent()
+        {
+            var used = new HashSet<EventOptionActionBase>(LoadAll<EventEncounterData>(EventsFolder)
+                .SelectMany(AllOptions)
+                .SelectMany(o => o.option.Branches())
+                .SelectMany(b => b.actions));
+            foreach (var action in LoadAll<EventOptionActionBase>(ActionsFolder))
+            {
+                Assert.IsTrue(used.Contains(action), $"{action.name} is used by no event: delete it (no dead data)");
             }
         }
 
@@ -239,12 +248,10 @@ namespace Game.Tests
         }
 
         [Test]
-        public void EveryEvent_IsAuthoredWithOptions()
+        public void EveryEvent_HasAnId()
         {
             foreach (var e in Events())
             {
-                Assert.IsTrue(e.UsesOptions, $"{e.name} still runs on the old option assets");
-                Assert.IsEmpty(e.legacyOptions, $"{e.name} still lists old option assets");
                 Assert.IsFalse(string.IsNullOrWhiteSpace(e.eventName), $"{e.name} has no event id");
             }
         }

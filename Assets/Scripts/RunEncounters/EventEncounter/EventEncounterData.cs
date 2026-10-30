@@ -1,7 +1,6 @@
 using Game.Control;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.RunEncounters
 {
@@ -32,13 +31,6 @@ namespace Game.RunEncounters
 
         [Tooltip("Optional art, shown in a panel beside the event window. Empty = no panel.")]
         public Sprite art;
-
-        [Tooltip("Old option assets, used only while Options is empty. Being replaced by Options.")]
-        [FormerlySerializedAs("options")]
-        public List<EventOptionsList> legacyOptions = new();
-
-        /// <summary>True once the event is authored with the new options; false while it still runs on the old assets.</summary>
-        public bool UsesOptions => options != null && options.Count > 0;
 
         /// <summary>The intro, plus the class's own paragraph when it has one.</summary>
         public string GetIntro(CharacterClass characterClass)

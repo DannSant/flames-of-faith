@@ -35,7 +35,6 @@ namespace Game.RunEncounters
         private readonly Func<List<EventOptionActionBase>, List<EventActionResult>> applyActions;
 
         private readonly List<EventOption> shownOptions = new();
-        private readonly List<EventOptionsList> shownLegacyOptions = new();
         private EventStep currentStep;
 
         public EventResolution Resolution { get; } = new();
@@ -49,7 +48,7 @@ namespace Game.RunEncounters
             this.characterClass = characterClass;
             this.rollCheck = rollCheck;
             this.applyActions = applyActions;
-            ShowOptions(data.UsesOptions ? data.options : null);
+            ShowOptions(data.options);
         }
 
         /// <summary>The options offered on the current screen, in order: class-only ones only for their class.</summary>
@@ -64,19 +63,9 @@ namespace Game.RunEncounters
                 art = data.art
             };
 
-            if (data.UsesOptions)
+            foreach (var option in shownOptions)
             {
-                foreach (var option in shownOptions)
-                {
-                    screen.choices.Add(new EventChoice { label = option.GetLabel(characterClass), hint = option.hint });
-                }
-            }
-            else
-            {
-                foreach (var option in shownLegacyOptions)
-                {
-                    screen.choices.Add(new EventChoice { label = option.OptionDescription });
-                }
+                screen.choices.Add(new EventChoice { label = option.GetLabel(characterClass), hint = option.hint });
             }
             return screen;
         }
@@ -85,14 +74,6 @@ namespace Game.RunEncounters
         public bool Choose(int index)
         {
             if (IsFinished) return false;
-
-            if (!data.UsesOptions)
-            {
-                if (index < 0 || index >= shownLegacyOptions.Count) return false;
-                Resolution.parts.Add(new EventNarration { results = applyActions(shownLegacyOptions[index].OptionActionsList) });
-                IsFinished = true;
-                return true;
-            }
 
             if (index < 0 || index >= shownOptions.Count) return false;
             var option = shownOptions[index];
@@ -142,15 +123,7 @@ namespace Game.RunEncounters
         private void ShowOptions(List<EventOption> options)
         {
             shownOptions.Clear();
-            shownLegacyOptions.Clear();
-            if (options == null)
-            {
-                if (data.legacyOptions != null)
-                {
-                    foreach (var o in data.legacyOptions) if (o != null) shownLegacyOptions.Add(o);
-                }
-                return;
-            }
+            if (options == null) return;
 
             foreach (var option in options)
             {
