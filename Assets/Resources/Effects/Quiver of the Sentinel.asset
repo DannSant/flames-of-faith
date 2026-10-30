@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 457954ca2b532324e9c8540ac19949c2, type: 3}
-  m_Name: Quiver of the Centinel +2
+  m_Name: Quiver of the Sentinel
   m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effect
-  effectID: 97629d7e-b91b-4702-be58-bba7fbf69b82
+  effectID: 037d27d2-295d-42d3-802c-a4700f044f2b
   icon: {fileID: 21300000, guid: 9529599e6cfb62a4e8673d8d20b3efb0, type: 3}
-  effectName: Quiver of the Centinel +2
+  effectName: Quiver of the Sentinel
   scalingValue: 1
   description: Quiver worn by the Sentinels of Abidor. Its arrows fly further, but
     it leaves its bearer exposed
@@ -22,14 +22,14 @@ MonoBehaviour:
   sellPrice: 0
   effectStatModifiers:
   - stat: 10
-    value: 2
+    value: 1
     type: 0
   - stat: 0
-    value: -2
+    value: -5
     type: 0
   statDependencies: []
   behaviors: []
   unlockedByDefault: 0
   quality: 4
-  tier: 2
+  tier: 0
   startingOnly: 1
