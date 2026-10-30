@@ -58,6 +58,16 @@ public static class StatsCalculations
         return softCap + pointsPastSoftCap * pastSoftCapRate;
     }
 
+    /**
+         * Speed of a primary attack's animation: base cooldown / current cooldown, so the hit or shot
+         * lands inside the cooldown at any Attack Speed. Never below 1: with negative Attack Speed the
+         * cooldown is longer, so nothing gets cut off.
+         */
+    public static float CalculateAttackAnimationSpeed(float baseAttackDelay, float attackDelay)
+    {
+        return Mathf.Max(1f, baseAttackDelay / Mathf.Max(attackDelay, MIN_ATTACK_DELAY));
+    }
+
     // 1 + bonus, but never below 0.1: with enough negative stat the divisor used to hit 0 or go
     // negative, which turned a huge slowdown into an (almost) instant attack/dash. Now negative
     // stats slow things down by at most 10x.

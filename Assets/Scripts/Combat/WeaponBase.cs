@@ -149,6 +149,10 @@ namespace Game.Combat
 
             float attackDelay = settings.GetAttackDelay(attackSpeed, weaponData.attackCooldownBase, weaponData.attackSpeedScale);
             attackTimer.SetEventDuration(attackDelay);
+            if (characterVisual != null)
+            {
+                characterVisual.SetAttackAnimationSpeed(StatsCalculations.CalculateAttackAnimationSpeed(weaponData.attackCooldownBase, attackDelay));
+            }
 
             float specialAttackDelay = settings.GetAttackDelay(attackSpeed, specialWeaponData.attackCooldownBase, specialWeaponData.attackSpeedScale);
             specialAttackTimer.SetEventDuration(specialAttackDelay);
