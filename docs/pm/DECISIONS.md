@@ -3,6 +3,7 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-10-29
+- **Demo scope trimmed** (owner, after the scope risk was flagged): the demo keeps the events rework, the Attack Speed fix, the opening cutscene and its design, the balance pass, the re-designed characters, the new scenarios **with the companions in non-combat levels** (the owner kept them), the boss shield and Steam prep. Skill-tree item unlocks, more items, the map redesign, the other cutscenes' design, voice research, the SQLite deletion and the one-page GDD move to a post-launch **demo update**. Reason: protect the December date; five of the musts depend on art.
 - **High Attack Speed fix:** the attack animation speeds up with Attack Speed (the art team agreed), plus a soft cap and a hard cap on Attack Speed, like Shop Discount's. Replaces the two options left open on 2026-10-26.
 - **Cutscene scope:** 26 scenes for 1.0 (an opening, an ending, and one per pilgrim before and after each act), static images and text. The Steam demo gets the opening one. Voice narration to be researched. Replaces the 8 scenes of 2026-10-23.
 - **Demo scope grows:** skill-tree item unlocks, more and higher-quality items, the re-designed characters, the new scenarios with companions in non-combat levels, the map redesign, the opening cutscene, the boss's invulnerability shield (art). See BACKLOG "Before the Steam demo".
