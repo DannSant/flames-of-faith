@@ -1,3 +1,4 @@
+using Game.Control;
 using Game.RunEncounters;
 using Game.UI.RunEncounters;
 using NUnit.Framework;
@@ -35,10 +36,107 @@ namespace Game.Tests
             {
                 Assert.IsFalse(string.IsNullOrWhiteSpace(e.title), $"{e.name} has no title");
                 Assert.IsFalse(string.IsNullOrWhiteSpace(e.fullText), $"{e.name} has no text");
-                Assert.IsNotNull(e.options, $"{e.name} has no options");
-                Assert.GreaterOrEqual(e.options.Count, 2, $"{e.name} needs at least two options to be a choice");
-                Assert.IsTrue(e.options.All(o => o != null), $"{e.name} has an empty option slot");
+                if (e.UsesOptions)
+                {
+                    Assert.GreaterOrEqual(e.options.Count(o => o != null && o.onlyForClass == CharacterClass.None), 2,
+                        $"{e.name} needs at least two options for everyone to be a choice");
+                    Assert.IsTrue(e.options.All(o => o != null), $"{e.name} has an empty option slot");
+                    continue;
+                }
+
+                Assert.IsNotNull(e.legacyOptions, $"{e.name} has no options");
+                Assert.GreaterOrEqual(e.legacyOptions.Count, 2, $"{e.name} needs at least two options to be a choice");
+                Assert.IsTrue(e.legacyOptions.All(o => o != null), $"{e.name} has an empty option slot");
             }
+        }
+
+        [Test]
+        public void EveryEvent_HasASoundStepChain()
+        {
+            foreach (var e in LoadAll<EventEncounterData>(EventsFolder))
+            {
+                var problems = EventEncounterRules.Validate(e);
+                Assert.IsEmpty(problems, $"{e.name}: {string.Join("; ", problems)}");
+            }
+        }
+
+        // --- Step chain rules (pure, on events built in memory) ----------------------------------------
+
+        private static EventOption Option(string nextStepId = null) => new EventOption
+        {
+            label = "Go",
+            result = new EventBranch { resultText = "Done.", nextStepId = nextStepId }
+        };
+
+        private static EventStep Step(string id, string nextStepId = null) =>
+            new EventStep { id = id, prompt = id, options = new List<EventOption> { Option(nextStepId) } };
+
+        private static EventEncounterData Event(string firstNextStep, params EventStep[] steps)
+        {
+            var data = ScriptableObject.CreateInstance<EventEncounterData>();
+            data.options = new List<EventOption> { Option(firstNextStep), Option() };
+            data.steps = steps.ToList();
+            return data;
+        }
+
+        [Test]
+        public void Rules_ThreeStepsDeep_IsSound()
+        {
+            var data = Event("a", Step("a", "b"), Step("b", "c"), Step("c"));
+            Assert.IsEmpty(EventEncounterRules.Validate(data));
+            Assert.AreEqual(3, EventEncounterRules.GetMaxDepth(data));
+        }
+
+        [Test]
+        public void Rules_FourStepsDeep_IsTooDeep()
+        {
+            var data = Event("a", Step("a", "b"), Step("b", "c"), Step("c", "d"), Step("d"));
+            Assert.IsTrue(EventEncounterRules.Validate(data).Any(p => p.Contains("deep")));
+        }
+
+        [Test]
+        public void Rules_MissingStep_Loop_DuplicateAndUnreachable_AreReported()
+        {
+            Assert.IsTrue(EventEncounterRules.Validate(Event("missing")).Any(p => p.Contains("doesn't exist")));
+            Assert.IsTrue(EventEncounterRules.Validate(Event("a", Step("a", "a"))).Any(p => p.Contains("loops")));
+            Assert.IsTrue(EventEncounterRules.Validate(Event("a", Step("a"), Step("a"))).Any(p => p.Contains("twice")));
+            Assert.IsTrue(EventEncounterRules.Validate(Event(null, Step("orphan"))).Any(p => p.Contains("never reached")));
+        }
+
+        [Test]
+        public void Rules_CheckBranchesLeadToSteps()
+        {
+            var data = Event(null, Step("whisper"));
+            data.options[0] = new EventOption
+            {
+                label = "Reach",
+                outcome = EventOutcomeKind.Check,
+                success = new EventBranch { resultText = "Got it." },
+                failure = new EventBranch { nextStepId = "whisper" }
+            };
+            Assert.IsEmpty(EventEncounterRules.Validate(data));
+            Assert.AreEqual(1, EventEncounterRules.GetMaxDepth(data));
+        }
+
+        [Test]
+        public void ClassTexts_ApplyOnlyToTheirClass()
+        {
+            var data = ScriptableObject.CreateInstance<EventEncounterData>();
+            data.fullText = "Intro.";
+            data.classIntroLines = new List<ClassText> { new ClassText { characterClass = CharacterClass.Mage, text = "Werlem." } };
+            Assert.AreEqual("Intro.\n\nWerlem.", data.GetIntro(CharacterClass.Mage));
+            Assert.AreEqual("Intro.", data.GetIntro(CharacterClass.Warrior));
+
+            var option = new EventOption
+            {
+                label = "Tell her whose sword it is.",
+                classLabels = new List<ClassText> { new ClassText { characterClass = CharacterClass.Warrior, text = "Tell her who you are." } },
+                onlyForClass = CharacterClass.Archer
+            };
+            Assert.AreEqual("Tell her who you are.", option.GetLabel(CharacterClass.Warrior));
+            Assert.AreEqual("Tell her whose sword it is.", option.GetLabel(CharacterClass.Mage));
+            Assert.IsTrue(option.IsOfferedTo(CharacterClass.Archer));
+            Assert.IsFalse(option.IsOfferedTo(CharacterClass.Warrior));
         }
 
         [Test]

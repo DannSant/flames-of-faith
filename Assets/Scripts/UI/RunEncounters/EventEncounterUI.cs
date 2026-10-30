@@ -67,7 +67,7 @@ namespace Game.UI.RunEncounters
                 Destroy(child.gameObject);
             }
 
-            foreach (var option in data.options)
+            foreach (var option in data.legacyOptions)
             {
                 var optionUI = Instantiate(optionPrefab, optionsContainer);
                 optionUI.Initialize(option, generalTooltipPaneUI);
