@@ -17,6 +17,7 @@ _Last updated: 2026-10-29. Ordered around the next tester build, then the Steam 
 7. **Re-designed characters** (art): new sprites, then adjust the player prefabs (dimensions, colliders, hitboxes, the Corrupted outline margin, animators). Why: the demo's look.
 8. **New scenarios** (art): replace the level scenes, adjust levels to the new sizes (spawn points, obstacles, camera bounds). Non-combat levels (shop, campfire, treasure, events, shrine) show the other two pilgrims with idle animations (sitting, sleeping, chatting); kept in the demo by the owner (2026-10-29). Why: the demo's look; the companions fit the lore (the three travel together).
 9. **Boss invulnerability shield** (art): the art team adds a shield to show the first phase's invulnerability; wire it to `EnemyHealth.IsImmuneFlag`. Why: tester feedback; the see-through effect was removed.
+10. **Adjust AI Melee Attacker Behavior** Art team will adjust it to avoid the need of windup. Also, the attack area should change from circle to cone
 
 **Launch**
 10. **Steam demo prep:** store page, demo build settings, Steam Deck text-size check. Why: December 2026 date.
