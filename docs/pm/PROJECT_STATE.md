@@ -3,14 +3,19 @@
 _Last updated: 2026-10-30 by the Orchestrator._
 
 ## Milestone
-- **Current:** next tester build, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
+- **Current:** tester round on v0.5.2, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
 - **Last tagged release:** `v0.5.2` (on `main`, 2026-10-30).
 - **In v0.5.2:** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
 
 ## Git reality (checked 2026-10-30)
 - `main` = `origin/main` = `ef237a6`, tagged `v0.5.2` (pushed 2026-10-30).
-- `develop` is at or just past that commit, with docs only. Check `git status` for unpushed docs commits.
+- `develop` is ahead of `main` by docs commits only (the cutscene spec, these state updates). Check `git status` for unpushed ones.
 - No feature branches open.
+
+## Resume here (Orchestrator, 2026-10-30)
+- **Waiting on the owner:** the Windows build of v0.5.2, sending it to testers, and running the opening cutscene design session (its kickoff prompt was given to the owner; the spec is `docs/features/opening-cutscene.md`).
+- **When the design session ends:** check its commits and any handoff file next to the spec, apply it, then write the kickoff prompt for the implementation session on `feature/opening-cutscene`.
+- **When tester feedback arrives:** triage it into the backlog; the balance pass and the SQLite deletion follow this round.
 
 ## In progress
 | Feature | Branch | Spec | Status |

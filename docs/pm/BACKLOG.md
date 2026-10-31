@@ -1,6 +1,6 @@
 # Backlog
 
-_Last updated: 2026-10-30 (Attack Speed done). Ordered around the next tester build, then the Steam demo (December 2026). Each line: item, then why._
+_Last updated: 2026-10-30 (Attack Speed done). Ordered around the v0.5.2 tester round, then the Steam demo (December 2026). Each line: item, then why._
 
 ## Now (while testers play)
 1. **Tester build v0.5.2:** released on 2026-10-30 (`main`, tag `v0.5.2`, patch notes in `PatchNotes/notas-desde-v0.5.1.md`). Left: make the Windows build, send it to testers, collect feedback. Why: a lot changed since v0.5.1, and every manual test has passed.
