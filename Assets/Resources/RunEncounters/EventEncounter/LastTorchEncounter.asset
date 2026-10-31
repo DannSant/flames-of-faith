@@ -13,128 +13,149 @@ MonoBehaviour:
   m_Name: LastTorchEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: lastTorch
-  title: "The Last Torch"
-  fullText: "Three old soldiers sit around a torch with a weak white flame: the last ember of a Flame of Faith, carried out of Ashemdrek City sixty years ago. Their Torch Guard tabards have faded to grey. \"Every night it's smaller,\" says the eldest. \"When it goes out, the Devourers come. You're pilgrims. Can you feed it?\""
+  title: The Last Torch
+  fullText: 'Three old soldiers sit around a torch with a weak white flame: the last
+    ember of a Flame of Faith, carried out of Ashemdrek City sixty years ago. Their
+    Torch Guard tabards have faded to grey. "Every night it''s smaller," says the
+    eldest. "When it goes out, the Devourers come. You''re pilgrims. Can you feed
+    it?"'
   classIntroLines:
   - characterClass: 1
-    text: "The eldest sees her sword and spits. \"Alamoh steel. Your grandfather had the whole city in his hand and dropped it.\" Then, quieter: \"Still. He was the only one who went in.\""
+    text: 'The eldest sees her sword and spits. "Alamoh steel. Your grandfather had
+      the whole city in his hand and dropped it." Then, quieter: "Still. He was the
+      only one who went in."'
   - characterClass: 3
-    text: "\"A Sentinel,\" says another. \"Abidor's archers stood at the border and watched us burn.\" Faelin doesn't argue."
+    text: '"A Sentinel," says another. "Abidor''s archers stood at the border and
+      watched us burn." Faelin doesn''t argue.'
   - characterClass: 2
-    text: "Werlem sees at once what the flame needs: Grace, and a lot of it. Whoever feeds it will feel the cost."
+    text: 'Werlem sees at once what the flame needs: Grace, and a lot of it. Whoever
+      feeds it will feel the cost.'
   options:
-  - label: "Feed the flame with your Grace."
+  - label: Feed the flame with your Grace.
     classLabels: []
     onlyForClass: 0
-    hint: "The flame is starving. It will take what it needs, and maybe a little more."
+    hint: The flame is starving. It will take what it needs, and maybe a little more.
     outcome: 1
     result:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 2
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions:
       - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
       - {fileID: 11400000, guid: 4c4ec80058ac4108a2526347106066d6, type: 2}
-      resultText: "The torch roars white, and the old soldiers weep openly. 'Tell the Church,' the eldest says. 'Tell them the Torch Guard held.' It cost you {grace} Grace, and the Shardless Church will hear of it: +{favors} Favor."
+      resultText: 'The torch roars white, and the old soldiers weep openly. ''Tell
+        the Church,'' the eldest says. ''Tell them the Torch Guard held.'' It cost
+        you {grace} Grace, and the Shardless Church will hear of it: +{favors} Favor.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions:
       - {fileID: 11400000, guid: 7ad735715d2440b7b673f435579aa7f6, type: 2}
       - {fileID: 11400000, guid: 4c4ec80058ac4108a2526347106066d6, type: 2}
-      resultText: "It drinks far more than you meant to give ({grace} Grace), but it catches. 'Tell them the Torch Guard held,' the eldest says. +{favors} Favor."
+      resultText: It drinks far more than you meant to give ({grace} Grace), but
+        it catches. 'Tell them the Torch Guard held,' the eldest says. +{favors}
+        Favor.
       classResultLines: []
-      nextStepId: ""
-  - label: "Buy the torch."
+      nextStepId: 
+  - label: Buy the torch.
     classLabels: []
     onlyForClass: 0
-    hint: "They'd never sell it. They'd also never admit how hungry they are."
+    hint: They'd never sell it. They'd also never admit how hungry they are.
     outcome: 0
     result:
       actions:
       - {fileID: 11400000, guid: bd19a4de9dd243ce8b642465f95da845, type: 2}
       - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
-      resultText: "They take {chronos} Golden Chronos without meeting your eyes and press the torch into your hands. Its warmth fills you: +{grace} Grace. Behind you, they turn toward the coast and the boats to Abidor."
+      resultText: 'They take {chronos} Golden Chronos without meeting your eyes and
+        press the torch into your hands. Its warmth fills you: +{grace} Grace. Behind
+        you, they turn toward the coast and the boats to Abidor.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
-  - label: "Escort them to the Argent Coast."
+      nextStepId: 
+  - label: Escort them to the Argent Coast.
     classLabels: []
     onlyForClass: 0
-    hint: "The coast has boats, and the woods have Devourers. It's out of your way."
+    hint: The coast has boats, and the woods have Devourers. It's out of your way.
     outcome: 1
     result:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 1
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions:
       - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
       - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
-      resultText: "Something pale follows you through the trees and flees from the torch. [At the shore, the eldest gives you his old Torch Guard gear: {item}.] It cost you {health} health."
+      resultText: 'Something pale follows you through the trees and flees from the
+        torch. [At the shore, the eldest gives you his old Torch Guard gear: {item}.]
+        It cost you {health} health.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions:
       - {fileID: 11400000, guid: b1e75e3a4c4c4785b02c9baae339e3f5, type: 2}
       - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
-      resultText: "A Devourer comes out of the dark between the trees. You drive it off ({health} health). [At the shore, the eldest presses his old gear on you: {item}.]"
+      resultText: 'A Devourer comes out of the dark between the trees. You drive
+        it off ({health} health). [At the shore, the eldest presses his old gear
+        on you: {item}.]'
       classResultLines: []
-      nextStepId: ""
-  - label: "Write them a Sentinel's pass to Abidor."
+      nextStepId: 
+  - label: Write them a Sentinel's pass to Abidor.
     classLabels: []
     onlyForClass: 3
-    hint: "A Sentinel's seal opens Abidor's border. It isn't hers to give."
+    hint: A Sentinel's seal opens Abidor's border. It isn't hers to give.
     outcome: 0
     result:
       actions:
       - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
       - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
-      resultText: "Faelin signs her own name under the Sentinel seal. If anyone asks, it's on her. The boat fare comes out of your purse: {chronos} Golden Chronos. The eldest salutes her with a hand that shakes. 'Abidor's archers,' he says, and this time it isn't an insult. +{grace} Grace."
+      resultText: 'Faelin signs her own name under the Sentinel seal. If anyone asks,
+        it''s on her. The boat fare comes out of your purse: {chronos} Golden Chronos.
+        The eldest salutes her with a hand that shakes. ''Abidor''s archers,'' he
+        says, and this time it isn''t an insult. +{grace} Grace.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
   steps: []
   oncePerPilgrimage: 0
-  art: {fileID: 0}
+  art: {fileID: 7202801200737331503, guid: 7e589c743c7301e40848faf6da133874, type: 3}
