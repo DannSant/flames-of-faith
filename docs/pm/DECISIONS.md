@@ -3,7 +3,10 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-10-30
-- **Attack Speed spec written** (`docs/features/attack-speed-caps.md`). Primary attack animations scale with the cooldown; specials stay at speed 1, with a guard test that each special's cooldown stays longer than its action at the hard cap. Cap values are a starting proposal for the designer.
+- **Attack Speed final numbers:** scale 0.02 on every weapon, soft cap 40, hard cap 80, rate 0.5 (the owner's, after play-testing; the spec's proposal felt far too strong). At most 2.2× speed.
+- **Release plan:** merge `develop` into `main` and make a tester build now; while testers play, work on the opening cutscene's design and a small replay menu.
+- **Lore compendium added to the backlog:** items, enemies and encounter events the player has interacted with. Placed in the demo update for now.
+- **Attack Speed spec written** (`docs/archive/features/attack-speed-caps.md`). Primary attack animations scale with the cooldown; specials stay at speed 1, with a guard test that each special's cooldown stays longer than its action at the hard cap. Cap values are a starting proposal for the designer.
 - **A finished spec stays in `docs/features/` until its manual tests pass**, then moves to `docs/archive/features/`.
 
 ## 2026-10-29
@@ -12,7 +15,7 @@ Newest first. Format: date, decision, reason.
 - **Cutscene scope:** 26 scenes for 1.0 (an opening, an ending, and one per pilgrim before and after each act), static images and text. The Steam demo gets the opening one. Voice narration to be researched. Replaces the 8 scenes of 2026-10-23.
 - **Demo scope grows:** skill-tree item unlocks, more and higher-quality items, the re-designed characters, the new scenarios with companions in non-combat levels, the map redesign, the opening cutscene, the boss's invulnerability shield (art). See BACKLOG "Before the Steam demo".
 - **For 1.0:** a pick-1-of-3 boss reward of boss-only items, and a boss architecture refactor before the second boss.
-- **Lore canon:** `game-design-docs/Lore.md` is the story bible and its glossary sets every name. The owner's novels and notes in `lore-docs/` (gitignored, Spanish) are reference only; where they differ, `Lore.md` wins. The lore decisions themselves are recorded in `docs/features/run-encounter-events.md`, "Lore decisions".
+- **Lore canon:** `game-design-docs/Lore.md` is the story bible and its glossary sets every name. The owner's novels and notes in `lore-docs/` (gitignored, Spanish) are reference only; where they differ, `Lore.md` wins. The lore decisions themselves are recorded in `docs/archive/features/run-encounter-events.md`, "Lore decisions".
 - **Lore choices from the narrative session:**
   - The game is set about **60 years after Gabien** (`lore-docs/Timeline.docx` said 150).
   - The English for the Amanecidos is **"Awoken"** (not "Dawner").
@@ -23,7 +26,7 @@ Newest first. Format: date, decision, reason.
 - **Docs cleanup:** closed specs moved to `docs/archive/features/`; the old handoffs, the corruption rework spec, the data-driven analysis and the 2026-10-09 tester feedback moved from `Assets/Docs/` to `docs/archive/` (out of the Unity project). The `.docx` GDDs were deleted (the Markdown versions replace them; git history keeps them). Applied handoffs are deleted once their content is in the spec and `docs/pm/`.
 
 ## 2026-10-26
-- **Narrative before systems for the events rework.** A design session writes the lore bible (`game-design-docs/Lore.md`) and the event content into the Narrative section of `docs/features/run-encounter-events.md`; the implementation session builds the systems from it afterwards. Reason: the rework's goal is lore delivery, and the lore has contradictions (listed in the spec) that would leak into event text. A design session may edit `Lore.md`, the GDD's story sections and that spec's Narrative section, on `develop`.
+- **Narrative before systems for the events rework.** A design session writes the lore bible (`game-design-docs/Lore.md`) and the event content into the Narrative section of `docs/archive/features/run-encounter-events.md`; the implementation session builds the systems from it afterwards. Reason: the rework's goal is lore delivery, and the lore has contradictions (listed in the spec) that would leak into event text. A design session may edit `Lore.md`, the GDD's story sections and that spec's Narrative section, on `develop`.
 - **`OnePageGDD.md` marked outdated** rather than deleted; rewrite is in the backlog. The Ten Page GDD is the current design.
 - **Closed specs:** data-driven step 3, item drops, items and abilities (merged into `develop` 2026-10-25), GDD update.
 - **Recorded from the 2026-10-25/26 sessions:**

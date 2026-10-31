@@ -121,7 +121,7 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 
 ### Run encounter events
 
-Reworked Oct 2026 (spec: `docs/features/run-encounter-events.md`; the texts and the lore behind them are the narrative session's, names follow `game-design-docs/Lore.md`'s glossary). Events read as small stories: options show an in-world hint instead of numbers, results are narrated with the numbers woven in, checks use more stats than Luck, options can lead to follow-up steps, and each pilgrim gets class lines and options.
+Reworked Oct 2026 (spec: `docs/archive/features/run-encounter-events.md`; the texts and the lore behind them are the narrative session's, names follow `game-design-docs/Lore.md`'s glossary). Events read as small stories: options show an in-world hint instead of numbers, results are narrated with the numbers woven in, checks use more stats than Luck, options can lead to follow-up steps, and each pilgrim gets class lines and options.
 - **Data:** one `EventEncounterData` per event in `Resources/RunEncounters/EventEncounter/` holds everything (`EventOption.cs`):
   - the intro (`fullText`), `classIntroLines` (a `ClassText` per class: Warrior = Ayteel, Archer = Faelin, Mage = Werlem), the first screen's `options`, follow-up `steps` and `oncePerPilgrimage`;
   - an `EventOption`: label, `classLabels`, `onlyForClass` (None = everyone), `hint` (the tooltip, no numbers) and an outcome: **Fixed** (`result`) or **Check** (`check` + `success` / `failure`);

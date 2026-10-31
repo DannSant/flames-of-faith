@@ -1,8 +1,8 @@
 # Feature: High Attack Speed fix (animation speed + caps)
 
-- **Status:** ready for implementation
+- **Status:** done, merged into `develop` (`789d4bc`, 2026-10-30), manual tests passed
 - **Branch:** `feature/attack-speed-caps` (off `develop`)
-- **Owner session:** implementation session, not started
+- **Owner session:** implementation session (done, see Handoff)
 - **Related docs:** `CLAUDE.md` "Adding a player stat" (stat descriptions, `PlayerStatSettings`, special cooldowns), "Balance data" (keep the Sheets pipeline in step), "Melee attack warning" (the enemy `AttackSpeed` precedent), "Animation events in blend trees"; `docs/pm/DECISIONS.md` 2026-10-29
 
 ## Goal

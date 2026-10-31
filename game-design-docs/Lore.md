@@ -200,7 +200,7 @@ Events are the main way the player meets all this. Rules for event writers:
 - **Secrets** (§1, §3) are never stated.
 - **Reward the reader.** A pure gain (an option with no cost) appears only in a follow-up step, reached by a lore-correct answer, and the answer must be findable in the game. The Wayside Shrine, a rest node, is the only exception.
 
-The event content itself is in `docs/features/run-encounter-events.md`, "Narrative".
+The event content itself is in `docs/archive/features/run-encounter-events.md`, "Narrative".
 
 ---
 

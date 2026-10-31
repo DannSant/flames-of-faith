@@ -299,7 +299,7 @@ Every event has 2–3 options, and a first-screen option always risks a cost (no
 - **Steps:** events can have follow-up steps, up to 3 deep. Pure gains appear only in a step reached by a lore-correct answer (the Wayside Shrine's "Kneel and pray" is the exception).
 - **Class content:** class lines in most events, plus a few class-only options.
 - **Pool:** 9 random events in Act I (**The Vega Casket**, **Raiders from Gracoy**, **The Weeping Chest**, **The Faraclarian Clan**, **Gift of the House of Stars**, **A Hut in the Jesterwoods**, **Laughter in the Leaves**, **The Star Reader**, **The Last Torch**), plus the **Wayside Shrine of Malien** on its own node. An event doesn't repeat within a Pilgrimage until all have been seen, and Liah's appears at most once.
-- **Art:** events can show art, but none has art yet.
+- **Art:** events show a framed illustration beside the window. Every event has one except The Star Reader.
 
 ---
 
@@ -416,6 +416,7 @@ _Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase whi
   - **Per character, before and after each act:** 3 pilgrims × 4 acts × 2 = 24 scenes, telling each pilgrim's arc (`Lore.md` §6).
   - **Ending:** the game's ending.
 - **Steam demo:** the opening scene only.
+- **Replay:** a small menu lets the player watch again the cutscenes they have seen.
 - The lore and art direction of each scene is **TBD** (a design task in the backlog).
 - **Current state:** no cutscenes yet. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
 
@@ -427,7 +428,8 @@ _Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase whi
 - **Steam achievements** (planned for 1.0, see [Platform-specific features](#platform-specific-features)).
 - **Hard mode** _(not planned, but not ruled out)_: if added, it will be a harder mode only; there will be no easier mode.
 - **Key items** that unlock parts of the overworld map: planned, design to be discussed.
-- **Ideas, not planned:** more classes, a lore codex unlocked by hidden objects ("discover the history of the world of Kanator"), post-1.0 content updates.
+- **Lore compendium** _(planned, added 2026-10-30)_: a menu where the player can read about the items, enemies and encounter events they have interacted with. Entries unlock as they are met and stay unlocked between runs.
+- **Ideas, not planned:** more classes, post-1.0 content updates.
 
 ---
 
@@ -447,7 +449,7 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 10. **Hard mode:** whether to make it, and what it changes.
 11. **Epic and Legendary items:** none exist yet.
 12. **Localization extras:** whether Chinese and Japanese make it into 1.0.
-13. **Lore:** the timeline and the other contradictions were settled on 2026-10-26 and 2026-10-29 (see [`Lore.md`](Lore.md) and `docs/features/run-encounter-events.md`, "Lore decisions"). Gabien's sword is **Ashem Elwyn** ("Shining Tide"), and the Faraclarian Faun Chief is not of Alamoh blood. Still open: how Daviro has lived sixty years past Gabien's time.
+13. **Lore:** the timeline and the other contradictions were settled on 2026-10-26 and 2026-10-29 (see [`Lore.md`](Lore.md) and `docs/archive/features/run-encounter-events.md`, "Lore decisions"). Gabien's sword is **Ashem Elwyn** ("Shining Tide"), and the Faraclarian Faun Chief is not of Alamoh blood. Still open: how Daviro has lived sixty years past Gabien's time.
 14. **Run structure across acts (decision needed):** two options.
     - **One run through all acts in a row:** a run goes Act I → IV without stopping, and death means starting over from Act I. Builds grow across the whole game and the ending is earned in one sitting, but runs get long (4 acts) and early acts get replayed a lot.
     - **One act per run:** after beating an act, the player goes back to the main menu and chooses to replay a cleared act or start the next one. Runs stay short and later acts are reachable without replaying Act I. Open points with this option: what a new act starts with (a fresh level 1 kit or a scaled starting point), how difficulty is set, and how Favors are paced.
