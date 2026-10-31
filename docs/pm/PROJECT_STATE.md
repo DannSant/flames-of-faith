@@ -16,6 +16,7 @@ _Last updated: 2026-10-30 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **Released.** Next: the owner makes the Windows build and sends it with the patch notes |
+| Opening cutscene and replay menu | docs on `develop`, then `feature/opening-cutscene` | `docs/features/opening-cutscene.md` | **Ready for the design session.** Then an implementation session |
 
 ## Done recently
 - **High Attack Speed fix** (merged 2026-10-30, `789d4bc`; manual tests passed): the attack animation speeds up with the cooldown, soft cap 40, hard cap 80, scale 0.02, at most 2.2× speed.

@@ -4,9 +4,9 @@ _Last updated: 2026-10-30 (Attack Speed done). Ordered around the next tester bu
 
 ## Now (while testers play)
 1. **Tester build v0.5.2:** released on 2026-10-30 (`main`, tag `v0.5.2`, patch notes in `PatchNotes/notas-desde-v0.5.1.md`). Left: make the Windows build, send it to testers, collect feedback. Why: a lot changed since v0.5.1, and every manual test has passed.
-2. **Cutscene design** (design session): the lore and art direction of the **opening** scene for the demo; the other 25 scenes later. Feeds 3 and the art team. Why: art needs the brief early.
-3. **Opening cutscene: the general story** (one scene). Needs a small cutscene system (static images + text, skippable, gamepad) and its content from 2. Why: players start the demo with no context.
-4. **Cutscene replay menu:** a small menu that replays the cutscenes the player has seen; saved with the meta-progression, so it lasts between runs. Build it next to the opening cutscene. Why: the owner's request; it also starts the screen the lore compendium can share.
+2. **Cutscene design** (design session; spec `docs/features/opening-cutscene.md`): the lore and art direction of the **opening** scene for the demo; the other 25 scenes later. Feeds 3 and the art team. Why: art needs the brief early.
+3. **Opening cutscene: the general story** (one scene; same spec). Needs a small cutscene system (static images + text, skippable, gamepad) and its content from 2. Why: players start the demo with no context.
+4. **Cutscene replay menu** (same spec): a small menu that replays the cutscenes the player has seen; saved with the meta-progression, so it lasts between runs. Build it next to the opening cutscene. Why: the owner's request; it also starts the screen the lore compendium can share.
 
 ## Before the Steam demo (musts, trimmed 2026-10-29)
 **Code**
