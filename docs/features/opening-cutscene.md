@@ -46,12 +46,12 @@ For the scene: how many pages, its running time when read at a normal pace, and 
 - **Replay menu:** a main-menu panel, like the other panels (`MainMenuController.Switch`), that lists seen scenes and plays one, returning to the menu afterwards. Build it as a screen with room for more tabs, so the compendium can join it instead of being built apart. A scene not yet seen isn't listed.
 - **Placeholder art:** the code mustn't wait on art. Use placeholder images until the art team delivers.
 
-## Open questions (for the design session, with the owner)
-1. **When does it play?** Every New Game, or only the first one? _Proposal: only the first, with the replay menu for the rest; a roguelite restarts often._
-2. **Before or after class select?** _Proposal: after Start Run, right before the map, so the class choice comes first and the story leads straight into play._
-3. **The menu's name.** Players see it, and the compendium may join it. _Proposal: a lore-fitting name in `Lore.md`'s voice, chosen by the owner._ Should it be reachable from the pause menu too?
-4. **Whether the art team can deliver the pages before the demo.** If not, what's the fallback: fewer pages, or re-used event art?
-5. **How much Gabien** the opening carries, given that each pilgrim's arc depends on what the player doesn't yet know.
+## Open questions (answered by the owner, 2026-10-31)
+1. **When does it play?** Only on the first New Game, when the opening isn't in the seen list yet. The replay menu covers the rest; a roguelite restarts often.
+2. **Before or after class select?** After Start Run, right before the map, so the story leads straight into play. On a first demo play Archer and Augur are locked, so playing it before class select would show three pilgrims and then lock two of them.
+3. **The menu's name:** **Pilgrim's Chronicle**, which also fits the compendium when it joins. It's on the main menu only, not the pause menu; the compendium can reopen that question.
+4. **Art delivery:** the art team will deliver every page before the demo, so there's no fallback plan.
+5. **How much Gabien:** named, in one line, as people see him: he fell, the Flame died with him, the name is hated. No Seal, nothing about how or why. The three pilgrims are shown as who they are now, not as grandchildren; the family names are left to speak for themselves.
 
 ## Acceptance criteria
 _Design:_
