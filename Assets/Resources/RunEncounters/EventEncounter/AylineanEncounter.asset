@@ -13,231 +13,253 @@ MonoBehaviour:
   m_Name: AylineanEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: aylinean
-  title: "Laughter in the Leaves"
-  fullText: "A fox sits on a stump in the middle of the path. Then it stands up on two legs, dusts off its paws and grins with far too many teeth. An Aylinean, straight out of a nursery tale. \"Pilgrims! It's been ages. Make me laugh and I'll tell you a secret. Bore me…\" It shrugs. \"And I'll make <i>myself</i> laugh.\""
+  title: Laughter in the Leaves
+  fullText: "A fox sits on a stump in the middle of the path. Then it stands up on
+    two legs, dusts off its paws and grins with far too many teeth. An Aylinean,
+    straight out of a nursery tale. \"Pilgrims! It's been ages. Make me laugh and
+    I'll tell you a secret. Bore me\u2026\" It shrugs. \"And I'll make <i>myself</i>
+    laugh.\""
   classIntroLines:
   - characterClass: 1
-    text: "\"Ooh, that sword. I knew the last one who carried it. Terrible at jokes.\""
+    text: '"Ooh, that sword. I knew the last one who carried it. Terrible at jokes."'
   - characterClass: 3
-    text: "Faelin has an arrow nocked before she knows it. The Aylinean is suddenly behind her. \"Rude.\""
+    text: Faelin has an arrow nocked before she knows it. The Aylinean is suddenly
+      behind her. "Rude."
   - characterClass: 2
-    text: "\"They're pure ley energy,\" Werlem whispers. \"My grandfather would have given an arm to…\" \"Arms are not funny,\" says the Aylinean."
+    text: "\"They're pure ley energy,\" Werlem whispers. \"My grandfather would have
+      given an arm to\u2026\" \"Arms are not funny,\" says the Aylinean."
   options:
-  - label: "Tell it a joke."
+  - label: Tell it a joke.
     classLabels: []
     onlyForClass: 0
-    hint: "Aylineans love human foolishness. Their own dignity, much less."
+    hint: Aylineans love human foolishness. Their own dignity, much less.
     outcome: 0
     result:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: "joke"
+      nextStepId: joke
     check:
       source: 0
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
-  - label: "Laugh at it first."
+      nextStepId: 
+  - label: Laugh at it first.
     classLabels: []
     onlyForClass: 0
-    hint: "Nobody has ever laughed at an Aylinean. That might be very funny. To it."
+    hint: Nobody has ever laughed at an Aylinean. That might be very funny. To it.
     outcome: 1
     result:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 8
       difficulty: 2
-      introLine: ""
+      introLine: 
     success:
       actions:
       - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
-      resultText: "It stares at you. Then it laughs so hard it vanishes, and reappears, and vanishes again. [It leaves {item} on the stump as a tip.]"
+      resultText: 'It stares at you. Then it laughs so hard it vanishes, and reappears,
+        and vanishes again. [It leaves {item} on the stump as a tip.]'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions:
       - {fileID: 11400000, guid: 2797a11bc59c4d54be3baf0d131ff7c4, type: 2}
-      resultText: "It doesn't laugh. It just keeps grinning, and you blink, and your purse is {chronos} Golden Chronos lighter."
+      resultText: It doesn't laugh. It just keeps grinning, and you blink, and your
+        purse is {chronos} Golden Chronos lighter.
       classResultLines: []
-      nextStepId: ""
-  - label: "Bargain: a coin for a secret."
+      nextStepId: 
+  - label: 'Bargain: a coin for a secret.'
     classLabels: []
     onlyForClass: 0
-    hint: "Aylineans keep their word. They also love a bargain."
+    hint: Aylineans keep their word. They also love a bargain.
     outcome: 0
     result:
       actions:
       - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
       - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
-      resultText: "'A coin for a secret? How very Wanderer of you.' It takes {chronos} Golden Chronos and tells you something small and true: where the old shrine roads run, and which of them still hold a little warmth. +{grace} Grace."
+      resultText: '''A coin for a secret? How very Wanderer of you.'' It takes {chronos}
+        Golden Chronos and tells you something small and true: where the old shrine
+        roads run, and which of them still hold a little warmth. +{grace} Grace.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
   steps:
-  - id: "joke"
-    prompt: "It sits back down, tail curled, waiting."
+  - id: joke
+    prompt: It sits back down, tail curled, waiting.
     options:
-    - label: "\"How do you know a village augur has healed you? You still need him tomorrow.\""
+    - label: '"How do you know a village augur has healed you? You still need him
+        tomorrow."'
       classLabels: []
       onlyForClass: 0
-      hint: "Every pilgrim has met that augur."
+      hint: Every pilgrim has met that augur.
       outcome: 0
       result:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: "secret"
+        nextStepId: secret
       check:
         source: 0
         stat: 8
         difficulty: 1
-        introLine: ""
+        introLine: 
       success:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       failure:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
-    - label: "\"What do you call a Dreko at a feast? The main course.\""
+        nextStepId: 
+    - label: '"What do you call a Dreko at a feast? The main course."'
       classLabels: []
       onlyForClass: 0
-      hint: "Everyone hates the Drekos. Everyone."
+      hint: Everyone hates the Drekos. Everyone.
       outcome: 0
       result:
         actions:
         - {fileID: 11400000, guid: 2797a11bc59c4d54be3baf0d131ff7c4, type: 2}
-        resultText: "The grin goes away. 'We buried a lot of friends because of those.' When it's gone, so is {chronos} Golden Chronos from your purse."
+        resultText: The grin goes away. 'We buried a lot of friends because of those.'
+          When it's gone, so is {chronos} Golden Chronos from your purse.
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       check:
         source: 0
         stat: 8
         difficulty: 1
-        introLine: ""
+        introLine: 
       success:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       failure:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
-    - label: "\"Why did the fox cross the road? To get to the other fox.\""
+        nextStepId: 
+    - label: '"Why did the fox cross the road? To get to the other fox."'
       classLabels: []
       onlyForClass: 0
-      hint: "A classic."
+      hint: A classic.
       outcome: 0
       result:
         actions:
         - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
         - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
-        resultText: "'Fox jokes. To a fox.' It leads you, very politely, the wrong way through the deepest part of the woods. You get out hours later, {health} health and {chronos} Golden Chronos poorer, and you're not sure how the coins went missing."
+        resultText: '''Fox jokes. To a fox.'' It leads you, very politely, the wrong
+          way through the deepest part of the woods. You get out hours later, {health}
+          health and {chronos} Golden Chronos poorer, and you''re not sure how the
+          coins went missing.'
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       check:
         source: 0
         stat: 8
         difficulty: 1
-        introLine: ""
+        introLine: 
       success:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       failure:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
-  - id: "secret"
-    prompt: "It falls off the stump laughing. When it climbs back up, it keeps its word. 'The white fires? We lit them, with the Golden Rider and the old prophet, and we kept a seal for them. A boy came for it sixty years ago, from Papik Lotio's tomb.' It holds out a closed paw. 'And for the laugh, a gift. Or another secret. Choose.'"
+        nextStepId: 
+  - id: secret
+    prompt: It falls off the stump laughing. When it climbs back up, it keeps its
+      word. 'The white fires? We lit them, with the Golden Rider and the old prophet,
+      and we kept a seal for them. A boy came for it sixty years ago, from Papik
+      Lotio's tomb.' It holds out a closed paw. 'And for the laugh, a gift. Or another
+      secret. Choose.'
     options:
-    - label: "Take the gift."
+    - label: Take the gift.
       classLabels: []
       onlyForClass: 0
-      hint: "Aylineans \"find\" things. Best not to ask where."
+      hint: Aylineans "find" things. Best not to ask where.
       outcome: 0
       result:
         actions:
         - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
-        resultText: "It opens its paw[: {item}]. 'Found it,' it says, and doesn't elaborate."
+        resultText: 'It opens its paw[: {item}]. ''Found it,'' it says, and doesn''t
+          elaborate.'
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       check:
         source: 0
         stat: 8
         difficulty: 1
-        introLine: ""
+        introLine: 
       success:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       failure:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
-    - label: "Ask about the boy."
+        nextStepId: 
+    - label: Ask about the boy.
       classLabels: []
       onlyForClass: 0
-      hint: "Sixty years is nothing to an Aylinean."
+      hint: Sixty years is nothing to an Aylinean.
       outcome: 0
       result:
         actions:
         - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
-        resultText: "'Sad eyes. He burned, that one, like the old Riders. He said the seal was for someone he loved, not for a war.' It looks at you a moment too long. 'You have his eyes.' +{grace} Grace."
+        resultText: '''Sad eyes. He burned, that one, like the old Riders. He said
+          the seal was for someone he loved, not for a war.'' It looks at you a moment
+          too long. ''You have his eyes.'' +{grace} Grace.'
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       check:
         source: 0
         stat: 8
         difficulty: 1
-        introLine: ""
+        introLine: 
       success:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
       failure:
         actions: []
-        resultText: ""
+        resultText: 
         classResultLines: []
-        nextStepId: ""
+        nextStepId: 
   oncePerPilgrimage: 0
-  art: {fileID: 0}
+  art: {fileID: 1840262612142184746, guid: 10b88f1639da3a84ea50f9790e97ec4b, type: 3}

@@ -13,126 +13,141 @@ MonoBehaviour:
   m_Name: BanditsEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Game.RunEncounters.EventEncounterData
   eventName: bandits
-  title: "Raiders from Gracoy"
-  fullText: "Riders on faikans step out of the treeline: Gracoy mercenaries, from a company whose grandmothers sold their swords to the Sea Witch and never went home. Their captain, a broad woman with a notched blade, smiles without warmth. \"The High Mother is dead, and her daughters are hungry. Your purse, pilgrim, or your blood.\""
+  title: Raiders from Gracoy
+  fullText: 'Riders on faikans step out of the treeline: Gracoy mercenaries, from
+    a company whose grandmothers sold their swords to the Sea Witch and never went
+    home. Their captain, a broad woman with a notched blade, smiles without warmth.
+    "The High Mother is dead, and her daughters are hungry. Your purse, pilgrim,
+    or your blood."'
   classIntroLines:
   - characterClass: 1
-    text: "The captain squints at Ayteel's sword. \"Steeldawn. My grandmother said a man with a blade like that cut through half her company.\""
+    text: The captain squints at Ayteel's sword. "Steeldawn. My grandmother said
+      a man with a blade like that cut through half her company."
   - characterClass: 3
-    text: "Faelin counts them before anyone moves. \"Seven. Two bows. The big one favors his left leg.\""
+    text: Faelin counts them before anyone moves. "Seven. Two bows. The big one favors
+      his left leg."
   - characterClass: 2
-    text: "Werlem raises a hand in blessing. The captain spits. \"Keep your Malien. We pray to the Mother of All.\""
+    text: Werlem raises a hand in blessing. The captain spits. "Keep your Malien.
+      We pray to the Mother of All."
   options:
-  - label: "Fight them."
+  - label: Fight them.
     classLabels: []
     onlyForClass: 0
-    hint: "Seven of them, thin and tired. Hungry people fight hard, but not for long."
+    hint: Seven of them, thin and tired. Hungry people fight hard, but not for long.
     outcome: 1
     result:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 1
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions:
       - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
       - {fileID: 11400000, guid: a50302b2b9aa1ac49816da88e5bf2e2f, type: 2}
-      resultText: "They break at the first real blow and scatter into the trees. You lose only {health} health, [and a saddlebag left behind holds {item}.]"
+      resultText: 'They break at the first real blow and scatter into the trees.
+        You lose only {health} health, [and a saddlebag left behind holds {item}.]'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions:
       - {fileID: 11400000, guid: 5449d0c515ea429ea15f26476a1c6656, type: 2}
-      resultText: "There were more in the trees than you counted. You drive them off, bloodied, with nothing to show for it but {health} health lost."
+      resultText: There were more in the trees than you counted. You drive them off,
+        bloodied, with nothing to show for it but {health} health lost.
       classResultLines: []
-      nextStepId: ""
-  - label: "Pay them."
+      nextStepId: 
+  - label: Pay them.
     classLabels: []
     onlyForClass: 0
-    hint: "Mercenaries remember who pays. Gold might buy more than the road."
+    hint: Mercenaries remember who pays. Gold might buy more than the road.
     outcome: 0
     result:
       actions:
       - {fileID: 11400000, guid: 2797a11bc59c4d54be3baf0d131ff7c4, type: 2}
       - {fileID: 11400000, guid: 68348fb29d2f456b93eb417b6ac8f3be, type: 2}
-      resultText: "The captain weighs your {chronos} Golden Chronos in her palm. 'Ashemdrek coin. My grandmother was paid in this.' They let you pass. No blood spilled today: +{grace} Grace."
+      resultText: 'The captain weighs your {chronos} Golden Chronos in her palm.
+        ''Ashemdrek coin. My grandmother was paid in this.'' They let you pass. No
+        blood spilled today: +{grace} Grace.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
-  - label: "Run for the trees."
+      nextStepId: 
+  - label: Run for the trees.
     classLabels: []
     onlyForClass: 0
-    hint: "Faikans are fast on open ground. The Jesterwoods are not open ground."
+    hint: Faikans are fast on open ground. The Jesterwoods are not open ground.
     outcome: 1
     result:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 3
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions:
       - {fileID: 11400000, guid: 0784079ed9e04addb57472939095b5ba, type: 2}
-      resultText: "You lose them among the roots, and stumble into their empty camp. Someone left {chronos} Golden Chronos in a cooking pot."
+      resultText: You lose them among the roots, and stumble into their empty camp.
+        Someone left {chronos} Golden Chronos in a cooking pot.
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions:
       - {fileID: 11400000, guid: 41709384b00e4450a34be0af6f8ed3a9, type: 2}
       - {fileID: 11400000, guid: 458ddd8bb3e546fcb8516f212b723f15, type: 2}
-      resultText: "A faikan catches your cloak. You tear free, leaving {health} health and {chronos} Golden Chronos behind."
+      resultText: A faikan catches your cloak. You tear free, leaving {health} health
+        and {chronos} Golden Chronos behind.
       classResultLines: []
-      nextStepId: ""
-  - label: "Offer to heal their wounded."
+      nextStepId: 
+  - label: Offer to heal their wounded.
     classLabels: []
     onlyForClass: 2
-    hint: "Two of them can barely stand. Augurs heal. Augurs also charge."
+    hint: Two of them can barely stand. Augurs heal. Augurs also charge.
     outcome: 0
     result:
       actions:
       - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
       - {fileID: 11400000, guid: cd0a13a6dfac4ca28e9ac640e9c4bfbb, type: 2}
-      resultText: "You kneel by the wounded and let your Grace flow into them: {grace} Grace. The captain pays like a mercenary, exactly: {chronos} Golden Chronos. 'A village augur would have charged double,' she says. It's almost a compliment."
+      resultText: 'You kneel by the wounded and let your Grace flow into them: {grace}
+        Grace. The captain pays like a mercenary, exactly: {chronos} Golden Chronos.
+        ''A village augur would have charged double,'' she says. It''s almost a compliment.'
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     check:
       source: 0
       stat: 8
       difficulty: 1
-      introLine: ""
+      introLine: 
     success:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
     failure:
       actions: []
-      resultText: ""
+      resultText: 
       classResultLines: []
-      nextStepId: ""
+      nextStepId: 
   steps: []
   oncePerPilgrimage: 0
-  art: {fileID: 0}
+  art: {fileID: -735616403641280546, guid: 72fbdbf845c8a3b468642ac998e32905, type: 3}
