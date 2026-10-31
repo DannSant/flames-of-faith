@@ -8,8 +8,8 @@ _Last updated: 2026-10-30 by the Orchestrator._
 - **In v0.5.2:** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
 
 ## Git reality (checked 2026-10-30)
-- `develop` includes the events rework (`ac9a22a`), the Attack Speed fix (`789d4bc`) and the event art (`5b4938a`), all on origin. Docs commits after them may not be pushed; check `git status`.
-- `main` = `develop` at the v0.5.2 release commit. Check `git status` for whether `main` and the tag are pushed.
+- `main` = `origin/main` = `ef237a6`, tagged `v0.5.2` (pushed 2026-10-30).
+- `develop` is at or just past that commit, with docs only. Check `git status` for unpushed docs commits.
 - No feature branches open.
 
 ## In progress
