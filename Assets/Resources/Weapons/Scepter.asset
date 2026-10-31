@@ -15,7 +15,7 @@ MonoBehaviour:
   attackCooldownBase: 2
   baseDamage: 12
   attackScale: 1
-  attackSpeedScale: 0.075
+  attackSpeedScale: 0.02
   weaponClass: 3
   rangeBase: 3
   isRangeBased: 1

@@ -28,10 +28,44 @@ public static class StatsCalculations
          * @param scale A scaling factor to adjust the effect of attack speed on delay.
          * @return The calculated attack delay, ensuring it does not go below MIN_DELAY.
          */
-    public static float CalculateAttackDelay(int attackSpeed, float baseAttackDelay, float scale)
+    public static float CalculateAttackDelay(float attackSpeed, float baseAttackDelay, float scale)
     {
         float delay = baseAttackDelay / SafeSpeedDivisor(attackSpeed * scale);
         return Mathf.Max(delay, MIN_ATTACK_DELAY);
+    }
+
+    /**
+         * The Attack Speed points that count, for CalculateAttackDelay. Same shape as
+         * CalculateShopDiscountMultiplier: every point counts up to softCap, each one counts for
+         * pastSoftCapRate up to hardCap, and nothing counts past it. Negative points pass through.
+         *  How it works (with default softCap=30, hardCap=60, pastSoftCapRate=0.5):
+            At attackSpeed = 20: effective = 20
+            At attackSpeed = 40: effective = 30 + (10 * 0.5) = 35
+            At attackSpeed = 60: effective = 30 + (30 * 0.5) = 45
+            At attackSpeed = 999: clamped to 60 -> same as above, 45
+         *
+         * @param attackSpeed The player's current Attack Speed stat total.
+         * @param softCap The stat value at which each point starts counting for less.
+         * @param hardCap The stat value beyond which points count for nothing.
+         * @param pastSoftCapRate What each point between the caps counts for.
+         * @return The effective Attack Speed points.
+         */
+    public static float CalculateEffectiveAttackSpeed(int attackSpeed, int softCap = 30, int hardCap = 60, float pastSoftCapRate = 0.5f)
+    {
+        if (attackSpeed <= softCap) return attackSpeed;
+
+        int pointsPastSoftCap = Mathf.Min(attackSpeed, Mathf.Max(softCap, hardCap)) - softCap;
+        return softCap + pointsPastSoftCap * pastSoftCapRate;
+    }
+
+    /**
+         * Speed of a primary attack's animation: base cooldown / current cooldown, so the hit or shot
+         * lands inside the cooldown at any Attack Speed. Never below 1: with negative Attack Speed the
+         * cooldown is longer, so nothing gets cut off.
+         */
+    public static float CalculateAttackAnimationSpeed(float baseAttackDelay, float attackDelay)
+    {
+        return Mathf.Max(1f, baseAttackDelay / Mathf.Max(attackDelay, MIN_ATTACK_DELAY));
     }
 
     // 1 + bonus, but never below 0.1: with enough negative stat the divisor used to hit 0 or go

@@ -40,6 +40,9 @@ namespace Game.Control
         public event Action OnActionInterrupted;
 
         private const string DeathStateName = "Death";
+        private static readonly int AttackSpeedParameter = Animator.StringToHash("AttackSpeed");
+
+        private float attackAnimationSpeed = 1f;
 
         private LevelData currentLevelData = null;
 
@@ -176,10 +179,22 @@ namespace Game.Control
             return 0f;
         }
 
+        /// <summary>
+        /// Speed of the primary attack animation (its state's AttackSpeed parameter, 1 = normal), so the hit
+        /// or shot always lands inside the attack's cooldown. Specials keep speed 1.
+        /// </summary>
+        public void SetAttackAnimationSpeed(float speed)
+        {
+            attackAnimationSpeed = speed;
+            if (animator.isActiveAndEnabled) animator.SetFloat(AttackSpeedParameter, speed);
+        }
+
         public void PlayAttackAnimation()
         {
             IsAttackAnimationPlaying = true;
             IsSpecialAttackAnimationPlaying = false; // Attack/SpecialAttack are mutually exclusive animator states
+            // Set again on every attack: animator parameters reset when the controller is swapped or the object is reactivated.
+            animator.SetFloat(AttackSpeedParameter, attackAnimationSpeed);
             animator.SetTrigger("Attack");
         }
 

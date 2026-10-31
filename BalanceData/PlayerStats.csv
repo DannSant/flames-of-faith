@@ -12,6 +12,10 @@ Lifesteal Max Heal,20,Largest heal from Life Steal.
 Dash Cooldown Scale Per Point,0.08,Dash cooldown = base / (1 + points × this).
 Shop Discount Soft Cap,50,"1% off per point up to this many points, then 0.5% per point."
 Shop Discount Hard Cap,80,Points beyond this give no more discount.
+Attack Speed Soft Cap,40,Every Attack Speed point counts in full up to this many points.
+Attack Speed Hard Cap,80,Attack Speed points beyond this make attacks no faster.
+Attack Speed Past Soft Cap Rate,0.5,What each Attack Speed point between the soft cap and the hard cap counts for (0.5 = half a point).
+Min Melee Hitbox Time,0.04,"Seconds a melee swing's hitbox stays on at least. At high Attack Speed the swing can be shorter than a frame or two, and a hitbox that doesn't last until the next physics step hits nothing."
 Pickup Base Range,2,"Distance at which pickups start flying to the player, with 0 Pickup Range."
 Pickup Range Per Point,0.1,Extra pickup distance per Pickup Range point.
 Level-up Tier 1 Weight,80,"How likely a tier 1 level-up choice is, against the other tiers' weights. Each Luck point moves 1 from tier 1, split evenly over tiers 2 to 4."

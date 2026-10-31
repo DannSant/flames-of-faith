@@ -36,6 +36,11 @@ namespace Game.Combat
         private bool spinning;
         private float spinEndTime;
 
+        // The swing's end can land right after its start at high Attack Speed: the hitbox then waits
+        // for PlayerStatSettings' Min Melee Hitbox Time, so a physics step sees it.
+        private float swingOpenTime;
+        private bool swingClosePending;
+
         [Header("Sound Effects")]
         [SerializeField] private List<AudioClip> swordAttackSounds = new();        
 
@@ -86,6 +91,8 @@ namespace Game.Combat
             {
                 EndSpin();
             }
+
+            if (swingClosePending) TryCloseSwingHitbox();
 
             if (weaponManager!= null && weaponManager.GetCurrentTarget()!=null)
             {
@@ -141,12 +148,23 @@ namespace Game.Combat
         protected override void OnAttackAnimationStarted()
         {
             weaponColliderObject.SetActive(true);
+            swingOpenTime = Time.time;
+            swingClosePending = false;
         }
 
         protected override void OnAttackAnimationPlayed()
         {
-            weaponColliderObject.SetActive(false);
+            TryCloseSwingHitbox();
         }
+
+        private void TryCloseSwingHitbox()
+        {
+            swingClosePending = !CanCloseSwingHitbox(Time.time, swingOpenTime, PlayerStatSettings.Instance.MinMeleeHitboxTime);
+            if (!swingClosePending) weaponColliderObject.SetActive(false);
+        }
+
+        /// <summary>The swing's hitbox may close once it has been on for the minimum time.</summary>
+        public static bool CanCloseSwingHitbox(float now, float openTime, float minTime) => now >= openTime + minTime;
 
         protected override void OnSpecialAttackAnimationPlayed()
         {

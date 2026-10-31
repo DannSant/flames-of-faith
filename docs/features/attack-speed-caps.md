@@ -86,8 +86,21 @@ The attack animation always plays at speed 1 while the cooldown shrinks (`cooldo
 ## Handoff
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
-- **Done:**
+- **Done:** everything in scope. 910 EditMode tests pass in batch mode, including the existing tests the spec names. Play-mode behavior is not verified: that's the manual tests below.
+  - Soft cap 40, hard cap 80, rate 0.5, on `PlayerStatSettings`, and Attack Speed Scale 0.02 on all six weapons (the owner's numbers after play-testing; the spec's proposal of 30 / 60 at scale 0.075 felt far too strong, 1.75× at 10 points). At most that's 60 effective points, 2.2× speed: the Archer's 1.5 s becomes about 0.68 s. The one formula is `PlayerStatSettings.GetAttackDelay`, used by `WeaponBase.SetupAttackSpeedVariables` and the tooltip. The level-up preview needed no change.
+  - The `AttackSpeed` parameter and speed multiplier on the three class controllers, set through `CharacterVisual.SetAttackAnimationSpeed`.
+  - Added with the owner's OK: `minMeleeHitboxTime` (0.04 s, `PlayerStatSettings`, in the sheet). At the hard cap the Warrior's hit window is 38 ms, so below about 26 FPS its start and end events could land in one frame and the swing would hit nothing. `SwordWeapon` now holds the hitbox open for at least that long.
+  - `CalculateAttackDelay` takes a `float`, because effective points can be fractional (the spec said it stays as it is).
+  - `BalanceSync.gs` needed no change.
+  - Fixed along the way: `Warrior.asset`'s `animatorController` named the old `PlayerTestController`, not the Iso controller on `PlayerWarrior.prefab`.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - **The sheet's published version is behind.** Version 13 has scale 0.01 and caps 30 / 60; the assets and CSVs have 0.02 and 40 / 80, changed in Unity. Run Push All to Sheet, then Publish, or the next Pull brings the old numbers back.
+  - The last run of the full EditMode suite was before the final numbers (the Editor was open). Run it once: the CSVs were matched to the assets by hand, and `BalanceTablesTests` checks that.
+  - The manual tests in `todo.md`.
+  - At the final numbers the hard cap margins are wide (Whirlwind 4.55 s against a 2 s spin, Barrage 2.27 s against a 1.06 s volley, Tornadoes 3.64 s against 0.58 s). The Whirlwind's holy shield (4 s at most) and the Augur's target explosions (3 s) no longer outlast the cooldown at the hard cap, so the earlier concern about them is gone.
+- **Commits / branch:** `feature/attack-speed-caps`, merged into `develop`. Not pushed.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - `CharacterClassData.animatorController` is effectively unused: `PlayerClassManager.Awake` runs before `CharacterVisual.Awake`, so `animator` is still null and the swap is skipped. The prefab's controller is what plays. This comes from reading the code and from no missing-parameter warnings in the logs, not from a play-mode check. `EveryClass_DataAndPrefab_UseTheSameController` keeps the two the same, so a new character must set both.
+  - `CharacterVisual` sets the parameter again on every attack, because animator parameters reset when the controller is swapped or the object is reactivated.
+  - The controllers were edited as YAML, so no prefab was re-saved.
+- **Manual tests added to todo.md:** "High Attack Speed fix (animation speed + caps)".

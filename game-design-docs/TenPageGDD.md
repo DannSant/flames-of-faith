@@ -252,7 +252,7 @@ Stats are raised by level-up picks, items and kit Emblems. Their descriptions in
 | Melee Damage | Added to melee weapons, melee skills and Retribution |
 | Ranged Damage | Added to projectile weapons and skills |
 | Magic Damage | Added to magic weapons and some skills |
-| Attack Speed | Shortens basic and special attack cooldowns |
+| Attack Speed | Shortens basic and special attack cooldowns, and speeds up the basic attack's animation to match. Points count for less past a soft cap and for nothing past a hard cap |
 | Range | Weapon reach and targeting range |
 | Pierce | Projectiles pass through more enemies; arrows may split on hit |
 | Skill Duration | Skills and item effects last longer |
