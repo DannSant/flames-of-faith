@@ -4,19 +4,18 @@ _Last updated: 2026-10-30 by the Orchestrator._
 
 ## Milestone
 - **Current:** next tester build, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
-- **Last tagged release:** `v0.5.1` (on `main`). Everything since is on `develop`.
-- **Since v0.5.1 (on `develop`):** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
+- **Last tagged release:** `v0.5.2` (on `main`, 2026-10-30).
+- **In v0.5.2:** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
 
 ## Git reality (checked 2026-10-30)
 - `develop` includes the events rework (`ac9a22a`), the Attack Speed fix (`789d4bc`) and the event art (`5b4938a`), all on origin. Docs commits after them may not be pushed; check `git status`.
-- `main` = `ff779dc` = `origin/main`, 88+ commits behind `develop`. No release merge yet: the Attack Speed fix is on `develop` only.
-- **Stale branch:** local `feature/attack-speed-caps` is fully merged (it was never on origin). Delete on your OK.
-- Uncommitted, the owner's: `LiahEncounter.asset` and `LastTorchEncounter.asset` (their art), plus the `todo.md` cleanup and `docs/archive/todo-2026-10-30.md`.
+- `main` = `develop` at the v0.5.2 release commit. Check `git status` for whether `main` and the tag are pushed.
+- No feature branches open.
 
 ## In progress
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
-| Next tester build | `develop` → `main` | BACKLOG item 1 | **Next.** Waiting on the owner's go |
+| Tester build v0.5.2 | `main` | BACKLOG item 1 | **Released.** Next: the owner makes the Windows build and sends it with the patch notes |
 
 ## Done recently
 - **High Attack Speed fix** (merged 2026-10-30, `789d4bc`; manual tests passed): the attack animation speeds up with the cooldown, soft cap 40, hard cap 80, scale 0.02, at most 2.2× speed.

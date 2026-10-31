@@ -4,7 +4,7 @@ Newest first. Format: date, decision, reason.
 
 ## 2026-10-30
 - **Attack Speed final numbers:** scale 0.02 on every weapon, soft cap 40, hard cap 80, rate 0.5 (the owner's, after play-testing; the spec's proposal felt far too strong). At most 2.2× speed.
-- **Release plan:** merge `develop` into `main` and make a tester build now; while testers play, work on the opening cutscene's design and a small replay menu.
+- **Release v0.5.2** (owner): not 0.6.0, because most of the changes are refactors testers won't see; 0.6.0 is held for later. `bundleVersion` set to 0.5.2 (it said 1.0). While testers play, work on the opening cutscene's design and a small replay menu.
 - **Lore compendium added to the backlog:** items, enemies and encounter events the player has interacted with. Placed in the demo update for now.
 - **Attack Speed spec written** (`docs/archive/features/attack-speed-caps.md`). Primary attack animations scale with the cooldown; specials stay at speed 1, with a guard test that each special's cooldown stays longer than its action at the hard cap. Cap values are a starting proposal for the designer.
 - **A finished spec stays in `docs/features/` until its manual tests pass**, then moves to `docs/archive/features/`.
