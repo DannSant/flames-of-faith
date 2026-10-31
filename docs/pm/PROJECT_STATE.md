@@ -1,6 +1,6 @@
 # Project state
 
-_Last updated: 2026-10-30 by the Orchestrator._
+_Last updated: 2026-10-31 by the Orchestrator._
 
 ## Milestone
 - **Current:** tester round on v0.5.2, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
@@ -21,7 +21,8 @@ _Last updated: 2026-10-30 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **Released.** Next: the owner makes the Windows build and sends it with the patch notes |
-| Opening cutscene and replay menu | docs on `develop`, then `feature/opening-cutscene` | `docs/features/opening-cutscene.md` | **Ready for the design session.** Then an implementation session |
+| Opening cutscene and replay menu | docs on `develop`, then `feature/opening-cutscene` | `docs/features/opening-cutscene.md` | **Design session in progress** (2026-10-31: answered questions committed, more edits in the working tree). Then an implementation session |
+| Act II design and the run structure | docs on `develop` | `docs/features/act-ii-design.md` | **Ready for the design session** (kickoff prompt given 2026-10-31). It edits only its spec; the Orchestrator applies its GDD and `Lore.md` changes afterwards |
 
 ## Done recently
 - **High Attack Speed fix** (merged 2026-10-30, `789d4bc`; manual tests passed): the attack animation speeds up with the cooldown, soft cap 40, hard cap 80, scale 0.02, at most 2.2× speed.
