@@ -22,13 +22,6 @@ Players start the demo with no context. One short opening scene tells them what 
 ## Design details
 
 ### Narrative (owned by the design session)
-_To be filled. Write it so an implementation session can author it directly, and the art team can draw from it without asking._
-
-For the scene: how many pages, its running time when read at a normal pace, and for each page:
-- the text, in English, following the Glossary;
-- the art brief: subject, framing, mood, who appears, and what must be readable;
-- what the page must make the player understand.
-
 **Constraints:**
 - **Short:** a player clicking Start Run wants to play. Aim for about 5 to 8 pages, and one or two short sentences per page. If a page needs more, split it.
 - **The story to tell:** the Flames of Malien are out and the Years of the Miasma have reached Abidor; the Shardless Church's augurs call for the Pilgrimage of the Flame; the three pilgrims set out. Grace and the Corruption can be hinted at, if it helps the first wave make sense.
@@ -36,6 +29,98 @@ For the scene: how many pages, its running time when read at a normal pace, and 
 - **Secrets:** what `Lore.md` marks _(secret)_ never appears. Gabien's truth stays hidden: the opening can show how people see him, since that's what the arcs turn on.
 - **Text rules:** Pilgrimage, never "run". No em dash, middle dot or "|" (the font lacks them; "…" exists). Short lines read better in a pixel font.
 - **Art format:** cutscene art is widescreen, unlike the event art (portrait, about 848 × 1264). Agree the size with the art team; 1920 × 1080 matches the UI's reference resolution.
+
+#### The scene
+- **`cutsceneId`:** `opening`. **Replay title:** The Pilgrimage of the Flame.
+- **Length:** 7 pages, about 210 words, a little over a minute at a normal pace.
+- **Voice:** a neutral chronicle, with no character speaking. Line breaks in the texts below are meant, and page 6's three lines appear together.
+
+**For the art team, on every page:**
+- Widescreen, 1920 × 1080, in the same style as the event art.
+- The text sits in a band across the bottom, so keep the bottom quarter free of anything that must be read.
+- Keep one palette for the scene: the white of the Flames is the only pure light in it, and it fades from page to page until the last. Page 7's cyan and purple match the game's Grace and Corruption colors.
+- Never draw: Malizante, the Seal of Malien, or anything being thrown into an altar.
+
+#### Page 1: The Flames
+> Long ago the Drekos came from the stars to rule the world.
+> Driven underground, they were held there by the Flames of Faith, white fires on the Altars of Malien.
+
+- **Subject:** a great Altar of Malien at night, its white Flame burning tall. The Sandir, Malien's symbol (eight points and a tear), is cut into the stone.
+- **Framing:** wide and low, looking up, with the altar on the upper two thirds. Below it, a cross-section of the earth: in the rock and the dark, huge shapeless forms with a few pale eyes, pressed down.
+- **Mood:** old, sacred, a held breath.
+- **Who appears:** no people. The Drekos are only shapes.
+- **Must be readable:** the white fire on the altar, and that something is held beneath it.
+- **Must make the player understand:** the Flames keep something terrible down.
+
+#### Page 2: The forgetting
+> The faithful tended them on the Pilgrimage of the Flame, from altar to altar.
+> Then the faithful forgot, and the Flames went out, one by one.
+
+- **Subject:** a road winding over hills at dusk, with altars along it into the distance. A small line of hooded pilgrims with torches walks the near stretch; further along, the road is empty and overgrown.
+- **Framing:** a wide landscape, the road leading the eye from near to far. The nearest altar burns; each one beyond is dimmer, and the furthest are dark.
+- **Mood:** gentle, then sad; a thing fading rather than breaking.
+- **Who appears:** nameless pilgrims, small, faces hidden.
+- **Must be readable:** the line of altars going dark, and that people once walked between them.
+- **Must make the player understand:** what the Pilgrimage is, and that it stopped.
+
+#### Page 3: The fall
+> Sixty years ago the Drekos rose, and Ashemdrek fell, its Flame with it.
+> They say Gabien Alamoh should have saved it.
+> People still spit at his name.
+
+- **Subject:** Ashemdrek City, the white citadel, burning at night under a dark sky. Its great white Flame on the highest tower is failing, small against the fire.
+- **Framing:** wide, the city filling the frame. In the foreground, seen from behind, one lone silhouette with a sword stands on a ridge facing the city. No face and no detail.
+- **Mood:** defeat. Not a battle in progress: it's already lost.
+- **Who appears:** Gabien, as a silhouette only. No Drekos in close-up, no enemy leader.
+- **Must be readable:** a white city burning, a dying Flame, one man too late or too small.
+- **Must make the player understand:** the kingdom fell, and one name carries the blame. The art must not show how the Flame died.
+
+#### Page 4: The Miasma
+> Then came the Years of the Miasma.
+> A dark mist spread over Sialant, twisting all it touched, and nation after nation fell.
+
+- **Subject:** the mist rolling over a dead country: bare fields, a ruined keep, and a road of refugees with carts heading for a grey sea and a few ships.
+- **Framing:** high and wide, like a view from a hilltop. The mist comes from the left and covers about half the frame; the refugees are small, on the right.
+- **Mood:** slow, heavy, unstoppable.
+- **Who appears:** refugees, small. Deep in the mist, one or two vague huge shapes that seem to breathe it out; don't show them clearly.
+- **Must be readable:** the dark mist as a thing that advances, and people fleeing it.
+- **Must make the player understand:** why the world is failing, and that the mist is still spreading.
+
+#### Page 5: The call
+> Now it has reached Abidor, across the sea: sudden plagues, food that spoils overnight.
+> The augurs of the Shardless Church say the Pilgrimage must be walked again, and the altars relit.
+
+- **Subject:** a street in Abidor at grey dawn. The sick lie on the steps of a poor stone church, beside a market stall of spoiled food. At the church door, augurs in worn robes raise a torch or a hand, and people look up at them.
+- **Framing:** eye level, the church at the right, the street leading to it. A thin haze sits at the end of the street.
+- **Mood:** fear, and the first small hope. The church looks poor and proud, not grand.
+- **Who appears:** townsfolk and two or three nameless augurs. Not Werlem.
+- **Must be readable:** a sick town, and the Church calling out to it.
+- **Must make the player understand:** why now, who is asking, and what the Pilgrimage must do.
+
+#### Page 6: The three
+> Three answer.
+> Ayteel Alamoh, a Crusader of the Faith, though the Church never said so.
+> Faelin Vidal, a Sentinel of Abidor, who must see it with her own eyes.
+> Werlem Feth, an Augur of the Shardless Church, against his family's wishes.
+
+- **Subject:** the three pilgrims walking out of a city gate at sunrise, with the road ahead.
+- **Framing:** from the side, full body, in a row at the same size and spacing, so none is at the center or in front. Their faces are visible.
+- **Mood:** quiet resolve; three people who don't know each other well yet.
+- **Who appears:** Ayteel with her Steeldawn sword and shield, Faelin with her Steeldawn bow and quiver, Werlem with his scepter and Augur's robes, all as in the re-designed characters.
+- **Must be readable:** each pilgrim's weapon, and that they are equals. Whichever class the player chose, this page shouldn't make another look like the hero.
+- **Must make the player understand:** these three walk together.
+
+#### Page 7: The road
+> They land on the Argent Coast, with the Jesterwoods ahead and the first dark altar beyond.
+> Grace is all that shields them, and the Corruption will eat at it.
+> The Pilgrimage begins.
+
+- **Subject:** a small boat drawn up on a grey shore. The three stand on the sand, seen from behind, looking at a dark forest wall with mist among the trees. Far off above the treetops, the unlit shape of an altar.
+- **Framing:** a wide shot from behind them, the three small and equal in the lower middle, and the forest filling the upper half.
+- **Mood:** the edge of something. Lonely, but not hopeless.
+- **Who appears:** the three, with no faces.
+- **Must be readable:** a faint cyan light around each pilgrim (Grace), thin purple threads of mist reaching for it from the forest (Corruption), and the dark altar as the goal.
+- **Must make the player understand:** where they are going, and that their Grace is under attack. This page hands over directly to the map of the Jesterwoods.
 
 ### Systems (for the implementation session, after the narrative)
 - **Data:** a `CutsceneData` ScriptableObject per scene under `Resources/`, read through a database provider, per the project's data-driven pattern. It holds a stable `cutsceneId`, a title for the replay menu, and a list of pages (sprite and text). Keep the text in the asset, so Spanish localization can reach it in 1.0.
