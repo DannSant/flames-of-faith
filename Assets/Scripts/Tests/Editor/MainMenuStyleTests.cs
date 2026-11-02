@@ -85,7 +85,7 @@ namespace Game.Tests
             var root = Load(MenuPanelPath);
             AssertPanel(root, 400f, settings);
 
-            foreach (string name in new[] { "StartButton", "LoadButton", "SkillTreeButton", "SettingsButton", "ExitButton" })
+            foreach (string name in new[] { "StartButton", "LoadButton", "SkillTreeButton", "ChronicleButton", "SettingsButton", "ExitButton" })
             {
                 var button = (RectTransform)Child(root, name);
                 Assert.AreEqual(UIButtonSize.Big, button.GetComponent<UIStyleButton>()?.Size, $"{name} is a Big button");
