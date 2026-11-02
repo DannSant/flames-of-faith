@@ -167,8 +167,17 @@ _Implementation:_
 ## Handoff
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
-- **Done:**
+- **Done:** the whole Systems section. `CutsceneData` + `CutsceneDatabaseProvider`, `Resources/Cutscenes/Opening.asset` (7 pages, spec text unchanged) with placeholder art in `Sprites/Cutscenes/Opening/`; `CutscenePlayer.Play(id, onEnded)` and the `CutsceneWindowUI` window (text band, click / Enter / A, hold to skip for 1 s with mouse, Esc or B); `MetaState.seenCutscenes`; the opening on the first New Game only; the Pilgrim's Chronicle with a tab structure (one tab, Scenes). Restyler entries (`CutsceneRestyler`, `ChronicleRestyler`, run from `MainMenuRestyler`), guard tests, CLAUDE.md section. `ScrollRectMath.ScrollToShow` was extracted from `StatsPaneUI` so the Chronicle could share it.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - Nothing has been played: all checks so far are EditMode tests, and fades, input and focus are only covered by the manual list in `todo.md`.
+  - Placeholder art: overwrite `Opening_Page1..7.png`; they're 1920 x 1080, imported as single sprites.
+  - **B on a fresh launch (found in passing, not changed):** `UIFocusManager.AcquireActions` reads the UI actions from the player's `PlayerInputHandler`, and from the code no player exists on the main menu until a Pilgrimage has spawned one. So LB/RB and B look dead there, on every main menu panel, Chronicle included. Back still works with A. The cutscene window isn't affected: it reads its own actions. Not verified in play; there's a check in `todo.md`.
+  - Mouse clicks and the Next highlight depend on the current scene being loaded (see gotchas). Between-act scenes for 1.0 must play before the unload.
+- **Commits / branch:** `feature/opening-cutscene`, off `develop`, not pushed or merged.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - The scene plays inside the load, between `FadeIn` and the unloads, because the EventSystems live in the scenes and the Bootstrapper has none. Moved after the unload, the mouse would stop working.
+  - Gate a scene with the `cutsceneOnce` id, not with `newGame`: Continue on a save with `runStarted == false` loads with `newGame` true.
+  - The cutscene canvas (101) draws over the selection frame (100), so the gamepad frame doesn't show on Next; only its sprite state does. Accepted, since A is the only thing to press.
+  - `ChronicleButton` is a clone of Settings in the prefab. It inherits a click slot with an empty target, and the scene override points it at `OpenChronicle`.
+  - Running Restyle Main Menu reverted leftover child layout overrides in `MainMenu.unity` (about 400 removed lines) and rewrote `CharacterSelect.prefab` with a TMP field Unity added. Both are expected.
+- **Manual tests added to todo.md:** "Opening cutscene and Pilgrim's Chronicle": first and second New Game, Continue, Retry, old meta file, skip and advance with each device, skip counts as seen, text fit, glyphs, the Chronicle.
