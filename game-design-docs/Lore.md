@@ -116,6 +116,7 @@ Dates are approximate. The game uses age names, rarely years. Years count within
 - **The Awoken:** Forsaken buried for a night. Those who live to see the dawn rise without will, with dark power and no death.
 - **Devourers:** monsters that curse people into becoming **Soulless**: they devour the soul. People believe stagnant ley energy breeds them, because they gather around Ley Pools and magic users. _(Secret: the House of Stars makes them, in its old labs in the Sinfa Mountains, from a secret Enith gave it. Hint at most, in Act III.)_ A Devourer is what left Liah Alamoh Soulless.
 - **Light Devourers:** ogres twisted by Corruption in the Dark Age, blind beasts hungry for any light.
+- **The Ice Bull:** one of the first Plerians the Drekos corrupted. He was defeated in the Dark Age, but Malizante saved him and buried him in the frozen north, transforming him. Locals who saw his horns took him for a bull, and the name stuck.
 - **The Miasma creatures:** beings the Drekos made in Malizante's time, which breathe out the dark mist. The **Corruptors** that appear at the end of every wave are these creatures, or the **echoes** of the great dead (see [§4](#4-the-drekos-and-the-acts)).
 
 ---
@@ -127,7 +128,7 @@ The Pilgrimage lands on the **Argent Coast**, crosses Ashemdrek's lost lands, go
 | Act | Region | What it is | Corruptor | Boss |
 |---|---|---|---|---|
 | I | **The Jesterwoods** | Ashemdrek's great northeastern forest (in the Forgotten Language, "Green Forest"). Aylinean country, with old altars and the Seared Ruins. Also Perkfandor (a walled border city that fell in the invasion), Moribairo (a mining region under Moribairo Peak), the Argent Coast (a fishing town on the Fauner Sea, Gabien's home) and the Sinfa hillside | **Dreko Spawn** (working name): a creature of the Miasma | **Taio'Sandir** ("impious"), an ancient Dreko that took a soldier's body in the Dark Age and has mutated over thousands of years. It vanishes into the mist it raises |
-| II | **Fara Uf'Clario** | The frozen north, home of the scattered Faraclarian clans. One of the last two Flames burned here in Gabien's time | **Echo of Malizante**: the Sea Witch's lingering echo, which appears, strikes and fades | The Ice Bull (TBD) |
+| II | **Fara Uf'Clario** | The frozen north, home of the scattered Faraclarian clans. One of the last two Flames burned here in Gabien's time | **Echo of Malizante**: the Sea Witch's lingering echo, which appears, strikes and fades | **The Ice Bull**: one of the first Plerians the Drekos corrupted, buried in the frozen north by Malizante (see [§3](#3-peoples-powers-and-factions)) |
 | III | **The Sinfa Mountains** | The range between Ashemdrek and Fustina, including the Shadowland, where the House of Stars once ran its experiments. Its strange hybrid beasts, such as the Jumper (a leopard with elven ears), are **Devourers** the House of Stars made | **Echo of Pal'bor**: the oldest Dreko, who once led the Forsaken and was stopped by Gabien | **Forsaken Daviro the Unholy**: Daviro Piktuon, once secretary to the governor of the Argent Coast, taken in by the Forsaken in Gabien's time. How he has lived sixty years since is TBD (Awoken?) |
 | IV | **The Ruins of Ashemdrek** | The fallen capital, once the White Citadel, and the altar where Malizante burned | **Echo of Gabien**: the burnt spirit of a Seared Soul, bound to where he fell and twisted by the darkness he let loose | TBD |
 
@@ -252,6 +253,7 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Crusader of the Faith | Cruzado de la Fe | Warrior rank created by the Flame Pilgrims; Ayteel's is self-declared |
 | Dayla Rohairo | Dayla Rohairo | Gabien's love, Ayteel's grandmother; from Abidor; a human born with Mastow; dead |
 | Daviro the Unholy | Daviro Piktuon | Forsaken from Gabien's time; Act III boss |
+| Death Witch | – | Act II enemy; flies in a circle and casts a beam |
 | Devourers | Devoradores | Monsters that curse people into becoming Soulless; believed to come from stagnant ley energy |
 | Disgraced | Desgraciado | Someone born without Grace; shunned |
 | Divine Stars | Estrellas Divinas | Abidor's elite Grace warriors |
@@ -268,6 +270,8 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Forgotten Language | Lenguaje Olvidado | The Primordials' tongue; the root of most names (Taio'Sandir, Os'Drios) |
 | Forger | Forjador | Faraclarian name for a Seared Soul who forges Steeldawn |
 | Forsaken | Renegados | Those who renounced their Grace for the Drekos |
+| Frost Ghoul | – | Act II enemy; an undead of the scattered clans |
+| Frozen Slime | – | Act II enemy; a slime of the Miasma frozen from the inside |
 | Fustina | Fustina | Elven kingdom of the House of Earth; the last nation of Sialant |
 | Gabien Alamoh | – | Seared Soul, Ayteel's grandfather; fell at Ashemdrek |
 | Gargalon | Gargalon | The Destroyer of Universes; the Drekos' origin; naming him is taboo |
@@ -282,6 +286,9 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | High Augur | Gran Augur | Head of the White / Shardless Church |
 | Honor of Malien | Honor de Malien | High Faraclarian rank |
 | House of Stars | Casa de las Estrellas | Secretive elven house, rival of almost all others |
+| Ice Bull | – | Act II boss; a corrupted Plerian, named by locals for his horns |
+| Ice Golem | – | Act II enemy; a slow, heavy walker of ice |
+| Ice Sprite | – | Act II enemy; a small spirit of the northern snow |
 | Illuminated Order | Orden Iluminada | Ashemdrek's paladins |
 | Jesterwoods | Bosque de Jester | Ashemdrek's great northeastern forest; Act I |
 | Kanator | Kanator | The world (and, for some, the Creator) |

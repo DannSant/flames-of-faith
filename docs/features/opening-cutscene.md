@@ -1,8 +1,8 @@
 # Feature: Opening cutscene and replay menu
 
-- **Status:** ready for the design session. Design first, then the systems work (an implementation session), then the art team.
-- **Branch:** `feature/opening-cutscene` (off `develop`) for the implementation. The design session only writes docs, on `develop`.
-- **Owner session:** design session (not started), then an implementation session (not started)
+- **Status:** design done (2026-11-01). Ready for the implementation session; the art team has the page briefs below.
+- **Branch:** `feature/opening-cutscene` (off `develop`) for the implementation.
+- **Owner session:** design session (done), then an implementation session (not started)
 - **Related docs:** `game-design-docs/Lore.md` (§2 Timeline, §5 Gabien, §6 The three pilgrims, the Glossary, the Secrets rule), `game-design-docs/TenPageGDD.md` §11 Cutscenes and §13; `CLAUDE.md` Glossary, "Gamepad & UI navigation", "UI standards", "Scene bootstrapping flow"; `docs/pm/DECISIONS.md` 2026-10-29 and 2026-10-30
 
 ## Goal
@@ -124,11 +124,12 @@ Players start the demo with no context. One short opening scene tells them what 
 
 ### Systems (for the implementation session, after the narrative)
 - **Data:** a `CutsceneData` ScriptableObject per scene under `Resources/`, read through a database provider, per the project's data-driven pattern. It holds a stable `cutsceneId`, a title for the replay menu, and a list of pages (sprite and text). Keep the text in the asset, so Spanish localization can reach it in 1.0.
-- **Player:** a `UIWindow` that shows a page and advances on click, Enter or A. Skip must be available at once and must not fire by accident (e.g. hold to skip, or a confirm); Back or B doesn't leave a half-played state. Fades between pages run on unscaled time. Follow `UISettings`, a restyler entry and a guard test, like every window.
+- **Starting a scene:** play by `cutsceneId` with a callback for when it ends (from the New Game path and from the replay menu). Since 2026-11-01 a Pilgrimage runs through all the acts, so 1.0 will play scenes between acts the same way, skipping the ones already seen. Don't build that now, but don't tie the player to the New Game path.
+- **Player:** a `UIWindow` that shows a page and advances on click, Enter or A. The page text sits in a band across the bottom of the image, because the art briefs keep that area free. Skip must be available at once and must not fire by accident (e.g. hold to skip, or a confirm); Back or B doesn't leave a half-played state. Fades between pages run on unscaled time. Follow `UISettings`, a restyler entry and a guard test, like every window.
 - **Room for voice:** keep a page's duration out of the design (the player advances by hand), so an audio clip per page can be added later without changing how pages work. Don't add the field yet.
 - **Seen state:** the seen `cutsceneId`s belong to the meta-progression (`MetaProgressionManager`, `<player>_meta.dat`), not the run save: they last between Pilgrimages. Old meta files have no such list, so it must load as empty.
-- **When it plays:** before the first map of a New Game, around `MainMenuController.StartNewGame` / `LoadLevelSelectorScene(true)`. Not on Continue, and not on Retry. The load path mustn't be able to hang on bad data (`CLAUDE.md`, "An exception during a load hangs the loading screen"): a missing asset skips the scene and logs.
-- **Replay menu:** a main-menu panel, like the other panels (`MainMenuController.Switch`), that lists seen scenes and plays one, returning to the menu afterwards. Build it as a screen with room for more tabs, so the compendium can join it instead of being built apart. A scene not yet seen isn't listed.
+- **When it plays:** only on a New Game whose `opening` isn't in the seen list yet, after Start Run and before the first map, around `MainMenuController.StartNewGame` / `LoadLevelSelectorScene(true)`. Not on Continue, and not on Retry. The load path mustn't be able to hang on bad data (`CLAUDE.md`, "An exception during a load hangs the loading screen"): a missing asset skips the scene and logs.
+- **Replay menu:** the **Pilgrim's Chronicle**, on the main menu only: a panel like the other panels (`MainMenuController.Switch`), that lists seen scenes and plays one, returning to the menu afterwards. Build it as a screen with room for more tabs, so the compendium can join it instead of being built apart. A scene not yet seen isn't listed.
 - **Placeholder art:** the code mustn't wait on art. Use placeholder images until the art team delivers.
 
 ## Open questions (answered by the owner, 2026-10-31)
@@ -140,12 +141,12 @@ Players start the demo with no context. One short opening scene tells them what 
 
 ## Acceptance criteria
 _Design:_
-- [ ] The script is in the Narrative section, with an art brief per page, and it's short enough to read in about a minute.
-- [ ] Every name follows `Lore.md`'s Glossary, and no secret appears.
-- [ ] The open questions are answered, and GDD §11 and §13 match.
+- [x] The script is in the Narrative section, with an art brief per page, and it's short enough to read in about a minute.
+- [x] Every name follows `Lore.md`'s Glossary, and no secret appears.
+- [x] The open questions are answered, and GDD §11 and §13 match.
 
 _Implementation:_
-- [ ] A New Game plays the opening at the agreed moment; Continue and Retry don't.
+- [ ] The first New Game plays the opening after Start Run, right before the map. Later New Games, Continue and Retry don't.
 - [ ] Pages advance and the scene can be skipped with mouse, keyboard and gamepad, with the gamepad focus right throughout.
 - [ ] A skipped scene counts as seen.
 - [ ] The replay menu lists only seen scenes, and survives closing the game. An old meta file loads with an empty list.
@@ -154,7 +155,7 @@ _Implementation:_
 - [ ] Guard tests: unique `cutsceneId`s, every page has text and art, and the window's style follows `UISettings`.
 
 ## Files likely touched
-- Docs: this spec's Narrative section, `TenPageGDD.md` §11 and §13, `Lore.md` only if the script settles something new.
+- Docs: `CLAUDE.md` (a section on the cutscene system and the Pilgrim's Chronicle).
 - Code: a new cutscene area under `Scripts/`, `MainMenuController.cs`, `MetaProgressionManager.cs`.
 - Prefabs / scenes: a cutscene window prefab, `MainMenu.unity`, `Prefabs/UI/Menus/MainMenuPanel` (a new button). `MainMenu.unity` is a merge risk: no other session should touch it at the same time.
 - Tests: `MainMenuStyleTests` (the new button and panel), a new cutscene test file.

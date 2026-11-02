@@ -2,6 +2,20 @@
 
 Newest first. Format: date, decision, reason.
 
+## 2026-11-01
+- **Run structure (GDD Q14), owner:** one Pilgrimage through all four acts in a row; death starts over from Act I. Why: builds keep growing, the boss reward has a use, and it needs no act select or starting packages. The demo's Act I ending stays as it is. Cost: about 1.5 hours for a full clear (estimated) and one difficulty curve to about 32 levels beaten. Full comparison: `docs/features/act-ii-design.md` section 1.
+- **Act II design, owner** (same spec):
+  - **Frozen is in:** the third Frost stack freezes the player, and Dash with a charge ready breaks the ice.
+  - **Frozen Enemies:** optional, with a guaranteed item pickup.
+  - **Act II only:** Frozen and Frozen Enemies are not rules of Acts III–IV.
+  - **Roster:** all six enemies plus the Echo stay; the Ice Sprite was recommended for a cut and kept.
+  - **The Ice Bull:** the player fills the flame by baiting his charge into pillars, Frozen Axes are phase 1's pressure and Deep Freeze is phase 2's. He is one of the first Plerians the Drekos corrupted, saved and buried by Malizante.
+- **Act II branches (Orchestrator):** chunk 1 (the curve) on `develop`, everything else on one branch, `feature/act-ii`, one session at a time. Why: `DataHygieneTests` stops the content landing piece by piece, and chunks 2 and 9 share the boss flow. Act II isn't needed for the demo, so it's built after it unless time is free.
+- **GDD corrected:** the map's "you can never go back" was wrong. `MapTravelRules` allows walking back along found edges, and the side paths that end in a shop or a treasure depend on it.
+
+## 2026-10-31
+- **Opening cutscene, owner:** only on the first New Game, after Start Run, right before the map. The replay menu is the **Pilgrim's Chronicle**, on the main menu only. Gabien is named once, as people see him. The art team delivers all 7 pages before the demo, with no fallback.
+
 ## 2026-10-30
 - **Attack Speed final numbers:** scale 0.02 on every weapon, soft cap 40, hard cap 80, rate 0.5 (the owner's, after play-testing; the spec's proposal felt far too strong). At most 2.2× speed.
 - **Release v0.5.2** (owner): not 0.6.0, because most of the changes are refactors testers won't see; 0.6.0 is held for later. `bundleVersion` set to 0.5.2 (it said 1.0). While testers play, work on the opening cutscene's design and a small replay menu.

@@ -1,7 +1,7 @@
 # Feature: Act II design and the run structure
 
-- **Status:** design finished, waiting for the Orchestrator's review
-- **Branch:** `develop`, docs only. No code, assets, scenes or sheet edits.
+- **Status:** design done and reviewed (2026-11-01). GDD and `Lore.md` changes applied. Implementation comes after the demo unless a chunk says otherwise (section 6).
+- **Branch:** the design was docs only, on `develop`. Implementation: see section 6.
 - **Owner session:** design session (done 2026-11-01)
 - **Related docs:** `game-design-docs/TenPageGDD.md` §4, §7, §10 and §13 (questions 1, 3, 5, 6 and 14), `game-design-docs/Lore.md`; `CLAUDE.md` "Enemy damage", "Corruption & Grace", "Run save / load", "Two parallel map systems", "Balance data"; `docs/pm/BACKLOG.md` "For 1.0"
 
@@ -300,7 +300,7 @@ For the art team, in priority order. Everything marked **Essential** is needed f
 | Frozen Slime | Small | Idle, Hop, Shoot, Die | Can start from the Slime Chaser's shape |
 | Awoken | Medium | Idle, Walk, Attack, Die | Flame growing in its hands during the windup. Shares a look with Forsaken art if any exists |
 | Death Witch | Medium | Fly, Cast (loop), Release, Die | Flying, so no walk |
-| Echo of Malizante | Medium | Appear, Idle, Attack, Vanish | Winged, spectral, recognizably the Sea Witch. Must match the opening cutscene's Malizante if she appears there. Vanish can double as its death |
+| Echo of Malizante | Medium | Appear, Idle, Attack, Vanish | Winged, spectral, recognizably the Sea Witch. The opening cutscene never draws her, so this is her first look. Vanish can double as its death |
 | Ice Sprite | Small | Idle, Move, Attack, Die | Last in line, and the first to cut (section 3) |
 
 **5. Projectiles and VFX (Essential; simple versions are fine)**
@@ -320,7 +320,7 @@ For the art team, in priority order. Everything marked **Essential** is needed f
 ### 6. Build order
 **Rule for the December demo:** nothing here is needed for it, so the safest order is to build all of this after the demo ships. If there's free time before that, chunks marked **Safe on `develop`** add no risk. Chunks marked **Branch** change the demo's flow or add content the build would pick up, so they stay on a branch until the demo is out. `DataHygieneTests` allows no dead data: every behavior asset must be used by an enemy prefab, every `LevelData` must be on a map and its scene in the build. That's why the content chunks share one branch: they can't land piece by piece without Act II scenes entering the demo build.
 
-The Orchestrator names the branches. One content branch for chunks 4 to 8 is enough, since they build on each other.
+**Branches (Orchestrator, 2026-11-01):** chunk 1 goes on `develop`. Everything else goes on one branch, `feature/act-ii`, one session at a time, because chunks 2 and 9 both touch the boss flow and the content chunks can't land piece by piece. Chunk 3 stays there too unless the demo's code is frozen first: it touches the player prefab, which the re-designed characters also change.
 
 | # | Chunk | Depends on | Placeholder art? | Balance tabs | Where | Guard tests |
 |---|---|---|---|---|---|---|
@@ -351,7 +351,7 @@ _Filled during the session. Ask one at a time, each with a recommendation._
 6. **Ice Bull first phase:** bait the charge into pillars to fill the flame, instead of Act I's wait? **Decided: yes, with Frozen Axes as phase 1's pressure, Deep Freeze as phase 2's, and the owner's lore** (owner, 2026-11-01).
 
 ### Follow-ups
-- **Demo check, short routes:** per-type node counts suggest some Act I map variants (act1B, act1C) may reach the boss with as few as 1 combat node. Not confirmed on a joint path. Worth a check, since it affects how strong a demo player arrives. (`act1` maps, Overworld.)
+- **Demo check, short routes (checked by the Orchestrator, 2026-11-01):** the fear of 1 combat node was wrong, since those were side paths that end before the boss. The fewest fights to reach the boss are 3 on `act1` (when its optional paths open), 7 on `act1B` and 6 on `act1C`. Moved to the balance pass (BACKLOG 5).
 - **Boss-level adds' damage:** `BossWaveHandler` spawns adds with `WaveNumber = 1`, so they don't grow within the fight. Fine for the demo; chunk 9 should decide it for later bosses.
 - **Play check for the Echo:** `DespawnThroughPortal` from a hidden state needs a look in play once built.
 - **Boss-only damage scaling:** `GetAbilityDamage` rounds to an int and ignores the expected player. Harmless at level 8, wrong at level 16 (chunk 9).
@@ -382,6 +382,7 @@ _Filled during the session. Ask one at a time, each with a recommendation._
 2. **Is the Bull's origin known to anyone?** This spec treats it as true but little known, so it isn't marked _(secret)_, and the player-facing line only hints at it. If nobody in the world knows, mark it _(secret)_; the line needs no change.
 3. **Death Witches:** the draft line makes them former Faraclarian scouts, which hints at the **Crystal Maidens**. Should it say so, or be another origin? The line needs the owner's OK either way.
 4. **Who beat the Bull in the Dark Age?** The Golden Riders would fit, since they broke the Rising Darkness, but it's left open.
+5. **How did Malizante save him?** (Added in the Orchestrator's review.) `Lore.md` §2 has Gyra driving her into the sea in the Dark Age, so either she saved him before that, or the Bull was beaten early in the age. It needs a line before his story enters any game text.
 
 ## Acceptance criteria
 - [x] The owner has chosen the run structure, and its effects are listed.

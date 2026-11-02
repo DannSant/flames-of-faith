@@ -1,6 +1,6 @@
 # Flames of Faith – Ten Page GDD
 
-_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-10-29. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
+_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-11-01. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
 
 ---
 
@@ -38,7 +38,7 @@ Short, readable runs where every wave is a small decision about **Grace**: fight
 | Release | Content | Status |
 |---|---|---|
 | **Steam demo** (December 2026) | The full Act I (Jesterwoods): 3 map variants, combat levels, Plerian Shop, campfire, treasure, events, Wayside Shrine of Malien, Act I boss. Three classes with re-designed sprites, skill trees, Favors, run save. The reworked events, the art team's new scenarios (the other pilgrims in non-combat levels), the opening cutscene, the Attack Speed caps. A demo update after launch may add skill-tree item unlocks, more items and the redesigned overworld map. Keyboard/mouse and gamepad. | Act I is playable in tester builds; the demo additions are in the backlog |
-| **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. 26 cutscenes (an opening, an ending, and one per pilgrim before and after each act). A pick-1-of-3 boss reward. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Acts II–IV are designed at concept level (see [Enemies](#10--enemies)); bosses II–IV are **TBD** |
+| **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. 26 cutscenes (an opening, an ending, and one per pilgrim before and after each act). A pick-1-of-3 boss reward. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Act II is designed in full (`docs/features/act-ii-design.md`). Acts III–IV are at concept level (see [Enemies](#10--enemies)), and their bosses are **TBD** |
 | **Nice to have for 1.0** | Steam Cloud saves, Steam Deck verification, Chinese and Japanese localization, a Hard mode | Optional |
 | **After 1.0** | Xbox port; content updates. No DLC planned. | Not scheduled |
 
@@ -74,7 +74,7 @@ Since then, the **Years of the Miasma**: a dark mist breathed out by Dreko creat
 **Enemies of the story:** Gracoy mercenaries, the Forsaken and the will-less **Awoken**, corrupted beasts, the soul-eating **Devourers**, and above all the **Drekos**, their Miasma creatures and the **echoes** of the great dead (Malizante, Pal'bor, Gabien). In Act III the pilgrims face **Forsaken Daviro the Unholy**, a Forsaken from Gabien's time.
 
 ### Gameplay summary
-Each run is a pilgrimage through an act. The player moves across a branching **overworld map** of nodes, choosing a path toward the act's boss. Combat nodes are isometric arenas where waves of enemies spawn for a fixed time. The player auto-attacks (or attacks manually), uses a class special and a dash, collects experience tokens to level up, and picks stat upgrades. Between fights the player meets shops, campfires, treasure chests and random events. **Grace** rises and falls at the end of each wave, changing the player's damage and, below zero, making them Corrupted. Dying ends the run; the **Favors** earned are banked and spent on class unlocks and skill tree upgrades.
+A run is one Pilgrimage through all four acts in a row (in the demo, it ends at the Act I boss). Each act is a branching **overworld map** of nodes, where the player chooses a path toward the act's boss. Combat nodes are isometric arenas where waves of enemies spawn for a fixed time. The player auto-attacks (or attacks manually), uses a class special and a dash, collects experience tokens to level up, and picks stat upgrades. Between fights the player meets shops, campfires, treasure chests and random events. **Grace** rises and falls at the end of each wave, changing the player's damage and, below zero, making them Corrupted. Dying ends the run; the **Favors** earned are banked and spent on class unlocks and skill tree upgrades.
 
 ### Terms
 Some of this document's words are internal. The player always sees the lore name instead:
@@ -89,20 +89,21 @@ Some of this document's words are internal. The player always sees the lore name
 ## 4 – Game flow
 
 ```
-Main menu ──> Class select ──> Overworld map (Act N)
-                                   │
-                    ┌──────────────┼───────────────┬───────────────┐
-                 Combat         Shop / Campfire   Treasure / Event   Boss
-                 (waves)        / Wayside Shrine                     │
-                    │                                                ├─> next act? (open question 14)
-                    └────────── back to the map ◄────────────────────┘
-Death or final victory ──> Favors banked ──> Skill tree (main menu) ──> new run
+Main menu ──> Class select ──> Opening cutscene ──> Overworld map (Act N)
+                               (first New Game only)     │
+                    ┌────────────────┬───────────────────┼───────────────┐
+                 Combat         Shop / Campfire   Treasure / Event     Boss
+                 (waves)        / Wayside Shrine                         │
+                    │                                                    ├─> last act? ending
+                    │                                                    ├─> otherwise: boss reward, cutscenes
+                    └────────── back to the map ◄────────────────────────┘   (the next act's map)
+Death or the ending ──> Favors banked ──> Skill tree (main menu) ──> new run
 ```
 
 ### A run, step by step
-1. **Main menu.** New Game, Load Game (continue the single saved run), Settings, Skill Tree, Exit.
-2. **Class select.** Choose Warrior, Archer or Augur (Archer and Augur start locked). The details show the starting weapon at its upgraded tier.
-3. **Overworld map.** The act's map is picked at random from its variants (Act I has 3) and generated from the run's seed. Nodes are revealed as you advance (fog of war); you can only move forward along edges, never back. Some optional paths appear only in some runs. Each combat node shows its **Taint Level**.
+1. **Main menu.** New Game, Load Game (continue the single saved run), Settings, Skill Tree, Pilgrim's Chronicle, Exit.
+2. **Class select.** Choose Warrior, Archer or Augur (Archer and Augur start locked). The details show the starting weapon at its upgraded tier. On the first New Game, the opening cutscene plays after Start Run, right before the map.
+3. **Overworld map.** The act's map is picked at random from its variants (Act I has 3) and generated from the run's seed. Nodes are revealed as you advance (fog of war). The player can also walk back along the paths they've found, so a side path that ends in a shop or a treasure is a detour, not a dead end. Some optional paths appear only in some runs. Each combat node shows its **Taint Level**.
 4. **Node types:**
    - **Combat:** 2 waves of enemies (wave durations of 30–45 s in Act I).
    - **Shop** (Plerian Shop): buy items with Golden Chronos from a travelling Plerian trader.
@@ -110,7 +111,7 @@ Death or final victory ──> Favors banked ──> Skill tree (main menu) ─�
    - **Treasure:** a chest with one reward.
    - **Event** (Strange Encounter): a random story event with 2–3 options.
    - **Wayside Shrine of Malien:** a fixed event focused on Grace (a rest node).
-   - **Boss:** the act's final node.
+   - **Boss:** the act's final node. Killing it leads to the boss reward, the cutscenes and the next act's map. After the last act comes the ending. Death at any point starts over from Act I.
 5. **Inside a combat level:**
    1. A wave starts; enemies spawn from portals for the wave's duration.
    2. When the timer ends, spawning stops and the **Corruptor** appears (see [Grace and Corruption](#mechanic-grace-and-corruption)). Kill it before it escapes.
@@ -118,7 +119,7 @@ Death or final victory ──> Favors banked ──> Skill tree (main menu) ─�
    4. The **item bag** opens for items picked up during the wave (take or sell each), then the **level-up** window for each level gained.
    5. After the last wave the player returns to the map.
 6. **Saving.** The run autosaves on every map arrival and move. Quitting inside a level returns the player to the map as it was before entering it.
-7. **End of run.** Death, or beating the final boss, ends the run. The run's Favors are banked for the meta-progression.
+7. **End of run.** Death, or beating the last act's boss (in the demo, Act I's), ends the run. The run's Favors are banked for the meta-progression.
 
 ### Collectibles
 - **Golden Chronos (coins):** granted at the end of every wave, from events and treasure, and by selling items. Spent in shops, and lost when the Pilgrimage ends.
@@ -195,7 +196,7 @@ Grace is the core resource.
 
 ### Platform-specific features
 - **PC (Steam):** keyboard and mouse or gamepad, with automatic glyph switching; scalable UI from 1920×1080; resolution and quality settings.
-- **Steam achievements (planned for 1.0):** achievement hunters are part of the target audience, so achievements are a feature, not an afterthought. Candidates: clear each act, beat each boss with each class, max a skill tree node, end a level with high Grace, kill the Corruptor fast, win while Corrupted. The list is **TBD**.
+- **Steam achievements (planned for 1.0):** achievement hunters are part of the target audience, so achievements are a feature, not an afterthought. Candidates: clear each act, finish the whole Pilgrimage, beat each boss with each class, max a skill tree node, end a level with high Grace, kill the Corruptor fast, win while Corrupted. The list is **TBD**.
 - **Steam Cloud saves (optional):** the run save and meta-progression are small files, so this should be cheap.
 - **Steam Deck (optional, recommended):** the game already plays fully on gamepad, so verification is mostly testing text size at 1280×800.
 - **Xbox:** possible port after 1.0. The UI is already fully gamepad-navigable.
@@ -204,16 +205,16 @@ Grace is the core resource.
 
 ## 7 – Game world
 
-Four regions, one per act. Each act is a branching map of about 25 nodes ending at an **Altar of Malien** guarded by the act's boss. You cannot go back once you leave a node.
+Four regions, one per act. Each act is a branching map of about 25 nodes ending at an **Altar of Malien** guarded by the act's boss.
 
 | Act | Region | Mood | Act mechanic | Boss | Status |
 |---|---|---|---|---|---|
 | I | **Jesterwoods** | Ordinary fantasy forest, lonely and a little gloomy | Grace and the Corruptor (the core loop) | Taio'Sandir | Built: 3 map variants. Levels include Jesterwood Glade, Jesterwood Cliffs, Heart of the Forest, Perkfandor Outskirts, Perkfandor Ruins, Moribairo Fields, Argent Coast Ruins, Seared Ruins and Sinfa Hillside, plus Campfire, Plerian Shop, Treasure, Strange Encounter, Wayside Shrine of Malien and the Altar of Malien (boss) |
-| II | **Fara Uf'Clario** | Snow, cold, desolate | Frozen (frost on the player) and Frozen Enemies | The Ice Bull | Designed (enemies), boss mechanics **TBD** |
+| II | **Fara Uf'Clario** | Snow, cold, desolate | Frozen (frost on the player) and Frozen Enemies | The Ice Bull | Designed (`docs/features/act-ii-design.md`) |
 | III | **Sinfa Mountains** | Mountainous, rocky, desolate, cliffs | Pools of Corruption | Forsaken Daviro the Unholy | Designed (enemies), boss mechanics **TBD** |
 | IV | **Ruins of Ashemdrek** | Urban, destroyed, ruins, dark | Pools of Corruption, Will Break and Darkness | **TBD** | Designed (enemies), boss **TBD** |
 
-Each act adds one new mechanic on top of the previous ones, so the core loop stays the same while the pressure grows. The act mechanics are described with the act's enemies in [Enemies](#10--enemies).
+Each act adds its own mechanic, so the core loop stays the same while each act feels different. Pools of Corruption carry into Act IV. Frozen and Frozen Enemies stay in Act II, and Frost only returns if an Act II enemy does (for example one the Awoken Summoner summons). The act mechanics are described with the act's enemies in [Enemies](#10--enemies).
 
 Combat levels are hand-built isometric arenas with a few obstacles (tree trunks) that block enemy projectiles. The art team is redesigning the scenarios, which may make levels smaller.
 
@@ -231,7 +232,7 @@ The UI follows one standard: two font sizes, three icon sizes, two button sizes,
 - **Side panes:** the **Inventory** (left) and **Stats** pane (right) open with every center window. Holding Shift / LT shows which items give each stat. The Inventory's title row shows the Favors (banked, and in brackets those earned this Pilgrimage, e.g. "42 (+5)") and the Golden Chronos, each with a tooltip that explains it.
 - **Center windows:** level-up (with Now/After stat previews), item bag (take or sell), wave results, shop, campfire, event and results, pause, settings, death screen and victory screen.
 - **Overworld map:** act title, current level name, Favors and Golden Chronos (with the same tooltips as the Inventory), Save & Exit, the Stats pane, and gamepad prompts.
-- **Main menu:** menu panel, class select with class details, Skill Tree, Settings.
+- **Main menu:** menu panel, class select with class details, Skill Tree, Pilgrim's Chronicle (replays the cutscenes the player has seen), Settings.
 - **Tooltips:** one shared tooltip for items, stats and options, placed beside the hovered or selected element.
 
 ---
@@ -324,8 +325,8 @@ _Acts II–IV below are concept designs. "Damage" and "health" are relative (low
 ### Act II: Fara Uf'Clario
 
 **New mechanics**
-- **Frozen** _(optional)_: Frost now hits the player too. After **3 frost hits** the player is **Frozen** for a few seconds: unable to move or attack, and enemy hits knock them back further, sliding like a block of ice.
-- **Frozen Enemies:** blocks of ice with an enemy trapped inside appear in the level. Breaking the ice releases the enemy, which attacks. _(Open: is breaking them optional, and do they reward anything?)_
+- **Frozen:** Frost now hits the player too. Each landed Frost hit adds a stack that slows the player a little, and the third stack **Freezes** them for a short time: unable to move or attack, and enemy hits knock them back further, sliding like a block of ice. Pressing **Dash** with a charge ready breaks the ice at once, so a saved dash is the counter. After Frozen, the player can't gain stacks for a few seconds. Dodged, absorbed and dash-avoided hits add no stack.
+- **Frozen Enemies:** blocks of ice with an enemy trapped inside stand in the level (1 to 3, placed per scene). They block enemy projectiles like tree trunks and are never auto-targeted. Breaking one is **optional** and releases a heavier enemy, which always drops a random item pickup when killed. A block can't be broken once the wave timer ends, and an enemy killed by the wave's end sequence drops no reward.
 
 | Enemy | Behavior | Damage | Health | Notes |
 |---|---|---|---|---|
@@ -334,7 +335,7 @@ _Acts II–IV below are concept designs. "Damage" and "health" are relative (low
 | **Awoken** | A Forsaken who rose from a night in the grave, will-less and deathless; casts big fire projectiles from long range | Very high (projectiles) | Medium | A fire caster in the frozen act |
 | **Ice Golem** | Big, slow and heavy; contact damage only | High | High | Inflicts Frost |
 | **Frost Ghoul** | Undead that chases the player and attacks with its claws | Medium | Medium | Fast. Inflicts Frost |
-| **Death Witch** | Flies in a circle around the player and casts a slow, clearly telegraphed beam at them | Very high (beam), low (contact) | Low | Fast |
+| **Death Witch** | Flies in a circle around the player and casts a slow, clearly telegraphed beam at them; obstacles and ice blocks stop the beam | Very high (beam), low (contact) | Low | Fast |
 | **Echo of Malizante (Corruptor)** | The lingering echo of the Sea Witch, the winged Dreko who led the invasion; it appears near the player for a few seconds, always within the player's line of sight, fires an ice projectile and vanishes | – | – | Replaces the flee-and-shoot pattern of the Act I Corruptor |
 
 ### Act III: Sinfa Mountains
@@ -394,7 +395,25 @@ The boss is Corrupted by default (more damage). Killing it ends the act and gran
 **Animations:** Idle, Walk, Attack (throw), Channel / channel loop, Fade In / Fade Out (mist), Damage (phase transition), Die.
 
 #### Act II: The Ice Bull
-Mechanics **TBD**.
+_Full design, with the tunables and what the code needs: `docs/features/act-ii-design.md`, section 4._
+
+**Lore.** One of the first Plerians the Drekos corrupted. He was defeated in the Dark Age, but Malizante saved him and buried him in the frozen north, transforming him into what he is now. Locals who saw his horns took him for a bull, and the name stuck. He isn't a Dreko, unlike Taio'Sandir.
+
+**Phase 1: Break the ice.** The Bull stands before the dark Altar of Malien, armored in ice and invulnerable, among ice pillars with enemy shapes inside. Enemies spawn from portals. The flame fills slowly by itself, but the player fills it by **using the Bull's strength against it**.
+- **Ice Charge:** a line grows on the floor, then the Bull charges along it. If it hits a pillar, the pillar shatters and releases its enemy, the Bull is stunned, and the flame jumps up. If it hits nothing, it skids to a stop. A hit deals heavy damage and Frost, with hard knockback.
+- **Frozen Axes** (after every charge): axes hurled at the player that bounce off the player, enemies, pillars and walls, and inflict Frost. Each throw adds one axe and one bounce, up to a cap. An axe that touches the Altar shatters and takes flame away, so the player can take the hit or lose flame. A crash is always worth more flame than a capped throw takes.
+- **Glacial Stomp** (when few pillars are left): new pillars rise at marked spots.
+- **Frost Breath** (cooldown): a short channel spraying Frost shards in an arc; pillars block them.
+
+**Phase 2: The real fight.** When the flame is full (3 crashes if no axe reached the Altar), the Flame strikes the Bull and the last ice falls off. The enemies stop spawning, the pillars are gone, and the Bull is vulnerable, moving between patrol points.
+- **Double Charge:** two Ice Charges in a row, the second re-aimed.
+- **Shatter Ring:** a ring of ice shards flies outward, with gaps to pass through.
+- **Frost Breath:** as in phase 1, longer.
+- **Deep Freeze:** a large circle marks the player's position and fills over about 1.5 s. A player still inside when it fills is Frozen at once, with no stacks needed, and takes no damage from it. The interval gets shorter the longer the phase lasts, down to a minimum. A saved dash breaks the ice, so keeping one is the phase's main decision.
+
+The boss is Corrupted by default. Killing it grants +5 Favors, then the boss reward and the map of Act III.
+
+**Animations:** Idle, Walk, Paw (loop), Charge (loop), Crash (loop), Throw, Stamp, Breath (start, loop, end), Damage (phase transition), Die.
 
 #### Act III: Forsaken Daviro the Unholy
 **Lore.** Daviro Piktuon was secretary to the governor of the Argent Coast, Gabien's home town. Ruined and about to end his life, he was taken in by the Forsaken in Gabien's time. Sixty years later he waits in the Sinfa Mountains. How he has lived so long is **TBD** (see [`Lore.md`](Lore.md)).
@@ -404,7 +423,7 @@ Mechanics **TBD**.
 #### Act IV: TBD
 Name and mechanics **TBD**.
 
-_Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase while the Altar of Malien fills, then the real fight). Each boss would use its act's mechanic, for example the Ice Bull freezing the player, Daviro spawning Pools of Corruption, and the Act IV boss using Will Break and Darkness.
+_Proposal for Acts III–IV:_ keep the two-phase structure (an invulnerable phase while the Altar of Malien fills, then the real fight), but each boss may fill the flame differently, as the Ice Bull does. Each boss would use its act's mechanic, for example Daviro spawning Pools of Corruption and the Act IV boss using Will Break and Darkness.
 
 ---
 
@@ -436,13 +455,13 @@ _Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase whi
 
 ## 13 – Open questions
 
-_Answered on 2026-10-23 and integrated above: ship and demo dates, the three pilgrims, Acts II–IV mechanics and enemies, Chaos and Holy (to implement), cutscene format, Steam features, difficulty, localization and DLC._
+_Answered on 2026-10-23 and integrated above: ship and demo dates, the three pilgrims, Acts II–IV mechanics and enemies, Chaos and Holy (to implement), cutscene format, Steam features, difficulty, localization and DLC. Answered on 2026-11-01: questions 3, 5 and 14, and the Ice Bull's part of question 1 (`docs/features/act-ii-design.md`). The numbers stay, because other documents refer to them._
 
-1. **Bosses:** the Ice Bull's and Forsaken Daviro the Unholy's mechanics; the Act IV boss's name and mechanics.
+1. **Bosses:** Forsaken Daviro the Unholy's mechanics; the Act IV boss's name and mechanics. _(The Ice Bull is designed.)_
 2. **Corruptor names:** Act I is "Dreko Spawn" for now (a better name may come later); Acts II–IV are the **Echo of Malizante**, the **Echo of Pal'bor** and the **Echo of Gabien** (decided 2026-10-26). The Act III boss is **Forsaken Daviro the Unholy** (decided 2026-10-29).
-3. **Frozen Enemies (Act II):** is breaking the ice optional, and does it reward anything?
+3. **Frozen Enemies (Act II):** answered: optional, with a guaranteed item pickup.
 4. **Will Break (Act IV):** how it stacks, how it carries over between levels, and how the player clears it.
-5. **Act mechanics carrying over:** do Frozen and the Frozen Enemies continue into Acts III–IV? (Pools of Corruption do continue into Act IV.)
+5. **Act mechanics carrying over:** answered: Frozen and the Frozen Enemies stay in Act II. Pools of Corruption continue into Act IV.
 6. **Missing values:** the Crawler's and the Cursed Sword's damage and health.
 7. **Cutscene content:** what the other 25 scenes show, and whether cutscenes are narrated. The opening's content was settled on 2026-10-31 (see [Cutscenes](#11--cutscenes)).
 8. **Achievements:** the final list.
@@ -450,9 +469,6 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 10. **Hard mode:** whether to make it, and what it changes.
 11. **Epic and Legendary items:** none exist yet.
 12. **Localization extras:** whether Chinese and Japanese make it into 1.0.
-13. **Lore:** the timeline and the other contradictions were settled on 2026-10-26 and 2026-10-29 (see [`Lore.md`](Lore.md) and `docs/archive/features/run-encounter-events.md`, "Lore decisions"). Gabien's sword is **Ashem Elwyn** ("Shining Tide"), and the Faraclarian Faun Chief is not of Alamoh blood. Still open: how Daviro has lived sixty years past Gabien's time.
-14. **Run structure across acts (decision needed):** two options.
-    - **One run through all acts in a row:** a run goes Act I → IV without stopping, and death means starting over from Act I. Builds grow across the whole game and the ending is earned in one sitting, but runs get long (4 acts) and early acts get replayed a lot.
-    - **One act per run:** after beating an act, the player goes back to the main menu and chooses to replay a cleared act or start the next one. Runs stay short and later acts are reachable without replaying Act I. Open points with this option: what a new act starts with (a fresh level 1 kit or a scaled starting point), how difficulty is set, and how Favors are paced.
-
-    The choice affects run saves, difficulty scaling (`levelsBeaten`, the expected-player curve), Favor pacing, the cutscene placement and the achievements.
+13. **Lore:** the timeline and the other contradictions were settled on 2026-10-26 and 2026-10-29 (see [`Lore.md`](Lore.md) and `docs/archive/features/run-encounter-events.md`, "Lore decisions"). Gabien's sword is **Ashem Elwyn** ("Shining Tide"), and the Faraclarian Faun Chief is not of Alamoh blood. Still open: how Daviro has lived sixty years past Gabien's time, and the Ice Bull's questions (why he lies at the Altar, who knows his origin, who beat him, how Malizante saved him).
+14. **Run structure across acts:** answered: one Pilgrimage through all four acts in a row, and death starts over from Act I. What it changes is in `docs/features/act-ii-design.md`, section 1.
+15. **Short runs:** a full Pilgrimage is about 1.5 hours (an estimate, not measured), split by Save & Exit on the map, which sits against "short, readable runs" in §1 and §2. Reword the goal, for example to "a Pilgrimage in short stages", once the length is known.
