@@ -297,7 +297,7 @@ namespace Game.UI.Style.Editor
             element.flexibleHeight = 0f;
         }
 
-        private static void ReplacePersistentCalls(UnityEvent unityEvent, UnityAction call)
+        public static void ReplacePersistentCalls(UnityEvent unityEvent, UnityAction call)
         {
             for (int i = unityEvent.GetPersistentEventCount() - 1; i >= 0; i--)
             {

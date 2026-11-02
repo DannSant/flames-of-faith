@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game.UI.Navigation
 {
@@ -9,6 +10,28 @@ namespace Game.UI.Navigation
     /// </summary>
     public static class ScrollRectMath
     {
+        /// <summary>Scrolls just enough to show an item of the ScrollRect's content.</summary>
+        public static void ScrollToShow(ScrollRect scrollRect, RectTransform item, float padding)
+        {
+            if (scrollRect == null || scrollRect.content == null || item == null) return;
+
+            var content = scrollRect.content;
+            if (item.parent != content) return;
+
+            var viewport = scrollRect.viewport != null ? scrollRect.viewport : (RectTransform)scrollRect.transform;
+            var corners = new Vector3[4];
+            item.GetWorldCorners(corners);
+            float itemTop = content.InverseTransformPoint(corners[1]).y;
+            float itemBottom = content.InverseTransformPoint(corners[0]).y;
+            float contentTop = content.rect.yMax;
+
+            scrollRect.StopMovement();
+            scrollRect.verticalNormalizedPosition = NormalizedPositionToShow(
+                content.rect.height, viewport.rect.height,
+                contentTop - itemTop, contentTop - itemBottom,
+                scrollRect.verticalNormalizedPosition, padding);
+        }
+
         /// <summary>
         /// The normalized position that shows the item [itemTop, itemBottom] fully (plus padding), moving as
         /// little as possible: unchanged when it's already visible. Content that fits the viewport stays at the top.
