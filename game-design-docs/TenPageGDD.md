@@ -415,10 +415,11 @@ _Proposal for Acts II–IV:_ keep the Act I structure (an invulnerable phase whi
   - **Opening:** the general story: the Pilgrimage of the Flame, the extinguished altars, the three pilgrims setting out.
   - **Per character, before and after each act:** 3 pilgrims × 4 acts × 2 = 24 scenes, telling each pilgrim's arc (`Lore.md` §6).
   - **Ending:** the game's ending.
-- **Steam demo:** the opening scene only.
-- **Replay:** a small menu lets the player watch again the cutscenes they have seen.
-- The lore and art direction of each scene is **TBD** (a design task in the backlog).
-- **Current state:** no cutscenes yet. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
+- **Steam demo:** the opening scene only. Its script and art briefs are in `docs/features/opening-cutscene.md`: 7 pages, a little over a minute of reading, in a neutral chronicle voice, with all three pilgrims and none as the hero. Gabien is named once, as people see him.
+- **When the opening plays:** only on the first New Game, after Start Run and right before the map. Not on Continue or Retry.
+- **Replay:** the **Pilgrim's Chronicle**, a main-menu screen (not in the pause menu), lets the player watch again the cutscenes they have seen. The lore compendium can join it later.
+- The lore and art direction of the other 25 scenes is **TBD** (a design task in the backlog).
+- **Current state:** no cutscenes in the game yet; the opening is designed and waits on the system and the art team, who will deliver all its pages before the demo. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
 
 ---
 
@@ -443,7 +444,7 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 4. **Will Break (Act IV):** how it stacks, how it carries over between levels, and how the player clears it.
 5. **Act mechanics carrying over:** do Frozen and the Frozen Enemies continue into Acts III–IV? (Pools of Corruption do continue into Act IV.)
 6. **Missing values:** the Crawler's and the Cursed Sword's damage and health.
-7. **Cutscene content:** what each of the 26 scenes shows, and whether they are narrated.
+7. **Cutscene content:** what the other 25 scenes show, and whether cutscenes are narrated. The opening's content was settled on 2026-10-31 (see [Cutscenes](#11--cutscenes)).
 8. **Achievements:** the final list.
 9. **Key items:** design.
 10. **Hard mode:** whether to make it, and what it changes.
