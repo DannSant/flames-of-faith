@@ -1,6 +1,6 @@
 # Feature: Opening cutscene and replay menu
 
-- **Status:** implemented on `feature/opening-cutscene` and manual tests passed (2026-11-02). Waiting for the owner's merge into `develop`. Final art is still due from the art team (page briefs below).
+- **Status:** implemented on `feature/opening-cutscene` and manual tests passed (2026-11-02). Merged into local `develop`, which isn't pushed yet. Final art is still due from the art team (page briefs below).
 - **Branch:** `feature/opening-cutscene` (off `develop`) for the implementation.
 - **Owner session:** design session (done), then an implementation session (done)
 - **Related docs:** `game-design-docs/Lore.md` (§2 Timeline, §5 Gabien, §6 The three pilgrims, the Glossary, the Secrets rule), `game-design-docs/TenPageGDD.md` §11 Cutscenes and §13; `CLAUDE.md` Glossary, "Gamepad & UI navigation", "UI standards", "Scene bootstrapping flow"; `docs/pm/DECISIONS.md` 2026-10-29 and 2026-10-30
@@ -169,12 +169,12 @@ _Written by the implementation session when it finishes. Nobody else edits this 
 
 - **Done:** the whole Systems section. `CutsceneData` + `CutsceneDatabaseProvider`, `Resources/Cutscenes/Opening.asset` (7 pages, spec text unchanged) with placeholder art in `Sprites/Cutscenes/Opening/`; `CutscenePlayer.Play(id, onEnded)` and the `CutsceneWindowUI` window (text band, click / Enter / A, hold to skip for 1 s with mouse, Esc or B); `MetaState.seenCutscenes`; the opening on the first New Game only; the Pilgrim's Chronicle with a tab structure (one tab, Scenes). Restyler entries (`CutsceneRestyler`, `ChronicleRestyler`, run from `MainMenuRestyler`), guard tests, CLAUDE.md section. `ScrollRectMath.ScrollToShow` was extracted from `StatsPaneUI` so the Chronicle could share it.
 - **Not done / follow-ups:**
-  - Merge into `develop`: the owner's decision, not done.
+  - Pushing `develop`: the owner's decision, not done.
   - The EditMode suite last ran here before the gamepad fixes (934 of 934 passed). Those fixes added one test and were compiled with `dotnet`, then checked by the owner in play; a full run after them isn't recorded here.
   - "Adding a scene needs only a new asset" holds by design (assets load by folder, scenes play by id), but no second scene has been added to prove it.
   - Placeholder art: overwrite `Opening_Page1..7.png`; they're 1920 x 1080, imported as single sprites.
   - Mouse clicks and the Next highlight depend on the current scene being loaded (see gotchas). Between-act scenes for 1.0 must play before the unload.
-- **Commits / branch:** everything is committed on `feature/opening-cutscene`, off `develop`. Not pushed, not merged.
+- **Commits / branch:** everything is committed on `feature/opening-cutscene`, off `develop`, merged into local `develop` on the owner's OK (2026-11-02). The owner pushed the feature branch up to `ab01d38`; this last docs commit and `develop` are not pushed.
 - **Gotchas for the next session:**
   - The owner's test round found two gamepad bugs, now fixed: the stick couldn't reach Back (hidden panels share the spot, so `ChronicleUI.ChainNavigation` links it by hand), and B did nothing with no player spawned (`UIFocusManager` now has its own UI actions then, on every main menu panel). With that, LB/RB work on the main menu too, so the cutscene window is `UIWindow.modal`.
   - The scene plays inside the load, between `FadeIn` and the unloads, because the EventSystems live in the scenes and the Bootstrapper has none. Moved after the unload, the mouse would stop working.
