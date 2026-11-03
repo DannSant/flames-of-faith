@@ -171,10 +171,10 @@ _Written by the implementation session when it finishes. Nobody else edits this 
 - **Not done / follow-ups:**
   - Nothing has been played: all checks so far are EditMode tests, and fades, input and focus are only covered by the manual list in `todo.md`.
   - Placeholder art: overwrite `Opening_Page1..7.png`; they're 1920 x 1080, imported as single sprites.
-  - **B on a fresh launch (found in passing, not changed):** `UIFocusManager.AcquireActions` reads the UI actions from the player's `PlayerInputHandler`, and from the code no player exists on the main menu until a Pilgrimage has spawned one. So LB/RB and B look dead there, on every main menu panel, Chronicle included. Back still works with A. The cutscene window isn't affected: it reads its own actions. Not verified in play; there's a check in `todo.md`.
   - Mouse clicks and the Next highlight depend on the current scene being loaded (see gotchas). Between-act scenes for 1.0 must play before the unload.
 - **Commits / branch:** `feature/opening-cutscene`, off `develop`, not pushed or merged.
 - **Gotchas for the next session:**
+  - The owner's test round found two gamepad bugs, now fixed: the stick couldn't reach Back (hidden panels share the spot, so `ChronicleUI.ChainNavigation` links it by hand), and B did nothing with no player spawned (`UIFocusManager` now has its own UI actions then, on every main menu panel). With that, LB/RB work on the main menu too, so the cutscene window is `UIWindow.modal`.
   - The scene plays inside the load, between `FadeIn` and the unloads, because the EventSystems live in the scenes and the Bootstrapper has none. Moved after the unload, the mouse would stop working.
   - Gate a scene with the `cutsceneOnce` id, not with `newGame`: Continue on a save with `runStarted == false` loads with `newGame` true.
   - The cutscene canvas (101) draws over the selection frame (100), so the gamepad frame doesn't show on Next; only its sprite state does. Accepted, since A is the only thing to press.

@@ -408,16 +408,15 @@ namespace Game.Metaprogression
             }
         }
 
-        // --- Debug (Inspector context menu) ------------------------------------------------------
-
-        [ContextMenu("Debug: Forget Seen Cutscenes")]
-        private void DebugForgetCutscenes()
+        /// <summary>Developer tool (DevTools/Cutscenes): the opening plays again and the Chronicle starts empty.</summary>
+        public void ForgetSeenCutscenes()
         {
-            if (!IsDebugAllowed()) return;
             m_MetaState.seenCutscenes.Clear();
             SaveMetaProgression();
             Debug.Log("[Meta] Seen cutscenes forgotten.");
         }
+
+        // --- Debug (Inspector context menu) ------------------------------------------------------
 
         [ContextMenu("Debug: Add Favors to Debug Class")]
         private void DebugAddFavors()

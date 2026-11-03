@@ -131,10 +131,11 @@ Static pages of art and text, advanced by hand. Spec and script: `docs/features/
 - **The window** (`CutsceneWindowUI`, layout `CutsceneRestyler`, `Tools/.../UI Revamp/Restyle Cutscene Window`): the image letterboxed on black, the text (Big) in a band over the bottom quarter, Next and the skip bar at the band's right, outside the fading group.
   - **Advance:** a click anywhere (`ClickArea`), Enter, or A. A reaches both the Submit action and the selected Next button; the `busy` flag of the page fade makes it count once. On the last page Next reads Continue.
   - **Skip:** hold Esc, B or the bar with the mouse for `skipHoldTime` (1 s). `SkipHold` (pure) ignores a button already held when the scene opens, and letting go starts over. A tap does nothing, and `onCancel` stays empty, so nothing leaves a half-played scene. A skipped scene counts as seen.
-  - **Focus:** a `UIWindow` at priority 200 with Next as default, so the gamepad can't reach the windows behind; focus falls back to them on close.
+  - **Focus:** a `UIWindow` at priority 200 with Next as default and **Modal** on (LB/RB can't leave it), so the gamepad can't reach the windows behind; focus falls back to them on close.
   - All fades run on unscaled time. A page has no duration, which leaves room for an audio clip per page later.
-- **Seen list:** `MetaState.seenCutscenes` in `<player>_meta.dat`, oldest first, marked when a scene ends. Old files load it empty. To replay the first New Game: `MetaProgressionManager`'s context menu, Debug: Forget Seen Cutscenes (Play mode).
+- **Seen list:** `MetaState.seenCutscenes` in `<player>_meta.dat`, oldest first, marked when a scene ends. Old files load it empty. To replay the first New Game or see an empty Chronicle: `DevTools/Cutscenes/Forget Seen Cutscenes` (Play mode).
 - **Pilgrim's Chronicle** (`Prefabs/UI/Menus/PilgrimsChronicle`, `ChronicleUI`, layout `ChronicleRestyler`, run by Restyle Main Menu): a main menu panel like the others (`MainMenuController.Switch`), on the main menu only. `ChronicleUI` renders plain `ChronicleEntry`s and reports a press; the controller builds them with `CutsceneRules.SelectSeen` (seen scenes that still exist, in the order seen). The scene plays over the panel, and focus returns to it.
+  - **Gamepad:** the rows and Back are linked by hand (`ChronicleUI.ChainNavigation`). The menu's other panels rest in the same spot and stay interactable while hidden, so Automatic navigation lands on their buttons.
   - **Adding a section** (the compendium): a tab and a page in `ChronicleRestyler`, an entry in `ChronicleUI.tabs`, and Automatic navigation on the tabs (they're None while there is one).
 - **Tests:** `CutsceneTests` (ids, pages, text rules, the opening, the rules, hold to skip, the meta save), `CutsceneStyleTests` (window, band, controls, Bootstrapper, Chronicle, scene wiring).
 
@@ -422,10 +423,12 @@ Gamepad support for uGUI is built on `Scripts/UI/Navigation/`:
   - **Open Mode:** `GameObjectActive` for panels that are activated and deactivated. Use `Manual` for panels that stay active and slide off screen, whose controller must call `SetOpen`. The main-menu panels are Manual.
   - **Focus Mode:** `AutoFocus` takes focus on open; `OnDemand` waits for Browse/Y, as in the map's Exit button. (The shop is AutoFocus: it's modal.)
   - **Priority:** a newly opened window takes focus only if its priority is *strictly higher* than the focused window's.
+  - **Modal:** LB/RB can't move focus off it.
   - **Default Selectable** and **OnCancel**.
 - **`UIFocusManager`** (singleton, Bootstrapper scene):
   - It tracks open windows and moves focus. Unfocused windows get `CanvasGroup.interactable = false`, which shows their buttons in the Disabled state.
   - It cycles windows with LB/RB.
+  - Its LB/RB, Browse and Cancel come from the player's UI actions, or its own copy while there is no player (the main menu before the first Pilgrimage).
   - Cancel/B: a Secondary window returns focus to the previous window, an `OnDemand` window releases focus, and other windows invoke their OnCancel.
   - `logFocusChanges` logs every change.
 - **`UIWindowOpenWhilePaused`:** lets an always-visible HUD panel join focus only while paused.
