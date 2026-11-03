@@ -40,6 +40,9 @@ namespace Game.UI.Navigation
         private InputAction focusPreviousAction;
         private InputAction browseAction;
         private InputAction cancelAction;
+        private InputActionMap uiMap;
+        // Used while there is no player, whose actions these normally are: the main menu before the first Pilgrimage.
+        private InputSystem_Actions fallbackActions;
 
         public UIWindow FocusedWindow => focusedWindow;
         public bool IsGameplayInputBlocked => gameplayInputBlocked;
@@ -62,6 +65,11 @@ namespace Game.UI.Navigation
                 InputDeviceManager.Instance.OnInputSchemeChanged -= HandleInputSchemeChanged;
             }
             subscribedToDeviceManager = false;
+        }
+
+        private void OnDestroy()
+        {
+            fallbackActions?.Dispose();
         }
 
         // Update still runs while Time.timeScale is 0, so this keeps working in paused menus.
@@ -363,7 +371,7 @@ namespace Game.UI.Navigation
         private void CycleFocus(int direction)
         {
             // Cycling only makes sense once the player is "in" the UI - e.g. the Shop needs Browse first.
-            if (focusedWindow == null) return;
+            if (focusedWindow == null || focusedWindow.IsModal) return;
 
             var candidates = new List<UIWindow>();
             foreach (var window in openWindows)
@@ -430,14 +438,27 @@ namespace Game.UI.Navigation
 
         private void AcquireActions()
         {
-            if (inputHandler != null && focusNextAction != null) return;
-            if (PlayerManager.Instance == null) return;
+            if (inputHandler == null && PlayerManager.Instance != null)
+            {
+                inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
+            }
 
-            inputHandler = PlayerManager.Instance.GetPlayerComponent<PlayerInputHandler>();
-            if (inputHandler == null) return;
+            InputActionMap map;
+            if (inputHandler != null)
+            {
+                map = inputHandler.UI.Get();
+                fallbackActions?.UI.Disable();
+            }
+            else
+            {
+                fallbackActions ??= new InputSystem_Actions();
+                fallbackActions.UI.Enable();
+                map = fallbackActions.UI.Get();
+            }
+            if (map == uiMap) return;
+            uiMap = map;
 
             // Looked up by name so this doesn't depend on the generated wrapper being regenerated.
-            InputActionMap uiMap = inputHandler.UI.Get();
             focusNextAction = uiMap.FindAction(FocusNextActionName);
             focusPreviousAction = uiMap.FindAction(FocusPreviousActionName);
             browseAction = uiMap.FindAction(BrowseActionName);

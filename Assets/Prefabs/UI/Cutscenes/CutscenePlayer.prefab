@@ -72,6 +72,7 @@ MonoBehaviour:
   focusMode: 0
   blocksGameplayInput: 1
   releaseFocusOnCancel: 0
+  modal: 1
   defaultSelectable: {fileID: 3650521245222959518}
   onCancel:
     m_PersistentCalls:

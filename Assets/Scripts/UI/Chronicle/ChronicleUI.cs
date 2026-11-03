@@ -80,6 +80,7 @@ namespace Game.UI.Chronicle
                 row.Setup(entry.Title, () => onPlay?.Invoke(id), HandleRowSelected);
                 rows.Add(row);
             }
+            ChainNavigation(rows.ConvertAll(row => (Selectable)row.GetComponent<Button>()), backButton);
 
             if (emptyText != null) emptyText.SetActive(entries.Count == 0);
             SelectTab(0);
@@ -89,6 +90,33 @@ namespace Game.UI.Chronicle
                 Canvas.ForceUpdateCanvases();
                 scrollRect.StopMovement();
                 scrollRect.verticalNormalizedPosition = 1f;
+            }
+        }
+
+        /// <summary>
+        /// Links the rows and Back by hand: down the list, then Back. Automatic navigation can't be used here, because
+        /// the menu's other panels rest in this same spot and stay interactable while hidden, so the stick would pick a
+        /// hidden button and the focus system would throw it back to the first row.
+        /// </summary>
+        public static void ChainNavigation(IReadOnlyList<Selectable> rows, Selectable back)
+        {
+            for (int i = 0; i < rows.Count; i++)
+            {
+                rows[i].navigation = new UnityEngine.UI.Navigation
+                {
+                    mode = UnityEngine.UI.Navigation.Mode.Explicit,
+                    selectOnUp = i > 0 ? rows[i - 1] : null,
+                    selectOnDown = i + 1 < rows.Count ? rows[i + 1] : back,
+                };
+            }
+
+            if (back != null)
+            {
+                back.navigation = new UnityEngine.UI.Navigation
+                {
+                    mode = UnityEngine.UI.Navigation.Mode.Explicit,
+                    selectOnUp = rows.Count > 0 ? rows[rows.Count - 1] : null,
+                };
             }
         }
 

@@ -89,6 +89,7 @@ namespace Game.Tests
             Assert.AreEqual(UIWindowFocusMode.AutoFocus, window.FocusMode);
             Assert.Greater(window.Priority, 102, "Above the highest window (the pause menu's Settings)");
             Assert.IsTrue(window.BlocksGameplayInput);
+            Assert.IsTrue(window.IsModal, "LB/RB must not move focus to the windows behind the scene");
             Assert.IsNotNull(window.GetComponent<CutsceneWindowUI>());
 
             var so = new SerializedObject(window);
@@ -222,6 +223,36 @@ namespace Game.Tests
             foreach (var graphic in Child(root, "Rows").GetComponentsInChildren<MaskableGraphic>(true))
             {
                 Assert.IsTrue(graphic.maskable, $"{graphic.name} would draw outside the list");
+            }
+        }
+
+        /// <summary>The menu's hidden panels rest in the same spot, so Automatic navigation lands on their buttons.</summary>
+        [Test]
+        public void ChronicleNavigation_RunsDownTheRowsToBack()
+        {
+            var objects = new[] { new GameObject("Row1"), new GameObject("Row2"), new GameObject("Back") };
+            try
+            {
+                var first = objects[0].AddComponent<Button>();
+                var second = objects[1].AddComponent<Button>();
+                var back = objects[2].AddComponent<Button>();
+
+                ChronicleUI.ChainNavigation(new Selectable[] { first, second }, back);
+
+                Assert.AreEqual(UnityEngine.UI.Navigation.Mode.Explicit, first.navigation.mode);
+                Assert.IsNull(first.navigation.selectOnUp);
+                Assert.AreSame(second, first.navigation.selectOnDown);
+                Assert.AreSame(first, second.navigation.selectOnUp);
+                Assert.AreSame(back, second.navigation.selectOnDown);
+                Assert.AreSame(second, back.navigation.selectOnUp);
+
+                ChronicleUI.ChainNavigation(new Selectable[0], back);
+                Assert.IsNull(back.navigation.selectOnUp, "An empty list leaves Back alone");
+                Assert.AreEqual(UnityEngine.UI.Navigation.Mode.Explicit, back.navigation.mode, "Back stays reachable as the default");
+            }
+            finally
+            {
+                foreach (var go in objects) Object.DestroyImmediate(go);
             }
         }
 

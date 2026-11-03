@@ -46,6 +46,8 @@ namespace Game.UI.Navigation
         [Tooltip("Cancel (B) hands control back to gameplay while leaving this window open - for windows " +
                  "that open on proximity (Shop) so the player can walk away again.")]
         [SerializeField] private bool releaseFocusOnCancel = false;
+        [Tooltip("LB/RB can't move focus off this window, e.g. a cutscene playing over open windows.")]
+        [SerializeField] private bool modal = false;
         [Tooltip("Optional. Otherwise the first active, interactable Selectable in children is used.")]
         [SerializeField] private Selectable defaultSelectable;
         [Tooltip("Invoked when Cancel (B) is pressed while this window has gamepad focus.")]
@@ -78,6 +80,7 @@ namespace Game.UI.Navigation
         public UIWindowFocusMode FocusMode => focusMode;
         public bool BlocksGameplayInput => blocksGameplayInput;
         public bool ReleaseFocusOnCancel => releaseFocusOnCancel;
+        public bool IsModal => modal;
         public bool IsFocused { get; private set; }
         public UnityEvent OnCancel => onCancel;
 

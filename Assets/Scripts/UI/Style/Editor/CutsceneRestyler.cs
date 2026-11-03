@@ -186,6 +186,7 @@ namespace Game.UI.Style.Editor
             windowSo.FindProperty("priority").intValue = WindowPriority;
             windowSo.FindProperty("focusMode").enumValueIndex = (int)UIWindowFocusMode.AutoFocus;
             windowSo.FindProperty("blocksGameplayInput").boolValue = true;
+            windowSo.FindProperty("modal").boolValue = true;
             windowSo.FindProperty("defaultSelectable").objectReferenceValue = nextButton;
             windowSo.ApplyModifiedPropertiesWithoutUndo();
             CenterWindowLayout.UseStandardMarker(window);
