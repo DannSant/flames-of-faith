@@ -18,7 +18,7 @@ To see the first New Game again or an empty Chronicle: in Play mode, DevTools > 
 - [x ] Skip counts as seen: skip the opening, go back to the menu, and it's in the Chronicle and doesn't play on the next New Game.
 - [x ] The text fits the band on every page (page 6 has four lines), at 16:9 and on a non-16:9 window (the art letterboxes).
 - [x ] The skip glyph shows Esc on keyboard, B on Xbox and Circle on PlayStation.
-- [ ] Main menu: Pilgrim's Chronicle sits between Skill Tree and Settings, and the panel slides in like the others. Nothing seen yet shows "Nothing is written here yet."
+- [x ] Main menu: Pilgrim's Chronicle sits between Skill Tree and Settings, and the panel slides in like the others. Nothing seen yet shows "Nothing is written here yet."
 - [x ] Chronicle: lists The Pilgrimage of the Flame only after it was seen, plays it over the panel, and returns to the panel with gamepad focus on it. The list survives closing the game.
-- [ ] Chronicle, gamepad: the stick moves down the rows to Back, and up again, also with an empty list. A on Back and B both return to the menu, on a fresh launch and after a Pilgrimage.
-- [ ] Main menu, gamepad, fresh launch: B goes back from the class select, and LB/RB do nothing odd on any panel. During a cutscene LB/RB do nothing.
+- [x] Chronicle, gamepad: the stick moves down the rows to Back, and up again, also with an empty list. A on Back and B both return to the menu, on a fresh launch and after a Pilgrimage.
+- [x] Main menu, gamepad, fresh launch: B goes back from the class select, and LB/RB do nothing odd on any panel. During a cutscene LB/RB do nothing.

@@ -1,8 +1,8 @@
 # Feature: Opening cutscene and replay menu
 
-- **Status:** design done (2026-11-01). Ready for the implementation session; the art team has the page briefs below.
+- **Status:** implemented on `feature/opening-cutscene` and manual tests passed (2026-11-02). Waiting for the owner's merge into `develop`. Final art is still due from the art team (page briefs below).
 - **Branch:** `feature/opening-cutscene` (off `develop`) for the implementation.
-- **Owner session:** design session (done), then an implementation session (not started)
+- **Owner session:** design session (done), then an implementation session (done)
 - **Related docs:** `game-design-docs/Lore.md` (§2 Timeline, §5 Gabien, §6 The three pilgrims, the Glossary, the Secrets rule), `game-design-docs/TenPageGDD.md` §11 Cutscenes and §13; `CLAUDE.md` Glossary, "Gamepad & UI navigation", "UI standards", "Scene bootstrapping flow"; `docs/pm/DECISIONS.md` 2026-10-29 and 2026-10-30
 
 ## Goal
@@ -146,13 +146,13 @@ _Design:_
 - [x] The open questions are answered, and GDD §11 and §13 match.
 
 _Implementation:_
-- [ ] The first New Game plays the opening after Start Run, right before the map. Later New Games, Continue and Retry don't.
-- [ ] Pages advance and the scene can be skipped with mouse, keyboard and gamepad, with the gamepad focus right throughout.
-- [ ] A skipped scene counts as seen.
-- [ ] The replay menu lists only seen scenes, and survives closing the game. An old meta file loads with an empty list.
-- [ ] A missing or empty cutscene never hangs the load: it logs and goes on to the map.
-- [ ] Adding a scene needs only a new asset, no code.
-- [ ] Guard tests: unique `cutsceneId`s, every page has text and art, and the window's style follows `UISettings`.
+- [x] The first New Game plays the opening after Start Run, right before the map. Later New Games, Continue and Retry don't.
+- [x] Pages advance and the scene can be skipped with mouse, keyboard and gamepad, with the gamepad focus right throughout.
+- [x] A skipped scene counts as seen.
+- [x] The replay menu lists only seen scenes, and survives closing the game. An old meta file loads with an empty list.
+- [x] A missing or empty cutscene never hangs the load: it logs and goes on to the map.
+- [x] Adding a scene needs only a new asset, no code.
+- [x] Guard tests: unique `cutsceneId`s, every page has text and art, and the window's style follows `UISettings`.
 
 ## Files likely touched
 - Docs: `CLAUDE.md` (a section on the cutscene system and the Pilgrim's Chronicle).
@@ -169,10 +169,12 @@ _Written by the implementation session when it finishes. Nobody else edits this 
 
 - **Done:** the whole Systems section. `CutsceneData` + `CutsceneDatabaseProvider`, `Resources/Cutscenes/Opening.asset` (7 pages, spec text unchanged) with placeholder art in `Sprites/Cutscenes/Opening/`; `CutscenePlayer.Play(id, onEnded)` and the `CutsceneWindowUI` window (text band, click / Enter / A, hold to skip for 1 s with mouse, Esc or B); `MetaState.seenCutscenes`; the opening on the first New Game only; the Pilgrim's Chronicle with a tab structure (one tab, Scenes). Restyler entries (`CutsceneRestyler`, `ChronicleRestyler`, run from `MainMenuRestyler`), guard tests, CLAUDE.md section. `ScrollRectMath.ScrollToShow` was extracted from `StatsPaneUI` so the Chronicle could share it.
 - **Not done / follow-ups:**
-  - Nothing has been played: all checks so far are EditMode tests, and fades, input and focus are only covered by the manual list in `todo.md`.
+  - Merge into `develop`: the owner's decision, not done.
+  - The EditMode suite last ran here before the gamepad fixes (934 of 934 passed). Those fixes added one test and were compiled with `dotnet`, then checked by the owner in play; a full run after them isn't recorded here.
+  - "Adding a scene needs only a new asset" holds by design (assets load by folder, scenes play by id), but no second scene has been added to prove it.
   - Placeholder art: overwrite `Opening_Page1..7.png`; they're 1920 x 1080, imported as single sprites.
   - Mouse clicks and the Next highlight depend on the current scene being loaded (see gotchas). Between-act scenes for 1.0 must play before the unload.
-- **Commits / branch:** `feature/opening-cutscene`, off `develop`, not pushed or merged.
+- **Commits / branch:** everything is committed on `feature/opening-cutscene`, off `develop`. Not pushed, not merged.
 - **Gotchas for the next session:**
   - The owner's test round found two gamepad bugs, now fixed: the stick couldn't reach Back (hidden panels share the spot, so `ChronicleUI.ChainNavigation` links it by hand), and B did nothing with no player spawned (`UIFocusManager` now has its own UI actions then, on every main menu panel). With that, LB/RB work on the main menu too, so the cutscene window is `UIWindow.modal`.
   - The scene plays inside the load, between `FadeIn` and the unloads, because the EventSystems live in the scenes and the Bootstrapper has none. Moved after the unload, the mouse would stop working.
@@ -180,4 +182,4 @@ _Written by the implementation session when it finishes. Nobody else edits this 
   - The cutscene canvas (101) draws over the selection frame (100), so the gamepad frame doesn't show on Next; only its sprite state does. Accepted, since A is the only thing to press.
   - `ChronicleButton` is a clone of Settings in the prefab. It inherits a click slot with an empty target, and the scene override points it at `OpenChronicle`.
   - Running Restyle Main Menu reverted leftover child layout overrides in `MainMenu.unity` (about 400 removed lines) and rewrote `CharacterSelect.prefab` with a TMP field Unity added. Both are expected.
-- **Manual tests added to todo.md:** "Opening cutscene and Pilgrim's Chronicle": first and second New Game, Continue, Retry, old meta file, skip and advance with each device, skip counts as seen, text fit, glyphs, the Chronicle.
+- **Manual tests added to todo.md:** "Opening cutscene and Pilgrim's Chronicle": first and second New Game, Continue, Retry, old meta file, skip and advance with each device, skip counts as seen, text fit, glyphs, the Chronicle, and the main menu on a fresh launch. All ticked by the owner on 2026-11-02.
