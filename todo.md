@@ -2,6 +2,22 @@
 
 Only unchecked tests are listed here. Finished sections are archived in `docs/archive/` (latest: `todo-2026-10-30.md`). Backlog: `docs/pm/BACKLOG.md`.
 
+## Game feel, chunk 1: low-health warning (branch feature/game-feel)
+
+First run Tools > Flames of Faith > UI Revamp > Restyle HUD once, so UIMain gets the vignette. Tunables: `Resources/Feel/GameFeelSettings.asset`. The vignette art is a placeholder. `DevTools/Stats` can lower Max Health to get there faster.
+
+- [ ] Combat level: dropping to 30% health or below fades in a red pulse at the screen edges. The middle of the screen stays clear, and the pulse never reads as flashing.
+- [ ] It gets stronger and a little faster as health drops toward 10%.
+- [ ] Healing to 31-35% keeps it on (no flicker around 30%); healing above 35% fades it out.
+- [ ] Boss level: same as a combat level.
+- [ ] No warning in a shop, campfire, treasure or event, even at low health; none on the map.
+- [ ] Death: the warning fades out as the death screen comes up and doesn't show over it.
+- [ ] Enter a combat level already at low health: the warning is there from the start (after the fade). Enter one at full health: no flash of it.
+- [ ] Retry from the death screen, then enter a level: no warning.
+- [ ] Pause and level-up windows: the pulse keeps going behind them, under the window, and every button still takes clicks (the vignette takes none).
+- [ ] The HUD (health, Grace, abilities, XP) draws on top of the vignette.
+- [ ] Untick Low Health Warning Enabled on the settings asset in Play mode: it fades out.
+
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)
 
 To see the first New Game again or an empty Chronicle: in Play mode, DevTools > Cutscenes > Forget Seen Cutscenes. Art is placeholder.
