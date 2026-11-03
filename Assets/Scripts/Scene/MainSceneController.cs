@@ -1,6 +1,7 @@
 using Game.Metaprogression;
 using Game.Audio;
 using Game.Common;
+using Game.Cutscenes;
 using Game.Overworld;
 using Game.Saving;
 using System.Collections;
@@ -88,10 +89,11 @@ namespace Game.Scene
             StartCoroutine(RunTransition(LoadGameplayRoutine(levelData, shouldReset)));
         }
 
-        public void LoadLevelSelectorScene(bool newGame)
+        /// <param name="cutsceneOnce">Optional. This scene plays right before the map, unless the player has already seen it.</param>
+        public void LoadLevelSelectorScene(bool newGame, string cutsceneOnce = null)
         {
             if (!BeginTransition()) return;
-            StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(newGame, newGame ? RollSeed() : 0, null)));
+            StartCoroutine(RunTransition(LoadLevelSelectorSceneRoutine(newGame, newGame ? RollSeed() : 0, null, cutsceneOnce)));
         }
 
         /// <summary>
@@ -163,10 +165,13 @@ namespace Game.Scene
         }
 
         /// <param name="continueData">When set, the run is restored from this save instead of the session in memory.</param>
-        private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame, int runSeed, RunSaveData continueData)
+        /// <param name="cutsceneOnce">Plays above the black loading screen, before anything unloads: it needs the current scene's EventSystem.</param>
+        private IEnumerator LoadLevelSelectorSceneRoutine(bool newGame, int runSeed, RunSaveData continueData, string cutsceneOnce = null)
         {
             //Debug.Log("LoadLevelSelectorSceneRoutine");
             yield return StartCoroutine(FadeIn());
+
+            yield return StartCoroutine(PlayCutsceneOnce(cutsceneOnce));
 
             if (newGame)
             {
@@ -236,6 +241,22 @@ namespace Game.Scene
             SaveRunOnMap(newGame);
 
             yield return StartCoroutine(FadeOut());
+        }
+
+        // CutscenePlayer always reports the end, also when the scene is missing or empty, so this can't hang the load.
+        private IEnumerator PlayCutsceneOnce(string cutsceneId)
+        {
+            if (string.IsNullOrEmpty(cutsceneId)) yield break;
+            if (MetaProgressionManager.Instance != null && MetaProgressionManager.Instance.HasSeenCutscene(cutsceneId)) yield break;
+            if (CutscenePlayer.Instance == null)
+            {
+                Debug.LogWarning($"[Cutscene] No CutscenePlayer in the scene, skipping '{cutsceneId}'.");
+                yield break;
+            }
+
+            bool ended = false;
+            CutscenePlayer.Instance.Play(cutsceneId, () => ended = true);
+            while (!ended) yield return null;
         }
 
         /// <summary>

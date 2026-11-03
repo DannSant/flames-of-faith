@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8967e0495cea497a885ea01179bf236e, type: 3}
+  m_Name: Opening
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Cutscenes.CutsceneData
+  cutsceneId: opening
+  title: The Pilgrimage of the Flame
+  pages:
+  - image: {fileID: 21300000, guid: 72d910d395ae47978d492b759a2f706e, type: 3}
+    text: "Long ago the Drekos came from the stars to rule the world.\nDriven underground, they were held there by the Flames of Faith, white fires on the Altars of Malien."
+  - image: {fileID: 21300000, guid: 516587fa16f74e9b9365ab4fd008b4c5, type: 3}
+    text: "The faithful tended them on the Pilgrimage of the Flame, from altar to altar.\nThen the faithful forgot, and the Flames went out, one by one."
+  - image: {fileID: 21300000, guid: c70069d13bc64b31a0078626e1a98bd2, type: 3}
+    text: "Sixty years ago the Drekos rose, and Ashemdrek fell, its Flame with it.\nThey say Gabien Alamoh should have saved it.\nPeople still spit at his name."
+  - image: {fileID: 21300000, guid: 2ea337e6132540d1bbd5f2e3d8397828, type: 3}
+    text: "Then came the Years of the Miasma.\nA dark mist spread over Sialant, twisting all it touched, and nation after nation fell."
+  - image: {fileID: 21300000, guid: e0e97239f1ea44a4888252a1830f4867, type: 3}
+    text: "Now it has reached Abidor, across the sea: sudden plagues, food that spoils overnight.\nThe augurs of the Shardless Church say the Pilgrimage must be walked again, and the altars relit."
+  - image: {fileID: 21300000, guid: 4658f0d64efd4aff924a1e8e1c46b729, type: 3}
+    text: "Three answer.\nAyteel Alamoh, a Crusader of the Faith, though the Church never said so.\nFaelin Vidal, a Sentinel of Abidor, who must see it with her own eyes.\nWerlem Feth, an Augur of the Shardless Church, against his family's wishes."
+  - image: {fileID: 21300000, guid: 4d98bc2ed8a945cda09af00aedc0114a, type: 3}
+    text: "They land on the Argent Coast, with the Jesterwoods ahead and the first dark altar beyond.\nGrace is all that shields them, and the Corruption will eat at it.\nThe Pilgrimage begins."

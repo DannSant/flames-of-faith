@@ -1,5 +1,6 @@
 using Game.Common;
 using Game.Control;
+using Game.Cutscenes;
 using Game.Progression;
 using Game.Saving;
 using Game.Scene;
@@ -25,6 +26,8 @@ namespace Game.Metaprogression
         public List<ClassFavors> favors = new();
         public List<string> unlockedClasses = new();
         public List<NodeTierState> nodeTiers = new();
+        // The cutsceneIds played at least once, in the order they were first seen.
+        public List<string> seenCutscenes = new();
 
         /// <summary>Lists missing from an older file come back null.</summary>
         public void EnsureLists()
@@ -32,6 +35,7 @@ namespace Game.Metaprogression
             favors ??= new List<ClassFavors>();
             unlockedClasses ??= new List<string>();
             nodeTiers ??= new List<NodeTierState>();
+            seenCutscenes ??= new List<string>();
         }
     }
 
@@ -387,6 +391,29 @@ namespace Game.Metaprogression
             RaiseFavorTotals();
             OnNodeTierChanged?.Invoke(characterClass, node.nodeId);
             return true;
+        }
+
+        // --- Cutscenes --------------------------------------------------------------------------
+
+        /// <summary>The scenes the player has seen, oldest first. They last between Pilgrimages.</summary>
+        public IReadOnlyCollection<string> SeenCutscenes => m_MetaState.seenCutscenes;
+
+        public bool HasSeenCutscene(string cutsceneId) => CutsceneRules.HasSeen(m_MetaState.seenCutscenes, cutsceneId);
+
+        public void MarkCutsceneSeen(string cutsceneId)
+        {
+            if (CutsceneRules.AddSeen(m_MetaState.seenCutscenes, cutsceneId))
+            {
+                SaveMetaProgression();
+            }
+        }
+
+        /// <summary>Developer tool (DevTools/Cutscenes): the opening plays again and the Chronicle starts empty.</summary>
+        public void ForgetSeenCutscenes()
+        {
+            m_MetaState.seenCutscenes.Clear();
+            SaveMetaProgression();
+            Debug.Log("[Meta] Seen cutscenes forgotten.");
         }
 
         // --- Debug (Inspector context menu) ------------------------------------------------------

@@ -4,6 +4,7 @@ using Game.AI;
 using Game.Combat;
 using Game.Currency;
 using Game.Effects;
+using Game.Metaprogression;
 using Game.GameSettings;
 using Game.Progression;
 using Game.Scene;
@@ -14,6 +15,16 @@ using UnityEngine;
 
 public class DeveloperCheats 
 {   
+
+    [MenuItem("DevTools/Cutscenes/Forget Seen Cutscenes")]
+    public static void ForgetSeenCutscenes()
+    {
+        MetaProgressionManager.Instance.ForgetSeenCutscenes();
+    }
+
+    // The seen list is only loaded in Play mode
+    [MenuItem("DevTools/Cutscenes/Forget Seen Cutscenes", true)]
+    public static bool CanForgetSeenCutscenes() => Application.isPlaying && MetaProgressionManager.Instance != null;
 
     [MenuItem("DevTools/Level/GoToNextLevel")]
     public static void GoToNextLevel()

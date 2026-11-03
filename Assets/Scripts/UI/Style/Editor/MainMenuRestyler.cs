@@ -17,6 +17,7 @@ namespace Game.UI.Style.Editor
     /// - the class select (640 wide): "Choose your class", three class cards on the left (portrait, name, a red
     ///   "Locked" note, a yellow ring on the chosen one), the class details on the right like the skill tree's
     ///   (name, description, starting weapon, a green / red footer, Skill Tree), Start Run and Back stacked at the bottom.
+    /// It also places the Pilgrim's Chronicle (ChronicleRestyler) and adds its button.
     /// Batchmode: -executeMethod Game.UI.Style.Editor.MainMenuRestyler.Restyle
     /// </summary>
     public static class MainMenuRestyler
@@ -30,7 +31,8 @@ namespace Game.UI.Style.Editor
         public const float BigButtonWidth = 280f;
         public const float CardsWidth = 180f;
         private const float OutlineOutset = 2f;
-        private static readonly string[] MenuButtons = { "StartButton", "LoadButton", "SkillTreeButton", "SettingsButton", "ExitButton" };
+        public const string ChronicleButton = "ChronicleButton";
+        private static readonly string[] MenuButtons = { "StartButton", "LoadButton", "SkillTreeButton", ChronicleButton, "SettingsButton", "ExitButton" };
 
         public static Vector2 PanelPosition(UISettings s) => new Vector2(-s.Margin, s.Margin);
 
@@ -46,19 +48,36 @@ namespace Game.UI.Style.Editor
 
             UpgradeRestyler.EditPrefab(MenuPanelPath, root => RestyleMenuPanel(root, settings));
             UpgradeRestyler.EditPrefab(ClassSelectPath, root => RestyleClassSelect(root, settings));
+            ChronicleRestyler.RestylePrefab(settings);
 
             UIRevampTools.RunOnScenes(new[] { MainMenuScene }, (scene, path) =>
             {
                 // Revert first: a revert reloads the instance, which would drop the snapped root layout
-                bool changed = RevertChildLayoutOverrides(scene, MenuPanelPath);
+                bool changed = EnsureChronicleInstance(scene);
+                changed |= RevertChildLayoutOverrides(scene, MenuPanelPath);
                 changed |= RevertChildLayoutOverrides(scene, ClassSelectPath);
-                changed |= UpgradeRestyler.SnapSceneInstances(scene, MenuPanelPath, ClassSelectPath);
+                changed |= UpgradeRestyler.SnapSceneInstances(scene, MenuPanelPath, ClassSelectPath, ChronicleRestyler.PanelPath);
                 changed |= WireScene(scene, settings);
                 return changed;
             });
 
             AssetDatabase.SaveAssets();
             Debug.Log("[MainMenuRestyler] Main menu restyled.");
+        }
+
+        // The Chronicle rests with the other panels, right after Settings
+        private static bool EnsureChronicleInstance(UnityEngine.SceneManagement.Scene scene)
+        {
+            var transforms = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<Transform>(true)).ToList();
+            bool IsInstanceOf(Transform t, string path) => PrefabUtility.IsAnyPrefabInstanceRoot(t.gameObject)
+                && AssetDatabase.GetAssetPath(PrefabUtility.GetCorrespondingObjectFromSource(t.gameObject)) == path;
+            if (transforms.Any(t => IsInstanceOf(t, ChronicleRestyler.PanelPath))) return false;
+
+            var settingsPanel = transforms.First(t => IsInstanceOf(t, SettingsRestyler.SettingsPath));
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(ChronicleRestyler.PanelPath);
+            var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, settingsPanel.parent);
+            instance.transform.SetSiblingIndex(settingsPanel.GetSiblingIndex() + 1);
+            return true;
         }
 
         private static float ContentTop(UISettings s) => s.Margin + InventoryRestyler.TitleRowHeight + s.Spacing;
@@ -108,8 +127,16 @@ namespace Game.UI.Style.Editor
             // The saved run under Load Game (filled by MainMenuController)
             var saveInfo = FindOrCreateText(container, "SaveInfo");
 
+            // A copy of Settings: same art and label, opens the Pilgrim's Chronicle (wired in the scene)
+            if (Find(container, ChronicleButton) == null)
+            {
+                var chronicle = Object.Instantiate(Find(container, "SettingsButton"), container);
+                chronicle.name = ChronicleButton;
+            }
+            Find(container, ChronicleButton).GetComponentInChildren<TextMeshProUGUI>(true).text = "Pilgrim's Chronicle";
+
             float bigHeight = s.GetButtonHeight(UIButtonSize.Big);
-            var order = new[] { MenuButtons[0], MenuButtons[1], "SaveInfo", MenuButtons[2], MenuButtons[3], MenuButtons[4] };
+            var order = new[] { MenuButtons[0], MenuButtons[1], "SaveInfo", MenuButtons[2], MenuButtons[3], MenuButtons[4], MenuButtons[5] };
             for (int i = 0; i < order.Length; i++) Find(container, order[i]).SetSiblingIndex(i);
             foreach (string name in MenuButtons)
             {
@@ -362,6 +389,7 @@ namespace Game.UI.Style.Editor
             var menu = Instance(MenuPanelPath);
             var classSelect = Instance(ClassSelectPath);
             var settingsPanel = Instance(SettingsRestyler.SettingsPath);
+            var chroniclePanel = Instance(ChronicleRestyler.PanelPath);
 
             // Settings rests at its shown spot like the other panels
             if (settingsPanel != null)
@@ -392,6 +420,7 @@ namespace Game.UI.Style.Editor
             so.FindProperty("mainPanelWindow").objectReferenceValue = menu.GetComponent<UIWindow>();
             so.FindProperty("characterSelectWindow").objectReferenceValue = classWindow;
             if (settingsPanel != null) so.FindProperty("settingsWindow").objectReferenceValue = settingsPanel.GetComponent<UIWindow>();
+            so.FindProperty("chronicleWindow").objectReferenceValue = chroniclePanel.GetComponent<UIWindow>();
 
             var classes = so.FindProperty("classesByPlayerIndex");
             classes.arraySize = cards.Length;
@@ -422,6 +451,18 @@ namespace Game.UI.Style.Editor
             treeCall.FindPropertyRelative("m_Mode").enumValueIndex = 1;
             treeCall.FindPropertyRelative("m_CallState").enumValueIndex = 2;
             treeSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var chronicleButton = menu.GetComponentsInChildren<Button>(true).First(b => b.name == ChronicleButton);
+            var chronicleSo = new SerializedObject(chronicleButton);
+            var chronicleCalls = chronicleSo.FindProperty("m_OnClick.m_PersistentCalls.m_Calls");
+            chronicleCalls.arraySize = 1;
+            var chronicleCall = chronicleCalls.GetArrayElementAtIndex(0);
+            chronicleCall.FindPropertyRelative("m_Target").objectReferenceValue = controller;
+            chronicleCall.FindPropertyRelative("m_TargetAssemblyTypeName").stringValue = "Game.UI.MainMenuController, Assembly-CSharp";
+            chronicleCall.FindPropertyRelative("m_MethodName").stringValue = nameof(MainMenuController.OpenChronicle);
+            chronicleCall.FindPropertyRelative("m_Mode").enumValueIndex = 1;
+            chronicleCall.FindPropertyRelative("m_CallState").enumValueIndex = 2;
+            chronicleSo.ApplyModifiedPropertiesWithoutUndo();
             return true;
         }
     }

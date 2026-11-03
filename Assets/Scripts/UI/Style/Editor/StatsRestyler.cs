@@ -122,7 +122,7 @@ namespace Game.UI.Style.Editor
             ui.ApplyModifiedPropertiesWithoutUndo();
         }
 
-        private static void RestyleTab(RectTransform tab, string label, Vector2 anchor, Vector2 position, float width, UISettings s)
+        public static void RestyleTab(RectTransform tab, string label, Vector2 anchor, Vector2 position, float width, UISettings s)
         {
             Place(tab, anchor, anchor, position, new Vector2(width, TabsHeight));
             var button = tab.GetComponent<Button>();
@@ -152,7 +152,7 @@ namespace Game.UI.Style.Editor
         }
 
         // A tab's rows: top-anchored scroll content whose layout sets each row's width and height
-        private static void RestyleList(RectTransform list, UISettings s)
+        public static void RestyleList(RectTransform list, UISettings s)
         {
             list.anchorMin = new Vector2(0f, 1f);
             list.anchorMax = new Vector2(1f, 1f);
@@ -174,7 +174,7 @@ namespace Game.UI.Style.Editor
             fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
         }
 
-        private static Scrollbar BuildScrollbar(RectTransform window, UISettings s, float top, float bottom)
+        public static Scrollbar BuildScrollbar(RectTransform window, UISettings s, float top, float bottom)
         {
             var track = FindOrCreateImage(window, "Scrollbar");
             var rect = track.rectTransform;

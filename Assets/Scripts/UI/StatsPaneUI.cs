@@ -450,23 +450,10 @@ namespace Game.UI
         /// </summary>
         public void NotifySelected(StatRowUI row)
         {
-            if (scrollRect == null || scrollRect.content == null || row == null) return;
+            if (row == null) return;
             if (InputDeviceManager.Instance == null || !InputDeviceManager.Instance.IsGamepadActive) return;
-            if (row.transform.parent != scrollRect.content) return;
 
-            var content = scrollRect.content;
-            var viewport = scrollRect.viewport != null ? scrollRect.viewport : (RectTransform)scrollRect.transform;
-            var corners = new Vector3[4];
-            ((RectTransform)row.transform).GetWorldCorners(corners);
-            float rowTop = content.InverseTransformPoint(corners[1]).y;
-            float rowBottom = content.InverseTransformPoint(corners[0]).y;
-            float contentTop = content.rect.yMax;
-
-            scrollRect.StopMovement();
-            scrollRect.verticalNormalizedPosition = ScrollRectMath.NormalizedPositionToShow(
-                content.rect.height, viewport.rect.height,
-                contentTop - rowTop, contentTop - rowBottom,
-                scrollRect.verticalNormalizedPosition, UISettings.Instance.Spacing);
+            ScrollRectMath.ScrollToShow(scrollRect, (RectTransform)row.transform, UISettings.Instance.Spacing);
         }
 
 

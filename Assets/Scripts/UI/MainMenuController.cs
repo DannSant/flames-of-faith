@@ -1,9 +1,11 @@
 using Game.Metaprogression;
 using Game.Combat;
 using Game.Control;
+using Game.Cutscenes;
 using Game.Effects;
 using Game.Saving;
 using Game.Scene;
+using Game.UI.Chronicle;
 using Game.UI.Navigation;
 using Game.UI.Overworld;
 using Game.UI.Style;
@@ -16,7 +18,7 @@ using UnityEngine.UI;
 namespace Game.UI
 {
     /// <summary>
-    /// The main menu: the menu panel, the class select and the Settings panel, all resting at their spot on the right.
+    /// The main menu: the menu panel, the class select, the Settings panel and the Pilgrim's Chronicle, all resting at their spot on the right.
     /// Switching panels fades and slides the old one out and the new one in (in code, on unscaled time).
     /// Class select: clicking a card (A with the gamepad) chooses the class; hovering or moving onto one previews it; Start Run starts.
     /// Layout: MainMenuRestyler.
@@ -30,6 +32,7 @@ namespace Game.UI
         [SerializeField] private UIWindow mainPanelWindow;
         [SerializeField] private UIWindow characterSelectWindow;
         [SerializeField] private UIWindow settingsWindow;
+        [SerializeField] private UIWindow chronicleWindow;
 
         [Header("Transitions")]
         [Tooltip("How long the panel being left takes to fade out (unscaled seconds).")]
@@ -69,8 +72,11 @@ namespace Game.UI
         [SerializeField] private ConfirmDialogUI confirmDialog;
         [TextArea]
         [SerializeField] private string newGameOverwriteWarning = "Starting a new game will delete your current run. Continue?";
+        [Tooltip("Plays after Start Run, right before the map, until the player has seen it once.")]
+        [SerializeField] private string openingCutsceneId = "opening";
 
         private SettingsPanelController settingsPanel;
+        private ChronicleUI chronicle;
         private readonly Dictionary<UIWindow, Vector2> shownPositions = new();
         private readonly List<ClassSelectHoverButton> cards = new();
         private Coroutine transition;
@@ -81,7 +87,7 @@ namespace Game.UI
         private void Awake()
         {
             // The panels rest at their shown spot; remember it before hiding the ones that start closed
-            foreach (var window in new[] { mainPanelWindow, characterSelectWindow, settingsWindow })
+            foreach (var window in new[] { mainPanelWindow, characterSelectWindow, settingsWindow, chronicleWindow })
             {
                 if (window != null) shownPositions[window] = ((RectTransform)window.transform).anchoredPosition;
             }
@@ -101,10 +107,14 @@ namespace Game.UI
             SetShown(mainPanelWindow, true);
             SetShown(characterSelectWindow, false);
             SetShown(settingsWindow, false);
+            SetShown(chronicleWindow, false);
 
             // The settings panel's Back button / Cancel ask whoever opened it to close it
             settingsPanel = settingsWindow != null ? settingsWindow.GetComponentInChildren<SettingsPanelController>(true) : null;
             if (settingsPanel != null) settingsPanel.OnCloseRequested += CloseSettings;
+
+            chronicle = chronicleWindow != null ? chronicleWindow.GetComponent<ChronicleUI>() : null;
+            if (chronicle != null) chronicle.OnCloseRequested += CloseChronicle;
 
             RefreshLoadGameButton();
             RefreshClassLocks();
@@ -124,6 +134,7 @@ namespace Game.UI
         {
             RunSaveService.OnSaveChanged -= RefreshLoadGameButton;
             if (settingsPanel != null) settingsPanel.OnCloseRequested -= CloseSettings;
+            if (chronicle != null) chronicle.OnCloseRequested -= CloseChronicle;
             if (startRunButton != null) startRunButton.onClick.RemoveListener(StartRun);
 
             if (MetaProgressionManager.Instance != null)
@@ -258,7 +269,7 @@ namespace Game.UI
         public void StartNewGame()
         {
             RunSaveService.DeleteSave();
-            MainSceneController.Instance.LoadLevelSelectorScene(true);
+            MainSceneController.Instance.LoadLevelSelectorScene(true, openingCutsceneId);
         }
 
         public void LoadGame()
@@ -328,6 +339,34 @@ namespace Game.UI
         public void OpenSettings() => Switch(mainPanelWindow, settingsWindow);
 
         public void CloseSettings() => Switch(settingsWindow, mainPanelWindow);
+
+        public void OpenChronicle()
+        {
+            if (Transitioning || chronicle == null) return;
+            chronicle.Show(BuildChronicleEntries(), PlayFromChronicle);
+            Switch(mainPanelWindow, chronicleWindow);
+        }
+
+        public void CloseChronicle() => Switch(chronicleWindow, mainPanelWindow);
+
+        private static List<ChronicleEntry> BuildChronicleEntries()
+        {
+            var entries = new List<ChronicleEntry>();
+            if (MetaProgressionManager.Instance == null || CutsceneDatabaseProvider.Instance == null) return entries;
+
+            foreach (var cutscene in CutsceneRules.SelectSeen(CutsceneDatabaseProvider.Instance.Cutscenes, MetaProgressionManager.Instance.SeenCutscenes))
+            {
+                entries.Add(new ChronicleEntry(cutscene.CutsceneId, cutscene.Title));
+            }
+            return entries;
+        }
+
+        // The scene plays over the panel, and focus returns to it when the window closes
+        private void PlayFromChronicle(string cutsceneId)
+        {
+            if (Transitioning || CutscenePlayer.Instance == null) return;
+            CutscenePlayer.Instance.Play(cutsceneId, null);
+        }
 
         private void Switch(UIWindow from, UIWindow to)
         {
