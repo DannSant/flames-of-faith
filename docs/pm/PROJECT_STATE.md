@@ -1,31 +1,32 @@
 # Project state
 
-_Last updated: 2026-11-01 by the Orchestrator._
+_Last updated: 2026-11-02 by the Orchestrator._
 
 ## Milestone
 - **Current:** tester round on v0.5.2, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
 - **Last tagged release:** `v0.5.2` (on `main`, 2026-10-30).
 - **In v0.5.2:** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
 
-## Git reality (checked 2026-11-01)
+## Git reality (checked 2026-11-02)
 - `main` = `origin/main` = `ef237a6`, tagged `v0.5.2` (pushed 2026-10-30).
-- `develop` is ahead of `main` by docs commits only (cutscene and Act II specs, GDD, lore, these state updates). Check `git status` for unpushed ones.
-- No feature branches open.
+- `develop` carries the opening cutscene (merge `d5d6b1e`) on top of the docs commits. It's the first game code ahead of `main` since the release. Check `git status` for unpushed commits.
+- `feature/opening-cutscene` is merged and can be deleted, locally and on `origin`, with the owner's OK.
 
-## Resume here (Orchestrator, 2026-11-01)
-- **Waiting on the owner:** the Windows build of v0.5.2 and sending it to testers; starting the implementation session for `feature/opening-cutscene` (kickoff prompt given 2026-11-01); sending the 7 page briefs to the art team and agreeing the size; the five lore questions in `docs/features/act-ii-design.md`.
-- **When the cutscene session ends:** read its Handoff, update these files, and move the spec to the archive once its manual tests pass.
+## Resume here (Orchestrator, 2026-11-02)
+- **Waiting on the owner:** the Windows build of v0.5.2 and sending it to testers; sending the 7 page briefs to the art team and agreeing the size; where the sound clips come from (BACKLOG 33); the five lore questions in `docs/features/act-ii-design.md`.
+- **Next code:** the low-health warning (BACKLOG 31), then hit feel and the sound hooks (32, 33), in parallel with CI/CD (18). They share no files. The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
 - **When tester feedback arrives:** triage it into the backlog; the balance pass and the SQLite deletion follow this round.
-- **If code runs out before art arrives:** CI/CD (BACKLOG 18) comes first, because it has a December date. Act II's build waits for the demo, except chunk 1.
+- **To check:** the cutscene session's last full EditMode run (934 of 934) was before its gamepad fixes. Run the suite once on `develop`.
 
 ## In progress
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **Released.** Next: the owner makes the Windows build and sends it with the patch notes |
-| Opening cutscene and Pilgrim's Chronicle | `feature/opening-cutscene` | `docs/features/opening-cutscene.md` | **Design done, ready for the implementation session.** Art briefs are in the spec |
+| Game feel | not started | to write, `docs/features/game-feel.md` | **In the backlog** (items 31 to 34); the spec comes next |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 
 ## Done recently
+- **Opening cutscene and Pilgrim's Chronicle** (merged 2026-11-02, `d5d6b1e`; manual tests passed): `CutscenePlayer.Play(id, onEnded)`, played on the first New Game only, on placeholder art. Spec and art briefs: `docs/archive/features/opening-cutscene.md`. Between-act scenes for 1.0 must play before the scene unload (its Handoff explains why).
 - **Opening cutscene design** (2026-11-01): 7 pages, a little over a minute, with an art brief per page. The replay menu is the Pilgrim's Chronicle.
 - **Act II design and the run structure** (2026-11-01): one Pilgrimage through all four acts; Frozen, Frozen Enemies, six enemies, the Echo of Malizante, the Ice Bull, an art brief and a 12-chunk build order. GDD and `Lore.md` updated.
 - **High Attack Speed fix** (merged 2026-10-30, `789d4bc`; manual tests passed): the attack animation speeds up with the cooldown, soft cap 40, hard cap 80, scale 0.02, at most 2.2× speed.

@@ -434,7 +434,7 @@ _Proposal for Acts III–IV:_ keep the two-phase structure (an invulnerable phas
   - **Opening:** the general story: the Pilgrimage of the Flame, the extinguished altars, the three pilgrims setting out.
   - **Per character, before and after each act:** 3 pilgrims × 4 acts × 2 = 24 scenes, telling each pilgrim's arc (`Lore.md` §6).
   - **Ending:** the game's ending.
-- **Steam demo:** the opening scene only. Its script and art briefs are in `docs/features/opening-cutscene.md`: 7 pages, a little over a minute of reading, in a neutral chronicle voice, with all three pilgrims and none as the hero. Gabien is named once, as people see him.
+- **Steam demo:** the opening scene only. Its script and art briefs are in `docs/archive/features/opening-cutscene.md`: 7 pages, a little over a minute of reading, in a neutral chronicle voice, with all three pilgrims and none as the hero. Gabien is named once, as people see him.
 - **When the opening plays:** only on the first New Game, after Start Run and right before the map. Not on Continue or Retry.
 - **Replay:** the **Pilgrim's Chronicle**, a main-menu screen (not in the pause menu), lets the player watch again the cutscenes they have seen. The lore compendium can join it later.
 - The lore and art direction of the other 25 scenes is **TBD** (a design task in the backlog).

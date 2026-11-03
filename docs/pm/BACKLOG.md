@@ -1,16 +1,22 @@
 # Backlog
 
-_Last updated: 2026-11-01 (both design sessions done). Ordered around the v0.5.2 tester round, then the Steam demo (December 2026). Each line: item, then why. Numbers stay stable, because specs refer to them._
+_Last updated: 2026-11-02 (opening cutscene merged, game feel added). Ordered around the v0.5.2 tester round, then the Steam demo (December 2026). Each line: item, then why. Numbers stay stable, because specs refer to them._
 
 ## Now (while testers play)
 1. **Tester build v0.5.2:** released on 2026-10-30 (`main`, tag `v0.5.2`, patch notes in `PatchNotes/notas-desde-v0.5.1.md`). Left: make the Windows build, send it to testers, collect feedback. Why: a lot changed since v0.5.1, and every manual test has passed.
-2. **Cutscene design:** done 2026-11-01 (7 pages with art briefs, in the spec below). Left for the owner: send the briefs to the art team and agree the size (1920 × 1080). The owner says the team will deliver all 7 pages before the demo, so there's no fallback plan. Page 6 shows the three pilgrims' faces, so it depends on the re-designed characters (item 6).
-3. **Opening cutscene: the general story** (one scene; spec `docs/features/opening-cutscene.md`, branch `feature/opening-cutscene`). **Next code to build.** A small cutscene system (static images + text, skippable, gamepad), on placeholder art until the pages arrive. Why: players start the demo with no context.
-4. **Pilgrim's Chronicle** (cutscene replay menu, same spec and session): replays the cutscenes the player has seen; main menu only; saved with the meta-progression, so it lasts between runs. Why: the owner's request; it also starts the screen the lore compendium can share.
+2. **Cutscene design:** done 2026-11-01 (7 pages with art briefs, `docs/archive/features/opening-cutscene.md`). Left for the owner: send the briefs to the art team and agree the size (1920 × 1080). The owner says the team will deliver all 7 pages before the demo, so there's no fallback plan. Page 6 shows the three pilgrims' faces, so it depends on the re-designed characters (item 6).
+3. **Opening cutscene:** done 2026-11-02, merged into `develop`, manual tests passed. It runs on placeholder art: the final pages overwrite `Sprites/Cutscenes/Opening/Opening_Page1..7.png` (1920 × 1080).
+4. **Pilgrim's Chronicle:** done 2026-11-02 (same spec). It has a tab structure with one tab, Scenes, so the lore compendium can join it.
 
 ## Before the Steam demo (musts, trimmed 2026-10-29)
 **Code**
 5. **Balance pass: enemy and player damage**, with the designer in the sheet, after this round of tester feedback. Why: the Whirlwind now deals several times its old crowd damage, and Attack Speed was cut hard. Also check how far apart a demo player arrives at the boss: the fewest fights to reach it are 3 on `act1`, against 7 on `act1B` and 6 on `act1C` (checked 2026-11-01).
+
+**Game feel** (added 2026-11-02; needs a spec). Today's feedback is hit flashes, damage numbers and knockback only. Keep it restrained: the Corrupted outline exists because VFX had got too noisy.
+31. **Low-health warning:** a pulsing blood vignette at the screen edges below a health threshold, with a heartbeat once item 33 has one. Code only, on a generated vignette sprite. **First in this group.** Why: testers often miss their low health, because the bar is top left and their eyes are on the middle. It's a usability fix more than polish.
+32. **Hit feel:** camera shake (Cinemachine Impulse, nothing is wired today), hit stop and short slow motion on big moments (boss phases and kill, Corruptor kill, heavy hits on the player), gamepad rumble, and a Settings slider for shake and rumble that goes to off. Never shake on routine hits: with auto-attack and the Whirlwind it would never stop. `PauseManager` sets `timeScale` directly, so hit stop needs one owner of it. Why: needs no art, and a demo sells in its first minutes.
+33. **Sound pass:** the game has 15 SFX, 8 of them sword swings. Nothing plays for the player being hurt, dash, pickups (XP, Golden Chronos, Grace, items), level-up, wave start and end, shop purchases, UI clicks, the Corruptor, or boss abilities. Code: sound hooks, plus a data-driven table if it stays small. Rising pitch on chained XP pickups is cheap and worth having. Also `PlaySFX` sets the pitch on a shared source, which re-pitches sounds already playing. **Clips need a source (owner's call).** Why: the biggest gap in feel, and testers notice silence.
+34. **VFX pass:** after the re-designed characters and scenarios arrive (items 6 and 7), because effects must match the new palette and sizes. Why: doing it now means doing it twice.
 
 **Waiting on art**
 6. **Re-designed characters** (art): new sprites, then adjust the player prefabs (dimensions, colliders, hitboxes, the Corrupted outline margin, animators). Why: the demo's look.
@@ -32,8 +38,8 @@ _Moved out of the demo on 2026-10-29 to protect the December date; candidates fo
 17. **Rewrite `OnePageGDD.md`** in English from the Ten Page GDD and `Lore.md`. Why: outdated, Spanish, contradicts the lore; useful for the Steam page.
 
 ## Delivery (not started)
-18. **CI/CD:** GitHub Actions Unity build when `develop` is merged into `main`, Steam deploy (SteamPipe). Needs a Unity license strategy (GameCI). Why: repeatable demo builds; worth having before the demo goes up. **The best code to take if the cutscene work runs out before the art arrives,** since it has a December date.
-19. **EditMode tests in CI** on every push (910 tests exist).
+18. **CI/CD:** GitHub Actions Unity build when `develop` is merged into `main`, Steam deploy (SteamPipe). Needs a Unity license strategy (GameCI). Why: repeatable demo builds; worth having before the demo goes up. **The best code to take now, alongside game feel,** since it has a December date and touches no scene or prefab.
+19. **EditMode tests in CI** on every push (over 930 tests exist).
 
 ## For 1.0
 20. **Boss architecture refactor, before the second boss.** Scoped by `docs/features/act-ii-design.md` section 4's table; chunk 9 of its build order. Why: the Act I boss's systems weren't built for several bosses; the demo's boss must play the same after it.
@@ -49,7 +55,7 @@ _Moved out of the demo on 2026-10-29 to protect the December date; candidates fo
 30. **Key items that unlock parts of the map.** Why: planned, needs a design.
 
 ## Non-programming (art/design team)
-- **Demo:** re-designed character sprites; scenarios and companion idle animations; boss shield; opening cutscene art (7 pages, briefs in the spec, delivery promised before the demo). Later: map decorations (demo update); the other cutscenes' art (1.0); event art; Favor icon; 2 s Whirlwind animation; melee telegraph sprites; a check that the attack animations read well sped up (Attack Speed fix).
+- **Demo:** re-designed character sprites; scenarios and companion idle animations; boss shield; opening cutscene art (7 pages, briefs in `docs/archive/features/opening-cutscene.md`, delivery promised before the demo). Later: map decorations (demo update); the other cutscenes' art (1.0); event art; Favor icon; 2 s Whirlwind animation; melee telegraph sprites; a check that the attack animations read well sped up (Attack Speed fix).
 - **Act II (1.0):** the art brief is in `docs/features/act-ii-design.md` section 5, in priority order. World first, since it decides how readable everything else is. It comes after the demo's art.
 - **Owner, lore:** five questions on Act II (spec, "Lore questions for the owner"). None blocks the build; they need answers before those texts ship.
 

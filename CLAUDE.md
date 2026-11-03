@@ -121,7 +121,7 @@ When touching map/level-select logic, confirm whether you're in the legacy `Map/
 
 ### Cutscenes & the Pilgrim's Chronicle
 
-Static pages of art and text, advanced by hand. Spec and script: `docs/features/opening-cutscene.md`. Adding a scene needs only a new asset, no code.
+Static pages of art and text, advanced by hand. Spec and script: `docs/archive/features/opening-cutscene.md`. Adding a scene needs only a new asset, no code.
 - **Data:** one `CutsceneData` per scene in `Resources/Cutscenes/` (`Game.Cutscenes`): `cutsceneId` (saved, never change it), `title` (the Chronicle's name) and pages (`image` 1920 × 1080, `text`, line breaks kept). `CutsceneDatabaseProvider` loads them. Placeholder art: `Sprites/Cutscenes/Opening/`; overwrite the PNGs and the references hold.
 - **Playing:** `CutscenePlayer.Instance.Play(id, onEnded)`, from anywhere. It isn't tied to New Game, so 1.0 can play scenes between acts the same way (`MainSceneController.PlayCutsceneOnce` is the "unless seen" wrapper).
   - **`onEnded` always fires,** also when the scene is missing or empty, or the window fails: that case logs and skips it, because a load waits on the callback.
