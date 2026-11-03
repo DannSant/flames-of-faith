@@ -1,11 +1,14 @@
 using Game.Audio;
 using Game.Audio.Editor;
+using Game.Control;
 using Game.Feel;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 namespace Game.Tests
 {
@@ -129,6 +132,92 @@ namespace Game.Tests
                 {
                     Assert.IsFalse(entry.clips.Any(c => c == null), $"{entry.sound} has an empty clip slot");
                 }
+            }
+        }
+
+        [Test]
+        public void SoundTable_ClassVoicesAreSane()
+        {
+            foreach (var entry in Table().Entries)
+            {
+                if (entry.classClips == null) continue;
+                Assert.IsFalse(entry.classClips.Any(c => c == null || c.characterClass == CharacterClass.None),
+                    $"{entry.sound} has a class voice with no class");
+                var twice = entry.classClips.GroupBy(c => c.characterClass).Where(g => g.Count() > 1).Select(g => g.Key).ToList();
+                Assert.IsEmpty(twice, $"{entry.sound} lists a class more than once");
+                foreach (var classEntry in entry.classClips)
+                {
+                    Assert.IsFalse(classEntry.clips != null && classEntry.clips.Any(c => c == null),
+                        $"{entry.sound} ({classEntry.characterClass}) has an empty clip slot");
+                }
+            }
+        }
+
+        [Test]
+        public void ClassVoice_WinsOverSharedClipsAndFallsBack()
+        {
+            var shared = AudioClip.Create("Shared", 1, 1, 44100, false);
+            var warrior = AudioClip.Create("Warrior", 1, 1, 44100, false);
+            try
+            {
+                var entry = new GameSoundTable.Entry
+                {
+                    sound = GameSound.PlayerHurt,
+                    clips = new[] { shared },
+                    classClips = new List<GameSoundTable.ClassClips>
+                    {
+                        new GameSoundTable.ClassClips { characterClass = CharacterClass.Warrior, clips = new[] { warrior } },
+                        new GameSoundTable.ClassClips { characterClass = CharacterClass.Archer, clips = new AudioClip[0] },
+                    },
+                };
+                Assert.AreSame(warrior, entry.ClipsFor(CharacterClass.Warrior)[0]);
+                Assert.AreSame(shared, entry.ClipsFor(CharacterClass.Archer)[0], "An empty class voice falls back");
+                Assert.AreSame(shared, entry.ClipsFor(CharacterClass.Mage)[0], "A class with no voice falls back");
+                Assert.AreSame(shared, entry.ClipsFor(CharacterClass.None)[0]);
+
+                entry.clips = new AudioClip[0];
+                Assert.IsTrue(entry.HasClips, "Class clips alone make the sound not silent");
+                Assert.IsTrue(entry.HasClipsFor(CharacterClass.Warrior));
+                Assert.IsFalse(entry.HasClipsFor(CharacterClass.Mage));
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(shared);
+                UnityEngine.Object.DestroyImmediate(warrior);
+            }
+        }
+
+        [Test]
+        public void SilentReport_ListsClassesLeftWithoutAVoice()
+        {
+            var table = ScriptableObject.CreateInstance<GameSoundTable>();
+            var clip = AudioClip.Create("Voice", 1, 1, 44100, false);
+            try
+            {
+                var entries = new List<GameSoundTable.Entry>
+                {
+                    new GameSoundTable.Entry
+                    {
+                        sound = GameSound.Dash,
+                        classClips = new List<GameSoundTable.ClassClips>
+                        {
+                            new GameSoundTable.ClassClips { characterClass = CharacterClass.Warrior, clips = new[] { clip } },
+                        },
+                    },
+                };
+                typeof(GameSoundTable).GetField("entries", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                    .SetValue(table, entries);
+
+                var classes = new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage };
+                CollectionAssert.AreEqual(new[] { "Dash: Archer", "Dash: Mage" }, SilentSoundsReport.FindMissingVoices(table, classes));
+
+                entries[0].clips = new[] { clip };
+                Assert.IsEmpty(SilentSoundsReport.FindMissingVoices(table, classes), "Shared clips cover every class");
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(table);
+                UnityEngine.Object.DestroyImmediate(clip);
             }
         }
 

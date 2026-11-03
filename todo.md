@@ -33,6 +33,8 @@ Every new sound is silent until it has a clip. To hear them, drop any test clip 
 - [ ] Heartbeat: at low health in a fight it beats with the pulse, and stops while paused. With Min Intensity 0.6 and Heartbeat From 0.6 it beats as soon as the warning shows; raise Heartbeat From (e.g. 0.8) to keep it for the lowest health only.
 - [ ] Dodge, Whirlwind shield absorb, dash, Grace / health / item pickups, wave start and end, Corruptor appears / killed / escaped, boss second phase and boss death: each plays its sound once.
 - [ ] Getting hit plays PlayerHurt, but not on a dodge, an absorbed shot or the killing blow.
+- [ ] Class voices: give PlayerHurt a shared clip and a Warrior Class Clips entry with another clip. The Warrior plays its own, the Archer and Augur the shared one. Report Silent Sounds lists a player sound that has class voices but no shared clip, per class left silent.
+- [ ] Death: with PlayerDeath empty the prefab's death sound plays as before; with a clip for the class, that one plays instead (once).
 - [ ] Optional: set an `attackSound` on an enemy and a `castSound` on a boss ability; a crowd of shooters stays readable (throttled), and the boss plays it as the cast starts.
 
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)

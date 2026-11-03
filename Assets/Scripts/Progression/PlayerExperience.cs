@@ -73,7 +73,7 @@ namespace Game.Progression
                 leveledUp = true;
             }
             // Here and not on onLevelUp, which also fires when the level is loaded or reset
-            if (leveledUp) AudioManager.TryPlay(GameSound.LevelUp);
+            if (leveledUp) AudioManager.TryPlay(GameSound.LevelUp, PlayerVoice.Of(this));
         }
 
         public float GetCurrentXP() => currentXP;

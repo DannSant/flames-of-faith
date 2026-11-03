@@ -125,3 +125,8 @@ MonoBehaviour:
     volume: 0.7
     randomizePitch: 1
     minInterval: 0.08
+  - sound: 22
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5

@@ -254,7 +254,7 @@ namespace Game.Control
             playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
             playerHealth.ToggleIsInvulnerable(true);
-            AudioManager.TryPlay(GameSound.Dash);
+            AudioManager.TryPlay(GameSound.Dash, PlayerVoice.Of(this));
             onDashStarted?.Invoke();
         }
 

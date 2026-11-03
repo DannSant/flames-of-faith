@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Game.Common;
+using Game.Control;
 using Game.Feel;
 using Game.GameSettings;
 using UnityEngine;
@@ -138,29 +139,45 @@ namespace Game.Audio
         /// <summary>
         /// Plays a game sound from GameSoundTable. Safe with no clips (silent, nothing logged) and from anywhere,
         /// also while paused. <paramref name="pitch"/> multiplies the entry's (random) pitch.
+        /// Returns whether the sound has clips (it may still skip a restart inside its Min Interval).
         /// </summary>
-        public void Play(GameSound sound, float pitch = 1f)
+        public bool Play(GameSound sound, float pitch = 1f) => Play(sound, CharacterClass.None, pitch);
+
+        /// <summary>
+        /// A player sound in a class's voice: that class's clips when the entry has some, else the shared clips.
+        /// </summary>
+        public bool Play(GameSound sound, CharacterClass voice, float pitch = 1f)
         {
             var table = GameSoundTable.Instance;
-            if (!table.TryGet(sound, out var entry) || !entry.HasClips) return;
+            if (!table.TryGet(sound, out var entry)) return false;
+            AudioClip[] clips = entry.ClipsFor(voice);
+            if (clips == null || clips.Length == 0) return false;
 
             // Real time, so UI sounds work in pause windows too
             float now = Time.unscaledTime;
-            if (lastPlayed.TryGetValue(sound, out float last) && !GameSoundTable.CanRestart(last, now, entry.minInterval)) return;
+            if (lastPlayed.TryGetValue(sound, out float last) && !GameSoundTable.CanRestart(last, now, entry.minInterval)) return true;
 
-            AudioClip clip = entry.clips[UnityEngine.Random.Range(0, entry.clips.Length)];
-            if (clip == null) return;
+            AudioClip clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            if (clip == null) return true;
             lastPlayed[sound] = now;
 
             float randomPitch = entry.randomizePitch ? UnityEngine.Random.Range(table.RandomPitchMin, table.RandomPitchMax) : 1f;
             voices.Play(clip, entry.volume, pitch * randomPitch);
+            return true;
         }
 
         /// <summary>Play(sound) when the AudioManager exists, nothing otherwise. The entry point for game code.</summary>
-        public static void TryPlay(GameSound sound, float pitch = 1f)
+        public static bool TryPlay(GameSound sound, float pitch = 1f)
         {
             var manager = Instance;
-            if (manager != null) manager.Play(sound, pitch);
+            return manager != null && manager.Play(sound, pitch);
+        }
+
+        /// <summary>TryPlay for player sounds, in the playing class's voice (see <see cref="Game.Progression.PlayerVoice"/>).</summary>
+        public static bool TryPlay(GameSound sound, CharacterClass voice, float pitch = 1f)
+        {
+            var manager = Instance;
+            return manager != null && manager.Play(sound, voice, pitch);
         }
 
         /// <summary>

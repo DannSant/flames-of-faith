@@ -1,4 +1,5 @@
 using System;
+using Game.Control;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ namespace Game.Audio
     /// <summary>
     /// One entry per GameSound: its clips (one picked at random), volume, pitch and how often it may restart.
     /// An entry with no clips is silent and logs nothing, so hooks can ship before their clips
-    /// (Tools/Flames of Faith/Audio/Report Silent Sounds lists them). Loaded from Resources/Audio/GameSoundTable.
+    /// (Tools/Flames of Faith/Audio/Report Silent Sounds lists them). Player sounds can have a voice per class
+    /// (Class Clips), which wins over the shared clips for that class. Loaded from Resources/Audio/GameSoundTable.
     /// </summary>
     [CreateAssetMenu(fileName = "GameSoundTable", menuName = "Audio/Game Sound Table")]
     public class GameSoundTable : ScriptableObject
@@ -15,11 +17,21 @@ namespace Game.Audio
         private const string ResourcePath = "Audio/GameSoundTable";
 
         [Serializable]
+        public class ClassClips
+        {
+            public CharacterClass characterClass;
+            [Tooltip("This class's voice for the sound; one plays at random.")]
+            public AudioClip[] clips = new AudioClip[0];
+        }
+
+        [Serializable]
         public class Entry
         {
             public GameSound sound;
-            [Tooltip("One of these plays at random. Empty = silent.")]
+            [Tooltip("One of these plays at random. Empty = silent. For a player sound, the fallback of a class with no Class Clips.")]
             public AudioClip[] clips = new AudioClip[0];
+            [Tooltip("Player sounds only (hurt, dodge, dash, level-up, death...): a voice per class, played instead of Clips for that class.")]
+            public List<ClassClips> classClips = new List<ClassClips>();
             [Tooltip("Volume of this sound, on top of the SFX and master volumes.")]
             [Range(0f, 1f)]
             public float volume = 1f;
@@ -29,7 +41,25 @@ namespace Game.Audio
             [Min(0f)]
             public float minInterval = 0.05f;
 
-            public bool HasClips => clips != null && clips.Length > 0;
+            /// <summary>Whether any clip is set, shared or per class (false = silent).</summary>
+            public bool HasClips => HasAny(clips) || (classClips != null && classClips.Exists(c => c != null && HasAny(c.clips)));
+
+            /// <summary>The clips that play for a class: its own when it has some, else the shared ones.</summary>
+            public AudioClip[] ClipsFor(CharacterClass voice)
+            {
+                if (voice != CharacterClass.None && classClips != null)
+                {
+                    foreach (var classEntry in classClips)
+                    {
+                        if (classEntry != null && classEntry.characterClass == voice && HasAny(classEntry.clips)) return classEntry.clips;
+                    }
+                }
+                return clips;
+            }
+
+            public bool HasClipsFor(CharacterClass voice) => HasAny(ClipsFor(voice));
+
+            private static bool HasAny(AudioClip[] list) => list != null && list.Length > 0;
         }
 
         [Tooltip("Lowest pitch of a sound with Randomize Pitch.")]

@@ -258,7 +258,7 @@ namespace Game.Combat {
 
             Heal(amount * projectileShieldHealFraction);
             Destroy(attacker);
-            AudioManager.TryPlay(GameSound.ShieldAbsorb);
+            AudioManager.TryPlay(GameSound.ShieldAbsorb, PlayerVoice.Of(this));
             return true;
         }
 
@@ -352,7 +352,7 @@ namespace Game.Combat {
             else
             {
                 // The killing blow plays the death sound instead
-                AudioManager.TryPlay(GameSound.PlayerHurt);
+                AudioManager.TryPlay(GameSound.PlayerHurt, PlayerVoice.Of(this));
             }
             return finalDamage;
         }
@@ -367,7 +367,7 @@ namespace Game.Combat {
 
             invulnerableUntilTime = Time.time + settings.DodgeInvulnerabilityDuration;
             DamageNumberSpawner.Instance?.SpawnDodgeNumber(transform.position);
-            AudioManager.TryPlay(GameSound.PlayerDodge);
+            AudioManager.TryPlay(GameSound.PlayerDodge, PlayerVoice.Of(this));
             return true;
         }
 
@@ -433,7 +433,11 @@ namespace Game.Combat {
 
         private IEnumerator DeathRoutine()
         {
-            if (deathSFX != null && AudioManager.Instance != null) AudioManager.Instance.PlaySFX(deathSFX);
+            // The table's PlayerDeath (per class) wins; the prefab's clip plays while it has none
+            if (!AudioManager.TryPlay(GameSound.PlayerDeath, PlayerVoice.Of(this)) && deathSFX != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(deathSFX);
+            }
             if (characterVisual != null) yield return characterVisual.PlayDeathAnimationRoutine();
             //characterVisual?.Hide(); // Hide the player sprite
             onDeath?.Invoke();
