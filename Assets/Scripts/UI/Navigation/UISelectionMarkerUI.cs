@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Control;
 using Game.UI.Style;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace Game.UI.Navigation
         private readonly Vector3[] worldCorners = new Vector3[4];
         private readonly Vector2[] localCorners = new Vector2[4];
         private RectTransform currentTarget;
+        private UIWindow currentWindow;
 
         private void Awake()
         {
@@ -42,16 +44,25 @@ namespace Game.UI.Navigation
             {
                 if (marker.gameObject.activeSelf) marker.gameObject.SetActive(false);
                 currentTarget = null;
+                currentWindow = null;
                 return;
             }
 
             // Snap when the frame appears; slide when it moves between elements
             bool snap = !marker.gameObject.activeSelf || followSpeed <= 0f;
             if (!marker.gameObject.activeSelf) marker.gameObject.SetActive(true);
-            currentTarget = target;
 
             UISettings settings = UISettings.Instance;
             UIWindow window = target.GetComponentInParent<UIWindow>();
+
+            // A move inside the same window only: a window opening (its first selection) or focus jumping
+            // to another window makes no sound, or every window would open with a click
+            if (currentTarget != null && target != currentTarget && window != null && window == currentWindow)
+            {
+                AudioManager.TryPlay(GameSound.UiMove);
+            }
+            currentTarget = target;
+            currentWindow = window;
             Vector2 padding = window != null && window.OverrideMarkerSettings ? window.MarkerPadding : settings.SelectionPadding;
 
             target.GetWorldCorners(worldCorners);

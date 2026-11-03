@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Common;
 using Game.Scene;
 using System;
@@ -61,6 +62,7 @@ namespace Game.Progression
             currentXP += amount;
             OnPlayerExperienceGainEvent?.Invoke(currentXP, xpToLevelUp);
             // One big gain can give several levels: each one costs its own level's requirement
+            bool leveledUp = false;
             while (currentXP >= xpToLevelUp)
             {
                 currentXP -= xpToLevelUp;
@@ -68,7 +70,10 @@ namespace Game.Progression
                 xpToLevelUp = GetXPRequired(currentLevel);
                 onLevelUp?.Invoke(currentLevel, xpToLevelUp);
                 OnPlayerExperienceGainEvent?.Invoke(currentXP, xpToLevelUp);
+                leveledUp = true;
             }
+            // Here and not on onLevelUp, which also fires when the level is loaded or reset
+            if (leveledUp) AudioManager.TryPlay(GameSound.LevelUp);
         }
 
         public float GetCurrentXP() => currentXP;

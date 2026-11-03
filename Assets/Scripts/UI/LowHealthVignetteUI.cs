@@ -1,5 +1,7 @@
+using Game.Audio;
 using Game.Combat;
 using Game.Feel;
+using Game.GameSettings;
 using Game.Scene;
 using UnityEngine;
 using UnityEngine.UI;
@@ -113,7 +115,15 @@ namespace Game.UI
             if (phase >= 1f)
             {
                 phase -= Mathf.Floor(phase);
-                if (show) OnPulse?.Invoke(intensity);
+                if (show)
+                {
+                    OnPulse?.Invoke(intensity);
+                    bool paused = PauseManager.Instance != null && PauseManager.Instance.IsPaused;
+                    if (LowHealthRules.PlaysHeartbeat(intensity, settings.HeartbeatFrom, paused))
+                    {
+                        AudioManager.TryPlay(GameSound.LowHealthHeartbeat);
+                    }
+                }
             }
 
             ApplyAlpha(LowHealthRules.PulseAlpha(phase, intensity, settings.VignetteMaxAlpha, settings.PulseFloor, visibility));

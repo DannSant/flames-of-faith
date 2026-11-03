@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.AI;
 using Game.Combat;
 using Game.Common;
@@ -28,6 +29,8 @@ namespace Game.Waves
         public event Action<int> OnCorruptionChanged;           // Corruption the Corruptor grants if killed now
         public event Action<float> OnTimerUpdated;      // Sends the remaining time
         public event Action OnPhaseEnded;
+        public event Action OnCorruptorKilled;     // Killed in time (OnPhaseEnded fires on every exit)
+        public event Action OnCorruptorEscaped;    // The timer ran out and it left through a portal
 
         public bool InProgress => phaseRoutine != null;
 
@@ -154,11 +157,15 @@ namespace Game.Waves
                 result.killed = true;
                 result.killTime = elapsed;
                 result.corruption = settings.GetCorruptorKillCorruption(elapsed);
+                AudioManager.TryPlay(GameSound.CorruptorKilled);
+                OnCorruptorKilled?.Invoke();
             }
             else
             {
                 result.corruption = settings.CorruptorEscapeCorruption;
                 enemySpawnCoordinator.DespawnThroughPortal(corruptor);
+                AudioManager.TryPlay(GameSound.CorruptorEscaped);
+                OnCorruptorEscaped?.Invoke();
             }
 
             Finish(onFinished, result);
@@ -172,6 +179,7 @@ namespace Game.Waves
             {
                 corruptorHealth.onDeath += HandleCorruptorDeath;
             }
+            AudioManager.TryPlay(GameSound.CorruptorAppears);
             OnCorruptorSpawned?.Invoke(spawned.transform);
         }
 

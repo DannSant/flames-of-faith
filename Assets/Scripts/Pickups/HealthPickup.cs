@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Combat;
 using Game.Progression;
 using Game.Scene;
@@ -34,6 +35,7 @@ namespace Game.Pickups
             {
                int levelHealthBonus = GameSession.Instance.LevelsBeaten * (int)amountPerLevel;
                 playerHealth.Heal(baseAmount + levelHealthBonus);
+                AudioManager.TryPlay(GameSound.PickupHealth);
                 Destroy(gameObject);
             }
 

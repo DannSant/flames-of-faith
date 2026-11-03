@@ -38,6 +38,8 @@ namespace Game.Enemies
         public bool overrideCorruptedHealthBonus = false;
         [Tooltip("Extra health while Corrupted (1 = +100%). Only used when overriding.")]
         public float corruptedHealthBonus = 1f;
+        [Tooltip("Optional. Plays when this enemy starts an attack (shot or swing), throttled across enemies so a crowd stays readable.")]
+        public AudioClip attackSound;
 
         public float GetDamageTier(EnemyDamageKind kind)
         {

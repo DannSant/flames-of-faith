@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Metaprogression;
 using Game.Saving;
 using Game.Combat;
@@ -174,12 +175,14 @@ namespace Game.Boss
 
             
 
+            AudioManager.TryPlay(GameSound.BossPhaseChange);
             OnPhaseTwoStarted?.Invoke();
         }
 
         public void NotifyBossDied()
         {
             bossAlive = false;
+            AudioManager.TryPlay(GameSound.BossDeath);
             RunSaveService.DeleteSave();
             if (MetaProgressionManager.Instance != null)
             {

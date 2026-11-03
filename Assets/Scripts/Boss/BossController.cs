@@ -1,3 +1,4 @@
+using Game.Audio;
 ﻿using Game.AI;
 using Game.Combat;
 using Game.Control;
@@ -365,6 +366,7 @@ namespace Game.Boss
             OnAbilityCasted?.Invoke(abilityRuntime);
             currentBlockFlags |= (int)flags;
             var ability = abilityRuntime.GetBossAbility();
+            if (ability.castSound != null && AudioManager.Instance != null) AudioManager.Instance.PlaySFX(ability.castSound);
             // Debug.Log($"Ability started: {ability.abilityName}, hasInitialAnimation flags: {ability.hasInitialAnimation}");
             if (ability.hasInitialAnimation)
             {

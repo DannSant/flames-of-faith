@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Game.Common;
+using Game.Feel;
 using Game.GameSettings;
 using UnityEngine;
 
@@ -16,13 +17,28 @@ namespace Game.Audio
         [SerializeField] private float defaultMusicLowVolume = 0.1f;
         [SerializeField] private float defaultMusicVolume = 0.7f;
 
+        [Header("SFX voices")]
+        [Tooltip("How many SFX can play at once. Each sound gets its own voice, so its pitch never changes sounds already playing.")]
+        [Min(1)]
+        [SerializeField] private int sfxVoiceCount = 16;
+        [Tooltip("Volume of the low-volume SFX (enemy hits, deaths and attacks) relative to the others. 1 keeps how they sounded " +
+                 "before the voice pool: the low-volume source's own 0.2 was overwritten by the SFX volume setting.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float lowVolumeScale = 1f;
+
         [Header("Overlapping Enemy SFX Limiting")]
         [SerializeField] private ThrottledSfxQueue enemyHitSfxQueue = new ThrottledSfxQueue();
         [SerializeField] private ThrottledSfxQueue enemyDeathSfxQueue = new ThrottledSfxQueue();
+        [SerializeField] private ThrottledSfxQueue enemyAttackSfxQueue = new ThrottledSfxQueue();
 
         private float masterVolume = 1f;
         private float musicVolume;
         private float sfxVolume = 1f;
+
+        // Built at runtime from sfxSource, so no prefab or scene changes are needed
+        private SfxVoicePool voices;
+        private readonly Dictionary<GameSound, float> lastPlayed = new Dictionary<GameSound, float>();
+        private readonly PickupPitchChain xpPitchChain = new PickupPitchChain();
 
         // Caps how many identical hit/death SFX can pile up when many enemies are hit
         // or die in the same frame (e.g. a piercing arrow, or a wave-clear), and spaces
@@ -45,7 +61,7 @@ namespace Game.Audio
                 pendingClips.Enqueue(clip);
             }
 
-            public void Tick(AudioSource source)
+            public void Tick(SfxVoicePool pool, float volumeScale)
             {
                 if (pendingClips.Count == 0 || Time.time < nextPlayTime)
                 {
@@ -53,8 +69,7 @@ namespace Game.Audio
                 }
 
                 AudioClip clip = pendingClips.Dequeue();
-                source.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-                source.PlayOneShot(clip);
+                pool.Play(clip, volumeScale, UnityEngine.Random.Range(0.8f, 1.2f));
                 nextPlayTime = Time.time + staggerInterval;
             }
         }
@@ -62,6 +77,8 @@ namespace Game.Audio
         protected override void Awake()
         {
             base.Awake();
+            voices = new SfxVoicePool(sfxSource, sfxVoiceCount, transform);
+            voices.SetBaseVolume(sfxVolume * masterVolume);
             SetMusicVolume(defaultMusicVolume);
         }
 
@@ -76,8 +93,9 @@ namespace Game.Audio
 
         private void Update()
         {
-            enemyHitSfxQueue.Tick(sfxSourceLowVolume);
-            enemyDeathSfxQueue.Tick(sfxSourceLowVolume);
+            enemyHitSfxQueue.Tick(voices, lowVolumeScale);
+            enemyDeathSfxQueue.Tick(voices, lowVolumeScale);
+            enemyAttackSfxQueue.Tick(voices, lowVolumeScale);
         }
 
         private void OnDestroy()
@@ -107,28 +125,62 @@ namespace Game.Audio
 
         public void PlaySFX(AudioClip clip, bool randomizePitch = false)
         {
-            if (randomizePitch)
-            {
-                sfxSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-            }
-            else
-            {
-                sfxSource.pitch = 1f;
-            }
-            sfxSource.PlayOneShot(clip);
+            if (clip == null) return;
+            voices.Play(clip, 1f, randomizePitch ? UnityEngine.Random.Range(0.8f, 1.2f) : 1f);
         }
 
         public void PlayLowVolumeSFX(AudioClip clip, bool randomizePitch = false)
-        {            
-            if (randomizePitch)
+        {
+            if (clip == null) return;
+            voices.Play(clip, lowVolumeScale, randomizePitch ? UnityEngine.Random.Range(0.8f, 1.2f) : 1f);
+        }
+
+        /// <summary>
+        /// Plays a game sound from GameSoundTable. Safe with no clips (silent, nothing logged) and from anywhere,
+        /// also while paused. <paramref name="pitch"/> multiplies the entry's (random) pitch.
+        /// </summary>
+        public void Play(GameSound sound, float pitch = 1f)
+        {
+            var table = GameSoundTable.Instance;
+            if (!table.TryGet(sound, out var entry) || !entry.HasClips) return;
+
+            // Real time, so UI sounds work in pause windows too
+            float now = Time.unscaledTime;
+            if (lastPlayed.TryGetValue(sound, out float last) && !GameSoundTable.CanRestart(last, now, entry.minInterval)) return;
+
+            AudioClip clip = entry.clips[UnityEngine.Random.Range(0, entry.clips.Length)];
+            if (clip == null) return;
+            lastPlayed[sound] = now;
+
+            float randomPitch = entry.randomizePitch ? UnityEngine.Random.Range(table.RandomPitchMin, table.RandomPitchMax) : 1f;
+            voices.Play(clip, entry.volume, pitch * randomPitch);
+        }
+
+        /// <summary>Play(sound) when the AudioManager exists, nothing otherwise. The entry point for game code.</summary>
+        public static void TryPlay(GameSound sound, float pitch = 1f)
+        {
+            var manager = Instance;
+            if (manager != null) manager.Play(sound, pitch);
+        }
+
+        /// <summary>
+        /// The XP pickup sound: each pickup in quick succession plays a little higher (PickupPitchChain),
+        /// and a sweep that collects many tokens in one frame plays it once.
+        /// </summary>
+        public void PlayXpPickup()
+        {
+            var settings = GameFeelSettings.Instance;
+            if (xpPitchChain.TryNext(Time.unscaledTime, Time.frameCount, settings.XpChainWindow, settings.XpChainStep,
+                    settings.XpChainMaxPitch, out float pitch))
             {
-                sfxSourceLowVolume.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                Play(GameSound.PickupXp, pitch);
             }
-            else
-            {
-                sfxSourceLowVolume.pitch = 1f;
-            }
-            sfxSourceLowVolume.PlayOneShot(clip);
+        }
+
+        /// <summary>An enemy's attack sound, throttled like the hit and death sounds so a screen of shooters stays readable.</summary>
+        public void PlayEnemyAttackSFX(AudioClip clip)
+        {
+            enemyAttackSfxQueue.Enqueue(clip);
         }
 
         public void PlayEnemyHitSFX(AudioClip clip)
@@ -174,6 +226,7 @@ namespace Game.Audio
             musicSource.volume = musicVolume * masterVolume;
             sfxSource.volume = sfxVolume * masterVolume;
             sfxSourceLowVolume.volume = sfxVolume * masterVolume;
+            voices?.SetBaseVolume(sfxVolume * masterVolume);
         }
 
         public void SetMusicVolume(float volume)
@@ -187,6 +240,7 @@ namespace Game.Audio
             sfxVolume = Mathf.Clamp01(volume);
             sfxSource.volume = sfxVolume * masterVolume;
             sfxSourceLowVolume.volume = sfxVolume * masterVolume;
+            voices?.SetBaseVolume(sfxVolume * masterVolume);
         }
 
         public void ResetMusicVolume()

@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Effects;
 using Game.Items;
 using Game.Loot;
@@ -37,6 +38,7 @@ namespace Game.Pickups
             if (selected != null)
             {
                 itemBag.AddEffectItem(selected);
+                AudioManager.TryPlay(GameSound.PickupItem);
             }
             Destroy(gameObject);
         }

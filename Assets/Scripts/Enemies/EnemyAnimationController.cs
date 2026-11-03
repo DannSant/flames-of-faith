@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.AI.Behaviors;
 using Game.Combat;
 using Game.Scene;
@@ -35,6 +36,7 @@ namespace Game.Enemies
         {
             CommitFacingToPlayer();
             animator.SetTrigger("Shoot");
+            PlayAttackSound();
         }
 
         /// <param name="speed">
@@ -46,6 +48,16 @@ namespace Game.Enemies
             CommitFacingToPlayer();
             if (hasAttackSpeedParameter) animator.SetFloat(AttackSpeedParameter, speed);
             animator.SetTrigger("Attack");
+            PlayAttackSound();
+        }
+
+        private void PlayAttackSound()
+        {
+            var data = context != null ? context.enemyData : null;
+            if (data != null && data.attackSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayEnemyAttackSFX(data.attackSound);
+            }
         }
 
         /// <summary>

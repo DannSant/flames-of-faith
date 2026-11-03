@@ -31,6 +31,9 @@ namespace Game.Boss
         public string endAnimationName; // optional animation to play at the end of the ability (e.g. a recovery animation)
         public bool useTriggerAnimation; // true for one time animations, false for continuous animations like channelling
         public bool hasInitialAnimation => !string.IsNullOrEmpty(initialAnimationName);
+        [Header("Sound")]
+        [Tooltip("Optional. Plays when the boss starts casting this ability.")]
+        public AudioClip castSound;
         public bool hasEndAnimation => !string.IsNullOrEmpty(endAnimationName);        
 
         [Header("Conditions")]

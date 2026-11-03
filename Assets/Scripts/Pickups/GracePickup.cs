@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Combat;
 using UnityEngine;
 
@@ -33,6 +34,7 @@ namespace Game.Pickups
             }
 
             playerGrace.AddGrace(graceAmount);
+            AudioManager.TryPlay(GameSound.PickupGrace);
             Destroy(gameObject);
         }
     }

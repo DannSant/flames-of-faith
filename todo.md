@@ -18,6 +18,23 @@ First run Tools > Flames of Faith > UI Revamp > Restyle HUD once, so UIMain gets
 - [ ] The HUD (health, Grace, abilities, XP) draws on top of the vignette.
 - [ ] Untick Low Health Warning Enabled on the settings asset in Play mode: it fades out.
 
+## Game feel, chunk 2: sound (branch feature/game-feel)
+
+Every new sound is silent until it has a clip. To hear them, drop any test clip into a few entries of `Resources/Audio/GameSoundTable.asset` (don't commit it), e.g. PickupXp, UiMove, LevelUp and PlayerHurt. Tools > Flames of Faith > Audio > Report Silent Sounds lists the empty ones.
+
+- [ ] With the table as committed (no clips): a whole level plays exactly as before, with no new errors or warnings in the Console.
+- [ ] Existing sounds still play: weapon attacks, enemy hits and deaths, player death, music. Their volume sounds the same as before.
+- [ ] Master and SFX volume sliders change every sound, also one already playing.
+- [ ] Pitch: with the Archer firing fast (random pitch) while a long sound plays, the long sound doesn't wobble.
+- [ ] XP: picking up a stream of tokens rises in pitch, then starts over; the last-wave sweep that collects every token plays one sound, not a pile.
+- [ ] Level-up: one sound per level-up (also when one gain gives two levels). Entering a level, Continue and Retry play none.
+- [ ] Gamepad: moving between buttons in a window plays UiMove; opening a window (level-up, pause, item bag) doesn't. B plays UiBack. A click on any styled button plays UiClick, also in the pause menu.
+- [ ] Shop: buying plays ShopBuy; clicking an item you can't afford plays ShopError with the red line.
+- [ ] Heartbeat: at low health in a fight it beats with the pulse, and stops while paused. With Min Intensity 0.6 and Heartbeat From 0.6 it beats as soon as the warning shows; raise Heartbeat From (e.g. 0.8) to keep it for the lowest health only.
+- [ ] Dodge, Whirlwind shield absorb, dash, Grace / health / item pickups, wave start and end, Corruptor appears / killed / escaped, boss second phase and boss death: each plays its sound once.
+- [ ] Getting hit plays PlayerHurt, but not on a dodge, an absorbed shot or the killing blow.
+- [ ] Optional: set an `attackSound` on an enemy and a `castSound` on a boss ability; a crowd of shooters stays readable (throttled), and the boss plays it as the cast starts.
+
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)
 
 To see the first New Game again or an empty Chronicle: in Play mode, DevTools > Cutscenes > Forget Seen Cutscenes. Art is placeholder.

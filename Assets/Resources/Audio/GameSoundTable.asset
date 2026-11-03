@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21bd7b1e0fa4216893a473e2dea36c3, type: 3}
+  m_Name: GameSoundTable
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Audio.GameSoundTable
+  randomPitchMin: 0.9
+  randomPitchMax: 1.1
+  entries:
+  - sound: 0
+    clips: []
+    volume: 1
+    randomizePitch: 1
+    minInterval: 0.12
+  - sound: 1
+    clips: []
+    volume: 0.8
+    randomizePitch: 1
+    minInterval: 0.05
+  - sound: 2
+    clips: []
+    volume: 0.5
+    randomizePitch: 0
+    minInterval: 0.03
+  - sound: 3
+    clips: []
+    volume: 0.8
+    randomizePitch: 0
+    minInterval: 0.05
+  - sound: 4
+    clips: []
+    volume: 0.8
+    randomizePitch: 0
+    minInterval: 0.05
+  - sound: 5
+    clips: []
+    volume: 0.9
+    randomizePitch: 0
+    minInterval: 0.05
+  - sound: 6
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.3
+  - sound: 7
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 8
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 9
+    clips: []
+    volume: 0.6
+    randomizePitch: 0
+    minInterval: 0.05
+  - sound: 10
+    clips: []
+    volume: 0.4
+    randomizePitch: 0
+    minInterval: 0.04
+  - sound: 11
+    clips: []
+    volume: 0.6
+    randomizePitch: 0
+    minInterval: 0.05
+  - sound: 12
+    clips: []
+    volume: 0.9
+    randomizePitch: 0
+    minInterval: 0.1
+  - sound: 13
+    clips: []
+    volume: 0.7
+    randomizePitch: 0
+    minInterval: 0.2
+  - sound: 14
+    clips: []
+    volume: 0.8
+    randomizePitch: 0
+    minInterval: 0.3
+  - sound: 15
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 16
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 17
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 18
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 19
+    clips: []
+    volume: 1
+    randomizePitch: 0
+    minInterval: 0.5
+  - sound: 20
+    clips: []
+    volume: 0.8
+    randomizePitch: 1
+    minInterval: 0.1
+  - sound: 21
+    clips: []
+    volume: 0.7
+    randomizePitch: 1
+    minInterval: 0.08

@@ -47,6 +47,17 @@ namespace Game.Feel
         [Range(0f, 1f)]
         [SerializeField] private float heartbeatFrom = 0.6f;
 
+        [Header("Sound: XP pickup chain")]
+        [Tooltip("XP pickups closer together than this (seconds, real time) chain, each one a little higher.")]
+        [Min(0f)]
+        [SerializeField] private float xpChainWindow = 0.6f;
+        [Tooltip("Pitch added per chained XP pickup.")]
+        [Min(0f)]
+        [SerializeField] private float xpChainStep = 0.03f;
+        [Tooltip("Highest pitch of the chain; the pickup after it starts over at 1.")]
+        [Min(1f)]
+        [SerializeField] private float xpChainMaxPitch = 1.5f;
+
         public bool LowHealthWarningEnabled => lowHealthWarningEnabled;
         public float LowHealthEnter => lowHealthEnter;
         public float LowHealthExit => Mathf.Max(lowHealthEnter, lowHealthExit);
@@ -59,6 +70,9 @@ namespace Game.Feel
         public float VignetteMaxAlpha => vignetteMaxAlpha;
         public float VignetteFadeSpeed => vignetteFadeSpeed;
         public float HeartbeatFrom => heartbeatFrom;
+        public float XpChainWindow => xpChainWindow;
+        public float XpChainStep => xpChainStep;
+        public float XpChainMaxPitch => xpChainMaxPitch;
 
         private static GameFeelSettings instance;
 

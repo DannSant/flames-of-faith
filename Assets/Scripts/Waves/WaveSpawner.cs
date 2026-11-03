@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Metaprogression;
 using Game.Saving;
 using Game.AI;
@@ -246,6 +247,7 @@ namespace Game.Waves {
             CalculateWaveExperience(waveData);
 
             OnWaveStarted?.Invoke(currentWaveIndex + 1);
+            AudioManager.TryPlay(GameSound.WaveStart);
 
             enemySpawnCoordinator.StartSpawning(waveData, currentWaveIndex + 1);
         }

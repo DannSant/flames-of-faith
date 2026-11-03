@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Combat;
 using Game.Common;
 using Game.Effects;
@@ -253,6 +254,7 @@ namespace Game.Control
             playerController.ChangeDashMultiplier(dashSpeed);
             dashTrailRenderer.emitting = true;
             playerHealth.ToggleIsInvulnerable(true);
+            AudioManager.TryPlay(GameSound.Dash);
             onDashStarted?.Invoke();
         }
 

@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Effects;
 using Game.Scene;
 using Game.RunEncounters;
@@ -132,7 +133,7 @@ namespace Game.UI.RunEncounters
 
             if (!shopKeeper.CanAfford(effect))
             {
-                errorTextUI.gameObject.SetActive(true);
+                ShowNotEnoughError();
                 return;
             }
 
@@ -156,9 +157,15 @@ namespace Game.UI.RunEncounters
             }
             else
             {
-                //show error message
-                errorTextUI.gameObject.SetActive(true);
+                ShowNotEnoughError();
             }
+        }
+
+        // The "Not enough Golden Chronos" line, and its sound: the one place either happens
+        private void ShowNotEnoughError()
+        {
+            errorTextUI.gameObject.SetActive(true);
+            AudioManager.TryPlay(GameSound.ShopError);
         }
 
         // The shared tooltip, beside the item's slot. UI-to-UI lookup only.

@@ -1,3 +1,4 @@
+using Game.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,17 @@ namespace Game.UI.Style
         {
             this.size = size;
         }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            // Every styled button clicks, from one place instead of one call per window
+            if (!Application.isPlaying) return;
+            var button = GetComponent<Button>();
+            if (button != null) button.onClick.AddListener(PlayClick);
+        }
+
+        private static void PlayClick() => AudioManager.TryPlay(GameSound.UiClick);
 
         public override bool Apply(UISettings settings)
         {

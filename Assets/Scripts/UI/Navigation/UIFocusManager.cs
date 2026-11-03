@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Common;
 using Game.Control;
 using Game.Scene;
@@ -415,6 +416,7 @@ namespace Game.UI.Navigation
         private void HandleCancel()
         {
             if (focusedWindow == null) return;
+            AudioManager.TryPlay(GameSound.UiBack);
 
             if (focusedWindow.Role == UIWindowRole.Secondary)
             {

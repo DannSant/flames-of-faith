@@ -1,3 +1,4 @@
+using Game.Audio;
 
 using Game.Control;
 using Game.Currency;
@@ -134,7 +135,7 @@ namespace Game.RunEncounters
             }
 
             onInventoryWindowRefresh?.Invoke();
-
+            AudioManager.TryPlay(GameSound.ShopBuy);
 
             return true;
         }

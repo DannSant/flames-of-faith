@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Misc;
 using Game.Metaprogression;
 using Game.Combat;
@@ -55,6 +56,7 @@ namespace Game.Waves
         private IEnumerator EndSequenceRoutine()
         {
             endingWave = true;
+            AudioManager.TryPlay(GameSound.WaveEnd);
             // Invoke wave complete started event, this will make the player invulnerable so the cleanse animation can play safely
             OnWaveCompleteStarted?.Invoke();
 

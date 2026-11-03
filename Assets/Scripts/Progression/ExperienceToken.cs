@@ -1,3 +1,4 @@
+using Game.Audio;
 using Game.Common;
 using Game.Control;
 using Game.Pickups;
@@ -55,6 +56,8 @@ namespace Game.Progression
             if (collected || playerXP == null) return;
             collected = true;
             playerXP.AddExperience(xpAmount);
+            // One sound per frame however many tokens a sweep collects, rising in pitch when chained
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayXpPickup();
             Destroy(gameObject);
         }
 

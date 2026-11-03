@@ -54,6 +54,12 @@ namespace Game.Feel
             return peak * Mathf.Lerp(Mathf.Clamp01(floor), 1f, wave);
         }
 
+        /// <summary>Whether a pulse plays the heartbeat: only strong enough pulses, and never while paused.</summary>
+        public static bool PlaysHeartbeat(float intensity, float heartbeatFrom, bool paused)
+        {
+            return !paused && intensity >= heartbeatFrom;
+        }
+
         /// <summary>The warning only shows where the player fights: combat and boss levels.</summary>
         public static bool ShowsInLevel(LevelType type)
         {
