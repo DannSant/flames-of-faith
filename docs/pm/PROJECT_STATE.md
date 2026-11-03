@@ -14,7 +14,8 @@ _Last updated: 2026-11-02 by the Orchestrator._
 
 ## Resume here (Orchestrator, 2026-11-02)
 - **Waiting on the owner:** the Windows build of v0.5.2 and sending it to testers; sending the 7 page briefs to the art team and agreeing the size; where the sound clips come from (BACKLOG 33); the five lore questions in `docs/features/act-ii-design.md`.
-- **Next code:** the low-health warning (BACKLOG 31), then hit feel and the sound hooks (32, 33), in parallel with CI/CD (18). They share no files. The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
+- **Next code:** game feel (BACKLOG 31 to 33, spec `docs/features/game-feel.md`, kickoff prompt given 2026-11-02), in parallel with CI/CD (18), which needs a spec. They share no files. The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
+- **When the game feel session ends:** read its Handoff, update these files, and pass its silent-sounds list to whoever sources the clips.
 - **When tester feedback arrives:** triage it into the backlog; the balance pass and the SQLite deletion follow this round.
 - **To check:** the cutscene session's last full EditMode run (934 of 934) was before its gamepad fixes. Run the suite once on `develop`.
 
@@ -22,7 +23,7 @@ _Last updated: 2026-11-02 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **Released.** Next: the owner makes the Windows build and sends it with the patch notes |
-| Game feel | not started | to write, `docs/features/game-feel.md` | **In the backlog** (items 31 to 34); the spec comes next |
+| Game feel | `feature/game-feel` | `docs/features/game-feel.md` | **Ready for the implementation session.** Three chunks: low-health warning, sound, hit feel. The first can merge alone |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 
 ## Done recently
