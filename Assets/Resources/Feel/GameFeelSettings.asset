@@ -16,7 +16,7 @@ MonoBehaviour:
   lowHealthEnter: 0.3
   lowHealthExit: 0.35
   fullIntensityAt: 0.1
-  minIntensity: 0.35
+  minIntensity: 0.6
   pulseRateMin: 0.8
   pulseRateMax: 1.6
   pulseFloor: 0.45

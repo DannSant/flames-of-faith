@@ -483,6 +483,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -730,8 +731,6 @@ MonoBehaviour:
   stateLabel: {fileID: 3883890651595316570}
   onText: 'Auto-attack: ON'
   offText: 'Auto-attack: OFF'
-  onColor: {r: 1, g: 1, b: 1, a: 1}
-  offColor: {r: 1, g: 0.6, b: 0.3, a: 1}
   popup: {fileID: 0}
   popupLabel: {fileID: 0}
   popupHoldDuration: 1
@@ -1150,6 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Style.UIStyleFrame
   kind: 0
+  opacity: 1
 --- !u!1 &7857077417144346554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,6 +1329,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1482,6 +1483,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
