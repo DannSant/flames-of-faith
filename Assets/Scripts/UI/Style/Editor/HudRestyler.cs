@@ -41,6 +41,8 @@ namespace Game.UI.Style.Editor
         private const float FlameBarWidth = 600f;
         private const float FlameBarHeight = 22f;
         public const string TopLeftStackName = "TopLeftHud";
+        public const string LowHealthVignetteName = "LowHealthVignette";
+        public const string LowHealthVignettePath = "Assets/Sprites/UI/Feedback/LowHealthVignette.png";
 
         public static readonly Color BarBackgroundColor = new Color(0.08f, 0.06f, 0.06f, 0.9f);
 
@@ -407,7 +409,56 @@ namespace Game.UI.Style.Editor
             healthPane.transform.SetSiblingIndex(0);
             waveHint.transform.SetParent(stack, false);
             waveHint.transform.SetSiblingIndex(1);
+
+            PlaceLowHealthVignette(canvas);
             return true;
+        }
+
+        // --- Low-health warning -------------------------------------------------------------------------
+
+        /// <summary>
+        /// The low-health vignette: stretched over the whole canvas as its first child, so it draws under
+        /// the HUD and every window, and it never takes a click.
+        /// </summary>
+        private static void PlaceLowHealthVignette(Transform canvas)
+        {
+            var image = FindOrCreateImage(canvas, LowHealthVignetteName);
+            image.transform.SetSiblingIndex(0);
+            StretchFull(image.rectTransform);
+            image.sprite = LoadVignetteSprite();
+            image.type = Image.Type.Simple;
+            image.preserveAspect = false;
+            image.raycastTarget = false;
+            image.maskable = false;
+            GetOrAdd<LowHealthVignetteUI>(image.gameObject);
+            image.gameObject.layer = UILayer;
+        }
+
+        private static Sprite LoadVignetteSprite()
+        {
+            // A generated placeholder: make sure it's imported as an uncompressed, smooth sprite
+            if (AssetImporter.GetAtPath(LowHealthVignettePath) is TextureImporter importer)
+            {
+                bool dirty = importer.textureType != TextureImporterType.Sprite
+                    || importer.spriteImportMode != SpriteImportMode.Single
+                    || importer.filterMode != FilterMode.Bilinear
+                    || importer.mipmapEnabled
+                    || importer.textureCompression != TextureImporterCompression.Uncompressed;
+                if (dirty)
+                {
+                    importer.textureType = TextureImporterType.Sprite;
+                    importer.spriteImportMode = SpriteImportMode.Single;
+                    importer.filterMode = FilterMode.Bilinear;
+                    importer.mipmapEnabled = false;
+                    importer.alphaIsTransparency = true;
+                    importer.textureCompression = TextureImporterCompression.Uncompressed;
+                    importer.SaveAndReimport();
+                }
+            }
+
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(LowHealthVignettePath);
+            if (sprite == null) Debug.LogError($"[HudRestyler] No sprite at {LowHealthVignettePath}");
+            return sprite;
         }
 
         // --- Shared pieces ------------------------------------------------------------------------------

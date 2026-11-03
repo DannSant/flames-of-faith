@@ -44,7 +44,7 @@ namespace Game.UI {
             }
         }
 
-        private void SetupEvents()
+        private void SetupEvents(LevelData levelData)
         {
             if (PlayerManager.Instance == null) return;
 

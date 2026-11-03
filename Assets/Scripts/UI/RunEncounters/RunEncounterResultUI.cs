@@ -56,7 +56,7 @@ namespace Game.UI.RunEncounters
             }
         }
 
-        private void SubscribeToEvents()
+        private void SubscribeToEvents(LevelData levelData)
         {
             eventController = FindAnyObjectByType<EventEncounterController>();
             if (eventController != null)

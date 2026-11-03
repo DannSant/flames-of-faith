@@ -162,7 +162,7 @@ namespace Game.UI
             }
         }
 
-        private void SetupEvents()
+        private void SetupEvents(LevelData levelData)
         {
             WaveSpawner waveSpawner = WaveSpawner.Instance;
             if (waveSpawner != null)

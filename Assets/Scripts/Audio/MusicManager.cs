@@ -37,9 +37,8 @@ namespace Game.Audio
             }
         }
 
-        private void HandleGameplayLoaded()
+        private void HandleGameplayLoaded(LevelData currentLevel)
         {
-            LevelData currentLevel = GameSession.Instance.currentLevel;
             PlayTrack(currentLevel != null ? currentLevel.MusicClip : null);
         }
 

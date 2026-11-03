@@ -111,7 +111,7 @@ namespace Game.Metaprogression
         {
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayUISetupRequested += RaiseFavorTotals;
+                MainSceneController.Instance.OnGameplayUISetupRequested += HandleGameplayUISetup;
             }
         }
 
@@ -119,7 +119,7 @@ namespace Game.Metaprogression
         {
             if (MainSceneController.Instance != null)
             {
-                MainSceneController.Instance.OnGameplayUISetupRequested -= RaiseFavorTotals;
+                MainSceneController.Instance.OnGameplayUISetupRequested -= HandleGameplayUISetup;
             }
         }
 
@@ -130,6 +130,8 @@ namespace Game.Metaprogression
         public int RunFavorsForDisplay => levelFavors + (GameSession.Instance != null ? GameSession.Instance.RunFavors : 0);
 
         private void RaiseFavorTotals() => OnFavorTotalsChanged?.Invoke(BankedFavorsForDisplay, RunFavorsForDisplay);
+
+        private void HandleGameplayUISetup(LevelData levelData) => RaiseFavorTotals();
 
         private void BuildMetaProgressionList()
         {

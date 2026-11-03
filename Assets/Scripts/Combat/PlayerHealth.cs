@@ -158,7 +158,7 @@ namespace Game.Combat {
             ToggleIsInvulnerable(false);
         }
 
-        private void PlayerHealth_OnSceneLoaded()
+        private void PlayerHealth_OnSceneLoaded(LevelData levelData)
         {
             RestoreHealth();
         }

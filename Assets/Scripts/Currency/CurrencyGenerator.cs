@@ -40,7 +40,7 @@ namespace Game.Currency
             }
         }
 
-        private void Initialize()
+        private void Initialize(LevelData levelData)
         {
             currencyWallet = PlayerManager.Instance.GetPlayerComponent<CurrencyWallet>();
 

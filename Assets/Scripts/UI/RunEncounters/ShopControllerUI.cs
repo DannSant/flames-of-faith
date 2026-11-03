@@ -68,7 +68,7 @@ namespace Game.UI.RunEncounters
             MainSceneController.Instance.OnGameplayUISetupRequested += SubscribeToEvents;
         }
 
-        private void SubscribeToEvents()
+        private void SubscribeToEvents(LevelData levelData)
         {
             var foundShopKeeper = FindAnyObjectByType<ShopKeeper>();
             if (foundShopKeeper != null)

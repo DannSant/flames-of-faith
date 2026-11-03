@@ -43,7 +43,7 @@ namespace Game.Scene
         //public event System.Action OnGameplayResetRequested;
         public event System.Action OnGameplayStateResetRequested; // For ResetState() only
         public event System.Action OnGameplayInitialSetup;        // For input/event/UI setup
-        public event System.Action OnGameplayUISetupRequested;    // For UI setup
+        public event System.Action<LevelData> OnGameplayUISetupRequested;    // For UI setup; pushes the level being entered
         public event System.Action OnLevelSelectorUISetupRequested;    // For UI setup for level selector
 
         private List<string> activeGameplayScenes = new List<string>();
@@ -333,7 +333,7 @@ namespace Game.Scene
             yield return new WaitForSecondsRealtime(0.1f); // Wait for player to be fully initialized
 
             //Setup UI events
-            OnGameplayUISetupRequested?.Invoke();
+            OnGameplayUISetupRequested?.Invoke(levelData);
 
             //Once level and player are loaded, bind events
             PlayerManager.Instance.BindWaveEventsIfReady();

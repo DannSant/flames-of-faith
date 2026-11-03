@@ -55,7 +55,7 @@ namespace Game.UI.RunEncounters
             }
         }
 
-        private void SubscribeToEvents()
+        private void SubscribeToEvents(LevelData levelData)
         {
             campfireGraceGenerator = FindAnyObjectByType<CampfireGraceGenerator>();
             if (campfireGraceGenerator != null)
