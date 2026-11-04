@@ -89,7 +89,8 @@ namespace Game.Audio
         /// <summary>Whether a sound last started at <paramref name="lastPlayed"/> may start again at <paramref name="now"/>.</summary>
         public static bool CanRestart(float lastPlayed, float now, float minInterval)
         {
-            return now - lastPlayed >= minInterval;
+            // The tolerance absorbs float rounding (1.05f - 1f is 0.0499999), so the boundary itself counts
+            return now - lastPlayed >= minInterval - 1e-5f;
         }
 
         private static GameSoundTable instance;
