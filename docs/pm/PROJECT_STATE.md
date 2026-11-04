@@ -13,8 +13,8 @@ _Last updated: 2026-11-04 by the Orchestrator._
 - `feature/opening-cutscene` and `feature/game-feel` are merged and can be deleted, locally and on `origin`, with the owner's OK.
 
 ## Resume here (Orchestrator, 2026-11-04)
-- **Waiting on the owner:** sending the 7 page briefs to the art team and agreeing the size; the two open sound checks in `todo.md`; the five lore questions in `docs/features/act-ii-design.md`.
-- **Next code:** CI/CD (BACKLOG 18, needs a spec), and the small tester fixes (35, 36). Move the sound packs out of `Resources/` (37) before any demo build. The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
+- **Waiting on the owner:** whether to delete the 711 unused sound clips (118 MB, listed on the fixes branch); class options for Faelin and Werlem at the Shrine; sending the 7 page briefs to the art team and agreeing the size; the two open sound checks in `todo.md`; the five lore questions in `docs/features/act-ii-design.md`.
+- **Next code:** merge the tester fixes once their manual checks pass (spec `docs/features/tester-fixes-v052.md`, on the branch), then CI/CD (18, needs a spec). The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
 - **Tester feedback on v0.5.2** has started arriving (top of `todo.md`). Triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
 - **When the two sound checks pass:** move `docs/features/game-feel.md` to the archive.
 - **EditMode suite:** run by the owner on 2026-11-04 after the game feel merge; two failures (float tolerance in the sound restart interval and the heavy hit rule) fixed in `aa70ba5`.
@@ -23,10 +23,12 @@ _Last updated: 2026-11-04 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **With testers.** First feedback triaged 2026-11-04 (BACKLOG 5, 35, 36) |
+| Tester fixes from v0.5.2 | `fix/tester-feedback-v052` | `docs/features/tester-fixes-v052.md` | **Done, not merged** (2026-11-04): sound packs out of `Resources/`, knockback ignored mid-swing, Ayteel's Shrine option (texts approved by the owner); EditMode 985/985. Next: the manual checks in `todo.md`, then the merge |
 | Game feel | `develop` (merged) | `docs/features/game-feel.md` | **Merged 2026-11-04.** Two sound checks left in `todo.md`; spec moves to the archive after them |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 
 ## Done recently
+- **Tester guide** (2026-11-04, Spanish): `PatchNotes/guia-del-tester.md`, for the tester joining now: the game, every system, controls, Act I, what we want feedback on and how to report. Update it when a build adds features (the 🆕 marks are what came after v0.5.2).
 - **Game feel** (merged 2026-11-04, fast-forward to `12318a9`; manual tests passed except two sound checks): a low-health vignette with a heartbeat; a sound table with hooks everywhere the spec listed, one voice per sound, per-class player voices and clips from the owner's packs; shake, hit stop, slow motion and rumble on five moments, with Settings sliders. `PauseManager` is now the only writer of `Time.timeScale`.
 - **Opening cutscene and Pilgrim's Chronicle** (merged 2026-11-02, `d5d6b1e`; manual tests passed): `CutscenePlayer.Play(id, onEnded)`, played on the first New Game only, on placeholder art. Spec and art briefs: `docs/archive/features/opening-cutscene.md`. Between-act scenes for 1.0 must play before the scene unload (its Handoff explains why).
 - **Opening cutscene design** (2026-11-01): 7 pages, a little over a minute, with an art brief per page. The replay menu is the Pilgrim's Chronicle.
