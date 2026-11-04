@@ -9,12 +9,14 @@ _Last updated: 2026-11-04 by the Orchestrator._
 
 ## Git reality (checked 2026-11-04)
 - `main` = `origin/main` = `ef237a6`, tagged `v0.5.2` (pushed 2026-10-30).
-- `develop` = `origin/develop` carries the opening cutscene (merge `d5d6b1e`) and game feel (fast-forward to `12318a9`, test fix `aa70ba5`) on top of the docs commits. Check `git status` for unpushed commits.
-- `feature/opening-cutscene` and `feature/game-feel` are merged and can be deleted, locally and on `origin`, with the owner's OK.
+- `develop` carries the opening cutscene (merge `d5d6b1e`), game feel (fast-forward to `12318a9`, test fix `aa70ba5`) and the v0.5.2 tester fixes (merge `30acb5e`) on top of the docs commits. Check `git status` for unpushed commits.
+- `feature/opening-cutscene`, `feature/game-feel` and `fix/tester-feedback-v052` are merged and can be deleted, locally and on `origin`, with the owner's OK.
+- `origin/HEAD` was a corrupted local ref (empty bytes), which made git print "ignoring broken ref"; reset to `origin/main` on 2026-11-04.
 
 ## Resume here (Orchestrator, 2026-11-04)
 - **Waiting on the owner:** class options for Faelin and Werlem at the Shrine; sending the 7 page briefs to the art team and agreeing the size; the two open sound checks in `todo.md`; the five lore questions in `docs/features/act-ii-design.md`.
-- **Next code:** merge the tester fixes once their manual checks pass (spec `docs/features/tester-fixes-v052.md`, on the branch), then CI/CD (18, needs a spec). The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
+- **Next code:** CI/CD (BACKLOG 18, needs a spec).
+- **Manual checks to run on `develop`:** the tester fixes (merged before their checks, on the owner's OK) and the two game feel sound checks. When each section passes, move its spec to the archive. The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
 - **Tester feedback on v0.5.2** has started arriving (top of `todo.md`). Triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
 - **When the two sound checks pass:** move `docs/features/game-feel.md` to the archive.
 - **EditMode suite:** run by the owner on 2026-11-04 after the game feel merge; two failures (float tolerance in the sound restart interval and the heavy hit rule) fixed in `aa70ba5`.
@@ -23,7 +25,7 @@ _Last updated: 2026-11-04 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **With testers.** First feedback triaged 2026-11-04 (BACKLOG 5, 35, 36) |
-| Tester fixes from v0.5.2 | `fix/tester-feedback-v052` | `docs/features/tester-fixes-v052.md` | **Done, not merged** (2026-11-04): sound packs out of `Resources/`, knockback ignored mid-swing, Ayteel's Shrine option (texts approved by the owner); EditMode 985/985. Next: the manual checks in `todo.md`, then the merge |
+| Tester fixes from v0.5.2 | `develop` (merged) | `docs/features/tester-fixes-v052.md` | **Merged 2026-11-04** (`30acb5e`): sound packs out of `Resources/`, knockback ignored mid-swing, Ayteel's Shrine option (texts approved by the owner); EditMode 985/985. Manual checks in `todo.md` not run yet; the spec moves to the archive after them |
 | Game feel | `develop` (merged) | `docs/features/game-feel.md` | **Merged 2026-11-04.** Two sound checks left in `todo.md`; spec moves to the archive after them |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 

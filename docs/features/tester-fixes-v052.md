@@ -1,8 +1,8 @@
 # Feature: Tester fixes from v0.5.2 (knockback, Ayteel at the Shrine, sound packs)
 
-- **Status:** ready
+- **Status:** implemented and merged into `develop` (`30acb5e`, 2026-11-04, owner's OK). Manual checks in `todo.md` not run yet; the spec moves to the archive once they pass.
 - **Branch:** `fix/tester-feedback-v052` (off `develop`)
-- **Owner session:** implementation session, not started
+- **Owner session:** implementation session (done)
 - **Related docs:** `docs/pm/BACKLOG.md` items 35, 36, 37; `CLAUDE.md` "Melee attack warning", "Run encounter events" (content rules), "Game feel" (sound table), "Balance data" (no dead data, the pipeline rule); `game-design-docs/Lore.md` (Ayteel, Gabien, the Secrets rule, the Glossary)
 
 ## Goal
