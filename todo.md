@@ -7,6 +7,18 @@
 
 Only unchecked tests are listed here. Finished sections are archived in `docs/archive/` (latest: `todo-2026-10-30.md`). Backlog: `docs/pm/BACKLOG.md`.
 
+## Tester fixes v0.5.2 (branch fix/tester-feedback-v052)
+
+Spec: `docs/features/tester-fixes-v052.md`. Open the project once first so Unity imports the moved sound packs (no new `.meta` files should appear in git status).
+
+- [ ] Sounds still play after the packs moved: UI clicks and moves, the class voices (hurt, dodge, death; one class of each voice), the cutscene page turn. No missing-clip warnings in the Console.
+- [ ] Tools > Flames of Faith > Audio > Report Silent Sounds lists the same entries as on `develop`.
+- [ ] Light Devourer, knockback mid-swing: as the warning ring shows, hit it with knockback (the Warrior's Crusader Charge, or any knockback weapon). It takes the damage but doesn't move, and the hit lands where the ring was.
+- [ ] Light Devourer, knockback before the swing: knock it back while it walks. It slides as before; if it starts a swing while sliding, it stops and swings from there.
+- [ ] After its swing it can be knocked back again; same after a stun mid-swing (a Frost stun or similar) and after the Corruptor phase's camera freeze.
+- [ ] Wayside Shrine as the Warrior: a fourth option, "Lay your hand on his name.", with its hint as tooltip. Play it until you see both outcomes (it checks current Grace, so high Grace makes the warm outcome likely and negative Grace the other; tick Log Checks on `Resources/RunEncounters/EventCheckSettings` to see each roll). The result texts read right and the numbers match the HUD.
+- [ ] Wayside Shrine as the Archer and as the Augur: only the three usual options.
+
 ## Game feel, chunk 1: low-health warning (branch feature/game-feel)
 
 First run Tools > Flames of Faith > UI Revamp > Restyle HUD once, so UIMain gets the vignette. Tunables: `Resources/Feel/GameFeelSettings.asset`. The vignette art is a placeholder. `DevTools/Stats` can lower Max Health to get there faster.

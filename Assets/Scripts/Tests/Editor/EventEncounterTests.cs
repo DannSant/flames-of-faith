@@ -390,6 +390,8 @@ namespace Game.Tests
             CollectionAssert.AreEquivalent(new[] { CharacterClass.Mage }, ClassesIn("arcaneBox"));
             CollectionAssert.AreEquivalent(new[] { CharacterClass.Mage }, ClassesIn("bandits"));
             CollectionAssert.AreEquivalent(new[] { CharacterClass.Warrior }, ClassesIn("faraclarianClan"));
+            // Ayteel answers her own line at the Shrine (v0.5.2 tester feedback)
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Warrior }, ClassesIn(ShrineId));
             CollectionAssert.AreEquivalent(new[] { CharacterClass.Archer, CharacterClass.Mage }, ClassesIn("houseOfStars"));
             CollectionAssert.AreEquivalent(new[] { CharacterClass.Archer }, ClassesIn("lastTorch"));
 

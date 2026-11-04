@@ -115,6 +115,40 @@ MonoBehaviour:
       resultText: 
       classResultLines: []
       nextStepId: 
+  - label: Lay your hand on his name.
+    classLabels: []
+    onlyForClass: 1
+    hint: The stone is warm for pilgrims. Whether it is warm for an Alamoh is another
+      matter.
+    outcome: 1
+    result:
+      actions: []
+      resultText: 
+      classResultLines: []
+      nextStepId: 
+    check:
+      source: 2
+      stat: 8
+      difficulty: 1
+      introLine: Ayteel kneels before the names and reaches for the letters.
+    success:
+      actions:
+      - {fileID: 11400000, guid: 236eaa937233493d864037fee676f9fa, type: 2}
+      - {fileID: 11400000, guid: 1aee1acc903f4dbc94772f1e0bb7f4cf, type: 2}
+      resultText: 'The stone is warm under her palm. Someone knelt here once and
+        cut DAYLA beside his name with care, the way you only carve a name you love.
+        Whatever Abidor says of him, someone did. Ayteel rises steadier: +{grace}
+        Grace and +{health} health.'
+      classResultLines: []
+      nextStepId: 
+    failure:
+      actions:
+      - {fileID: 11400000, guid: 908b5f049b534a09ad6b0870fe8aaeed, type: 2}
+      resultText: 'Her hand stops short of the stone. Every door in Abidor that
+        closed on the Alamoh name closes again, one by one, and she can''t make herself
+        touch it. She stands, jaw set, and walks on: {grace} Grace.'
+      classResultLines: []
+      nextStepId: 
   steps: []
   oncePerPilgrimage: 0
   art: {fileID: -3712538246262752651, guid: 9d70ee07180b4094b87d9ee08717b441, type: 3}
