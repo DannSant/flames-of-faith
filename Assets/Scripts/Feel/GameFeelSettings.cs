@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Feel
 {
     /// <summary>
-    /// Look-and-feel tunables: the low-health warning (and, later, sound and hit feel).
+    /// Look-and-feel tunables: the low-health warning, sound and hit feel.
     /// Not a balance table: these stay in Unity. Loaded from Resources/Feel/GameFeelSettings.
     /// </summary>
     [CreateAssetMenu(fileName = "GameFeelSettings", menuName = "Feel/Game Feel Settings")]
@@ -58,6 +59,22 @@ namespace Game.Feel
         [Min(1f)]
         [SerializeField] private float xpChainMaxPitch = 1.5f;
 
+        [Header("Hit feel")]
+        [Tooltip("Master switch for camera shake.")]
+        [SerializeField] private bool shakeEnabled = true;
+        [Tooltip("Master switch for hit stops and slow motion.")]
+        [SerializeField] private bool hitStopEnabled = true;
+        [Tooltip("Master switch for gamepad rumble.")]
+        [SerializeField] private bool rumbleEnabled = true;
+        [Tooltip("A hit on the player is heavy (HeavyHit moment) when it takes at least this share of max health.")]
+        [Range(0f, 1f)]
+        [SerializeField] private float heavyHitFraction = 0.2f;
+        [Tooltip("Time scale during a hit stop (0 = a full freeze).")]
+        [Range(0f, 1f)]
+        [SerializeField] private float hitStopScale = 0f;
+        [Tooltip("One row per moment: what it does and how often it may fire. Only these moments get hit feel.")]
+        [SerializeField] private List<FeelMomentRow> moments = new List<FeelMomentRow>();
+
         public bool LowHealthWarningEnabled => lowHealthWarningEnabled;
         public float LowHealthEnter => lowHealthEnter;
         public float LowHealthExit => Mathf.Max(lowHealthEnter, lowHealthExit);
@@ -73,6 +90,26 @@ namespace Game.Feel
         public float XpChainWindow => xpChainWindow;
         public float XpChainStep => xpChainStep;
         public float XpChainMaxPitch => xpChainMaxPitch;
+        public bool ShakeEnabled => shakeEnabled;
+        public bool HitStopEnabled => hitStopEnabled;
+        public bool RumbleEnabled => rumbleEnabled;
+        public float HeavyHitFraction => heavyHitFraction;
+        public float HitStopScale => hitStopScale;
+        public IReadOnlyList<FeelMomentRow> Moments => moments;
+
+        public bool TryGetMoment(FeelMoment moment, out FeelMomentRow row)
+        {
+            foreach (var candidate in moments)
+            {
+                if (candidate != null && candidate.moment == moment)
+                {
+                    row = candidate;
+                    return true;
+                }
+            }
+            row = null;
+            return false;
+        }
 
         private static GameFeelSettings instance;
 

@@ -1,3 +1,4 @@
+using Game.Feel;
 using Game.Boss;
 using Game.GameSettings;
 using Game.Scene;
@@ -81,11 +82,13 @@ namespace Game.UI
 
         private IEnumerator ShowEndScreenAfterDelay()
         {
-            // Time.timeScale is still 1 here (nothing has paused yet), so this is a real-time
-            // wait that lets the boss's death/fade-out animation actually play instead of being
-            // instantly covered by the panel.
+            // Nothing has paused yet, so this wait lets the boss's death/fade-out animation actually
+            // play instead of being instantly covered by the panel. The boss kill's slow motion
+            // (TimeDilation) only stretches it a little.
             yield return new WaitForSeconds(showDelay);
 
+            // End any slow motion still running, so leaving the end screen resumes at full speed
+            TimeDilation.Clear();
             endScreenPanel.SetActive(true);
             // Route through PauseManager (rather than setting Time.timeScale directly) so
             // PauseManager.IsPaused reflects it too - otherwise the player can still rotate

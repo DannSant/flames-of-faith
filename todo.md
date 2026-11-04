@@ -38,6 +38,23 @@ Every new sound is silent until it has a clip. To hear them, drop any test clip 
 - [ x] Cutscene page turn: with a clip on CutscenePageTurn, every page change (click anywhere, Next, Enter, A) plays it once, and Next doesn't click as well. Continue on the last page and a skip play no page turn.
 - [ ] Optional: set an `attackSound` on an enemy and a `castSound` on a boss ability; a crowd of shooters stays readable (throttled), and the boss plays it as the cast starts.
 
+## Game feel, chunk 3: hit feel (branch feature/game-feel)
+
+First run Tools > Flames of Faith > UI Revamp > Restyle Settings once, so the panel gets the two sliders. Tunables: the Hit feel rows on `Resources/Feel/GameFeelSettings.asset`. `DevTools/Stats` can lower Max Health to make heavy hits easy.
+
+- [ ] Heavy hit (20% of max health or more): a small shake, a very short freeze and a medium rumble on a gamepad. Small hits do nothing. Several heavy hits in a row don't chain (0.5 s cooldown).
+- [ ] Event damage (a non-combat option) never shakes.
+- [ ] Death: a medium shake, slow motion (40%) for a moment, a strong rumble; the death screen then works normally, and Retry starts at full speed.
+- [ ] Corruptor killed in time: a medium shake, a short freeze and a rumble. An escape does nothing.
+- [ ] Boss second phase: a large shake and a strong rumble. Boss killed: a large shake, slow motion (30%) for 1 s, then the end screen; Main Menu from it, then a new run, plays at full speed.
+- [ ] Routine hits and kills never shake, even at high Attack Speed with the Whirlwind.
+- [ ] Pause during a hit stop or the boss's slow motion: resuming plays at the right speed (still slowed if it hasn't ended, full speed if it ended during the pause).
+- [ ] The Corruptor camera focus still pans and restores normally around a shake.
+- [ ] No shake on the map.
+- [ ] Settings (main menu and pause): Screen shake and Rumble sliders in Gameplay, reachable with the gamepad. At 0 there is no shake / rumble; the values survive a restart.
+- [ ] Rumble on a real gamepad never stays on: after it ends, after pausing mid-rumble, after a scene load, after Alt-Tab, and after unplugging the gamepad mid-rumble.
+- [ ] With the keyboard and mouse active, no rumble.
+
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)
 
 To see the first New Game again or an empty Chronicle: in Play mode, DevTools > Cutscenes > Forget Seen Cutscenes. Art is placeholder.

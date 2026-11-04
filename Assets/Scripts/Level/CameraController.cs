@@ -1,3 +1,4 @@
+using Game.Feel;
 using Game.Common;
 using Game.Control;
 using Game.Overworld;
@@ -38,6 +39,8 @@ namespace Game.Level
             else
             {                
                 cinemachineCamera.Follow = PlayerManager.Instance.GetPlayerComponent<PlayerController>().transform;
+                // Level cameras feel the hit feel shakes; the map's never does
+                GameFeel.AttachShakeListener(cinemachineCamera);
             }
             
         }

@@ -24,11 +24,15 @@ namespace Game.GameSettings
         private const string ShowTutorialHintsKey = "Settings.ShowTutorialHints";
         private const string AutoAttackEnabledKey = "Settings.AutoAttackEnabled";
         private const string LockOnToggleModeKey = "Settings.LockOnToggleMode";
+        private const string ScreenShakeKey = "Settings.ScreenShake";
+        private const string RumbleKey = "Settings.Rumble";
 
         private const float defaultMasterVolume = 1f;
         private const float defaultMusicVolume = 0.7f;
         private const float defaultSfxVolume = 1f;
         private const string defaultLanguageKey = "en";
+        private const float defaultScreenShake = 1f;
+        private const float defaultRumble = 1f;
 
         private float masterVolume;
         private float musicVolume;
@@ -42,6 +46,8 @@ namespace Game.GameSettings
         private bool showTutorialHints;
         private bool autoAttackEnabled;
         private bool lockOnToggleMode;
+        private float screenShake;
+        private float rumble;
 
         [Header("Developer Tools")]
         [SerializeField] private bool developerCheatsEnabled = true;
@@ -64,6 +70,10 @@ namespace Game.GameSettings
         public bool LockOnToggleMode => lockOnToggleMode;
         public event Action<bool> OnLockOnToggleModeChanged;
         public bool DeveloperCheatsEnabled => developerCheatsEnabled;
+        /// <summary>Camera shake strength, 0..1 (0 = no shake).</summary>
+        public float ScreenShake => screenShake;
+        /// <summary>Gamepad rumble strength, 0..1 (0 = no rumble).</summary>
+        public float Rumble => rumble;
 
         protected override void Awake()
         {
@@ -100,6 +110,8 @@ namespace Game.GameSettings
                 autoAttackEnabled = true;
                 // Same default as a saved game without the key: toggle (press to lock / unlock)
                 lockOnToggleMode = true;
+                screenShake = defaultScreenShake;
+                rumble = defaultRumble;
                 return;
             }
 
@@ -115,6 +127,9 @@ namespace Game.GameSettings
             showTutorialHints = PlayerPrefs.GetInt(ShowTutorialHintsKey, 1) == 1;
             autoAttackEnabled = PlayerPrefs.GetInt(AutoAttackEnabledKey, 1) == 1;
             lockOnToggleMode = PlayerPrefs.GetInt(LockOnToggleModeKey, 1) == 1;
+            // Saved before these existed: the default
+            screenShake = Mathf.Clamp01(PlayerPrefs.GetFloat(ScreenShakeKey, defaultScreenShake));
+            rumble = Mathf.Clamp01(PlayerPrefs.GetFloat(RumbleKey, defaultRumble));
         }
 
         public void SaveState()
@@ -132,6 +147,8 @@ namespace Game.GameSettings
             PlayerPrefs.SetInt(ShowTutorialHintsKey, showTutorialHints ? 1 : 0);
             PlayerPrefs.SetInt(AutoAttackEnabledKey, autoAttackEnabled ? 1 : 0);
             PlayerPrefs.SetInt(LockOnToggleModeKey, lockOnToggleMode ? 1 : 0);
+            PlayerPrefs.SetFloat(ScreenShakeKey, screenShake);
+            PlayerPrefs.SetFloat(RumbleKey, rumble);
             PlayerPrefs.Save();
         }
 
@@ -164,6 +181,18 @@ namespace Game.GameSettings
         {
             sfxVolume = Mathf.Clamp01(value);
             ApplyAudio();
+            SaveState();
+        }
+
+        public void SetScreenShake(float value)
+        {
+            screenShake = Mathf.Clamp01(value);
+            SaveState();
+        }
+
+        public void SetRumble(float value)
+        {
+            rumble = Mathf.Clamp01(value);
             SaveState();
         }
 

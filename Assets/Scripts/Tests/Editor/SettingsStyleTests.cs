@@ -83,6 +83,23 @@ namespace Game.Tests
             }
         }
 
+        [TestCase("screenShakeSlider", "ScreenShakeRow")]
+        [TestCase("rumbleSlider", "RumbleRow")]
+        public void FeelSliders_AreWiredInGameplay(string field, string rowName)
+        {
+            var root = Load(SettingsPath);
+            var controller = new SerializedObject(root.GetComponentInChildren<SettingsPanelController>(true));
+            var slider = controller.FindProperty(field).objectReferenceValue as Slider;
+            Assert.IsNotNull(slider, $"{field} not set");
+            var row = slider.GetComponentsInParent<RectTransform>(true).FirstOrDefault(t => t.name == rowName);
+            Assert.IsNotNull(row, $"{field} isn't in {rowName}");
+            Assert.AreEqual("GameplaySection", row.parent.name);
+            Assert.AreEqual(0f, slider.minValue);
+            Assert.AreEqual(1f, slider.maxValue);
+            Assert.IsFalse(slider.wholeNumbers);
+            Assert.AreNotEqual(UnityEngine.UI.Navigation.Mode.None, slider.navigation.mode, "The gamepad can't reach it");
+        }
+
         [Test]
         public void TutorialHintsToggle_IsWired()
         {

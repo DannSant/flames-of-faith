@@ -1,3 +1,4 @@
+using Game.Feel;
 using Game.Metaprogression;
 using Game.Saving;
 using Game.Audio;
@@ -353,6 +354,8 @@ namespace Game.Combat {
             {
                 // The killing blow plays the death sound instead
                 AudioManager.TryPlay(GameSound.PlayerHurt, PlayerVoice.Of(this));
+                // Event damage isn't a fight hit; the killing blow gets the death moment instead
+                if (!nonLethal) GameFeel.OnPlayerDamaged(finalDamage, maxHealth);
             }
             return finalDamage;
         }
@@ -427,6 +430,7 @@ namespace Game.Combat {
             RunSaveService.DeleteSave();
             // The run is over: keep the Favors earned in this level
             MetaProgressionManager.Instance?.BankRunFavors();
+            GameFeel.Play(FeelMoment.PlayerDeath);
            StartCoroutine(DeathRoutine());          
 
         }

@@ -27,3 +27,59 @@ MonoBehaviour:
   xpChainWindow: 0.6
   xpChainStep: 0.03
   xpChainMaxPitch: 1.5
+  shakeEnabled: 1
+  hitStopEnabled: 1
+  rumbleEnabled: 1
+  heavyHitFraction: 0.2
+  hitStopScale: 0
+  moments:
+  - moment: 0
+    shakeForce: 0.15
+    shakeDuration: 0.15
+    hitStop: 0.05
+    slowMotionScale: 1
+    slowMotionDuration: 0
+    rumbleLow: 0.3
+    rumbleHigh: 0.5
+    rumbleDuration: 0.15
+    cooldown: 0.5
+  - moment: 1
+    shakeForce: 0.3
+    shakeDuration: 0.3
+    hitStop: 0
+    slowMotionScale: 0.4
+    slowMotionDuration: 0.6
+    rumbleLow: 0.7
+    rumbleHigh: 1
+    rumbleDuration: 0.4
+    cooldown: 1
+  - moment: 2
+    shakeForce: 0.3
+    shakeDuration: 0.25
+    hitStop: 0.06
+    slowMotionScale: 1
+    slowMotionDuration: 0
+    rumbleLow: 0.3
+    rumbleHigh: 0.5
+    rumbleDuration: 0.2
+    cooldown: 1
+  - moment: 3
+    shakeForce: 0.5
+    shakeDuration: 0.5
+    hitStop: 0
+    slowMotionScale: 1
+    slowMotionDuration: 0
+    rumbleLow: 0.7
+    rumbleHigh: 1
+    rumbleDuration: 0.4
+    cooldown: 2
+  - moment: 4
+    shakeForce: 0.5
+    shakeDuration: 0.6
+    hitStop: 0
+    slowMotionScale: 0.3
+    slowMotionDuration: 1
+    rumbleLow: 0.7
+    rumbleHigh: 1
+    rumbleDuration: 0.5
+    cooldown: 2

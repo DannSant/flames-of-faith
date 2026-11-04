@@ -28,6 +28,10 @@ namespace Game.UI
         [SerializeField] private Toggle lockOnToggleModeToggle;
         [Tooltip("Optional. Shows the wave hints (WaveHintUI). Mirrors SettingsManager.ShowTutorialHints.")]
         [SerializeField] private Toggle tutorialHintsToggle;
+        [Tooltip("Optional. Camera shake strength, 0..1. Mirrors SettingsManager.ScreenShake.")]
+        [SerializeField] private Slider screenShakeSlider;
+        [Tooltip("Optional. Gamepad rumble strength, 0..1. Mirrors SettingsManager.Rumble.")]
+        [SerializeField] private Slider rumbleSlider;
 
         [Header("Language")]
         [SerializeField] private TMP_Dropdown languageDropdown;
@@ -105,6 +109,8 @@ namespace Game.UI
             if (autoAttackToggle != null) autoAttackToggle.SetIsOnWithoutNotify(settings.AutoAttackEnabled);
             if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.SetIsOnWithoutNotify(settings.LockOnToggleMode);
             if (tutorialHintsToggle != null) tutorialHintsToggle.SetIsOnWithoutNotify(settings.ShowTutorialHints);
+            if (screenShakeSlider != null) screenShakeSlider.SetValueWithoutNotify(settings.ScreenShake);
+            if (rumbleSlider != null) rumbleSlider.SetValueWithoutNotify(settings.Rumble);
 
             // Only "English" exists today, so this always resolves to index 0.
             languageDropdown.SetValueWithoutNotify(0);
@@ -122,6 +128,8 @@ namespace Game.UI
             if (autoAttackToggle != null) autoAttackToggle.onValueChanged.AddListener(OnAutoAttackChanged);
             if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.onValueChanged.AddListener(OnLockOnToggleModeChanged);
             if (tutorialHintsToggle != null) tutorialHintsToggle.onValueChanged.AddListener(OnTutorialHintsChanged);
+            if (screenShakeSlider != null) screenShakeSlider.onValueChanged.AddListener(OnScreenShakeChanged);
+            if (rumbleSlider != null) rumbleSlider.onValueChanged.AddListener(OnRumbleChanged);
             languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
         }
 
@@ -137,6 +145,8 @@ namespace Game.UI
             if (autoAttackToggle != null) autoAttackToggle.onValueChanged.RemoveListener(OnAutoAttackChanged);
             if (lockOnToggleModeToggle != null) lockOnToggleModeToggle.onValueChanged.RemoveListener(OnLockOnToggleModeChanged);
             if (tutorialHintsToggle != null) tutorialHintsToggle.onValueChanged.RemoveListener(OnTutorialHintsChanged);
+            if (screenShakeSlider != null) screenShakeSlider.onValueChanged.RemoveListener(OnScreenShakeChanged);
+            if (rumbleSlider != null) rumbleSlider.onValueChanged.RemoveListener(OnRumbleChanged);
             languageDropdown.onValueChanged.RemoveListener(OnLanguageChanged);
         }
 
@@ -189,6 +199,16 @@ namespace Game.UI
         private void OnTutorialHintsChanged(bool enabled)
         {
             SettingsManager.Instance?.SetShowTutorialHints(enabled);
+        }
+
+        private void OnScreenShakeChanged(float value)
+        {
+            SettingsManager.Instance?.SetScreenShake(value);
+        }
+
+        private void OnRumbleChanged(float value)
+        {
+            SettingsManager.Instance?.SetRumble(value);
         }
 
         private void OnLanguageChanged(int index)

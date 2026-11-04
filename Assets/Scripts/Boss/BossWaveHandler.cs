@@ -1,3 +1,4 @@
+using Game.Feel;
 using Game.Audio;
 using Game.Metaprogression;
 using Game.Saving;
@@ -176,6 +177,7 @@ namespace Game.Boss
             
 
             AudioManager.TryPlay(GameSound.BossPhaseChange);
+            GameFeel.Play(FeelMoment.BossPhaseTwo);
             OnPhaseTwoStarted?.Invoke();
         }
 
@@ -183,6 +185,7 @@ namespace Game.Boss
         {
             bossAlive = false;
             AudioManager.TryPlay(GameSound.BossDeath);
+            GameFeel.Play(FeelMoment.BossKilled);
             RunSaveService.DeleteSave();
             if (MetaProgressionManager.Instance != null)
             {

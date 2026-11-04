@@ -1,3 +1,4 @@
+using Game.Feel;
 using Game.Audio;
 using Game.AI;
 using Game.Combat;
@@ -158,6 +159,7 @@ namespace Game.Waves
                 result.killTime = elapsed;
                 result.corruption = settings.GetCorruptorKillCorruption(elapsed);
                 AudioManager.TryPlay(GameSound.CorruptorKilled);
+                GameFeel.Play(FeelMoment.CorruptorKilled);
                 OnCorruptorKilled?.Invoke();
             }
             else

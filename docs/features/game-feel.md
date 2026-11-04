@@ -168,7 +168,18 @@ This is also the audio brief: whoever sources the clips works from this table. P
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
 - **Done:**
+  - Chunk 1, low-health warning: `LowHealthRules`, `LowHealthVignetteUI` in UIMain (placed by Restyle HUD), placeholder art, the heartbeat. `OnGameplayUISetupRequested` now pushes the `LevelData`.
+  - Chunk 2, sound: `GameSound` / `GameSoundTable` (one entry each), `SfxVoicePool` (one voice per sound), the XP pitch chain, every hook in the Sound list, enemy `attackSound` and boss `castSound`, Report Silent Sounds. Added after review: per-class voices (`classClips`, `PlayerVoice`), `PlayerDeath` (wins over the prefab's death clip), `CutscenePageTurn` (Next no longer also clicks). The owner added clips and two voice packs.
+  - Chunk 3, hit feel: the five moments of the table, `GameFeel.Play`, `TimeDilation` with `PauseManager` as the only `timeScale` writer, Cinemachine impulse shake on level cameras, gamepad rumble with every stop case, Screen shake and Rumble sliders.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - Chunk 3 is untested in play (compile-checked only); the EditMode tests need a run, and Restyle Settings must be run once for the sliders.
+  - Silent sounds: whatever Report Silent Sounds lists after the owner's clip pass (the table had clips added by the owner; run the report for the current list).
+  - All 736 clips of the sound packs sit under `Resources/`, so all ship in the build. Moving them out of `Resources/` keeps only the referenced ones.
+  - Shake strengths are first guesses in world units; tune them in play.
+- **Commits / branch:** `feature/game-feel`. Chunk 1: 5310ac8, 36f0c27, b317a9d. Chunk 2: fa08aa0, afc42b9, 316de07, b6727bd, ba95910 (chunks 1-2 merged into `develop` as a fast-forward and pushed). Chunk 3: the commit after ba95910.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - Never write `Time.timeScale` outside `PauseManager`: request a `TimeDilation` instead (`HitFeelTests` fails otherwise).
+  - `TimeDilation` clears on every scene load and unload, additive ones included.
+  - A `CinemachineImpulseListener` added with `AddComponent` skips `Reset`, so `GameFeel.AttachShakeListener` sets its channel and gain by hand.
+  - `Scene` and `Navigation` clash with the `Game.Scene` and `Game.UI.Navigation` namespaces; fully qualify them.
+- **Manual tests added to todo.md:** the three "Game feel" sections (chunk 1 low-health warning, chunk 2 sound, chunk 3 hit feel).

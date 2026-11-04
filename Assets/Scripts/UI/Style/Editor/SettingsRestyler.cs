@@ -14,7 +14,7 @@ namespace Game.UI.Style.Editor
     /// <summary>
     /// UI revamp, step 3: restyles the Settings panel in place as a two-column center window and puts it
     /// in the pause menu.
-    /// - Left column: Gameplay (auto-attack, lock-on mode, tutorial hints) and Audio. Right column:
+    /// - Left column: Gameplay (auto-attack, lock-on mode, tutorial hints, screen shake, rumble) and Audio. Right column:
     ///   Graphics and Language. Section headers Small, bold, yellow; rows 32 high, label left, control right.
     /// - Back (progress spot) and Cancel call SettingsPanelController.RequestClose; the main menu and the
     ///   pause menu each close it themselves, so the prefab has no scene-specific wiring.
@@ -39,12 +39,15 @@ namespace Game.UI.Style.Editor
         // Above the pause menu (100) and its confirm dialog (101)
         private const int PauseSettingsPriority = 102;
 
+        public const string ScreenShakeRow = "ScreenShakeRow";
+        public const string RumbleRow = "RumbleRow";
+
         public static readonly string[] LeftSections = { "GameplaySection", "AudioSection" };
         public static readonly string[] RightSections = { "GraphicsSection", "LanguageSection" };
 
         private static readonly Dictionary<string, (string header, string[] rows)> Sections = new()
         {
-            ["GameplaySection"] = ("Gameplay", new[] { "AutoAttackToggleRow", "LockonToggleRow", "TutorialHintsRow" }),
+            ["GameplaySection"] = ("Gameplay", new[] { "AutoAttackToggleRow", "LockonToggleRow", "TutorialHintsRow", ScreenShakeRow, RumbleRow }),
             ["AudioSection"] = ("Audio", new[] { "MasterVolume", "MusicVolume", "SFXVolume" }),
             ["GraphicsSection"] = ("Graphics", new[] { "ResolutionRow", "QualityRow", "FullscreenRow", "vsyncRow" }),
             ["LanguageSection"] = ("Language", new[] { "LanguageTextRow" }),
@@ -100,6 +103,8 @@ namespace Game.UI.Style.Editor
             var right = Column(root.transform, "RightColumn", new Vector2(0.5f, 0f), new Vector2(1f, 1f), m * 0.5f, bottom, m, top, s);
 
             EnsureTutorialHintsRow(root, controller, s);
+            EnsureSliderRow(root, controller, ScreenShakeRow, "Screen shake", "screenShakeSlider");
+            EnsureSliderRow(root, controller, RumbleRow, "Rumble", "rumbleSlider");
 
             for (int i = 0; i < LeftSections.Length; i++) RestyleSection(root, LeftSections[i], left, i, s);
             for (int i = 0; i < RightSections.Length; i++) RestyleSection(root, RightSections[i], right, i, s);
@@ -286,6 +291,40 @@ namespace Game.UI.Style.Editor
             autoLabel.text = "Auto-attack";
             var lockLabel = Find(gameplay, "LockonToggleRow").GetComponentInChildren<TextMeshProUGUI>(true);
             lockLabel.text = "Lock-on: toggle (off: hold)";
+        }
+
+        // A Gameplay slider row (0..1, default 1), copied from the SFX volume row so it looks and navigates the same
+        private static void EnsureSliderRow(GameObject root, SettingsPanelController controller, string rowName, string labelText, string field)
+        {
+            var gameplay = root.GetComponentsInChildren<RectTransform>(true).First(t => t.name == "GameplaySection");
+            var row = Find(gameplay, rowName);
+            if (row == null)
+            {
+                var source = root.GetComponentsInChildren<RectTransform>(true).First(t => t.name == "SFXVolume");
+                row = (RectTransform)Object.Instantiate(source.gameObject, gameplay).transform;
+                row.name = rowName;
+            }
+
+            var label = row.GetComponentsInChildren<TextMeshProUGUI>(true).First(t => t.GetComponentInParent<Slider>(true) == null);
+            label.text = labelText;
+            var slider = row.GetComponentInChildren<Slider>(true);
+            slider.name = rowName.Replace("Row", "Slider");
+            slider.minValue = 0f;
+            slider.maxValue = 1f;
+            slider.wholeNumbers = false;
+            slider.SetValueWithoutNotify(1f);
+            slider.onValueChanged.RemoveAllListeners();
+            for (int i = slider.onValueChanged.GetPersistentEventCount() - 1; i >= 0; i--)
+            {
+                UnityEventTools.RemovePersistentListener(slider.onValueChanged, i);
+            }
+            var navigation = slider.navigation;
+            navigation.mode = UnityEngine.UI.Navigation.Mode.Automatic;
+            slider.navigation = navigation;
+
+            var so = new SerializedObject(controller);
+            so.FindProperty(field).objectReferenceValue = slider;
+            so.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static void SetRowHeight(GameObject go, float height)
