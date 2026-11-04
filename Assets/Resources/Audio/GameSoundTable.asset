@@ -16,122 +16,171 @@ MonoBehaviour:
   randomPitchMax: 1.1
   entries:
   - sound: 0
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 6be650ac213d26a4cb6814c21422b3d7, type: 3}
+    - {fileID: 8300000, guid: 97acb63b5c146af42bc67c8ef67dc9ce, type: 3}
+    - {fileID: 8300000, guid: d2e36b4491903474c941144214329504, type: 3}
+    - {fileID: 8300000, guid: 7eeba320cd019144aa01e929a42338c9, type: 3}
+    - {fileID: 8300000, guid: e6d00863ac16c79449af403dc76c5ec0, type: 3}
+    classClips: []
     volume: 1
     randomizePitch: 1
     minInterval: 0.12
   - sound: 1
     clips: []
+    classClips: []
     volume: 0.8
     randomizePitch: 1
     minInterval: 0.05
   - sound: 2
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 1e0ba9ad3a2f746d890c1fe2d0c87b2f, type: 3}
+    classClips: []
     volume: 0.5
     randomizePitch: 0
     minInterval: 0.03
   - sound: 3
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 8459a860bc1684a01964dcbcafab4b49, type: 3}
+    classClips: []
     volume: 0.8
     randomizePitch: 0
     minInterval: 0.05
   - sound: 4
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 63c2e9d937644482190088288bf5e06b, type: 3}
+    classClips: []
     volume: 0.8
     randomizePitch: 0
     minInterval: 0.05
   - sound: 5
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: a103d7fa314624ca0b711ceadd07854a, type: 3}
+    classClips: []
     volume: 0.9
     randomizePitch: 0
     minInterval: 0.05
   - sound: 6
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.3
   - sound: 7
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 8
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 9
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 4f30576795cb84584a8b6ec70440f4c5, type: 3}
+    classClips: []
     volume: 0.6
     randomizePitch: 0
     minInterval: 0.05
   - sound: 10
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 171cbf7786001483b9e633a0a5610e19, type: 3}
+    classClips: []
     volume: 0.4
     randomizePitch: 0
     minInterval: 0.04
   - sound: 11
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: ffe13b672829748ee87c765a300990c3, type: 3}
+    classClips: []
     volume: 0.6
     randomizePitch: 0
     minInterval: 0.05
   - sound: 12
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: a721c6003a3b4416bbdf0d5bba4bf1a6, type: 3}
+    classClips: []
     volume: 0.9
     randomizePitch: 0
     minInterval: 0.1
   - sound: 13
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 924844b4a077244d38abdd19258c7392, type: 3}
+    classClips: []
     volume: 0.7
     randomizePitch: 0
     minInterval: 0.2
   - sound: 14
     clips: []
+    classClips: []
     volume: 0.8
     randomizePitch: 0
     minInterval: 0.3
   - sound: 15
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 16
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 17
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 18
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 19
     clips: []
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 20
     clips: []
+    classClips: []
     volume: 0.8
     randomizePitch: 1
     minInterval: 0.1
   - sound: 21
     clips: []
+    classClips: []
     volume: 0.7
     randomizePitch: 1
     minInterval: 0.08
   - sound: 22
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: d9480da25121f624a85ac31d96ccd0dd, type: 3}
+    - {fileID: 8300000, guid: 941907831ba7e9d45a62b6713def1365, type: 3}
+    - {fileID: 8300000, guid: 7b6970945a5e00e4fb3a95aa6e33e7c7, type: 3}
+    - {fileID: 8300000, guid: 69aa65663e5f3d94aa4e9889baf787ce, type: 3}
+    - {fileID: 8300000, guid: eaba6cf5f13fced409e256f398939d81, type: 3}
+    - {fileID: 8300000, guid: c9e5af32f6078f5478442418af8d898f, type: 3}
+    - {fileID: 8300000, guid: 502fc110b695d86418c0be74ec3db886, type: 3}
+    - {fileID: 8300000, guid: 52996367c027f894a80c0f3f17c00a03, type: 3}
+    - {fileID: 8300000, guid: 9a9f43e971388954a9521b6dd330413d, type: 3}
+    - {fileID: 8300000, guid: 77007d005277598499ebbff61b13679e, type: 3}
+    classClips: []
     volume: 1
     randomizePitch: 0
     minInterval: 0.5
   - sound: 23
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 487af83246b5e462f97f3c1cf691dc70, type: 3}
+    classClips: []
     volume: 1
     randomizePitch: 1
     minInterval: 0.1
