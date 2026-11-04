@@ -1,4 +1,6 @@
+using Game.Audio;
 using Game.Cutscenes;
+using Game.UI.Style;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,7 +57,13 @@ namespace Game.UI.Cutscenes
         private void Awake()
         {
             if (clickArea != null) clickArea.onClick.AddListener(Advance);
-            if (nextButton != null) nextButton.onClick.AddListener(Advance);
+            if (nextButton != null)
+            {
+                nextButton.onClick.AddListener(Advance);
+                // The page turn is Next's sound, so it doesn't click as well
+                var style = nextButton.GetComponent<UIStyleButton>();
+                if (style != null) style.PlaysClickSound = false;
+            }
         }
 
         /// <summary>Opens the window on the first page. onClosed fires once, when the scene has ended or been skipped.</summary>
@@ -147,6 +155,7 @@ namespace Game.UI.Cutscenes
         private IEnumerator ChangePageRoutine(int index)
         {
             busy = true;
+            AudioManager.TryPlay(GameSound.CutscenePageTurn);
             yield return Fade(pageGroup, 1f, 0f, pageFadeDuration);
             ShowPage(index);
             yield return Fade(pageGroup, 0f, 1f, pageFadeDuration);

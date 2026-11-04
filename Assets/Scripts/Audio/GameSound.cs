@@ -30,5 +30,6 @@ namespace Game.Audio
         PlayerDodge,
         ShieldAbsorb,
         PlayerDeath,
+        CutscenePageTurn,
     }
 }

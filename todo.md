@@ -6,35 +6,36 @@ Only unchecked tests are listed here. Finished sections are archived in `docs/ar
 
 First run Tools > Flames of Faith > UI Revamp > Restyle HUD once, so UIMain gets the vignette. Tunables: `Resources/Feel/GameFeelSettings.asset`. The vignette art is a placeholder. `DevTools/Stats` can lower Max Health to get there faster.
 
-- [ ] Combat level: dropping to 30% health or below fades in a red pulse at the screen edges. The middle of the screen stays clear, and the pulse never reads as flashing.
-- [ ] It gets stronger and a little faster as health drops toward 10%.
-- [ ] Healing to 31-35% keeps it on (no flicker around 30%); healing above 35% fades it out.
-- [ ] Boss level: same as a combat level.
-- [ ] No warning in a shop, campfire, treasure or event, even at low health; none on the map.
-- [ ] Death: the warning fades out as the death screen comes up and doesn't show over it.
-- [ ] Enter a combat level already at low health: the warning is there from the start (after the fade). Enter one at full health: no flash of it.
-- [ ] Retry from the death screen, then enter a level: no warning.
-- [ ] Pause and level-up windows: the pulse keeps going behind them, under the window, and every button still takes clicks (the vignette takes none).
-- [ ] The HUD (health, Grace, abilities, XP) draws on top of the vignette.
-- [ ] Untick Low Health Warning Enabled on the settings asset in Play mode: it fades out.
+- [x ] Combat level: dropping to 30% health or below fades in a red pulse at the screen edges. The middle of the screen stays clear, and the pulse never reads as flashing.
+- [x ] It gets stronger and a little faster as health drops toward 10%.
+- [x ] Healing to 31-35% keeps it on (no flicker around 30%); healing above 35% fades it out.
+- [x ] Boss level: same as a combat level.
+- [x ] No warning in a shop, campfire, treasure or event, even at low health; none on the map.
+- [x ] Death: the warning fades out as the death screen comes up and doesn't show over it.
+- [x ] Enter a combat level already at low health: the warning is there from the start (after the fade). Enter one at full health: no flash of it.
+- [x ] Retry from the death screen, then enter a level: no warning.
+- [x ] Pause and level-up windows: the pulse keeps going behind them, under the window, and every button still takes clicks (the vignette takes none).
+- [x ] The HUD (health, Grace, abilities, XP) draws on top of the vignette.
+- [x ] Untick Low Health Warning Enabled on the settings asset in Play mode: it fades out.
 
 ## Game feel, chunk 2: sound (branch feature/game-feel)
 
 Every new sound is silent until it has a clip. To hear them, drop any test clip into a few entries of `Resources/Audio/GameSoundTable.asset` (don't commit it), e.g. PickupXp, UiMove, LevelUp and PlayerHurt. Tools > Flames of Faith > Audio > Report Silent Sounds lists the empty ones.
 
-- [ ] With the table as committed (no clips): a whole level plays exactly as before, with no new errors or warnings in the Console.
-- [ ] Existing sounds still play: weapon attacks, enemy hits and deaths, player death, music. Their volume sounds the same as before.
-- [ ] Master and SFX volume sliders change every sound, also one already playing.
-- [ ] Pitch: with the Archer firing fast (random pitch) while a long sound plays, the long sound doesn't wobble.
-- [ ] XP: picking up a stream of tokens rises in pitch, then starts over; the last-wave sweep that collects every token plays one sound, not a pile.
-- [ ] Level-up: one sound per level-up (also when one gain gives two levels). Entering a level, Continue and Retry play none.
-- [ ] Gamepad: moving between buttons in a window plays UiMove; opening a window (level-up, pause, item bag) doesn't. B plays UiBack. A click on any styled button plays UiClick, also in the pause menu.
-- [ ] Shop: buying plays ShopBuy; clicking an item you can't afford plays ShopError with the red line.
+- [x ] With the table as committed (no clips): a whole level plays exactly as before, with no new errors or warnings in the Console.
+- [x ] Existing sounds still play: weapon attacks, enemy hits and deaths, player death, music. Their volume sounds the same as before.
+- [x ] Master and SFX volume sliders change every sound, also one already playing.
+- [x ] Pitch: with the Archer firing fast (random pitch) while a long sound plays, the long sound doesn't wobble.
+- [x ] XP: picking up a stream of tokens rises in pitch, then starts over; the last-wave sweep that collects every token plays one sound, not a pile.
+- [x ] Level-up: one sound per level-up (also when one gain gives two levels). Entering a level, Continue and Retry play none.
+- [x ] Gamepad: moving between buttons in a window plays UiMove; opening a window (level-up, pause, item bag) doesn't. B plays UiBack. A click on any styled button plays UiClick, also in the pause menu.
+- [x ] Shop: buying plays ShopBuy; clicking an item you can't afford plays ShopError with the red line.
 - [ ] Heartbeat: at low health in a fight it beats with the pulse, and stops while paused. With Min Intensity 0.6 and Heartbeat From 0.6 it beats as soon as the warning shows; raise Heartbeat From (e.g. 0.8) to keep it for the lowest health only.
 - [ ] Dodge, Whirlwind shield absorb, dash, Grace / health / item pickups, wave start and end, Corruptor appears / killed / escaped, boss second phase and boss death: each plays its sound once.
-- [ ] Getting hit plays PlayerHurt, but not on a dodge, an absorbed shot or the killing blow.
-- [ ] Class voices: give PlayerHurt a shared clip and a Warrior Class Clips entry with another clip. The Warrior plays its own, the Archer and Augur the shared one. Report Silent Sounds lists a player sound that has class voices but no shared clip, per class left silent.
-- [ ] Death: with PlayerDeath empty the prefab's death sound plays as before; with a clip for the class, that one plays instead (once).
+- [x ] Getting hit plays PlayerHurt, but not on a dodge, an absorbed shot or the killing blow.
+- [x ] Class voices: give PlayerHurt a shared clip and a Warrior Class Clips entry with another clip. The Warrior plays its own, the Archer and Augur the shared one. Report Silent Sounds lists a player sound that has class voices but no shared clip, per class left silent.
+- [x ] Death: with PlayerDeath empty the prefab's death sound plays as before; with a clip for the class, that one plays instead (once).
+- [ ] Cutscene page turn: with a clip on CutscenePageTurn, every page change (click anywhere, Next, Enter, A) plays it once, and Next doesn't click as well. Continue on the last page and a skip play no page turn.
 - [ ] Optional: set an `attackSound` on an enemy and a `castSound` on a boss ability; a crowd of shooters stays readable (throttled), and the boss plays it as the cast starts.
 
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)

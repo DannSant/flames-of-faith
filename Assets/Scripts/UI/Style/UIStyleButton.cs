@@ -16,6 +16,9 @@ namespace Game.UI.Style
 
         public UIButtonSize Size => size;
 
+        /// <summary>Whether a click plays UiClick. Off for a button whose window plays its own sound (the cutscene's Next).</summary>
+        public bool PlaysClickSound { get; set; } = true;
+
         public void Configure(UIButtonSize size)
         {
             this.size = size;
@@ -30,7 +33,10 @@ namespace Game.UI.Style
             if (button != null) button.onClick.AddListener(PlayClick);
         }
 
-        private static void PlayClick() => AudioManager.TryPlay(GameSound.UiClick);
+        private void PlayClick()
+        {
+            if (PlaysClickSound) AudioManager.TryPlay(GameSound.UiClick);
+        }
 
         public override bool Apply(UISettings settings)
         {
