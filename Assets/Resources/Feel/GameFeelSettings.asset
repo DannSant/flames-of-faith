@@ -23,7 +23,7 @@ MonoBehaviour:
   vignetteTint: {r: 0.75, g: 0.05, b: 0.05, a: 1}
   vignetteMaxAlpha: 0.85
   vignetteFadeSpeed: 2.5
-  heartbeatFrom: 0.6
+  heartbeatFrom: 0.8
   xpChainWindow: 0.6
   xpChainStep: 0.03
   xpChainMaxPitch: 1.5

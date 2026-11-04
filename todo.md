@@ -35,7 +35,7 @@ Every new sound is silent until it has a clip. To hear them, drop any test clip 
 - [x ] Getting hit plays PlayerHurt, but not on a dodge, an absorbed shot or the killing blow.
 - [x ] Class voices: give PlayerHurt a shared clip and a Warrior Class Clips entry with another clip. The Warrior plays its own, the Archer and Augur the shared one. Report Silent Sounds lists a player sound that has class voices but no shared clip, per class left silent.
 - [x ] Death: with PlayerDeath empty the prefab's death sound plays as before; with a clip for the class, that one plays instead (once).
-- [ ] Cutscene page turn: with a clip on CutscenePageTurn, every page change (click anywhere, Next, Enter, A) plays it once, and Next doesn't click as well. Continue on the last page and a skip play no page turn.
+- [ x] Cutscene page turn: with a clip on CutscenePageTurn, every page change (click anywhere, Next, Enter, A) plays it once, and Next doesn't click as well. Continue on the last page and a skip play no page turn.
 - [ ] Optional: set an `attackSound` on an enemy and a `castSound` on a boss ability; a crowd of shooters stays readable (throttled), and the boss plays it as the cast starts.
 
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)
