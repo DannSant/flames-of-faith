@@ -1,5 +1,6 @@
 using Game.Combat;
 using Game.Enemies;
+using Game.Misc;
 using Game.Scene;
 using UnityEngine;
 
@@ -103,6 +104,7 @@ namespace Game.AI.Behaviors
             // A frozen enemy isn't about to hit: drop the warning and the held position (like the shooters)
             HideTelegraph(state);
             context.isShooting = false;
+            SetKnockbackImmune(context, false);
         }
 
         private void Attack(BehaviorContext context, MeleeAttackerBehaviorState state)
@@ -116,6 +118,8 @@ namespace Game.AI.Behaviors
 
             // Hold still and keep facing the target while winding up (isShooting = "an attack is in progress")
             context.isShooting = true;
+            // ...and can't be knocked off the spot the warning shows (tester feedback, v0.5.2). Released with isShooting.
+            SetKnockbackImmune(context, true);
 
             if (state.telegraph != null && state.meleeCollider != null)
             {
@@ -152,6 +156,15 @@ namespace Game.AI.Behaviors
             return (center, radius);
         }
 
+        // Same span as isShooting: on when the swing starts, off at its end event, a stun or a freeze
+        private static void SetKnockbackImmune(BehaviorContext context, bool immune)
+        {
+            if (context.enemyTransform != null && context.enemyTransform.TryGetComponent(out Knockback knockback))
+            {
+                knockback.SetImmune(immune);
+            }
+        }
+
         private static void HideTelegraph(MeleeAttackerBehaviorState state)
         {
             if (state.telegraph != null) state.telegraph.Hide();
@@ -162,6 +175,7 @@ namespace Game.AI.Behaviors
             var state = context.GetState<MeleeAttackerBehaviorState>(this);
             state.isAttacking = false;
             context.isShooting = false;
+            SetKnockbackImmune(context, false);
             HideTelegraph(state);
 
             if (state.meleeCollider != null)

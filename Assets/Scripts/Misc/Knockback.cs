@@ -15,6 +15,12 @@ namespace Game.Misc
 
         public bool IsKnockbacked  {get; private set;}
 
+        /// <summary>
+        /// While set, knockback is ignored (damage and debuffs still land). A melee enemy sets it for its swing, so a
+        /// hit can't push it off the spot its warning shows. Whoever sets it must clear it on every exit path.
+        /// </summary>
+        public bool IsImmune { get; private set; }
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -41,10 +47,22 @@ namespace Game.Misc
             }
         }
 
+        /// <summary>
+        /// Turns the immunity on or off. Turning it on also ends a knockback already playing out, so the movement
+        /// behaviors take the body back and the attack's hold-still stops the slide.
+        /// </summary>
+        public void SetImmune(bool immune)
+        {
+            IsImmune = immune;
+            if (immune && IsKnockbacked) EndKnockback();
+        }
+
         public void ApplyKnockback(Transform damageSource, float force)
         {
             
-            if (IsKnockbacked) return;
+            if (IsKnockbacked || IsImmune) return;
+            if (rb == null) rb = GetComponent<Rigidbody2D>();
+            if (rb == null) return;
             
             StartKnockback();
             Vector2 direction = (transform.position - damageSource.position).normalized * force * rb.mass;
@@ -63,6 +81,7 @@ namespace Game.Misc
         private void EndKnockback()
         {           
             IsKnockbacked = false;
+            knockbackTimer = 0f;
         }
 
     }
