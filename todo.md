@@ -1,3 +1,8 @@
+# Tester feedback on v0.5.2
+- Melee enemies should be immune to knockback when attack animation is playing
+- Add an special option for Ayteel in the waysider shrine, it feels off she has an additional line but no extra options
+- Increase boss health
+
 # Pending manual tests
 
 Only unchecked tests are listed here. Finished sections are archived in `docs/archive/` (latest: `todo-2026-10-30.md`). Backlog: `docs/pm/BACKLOG.md`.
@@ -42,18 +47,18 @@ Every new sound is silent until it has a clip. To hear them, drop any test clip 
 
 First run Tools > Flames of Faith > UI Revamp > Restyle Settings once, so the panel gets the two sliders. Tunables: the Hit feel rows on `Resources/Feel/GameFeelSettings.asset`. `DevTools/Stats` can lower Max Health to make heavy hits easy.
 
-- [ ] Heavy hit (20% of max health or more): a small shake, a very short freeze and a medium rumble on a gamepad. Small hits do nothing. Several heavy hits in a row don't chain (0.5 s cooldown).
-- [ ] Event damage (a non-combat option) never shakes.
-- [ ] Death: a medium shake, slow motion (40%) for a moment, a strong rumble; the death screen then works normally, and Retry starts at full speed.
-- [ ] Corruptor killed in time: a medium shake, a short freeze and a rumble. An escape does nothing.
-- [ ] Boss second phase: a large shake and a strong rumble. Boss killed: a large shake, slow motion (30%) for 1 s, then the end screen; Main Menu from it, then a new run, plays at full speed.
-- [ ] Routine hits and kills never shake, even at high Attack Speed with the Whirlwind.
-- [ ] Pause during a hit stop or the boss's slow motion: resuming plays at the right speed (still slowed if it hasn't ended, full speed if it ended during the pause).
-- [ ] The Corruptor camera focus still pans and restores normally around a shake.
-- [ ] No shake on the map.
-- [ ] Settings (main menu and pause): Screen shake and Rumble sliders in Gameplay, reachable with the gamepad. At 0 there is no shake / rumble; the values survive a restart.
-- [ ] Rumble on a real gamepad never stays on: after it ends, after pausing mid-rumble, after a scene load, after Alt-Tab, and after unplugging the gamepad mid-rumble.
-- [ ] With the keyboard and mouse active, no rumble.
+- [x ] Heavy hit (20% of max health or more): a small shake, a very short freeze and a medium rumble on a gamepad. Small hits do nothing. Several heavy hits in a row don't chain (0.5 s cooldown).
+- [x ] Event damage (a non-combat option) never shakes.
+- [x ] Death: a medium shake, slow motion (40%) for a moment, a strong rumble; the death screen then works normally, and Retry starts at full speed.
+- [x ] Corruptor killed in time: a medium shake, a short freeze and a rumble. An escape does nothing.
+- [x ] Boss second phase: a large shake and a strong rumble. Boss killed: a large shake, slow motion (30%) for 1 s, then the end screen; Main Menu from it, then a new run, plays at full speed.
+- [x ] Routine hits and kills never shake, even at high Attack Speed with the Whirlwind.
+- [x ] Pause during a hit stop or the boss's slow motion: resuming plays at the right speed (still slowed if it hasn't ended, full speed if it ended during the pause).
+- [x ] The Corruptor camera focus still pans and restores normally around a shake.
+- [x ] No shake on the map.
+- [x ] Settings (main menu and pause): Screen shake and Rumble sliders in Gameplay, reachable with the gamepad. At 0 there is no shake / rumble; the values survive a restart.
+- [x ] Rumble on a real gamepad never stays on: after it ends, after pausing mid-rumble, after a scene load, after Alt-Tab, and after unplugging the gamepad mid-rumble.
+- [x ] With the keyboard and mouse active, no rumble.
 
 ## Opening cutscene and Pilgrim's Chronicle (branch feature/opening-cutscene)
 
