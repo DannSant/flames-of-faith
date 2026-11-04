@@ -3,6 +3,7 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-11-04
+- **Unused sound clips are kept for now** (owner): the 711 clips the fixes session found unused (118 MB, listed in `docs/features/tester-fixes-v052-unused-clips.md`) stay in `Assets/Sounds/SFX/Packs/`. Out of `Resources/`, they no longer ship in the build, and some may fill the sounds that are still silent (no male voice is wired yet).
 - **Game feel merged into `develop`** (owner, fast-forward). Decided along the way:
   - **Clips come from sound packs** the owner added (a UI pack and two voice packs), so the sound list's brief needs no other source for now.
   - **Player sounds get per-class voices** (owner, during review): a sound can have clips per class, with the shared clips as the fallback.

@@ -13,7 +13,7 @@ _Last updated: 2026-11-04 by the Orchestrator._
 - `feature/opening-cutscene` and `feature/game-feel` are merged and can be deleted, locally and on `origin`, with the owner's OK.
 
 ## Resume here (Orchestrator, 2026-11-04)
-- **Waiting on the owner:** whether to delete the 711 unused sound clips (118 MB, listed on the fixes branch); class options for Faelin and Werlem at the Shrine; sending the 7 page briefs to the art team and agreeing the size; the two open sound checks in `todo.md`; the five lore questions in `docs/features/act-ii-design.md`.
+- **Waiting on the owner:** class options for Faelin and Werlem at the Shrine; sending the 7 page briefs to the art team and agreeing the size; the two open sound checks in `todo.md`; the five lore questions in `docs/features/act-ii-design.md`.
 - **Next code:** merge the tester fixes once their manual checks pass (spec `docs/features/tester-fixes-v052.md`, on the branch), then CI/CD (18, needs a spec). The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
 - **Tester feedback on v0.5.2** has started arriving (top of `todo.md`). Triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
 - **When the two sound checks pass:** move `docs/features/game-feel.md` to the archive.
