@@ -414,7 +414,7 @@ Code is in `Scripts/Saving/`. `RunSaveService` (static) writes `RunSaveData` to 
   - Map: `ExitGame` saves, then goes to the main menu.
   - The warnings use the reusable `ConfirmDialogUI` (`Show(message, onConfirm, onCancel)`, or the OK-only `ShowInfo(message, onClose)`; prefab `Prefabs/UI/Misc/ConfirmDialogUI.prefab`).
 
-### Game feel (Nov 2026, in progress on `feature/game-feel`)
+### Game feel (Nov 2026, merged into `develop`)
 
 Spec: `docs/features/game-feel.md`. Code in `Scripts/Feel/` (`Game.Feel`); every tunable on **`GameFeelSettings`** (`Resources/Feel/GameFeelSettings.asset`, `GameFeelSettings.Instance`). It's look and feel, not a balance table: no Sheets pipeline.
 - **Low-health warning:** `LowHealthVignetteUI` (`Game.UI`) is a full-screen red vignette in UIMain, the canvas's first child (under the HUD and every window), no raycasts. `HudRestyler` places it; the art is a placeholder, `Sprites/UI/Feedback/LowHealthVignette.png` (clear middle; overwrite the PNG to replace it).

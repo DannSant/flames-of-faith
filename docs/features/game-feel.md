@@ -1,8 +1,8 @@
 # Feature: Game feel (low-health warning, sound, hit feel)
 
-- **Status:** ready
+- **Status:** implemented and merged into `develop` (fast-forward, pushed, 2026-11-04). Manual tests passed except two sound checks in chunk 2 (heartbeat, the once-per-event sounds) and an optional one.
 - **Branch:** `feature/game-feel` (off `develop`)
-- **Owner session:** implementation session, not started
+- **Owner session:** implementation session (done)
 - **Related docs:** `docs/pm/BACKLOG.md` items 31, 32, 33 (34, the VFX pass, is out of scope); `CLAUDE.md` "UI stays decoupled from game logic", "UI standards", "Gamepad & UI navigation", "Scene bootstrapping flow", "Balance data"
 
 ## Goal

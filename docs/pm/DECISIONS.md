@@ -2,6 +2,13 @@
 
 Newest first. Format: date, decision, reason.
 
+## 2026-11-04
+- **Game feel merged into `develop`** (owner, fast-forward). Decided along the way:
+  - **Clips come from sound packs** the owner added (a UI pack and two voice packs), so the sound list's brief needs no other source for now.
+  - **Player sounds get per-class voices** (owner, during review): a sound can have clips per class, with the shared clips as the fallback.
+  - **The heartbeat starts at intensity 0.8** (owner, play-testing), so it marks only the lowest health, not every moment the vignette shows.
+- **Tester feedback triage:** boss health goes into the balance pass (BACKLOG 5); knockback during melee swings and Ayteel's Shrine option are new items (35, 36).
+
 ## 2026-11-01
 - **Run structure (GDD Q14), owner:** one Pilgrimage through all four acts in a row; death starts over from Act I. Why: builds keep growing, the boss reward has a use, and it needs no act select or starting packages. The demo's Act I ending stays as it is. Cost: about 1.5 hours for a full clear (estimated) and one difficulty curve to about 32 levels beaten. Full comparison: `docs/features/act-ii-design.md` section 1.
 - **Act II design, owner** (same spec):

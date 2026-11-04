@@ -1,6 +1,6 @@
 # Backlog
 
-_Last updated: 2026-11-02 (opening cutscene merged, game feel added). Ordered around the v0.5.2 tester round, then the Steam demo (December 2026). Each line: item, then why. Numbers stay stable, because specs refer to them._
+_Last updated: 2026-11-04 (game feel merged, first v0.5.2 tester feedback triaged). Ordered around the v0.5.2 tester round, then the Steam demo (December 2026). Each line: item, then why. Numbers stay stable, because specs refer to them._
 
 ## Now (while testers play)
 1. **Tester build v0.5.2:** released on 2026-10-30 (`main`, tag `v0.5.2`, patch notes in `PatchNotes/notas-desde-v0.5.1.md`). Left: make the Windows build, send it to testers, collect feedback. Why: a lot changed since v0.5.1, and every manual test has passed.
@@ -10,12 +10,17 @@ _Last updated: 2026-11-02 (opening cutscene merged, game feel added). Ordered ar
 
 ## Before the Steam demo (musts, trimmed 2026-10-29)
 **Code**
-5. **Balance pass: enemy and player damage**, with the designer in the sheet, after this round of tester feedback. Why: the Whirlwind now deals several times its old crowd damage, and Attack Speed was cut hard. Also check how far apart a demo player arrives at the boss: the fewest fights to reach it are 3 on `act1`, against 7 on `act1B` and 6 on `act1C` (checked 2026-11-01).
+5. **Balance pass: enemy and player damage**, with the designer in the sheet, after this round of tester feedback. Why: the Whirlwind now deals several times its old crowd damage, and Attack Speed was cut hard. Also check how far apart a demo player arrives at the boss: the fewest fights to reach it are 3 on `act1`, against 7 on `act1B` and 6 on `act1C` (checked 2026-11-01). Testers (v0.5.2) ask for **more boss health**; boss numbers live on the boss's own assets, outside the enemy damage system.
 
-**Game feel** (added 2026-11-02; 31 to 33 specced in `docs/features/game-feel.md`, branch `feature/game-feel`, 34 not). Today's feedback is hit flashes, damage numbers and knockback only. Keep it restrained: the Corrupted outline exists because VFX had got too noisy.
-31. **Low-health warning:** a pulsing blood vignette at the screen edges below a health threshold, with a heartbeat once item 33 has one. Code only, on a generated vignette sprite. **First in this group.** Why: testers often miss their low health, because the bar is top left and their eyes are on the middle. It's a usability fix more than polish.
-32. **Hit feel:** camera shake (Cinemachine Impulse, nothing is wired today), hit stop and short slow motion on big moments (boss phases and kill, Corruptor kill, heavy hits on the player), gamepad rumble, and a Settings slider for shake and rumble that goes to off. Never shake on routine hits: with auto-attack and the Whirlwind it would never stop. `PauseManager` sets `timeScale` directly, so hit stop needs one owner of it. Why: needs no art, and a demo sells in its first minutes.
-33. **Sound pass:** the game has 15 SFX, 8 of them sword swings. Nothing plays for the player being hurt, dash, pickups (XP, Golden Chronos, Grace, items), level-up, wave start and end, shop purchases, UI clicks, the Corruptor, or boss abilities. Code: sound hooks, plus a data-driven table if it stays small. Rising pitch on chained XP pickups is cheap and worth having. Also `PlaySFX` sets the pitch on a shared source, which re-pitches sounds already playing. **Clips need a source (owner's call);** the spec's Sound list is the brief. Why: the biggest gap in feel, and testers notice silence.
+**From v0.5.2 tester feedback** (2026-11-04, from `todo.md`)
+35. **Melee enemies resist knockback while attacking:** the LightDevourer (the only melee attacker) shouldn't be pushed out of its swing. Small fix, likely in `AIMeleeAttacker` / the knockback behavior during `context.isShooting`. Pairs with item 9 if the art lands first. Why: being knocked mid-swing makes the warning lie about where the hit lands.
+36. **A class option for Ayteel at the Wayside Shrine:** she has a class line there but no option, which feels off. Narrative work in the event's asset, within the content rules (at most one class option per class, a first-screen option risks a cost). Why: the other pilgrims' class content sets the expectation.
+37. **Move the sound packs out of `Resources/`:** all 736 clips (124 MB) sit under `Resources/Audio/`, so every one ships in the build, used or not. Move them to a non-Resources folder; the `GameSoundTable` and prefab references keep working, and only referenced clips ship. Do it before the demo build. Why: build and download size.
+
+**Game feel** (spec `docs/features/game-feel.md`). Keep it restrained: the Corrupted outline exists because VFX had got too noisy.
+31. **Low-health warning:** done 2026-11-04, merged, manual tests passed. The vignette is a placeholder sprite (art list).
+32. **Hit feel:** done 2026-11-04, merged, manual tests passed: shake, hit stop and slow motion, rumble on five moments, Settings sliders. Shake strengths are first guesses; tune them while play-testing.
+33. **Sound pass:** done 2026-11-04, merged, with clips from the owner's packs and per-class voices. Left: two manual checks (the heartbeat, the once-per-event sounds) and whatever `Tools/Flames of Faith/Audio/Report Silent Sounds` still lists. See item 37 for the packs' build size.
 34. **VFX pass:** after the re-designed characters and scenarios arrive (items 6 and 7), because effects must match the new palette and sizes. Why: doing it now means doing it twice.
 
 **Waiting on art**
@@ -38,7 +43,7 @@ _Moved out of the demo on 2026-10-29 to protect the December date; candidates fo
 17. **Rewrite `OnePageGDD.md`** in English from the Ten Page GDD and `Lore.md`. Why: outdated, Spanish, contradicts the lore; useful for the Steam page.
 
 ## Delivery (not started)
-18. **CI/CD:** GitHub Actions Unity build when `develop` is merged into `main`, Steam deploy (SteamPipe). Needs a Unity license strategy (GameCI). Why: repeatable demo builds; worth having before the demo goes up. **The best code to take now, alongside game feel,** since it has a December date and touches no scene or prefab.
+18. **CI/CD:** GitHub Actions Unity build when `develop` is merged into `main`, Steam deploy (SteamPipe). Needs a Unity license strategy (GameCI). Why: repeatable demo builds; worth having before the demo goes up. **The best code to take next,** since it has a December date and touches no scene or prefab. Needs a spec.
 19. **EditMode tests in CI** on every push (over 930 tests exist).
 
 ## For 1.0
