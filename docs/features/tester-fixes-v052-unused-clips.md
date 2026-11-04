@@ -1,0 +1,726 @@
+# Unused sound pack clips (tester-fixes-v052)
+
+Clips in `Assets/Sounds/SFX/Packs/` that nothing references (no sound table entry, prefab, scene, animation or other asset), found by GUID on 2026-11-04 after the packs left `Resources/`. They no longer ship in builds. **Nothing was deleted**: the owner decides, and some may fill the silent sounds.
+
+Totals: 736 clips in the packs, 25 used, **711 unused (118.1 MB)**.
+
+
+## Fantasy UI SFX - Lite Edition: 200 clips, 50.1 MB
+
+- Fantasy UI SFX - Lite Edition/Armor 1-1.wav
+- Fantasy UI SFX - Lite Edition/Armor 1-2.wav
+- Fantasy UI SFX - Lite Edition/Armor 1-3.wav
+- Fantasy UI SFX - Lite Edition/Armor 1-4.wav
+- Fantasy UI SFX - Lite Edition/Armor 1-5.wav
+- Fantasy UI SFX - Lite Edition/Arrow & Bow 1-1.wav
+- Fantasy UI SFX - Lite Edition/Arrow & Bow 1-2.wav
+- Fantasy UI SFX - Lite Edition/Arrow & Bow 1-5.wav
+- Fantasy UI SFX - Lite Edition/Arrow & Bow 2-2.wav
+- Fantasy UI SFX - Lite Edition/Arrow & Bow 2-3.wav
+- Fantasy UI SFX - Lite Edition/Arrow & Bow 2-7.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 1-1.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 1-10.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 1-12.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 1-5.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 1-6.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 1-8.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-2.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-3.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-4.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-5.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-6.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-7.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 2-8.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 3-2.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 3-6.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 3-7.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 3-9.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 4-1.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 4-3.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 4-7.wav
+- Fantasy UI SFX - Lite Edition/Bag Handle 4-8.wav
+- Fantasy UI SFX - Lite Edition/Blacksmith 1-1.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 1-2.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 1-4.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 2-1.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 2-2.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 2-3.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 2-4.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 3-1.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 3-2.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 4-2.wav
+- Fantasy UI SFX - Lite Edition/Blacksmithing 4-3.wav
+- Fantasy UI SFX - Lite Edition/Book 2-1.wav
+- Fantasy UI SFX - Lite Edition/Book Handle 1-2.wav
+- Fantasy UI SFX - Lite Edition/Book Handle 1-3.wav
+- Fantasy UI SFX - Lite Edition/Book Handle 1-4.wav
+- Fantasy UI SFX - Lite Edition/Book Handle 1-5.wav
+- Fantasy UI SFX - Lite Edition/Book Page 1-2.wav
+- Fantasy UI SFX - Lite Edition/Book Page 1-3.wav
+- Fantasy UI SFX - Lite Edition/Book Page 1-4.wav
+- Fantasy UI SFX - Lite Edition/Book Page 1-5.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 1-1.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 1-3.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 1-4.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 2-1.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 2-3.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 2-4.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 3-1.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 3-2.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 3-4.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 4-1.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 4-2.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 5-2.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 5-3.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 5-4.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 5-5.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 6-1.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 6-3.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 6-5.wav
+- Fantasy UI SFX - Lite Edition/Building Interface 6-7.wav
+- Fantasy UI SFX - Lite Edition/Card Draw 1-1.wav
+- Fantasy UI SFX - Lite Edition/Card Draw 1-2.wav
+- Fantasy UI SFX - Lite Edition/Card Draw 2-1.wav
+- Fantasy UI SFX - Lite Edition/Card Draw 2-2.wav
+- Fantasy UI SFX - Lite Edition/Card Draw 2-3.wav
+- Fantasy UI SFX - Lite Edition/Card Draw 3-2.wav
+- Fantasy UI SFX - Lite Edition/Card Place 1-1.wav
+- Fantasy UI SFX - Lite Edition/Card Place 1-5.wav
+- Fantasy UI SFX - Lite Edition/Card Place 1-6.wav
+- Fantasy UI SFX - Lite Edition/Card Place 1-8.wav
+- Fantasy UI SFX - Lite Edition/Card Place 2-1.wav
+- Fantasy UI SFX - Lite Edition/Coin Bag 1-1.wav
+- Fantasy UI SFX - Lite Edition/Coin Bag 1-2.wav
+- Fantasy UI SFX - Lite Edition/Coin Bag 2-1.wav
+- Fantasy UI SFX - Lite Edition/Coin Bag 2-2.wav
+- Fantasy UI SFX - Lite Edition/Coin Bag 3-1.wav
+- Fantasy UI SFX - Lite Edition/Coin Bag 3-2.wav
+- Fantasy UI SFX - Lite Edition/Coins 1-10.wav
+- Fantasy UI SFX - Lite Edition/Coins 1-7.wav
+- Fantasy UI SFX - Lite Edition/Coins 1-9.wav
+- Fantasy UI SFX - Lite Edition/Coins 2-1.wav
+- Fantasy UI SFX - Lite Edition/Coins 2-2.wav
+- Fantasy UI SFX - Lite Edition/Coins 2-3.wav
+- Fantasy UI SFX - Lite Edition/Coins 2-4.wav
+- Fantasy UI SFX - Lite Edition/Coins 3-1.wav
+- Fantasy UI SFX - Lite Edition/Coins 3-2.wav
+- Fantasy UI SFX - Lite Edition/Coins 3-3.wav
+- Fantasy UI SFX - Lite Edition/Coins 3-4.wav
+- Fantasy UI SFX - Lite Edition/Coins 3-5.wav
+- Fantasy UI SFX - Lite Edition/Coins 3-6.wav
+- Fantasy UI SFX - Lite Edition/Coins 4-06.wav
+- Fantasy UI SFX - Lite Edition/Dice Multiple 1-1.wav
+- Fantasy UI SFX - Lite Edition/Dice Multiple 1-2.wav
+- Fantasy UI SFX - Lite Edition/Dice Multiple 1-3.wav
+- Fantasy UI SFX - Lite Edition/Dice Shake 1 Loop.wav
+- Fantasy UI SFX - Lite Edition/Dice Shaking 1-1.wav
+- Fantasy UI SFX - Lite Edition/Dice Shaking 1-2.wav
+- Fantasy UI SFX - Lite Edition/Dice Single Drop 1-1.wav
+- Fantasy UI SFX - Lite Edition/Dice Single Drop 1-2.wav
+- Fantasy UI SFX - Lite Edition/Dice Single Drop 2-1.wav
+- Fantasy UI SFX - Lite Edition/Dice Single Drop 2-2.wav
+- Fantasy UI SFX - Lite Edition/Food Eat 02.wav
+- Fantasy UI SFX - Lite Edition/Food Eat 03.wav
+- Fantasy UI SFX - Lite Edition/Food Eat 05.wav
+- Fantasy UI SFX - Lite Edition/Food Eat 06.wav
+- Fantasy UI SFX - Lite Edition/Interface 1-1.wav
+- Fantasy UI SFX - Lite Edition/Interface 1-2.wav
+- Fantasy UI SFX - Lite Edition/Interface 1-3.wav
+- Fantasy UI SFX - Lite Edition/Interface 1-5.wav
+- Fantasy UI SFX - Lite Edition/Interface 2-2.wav
+- Fantasy UI SFX - Lite Edition/Interface 2-3.wav
+- Fantasy UI SFX - Lite Edition/Interface 3-1.wav
+- Fantasy UI SFX - Lite Edition/Interface 3-2.wav
+- Fantasy UI SFX - Lite Edition/Interface 3-3.wav
+- Fantasy UI SFX - Lite Edition/Interface 4-1.wav
+- Fantasy UI SFX - Lite Edition/Interface 4-2.wav
+- Fantasy UI SFX - Lite Edition/Interface 5-1.wav
+- Fantasy UI SFX - Lite Edition/Interface 5-3.wav
+- Fantasy UI SFX - Lite Edition/Interface 6-1.wav
+- Fantasy UI SFX - Lite Edition/Interface 6-3.wav
+- Fantasy UI SFX - Lite Edition/Interface 6-4.wav
+- Fantasy UI SFX - Lite Edition/Key & Lock 1-1.wav
+- Fantasy UI SFX - Lite Edition/Key & Lock 1-2.wav
+- Fantasy UI SFX - Lite Edition/Key & Lock 1-4.wav
+- Fantasy UI SFX - Lite Edition/Key & Lock 1-5.wav
+- Fantasy UI SFX - Lite Edition/Key & Lock 2-1.wav
+- Fantasy UI SFX - Lite Edition/Key & Lock 2-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 1-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 1-3.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 10-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 10-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 10-3.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 10-4.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 2-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 3-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 3-3.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 4-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 4-3.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 5-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 5-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 6-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 6-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 6-3.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 7-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 8-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 8-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 9-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Interface 9-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Texture Chimes 1-1.wav
+- Fantasy UI SFX - Lite Edition/Magical Texture Chimes 1-2.wav
+- Fantasy UI SFX - Lite Edition/Magical Texture Chimes 1-3.wav
+- Fantasy UI SFX - Lite Edition/Magical Texture Chimes 1-4.wav
+- Fantasy UI SFX - Lite Edition/Nail Wood 1-1.wav
+- Fantasy UI SFX - Lite Edition/Nail Wood 1-2.wav
+- Fantasy UI SFX - Lite Edition/Nail Wood 1-3.wav
+- Fantasy UI SFX - Lite Edition/Nail Wood 1-4.wav
+- Fantasy UI SFX - Lite Edition/Nail Wood 2-1.wav
+- Fantasy UI SFX - Lite Edition/Objects Small 1-1.wav
+- Fantasy UI SFX - Lite Edition/Objects Small 1-2.wav
+- Fantasy UI SFX - Lite Edition/Objects Small 1-3.wav
+- Fantasy UI SFX - Lite Edition/Potion Item 1-1.wav
+- Fantasy UI SFX - Lite Edition/Potion Item 1-2.wav
+- Fantasy UI SFX - Lite Edition/Potion Item 1-3.wav
+- Fantasy UI SFX - Lite Edition/Rock Impact 37.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 1-1.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 1-2.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 1-3.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 1-4.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 1-5.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 2-1.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 2-2.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 2-3.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 2-4.wav
+- Fantasy UI SFX - Lite Edition/Sawing Wood 2-5.wav
+- Fantasy UI SFX - Lite Edition/Special Interface 1-1.wav
+- Fantasy UI SFX - Lite Edition/Special Interface 3-1.wav
+- Fantasy UI SFX - Lite Edition/Special Interface 7-1.wav
+- Fantasy UI SFX - Lite Edition/Weapon 1-2.wav
+- Fantasy UI SFX - Lite Edition/Weapon 1-4.wav
+- Fantasy UI SFX - Lite Edition/Weapon 1-5.wav
+- Fantasy UI SFX - Lite Edition/Wood Impact 01.wav
+- Fantasy UI SFX - Lite Edition/Wood Impact 02.wav
+- Fantasy UI SFX - Lite Edition/Wood Impact 03.wav
+- Fantasy UI SFX - Lite Edition/Wood Impact 04.wav
+- Fantasy UI SFX - Lite Edition/Wood Impact 05.wav
+- Fantasy UI SFX - Lite Edition/Writting on Paper 1-1.wav
+- Fantasy UI SFX - Lite Edition/Writting on Paper 1-3.wav
+- Fantasy UI SFX - Lite Edition/Writting on Paper 2-1.wav
+- Fantasy UI SFX - Lite Edition/Writting on Paper 2-2.wav
+
+## Voice_Female: 242 clips, 30.6 MB
+
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_01.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_02.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_03.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_04.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_05.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_06.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_07.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_08.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V1_Attack_Mono_09.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_01.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_02.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_03.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_04.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_05.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_06.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_07.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_08.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_09.wav
+- Voice_Female/Voice_Female_Attack/Voice_Female_V2_Attack_Mono_10.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Frozen_Loop_Mono.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Gasp_Mono_01.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Gasp_Mono_02.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Gasp_Mono_03.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Gasp_Mono_04.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Gasp_Mono_05.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Moderate_Loop_Mono.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Normal_Loop_Mono.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Shocked_Mono_01.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Shocked_Mono_02.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Shocked_Mono_03.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Shocked_Mono_04.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Shocked_Mono_05.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_01.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_02.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_03.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_04.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_05.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_06.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_07.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_08.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_09.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_10.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_11.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_12.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Single_Mono_13.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V1_Breath_Strong_Loop_Mono.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V2_Breath_Gasp_Mono_01.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V2_Breath_Gasp_Mono_02.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V2_Breath_Gasp_Mono_03.wav
+- Voice_Female/Voice_Female_Breath/Voice_Female_V2_Breath_Gasp_Mono_04.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V1_Cough_Multiple_Mono_01.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V1_Cough_Multiple_Mono_02.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V1_Cough_Multiple_Mono_03.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V1_Cough_Multiple_Mono_04.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V1_Cough_Multiple_Mono_05.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V1_Cough_Multiple_Mono_06.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V2_Cough_Multiple_Mono_01.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V2_Cough_Multiple_Mono_02.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V2_Cough_Multiple_Mono_03.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V2_Cough_Multiple_Mono_04.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V2_Cough_Multiple_Mono_05.wav
+- Voice_Female/Voice_Female_Cough/Voice_Female_V2_Cough_Multiple_Mono_06.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_01.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_02.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_03.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_04.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_05.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_06.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_07.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_08.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_09.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_10.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_11.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_12.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_13.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_14.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_15.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_16.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_17.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_18.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_19.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V1_Effort_Mono_20.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_01.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_02.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_03.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_04.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_05.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_06.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_07.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_08.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_09.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_10.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_11.wav
+- Voice_Female/Voice_Female_Effort/Voice_Female_V2_Effort_Mono_12.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Long_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_08.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_09.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_10.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_11.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Laugh_Short_Mono_12.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Nod_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_08.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_09.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Close_Mono_10.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Open_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Open_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Open_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Open_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Reflexion_Mouth_Open_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_08.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_09.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V1_Sigh_Mono_10.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_08.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Long_Mono_09.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Short_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Short_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Short_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Short_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Laugh_Short_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_06.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_07.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_08.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Close_Mono_09.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Open_Mono_01.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Open_Mono_02.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Open_Mono_03.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Open_Mono_04.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Open_Mono_05.wav
+- Voice_Female/Voice_Female_Expressions/Voice_Female_V2_Reflexion_Mouth_Open_Mono_06.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Mono_01.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Mono_02.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Mono_03.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_06.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_07.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_08.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_09.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_10.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_11.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V1_Hit_Short_Mono_12.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Mono_01.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Mono_02.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Mono_03.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Mono_04.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_01.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_02.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_03.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_04.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_05.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_06.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_07.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_08.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_09.wav
+- Voice_Female/Voice_Female_Hit/Voice_Female_V2_Hit_Short_Mono_10.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_01.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_02.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_03.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_04.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_05.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_06.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_07.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Jump_Mono_08.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_01.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_02.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_03.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_04.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_05.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_06.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_07.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_08.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_09.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_10.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V1_Land_Mono_11.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_01.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_02.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_03.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_04.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_05.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_06.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_07.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Jump_Mono_08.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_01.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_02.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_03.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_04.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_05.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_06.wav
+- Voice_Female/Voice_Female_Jump&Land/Voice_Female_V2_Land_Mono_07.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V1_Throat_Cleaning_Mono_01.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V1_Throat_Cleaning_Mono_02.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V1_Throat_Cleaning_Mono_03.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V1_Throat_Cleaning_Mono_04.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V1_Throat_Cleaning_Mono_05.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V2_Throat_Cleaning_Mono_01.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V2_Throat_Cleaning_Mono_02.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V2_Throat_Cleaning_Mono_03.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V2_Throat_Cleaning_Mono_04.wav
+- Voice_Female/Voice_Female_Throat_Cleaning/Voice_Female_V2_Throat_Cleaning_Mono_05.wav
+
+## Voice_Male: 269 clips, 37.3 MB
+
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_01.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_02.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_03.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_04.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_05.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_06.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_07.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Mono_08.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_01.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_02.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_03.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_04.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_05.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_06.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_07.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_08.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_09.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V1_Attack_Short_Mono_10.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_01.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_02.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_03.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_04.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_05.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_06.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_07.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Mono_08.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_01.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_02.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_03.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_04.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_05.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_06.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_07.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_08.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_09.wav
+- Voice_Male/Voice_Male_Attack/Voice_Male_V2_Attack_Short_Mono_10.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Frozen_Loop_Mono.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Gasp_Mono_01.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Gasp_Mono_02.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Gasp_Mono_03.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Gasp_Mono_04.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Gasp_Mono_05.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Mouth_Moderate_Sequence_Mono.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Mouth_Normal_Loop_Mono.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Mouth_Strong_Loop_Mono.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Shocked_Mono_01.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Shocked_Mono_02.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Shocked_Mono_03.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Shocked_Mono_04.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V1_Breath_Shocked_Mono_05.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Frozen_Loop_Mono.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Gasp_Mono_01.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Gasp_Mono_02.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Gasp_Mono_03.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Gasp_Mono_04.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Gasp_Mono_05.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Gasp_Mono_06.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Moderate_Loop_Mono.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Shocked_Mono_01.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Shocked_Mono_02.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Shocked_Mono_03.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Shocked_Mono_04.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Shocked_Mono_05.wav
+- Voice_Male/Voice_Male_Breath/Voice_Male_V2_Breath_Strong_Loop_Mono.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Important_Mono_01.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Important_Mono_02.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Important_Mono_03.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Mono_01.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Mono_02.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Mono_03.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Mono_04.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V1_Cough_Multiple_Mono_05.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V2_Cough_Multiple_Mono_01.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V2_Cough_Multiple_Mono_02.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V2_Cough_Multiple_Mono_03.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V2_Cough_Multiple_Mono_04.wav
+- Voice_Male/Voice_Male_Cough/Voice_Male_V2_Cough_Multiple_Mono_05.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_01.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_02.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_03.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_04.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_05.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_06.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_07.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_08.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_09.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_10.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_11.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_12.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_13.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_14.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V1_Effort_Mono_15.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_01.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_02.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_03.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_04.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_05.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_06.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_07.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_08.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_09.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_10.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_11.wav
+- Voice_Male/Voice_Male_Effort/Voice_Male_V2_Effort_Mono_12.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Long_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Long_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Long_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Long_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Long_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Laugh_Short_Mono_07.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Close_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Close_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Close_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Close_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Close_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Close_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Open_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Open_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Open_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Open_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Reflexion_Mouth_Open_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Sigh_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Sigh_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Sigh_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Sigh_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Long_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Long_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Long_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Long_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Long_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Long_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_07.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_08.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Laugh_Short_Mono_09.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Nod_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Nod_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Nod_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Nod_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Nod_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Nod_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Close_Mono_07.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Open_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Open_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Open_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Open_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Open_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Reflexion_Mouth_Open_Mono_06.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Sigh_Mono_01.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Sigh_Mono_02.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Sigh_Mono_03.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Sigh_Mono_04.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Sigh_Mono_05.wav
+- Voice_Male/Voice_Male_Expressions/Voice_Male_V2_Sigh_Mono_06.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_01.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_02.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_03.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_04.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_05.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_06.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Mono_07.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_01.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_02.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_03.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_04.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_05.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_06.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_07.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_08.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_09.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_10.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_11.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_12.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V1_Hit_Short_Mono_13.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_01.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_02.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_03.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_04.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_05.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_06.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_07.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Mono_08.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_01.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_02.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_03.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_04.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_05.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_06.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_07.wav
+- Voice_Male/Voice_Male_Hit/Voice_Male_V2_Hit_Short_Mono_08.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_01.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_02.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_03.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_04.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_05.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_06.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_07.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_08.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Jump_Mono_09.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_01.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_02.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_03.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_04.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_05.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_06.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_07.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_08.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_09.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_10.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_11.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V1_Land_Mono_12.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Jump_Mono_01.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Jump_Mono_02.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Jump_Mono_03.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Jump_Mono_04.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Jump_Mono_05.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Land_Mono_01.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Land_Mono_02.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Land_Mono_03.wav
+- Voice_Male/Voice_Male_Jump&Land/Voice_Male_V2_Land_Mono_04.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_01.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_02.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_03.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_04.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_05.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_06.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_07.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_08.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_09.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_10.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_11.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_12.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_13.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_14.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V1_Pain_Mono_15.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V2_Pain_Mono_01.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V2_Pain_Mono_02.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V2_Pain_Mono_03.wav
+- Voice_Male/Voice_Male_Pain/Voice_Male_V2_Pain_Mono_04.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V1_Throat_Cleaning_Mono_01.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V1_Throat_Cleaning_Mono_02.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V1_Throat_Cleaning_Mono_03.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V1_Throat_Cleaning_Mono_04.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V1_Throat_Cleaning_Mono_05.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V2_Throat_Cleaning_Mono_01.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V2_Throat_Cleaning_Mono_02.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V2_Throat_Cleaning_Mono_03.wav
+- Voice_Male/Voice_Male_Throat_Cleaning/Voice_Male_V2_Throat_Cleaning_Mono_04.wav
