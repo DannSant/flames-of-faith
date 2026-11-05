@@ -3,7 +3,7 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-11-05
-- **v0.5.3 released from `develop`** (owner): tagged on `develop`, not merged into `main`. `main` still ends at v0.5.2. Merge `develop` into `main` at the tag before CI/CD builds from `main`.
+- **v0.5.3 released from `develop`** (owner): tagged on `develop`. `bundleVersion` was then set to 0.5.3 and `main` fast-forwarded to `develop` (owner's OK, 2026-11-05), as v0.5.2 was. The tag stays where it is.
 - **Boss balance** (owner, from tester feedback): Taio'Sandir's health 2000 → 8000; contact damage tier 1 → 2, projectile tier 0 → 2.
 
 ## 2026-11-04
