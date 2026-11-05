@@ -2,6 +2,10 @@
 
 Newest first. Format: date, decision, reason.
 
+## 2026-11-05
+- **v0.5.3 released from `develop`** (owner): tagged on `develop`, not merged into `main`. `main` still ends at v0.5.2. Merge `develop` into `main` at the tag before CI/CD builds from `main`.
+- **Boss balance** (owner, from tester feedback): Taio'Sandir's health 2000 → 8000; contact damage tier 1 → 2, projectile tier 0 → 2.
+
 ## 2026-11-04
 - **Unused sound clips are kept for now** (owner): the 711 clips the fixes session found unused (118 MB, listed in `docs/features/tester-fixes-v052-unused-clips.md`) stay in `Assets/Sounds/SFX/Packs/`. Out of `Resources/`, they no longer ship in the build, and some may fill the sounds that are still silent (no male voice is wired yet).
 - **Game feel merged into `develop`** (owner, fast-forward). Decided along the way:

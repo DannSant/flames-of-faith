@@ -1,10 +1,11 @@
 # Project state
 
-_Last updated: 2026-11-04 by the Orchestrator._
+_Last updated: 2026-11-05 by the Orchestrator._
 
 ## Milestone
-- **Current:** tester round on v0.5.2, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
-- **Last tagged release:** `v0.5.2` (on `main`, 2026-10-30).
+- **Current:** tester round on v0.5.3, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
+- **Last tagged release:** `v0.5.3` (2026-11-04, tag pushed). It's tagged on `develop` (`50631ef`), not on `main`, which still ends at v0.5.2. Patch notes: `PatchNotes/notas-desde-v0.5.2.md`.
+- **In v0.5.3:** the opening cutscene and Pilgrim's Chronicle; game feel (low-health warning, sounds, shake, hit stop, rumble, Settings sliders); the three tester fixes; the boss at 4× health (2000 → 8000) with contact and projectile damage tier 2; Bolt of Darkness fragments now deal half the bolt's damage; Dreko Eye hit and death sounds.
 - **In v0.5.2:** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
 
 ## Git reality (checked 2026-11-04)
@@ -51,6 +52,8 @@ _Last updated: 2026-11-04 by the Orchestrator._
 Game feel, chunk 2: the heartbeat, and the once-per-event sounds (dodge, shield, dash, pickups, wave start and end, Corruptor, boss); one optional check (enemy attack and boss cast sounds). Everything else in `todo.md` is ticked.
 
 ## Known open issues
+- **`bundleVersion` still says 0.5.2** in `ProjectSettings/ProjectSettings.asset`, while the tag and the main menu label say v0.5.3. A build reports 0.5.2 as its version (`Application.version`, `Player.log`). Set it to 0.5.3 before the next build.
+- **12 game sounds have no clip yet** (checked 2026-11-05): Dash, LevelUp, WaveStart, WaveEnd, LowHealthHeartbeat, CorruptorAppears / Killed / Escaped, BossPhaseChange, BossDeath, PlayerDodge, ShieldAbsorb. No class has its own voice (every `classClips` is empty), so all three pilgrims share the hurt and death voices. The v0.5.3 notes and the tester guide say so.
 - Unreproduced: "level-up picks don't raise stats".
 - `MapUtils.cs` (legacy Map) may be unused.
 - `CharacterClassData.animatorController` is effectively unused (the prefab's controller plays), so a new character must set both; a test keeps them the same.

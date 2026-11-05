@@ -2,7 +2,7 @@
 
 ¡Bienvenido al equipo de pruebas! Esta guía resume qué es el juego, cómo funciona cada sistema y, sobre todo, **en qué necesitamos tu opinión**. No hace falta leerla entera antes de jugar: juega una primera partida a ciegas (esa primera impresión vale mucho) y vuelve aquí después.
 
-> **Sobre tu versión:** las partes marcadas con 🆕 llegan en la build siguiente a la v0.5.2. Si tu build es la v0.5.2, todavía no las tiene.
+> **Sobre tu versión:** esta guía corresponde a la **v0.5.3**. Las partes marcadas con 🆕 son nuevas en esta versión; si tu build es anterior, todavía no las tiene. El detalle de cada cambio está en las notas del parche.
 >
 > **Idioma:** el juego está en inglés por ahora (el español llegará en la versión 1.0). Por eso los nombres del juego aparecen aquí en inglés, tal y como los verás en pantalla.
 
@@ -143,13 +143,14 @@ Cada nivel cuesta un 20 % más de experiencia que el anterior. Al subir eliges u
 | **Ley Charge** | Cuando un enemigo cargado recibe daño, un rayo salta a otro enemigo cercano |
 
 ### Eventos
-Son pequeñas historias. Las opciones no te dicen qué vas a ganar o perder: te dan una **pista** dentro de la historia. Algunas dependen de tus stats o de tu Grace, y otras llevan a más preguntas. Si respondes bien según la historia del mundo, ganas algo; si respondes mal, te cuesta algo. Cada personaje tiene frases propias y algunas opciones exclusivas. En una misma Pilgrimage un evento no se repite hasta que has visto todos.
+Son pequeñas historias. Las opciones no te dicen qué vas a ganar o perder: te dan una **pista** dentro de la historia. Algunas dependen de tus stats o de tu Grace, y otras llevan a más preguntas. Si respondes bien según la historia del mundo, ganas algo; si respondes mal, te cuesta algo. Cada personaje tiene frases propias y algunas opciones exclusivas; 🆕 en el **Wayside Shrine of Malien**, Ayteel tiene ahora una opción propia. En una misma Pilgrimage un evento no se repite hasta que has visto todos.
 
 ### Aviso de vida baja 🆕
-Cuando bajas del **30 % de vida** en un combate, los bordes de la pantalla laten en rojo. El latido es más fuerte y más rápido cuanto menos vida te queda, y con muy poca vida oirás un latido de corazón. Lo hemos añadido porque muchos testers no miraban la barra de vida, que está arriba a la izquierda. El dibujo es provisional.
+Cuando bajas del **30 % de vida** en un combate, los bordes de la pantalla laten en rojo. El latido es más fuerte y más rápido cuanto menos vida te queda. Lo hemos añadido porque muchos testers no miraban la barra de vida, que está arriba a la izquierda. El dibujo es provisional.
 
 ### Sonido y sensación de golpe 🆕
-- **Sonido nuevo:** recibir golpes, el dash, recoger cosas (la experiencia sube de tono si recoges varias seguidas), subir de nivel, el inicio y el final de cada oleada, la tienda, los menús, el Corruptor y el jefe. Los personajes tienen voces para los golpes, el dash, la muerte y la subida de nivel.
+- **Sonido nuevo:** recoger cosas (la experiencia sube de tono si recoges varias seguidas), la tienda, los botones y menús, y las páginas de la escena de apertura. Tu personaje se queja al recibir un golpe y tiene voz al morir.
+- **Todavía en silencio, a propósito:** el dash, la subida de nivel, el inicio y el final de las oleadas, el Corruptor, las fases del jefe, esquivar y el latido de corazón. Ya están preparados y tendrán sonido en una próxima versión.
 - **Momentos importantes:** los golpes fuertes, tu muerte, matar al Corruptor y las fases del jefe hacen temblar la cámara, congelan el juego un instante o lo ralentizan, y hacen vibrar el mando. Los golpes normales no hacen nada de esto, a propósito.
 - En **Settings > Gameplay** hay dos controles nuevos, **Screen shake** y **Rumble**, que van de 0 (desactivado) a 1.
 
@@ -164,13 +165,14 @@ Cuando bajas del **30 % de vida** en un combate, los bordes de la pantalla laten
 | **Explosive Slime** | Salta hacia ti y explota |
 | **Flame Shooter** | Flota detrás de ti y dispara bolas de fuego |
 | **Dreko Eye** | Camina, se para y dispara en abanico de tres |
-| **Light Devourer** | Golpea cuerpo a cuerpo y tiene mucha vida. Antes de golpear marca la zona en el suelo con un círculo rojo |
+| **Light Devourer** | Golpea cuerpo a cuerpo y tiene mucha vida. Antes de golpear marca la zona en el suelo con un círculo rojo. 🆕 Mientras golpea no se le puede empujar |
 | **Corruptor** | Aparece al final de cada oleada, huye de ti y dispara. Si no lo matas a tiempo, escapa |
 
 Cualquier enemigo puede aparecer **corrupto** (contorno morado): tiene más vida y hace más daño.
 
 **Jefe: Taio'Sandir**, un antiguo Dreko junto al Altar of Malien.
-- **Fase 1:** quédate junto al altar mientras su llama se llena (unos 100 s). En esta fase el jefe es invulnerable y verás **IMMUNE**. Aparece entre la niebla para lanzarte rayos de oscuridad e invoca Dreko Eyes que caminan hacia el altar: si llegan, la llama baja.
+- 🆕 En la v0.5.3 tiene **cuatro veces más vida** y golpea más fuerte.
+- **Fase 1:** quédate junto al altar mientras su llama se llena (unos 100 s). En esta fase el jefe es invulnerable y verás **IMMUNE**. Aparece entre la niebla para lanzarte rayos de oscuridad, que se rompen en fragmentos que también hacen daño 🆕, e invoca Dreko Eyes que caminan hacia el altar: si llegan, la llama baja.
 - **Fase 2:** con la llama llena, el jefe se vuelve vulnerable. Lanza rayos, ráfagas de proyectiles en arco y un dron que te persigue.
 
 ---
@@ -204,18 +206,20 @@ Esta es la parte más importante. No hace falta contestar a todo: céntrate en l
 
 ### Aviso de vida baja 🆕
 - ¿Te das cuenta a tiempo de que tienes poca vida?
-- ¿Molesta, tapa la acción o se queda corto? ¿El latido de corazón ayuda o cansa?
+- ¿Molesta, tapa la acción o se queda corto?
 
 ### Sonido y sensación de golpe 🆕
-- ¿Hay alguna acción que se sienta muda o que suene raro?
-- ¿Las voces encajan con cada personaje? ¿Se repiten demasiado?
+- ¿Hay algún sonido que suene raro, demasiado fuerte o demasiado repetido?
+- ¿La voz al recibir golpes y al morir encaja con tu personaje?
+- Aparte de los que todavía están en silencio, ¿echas en falta algún sonido?
 - ¿Los sonidos de los menús son agradables o pesados?
 - ¿El temblor de cámara, las pausas y la cámara lenta (al morir y al matar al jefe) se sienten bien, se pasan o se quedan cortos? ¿La vibración del mando?
 
 ### Combate y dificultad
 - ¿La dificultad sube de forma justa a lo largo del acto? ¿Algún enemigo te parece injusto?
 - ¿Se ve venir a tiempo el golpe del Light Devourer?
-- **Jefe:** ¿demasiado fácil o difícil? Otros testers ya nos han dicho que tiene poca vida. ¿Estás de acuerdo? ¿Se entiende la fase 1?
+- **Jefe:** 🆕 en la v0.5.3 tiene cuatro veces más vida, porque antes caía demasiado rápido. ¿Ahora es un reto justo, o se hace largo? ¿Se entiende la fase 1?
+- **Light Devourer:** 🆕 ya no se le puede empujar a mitad del golpe. ¿Se nota, y el aviso de su golpe ahora es fiable?
 - ¿Qué personaje te parece más fuerte y cuál más débil? ¿Por qué?
 - ¿Cuánto tarda una Pilgrimage completa hasta el jefe? Algunos mapas tienen caminos mucho más cortos que otros: ¿lo notas?
 
@@ -236,7 +240,7 @@ Esta es la parte más importante. No hace falta contestar a todo: céntrate en l
 ### Eventos
 - ¿Las pistas se entienden? ¿Los textos se hacen largos?
 - ¿Algún resultado te pareció injusto o no tuvo sentido?
-- ¿Echas en falta opciones propias de tu personaje en algún evento?
+- ¿Echas en falta opciones propias de tu personaje en algún evento? Si juegas con Ayteel, ¿qué te parece su opción nueva en el Wayside Shrine? 🆕
 
 ### Progresión entre partidas
 - ¿Los Favors que ganas te parecen suficientes? ¿Las mejoras del Skill Tree se notan?
