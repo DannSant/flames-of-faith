@@ -26,10 +26,19 @@ namespace Game.AI
         [SerializeField] private GameObject explotionVFX;
 
         private float damage;
+        private bool damageSet;
+
+        /// <summary>
+        /// The damage each spawned projectile deals. Whoever spawns this object must call it: the on-death explosion
+        /// behavior and the boss's Bolt of Darkness do. Without it the projectiles deal no damage.
+        /// </summary>
         public void Initialize(float damage)
         {
             this.damage = damage;
+            damageSet = true;
         }
+
+        public float Damage => damage;
 
         private void Start()
         {
@@ -46,6 +55,11 @@ namespace Game.AI
         private IEnumerator ProjectileExplotionRoutine()
         {
             yield return new WaitForSeconds(delayBeforeExplotion);
+
+            if (!damageSet)
+            {
+                Debug.LogWarning($"{name}: exploded without Initialize(damage), so its projectiles deal no damage.", this);
+            }
 
             float angleStep = 360f / projectileCount;
             float randomOffset = Random.Range(0f, 360f);
@@ -68,9 +82,9 @@ namespace Game.AI
                 if (projectile.TryGetComponent(out ProjectileMovement movement)) {
                     movement.SetDirection(direction);
                 }
-                  
-                Destroy(gameObject);
             }
+
+            Destroy(gameObject);
 
 
 

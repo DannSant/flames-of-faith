@@ -18,6 +18,7 @@ Spec: `docs/features/tester-fixes-v052.md`. Open the project once first so Unity
 - [ ] After its swing it can be knocked back again; same after a stun mid-swing (a Frost stun or similar) and after the Corruptor phase's camera freeze.
 - [ ] Wayside Shrine as the Warrior: a fourth option, "Lay your hand on his name.", with its hint as tooltip. Play it until you see both outcomes (it checks current Grace, so high Grace makes the warm outcome likely and negative Grace the other; tick Log Checks on `Resources/RunEncounters/EventCheckSettings` to see each roll). The result texts read right and the numbers match the HUD.
 - [ ] Wayside Shrine as the Archer and as the Augur: only the three usual options.
+- [ ] Act I boss, Bolt of Darkness: let a bolt split near you. Each smaller projectile that hits you now deals damage (about half the bolt's), shows a damage number and plays the hurt sound. No "exploded without Initialize" warning in the Console. Tunable: Fragment Damage Fraction on the three `Resources/BossAbilities/*BoltOfDarkness*` assets.
 
 ## Game feel, chunk 1: low-health warning (branch feature/game-feel)
 

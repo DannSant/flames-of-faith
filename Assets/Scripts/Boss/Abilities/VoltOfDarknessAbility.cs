@@ -1,4 +1,5 @@
-﻿using Game.Combat;
+﻿using Game.AI;
+using Game.Combat;
 using System.Collections;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -30,6 +31,17 @@ namespace Game.Boss
 
         [SerializeField]
         private float animationWindup = 0.95f;
+
+        [Tooltip("Share of the bolt's damage each smaller projectile deals when the bolt splits (its EnemyExplotion).")]
+        [Range(0f, 1f)]
+        [SerializeField]
+        private float fragmentDamageFraction = 0.5f;
+
+        public float FragmentDamageFraction => fragmentDamageFraction;
+
+        /// <summary>Damage of each projectile the bolt splits into.</summary>
+        public static float FragmentDamage(float boltDamage, float fraction) =>
+            Mathf.Max(0f, boltDamage) * Mathf.Clamp01(fraction);
 
         public override IEnumerator Execute(BossController boss, BossAbilityRuntime bossAbilityRuntime, BossAbilityContext context)
         {
@@ -65,16 +77,22 @@ namespace Game.Boss
                 if (projectile.TryGetComponent(out ProjectileMovement movement))
                     movement.SetDirection(direction);
 
+                int damageAmount = boss.GetAbilityDamage(baseDamage + (boss.GetEnrageLevel() * damageScaling));
+
                 if (projectile.TryGetComponent(out EnemyDamage damage))
                 {
-                    int damageAmount = boss.GetAbilityDamage(baseDamage + (boss.GetEnrageLevel() * damageScaling));
                     damage.SetDamageAmount(damageAmount);
                 }
 
                 if (projectile.TryGetComponent(out EnemyTriggerDamage damageTrigger))
                 {
-                    int damageAmount = boss.GetAbilityDamage(baseDamage + (boss.GetEnrageLevel() * damageScaling));
                     damageTrigger.SetDamageAmount(damageAmount);
+                }
+
+                // The bolt splits into smaller projectiles later; they take their damage from here, or they deal none
+                if (projectile.TryGetComponent(out EnemyExplotion explosion))
+                {
+                    explosion.Initialize(FragmentDamage(damageAmount, fragmentDamageFraction));
                 }
             }
 
