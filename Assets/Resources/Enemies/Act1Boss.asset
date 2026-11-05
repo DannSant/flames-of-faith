@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Enemies.EnemyData
   enemyType: 6
   enemyPrefab: {fileID: 6737919231293769747, guid: 4ce3cf27d18dd4547a2879d717c8a012, type: 3}
-  healthBase: 2000
-  contactDamageTier: 1
-  projectileDamageTier: 0
+  healthBase: 8000
+  contactDamageTier: 2
+  projectileDamageTier: 2
   moveSpeed: 0
   hopForce: 0
   xpTier: 1
@@ -25,3 +25,4 @@ MonoBehaviour:
   alwaysCorrupted: 0
   overrideCorruptedHealthBonus: 0
   corruptedHealthBonus: 1
+  attackSound: {fileID: 0}
