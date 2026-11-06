@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Overworld.Render
@@ -20,6 +21,22 @@ namespace Game.Overworld.Render
             line.SetPosition(1, toPos);
         }
 
+
+        /// <summary>The edge as drawn, from its from-node to its to-node (the pilgrim walks along it).</summary>
+        public List<Vector2> Points
+        {
+            get
+            {
+                var points = new List<Vector2>();
+                if (line == null) return points;
+                for (int i = 0; i < line.positionCount; i++)
+                {
+                    Vector3 p = line.GetPosition(i);
+                    points.Add(line.useWorldSpace ? (Vector2)p : (Vector2)line.transform.TransformPoint(p));
+                }
+                return points;
+            }
+        }
 
         public void SetVisible(bool visible)
         {

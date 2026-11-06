@@ -1354,7 +1354,7 @@ MonoBehaviour:
   nodeContainer: {fileID: 192817161}
   edgeContainer: {fileID: 2027334683}
   playerMarker: {fileID: 216861324}
-  playerOffset: {x: 0, y: 0.5}
+  playerOffset: {x: 0, y: 0}
   iconSprites:
   - sprite: {fileID: 21300000, guid: 96c2585e3b2743541ac25c111dd5ef7c, type: 3}
     levelType: 0

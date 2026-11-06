@@ -56,7 +56,9 @@ namespace Game.Overworld
 
             bool canMove = gamepadActive || allowKeyboardMovement;
             bool uiHasFocus = UIFocusManager.Instance != null && UIFocusManager.Instance.FocusedWindow != null;
-            if (!canMove || !mapReady || uiHasFocus)
+            // Mid-walk the pilgrim can't start a second move or enter a level
+            bool walking = mapRenderer != null && mapRenderer.IsWalking;
+            if (!canMove || !mapReady || uiHasFocus || walking)
             {
                 directionHeld = false;
                 return;
