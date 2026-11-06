@@ -1,8 +1,8 @@
 # Feature: Light Devourer's new art (isometric hit area, new sheets, no slowed windup)
 
-- **Status:** ready
+- **Status:** implemented, waiting for the sheet update and merge OK
 - **Branch:** `feature/light-devourer-art` (off `develop`)
-- **Owner session:** implementation session, not started
+- **Owner session:** implementation session (Nov 5, 2026)
 - **Related docs:** `docs/pm/BACKLOG.md` item 9; `CLAUDE.md` "Enemy sprite sheets & animators" (sheet layout, the Corruptor builder, the melee attack warning), "Balance data" (the pipeline rule, stale YAML), "Combat/effect pipeline" (animation events in blend trees)
 
 ## Goal
@@ -109,7 +109,23 @@ The owner copied the new sheets over the old files in `Assets/Sprites/Enemies/Li
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
 - **Done:**
+  - **Sheets:** committed as delivered, then renamed with their `.meta` to `LDAttack_SS_11f_192x192.png` / `LDIdle_SS_16f_192x192.png` (GUIDs kept). The builder imports them at Max Size 4096 (default platform; Standalone isn't overridden, so it follows), 64 PPU, bilinear, Full Rect. The leftovers `Attack.anim`, `Walk.anim` and the four `Attack_LD_1` / `Walking_LD_1` PNGs were used only by the old controller's unreachable states and are deleted.
+  - **Shared builder:** `EnemySheetArtBuilder` + `EnemyArtDefinition` / `EnemySheet` / `ClipEvent`. `CorruptorArtBuilder` is now a definition over it, with its public API kept, so `CorruptorArtTests` is untouched. `LightDevourerArtBuilder` has a menu item and `RunBatch`.
+  - **Corruptor rerun:** the old builder rewrote `Corruptor.controller` with new file ids on every run. The shared builder builds a scratch controller, compares the two (`Describe`), and refills the real one only when something differs. Rerunning the Corruptor and the Light Devourer now leaves every file unchanged (checked with git status and md5).
+  - **Pivot:** kept centered. The new feet sit 168 to 185 px down the cell, where the old art's did. To be confirmed in play.
+  - **Controller:** Idle (default), Walk and Attack directional trees; Attack from Idle and Walk on the `Attack` trigger, back at clip end; `MeleeAnimationAttackBehavior` on Attack. The old AttackIso / WalkIso / Any State layout was replaced, and the GUID was kept.
+  - **Hit frame:** the owner chose frame 9 of 11. Attack Delay 8/11, end (Collider Delay) 10/11, so the hitbox is on for the slash (frames 9 and 10). `animationHitTime` 0.6666667 (8/12 s).
+  - **No slowed windup:** removed `telegraphTime`, `AIMeleeAttacker.AttackAnimationSpeed`, `EnemyAnimationController.PlayAttack(speed)` and the enemy `AttackSpeed` parameter, because nothing else used it (the player's `AttackSpeed` is separate). The warning fills over `animationHitTime`. CSV exported, `LDAttack.asset` reserialized (only that asset was kept: the tool also rewrote about 70 unrelated assets with line-wrapping and new-default churn, which I reverted). The column note comes from the `animationHitTime` tooltip, which is updated.
+  - **Isometric area:** `IsoGroundArea` (pure), `AttackTelegraphSettings.groundRatio` 0.5, the ring and fill scaled by it on Y. The offset toward the player is measured on the ground: same screen direction, vertical reach × ratio.
+  - **Hitbox choice: a runtime `PolygonCollider2D`** (48 points, built by `AIMeleeAttacker.CreateGroundHitbox` from the prefab's `CircleCollider2D`, which is then disabled). The alternative was a circle broad phase filtered by an inside test before `EnemyDamage`. I chose the polygon because the shape physics tests is literally the drawn ellipse, `EnemyDamage` and its collision path stay untouched, the hit is decided against the player's own collider (where they stand), and the circle on the prefab keeps holding the design radius and offset.
+  - **Tests:** `LightDevourerArtTests`, `IsoGroundAreaTests` (the math, the drawn ring, and the polygon against the ellipse just inside and outside its top, bottom and sides in 8 directions), plus `MeleeTelegraphTests` updated (speed 1, hit time = Attack Delay × clip length, at least 0.5 s to react). The full EditMode suite passes: 1020 / 1020 in batchmode.
+  - **CLAUDE.md:** melee warning timing and area, the sheet builder, the Light Devourer art.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - **The designer's sheet is not updated yet.** `EnemyBehaviors_MeleeAttacker` still has Telegraph Time and Animation Hit Time 0.3. This needs the owner's OK: either Push All to Sheet, or a targeted edit of that tab (drop the column, set 0.6666667, rewrite its notes panel). Until then, a Pull from Sheet fails on the extra column.
+  - Not verified in play: the feel, the pivot on the shadow, and the ellipse size. Orbit Radius 1 and the radius 0.5 are unchanged; report the size to the designer if it feels off.
+- **Commits / branch:** `feature/light-devourer-art`: `6b268b24` (sheets), `b327c352` (builder + animations), `a7909d4c` (no slowed windup), `765ce3c7` (isometric area), plus this Handoff. Not merged.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - Reserialize Data Assets rewrites many unrelated assets. Keep only the ones your change touches.
+  - The builders also run from their menu items with the Editor open; their batch methods, Export CSV and the tests in batchmode need the Editor closed.
+  - A new redrawn enemy: a small `<Enemy>ArtBuilder` with its `EnemyArtDefinition`, a menu item, `RunBatch` and an art test. Use `MinMaxTextureSize` for sheets wider than 2048.
+- **Manual tests added to todo.md:** "Light Devourer's new art (branch feature/light-devourer-art)".
