@@ -417,7 +417,7 @@ Code is in `Scripts/Saving/`. `RunSaveService` (static) writes `RunSaveData` to 
 
 ### Game feel (Nov 2026, merged into `develop`)
 
-Spec: `docs/features/game-feel.md`. Code in `Scripts/Feel/` (`Game.Feel`); every tunable on **`GameFeelSettings`** (`Resources/Feel/GameFeelSettings.asset`, `GameFeelSettings.Instance`). It's look and feel, not a balance table: no Sheets pipeline.
+Spec (archived): `docs/archive/features/game-feel.md`. Code in `Scripts/Feel/` (`Game.Feel`); every tunable on **`GameFeelSettings`** (`Resources/Feel/GameFeelSettings.asset`, `GameFeelSettings.Instance`). It's look and feel, not a balance table: no Sheets pipeline.
 - **Low-health warning:** `LowHealthVignetteUI` (`Game.UI`) is a full-screen red vignette in UIMain, the canvas's first child (under the HUD and every window), no raycasts. `HudRestyler` places it; the art is a placeholder, `Sprites/UI/Feedback/LowHealthVignette.png` (clear middle; overwrite the PNG to replace it).
   - **Rules** (`LowHealthRules`, pure, `LowHealthWarningTests`): on at or below `lowHealthEnter` (30%), off only above `lowHealthExit` (35%), never at 0 health; intensity from `minIntensity` at the threshold to 1 at `fullIntensityAt` (10%); the alpha pulses faster when stronger (under 2 per second), on unscaled time, fading in and out.
   - **Fights only** (Combat and Boss levels): `MainSceneController.OnGameplayUISetupRequested` now pushes the `LevelData` being entered, so UI can tell without a lookup. Health comes from `PlayerHealth.onHealthChanged`, like `HealthBar`.

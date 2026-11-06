@@ -1,6 +1,6 @@
 # Project state
 
-_Last updated: 2026-11-05 by the Orchestrator._
+_Last updated: 2026-11-06 by the Orchestrator._
 
 ## Milestone
 - **Current:** tester round on v0.5.3, then the **Steam demo (full Act I) in December 2026**. 1.0 (Acts I–IV) Fall/Winter 2027 (`TenPageGDD.md` §1–2).
@@ -8,32 +8,32 @@ _Last updated: 2026-11-05 by the Orchestrator._
 - **In v0.5.3:** the opening cutscene and Pilgrim's Chronicle; game feel (low-health warning, sounds, shake, hit stop, rumble, Settings sliders); the three tester fixes; the boss at 4× health (2000 → 8000) with contact and projectile damage tier 2; Bolt of Darkness fragments now deal half the bolt's damage; Dreko Eye hit and death sounds.
 - **In v0.5.2:** Unity 6.3 upgrade; data-driven steps 1–5 (everything balance-related is in the Google Sheet); English Ten Page GDD; tester-feedback pass; the lore bible and the events narrative; item and level texts made lore-accurate; the run encounter events rework; the Attack Speed fix.
 
-## Git reality (checked 2026-11-04)
-- `main` = `origin/main` = `ef237a6`, tagged `v0.5.2` (pushed 2026-10-30).
-- `develop` carries the opening cutscene (merge `d5d6b1e`), game feel (fast-forward to `12318a9`, test fix `aa70ba5`) and the v0.5.2 tester fixes (merge `30acb5e`) on top of the docs commits. Check `git status` for unpushed commits.
+## Git reality (checked 2026-11-06)
+- `main` = `origin/main` = `a9a381e` (v0.5.3 plus the version fix; the tag `v0.5.3` is on `50631ef`).
+- `develop` has the Light Devourer spec on top (`f1af099`) and these docs updates; check `git status` for unpushed commits.
+- `feature/light-devourer-art` is pushed and **not merged**: 15 commits (the spec's three parts, three rounds of play-test fixes, the Push All retry fix, the owner's tuning). Waiting for its last manual check and the owner's OK.
 - `feature/opening-cutscene`, `feature/game-feel` and `fix/tester-feedback-v052` are merged and can be deleted, locally and on `origin`, with the owner's OK.
-- `origin/HEAD` was a corrupted local ref (empty bytes), which made git print "ignoring broken ref"; reset to `origin/main` on 2026-11-04.
 
-## Resume here (Orchestrator, 2026-11-04)
-- **Waiting on the owner:** class options for Faelin and Werlem at the Shrine; sending the 7 page briefs to the art team and agreeing the size; the two open sound checks in `todo.md`; the five lore questions in `docs/features/act-ii-design.md`.
-- **Next code:** CI/CD (BACKLOG 18, needs a spec).
-- **Manual checks to run on `develop`:** the tester fixes (merged before their checks, on the owner's OK) and the two game feel sound checks. When each section passes, move its spec to the archive. The VFX pass (34) waits for the new art. Act II's build waits for the demo, except chunk 1.
-- **Tester feedback on v0.5.2** has started arriving (top of `todo.md`). Triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
-- **When the two sound checks pass:** move `docs/features/game-feel.md` to the archive.
-- **EditMode suite:** run by the owner on 2026-11-04 after the game feel merge; two failures (float tolerance in the sound restart interval and the heavy hit rule) fixed in `aa70ba5`.
+## Resume here (Orchestrator, 2026-11-06)
+- **Merge `feature/light-devourer-art`** once its last check passes (the Corruptor looks and shoots as before) and the owner says so. Then move `docs/features/light-devourer-art.md` to the archive. Its `todo.md` cleanup (`docs/archive/todo-2026-11-06.md`) is committed on that branch, so it reaches `develop` with the merge.
+- **Next code:** CI/CD (BACKLOG 18, needs a spec). Small items from the owner's list (38, 39) fit between bigger ones.
+- **Waiting on the owner:** where items 40 to 42 go (class rename, character select tabs, the map character); class options for Faelin and Werlem at the Shrine; the 7 page briefs to the art team and their size; the five lore questions in `docs/features/act-ii-design.md`.
+- **Tester feedback on v0.5.3:** triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
+- **Sound checks** wait for clips (`todo.md` "Sounds waiting for clips"); no spec is open for them.
 
 ## In progress
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
-| Tester build v0.5.2 | `main` | BACKLOG item 1 | **With testers.** First feedback triaged 2026-11-04 (BACKLOG 5, 35, 36) |
-| Light Devourer's new art | `feature/light-devourer-art` | `docs/features/light-devourer-art.md` | **Ready for the implementation session** (kickoff given 2026-11-05): sheet builder, no slowed windup, isometric hit area. The new sheets are on disk, not committed |
-| Tester fixes from v0.5.2 | `develop` (merged) | `docs/features/tester-fixes-v052.md` | **Merged 2026-11-04** (`30acb5e`): sound packs out of `Resources/`, knockback ignored mid-swing, Ayteel's Shrine option (texts approved by the owner); EditMode 985/985. Manual checks in `todo.md` not run yet; the spec moves to the archive after them |
-| Game feel | `develop` (merged) | `docs/features/game-feel.md` | **Merged 2026-11-04.** Two sound checks left in `todo.md`; spec moves to the archive after them |
+| Tester build v0.5.3 | `main` | BACKLOG item 1 | **With testers** |
+| Light Devourer's new art | `feature/light-devourer-art` | `docs/features/light-devourer-art.md` | **Implemented and play-tested, not merged.** All checks passed but one (the Corruptor, rebuilt through the shared tool). Sheet published as version 15 and pulled with no changes |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 
 ## Done recently
+- **Tester fixes from v0.5.2** (merged 2026-11-04, `30acb5e`; manual tests passed 2026-11-06): sound packs out of `Resources/`, no knockback mid-swing, Ayteel's Shrine option. Spec archived: `docs/archive/features/tester-fixes-v052.md`.
+- **Game feel** (merged 2026-11-04; manual tests passed 2026-11-06, except three sound checks that wait for clips, kept in `todo.md`): spec archived, `docs/archive/features/game-feel.md`.
+- **Light Devourer's new art** (implemented 2026-11-05/06, on its branch): new sheets (attack 11 frames, idle 16) through a shared enemy sheet builder that the Corruptor uses too; no slowed windup (the hit on frame 9 of 11); the attack area is a circle on the isometric ground for the warning and the hitbox; ranges measured on the ground from the feet; enemies sort with the player and trees (order 10); the player's knockback is a steady push. The reusable pieces are listed in the spec's Handoff.
 - **Tester guide** (2026-11-04, Spanish): `PatchNotes/guia-del-tester.md`, for the tester joining now: the game, every system, controls, Act I, what we want feedback on and how to report. Update it when a build adds features (the 🆕 marks are what came after v0.5.2).
-- **Game feel** (merged 2026-11-04, fast-forward to `12318a9`; manual tests passed except two sound checks): a low-health vignette with a heartbeat; a sound table with hooks everywhere the spec listed, one voice per sound, per-class player voices and clips from the owner's packs; shake, hit stop, slow motion and rumble on five moments, with Settings sliders. `PauseManager` is now the only writer of `Time.timeScale`.
+- **Game feel** (merged 2026-11-04, fast-forward to `12318a9`): a low-health vignette with a heartbeat; a sound table with hooks everywhere the spec listed, one voice per sound, per-class player voices and clips from the owner's packs; shake, hit stop, slow motion and rumble on five moments, with Settings sliders. `PauseManager` is now the only writer of `Time.timeScale`.
 - **Opening cutscene and Pilgrim's Chronicle** (merged 2026-11-02, `d5d6b1e`; manual tests passed): `CutscenePlayer.Play(id, onEnded)`, played on the first New Game only, on placeholder art. Spec and art briefs: `docs/archive/features/opening-cutscene.md`. Between-act scenes for 1.0 must play before the scene unload (its Handoff explains why).
 - **Opening cutscene design** (2026-11-01): 7 pages, a little over a minute, with an art brief per page. The replay menu is the Pilgrim's Chronicle.
 - **Act II design and the run structure** (2026-11-01): one Pilgrimage through all four acts; Frozen, Frozen Enemies, six enemies, the Echo of Malizante, the Ice Bull, an art brief and a 12-chunk build order. GDD and `Lore.md` updated.
@@ -46,13 +46,18 @@ _Last updated: 2026-11-05 by the Orchestrator._
 ## Waiting on others / decisions
 - **Demo scope trimmed (2026-10-29)** to 8 musts (BACKLOG "Before the Steam demo"); the rest is in "Demo update". Four musts wait on art: the re-designed characters, the scenarios with companion idle animations, the boss shield, and the opening cutscene's art. **Ask the art team for delivery dates**; they set the demo's critical path.
 - **Art team:** the opening cutscene's 7 pages (promised before the demo; size still to agree), re-designed characters, scenarios and companion idle animations, map decorations, the boss shield, cutscene art, The Star Reader's event art, the Plerian trader, the Favor icon, the 2 s Whirlwind animation, melee telegraph sprites, a blood-like low-health vignette (the current one is a placeholder).
-- **Owner: confirm the sheet is published.** The working tabs have the final Attack Speed numbers (checked 2026-10-30), but `snapshot.json` records version 13, which the Attack Speed handoff says has the old ones. A Pull, or a test build with `balance-override.json`, uses the latest published version, so Publish first if version 13 is still the latest.
+- **Balance sheet:** published version 15 (2026-11-06, the Light Devourer's tuning) matches the project's CSVs; `snapshot.json` records it on the Light Devourer branch.
 - **Designer:** Min Levels Beaten per item (all 0), Luck Scale 2 looks steep in `Report_LootOdds`, Move Speed and Frost per-point values look too small.
 
 ## Open manual tests
-Game feel, chunk 2: the heartbeat, and the once-per-event sounds (dodge, shield, dash, pickups, wave start and end, Corruptor, boss); one optional check (enemy attack and boss cast sounds). Everything else in `todo.md` is ticked.
+- **Light Devourer branch:** the Corruptor looks and shoots as before.
+- **Sounds waiting for clips:** the heartbeat, and the once-per-event sounds (dodge, shield, dash, wave start and end, Corruptor, boss); one optional check (enemy attack and boss cast sounds).
+
+Finished tests are in `docs/archive/todo-2026-11-06.md` (on the Light Devourer branch until it merges).
 
 ## Known open issues
+- **Light Devourer pivot vs body collider:** the figure stands about 1.3 below its transform while its body collider (its ground point) is at -0.5. Fine in play; a pivot at the feet would make sorting and ground points exact, but that's a larger prefab change.
+- **DarkDrone** (the boss's summon) is still on sorting order 0, outside the characters' order 10. Left alone on purpose.
 - **The v0.5.3 tag predates the `bundleVersion` fix:** a build made from the tag itself reports 0.5.2. Build from `main` (or `58bb55d` or later) instead.
 - **12 game sounds have no clip yet** (checked 2026-11-05): Dash, LevelUp, WaveStart, WaveEnd, LowHealthHeartbeat, CorruptorAppears / Killed / Escaped, BossPhaseChange, BossDeath, PlayerDodge, ShieldAbsorb. No class has its own voice (every `classClips` is empty), so all three pilgrims share the hurt and death voices. The v0.5.3 notes and the tester guide say so.
 - Unreproduced: "level-up picks don't raise stats".

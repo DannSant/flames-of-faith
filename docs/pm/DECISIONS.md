@@ -2,13 +2,19 @@
 
 Newest first. Format: date, decision, reason.
 
+## 2026-11-06
+- **Class names: Warrior becomes Crusader, Archer becomes Sentinel** (owner). Augur stays. BACKLOG 40; it needs a spec, because names are saved and are balance sheet keys.
+- **Light Devourer art, from the owner's play-tests:** the hit lands on frame 9 of 11; ranges and areas are measured on the ground from the feet; every enemy body sorts on order 10 with the player and trees; the player's knockback is a steady push (force x time), not an added impulse. The owner's tuning: Orbit Radius 1.3, Max Range 1.8, Attack Cooldown 1, LDChase Min Range 1. Published as sheet version 15.
+- **Push All to Sheet** waits up to 180 s per batch and retries a timed-out batch twice (it stopped partway on large pushes).
+- **Specs whose last checks wait on clips are archived:** game feel's three sound checks can't run until those sounds have clips, so they moved to `todo.md` "Sounds waiting for clips" and the spec is in the archive.
+
 ## 2026-11-05
 - **Light Devourer attack area** (owner and art team): the circle stays, no cone, but it's drawn and hit as a circle on the isometric ground (an ellipse, half as tall as wide). The windup is now in the animation, so the code stops slowing it.
 - **v0.5.3 released from `develop`** (owner): tagged on `develop`. `bundleVersion` was then set to 0.5.3 and `main` fast-forwarded to `develop` (owner's OK, 2026-11-05), as v0.5.2 was. The tag stays where it is.
 - **Boss balance** (owner, from tester feedback): Taio'Sandir's health 2000 → 8000; contact damage tier 1 → 2, projectile tier 0 → 2.
 
 ## 2026-11-04
-- **Unused sound clips are kept for now** (owner): the 711 clips the fixes session found unused (118 MB, listed in `docs/features/tester-fixes-v052-unused-clips.md`) stay in `Assets/Sounds/SFX/Packs/`. Out of `Resources/`, they no longer ship in the build, and some may fill the sounds that are still silent (no male voice is wired yet).
+- **Unused sound clips are kept for now** (owner): the 711 clips the fixes session found unused (118 MB, listed in `docs/archive/features/tester-fixes-v052-unused-clips.md`) stay in `Assets/Sounds/SFX/Packs/`. Out of `Resources/`, they no longer ship in the build, and some may fill the sounds that are still silent (no male voice is wired yet).
 - **Game feel merged into `develop`** (owner, fast-forward). Decided along the way:
   - **Clips come from sound packs** the owner added (a UI pack and two voice packs), so the sound list's brief needs no other source for now.
   - **Player sounds get per-class voices** (owner, during review): a sound can have clips per class, with the shared clips as the fallback.
