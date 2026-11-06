@@ -1,24 +1,41 @@
-# Tester feedback on v0.5.2
-- Melee enemies should be immune to knockback when attack animation is playing
-- Add an special option for Ayteel in the waysider shrine, it feels off she has an additional line but no extra options
-- Increase boss health
+# Other issues
+- Dreko Eyes - in some cases the Corrupted Shader looks off, it does not fit the outline of the sprite. It seems it has to do with the direction it is looking at.
+- With gamepad, on the character select screen, when selecting the class the cursor should move right away to the button Start Run
+- Change the attack area of the melee attacker enemy AI Behavior. Previously we wanted a cone instead of a circle, however after talking with the art team we agreed th circle can stay but it needs to be adjusted to the isometric perpective. 
+- Rename objects and classes. Warrior to Crusader. Archer to Sentinel
+- Redesign the character select screen with tabs: Abilities, Lore, Playstyle
 
 # Pending manual tests
 
 Only unchecked tests are listed here. Finished sections are archived in `docs/archive/` (latest: `todo-2026-10-30.md`). Backlog: `docs/pm/BACKLOG.md`.
 
+## Light Devourer's new art (branch feature/light-devourer-art)
+
+Spec: `docs/features/light-devourer-art.md`. Put a Light Devourer in a level (or wait for one) and watch it from every side.
+
+- [ ] Idle, walk and attack play the new art in all 8 directions, with no frame from another direction and no blur (the idle and attack sheets used to be shrunk on import).
+- [ ] The feet stand on the shadow and the collider, while idle, walking and attacking.
+- [ ] The attack plays at normal speed: no slow-motion windup. The warning's disc is full exactly when the slash lands (frame 9, the widest slash), and the hit lands then, not before.
+- [ ] The warning is a flat ellipse on the ground, twice as wide as tall, in every direction, including when you're straight north or south of it (it must not float above or sink below the enemy).
+- [ ] Standing just inside the ellipse's top, bottom and sides gets you hit; standing just outside them doesn't. Try at least north, south, east and west of the enemy. If the area feels too small or too large, note it for the designer (Orbit Radius and the melee collider's radius are unchanged).
+- [ ] Ground fix: let it reach you from the south (you above it), the north, and both sides. Each time it stops about the same distance away, the ellipse sits where you stand (not on its body), and the swing hits.
+- [ ] Stun it mid-swing (a Frost stun or similar): the warning disappears, no hit lands while it's stunned, and it finishes the swing or attacks again normally after.
+- [ ] Knock it back mid-swing: it takes the damage but doesn't move, and the hit lands where the warning was.
+- [ ] The Corruptor looks and shoots as before (it was rebuilt through the same tool with no file changes).
+- [ ] Balance sheet: the `EnemyBehaviors_MeleeAttacker` tab was updated (no Telegraph Time, Animation Hit Time 0.6666667). Publish a new version (Balance > Publish), then Pull from Sheet in Unity: it reports no changes.
+
 ## Tester fixes v0.5.2 (branch fix/tester-feedback-v052)
 
 Spec: `docs/features/tester-fixes-v052.md`. Open the project once first so Unity imports the moved sound packs (no new `.meta` files should appear in git status).
 
-- [ ] Sounds still play after the packs moved: UI clicks and moves, the class voices (hurt, dodge, death; one class of each voice), the cutscene page turn. No missing-clip warnings in the Console.
+- [x] Sounds still play after the packs moved: UI clicks and moves, the class voices (hurt, dodge, death; one class of each voice), the cutscene page turn. No missing-clip warnings in the Console.
 - [ ] Tools > Flames of Faith > Audio > Report Silent Sounds lists the same entries as on `develop`.
 - [ ] Light Devourer, knockback mid-swing: as the warning ring shows, hit it with knockback (the Warrior's Crusader Charge, or any knockback weapon). It takes the damage but doesn't move, and the hit lands where the ring was.
 - [ ] Light Devourer, knockback before the swing: knock it back while it walks. It slides as before; if it starts a swing while sliding, it stops and swings from there.
-- [ ] After its swing it can be knocked back again; same after a stun mid-swing (a Frost stun or similar) and after the Corruptor phase's camera freeze.
-- [ ] Wayside Shrine as the Warrior: a fourth option, "Lay your hand on his name.", with its hint as tooltip. Play it until you see both outcomes (it checks current Grace, so high Grace makes the warm outcome likely and negative Grace the other; tick Log Checks on `Resources/RunEncounters/EventCheckSettings` to see each roll). The result texts read right and the numbers match the HUD.
-- [ ] Wayside Shrine as the Archer and as the Augur: only the three usual options.
-- [ ] Act I boss, Bolt of Darkness: let a bolt split near you. Each smaller projectile that hits you now deals damage (about half the bolt's), shows a damage number and plays the hurt sound. No "exploded without Initialize" warning in the Console. Tunable: Fragment Damage Fraction on the three `Resources/BossAbilities/*BoltOfDarkness*` assets.
+- [x] After its swing it can be knocked back again; same after a stun mid-swing (a Frost stun or similar) and after the Corruptor phase's camera freeze.
+- [x] Wayside Shrine as the Warrior: a fourth option, "Lay your hand on his name.", with its hint as tooltip. Play it until you see both outcomes (it checks current Grace, so high Grace makes the warm outcome likely and negative Grace the other; tick Log Checks on `Resources/RunEncounters/EventCheckSettings` to see each roll). The result texts read right and the numbers match the HUD.
+- [x] Wayside Shrine as the Archer and as the Augur: only the three usual options.
+- [x] Act I boss, Bolt of Darkness: let a bolt split near you. Each smaller projectile that hits you now deals damage (about half the bolt's), shows a damage number and plays the hurt sound. No "exploded without Initialize" warning in the Console. Tunable: Fragment Damage Fraction on the three `Resources/BossAbilities/*BoltOfDarkness*` assets.
 
 ## Game feel, chunk 1: low-health warning (branch feature/game-feel)
 
