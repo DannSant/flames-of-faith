@@ -1,6 +1,6 @@
 # Feature: Light Devourer's new art (isometric hit area, new sheets, no slowed windup)
 
-- **Status:** implemented, waiting for a sheet Publish and the merge OK
+- **Status:** implemented, waiting for the play-test and the merge OK
 - **Branch:** `feature/light-devourer-art` (off `develop`)
 - **Owner session:** implementation session (Nov 5, 2026)
 - **Related docs:** `docs/pm/BACKLOG.md` item 9; `CLAUDE.md` "Enemy sprite sheets & animators" (sheet layout, the Corruptor builder, the melee attack warning), "Balance data" (the pipeline rule, stale YAML), "Combat/effect pipeline" (animation events in blend trees)
@@ -108,26 +108,81 @@ The owner copied the new sheets over the old files in `Assets/Sprites/Enemies/Li
 ## Handoff
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
-- **Done:**
-  - **Sheets:** committed as delivered, then renamed with their `.meta` to `LDAttack_SS_11f_192x192.png` / `LDIdle_SS_16f_192x192.png` (GUIDs kept). The builder imports them at Max Size 4096 (default platform; Standalone isn't overridden, so it follows), 64 PPU, bilinear, Full Rect. The leftovers `Attack.anim`, `Walk.anim` and the four `Attack_LD_1` / `Walking_LD_1` PNGs were used only by the old controller's unreachable states and are deleted.
-  - **Shared builder:** `EnemySheetArtBuilder` + `EnemyArtDefinition` / `EnemySheet` / `ClipEvent`. `CorruptorArtBuilder` is now a definition over it, with its public API kept, so `CorruptorArtTests` is untouched. `LightDevourerArtBuilder` has a menu item and `RunBatch`.
-  - **Corruptor rerun:** the old builder rewrote `Corruptor.controller` with new file ids on every run. The shared builder builds a scratch controller, compares the two (`Describe`), and refills the real one only when something differs. Rerunning the Corruptor and the Light Devourer now leaves every file unchanged (checked with git status and md5).
-  - **Pivot:** kept centered. The new feet sit 168 to 185 px down the cell, where the old art's did. To be confirmed in play.
-  - **Controller:** Idle (default), Walk and Attack directional trees; Attack from Idle and Walk on the `Attack` trigger, back at clip end; `MeleeAnimationAttackBehavior` on Attack. The old AttackIso / WalkIso / Any State layout was replaced, and the GUID was kept.
-  - **Hit frame:** the owner chose frame 9 of 11. Attack Delay 8/11, end (Collider Delay) 10/11, so the hitbox is on for the slash (frames 9 and 10). `animationHitTime` 0.6666667 (8/12 s).
-  - **No slowed windup:** removed `telegraphTime`, `AIMeleeAttacker.AttackAnimationSpeed`, `EnemyAnimationController.PlayAttack(speed)` and the enemy `AttackSpeed` parameter, because nothing else used it (the player's `AttackSpeed` is separate). The warning fills over `animationHitTime`. CSV exported, `LDAttack.asset` reserialized (only that asset was kept: the tool also rewrote about 70 unrelated assets with line-wrapping and new-default churn, which I reverted). The column note comes from the `animationHitTime` tooltip, which is updated.
-  - **Isometric area:** `IsoGroundArea` (pure), `AttackTelegraphSettings.groundRatio` 0.5, the ring and fill scaled by it on Y. The offset toward the player is measured on the ground: same screen direction, vertical reach × ratio.
-  - **Hitbox choice: a runtime `PolygonCollider2D`** (48 points, built by `AIMeleeAttacker.CreateGroundHitbox` from the prefab's `CircleCollider2D`, which is then disabled). The alternative was a circle broad phase filtered by an inside test before `EnemyDamage`. I chose the polygon because the shape physics tests is literally the drawn ellipse, `EnemyDamage` and its collision path stay untouched, the hit is decided against the player's own collider (where they stand), and the circle on the prefab keeps holding the design radius and offset.
-  - **Tests:** `LightDevourerArtTests`, `IsoGroundAreaTests` (the math, the drawn ring, and the polygon against the ellipse just inside and outside its top, bottom and sides in 8 directions), plus `MeleeTelegraphTests` updated (speed 1, hit time = Attack Delay × clip length, at least 0.5 s to react). The full EditMode suite passes: 1020 / 1020 in batchmode.
-  - **CLAUDE.md:** melee warning timing and area, the sheet builder, the Light Devourer art.
+Sessions on Nov 5 and Nov 6, 2026: the spec's three parts, then three rounds of fixes from the owner's play-tests, and a fix to Push All to Sheet.
+
+- **Done (the spec):**
+  - **Sheets:** committed as delivered, then renamed with their `.meta` to `LDAttack_SS_11f_192x192.png` / `LDIdle_SS_16f_192x192.png` (GUIDs kept). They import at Max Size 4096 (the idle is 3072 wide), 64 PPU, bilinear, Full Rect. Standalone isn't overridden, so it follows. Deleted `Attack.anim`, `Walk.anim` and the four `Attack_LD_1` / `Walking_LD_1` PNGs; only the old controller's unreachable states used them.
+  - **Shared sheet builder:** see "Reusable code" below. The Corruptor now builds through it, and a rerun leaves all its files unchanged. The old builder rewrote `Corruptor.controller` with new file ids on every run.
+  - **Light Devourer controller:** Idle (default), Walk and Attack directional trees, GUID kept. Attack is reached from Idle and Walk on the `Attack` trigger and returns at clip end, with `MeleeAnimationAttackBehavior` on it.
+  - **Pivot:** kept centered, because the new feet sit 168 to 185 px down the cell, where the old art's did.
+  - **Hit frame:** frame 9 of 11 (owner's choice). Attack Delay 8/11, end 10/11, `animationHitTime` 0.6666667 (8/12 s).
+  - **No slowed windup:** removed `telegraphTime`, `AIMeleeAttacker.AttackAnimationSpeed`, `PlayAttack(speed)` and the enemy `AttackSpeed` parameter, which nothing else used (the player's is separate). The warning fills over `animationHitTime`. The Telegraph Time column is gone from the CSV and the sheet.
+  - **Isometric hit area:** the warning and the hitbox are the same ground ellipse.
+    - **Hitbox choice:** a runtime 48-point `PolygonCollider2D` built from the prefab's circle, rather than a circle filtered by an inside test.
+    - **Why:** physics tests exactly the drawn shape, `EnemyDamage` stays as it was, and the circle keeps holding the design radius.
+- **Done (follow-ups from the owner's play-tests):**
+  1. **It never hit from the south.** The stop distance and Max Range were screen distances measured center to center, so vertically the enemy stopped twice as far on the ground. On top of that, the area orbited from the sprite's middle, where the old -0.5 offset cancelled the orbit going north.
+     - **Fix:** everything is now measured on the ground from the feet (`IsoGround`, `AIMeleeAttacker.AreaCenter`).
+     - **New balance column:** `AIBehaviorChaserLogic.measureOnGround`, on for `LDChase` and off for the FlameShooter.
+  2. **The player drew over an enemy while standing behind it.** No script was missing: the renderer already sorts by Y (Custom Axis 0,1,0), but only within one sorting order. Every enemy body was on order 3, the player and trees on 10. All enemy bodies (`EnemyBase` and the variants' overrides) are now on 10.
+  3. **The push ranged from slight to half the level.** Three causes:
+     - the hitbox was solid, so physics shoved the player out of it;
+     - the push was added to the player's velocity and kept sliding;
+     - it pointed away from the hitbox's transform, which could aim into the enemy.
+
+     **Fix:** the hitbox is a trigger, the push runs feet to feet along the ground, and the player's `Knockback` has **Consistent Push**: it always travels Force x Time (3 x 0.3 s).
+  4. **Push All to Sheet stopped partway (after 30 tabs, then after 6).** One batch can outlast the HTTP timeout, and a timed-out run keeps the script's lock.
+     - **Fix:** the timeout is 180 s, a batch that times out or loses the connection is retried twice, 10 s apart (`WithRetries`), and the error goes to the Console. Explicit refusals aren't retried.
+     - **Confirmed:** the owner then pushed, published version 15 and pulled with no changes.
+- **Current Light Devourer tuning (the owner's):**
+  - **Body capsule:** 0.52 x 0.68.
+  - **`LDAttack`:** Orbit Radius 1.3, Max Range 1.8, Attack Cooldown 1.
+  - **`LDChase`:** Min Range 1, Measure On Ground on.
+  - **Sheet:** the CSVs, the sheet and published version 15 all match.
+- **Reusable code (for new enemies and attacks):**
+  - **`IsoGroundArea`** (`Scripts/AI/IsoGroundArea.cs`, `Game.AI`, pure, all tunables passed in). The ground is drawn squashed: a circle lying on it is `groundRatio` (0.5) times as tall as it is wide on screen.
+    - `ToGround(screenOffset, ratio)`: a screen offset in ground units (vertical / ratio).
+    - `GroundDistance(a, b, ratio)`: the distance on the ground, the same from every side. Use it for any range or stop distance.
+    - `GroundOffset(direction, distance, ratio)`: the point `distance` away on the ground in a screen direction. It keeps the direction on screen and shortens the vertical reach. Use it to place an area or a hitbox toward a target.
+    - `Contains(center, radius, ratio, point)`, `Size(radius, ratio)`, `Outline(center, radius, ratio, segments)`: the ground circle's inside test, size on screen and outline (for a `PolygonCollider2D`).
+  - **`IsoGround`** (`Scripts/AI/IsoGround.cs`, the scene side):
+    - `Ratio`: from `AttackTelegraphSettings.GroundRatio`.
+    - `PointOf(transform)`: a character's ground point, the center of its solid body collider (the first enabled non-trigger `Collider2D` on its root), else its position. Characters' transforms aren't at their feet (the Light Devourer's is the sprite's middle), so measure from this.
+    - `BodyOf(transform)` and `Distance(a, b)`: the ground distance between two characters.
+  - **`AIMeleeAttacker`:** `AreaCenter(enemyGround, direction, orbitRadius, ratio)` and `CreateGroundHitbox(circle, ratio, state)`, which swaps a `CircleCollider2D` for a trigger polygon outlining the same ground circle. A new melee enemy only needs the behavior asset, a `MeleeCollider` child with a circle (its radius is the area's size), and a matching `animationHitTime`. Check its tuning with the rule in `IsoGroundTests`: wherever it ends up beside the player must be within Max Range and inside the area.
+  - **`AttackTelegraph.ScaleFor(sprite, width, ratio)`:** scales a round sprite into the ground ellipse. Cone or line warnings can follow the same approach.
+  - **`AIBehaviorChaserLogic.measureOnGround`:** tick it on any chaser that has to reach the player in melee.
+  - **`Knockback`:**
+    - `ApplyKnockbackFrom(sourceGroundPoint, force)`: pushes away from an attacker's feet, along the ground.
+    - `PushVelocity` / `GroundPushVelocity`: the pure math.
+    - `consistentPush`: on the player only, so enemies keep the additive impulse.
+  - **`EnemySheetArtBuilder`** (`Scripts/Enemies/Editor/`), for the coming enemy redraws. Describe the enemy in an `EnemyArtDefinition`:
+    - folders, controller and prefab paths, pivot, `MinMaxTextureSize`;
+    - `EnemySheet`s: state, file named `Name_SS_<frames>f_<w>x<h>`, loop, and `ClipEvent`s on a frame or `ClipEvent.LastFrame`;
+    - the attack trigger, `ConfigureAttackState(controller, state)` for behaviours and parameters, and `ConfigurePrefab(root)`.
+
+    It slices (keeping sprite ids), writes the 24 clips in place, builds the three directional trees and wires the prefab. The controller is built in a scratch copy and compared (`Describe`), so a rerun with nothing new changes no file.
+
+    **Recipe:** copy `LightDevourerArtBuilder` (definition, menu item, `RunBatch`) and `LightDevourerArtTests`.
+- **Tests added or changed:**
+  - **New:** `LightDevourerArtTests`, `IsoGroundAreaTests`, `IsoGroundTests` (the reach rule against every player prefab), `KnockbackAndSortingTests` (push math, consistent push, every character body on the trees' layer and order).
+  - **Changed:** `MeleeTelegraphTests` (speed 1, hit time = Attack Delay x clip length, at least 0.5 s), `BalanceSyncTests` (retries). `CorruptorArtTests` is unchanged.
+  - **Last batchmode run:** 1031 of 1032 passed. The one failure was the stale CSVs from `47d68d14`, fixed by exporting in `c76540d4`.
 - **Not done / follow-ups:**
-  - **Sheet:** the `EnemyBehaviors_MeleeAttacker` tab was edited by hand with the owner's OK (Nov 5), not with Push All. Telegraph Time column deleted, Animation Hit Time set to 0.6666667, the panel's Telegraph Time row removed, and the Orbit Radius and Animation Hit Time notes set to the new tooltips. It now matches the committed CSV; the Read Me didn't mention the column. **A new Publish is still needed:** the last published version has the old column, so a Pull fails until the designer publishes again.
-  - Not verified in play: the feel, the pivot on the shadow, and the ellipse size. Orbit Radius 1 and the radius 0.5 are unchanged; report the size to the designer if it feels off.
-- **Follow-up fix (Nov 5, owner's play-test):** from the south the warning sat on the enemy's own body and the attack never landed. The stop distance and Max Range were measured on screen, center to center, so vertically the enemy stopped twice as far on the ground as sideways, while the area orbited from the sprite's middle and the melee offset cancelled the orbit going north. Now everything is measured on the ground between ground points (each character's solid body collider): `IsoGround` + `IsoGroundArea.GroundDistance`, `AIMeleeAttacker.AreaCenter`, and `AIBehaviorChaserLogic.measureOnGround` (new balance column, on for `LDChase`). The owner's tuning was kept (body capsule 0.66 × 0.8, Min Range 0.7, Attack Cooldown 1) except Max Range 1.2 → 1.4: with that capsule the bodies touch 1.21 ground units apart above or below, so 1.2 never swung. `IsoGroundTests`. Sheet tabs updated by hand with the owner's OK: `EnemyBehaviors_MeleeAttacker` (Max Range 1.4, Attack Cooldown 1, the Max Range and Orbit Radius notes) and `EnemyBehaviors_ChaserLogic` (Min Range 0.7 on LDChase, a new Measure On Ground checkbox column in D with its panel note; the panel moved one column right). Both match the committed CSVs; a new Publish is still needed before a Pull.
-- **Second follow-up (Nov 6, owner's play-test):** (1) the player drew on top of the Light Devourer when standing north of it. Not a missing script: the renderer already sorts by Y, but only within one sorting order, and every enemy body was on order 3 while the player and trees are on 10. All enemy bodies (`EnemyBase` and its variants' overrides) are now on 10. (2) The hit's push varied from slight to half the level: the hitbox polygon was solid (physics shoved the player out of it), the push was added to the player's velocity and kept sliding, and it pointed away from the hitbox's transform. The hitbox is now a trigger, the push runs feet to feet along the ground, and the player's `Knockback` has Consistent Push (sets the speed, stops at the end: 3 × 0.3 s). `KnockbackAndSortingTests`. Kept the owner's newer tuning: body capsule 0.52 × 0.68, Max Range 1.5, Min Range 0.8 (CSV exported; the sheet's two cells updated by hand with the owner's OK, Nov 6, and they match the CSVs).
-- **Commits / branch:** `feature/light-devourer-art`: `6b268b24` (sheets), `b327c352` (builder + animations), `a7909d4c` (no slowed windup), `765ce3c7` (isometric area), plus this Handoff. Not merged.
+  - **Not play-tested:** the checks in `todo.md` ("Light Devourer's new art") for the art in 8 directions, the timing, the reach from every side, draw order, knockback, stun and the Corruptor.
+  - **Pivot vs body collider:** the Light Devourer's figure stands about 1.3 below its transform, while its body collider (its gameplay ground point) is at -0.5. It reads fine in play, but a pivot at the feet would make sorting and ground points exact. That would be a larger prefab change (colliders, health bar, stun point).
+  - **DarkDrone:** the boss's summon is still on sorting order 0, outside the characters' order 10. Left alone on purpose.
+  - **Merge:** not merged into `develop`; waiting for the owner's OK.
+- **Commits / branch:** `feature/light-devourer-art`, pushed to `origin`.
+  - **The spec:** `6b268b24` sheets, `b327c352` builder + animations, `a7909d4c` no slowed windup, `765ce3c7` isometric area.
+  - **Fixes:** `68d64bbc` ground measuring, `d433a608` sorting + knockback, `c76540d4` Push All retries.
+  - **Owner's tuning:** `053a3f15`, `47d68d14`.
+  - **Docs:** the rest.
 - **Gotchas for the next session:**
-  - Reserialize Data Assets rewrites many unrelated assets. Keep only the ones your change touches.
-  - The builders also run from their menu items with the Editor open; their batch methods, Export CSV and the tests in batchmode need the Editor closed.
-  - A new redrawn enemy: a small `<Enemy>ArtBuilder` with its `EnemyArtDefinition`, a menu item, `RunBatch` and an art test. Use `MinMaxTextureSize` for sheets wider than 2048.
+  - **Y sort:** it only works between sprites on the same sorting layer **and** order. Characters and trees are on 10.
+  - **Feet, not transforms:** measure ranges, areas and pushes from `IsoGround.PointOf`. A screen distance straight up or down is half the ground distance.
+  - **Solid hitboxes:** a hitbox that appears over a character should be a trigger, or physics shoves the character out of it.
+  - **Reserialize Data Assets:** it rewrites many unrelated assets. Keep only the ones your change touches.
+  - **Balance edits in the Inspector:** they need Export CSV in the same commit, or `BalanceTablesTests` fails (it happened with `47d68d14`).
+  - **Batchmode:** builder batch methods, Export CSV and batchmode tests need the Editor closed; the menu items work with it open.
 - **Manual tests added to todo.md:** "Light Devourer's new art (branch feature/light-devourer-art)".
