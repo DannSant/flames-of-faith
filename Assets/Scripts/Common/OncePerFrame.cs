@@ -2,7 +2,7 @@ namespace Game.Common
 {
     /// <summary>
     /// Lets a call through once per frame. Animation events on the clips of a blend tree fire once per
-    /// clip, all in the same frame: the Warrior's 8-direction attack fired its start event 8 times, so the
+    /// clip, all in the same frame: the Crusader's 8-direction attack fired its start event 8 times, so the
     /// cleave hit every enemy 8 times per swing.
     /// </summary>
     public class OncePerFrame

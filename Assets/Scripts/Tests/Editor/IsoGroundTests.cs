@@ -19,7 +19,7 @@ namespace Game.Tests
         private const string LightDevourerChase = "Assets/Resources/Behaviors/LightDevourer/LDChase.asset";
         private static readonly string[] PlayerPrefabs =
         {
-            "Assets/Prefabs/Player/PlayerWarrior.prefab", "Assets/Prefabs/Player/PlayerArcher.prefab", "Assets/Prefabs/Player/PlayerAugur.prefab",
+            "Assets/Prefabs/Player/PlayerCrusader.prefab", "Assets/Prefabs/Player/PlayerSentinel.prefab", "Assets/Prefabs/Player/PlayerAugur.prefab",
         };
 
         private static readonly Vector2[] EightDirections =

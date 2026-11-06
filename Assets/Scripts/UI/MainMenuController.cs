@@ -186,9 +186,9 @@ namespace Game.UI
 
         // Clicking a card (A on it with the gamepad) chooses its class; hovering or moving onto it only previews it,
         // so walking the gamepad past the other cards to Start Run doesn't change the class. Start Run starts the run.
-        public void SelectWarrior() => SelectClass(0);
+        public void SelectCrusader() => SelectClass(0);
 
-        public void SelectArcher() => SelectClass(1);
+        public void SelectSentinel() => SelectClass(1);
 
         public void SelectAugur() => SelectClass(2);
 
@@ -306,7 +306,7 @@ namespace Game.UI
             }
         }
 
-        /// <summary>The saved run under Load Game: "Warrior - Act I - Level 7".</summary>
+        /// <summary>The saved run under Load Game: "Crusader - Act I - Level 7".</summary>
         public static string FormatSaveInfo(string format, string className, int act, int level)
         {
             return string.Format(format, className, OverworldPlayerStatePresenter.ToRoman(Mathf.Max(1, act)), Mathf.Max(1, level));

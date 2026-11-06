@@ -132,6 +132,54 @@ namespace Game.BalanceData.Editor
             if (plan.Changes.Count > 0) BalanceDataTools.RunGuardTests();
         }
 
+        /// <summary>
+        /// Batch Pull: <c>-executeMethod Game.BalanceData.Editor.BalanceSheetSync.PullBatch [-dryRun]</c>.
+        /// Like the menu, but with no dialogs, and it never writes to the sheet (no report push): push the
+        /// reports from the menu afterwards. Exits non-zero on any error.
+        /// </summary>
+        public static void PullBatch()
+        {
+            bool dryRun = Array.IndexOf(Environment.GetCommandLineArgs(), "-dryRun") >= 0;
+            int exitCode = 0;
+            try
+            {
+                var config = LoadConfig();
+                if (config == null || string.IsNullOrEmpty(config.url) || string.IsNullOrEmpty(config.token))
+                {
+                    throw new InvalidOperationException("No sheet URL or token in " + ConfigPath);
+                }
+
+                var snapshot = BalanceSnapshot.FromJson(Get(BalanceOverride.LatestUrl(config.url, config.token)));
+                if (snapshot == null || !string.IsNullOrEmpty(snapshot.error))
+                {
+                    throw new InvalidOperationException("The sheet says: " + (snapshot?.error ?? "empty answer"));
+                }
+
+                var readErrors = new List<string>();
+                var plan = BalanceTables.Plan(snapshot.ReadTables(readErrors), new EditorBalanceStore());
+                foreach (string error in readErrors) plan.Error("Sheet", error);
+                Debug.Log($"[BalanceData] Pull (batch{(dryRun ? ", dry run" : "")}) {snapshot.Describe()}\n" + BalanceDataTools.Describe(plan));
+
+                if (plan.HasErrors)
+                {
+                    exitCode = 1;
+                }
+                else if (!dryRun)
+                {
+                    plan.Apply();
+                    BalanceDataTools.Export();
+                    WriteSnapshotInfo(snapshot);
+                    Debug.Log($"[BalanceData] Applied version {snapshot.version}: {plan.Changes.Count} changes. The reports were not pushed.");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[BalanceData] Pull failed: " + e);
+                exitCode = 1;
+            }
+            EditorApplication.Exit(exitCode);
+        }
+
         private static void WriteSnapshotInfo(BalanceSnapshot snapshot)
         {
             var info = new SnapshotInfo

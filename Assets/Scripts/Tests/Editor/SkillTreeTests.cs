@@ -18,9 +18,9 @@ namespace Game.Tests
     {
         private static readonly (CharacterClass characterClass, string prefabPath)[] Classes =
         {
-            (CharacterClass.Warrior, "Assets/Prefabs/Player/PlayerWarrior.prefab"),
-            (CharacterClass.Archer, "Assets/Prefabs/Player/PlayerArcher.prefab"),
-            (CharacterClass.Mage, "Assets/Prefabs/Player/PlayerAugur.prefab"),
+            (CharacterClass.Crusader, "Assets/Prefabs/Player/PlayerCrusader.prefab"),
+            (CharacterClass.Sentinel, "Assets/Prefabs/Player/PlayerSentinel.prefab"),
+            (CharacterClass.Augur, "Assets/Prefabs/Player/PlayerAugur.prefab"),
         };
 
         private static SkillTreeDefinition GetTree(CharacterClass characterClass)
@@ -103,12 +103,12 @@ namespace Game.Tests
         }
 
         [Test]
-        public void OnlyTheWarriorStartsUnlocked_OthersCostFavors()
+        public void OnlyTheCrusaderStartsUnlocked_OthersCostFavors()
         {
             foreach (var (characterClass, _) in Classes)
             {
                 var tree = GetTree(characterClass);
-                bool shouldStartUnlocked = characterClass == CharacterClass.Warrior;
+                bool shouldStartUnlocked = characterClass == CharacterClass.Crusader;
                 Assert.AreEqual(shouldStartUnlocked, tree.UnlockedByDefault, $"{tree.name}: unlocked by default");
                 if (!shouldStartUnlocked)
                 {

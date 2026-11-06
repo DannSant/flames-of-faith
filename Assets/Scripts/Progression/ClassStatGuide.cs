@@ -86,7 +86,7 @@ namespace Game.Progression
             return result;
         }
 
-        /// <summary>"Key stat for the Warrior: ..." for the tooltip; null for a stat without a role.</summary>
+        /// <summary>"Key stat for the Crusader: ..." for the tooltip; null for a stat without a role.</summary>
         public static string DescribeRole(ClassStatPriority priority, string className)
         {
             if (priority == null || priority.role == StatRole.None) return null;

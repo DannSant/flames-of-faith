@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Common
 {
     /// <summary>
-    /// Keeps at most N spawned objects alive, oldest first out (e.g. the Archer's dash traps).
+    /// Keeps at most N spawned objects alive, oldest first out (e.g. the Sentinel's dash traps).
     /// Objects destroyed by other means (a trap that went off) are dropped from the count, so
     /// they don't take up a slot.
     /// </summary>

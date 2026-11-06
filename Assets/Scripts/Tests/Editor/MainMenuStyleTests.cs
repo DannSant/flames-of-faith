@@ -167,8 +167,8 @@ namespace Game.Tests
             {
                 StringAssert.Contains($"{field}:", yaml, $"MainMenuController.{field} is not serialized in the scene");
             }
-            // The classes in GameSession.SelectedPlayerIndex order (the player prefabs: Warrior, Archer, Augur)
-            string[] expected = { "Warrior", "Archer", "Augur" };
+            // The classes in GameSession.SelectedPlayerIndex order (the player prefabs: Crusader, Sentinel, Augur)
+            string[] expected = { "Crusader", "Sentinel", "Augur" };
             var guids = expected.Select(n => AssetDatabase.AssetPathToGUID($"Assets/Resources/CharacterData/{n}.asset")).ToArray();
             int start = yaml.IndexOf("classesByPlayerIndex:", System.StringComparison.Ordinal);
             Assert.GreaterOrEqual(start, 0);
@@ -176,7 +176,7 @@ namespace Game.Tests
             foreach (string guid in guids)
             {
                 int at = yaml.IndexOf(guid, start, System.StringComparison.Ordinal);
-                Assert.Greater(at, last, "classesByPlayerIndex is not Warrior, Archer, Augur in that order");
+                Assert.Greater(at, last, "classesByPlayerIndex is not Crusader, Sentinel, Augur in that order");
                 last = at;
             }
         }
@@ -191,9 +191,9 @@ namespace Game.Tests
 
         // --- Pure ----------------------------------------------------------------------------------------
 
-        [TestCase("Warrior", 1, 7, "Warrior - Act I - Level 7")]
+        [TestCase("Crusader", 1, 7, "Crusader - Act I - Level 7")]
         [TestCase("Augur", 2, 12, "Augur - Act II - Level 12")]
-        [TestCase("Archer", 0, 0, "Archer - Act I - Level 1")]
+        [TestCase("Sentinel", 0, 0, "Sentinel - Act I - Level 1")]
         public void SaveInfo(string className, int act, int level, string expected)
         {
             Assert.AreEqual(expected, MainMenuController.FormatSaveInfo("{0} - Act {1} - Level {2}", className, act, level));
@@ -201,7 +201,7 @@ namespace Game.Tests
 
         /// <summary>
         /// Pressing a card is the only way to choose a class (click, or A with the gamepad): moving onto a card just
-        /// previews it, so walking the gamepad from the Warrior card down to Start Run can't choose the Augur on the way.
+        /// previews it, so walking the gamepad from the Crusader card down to Start Run can't choose the Augur on the way.
         /// </summary>
         [Test]
         public void Cards_ChooseTheirOwnClassWhenPressed()
@@ -249,18 +249,18 @@ namespace Game.Tests
         [Test]
         public void Details_ShowTheHoveredClass_ElseTheChosenOne()
         {
-            var warrior = ScriptableObject.CreateInstance<CharacterClassData>();
-            var archer = ScriptableObject.CreateInstance<CharacterClassData>();
+            var crusader = ScriptableObject.CreateInstance<CharacterClassData>();
+            var sentinel = ScriptableObject.CreateInstance<CharacterClassData>();
             try
             {
-                Assert.AreSame(archer, MainMenuController.ClassToShow(archer, warrior));
-                Assert.AreSame(warrior, MainMenuController.ClassToShow(null, warrior));
+                Assert.AreSame(sentinel, MainMenuController.ClassToShow(sentinel, crusader));
+                Assert.AreSame(crusader, MainMenuController.ClassToShow(null, crusader));
                 Assert.IsNull(MainMenuController.ClassToShow(null, null));
             }
             finally
             {
-                Object.DestroyImmediate(warrior);
-                Object.DestroyImmediate(archer);
+                Object.DestroyImmediate(crusader);
+                Object.DestroyImmediate(sentinel);
             }
         }
     }

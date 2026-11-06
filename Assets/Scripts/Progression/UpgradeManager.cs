@@ -21,7 +21,7 @@ namespace Game.Progression
         public int FirstLevel;
         /// <summary>The class's recommended stats (gold/silver stars); empty when unknown.</summary>
         public IReadOnlyList<ClassStatPriority> ClassStats = Array.Empty<ClassStatPriority>();
-        /// <summary>For the tooltip line ("Key stat for the Warrior").</summary>
+        /// <summary>For the tooltip line ("Key stat for the Crusader").</summary>
         public string ClassName;
     }
 

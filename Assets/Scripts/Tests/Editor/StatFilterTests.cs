@@ -85,7 +85,7 @@ namespace Game.Tests
                 };
 
                 Assert.IsTrue(effect.GrantsStat(StatType.Armor), "A modifier grants its stat");
-                Assert.IsTrue(effect.GrantsStat(StatType.Pierce), "A bonus rule grants its target stat (e.g. the Archer Emblem)");
+                Assert.IsTrue(effect.GrantsStat(StatType.Pierce), "A bonus rule grants its target stat (e.g. the Sentinel Emblem)");
                 Assert.IsFalse(effect.GrantsStat(StatType.Evasion), "A bonus rule's source stat isn't granted");
                 Assert.IsFalse(effect.GrantsStat(StatType.Luck));
             }

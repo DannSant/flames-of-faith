@@ -73,7 +73,7 @@ namespace Game.UI.SkillTree.Editor
 
             var tabButtons = new List<Button>();
             var tabLabels = new List<TextMeshProUGUI>();
-            foreach (var name in new[] { "Warrior", "Archer", "Augur" })
+            foreach (var name in new[] { "Crusader", "Sentinel", "Augur" })
             {
                 var tab = CreateButton($"Tab_{name}", tabsRow.transform, "Shop_tab.png", name, 22, out var label);
                 tabButtons.Add(tab);
@@ -173,7 +173,7 @@ namespace Game.UI.SkillTree.Editor
 
             // Wire the controller
             var classes = new List<CharacterClassData>();
-            foreach (var name in new[] { "Warrior", "Archer", "Augur" })
+            foreach (var name in new[] { "Crusader", "Sentinel", "Augur" })
             {
                 var data = AssetDatabase.LoadAssetAtPath<CharacterClassData>($"{CharacterDataPath}{name}.asset");
                 if (data != null) classes.Add(data);

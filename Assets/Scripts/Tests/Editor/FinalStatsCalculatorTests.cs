@@ -51,7 +51,7 @@ namespace Game.Tests
         [Test]
         public void ASelfRule_DoublesThePickedPoints()
         {
-            // The Archer Emblem: every Evasion point gives +1 Evasion, so +2 picked = +4 total
+            // The Sentinel Emblem: every Evasion point gives +1 Evasion, so +2 picked = +4 total
             var rules = new List<(StatDependencyRule, int)> { (Rule(StatType.Evasion, StatType.Evasion, 1f), 1) };
             var before = FinalStatsCalculator.Calculate(new Dictionary<StatType, int> { { StatType.Evasion, 3 } }, null, null, rules);
             var after = FinalStatsCalculator.Calculate(new Dictionary<StatType, int> { { StatType.Evasion, 5 } }, null, null, rules);

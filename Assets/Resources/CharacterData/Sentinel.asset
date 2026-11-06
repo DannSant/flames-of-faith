@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
+  m_Name: Sentinel
+  m_EditorClassIdentifier: 
+  characterName: Sentinel
+  characterClass: 3
+  animatorController: {fileID: 9100000, guid: 281fe65995468ba46bfa19316915ef72, type: 2}
+  defaultSprite: {fileID: 21300000, guid: 41aca6795290d486aa661b867d2f8548, type: 3}
+  icon: {fileID: 4150113478575889403, guid: f732a64a7e50ba14d9ef03fb13237edd, type: 3}
+  abilityIcons:
+  - {fileID: 21300000, guid: e2f7cf4dcbe48ed43a010d3cf95019c5, type: 3}
+  - {fileID: 21300000, guid: d45fd7b28cb3d404a94f1eb721fbec6a, type: 3}
+  - {fileID: 21300000, guid: 4f8a44a7dec1b4647aefb81fe8c0de10, type: 3}
+  dashName: Trap Step
+  dashDescription: Quick Dash that leaves a trap behind for a few seconds. Deals
+    _ranged_damage_ to an enemy who steps on it. Duration scales with Skill Duration
+  dashCooldown: 1.5
+  dashSpeed: 3
+  dashDuration: 0.15
+  dashMaxCharges: 1
+  dashDamageStat: 2
+  classDescription: "A skilled archer, member of the Sentinels, defenders of Divinity.
+    \nMain stat: _ranged_damage_\nDash skill: Trap Step. Quick Dash that leaves a
+    trap behind for a few seconds. Deals _ranged_damage_ to an enemy who steps on
+    it. Duration scales with Skill Duration"
+  statPriorities:
+  - stat: 9
+    role: 1
+    justification: Your arrows, Barrage and Trap Step all deal Ranged damage.
+  - stat: 22
+    role: 2
+    justification: With little armor, dodging hits is how you stay alive.
+  - stat: 11
+    role: 2
+    justification: Your arrows pass through more enemies and can split, hitting whole
+      groups at once.
+  - stat: 10
+    role: 2
+    justification: Shoot enemies from farther away, before they can reach you.

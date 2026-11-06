@@ -115,20 +115,20 @@ namespace Game.Tests
         {
             var data = ScriptableObject.CreateInstance<EventEncounterData>();
             data.fullText = "Intro.";
-            data.classIntroLines = new List<ClassText> { new ClassText { characterClass = CharacterClass.Mage, text = "Werlem." } };
-            Assert.AreEqual("Intro.\n\nWerlem.", data.GetIntro(CharacterClass.Mage));
-            Assert.AreEqual("Intro.", data.GetIntro(CharacterClass.Warrior));
+            data.classIntroLines = new List<ClassText> { new ClassText { characterClass = CharacterClass.Augur, text = "Werlem." } };
+            Assert.AreEqual("Intro.\n\nWerlem.", data.GetIntro(CharacterClass.Augur));
+            Assert.AreEqual("Intro.", data.GetIntro(CharacterClass.Crusader));
 
             var option = new EventOption
             {
                 label = "Tell her whose sword it is.",
-                classLabels = new List<ClassText> { new ClassText { characterClass = CharacterClass.Warrior, text = "Tell her who you are." } },
-                onlyForClass = CharacterClass.Archer
+                classLabels = new List<ClassText> { new ClassText { characterClass = CharacterClass.Crusader, text = "Tell her who you are." } },
+                onlyForClass = CharacterClass.Sentinel
             };
-            Assert.AreEqual("Tell her who you are.", option.GetLabel(CharacterClass.Warrior));
-            Assert.AreEqual("Tell her whose sword it is.", option.GetLabel(CharacterClass.Mage));
-            Assert.IsTrue(option.IsOfferedTo(CharacterClass.Archer));
-            Assert.IsFalse(option.IsOfferedTo(CharacterClass.Warrior));
+            Assert.AreEqual("Tell her who you are.", option.GetLabel(CharacterClass.Crusader));
+            Assert.AreEqual("Tell her whose sword it is.", option.GetLabel(CharacterClass.Augur));
+            Assert.IsTrue(option.IsOfferedTo(CharacterClass.Sentinel));
+            Assert.IsFalse(option.IsOfferedTo(CharacterClass.Crusader));
         }
 
         [Test]
@@ -373,7 +373,7 @@ namespace Game.Tests
             {
                 int forEveryone = e.options.Count(o => o.onlyForClass == CharacterClass.None);
                 Assert.That(forEveryone, Is.InRange(2, 3), $"{e.name}: options for everyone");
-                foreach (var cls in new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage })
+                foreach (var cls in new[] { CharacterClass.Crusader, CharacterClass.Sentinel, CharacterClass.Augur })
                 {
                     Assert.LessOrEqual(e.options.Count(o => o.onlyForClass == cls), 1, $"{e.name}: class options for {cls}");
                 }
@@ -387,15 +387,15 @@ namespace Game.Tests
             CharacterClass[] ClassesIn(string id) => events.Single(e => e.eventName == id).options
                 .Select(o => o.onlyForClass).Where(c => c != CharacterClass.None).ToArray();
 
-            CollectionAssert.AreEquivalent(new[] { CharacterClass.Mage }, ClassesIn("arcaneBox"));
-            CollectionAssert.AreEquivalent(new[] { CharacterClass.Mage }, ClassesIn("bandits"));
-            CollectionAssert.AreEquivalent(new[] { CharacterClass.Warrior }, ClassesIn("faraclarianClan"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Augur }, ClassesIn("arcaneBox"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Augur }, ClassesIn("bandits"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Crusader }, ClassesIn("faraclarianClan"));
             // Ayteel answers her own line at the Shrine (v0.5.2 tester feedback)
-            CollectionAssert.AreEquivalent(new[] { CharacterClass.Warrior }, ClassesIn(ShrineId));
-            CollectionAssert.AreEquivalent(new[] { CharacterClass.Archer, CharacterClass.Mage }, ClassesIn("houseOfStars"));
-            CollectionAssert.AreEquivalent(new[] { CharacterClass.Archer }, ClassesIn("lastTorch"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Crusader }, ClassesIn(ShrineId));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Sentinel, CharacterClass.Augur }, ClassesIn("houseOfStars"));
+            CollectionAssert.AreEquivalent(new[] { CharacterClass.Sentinel }, ClassesIn("lastTorch"));
 
-            foreach (var cls in new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage })
+            foreach (var cls in new[] { CharacterClass.Crusader, CharacterClass.Sentinel, CharacterClass.Augur })
             {
                 Assert.IsTrue(events.Any(e => AllOptions(e).Any(x => x.option.onlyForClass == cls)), $"{cls} has no class-only option");
             }
@@ -404,7 +404,7 @@ namespace Game.Tests
         [Test]
         public void ClassTexts_AreForARealClass()
         {
-            var classes = new[] { CharacterClass.Warrior, CharacterClass.Archer, CharacterClass.Mage };
+            var classes = new[] { CharacterClass.Crusader, CharacterClass.Sentinel, CharacterClass.Augur };
             foreach (var e in Events())
             {
                 var texts = e.classIntroLines.Select(t => (t, "intro")).ToList();

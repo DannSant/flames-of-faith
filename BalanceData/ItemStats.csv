@@ -13,9 +13,6 @@ Ancient Talisman Of Power,MagicDamage,2,Flat
 Arcana Belt,MagicDamage,1,Flat
 Arcana Belt,Armor,1,Flat
 Arcana Belt,LifeSteal,-1,Flat
-Archer Emblem +1,Evasion,1,Flat
-Archer Emblem +2,Evasion,2,Flat
-Archer Emblem +3,Evasion,3,Flat
 Augur Emblem +1,MastowAffinity,1,Flat
 Augur Emblem +2,MastowAffinity,2,Flat
 Augur Emblem +3,MastowAffinity,3,Flat
@@ -44,6 +41,9 @@ Crusader Blessing,RangedDamage,-5,Flat
 Crusader Blessing,GraceAffinity,1,Flat
 Crusader Blessing,AttackSpeed,3,Flat
 Crusader Blessing,Range,-5,Flat
+Crusader Emblem +1,Retribution,1,Flat
+Crusader Emblem +2,Retribution,2,Flat
+Crusader Emblem +3,Retribution,3,Flat
 Cursed Coin,Luck,-5,Flat
 Cursed Coin,LifeSteal,2,Flat
 Cursed Coin,GraceAffinity,-1,Flat
@@ -120,6 +120,9 @@ Scepter of the Old Empire,MagicDamage,6,Flat
 Scepter of the Old Empire,PickupRange,3,Flat
 Scepter of the Old Empire,MeleeDamage,-3,Flat
 Scepter of the Old Empire,Armor,-3,Flat
+Sentinel Emblem +1,Evasion,1,Flat
+Sentinel Emblem +2,Evasion,2,Flat
+Sentinel Emblem +3,Evasion,3,Flat
 Shadow Touched Talisman,MagicDamage,15,Flat
 Shadow Touched Talisman,Armor,-2,Flat
 Shadow Touched Talisman,MaxHealth,-5,Flat
@@ -159,6 +162,3 @@ Tribesmen Necklace,SkillDuration,3,Flat
 Tribesmen Necklace,MeleeDamage,3,Flat
 Tribesmen Necklace,Armor,-5,Flat
 Tribesmen Necklace,GraceAffinity,1,Flat
-Warrior Emblem +1,Retribution,1,Flat
-Warrior Emblem +2,Retribution,2,Flat
-Warrior Emblem +3,Retribution,3,Flat

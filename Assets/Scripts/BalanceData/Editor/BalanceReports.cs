@@ -213,8 +213,8 @@ namespace Game.BalanceData.Editor
             }
 
             // Dashes and the Fire Tornado explosion: the tier's damage and stat share, the class's dash stat
-            var warrior = ClassData("Warrior");
-            var archer = ClassData("Archer");
+            var crusader = ClassData("Crusader");
+            var sentinel = ClassData("Sentinel");
             var augur = ClassData("Augur");
             foreach (var ability in BalanceTables.LoadAll<AbilityBehavior>(BalanceTables.EffectBehaviorsFolder))
             {
@@ -224,7 +224,7 @@ namespace Game.BalanceData.Editor
                     {
                         case TrapStepAbility trapStep:
                             var trap = trapStep.GetTier(tier);
-                            inputs.Add(Ability(ability, tier, trap.trapDamage, archer.dashDamageStat, trap.trapStatScale));
+                            inputs.Add(Ability(ability, tier, trap.trapDamage, sentinel.dashDamageStat, trap.trapStatScale));
                             break;
                         case FlameDashAbility flameDash:
                             var flame = flameDash.GetTier(tier);
@@ -232,7 +232,7 @@ namespace Game.BalanceData.Editor
                             break;
                         case CrusaderChargeAbility charge:
                             var row = charge.GetTier(tier);
-                            inputs.Add(Ability(ability, tier, row.damage, warrior.dashDamageStat, row.meleeDamageScale));
+                            inputs.Add(Ability(ability, tier, row.damage, crusader.dashDamageStat, row.meleeDamageScale));
                             break;
                         case FireTornadoesAbility tornadoes:
                             var tornado = tornadoes.GetTier(tier);

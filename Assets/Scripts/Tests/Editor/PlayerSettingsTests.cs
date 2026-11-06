@@ -13,8 +13,8 @@ namespace Game.Tests
     /// </summary>
     public class PlayerSettingsTests
     {
-        [TestCase("Assets/Prefabs/Player/PlayerWarrior.prefab")]
-        [TestCase("Assets/Prefabs/Player/PlayerArcher.prefab")]
+        [TestCase("Assets/Prefabs/Player/PlayerCrusader.prefab")]
+        [TestCase("Assets/Prefabs/Player/PlayerSentinel.prefab")]
         [TestCase("Assets/Prefabs/Player/PlayerAugur.prefab")]
         public void EveryClassDash_FindsItsClassData(string path)
         {

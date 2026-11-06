@@ -148,7 +148,7 @@ namespace Game.UI.Style.Editor
             saveInfo.rectTransform.sizeDelta = new Vector2(MenuWidth - 2f * m, s.SmallFontSize + 6f);
             CenterWindowLayout.PlainText(saveInfo, TextAlignmentOptions.Center);
             saveInfo.textWrappingMode = TextWrappingModes.NoWrap;
-            saveInfo.text = "Warrior - Act I - Level 7";
+            saveInfo.text = "Crusader - Act I - Level 7";
             StyleText(saveInfo, UIFontSize.Small, false, UIColorRole.Muted, s);
         }
 
@@ -176,7 +176,7 @@ namespace Game.UI.Style.Editor
             PlacePanel(root, s, ClassSelectWidth);
             PlaceWindowTitle(root, s, "Choose your class");
 
-            // Left: the class cards, in GameSession.SelectedPlayerIndex order (Warrior, Archer, Augur)
+            // Left: the class cards, in GameSession.SelectedPlayerIndex order (Crusader, Sentinel, Augur)
             var container = Find(root.transform, "Container");
             container.SetSiblingIndex(1);
             var oldImage = container.GetComponent<Image>();
@@ -254,7 +254,7 @@ namespace Game.UI.Style.Editor
             var footer = Reuse("Footer", "Footer");
             DestroyChild(root.transform, "TooltipPane");
 
-            DetailText(className, 0, UIFontSize.Big, UIColorRole.Text, true, TextAlignmentOptions.TopLeft, s, "Warrior");
+            DetailText(className, 0, UIFontSize.Big, UIColorRole.Text, true, TextAlignmentOptions.TopLeft, s, "Crusader");
             DetailText(classDesc, 1, UIFontSize.Small, UIColorRole.Text, false, TextAlignmentOptions.TopLeft, s, "A sturdy fighter...");
             GetOrAdd<LayoutElement>(classDesc.gameObject).flexibleHeight = 1f;
             DetailText(weaponHeader, 2, UIFontSize.Small, UIColorRole.Highlight, true, TextAlignmentOptions.TopLeft, s, "Starting weapon");

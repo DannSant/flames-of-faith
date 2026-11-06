@@ -15,7 +15,7 @@ namespace Game.Tests
     {
         private static List<EventActionResult> NoActions(List<EventOptionActionBase> actions) => new();
 
-        private static EventRunner Run(EventEncounterData data, CharacterClass cls = CharacterClass.Warrior, bool checkSucceeds = true) =>
+        private static EventRunner Run(EventEncounterData data, CharacterClass cls = CharacterClass.Crusader, bool checkSucceeds = true) =>
             new EventRunner(data, cls, _ => checkSucceeds, NoActions);
 
         private static EventEncounterData Event()
@@ -25,7 +25,7 @@ namespace Game.Tests
             data.fullText = "A chest.";
             data.classIntroLines = new List<ClassText>
             {
-                new ClassText { characterClass = CharacterClass.Mage, text = "Werlem knows this." }
+                new ClassText { characterClass = CharacterClass.Augur, text = "Werlem knows this." }
             };
             data.options = new List<EventOption>
             {
@@ -36,7 +36,7 @@ namespace Game.Tests
                     result = new EventBranch
                     {
                         resultText = "You scoop it out.",
-                        classResultLines = new List<ClassText> { new ClassText { characterClass = CharacterClass.Warrior, text = "Ayteel frowns." } }
+                        classResultLines = new List<ClassText> { new ClassText { characterClass = CharacterClass.Crusader, text = "Ayteel frowns." } }
                     }
                 },
                 new EventOption
@@ -50,7 +50,7 @@ namespace Game.Tests
                 new EventOption
                 {
                     label = "Read the runes.",
-                    onlyForClass = CharacterClass.Mage,
+                    onlyForClass = CharacterClass.Augur,
                     result = new EventBranch { resultText = "The runes answer." }
                 }
             };
@@ -73,13 +73,13 @@ namespace Game.Tests
         [Test]
         public void FirstScreen_ShowsTheIntroAndTheOptionsForThisClass()
         {
-            var warrior = Run(Event(), CharacterClass.Warrior).BuildScreen();
-            Assert.AreEqual("The Weeping Chest", warrior.title);
-            Assert.AreEqual("A chest.", warrior.text);
-            CollectionAssert.AreEqual(new[] { "Take the gold.", "Reach beneath." }, warrior.choices.Select(c => c.label));
-            Assert.AreEqual("Gold is gold.", warrior.choices[0].hint);
+            var crusader = Run(Event(), CharacterClass.Crusader).BuildScreen();
+            Assert.AreEqual("The Weeping Chest", crusader.title);
+            Assert.AreEqual("A chest.", crusader.text);
+            CollectionAssert.AreEqual(new[] { "Take the gold.", "Reach beneath." }, crusader.choices.Select(c => c.label));
+            Assert.AreEqual("Gold is gold.", crusader.choices[0].hint);
 
-            var augur = Run(Event(), CharacterClass.Mage).BuildScreen();
+            var augur = Run(Event(), CharacterClass.Augur).BuildScreen();
             Assert.AreEqual("A chest.\n\nWerlem knows this.", augur.text);
             CollectionAssert.AreEqual(new[] { "Take the gold.", "Reach beneath.", "Read the runes." }, augur.choices.Select(c => c.label));
         }
@@ -88,29 +88,29 @@ namespace Game.Tests
         public void ClassLabel_ReplacesTheLabelForItsClass()
         {
             var data = Event();
-            data.options[0].classLabels = new List<ClassText> { new ClassText { characterClass = CharacterClass.Warrior, text = "Tell her who you are." } };
-            Assert.AreEqual("Tell her who you are.", Run(data, CharacterClass.Warrior).BuildScreen().choices[0].label);
-            Assert.AreEqual("Take the gold.", Run(data, CharacterClass.Archer).BuildScreen().choices[0].label);
+            data.options[0].classLabels = new List<ClassText> { new ClassText { characterClass = CharacterClass.Crusader, text = "Tell her who you are." } };
+            Assert.AreEqual("Tell her who you are.", Run(data, CharacterClass.Crusader).BuildScreen().choices[0].label);
+            Assert.AreEqual("Take the gold.", Run(data, CharacterClass.Sentinel).BuildScreen().choices[0].label);
         }
 
         [Test]
         public void FixedOption_EndsWithItsResultAndClassLine()
         {
-            var runner = Run(Event(), CharacterClass.Warrior);
+            var runner = Run(Event(), CharacterClass.Crusader);
             Assert.IsTrue(runner.Choose(0));
             Assert.IsTrue(runner.IsFinished);
             Assert.AreEqual(1, runner.Resolution.parts.Count);
             Assert.AreEqual("You scoop it out.\n\nAyteel frowns.", runner.Resolution.parts[0].text);
 
-            var archer = Run(Event(), CharacterClass.Archer);
-            archer.Choose(0);
-            Assert.AreEqual("You scoop it out.", archer.Resolution.parts[0].text);
+            var sentinel = Run(Event(), CharacterClass.Sentinel);
+            sentinel.Choose(0);
+            Assert.AreEqual("You scoop it out.", sentinel.Resolution.parts[0].text);
         }
 
         [Test]
         public void ClassOption_IsPickedByItsShownIndex()
         {
-            var runner = Run(Event(), CharacterClass.Mage);
+            var runner = Run(Event(), CharacterClass.Augur);
             runner.Choose(2);
             Assert.AreEqual("The runes answer.", runner.Resolution.parts[0].text);
         }
@@ -146,7 +146,7 @@ namespace Game.Tests
         {
             var data = Event();
             var applied = new List<int>();
-            var runner = new EventRunner(data, CharacterClass.Warrior, _ => false, actions =>
+            var runner = new EventRunner(data, CharacterClass.Crusader, _ => false, actions =>
             {
                 applied.Add(actions.Count);
                 return new List<EventActionResult> { EventActionResult.Of(EventResultKind.Grace, 1f) };
@@ -160,8 +160,8 @@ namespace Game.Tests
         [Test]
         public void InvalidChoice_OrAfterTheEnd_DoesNothing()
         {
-            var runner = Run(Event(), CharacterClass.Warrior);
-            Assert.IsFalse(runner.Choose(2), "The Augur's option isn't shown to the Warrior");
+            var runner = Run(Event(), CharacterClass.Crusader);
+            Assert.IsFalse(runner.Choose(2), "The Augur's option isn't shown to the Crusader");
             Assert.IsFalse(runner.Choose(-1));
             runner.Choose(0);
             Assert.IsFalse(runner.Choose(0), "The event is over");

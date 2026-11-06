@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Warrior's dash (Glyph of Crusader Charge), performed by <see cref="Game.Control.WarriorDash"/>.
+    /// The Crusader's dash (Glyph of Crusader Charge), performed by <see cref="Game.Control.CrusaderDash"/>.
     /// Without this item the dash hitbox keeps its prefab values.
     /// </summary>
-    [CreateAssetMenu(menuName = "Effects/Abilities/Warrior/Crusader Charge")]
+    [CreateAssetMenu(menuName = "Effects/Abilities/Crusader/Crusader Charge")]
     public class CrusaderChargeAbility : AbilityBehavior<CrusaderChargeAbility.Values>
     {
         [Serializable]

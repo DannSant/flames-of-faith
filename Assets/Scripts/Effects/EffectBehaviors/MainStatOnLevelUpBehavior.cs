@@ -16,7 +16,7 @@ namespace Game.Effects.EffectBehaviors
     [CreateAssetMenu(menuName = "Effects/Behaviors/Stat On Level Up")]
     public class MainStatOnLevelUpBehavior : EffectBehavior
     {
-        [Tooltip("The stat gained on level-up (e.g. Melee Damage for the Warrior).")]
+        [Tooltip("The stat gained on level-up (e.g. Melee Damage for the Crusader).")]
         [SerializeField] private StatType stat = StatType.MeleeDamage;
         [Tooltip("+1 to the stat every this many level-ups. 1 = every level.")]
         [Min(1)]

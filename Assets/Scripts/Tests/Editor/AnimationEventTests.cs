@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Game.Tests
 {
     /// <summary>
-    /// Animation events on the clips of a blend tree fire once per clip, in the same frame. The Warrior's attack
+    /// Animation events on the clips of a blend tree fire once per clip, in the same frame. The Crusader's attack
     /// is an 8-direction blend tree, so its start event ran the cleave 8 times per swing; DrekoEye and
     /// FlameShooter shot 8 stacked volleys. CharacterVisual (player) and BehaviorController (enemies) forward
     /// each event once per frame.
@@ -138,7 +138,7 @@ namespace Game.Tests
                     }
                 }
             }
-            Assert.Greater(checkedGroups, 0, "The Warrior attack, DrekoEye and FlameShooter blend trees should be checked");
+            Assert.Greater(checkedGroups, 0, "The Crusader attack, DrekoEye and FlameShooter blend trees should be checked");
         }
 
         private static IEnumerable<BlendTree> BlendTrees(AnimatorStateMachine machine)

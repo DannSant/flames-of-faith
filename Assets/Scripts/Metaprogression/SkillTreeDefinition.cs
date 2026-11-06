@@ -15,7 +15,7 @@ namespace Game.Metaprogression
     [CreateAssetMenu(fileName = "SkillTree", menuName = "Game/Skill Tree")]
     public class SkillTreeDefinition : ScriptableObject
     {
-        [SerializeField] private CharacterClass characterClass = CharacterClass.Warrior;
+        [SerializeField] private CharacterClass characterClass = CharacterClass.Crusader;
         [Header("Class Unlock (the tree's root)")]
         [Tooltip("Playable from the start, without buying it.")]
         [SerializeField] private bool unlockedByDefault = false;

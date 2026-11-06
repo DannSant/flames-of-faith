@@ -81,13 +81,13 @@ namespace Game.Tests
         [Test]
         public void DescribeRole_NamesTheRoleTheClassAndWhy()
         {
-            Assert.AreEqual("Key stat for the Warrior: Swords hit hard.",
-                ClassStatGuide.DescribeRole(P(StatType.MeleeDamage, StatRole.Key, " Swords hit hard. "), "Warrior"));
-            Assert.AreEqual("Complementary stat for the Archer",
-                ClassStatGuide.DescribeRole(P(StatType.Range, StatRole.Complementary, ""), "Archer"));
+            Assert.AreEqual("Key stat for the Crusader: Swords hit hard.",
+                ClassStatGuide.DescribeRole(P(StatType.MeleeDamage, StatRole.Key, " Swords hit hard. "), "Crusader"));
+            Assert.AreEqual("Complementary stat for the Sentinel",
+                ClassStatGuide.DescribeRole(P(StatType.Range, StatRole.Complementary, ""), "Sentinel"));
             Assert.AreEqual("Key stat: why", ClassStatGuide.DescribeRole(P(StatType.MeleeDamage, StatRole.Key), null));
-            Assert.IsNull(ClassStatGuide.DescribeRole(null, "Warrior"));
-            Assert.IsNull(ClassStatGuide.DescribeRole(P(StatType.Luck, StatRole.None), "Warrior"));
+            Assert.IsNull(ClassStatGuide.DescribeRole(null, "Crusader"));
+            Assert.IsNull(ClassStatGuide.DescribeRole(P(StatType.Luck, StatRole.None), "Crusader"));
         }
 
         // --- The real class assets ---------------------------------------------------------
@@ -102,8 +102,8 @@ namespace Game.Tests
 
         private static readonly object[] Specs =
         {
-            new object[] { "Warrior", StatType.MeleeDamage, new[] { StatType.Retribution, StatType.Armor, StatType.MaxHealth, StatType.DashCooldown } },
-            new object[] { "Archer", StatType.RangedDamage, new[] { StatType.Evasion, StatType.Pierce, StatType.Range } },
+            new object[] { "Crusader", StatType.MeleeDamage, new[] { StatType.Retribution, StatType.Armor, StatType.MaxHealth, StatType.DashCooldown } },
+            new object[] { "Sentinel", StatType.RangedDamage, new[] { StatType.Evasion, StatType.Pierce, StatType.Range } },
             new object[] { "Augur", StatType.MagicDamage, new[] { StatType.MastowAffinity, StatType.SkillDuration } },
         };
 
@@ -119,8 +119,8 @@ namespace Game.Tests
                 guide.Where(p => p.role == StatRole.Complementary).Select(p => p.stat), $"{name} Complementary stats");
         }
 
-        [TestCase("Warrior")]
-        [TestCase("Archer")]
+        [TestCase("Crusader")]
+        [TestCase("Sentinel")]
         [TestCase("Augur")]
         public void ClassGuide_IsWellFormed(string name)
         {
