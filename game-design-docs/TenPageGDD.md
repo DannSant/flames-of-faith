@@ -67,8 +67,8 @@ Since then, the **Years of the Miasma**: a dark mist breathed out by Dreko creat
 
 **Playable characters.** Three pilgrims set out together, the grandchildren of the three who were there when Ashemdrek fell. The player chooses which one fights; the other two walk beside them and speak in events. Each has an arc, told mostly through events: a start in Act I, a turning point in Acts II–III, a resolution in Act IV.
 
-- **Ayteel Alamoh – Warrior (Crusader of the Faith).** Granddaughter of Gabien and of **Dayla**, raised in Abidor among refugees by a family nobody would speak to. She carries Gabien's Steeldawn sword, **Ashem Elwyn** ("Shining Tide"), and calls herself a Crusader of the Faith, a rank the Church never granted an Alamoh. She means to clear her family's name by finishing what Gabien failed. Along the road she learns why he broke the Seal, and that she is alive because he did.
-- **Faelin Vidal – Archer (Sentinel of Abidor).** Granddaughter of Orleone Vidal, Grand Crusader of Abidor and Gabien's mentor, recruited young by Abidor's **Sentinels**. Learning that some blame Orleone for Gabien's failure shook her beliefs; Ayteel, a true outcast who kept going anyway, gave her back her nerve. Her question: was Orleone's confession honor or betrayal?
+- **Ayteel Alamoh – Crusader (Crusader of the Faith).** Granddaughter of Gabien and of **Dayla**, raised in Abidor among refugees by a family nobody would speak to. She carries Gabien's Steeldawn sword, **Ashem Elwyn** ("Shining Tide"), and calls herself a Crusader of the Faith, a rank the Church never granted an Alamoh. She means to clear her family's name by finishing what Gabien failed. Along the road she learns why he broke the Seal, and that she is alive because he did.
+- **Faelin Vidal – Sentinel (Sentinel of Abidor).** Granddaughter of Orleone Vidal, Grand Crusader of Abidor and Gabien's mentor, recruited young by Abidor's **Sentinels**. Learning that some blame Orleone for Gabien's failure shook her beliefs; Ayteel, a true outcast who kept going anyway, gave her back her nerve. Her question: was Orleone's confession honor or betrayal?
 - **Werlem Feth – Augur (Shardless Church).** Grandson of Kyro Feth, whose findings founded **Runic Math**, the new science that lets humans cast without the Mastow elves are born with. Against the wishes of his academic parents he chose faith and became an Augur of the Shardless Church. Along the road he finds what Kyro spent his life calculating, and the one term his science could never write.
 
 **Enemies of the story:** Gracoy mercenaries, the Forsaken and the will-less **Awoken**, corrupted beasts, the soul-eating **Devourers**, and above all the **Drekos**, their Miasma creatures and the **echoes** of the great dead (Malizante, Pal'bor, Gabien). In Act III the pilgrims face **Forsaken Daviro the Unholy**, a Forsaken from Gabien's time.
@@ -102,7 +102,7 @@ Death or the ending ──> Favors banked ──> Skill tree (main menu) ──>
 
 ### A run, step by step
 1. **Main menu.** New Game, Load Game (continue the single saved run), Settings, Skill Tree, Pilgrim's Chronicle, Exit.
-2. **Class select.** Choose Warrior, Archer or Augur (Archer and Augur start locked). The details show the starting weapon at its upgraded tier. On the first New Game, the opening cutscene plays after Start Run, right before the map.
+2. **Class select.** Choose Crusader, Sentinel or Augur (Sentinel and Augur start locked). The details show the starting weapon at its upgraded tier. On the first New Game, the opening cutscene plays after Start Run, right before the map.
 3. **Overworld map.** The act's map is picked at random from its variants (Act I has 3) and generated from the run's seed. Nodes are revealed as you advance (fog of war). The player can also walk back along the paths they've found, so a side path that ends in a shop or a treasure is a detour, not a dead end. Some optional paths appear only in some runs. Each combat node shows its **Taint Level**.
 4. **Node types:**
    - **Combat:** 2 waves of enemies (wave durations of 30–45 s in Act I).
@@ -134,15 +134,15 @@ Death or the ending ──> Favors banked ──> Skill tree (main menu) ──>
 ### Classes
 Each class has a **kit** of six starting items: a weapon, an off-hand, an Emblem and three **Glyphs** (one per ability slot). Each kit item has upgrade tiers (+1 to +3) bought with Favors in the class's skill tree. Upgrades apply from the next run.
 
-| | **Warrior** | **Archer** | **Augur** |
+| | **Crusader** | **Sentinel** | **Augur** |
 |---|---|---|---|
 | **Character** | Ayteel Alamoh | Faelin Vidal | Werlem Feth |
 | **Role** | Melee bruiser | Ranged skirmisher | Magic caster, area damage |
 | **Weapon** | Steeldawn Sword | Steeldawn Bow | Akeros Graceful Scepter |
 | **Off-hand** | Shield of the Crusader (sturdy, slower) | Quiver of the Sentinel (longer range, less protection) | Ley Shield (stronger debuffs, less protection) |
-| **Emblem** (+1 main stat per level) | Warrior Emblem: Melee Damage | Archer Emblem: Ranged Damage | Augur Emblem: Magic Damage |
+| **Emblem** (+1 main stat per level) | Crusader Emblem: Melee Damage | Sentinel Emblem: Ranged Damage | Augur Emblem: Magic Damage |
 | **Basic attack** | Glyph of Crusader Strike: a sword swing in an arc; may inflict Bleed | Glyph of Holy Shot: a blessed arrow; upgrades add a cone of extra arrows | Glyph of Fireball: a fireball; may inflict Fire; upgrades add an impact explosion |
-| **Special** | Glyph of Whirlwind: a 2 s spin that hits every enemy in it on contact and again at a regular interval (faster on upgrades); the Warrior can still be hurt while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
+| **Special** | Glyph of Whirlwind: a 2 s spin that hits every enemy in it on contact and again at a regular interval (faster on upgrades); the Crusader can still be hurt while spinning; upgrades add a holy shield that absorbs enemy projectiles and heals | Glyph of Barrage: a ring of arrows, then homing arrows at the marked target; invulnerable during it | Glyph of Fire Tornadoes: seeking fire tornadoes, then explosions on the marked target; upgrades make the tornadoes explode |
 | **Dash** | Glyph of Crusader Charge: charge through enemies, damaging and knocking them back | Glyph of Trap Step: leaves a trap that damages the first enemy to step on it | Glyph of Flame Dash: pass through enemies and leave a trail of flames |
 | **Unlock** | Unlocked by default | 50 Favors | 50 Favors |
 

@@ -42,6 +42,12 @@ namespace Game.Scene
 
         public event Action OnPlayerDisabledOnMap;
 
+        /// <summary>
+        /// Fired with OnPlayerDisabledOnMap: how the played class's pilgrim looks, for the map's walking marker
+        /// (the map never looks the player up itself).
+        /// </summary>
+        public event Action<MapPilgrimLook> OnMapPilgrimReady;
+
         public void SpawnSelectedPlayer(int selectedIndex, bool isNewRun)
         {
             if (currentPlayer != null)
@@ -157,6 +163,9 @@ namespace Game.Scene
                 component.DisableComponentsOnMap();
             }
 
+            // Read before the colliders go off: the feet are the body collider's center (IsoGround)
+            var pilgrim = BuildMapPilgrimLook(currentPlayer);
+
             //Disable collider so we don't accidentally click on the player and prevent us to enter a level
             var colliders = currentPlayer.GetComponentsInChildren<Collider2D>();
             foreach (var collider in colliders)
@@ -168,6 +177,39 @@ namespace Game.Scene
 
             //Call event for any additional logic that needs to happen when player is disabled on map
             OnPlayerDisabledOnMap?.Invoke();
+            if (pilgrim != null) OnMapPilgrimReady?.Invoke(pilgrim);
+        }
+
+        /// <summary>
+        /// The map marker's look: the class's animator controller (the class data's, else the body's), the body's
+        /// sprite and scale, and the feet (the solid body collider's center) from the body sprite.
+        /// </summary>
+        public static MapPilgrimLook BuildMapPilgrimLook(GameObject player)
+        {
+            if (player == null) return null;
+            var visual = player.GetComponentInChildren<CharacterVisual>(true);
+            var body = visual != null ? visual.GetComponent<SpriteRenderer>() : null;
+            if (body == null) return null;
+
+            var classData = player.GetComponent<PlayerClassManager>()?.ClassData;
+            var animator = body.GetComponent<Animator>();
+            Vector2 feet = player.transform.position;
+            foreach (var collider in player.GetComponents<Collider2D>())
+            {
+                if (collider.isTrigger) continue;
+                feet = (Vector2)player.transform.position + Vector2.Scale(collider.offset, player.transform.lossyScale);
+                break;
+            }
+
+            return new MapPilgrimLook
+            {
+                controller = classData != null && classData.animatorController != null
+                    ? classData.animatorController
+                    : animator != null ? animator.runtimeAnimatorController : null,
+                sprite = body.sprite,
+                scale = body.transform.lossyScale,
+                feetOffset = feet - (Vector2)body.transform.position,
+            };
         }
 
         // The overworld shares buttons with gameplay (A confirms a node but is also Dash), and the

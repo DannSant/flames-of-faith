@@ -1,0 +1,58 @@
+using Game.Combat;
+using Game.Effects.Abilities;
+using UnityEngine;
+
+namespace Game.Control
+{
+    public class CrusaderDash : DashBase
+    {
+        [Header("Crusader Dash - Melee Impact")]
+        [Tooltip("Child GameObject with a trigger Collider2D + DamageSourceBase (WeaponClass Melee), toggled on for " +
+            "the dash's duration. Its collider must contain the player's solid body collider with a margin: enemies " +
+            "only have a solid feet collider, so a smaller hitbox is stopped by the bodies colliding and never hits.")]
+        [SerializeField] private GameObject dashHitbox;
+
+        private DamageSourceBase hitboxDamage;
+        // The hitbox's own knockback (its DamageSourceData), used when the player has no Glyph of Crusader Charge.
+        private float defaultKnockback;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            hitboxDamage = dashHitbox != null ? dashHitbox.GetComponent<DamageSourceBase>() : null;
+            if (hitboxDamage != null)
+            {
+                defaultKnockback = hitboxDamage.KnockbackForce;
+            }
+        }
+
+        // The damage is the Glyph of Crusader Charge's (its tier's damage and share of the class's dash damage stat).
+        // Without the glyph the charge deals no damage: every Crusader kit has it (ClassKitTests).
+        protected override void ApplyAbilityItems()
+        {
+            if (hitboxDamage == null) return;
+
+            var charge = GetAbilityValues<CrusaderChargeAbility, CrusaderChargeAbility.Values>();
+            hitboxDamage.SetDamage(charge != null ? new DamageProfile(charge.damage, dashDamageStat, charge.meleeDamageScale) : default);
+            hitboxDamage.SetKnockbackForce(charge != null ? charge.knockbackForce : defaultKnockback);
+        }
+
+        protected override void StartDashing()
+        {
+            base.StartDashing();
+            if (dashHitbox != null)
+            {
+                dashHitbox.SetActive(true);
+            }
+        }
+
+        protected override void EndDashing()
+        {
+            base.EndDashing();
+            if (dashHitbox != null)
+            {
+                dashHitbox.SetActive(false);
+            }
+        }
+    }
+}

@@ -26,7 +26,7 @@ namespace Game.UI
         [SerializeField] private Color keyStatColor = new Color(0.95f, 0.76f, 0.31f);
         [SerializeField] private Color complementaryStatColor = new Color(0.78f, 0.82f, 0.86f);
 
-        // "Key stat for the Warrior: ..." pushed by the selection UI; null for other stats.
+        // "Key stat for the Crusader: ..." pushed by the selection UI; null for other stats.
         private string roleDescription;
         private StatRole role;
 

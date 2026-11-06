@@ -105,7 +105,7 @@ namespace Game.Tests
         {
             var settings = Settings();
             var root = Load(ClassSelectPath);
-            AssertPanel(root, 640f, settings);
+            AssertPanel(root, Game.UI.Style.Editor.MainMenuRestyler.ClassSelectWidth, settings);
             Assert.IsFalse(root.GetComponentsInChildren<Transform>(true).Any(t => t.name == "TooltipPane"), "Leftover tooltip pane");
 
             var cards = root.GetComponentsInChildren<ClassSelectHoverButton>(true);
@@ -128,9 +128,11 @@ namespace Game.Tests
 
             AssertText(Child(root, "ClassName"), UIFontSize.Big, null, settings);
             AssertText(Child(root, "ClassDesc"), UIFontSize.Small, null, settings);
-            AssertText(Child(root, "WeaponHeader"), UIFontSize.Small, UIColorRole.Highlight, settings);
-            AssertText(Child(root, "WeaponName"), UIFontSize.Small, UIColorRole.None, settings);
-            AssertText(Child(root, "WeaponDesc"), UIFontSize.Small, null, settings);
+            foreach (string old in new[] { "WeaponHeader", "WeaponName", "WeaponDesc" })
+            {
+                Assert.IsFalse(root.GetComponentsInChildren<Transform>(true).Any(x => x.name == old), $"{old}: the Abilities tab replaced the Starting weapon block");
+            }
+            Assert.IsNotNull(Child(root, "Details").GetComponent<ClassDetailsTabsUI>(), "The details have no tabs");
             AssertText(Child(root, "Footer"), UIFontSize.Small, UIColorRole.None, settings);
 
             var start = (RectTransform)Child(root, "StartRunButton");
@@ -167,8 +169,8 @@ namespace Game.Tests
             {
                 StringAssert.Contains($"{field}:", yaml, $"MainMenuController.{field} is not serialized in the scene");
             }
-            // The classes in GameSession.SelectedPlayerIndex order (the player prefabs: Warrior, Archer, Augur)
-            string[] expected = { "Warrior", "Archer", "Augur" };
+            // The classes in GameSession.SelectedPlayerIndex order (the player prefabs: Crusader, Sentinel, Augur)
+            string[] expected = { "Crusader", "Sentinel", "Augur" };
             var guids = expected.Select(n => AssetDatabase.AssetPathToGUID($"Assets/Resources/CharacterData/{n}.asset")).ToArray();
             int start = yaml.IndexOf("classesByPlayerIndex:", System.StringComparison.Ordinal);
             Assert.GreaterOrEqual(start, 0);
@@ -176,7 +178,7 @@ namespace Game.Tests
             foreach (string guid in guids)
             {
                 int at = yaml.IndexOf(guid, start, System.StringComparison.Ordinal);
-                Assert.Greater(at, last, "classesByPlayerIndex is not Warrior, Archer, Augur in that order");
+                Assert.Greater(at, last, "classesByPlayerIndex is not Crusader, Sentinel, Augur in that order");
                 last = at;
             }
         }
@@ -191,9 +193,9 @@ namespace Game.Tests
 
         // --- Pure ----------------------------------------------------------------------------------------
 
-        [TestCase("Warrior", 1, 7, "Warrior - Act I - Level 7")]
+        [TestCase("Crusader", 1, 7, "Crusader - Act I - Level 7")]
         [TestCase("Augur", 2, 12, "Augur - Act II - Level 12")]
-        [TestCase("Archer", 0, 0, "Archer - Act I - Level 1")]
+        [TestCase("Sentinel", 0, 0, "Sentinel - Act I - Level 1")]
         public void SaveInfo(string className, int act, int level, string expected)
         {
             Assert.AreEqual(expected, MainMenuController.FormatSaveInfo("{0} - Act {1} - Level {2}", className, act, level));
@@ -201,7 +203,7 @@ namespace Game.Tests
 
         /// <summary>
         /// Pressing a card is the only way to choose a class (click, or A with the gamepad): moving onto a card just
-        /// previews it, so walking the gamepad from the Warrior card down to Start Run can't choose the Augur on the way.
+        /// previews it, so walking the gamepad from the Crusader card down to Start Run can't choose the Augur on the way.
         /// </summary>
         [Test]
         public void Cards_ChooseTheirOwnClassWhenPressed()
@@ -215,6 +217,43 @@ namespace Game.Tests
                 Assert.AreEqual(1, button.onClick.GetPersistentEventCount(), $"{card.name}: one click handler");
                 Assert.AreEqual("Select" + card.ClassData.characterName, button.onClick.GetPersistentMethodName(0),
                     $"{card.name} chooses another class when pressed");
+            }
+        }
+
+        /// <summary>With the gamepad, pressing A on a card chooses it and lands on Start Run (BACKLOG 39).</summary>
+        [Test]
+        public void ChoosingWithTheGamepad_SelectsStartRun()
+        {
+            var start = new GameObject("StartRunButton");
+            try
+            {
+                Assert.AreSame(start, MainMenuController.SelectionAfterChoosing(true, start), "Gamepad: on to Start Run");
+                Assert.IsNull(MainMenuController.SelectionAfterChoosing(false, start), "Mouse: nothing moves");
+                Assert.IsNull(MainMenuController.SelectionAfterChoosing(true, null));
+                start.SetActive(false);
+                Assert.IsNull(MainMenuController.SelectionAfterChoosing(true, start), "Not onto a hidden button");
+            }
+            finally
+            {
+                Object.DestroyImmediate(start);
+            }
+
+            // Start Run can still go back up to the class select (Back, then Skill Tree and the tabs) and left to the cards
+            var prefab = Load(ClassSelectPath);
+            var startButton = Child(prefab, "StartRunButton").GetComponent<Selectable>();
+            var root = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            try
+            {
+                var tabs = root.GetComponentInChildren<ClassDetailsTabsUI>(true);
+                var cards = root.GetComponentsInChildren<ClassSelectHoverButton>(true);
+                tabs.SetChosenClass(cards[1].ClassData);
+                var instanceStart = root.GetComponentsInChildren<Selectable>(true).First(s => s.name == startButton.name);
+                Assert.AreEqual("Back", instanceStart.navigation.selectOnUp?.name);
+                Assert.AreSame(cards[1].GetComponent<Selectable>(), instanceStart.navigation.selectOnLeft, "Left returns to the chosen card");
+            }
+            finally
+            {
+                Object.DestroyImmediate(root);
             }
         }
 
@@ -249,18 +288,18 @@ namespace Game.Tests
         [Test]
         public void Details_ShowTheHoveredClass_ElseTheChosenOne()
         {
-            var warrior = ScriptableObject.CreateInstance<CharacterClassData>();
-            var archer = ScriptableObject.CreateInstance<CharacterClassData>();
+            var crusader = ScriptableObject.CreateInstance<CharacterClassData>();
+            var sentinel = ScriptableObject.CreateInstance<CharacterClassData>();
             try
             {
-                Assert.AreSame(archer, MainMenuController.ClassToShow(archer, warrior));
-                Assert.AreSame(warrior, MainMenuController.ClassToShow(null, warrior));
+                Assert.AreSame(sentinel, MainMenuController.ClassToShow(sentinel, crusader));
+                Assert.AreSame(crusader, MainMenuController.ClassToShow(null, crusader));
                 Assert.IsNull(MainMenuController.ClassToShow(null, null));
             }
             finally
             {
-                Object.DestroyImmediate(warrior);
-                Object.DestroyImmediate(archer);
+                Object.DestroyImmediate(crusader);
+                Object.DestroyImmediate(sentinel);
             }
         }
     }

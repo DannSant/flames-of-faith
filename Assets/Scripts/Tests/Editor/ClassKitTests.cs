@@ -23,8 +23,8 @@ namespace Game.Tests
     /// </summary>
     public class ClassKitTests
     {
-        private const string WarriorPrefab = "Assets/Prefabs/Player/PlayerWarrior.prefab";
-        private const string ArcherPrefab = "Assets/Prefabs/Player/PlayerArcher.prefab";
+        private const string CrusaderPrefab = "Assets/Prefabs/Player/PlayerCrusader.prefab";
+        private const string SentinelPrefab = "Assets/Prefabs/Player/PlayerSentinel.prefab";
         private const string AugurPrefab = "Assets/Prefabs/Player/PlayerAugur.prefab";
 
         private static GameObject LoadPrefab(string path)
@@ -81,8 +81,8 @@ namespace Game.Tests
 
         // --- Every class -------------------------------------------------------------------
 
-        [TestCase(WarriorPrefab)]
-        [TestCase(ArcherPrefab)]
+        [TestCase(CrusaderPrefab)]
+        [TestCase(SentinelPrefab)]
         [TestCase(AugurPrefab)]
         public void Kit_HasExactlyOneAbilityPerSlot(string prefabPath)
         {
@@ -95,8 +95,8 @@ namespace Game.Tests
             }
         }
 
-        [TestCase(WarriorPrefab)]
-        [TestCase(ArcherPrefab)]
+        [TestCase(CrusaderPrefab)]
+        [TestCase(SentinelPrefab)]
         [TestCase(AugurPrefab)]
         public void Kit_ItemsAreStartingOnly(string prefabPath)
         {
@@ -111,8 +111,8 @@ namespace Game.Tests
 
         // DashBase finds the EffectStore with GetComponent in OnEnable (the player isn't
         // registered with PlayerManager yet then), so they must share a GameObject.
-        [TestCase(WarriorPrefab)]
-        [TestCase(ArcherPrefab)]
+        [TestCase(CrusaderPrefab)]
+        [TestCase(SentinelPrefab)]
         [TestCase(AugurPrefab)]
         public void Dash_SitsNextToTheEffectStore(string prefabPath)
         {
@@ -121,8 +121,8 @@ namespace Game.Tests
             Assert.IsNotNull(dash.GetComponent<EffectStore>(), $"{prefabPath}: the dash must be on the same GameObject as the EffectStore");
         }
 
-        [TestCase(WarriorPrefab)]
-        [TestCase(ArcherPrefab)]
+        [TestCase(CrusaderPrefab)]
+        [TestCase(SentinelPrefab)]
         [TestCase(AugurPrefab)]
         public void Kit_AbilityTablesHaveABaseTier(string prefabPath)
         {
@@ -132,15 +132,15 @@ namespace Game.Tests
             }
         }
 
-        // --- Warrior -----------------------------------------------------------------------
+        // --- Crusader -----------------------------------------------------------------------
 
         [Test]
-        public void Warrior_SwordHasWhatItsGlyphsDrive()
+        public void Crusader_SwordHasWhatItsGlyphsDrive()
         {
-            var prefab = LoadPrefab(WarriorPrefab);
+            var prefab = LoadPrefab(CrusaderPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var sword = prefab.GetComponentInChildren<SwordWeapon>(true);
-            Assert.IsNotNull(sword, "PlayerWarrior has no SwordWeapon");
+            Assert.IsNotNull(sword, "PlayerCrusader has no SwordWeapon");
             GetSerializedReference<WeaponDamageSource>(sword, "mainDamageSource");
             GetSerializedReference<WeaponDamageSource>(sword, "specialDamageSource");
             GetSerializedReference<GameObject>(sword, "projectileShieldVFXPrefab");
@@ -154,12 +154,12 @@ namespace Game.Tests
         }
 
         [Test]
-        public void Warrior_DashHasAHitbox()
+        public void Crusader_DashHasAHitbox()
         {
-            var prefab = LoadPrefab(WarriorPrefab);
+            var prefab = LoadPrefab(CrusaderPrefab);
             var abilities = GetAuthoredAbilities(prefab);
-            var dash = prefab.GetComponent<WarriorDash>();
-            Assert.IsNotNull(dash, "PlayerWarrior has no WarriorDash");
+            var dash = prefab.GetComponent<CrusaderDash>();
+            Assert.IsNotNull(dash, "PlayerCrusader has no CrusaderDash");
             var hitbox = GetSerializedReference<GameObject>(dash, "dashHitbox").GetComponent<DamageSourceBase>();
             Assert.IsNotNull(hitbox, "The dash hitbox has no DamageSourceBase");
 
@@ -167,15 +167,15 @@ namespace Game.Tests
             Assert.Greater(charge.damage, 0, "Crusader Charge base damage");
         }
 
-        // --- Archer ------------------------------------------------------------------------
+        // --- Sentinel ------------------------------------------------------------------------
 
         [Test]
-        public void Archer_BowHasWhatItsGlyphsDrive()
+        public void Sentinel_BowHasWhatItsGlyphsDrive()
         {
-            var prefab = LoadPrefab(ArcherPrefab);
+            var prefab = LoadPrefab(SentinelPrefab);
             var abilities = GetAuthoredAbilities(prefab);
             var bow = prefab.GetComponentInChildren<BowWeapon>(true);
-            Assert.IsNotNull(bow, "PlayerArcher has no BowWeapon");
+            Assert.IsNotNull(bow, "PlayerSentinel has no BowWeapon");
             GetSerializedReference<WeaponData>(bow, "weaponData");
             GetSerializedReference<GameObject>(bow, "barrageArrowPrefab");
 
@@ -189,12 +189,12 @@ namespace Game.Tests
         }
 
         [Test]
-        public void Archer_DashSetsDamagingTraps()
+        public void Sentinel_DashSetsDamagingTraps()
         {
-            var prefab = LoadPrefab(ArcherPrefab);
+            var prefab = LoadPrefab(SentinelPrefab);
             var abilities = GetAuthoredAbilities(prefab);
-            var dash = prefab.GetComponent<ArcherDash>();
-            Assert.IsNotNull(dash, "PlayerArcher has no ArcherDash");
+            var dash = prefab.GetComponent<SentinelDash>();
+            Assert.IsNotNull(dash, "PlayerSentinel has no SentinelDash");
             var trap = GetSerializedReference<GameObject>(dash, "trapPrefab").GetComponentInChildren<DamageSourceBase>(true);
             Assert.IsNotNull(trap, "The trap prefab has no DamageSourceBase");
 
@@ -246,8 +246,8 @@ namespace Game.Tests
 
         // --- Emblems -----------------------------------------------------------------------
 
-        [TestCase(WarriorPrefab, StatType.MeleeDamage)]
-        [TestCase(ArcherPrefab, StatType.RangedDamage)]
+        [TestCase(CrusaderPrefab, StatType.MeleeDamage)]
+        [TestCase(SentinelPrefab, StatType.RangedDamage)]
         [TestCase(AugurPrefab, StatType.MagicDamage)]
         public void Kit_HasOneEmblemGrantingTheMainStat(string prefabPath, StatType mainStat)
         {
@@ -259,8 +259,8 @@ namespace Game.Tests
             Assert.AreEqual(1, GetSerializedProperty(levelUps[0], "levelsPerPoint").intValue, $"{prefabPath}: +1 every level");
         }
 
-        [TestCase(WarriorPrefab)]
-        [TestCase(ArcherPrefab)]
+        [TestCase(CrusaderPrefab)]
+        [TestCase(SentinelPrefab)]
         [TestCase(AugurPrefab)]
         public void Kit_StatBonusRulesLiveOnTheEmblemOnly(string prefabPath)
         {

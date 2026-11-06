@@ -1,8 +1,8 @@
 # Feature: Demo musts from the owner's list (BACKLOG 38 to 42)
 
-- **Status:** ready
+- **Status:** done, merged into `develop` (2026-11-06)
 - **Branch:** `feature/demo-musts` (off `develop`, after the Light Devourer merge `e48d21e`)
-- **Owner session:** implementation session, not started
+- **Owner session:** implementation session, finished
 - **Related docs:** `docs/pm/BACKLOG.md` items 38 to 42; `CLAUDE.md` "Corrupted outline", "UI standards & revamp" (main menu, class select flow, restylers), "Gamepad & UI navigation", "Class kits, skill trees & Favors", "Class stat guide", "Effect data pipeline", "Balance data" (the pipeline rule), "Two parallel map systems" (Overworld), "Run save / load"; `game-design-docs/Lore.md` §6 and the glossary
 
 ## Goal
@@ -123,15 +123,15 @@ Owner's decision (2026-11-06): everything, once. Player-facing names: **Crusader
 - **The Corrupted outline** on the map (`CorruptedVisual.SetAnchor`) must follow the animated sprite and its flip. This ties in with part 1.
 
 ## Acceptance criteria
-- [ ] A Corrupted Dreko Eye and DrekoEyeAdd show an outline that fits the sprite in all 8 directions; `CorruptionOutlineTests` cover the cause.
-- [ ] No class is called Warrior, Archer or Mage in code, assets, prefabs, the game's text or the current docs (archived docs excepted). The enum keeps its indexes.
-- [ ] An old meta save (Warrior / Archer / Mage names) loads with its Favors, unlocks and bought tiers; a run saved before the rename continues.
-- [ ] The class cards still choose their class after the method rename.
-- [ ] CSVs, `BalanceDocs` and the reports are in step; the sheet was pushed only with the owner's OK, and the Handoff says whether it's published.
-- [ ] Class select shows Abilities (the kit at its bought tier, tooltips), Lore and Playstyle (drafted texts, stat guide), all reachable with mouse and gamepad.
-- [ ] Choosing a class with A selects Start Run.
-- [ ] The map shows the played class, idling; picking the next node walks it along the path; entering is a second action; input is ignored mid-walk.
-- [ ] The EditMode suite passes after each part.
+- [x] A Corrupted Dreko Eye and DrekoEyeAdd show an outline that fits the sprite in all 8 directions; `CorruptionOutlineTests` cover the cause.
+- [x] No class is called Warrior, Archer or Mage in code, assets, prefabs, the game's text or the current docs (archived docs excepted). The enum keeps its indexes.
+- [x] An old meta save (Warrior / Archer / Mage names) loads with its Favors, unlocks and bought tiers; a run saved before the rename continues.
+- [x] The class cards still choose their class after the method rename.
+- [x] CSVs, `BalanceDocs` and the reports are in step; the sheet was pushed only with the owner's OK, and the Handoff says whether it's published. _(Pushed 2026-11-06 with the owner's OK; not published yet, see Handoff.)_
+- [x] Class select shows Abilities (the kit at its bought tier, tooltips), Lore and Playstyle (drafted texts, stat guide), all reachable with mouse and gamepad.
+- [x] Choosing a class with A selects Start Run.
+- [x] The map shows the played class, idling; picking the next node walks it along the path; entering is a second action; input is ignored mid-walk.
+- [x] The EditMode suite passes after each part.
 
 ## Files likely touched
 - **Code:**
@@ -173,8 +173,28 @@ Owner's decision (2026-11-06): everything, once. Player-facing names: **Crusader
 ## Handoff
 _Written by the implementation session when it finishes. Nobody else edits this section._
 
-- **Done:**
+- **Done:** all five parts, in order, each its own commit with the EditMode suite green in batchmode (1032 tests before, 1063 after), then the owner's adjustments to the class select. **The owner play-tested everything and ticked every manual check in `todo.md`** (2026-11-06), and asked for the merge: merged into `develop` with `--no-ff`. Nothing is pushed.
+  - **38, outline:** the cause was the outline shader's alpha threshold (0.1): the enemy sheets bake a ground shadow and a soft halo at up to half alpha, so the ring went around them too. On the Dreko Eye that gave a ragged shape off its body, worst from the side. Not a flip or renderer problem: the Dreko Eye's clips only key sprites, and its body is the root renderer the outline picks (order 10 is fine). Fix in the shared code: `SpriteOutlineStyle.alphaThreshold` on `CorruptionSettings` (0.55), pushed to `_AlphaThreshold` per renderer.
+  - **40, rename:** everything moved with `AssetDatabase` (GUIDs kept), the enum keeps indexes 1 / 2 / 3, the meta save maps old names (`CharacterClassNames`, `MetaState.MigrateClassNames`). Pull from Sheet first: published version 15 already matched (0 changes). New batch entries `BalanceSheetSync.PullBatch [-dryRun]` (never writes the sheet) and `PushAllBatch` (no confirm, owner's OK only). CSVs re-exported; reports didn't name the classes. Docs: CLAUDE.md, TenPageGDD, Lore.md (section 6 headings, section 8 table, glossary), the tester guide (Cruzado / Centinela).
+  - **The balance sheet:** with the owner's OK, Push All wrote all 58 tabs with the new keys. The first try was refused by one strict dropdown, ItemBehaviors column B (behavior names), which still listed ArcherEmblemLevelUp / WarriorEmblemLevelUp; it now lists CrusaderEmblemLevelUp / SentinelEmblemLevelUp (set through the Sheets connector, B2:B100). No other dropdown named the classes.
+  - **41, tabs:** `ClassDetailsTabsUI` + `ClassDetailsRowUI`, built by `MainMenuRestyler`; `MainMenuController.BuildDetails` pushes a plain `ClassDetailsView`. The main menu got its own `GeneralTooltipPane` (also added to `TooltipRestyler`'s scenes). Lore / Playstyle texts on `CharacterClassData.lore` / `playstyle` (Inspector only, not in the Classes tab), drafted from Lore.md section 6 Who / Start; **the owner reviewed them**.
+  - **Owner's class select adjustments (after testing):** the dash text left the class descriptions (the dash Glyph's tooltip has it; the skill tree shows the same description), tabs are 110 × 22 in a fixed row (unpinned, the row had taken 164 px from the list), kit rows use a 36 px slot, and the window is 760 wide, so every tab of every class fits with no scrolling (`ClassDetailsFitTests`). The Crusader's Playstyle lost one clause to fit; it's the tightest tab (286 of 291 px).
+  - **39:** A on a card chooses it and selects Start Run (gamepad only).
+  - **42, map:** the marker plays the class data's animator, pushed as a `MapPilgrimLook` through `PlayerManager.OnMapPilgrimReady`; it walks along the edge's drawn points (`MapWalk`), input is ignored mid-walk, cheats / act change / arrival place it. Tunables `walkSpeed` 3 and `maxWalkDuration` 1.2 s on `OverworldMapRenderer`.
 - **Not done / follow-ups:**
-- **Commits / branch:**
+  - **Publish the sheet** (Balance > Publish), if the owner hasn't since the push: until then, test builds with `balance-override.json` read version 15 with the old keys, so their import fails and applies nothing, and a Pull from Sheet fails the same way. This session couldn't confirm it.
+  - **Push `develop`** when the owner wants the merge on the remote (not done here).
+  - The class descriptions' first lines are partly off-lore: the Crusader's says "trained in the Abidor Institute" (the Institute is the academics', Lore.md), and the Augur's names the "White Church of Ashemdrek". Worth a text pass by the narrative session.
+  - The skill tree prefab's four baked class names were renamed in place, because `SkillTreePanelBuilder.Build` asks a dialog that batchmode cancels. The builder already uses the new names, so a rebuild in the Editor gives the same result.
+  - The Spanish tester guide's `.docx` / `.pdf` still need regenerating from `PatchNotes/guia-del-tester.md` (left to the Orchestrator, per the spec).
+- **Commits / branch:** `feature/demo-musts` off `develop` (`6ee9fc2`): `eae3a75` (38), `8f3f6e9` (40), `98738a9` (41), `5639f14` (39), `85a8a60` + `13ad207` (42, code then its CLAUDE.md note), `4b9dce8` (Handoff), `6727511` (sheet push, `PushAllBatch`), `d4a7ba3` (the owner's class select adjustments), then this Handoff and the merge commit into `develop`.
 - **Gotchas for the next session:**
-- **Manual tests added to todo.md:**
+  - **Renamed art folders** (the art team's delivery paths): `Sprites/Player/WarriorHeroIso` → `CrusaderHeroIso`, `ArcherHeroIso` → `SentinelHeroIso`, `WarriorHero` → `CrusaderHero`, `ArcherHero` → `SentinelHero`, `archer` → `sentinel`; `Animation/PlayerWarriorIso` → `PlayerCrusaderIso` (controller `PlayerCrusaderIsoAnimController`), `ArcherHeroIso` → `SentinelHeroIso` (controller `ArcheAnimController` → `SentinelAnimController`), `ArcherHero` → `SentinelHero`. The sheet files inside are `Crusader…_SS_…` / `Sentinel…_SS_…`, and their sprite names were renamed in the `.meta` (internal ids kept; every clip's sprite keys checked).
+  - The scripts `WarriorDash` / `ArcherDash` are now `CrusaderDash` / `SentinelDash` (same `.meta` GUIDs, so the prefabs kept them).
+  - `ClassRenameTests` fails on any file or script line naming a former class; the alias table in `CharacterClassData.cs` is the one exception. Lore uses ("Cold Warriors", the Fallen Archer enemy) are in docs, not code.
+  - The whole class select is linked by hand now (`ClassSelectNavigation`). A new selectable there needs a link, or the gamepad can't reach it.
+  - `ClassDetailsFitTests` fails when a class's tab would scroll: a longer lore, playstyle or stat justification needs room first (the Crusader's Playstyle has 5 px left).
+  - The map marker's `playerOffset` is 0 now: the marker's position is the feet, and the sprite child is moved by the pushed `feetOffset`.
+  - The sheet's dropdowns are strict: renaming a key a dropdown lists needs that dropdown updated before Push All (CLAUDE.md "Unity sync").
+  - The linked GDD session may also edit `TenPageGDD.md` / `Lore.md`; this branch changed only the class-name lines there.
+- **Manual tests added to todo.md:** "Demo musts (`feature/demo-musts`, BACKLOG 38-42)": outline in every direction, the rename (texts, old meta save, old run save, each class plays), class select tabs / tooltips / gamepad / A to Start Run / locked class / no scrolling after the adjustments, the map pilgrim (art, size, walking, input mid-walk, Save & Exit, cheats, Corrupted outline), and the owner's text review. **All ticked by the owner**, so the section can be archived.

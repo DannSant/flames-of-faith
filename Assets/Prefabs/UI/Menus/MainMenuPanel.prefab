@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Warrior - Act I - Level 7
+  m_text: Crusader - Act I - Level 7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
   m_sharedMaterial: {fileID: -3359197029103750868, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
@@ -1307,6 +1307,7 @@ MonoBehaviour:
   focusMode: 0
   blocksGameplayInput: 0
   releaseFocusOnCancel: 0
+  modal: 0
   defaultSelectable: {fileID: 0}
   onCancel:
     m_PersistentCalls:

@@ -168,13 +168,13 @@ _The spine of all three arcs. What the world believes and what really happened a
 
 The three set out together, and the chosen pilgrim is the one who fights. The other two walk beside them and can speak in events. Each arc has a **start** (shown in Act I, so the demo has it), a **turning point** (Acts II–III) and a **resolution** (Act IV and the ending). _The turning points and resolutions are a proposal for the owner to confirm._
 
-### Ayteel Alamoh: Warrior (Crusader of the Faith)
+### Ayteel Alamoh: Crusader of the Faith
 - **Who:** granddaughter of Gabien and Dayla, raised in Abidor by a family nobody would talk to. She carries Gabien's Steeldawn sword, **Ashem Elwyn** ("Shining Tide"), and, hidden, the cracked Seal. Her rank is self-declared, because the Church would never grant an Alamoh the title.
 - **Start:** she believes her grandfather was slandered, and she means to clear the Alamoh name by finishing the work he failed. In the Jesterwoods she walks his country: the Argent Coast, the Seared Ruins, people who still spit at the name.
 - **Turning point:** she learns *why* he broke the Seal, for Liah and for Dayla, and so, in the end, for her: without the Seal, Dayla would have died before bearing Ayteel's parent. The accusation is true, and she is alive because of it. Liah, if they find her, is the one who can tell her.
 - **Resolution:** she stops trying to clear the name with arguments. At the ruins of Ashemdrek she faces the **Echo of Gabien**, lays him to rest, and relights the altar he couldn't save. The name is cleared by deed, or not at all, and she is at peace with that.
 
-### Faelin Vidal: Archer (Sentinel of Abidor)
+### Faelin Vidal: Sentinel of Abidor
 - **Who:** granddaughter of **Orleone Vidal**, Grand Crusader and Gabien's mentor. She grew up on her mother's stories of him and was recruited young by the Sentinels. Her Steeldawn Bow was made by Faraclarian hands.
 - **Start:** she believes in her grandfather and in the institutions he served. Learning that some blame Orleone shook her. Ayteel, a true outcast who kept going anyway, gave her back her nerve, and she joined her.
 - **Turning point:** she learns what Orleone actually did. He told the truth under oath, and the truth destroyed his student's name. Was that honor or betrayal? She has to judge the man she admired, and the court that made him speak.
@@ -211,8 +211,8 @@ These live in assets (asset names are keys: renaming an item is a Unity rename, 
 
 | Where | Was | Now / fix | Status |
 |---|---|---|---|
-| Item **Quiver of the Centinel** (+1..+3) | "Centinels of the Faraclarian tribe" | "Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed" | Done (owner). **Left:** rename the item to **Quiver of the Sentinel** |
-| Item **Archer Emblem** (+1..+3) | "Abidor Centinels" | "Abidor Sentinels" | Done (owner) |
+| Item **Quiver of the Centinel** (+1..+3) | "Centinels of the Faraclarian tribe" | "Quiver worn by the Sentinels of Abidor. Its arrows fly further, but it leaves its bearer exposed" | Done (owner); renamed **Quiver of the Sentinel** (Nov 2026) |
+| Item **Sentinel Emblem** (+1..+3, was Archer Emblem) | "Abidor Centinels" | "Abidor Sentinels" | Done (owner); renamed with the class (Nov 2026) |
 | Items **Faraclarian Quiver**, **Tribesmen Necklace** | "Fara Uf'clario" | "Fara Uf'Clario" | Done (owner) |
 | Item **Cursed Coin** | "a Dawner, men who sell their soul…" | "one of the Awoken: Forsaken who rose from a night in the grave with dark power and no will" | Done (owner) |
 | Item **Sacred Writings** (was "Sacred Writtings") | "Crescent Darkness Empire" | "the Rising Darkness Empire", item renamed | Done (owner) |
@@ -244,13 +244,13 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Augur | Augur | Healer-priest of the White / Shardless Church; some see visions |
 | Awoken | Amanecidos | Forsaken who rose from a night in the grave, willless and deathless |
 | Aylineans | Aylinos | Fox-like spirits who guard the forests; make them laugh to learn a secret |
-| Ayteel Alamoh | – | The Warrior; Gabien's granddaughter |
+| Ayteel Alamoh | – | The Crusader; Gabien's granddaughter |
 | Blue Parchment | Pergamino Azul | Paper that Runic Math runes are written on |
 | Chronos / Golden Chronos | Cronos | Ashemdrek's coins; the gold one is the Pilgrimage's currency |
 | Corruption | Corrupción | The energy Drekos give off; twists magic, Ether and Grace |
 | Creator, the | el Creador (Kaná) | The being sleeping inside Kanator |
 | Crisalia | Crisalia | Blue star-liquid that eases magic |
-| Crusader of the Faith | Cruzado de la Fe | Warrior rank created by the Flame Pilgrims; Ayteel's is self-declared |
+| Crusader of the Faith | Cruzado de la Fe | Rank created by the Flame Pilgrims; Ayteel's class (the Crusader), her rank self-declared |
 | Dayla Rohairo | Dayla Rohairo | Gabien's love, Ayteel's grandmother; from Abidor; a human born with Mastow; dead |
 | Daviro the Unholy | Daviro Piktuon | Forsaken from Gabien's time; Act III boss |
 | Death Witch | – | Act II enemy; flies in a circle and casts a beam |
@@ -264,7 +264,7 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Ether | Éter | The soul's channels that refine ley energy |
 | Faraclarians | Faraclarios | The clans of Fara Uf'Clario |
 | Fara Uf'Clario | Fara Uf'Clario | The frozen north of Sialant ("Cold Warriors"); Act II |
-| Faelin Vidal | – | The Archer; Orleone's granddaughter |
+| Faelin Vidal | – | The Sentinel; Orleone's granddaughter |
 | Faun Chief | Jefe Fauno | Leader of the Faraclarians |
 | Flame of Faith | Flama de la Fe | White fire on an Altar of Malien that keeps the Drekos down |
 | Forgotten Language | Lenguaje Olvidado | The Primordials' tongue; the root of most names (Taio'Sandir, Os'Drios) |
@@ -313,7 +313,7 @@ Player-facing English names, with the Spanish original from `lore-docs/` where i
 | Seal of Malien | Sello de Malien | Relic made by Weinsol; broken by Gabien; kept cracked by Dayla |
 | Seared Ruins | Ruinas Torradas | Ancient ruins where Gabien found his power |
 | Seared Soul | Alma Torrada | A soul burnt by too much Grace; hereditary in the Alamoh line |
-| Sentinels | Centinelas | Abidor's soldiers and border guard |
+| Sentinels | Centinelas | Abidor's soldiers and border guard; Faelin's class (the Sentinel) |
 | Shardless Church | – | The White Church in exile, reunited |
 | Sialant | Sialant | The continent of the game ("Dream Paradise") |
 | Sinfa Mountains | Cordillera Sinfa | Range between Ashemdrek and Fustina; Act III |

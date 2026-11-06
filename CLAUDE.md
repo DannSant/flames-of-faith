@@ -107,6 +107,10 @@ Levels have only a few small, convex obstacles (tree trunks on the `Obstacle` la
   - Runtime: `OverworldMapGenerator` seeds a `RunMapState`/`RunMapGraph` (`RunNode`/`RunEdge`) from definitions; `MapRunController` (singleton) owns traversal, fog-of-war reveal, and act progression, and fires events the renderer subscribes to.
   - Rendering: `Scripts/Overworld/Render/` (`OverworldMapRenderer`, `OverworldNodeView`, `OverworldEdgeView`) draws the live graph in-scene.
   - Authoring tool: `Scripts/Overworld/Editor/` — a custom `EditorWindow` (`MapEditorWindow`, menu `Tools/Flames of Faith/Map Editor`) built on UI Toolkit's `GraphView` (`MapGraphView`, `MapNodeView`, sizing constants in `MapEditorConstants`). Editor-authored node positions (`NodeDefinition.editorPosition`) are baked into normalized runtime `worldPosition` via `MapEditorWindow.BakeEditorPositionsToWorldPositions()` (divides by `MapEditorConstants.NodeSpacing`, inverts Y). Toolbar actions `AddNewNode`, `DeleteSelected` and `ValidateMap` are implemented (with Undo).
+  - **The pilgrim** (Nov 2026, item 42): the marker (`playerMarker`, its child sprite) is the played class's own pilgrim, animated with its class data's animator controller (idle / walk on `DirectionX` / `DirectionY` and `Move`). Gameplay pushes its look, `MapPilgrimLook` (controller, sprite, level scale, feet from the sprite), through `PlayerManager.OnMapPilgrimReady`; new character art arrives with the class data. The marker's position is the feet (`playerOffset` 0).
+    - **Walking:** a move (click or navigator) walks the pilgrim along the drawn edge (`OverworldEdgeView.Points`) at `walkSpeed`, capped at `maxWalkDuration`, facing the way it goes; it then idles facing the same way. The move itself (state, autosave) happens at once in `TryMoveTo`, so Save & Exit mid-walk loads on the new node. Entering the level is still a second click or A.
+    - **Mid-walk** (`IsWalking`) clicks and the navigator are ignored. Arriving on the map, an act change and the cheats (free travel, go to act, map state changes) place the pilgrim without walking.
+    - **Math:** `MapWalk` (pure: path from an edge, position / heading at a distance, duration, facing). Tests: `MapPilgrimTests`.
   - Gamepad/keyboard: `OverworldGamepadNavigator` moves between nodes with the UI Navigate action and enters a level with Submit. It ignores input while any `UIWindow` has gamepad focus (e.g. the map's Exit button, reached with Browse/Y). The map's HUD (act / level / coins window, prompts, the Stats pane opened by `OverworldPlayerStatePresenter`) is under "Map HUD" in UI standards.
   - Generation is deterministic from the seed and the `MapDefinition`s, except which map an act uses (`SetCurrentMapGraph` picks randomly among maps with the same `actNumber`), which is why saves store the `mapId`.
   - **Developer map cheats:**
@@ -152,7 +156,7 @@ Static pages of art and text, advanced by hand. Spec and script: `docs/archive/f
 
 Reworked Oct 2026 (spec: `docs/archive/features/run-encounter-events.md`; the texts and the lore behind them are the narrative session's, names follow `game-design-docs/Lore.md`'s glossary). Events read as small stories: options show an in-world hint instead of numbers, results are narrated with the numbers woven in, checks use more stats than Luck, options can lead to follow-up steps, and each pilgrim gets class lines and options.
 - **Data:** one `EventEncounterData` per event in `Resources/RunEncounters/EventEncounter/` holds everything (`EventOption.cs`):
-  - the intro (`fullText`), `classIntroLines` (a `ClassText` per class: Warrior = Ayteel, Archer = Faelin, Mage = Werlem), the first screen's `options`, follow-up `steps` and `oncePerPilgrimage`;
+  - the intro (`fullText`), `classIntroLines` (a `ClassText` per class: Crusader = Ayteel, Sentinel = Faelin, Augur = Werlem), the first screen's `options`, follow-up `steps` and `oncePerPilgrimage`;
   - an `EventOption`: label, `classLabels`, `onlyForClass` (None = everyone), `hint` (the tooltip, no numbers) and an outcome: **Fixed** (`result`) or **Check** (`check` + `success` / `failure`);
   - an `EventBranch`: `actions` (shared `OptionActions/` assets), `resultText`, `classResultLines` and `nextStepId`;
   - an `EventStep`: `id`, `prompt` and its own options. Steps refer to each other by id, so there's no nested asset. `EventEncounterRules.Validate` checks the chain (ids exist and are unique, no loops, at most 3 steps deep, nothing unreachable).
@@ -224,7 +228,7 @@ Damage flows through `IDamageable`/`DamageRequest` → `DamageCalculator` (combi
 - **Max Health changes during play** (a level-up, an item): current health moves by the same amount as the max, so the missing health stays the same (+5 at 5/15 gives 10/20). A loss never takes a living player below 1. The rule is `PlayerHealth.CalculateHealthAfterMaxChange` (pure, `MaxHealthChangeTests`). It used to scale by new max / old max and round down (10/20 → 12/25), fixed Oct 2026.
   - On a level load, `InitializeAfterStateReady` sets the max directly and restores the saved health as is. Going through `SetMaxHealth` there would apply the change twice.
   - `HealthBar` animates on unscaled time, so it updates while a level-up window pauses the game.
-- **Animation events in blend trees fire once per clip**, all in the same frame. The Warrior's attack is an 8-direction blend tree, so its start event ran the cleave 8 times per swing, and DrekoEye / FlameShooter shot 8 stacked volleys. `CharacterVisual` (player) and `BehaviorController` (enemies, per event name) forward each event once per frame (`OncePerFrame`). `AnimationEventTests` checks every controller under `Assets/Animation`: an event repeated across a blend tree's clips must go to one of those gated methods and fire at the same normalized time in each clip.
+- **Animation events in blend trees fire once per clip**, all in the same frame. The Crusader's attack is an 8-direction blend tree, so its start event ran the cleave 8 times per swing, and DrekoEye / FlameShooter shot 8 stacked volleys. `CharacterVisual` (player) and `BehaviorController` (enemies, per event name) forward each event once per frame (`OncePerFrame`). `AnimationEventTests` checks every controller under `Assets/Animation`: an event repeated across a blend tree's clips must go to one of those gated methods and fire at the same normalized time in each clip.
 - **Debuffs** (`ElementalDebuffData`, `Resources/Debuffs`): duration and strength = base + Mastow Affinity × scale. Element-specific numbers are on the same asset: Frost's `maxSlow` (it was hardcoded) and Ley Charge's `chainRadius` / `maxChainDepth` (they sat on the component added at runtime, so nothing could tune them).
   - **Frost** slows by its strength (capped at `maxSlow`) and makes the enemy take that share of each hit as extra damage, at least 1 (`EnemyHealth.CalculateExtraDamage`, `FrostDamageTests`). Until Oct 2026 it subtracted the hit a second time, so Frost doubled every hit whatever its strength.
 - **Ley Charge debug log:** tick "Log Debug" on `Resources/Debuffs/LeyChargeDebuff.asset` (`ElementalDebuffData.logDebug`) to log every damage a charged enemy takes, each strike and why a chain stops.
@@ -274,7 +278,8 @@ The original spec is `docs/archive/design/corruption-rework.md`, but several dec
 - **How it's drawn:** `SpriteOutlineRenderer` (`Game.Common`, reusable) adds a child SpriteRenderer that copies the body sprite (sprite, flip through scale, sorting + offset, visibility, alpha). It draws that sprite with `Shaders/CorruptionOutline.shader` (unlit, ring only, values in a MaterialPropertyBlock). The body keeps its own 2D-lit material.
 - **Which sprite:** the one on the root, else the `CharacterVisual` one, else the highest sorting order (`CorruptedVisual.FindMainSpriteRenderer`). On the map, `SetAnchor` rebuilds it on the marker's sprite.
 - **Sprite margin:** the ring is drawn outside the silhouette, so the sprite mesh needs that much empty margin. A 1 texel ring fits Tight meshes with the default Extrude Edges of 1.
-- **Tests:** `CorruptionOutlineTests`.
+- **What counts as body:** texels at or above the style's `alphaThreshold` (0.55, pushed to the shader's `_AlphaThreshold`). The enemy sheets bake a ground shadow and a soft halo at up to half alpha; at the old 0.1 the ring went around them too, which on the Dreko Eye gave a ragged shape that didn't match the body, worst from the side (owner's report, Nov 2026).
+- **Tests:** `CorruptionOutlineTests` (also: every enemy prefab outlines the sprite its Animator drives).
 
 Reusable pieces that came out of this work:
 - **`GameplayFreeze`** (`Game.Common`): a semi-pause (time keeps running). Enemy behaviors with `stopDuringGameplayFreeze` skip ticks and animation-event starts, enemy projectiles stop, and player input and damage are blocked.
@@ -337,7 +342,7 @@ Enemy → player damage is sized against an *expected* player, never the real on
 - `StatsPaneUI` shows the line in the tooltip's second panel (`GeneralTooltipPaneUI` sources section). While Shift is held, that panel shows the items granting the stat instead.
 - Level-up choices show "Now / After": `UpgradeManager.OnUpgradeOptionsAvailable` pushes a preview function along with the choices, per the UI rule.
   - "After" comes from `PlayerProgression.PreviewFinalStats`, which runs the same pure math as the real stats (`FinalStatsCalculator`: flat and % item bonuses, corruption, then stat bonus rules). It can't disagree with the result.
-  - An "Also:" line lists other stats the pick changes through stat bonus rules (e.g. the Archer Emblem: Evasion also adds Pierce).
+  - An "Also:" line lists other stats the pick changes through stat bonus rules (e.g. the Sentinel Emblem: Evasion also adds Pierce).
 - **Formerly hardcoded numbers live on `PlayerStatSettings`** (`Resources/Progression/PlayerStatSettings.asset`): Health Regen, Life Steal, dash recovery scale, shop discount caps, pickup range, and the level-up tier weights for Luck. Since Oct 2026 (data-driven step 3) also the walking speed and its per-point scale (from `PlayerController`), the invulnerability after a hit (from `PlayerHealth`) and the Retribution curve (`RetributionCurve`, from `RetributionHandler`, which keeps only the reflection VFX).
 - **Each class's dash** (cooldown, speed, duration, charges) is on its `CharacterClassData`. `DashBase.LoadClassValues` reads it in `Awake` through the `PlayerClassManager`; the class prefabs no longer hold dash numbers. The dash Glyphs still override duration and charges (`PlayerSettingsTests`).
 - **Special cooldowns:** `cooldown base / (1 + Attack Speed × attack speed scale)` from the special's `WeaponData` (`WeaponBase.SetupAttackSpeedVariables`), the same formula as the Attack Speed tooltip. Every attack's scale is 0.02 (0.075 until Oct 30: 10 points already gave 1.75× speed). To check one in play, tick **Log Special Cooldown** on the class's weapon component: each special logs `[SpecialCooldown]` with Attack Speed, the cooldown set and the game time since the last one.
@@ -346,7 +351,7 @@ Enemy → player damage is sized against an *expected* player, never the real on
   - **How:** `WeaponBase.SetupAttackSpeedVariables` calls `CharacterVisual.SetAttackAnimationSpeed`, which is applied again on every attack, since animator parameters reset. The state's Speed Multiplier is the float `AttackSpeed` (default 1).
   - **New controllers** need that parameter on the state the Attack trigger enters. `AttackAnimationSpeedTests` fails otherwise.
   - **Specials stay at speed 1,** because their timing carries gameplay. `AttackSpeedHardCapTests` checks that at the hard cap each one's cooldown outlasts its action and each primary lands inside its cooldown.
-  - **Warrior's swing:** at high speed its hit window can be shorter than a frame, so `SwordWeapon` keeps the hitbox on for at least `minMeleeHitboxTime` (0.04 s, `PlayerStatSettings`), or no physics step would see it.
+  - **Crusader's swing:** at high speed its hit window can be shorter than a frame, so `SwordWeapon` keeps the hitbox on for at least `minMeleeHitboxTime` (0.04 s, `PlayerStatSettings`), or no physics step would see it.
   - **The prefab's controller is the one that plays.** `CharacterClassData.animatorController` is effectively unused: `PlayerClassManager.Awake` runs before `CharacterVisual.Awake`, so the swap is skipped. A test keeps the two the same.
 - **Negative speed stats:** attack and dash speed divide by at least 0.1 (`StatsCalculations.SafeSpeedDivisor`). Large negative Attack Speed used to wrap around into near-instant attacks; it now slows them down by at most 10×.
 - **Evasion** (index 22) is rolled in `PlayerHealth.TakeDamage` before armor.
@@ -358,7 +363,7 @@ Enemy → player damage is sized against an *expected* player, never the real on
 
 **Class stat guide** (Oct 2026), so new players know what to pick:
 - **Data:** `CharacterClassData.statPriorities`, a list of `{stat, role (Key / Complementary), justification}`. Each class has one Key stat.
-- **Rules:** the pure `ClassStatGuide` (`Scripts/Progression/`) handles role lookup, display order and tab, and the tooltip line ("Key stat for the Warrior: ...").
+- **Rules:** the pure `ClassStatGuide` (`Scripts/Progression/`) handles role lookup, display order and tab, and the tooltip line ("Key stat for the Crusader: ...").
 - **Stats pane:** `StatsPaneUI.ArrangeRows` puts the Key stat and then the Complementary ones on top of the **Primary** tab, even when their category is Secondary (Pierce, Skill Duration). It re-sorts on every show, because the pane outlives a run.
 - **Stars:** a gold (Key) or silver (Complementary) star (`StatRoleStar`, sprite `Sprites/UI/StatRoleStar.png`, colors on the prefabs). The justification goes in the row's existing tooltip.
 - **Upgrade choices:** the same star and tooltip line. `UpgradeManager.OnUpgradeOptionsAvailable` now pushes one `UpgradeChoices` object (groups, preview, first level, class stats, class name).
@@ -391,7 +396,7 @@ Enemy → player damage is sized against an *expected* player, never the real on
   3. **Otherwise:** no target.
 - **Attacks:** auto-attack, and manual attacks while locked, fire at the marked target only while it's in weapon range (`EnemyTargeting.IsWithinRange`).
 - **Specials** read the marked target through `WeaponBase.GetMarkedTarget()`:
-  - The Archer's barrage (`BowWeapon`, `BarrageArrow.prefab`, homing).
+  - The Sentinel's barrage (`BowWeapon`, `BarrageArrow.prefab`, homing).
   - The Augur's timed explosions on the target (`ScepterWeapon`, `FireballExplotion.prefab`, damage initialized as a % of the special's damage).
   - All tunables are on those weapon components.
 - **Marker:** `TargetMarkerUI` is a triangle on the enemy's world-space canvas, added once in `EnemyBase.prefab` (plus `BossAct1`). It shows **only on a locked target**, so the player can see the lock. `WeaponManager.RefreshLockMarker` shows and hides it directly; gameplay pushes to UI.
@@ -611,18 +616,25 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
   - **Focus:** the window is AutoFocus at priority 50; the shop is modal (player input blocked until Continue).
 - **Main menu** (`MainMenu.unity`, prefabs `Prefabs/UI/Menus/MainMenuPanel` and `CharacterSelect`, `MainMenuController`):
   - **Panels:** every one rests at its shown spot on the right at the standard height (645), as does Settings.
-    - **Menu panel:** 400 wide. Its title "Flames of Faith" is Big, bold, yellow (an Inspector text; the scene also has the logo art). The buttons are **Big** (48), and `SaveInfo`, Small muted, sits under Load Game: "Warrior - Act I - Level 7" from `RunSaveService.TryLoad`, or "No saved run" (`FormatSaveInfo`).
-    - **Class select:** 640 wide.
+    - **Menu panel:** 400 wide. Its title "Flames of Faith" is Big, bold, yellow (an Inspector text; the scene also has the logo art). The buttons are **Big** (48), and `SaveInfo`, Small muted, sits under Load Game: "Crusader - Act I - Level 7" from `RunSaveService.TryLoad`, or "No saved run" (`FormatSaveInfo`).
+    - **Class select:** 760 wide (640 until Nov 2026; widened so every tab fits).
       - **Cards:** three on the left (`ClassSelectHoverButton`): a portrait, the class name, a red "Locked" note, and the item bag's yellow ring on the chosen one.
-      - **Details:** on the right, like the skill tree's: the name, the description, a yellow "Starting weapon" header, the weapon (`ClassKits.GetWeapon`, quality color) and its text, a green "Unlocked" / red unlock-cost footer, and **Skill Tree**, which opens the tree on that class (`SkillTreeController.Open(class)`).
+      - **Details:** on the right, like the skill tree's: the name, the description, three tabs (below), a green "Unlocked" / red unlock-cost footer, and **Skill Tree**, which opens the tree on that class (`SkillTreeController.Open(class)`).
+      - **Tabs** (Nov 2026, item 41; `ClassDetailsTabsUI` on Details, built by `MainMenuRestyler`), with the Stats pane's tab look. Abilities is the default, and the tab stays while the player previews or chooses other classes.
+        - **Abilities:** the starting kit at its bought tiers (`ClassKits.Resolve`, the items a new run starts with): a row per item with its slot frame tinted by quality, icon and colored name. Its full text shows in the shared tooltip beside the row (the main menu got its own `GeneralTooltipPane`). It replaced the "Starting weapon" block.
+        - **Lore** and **Playstyle:** `CharacterClassData.lore` / `playstyle` (Inspector only, not balance data). Playstyle lists the stat guide under it (gold / silver stars, justification). The texts are drafts from `Lore.md` §6 Who/Start for the owner's review: no turning points, no em dash.
+        - **Data flow:** `MainMenuController.BuildDetails` makes a plain `ClassDetailsView`; it rebuilds only when the shown class changes, a class is unlocked or a tier is bought.
+        - **Rows:** every row is selectable (`ClassDetailsRowUI`; each paragraph is one), so the gamepad can read tooltips. The list is a masked ScrollRect that only takes the room left (flexible height, preferred 0), so text that grows scrolls and never moves the buttons.
+        - **No scrolling (owner, Nov 2026):** every class's three tabs fit at once. Tabs are 110 × 22 (a fixed row: unpinned, the buttons' layout made it share the list's height), kit rows use a 36 px slot, and the class description is one line plus the main stat (the dash text moved out; the dash Glyph's tooltip has it). `ClassDetailsFitTests` lays the prefab out at 1920 × 1080 and fails when a tab would scroll; the Crusader's Playstyle is the tightest (286 of 291 px), so a longer text there needs room first.
+        - **Gamepad:** linked by hand (`ClassSelectNavigation.Link`, Explicit everywhere: the menu's other panels rest in the same spot). Cards up/down, Right to the current tab; tabs Left/Right, Down into the rows, then Skill Tree, Back, Start Run; Left from the right side returns to the chosen card.
       - **Buttons:** Start Run in the progress spot, Back above it.
   - **Class select flow:**
-    - **Choosing:** pressing a card chooses its class: a click, or A with the gamepad (the card's button calls `SelectWarrior` / `SelectArcher` / `SelectAugur`).
+    - **Choosing:** pressing a card chooses its class: a click, or A with the gamepad (the card's button calls `SelectCrusader` / `SelectSentinel` / `SelectAugur`). With the gamepad the selection then moves to **Start Run** (`SelectionAfterChoosing`, Nov 2026, item 39); on a locked class Start Run shows the unlock dialog. The mouse stays where it is.
     - **Previewing:** hovering, or moving onto a card with the gamepad, only previews it (`ClassToShow`); moving off shows the chosen class again.
-    - **Why moving doesn't choose:** it used to, and walking the gamepad from the Warrior card down to Start Run passed the Augur card and chose it. A locked Augur then blocked the run.
+    - **Why moving doesn't choose:** it used to, and walking the gamepad from the Crusader card down to Start Run passed the Augur card and chose it. A locked Augur then blocked the run.
     - **Start Run** starts the run; on a locked class it shows the unlock dialog. Nothing starts from a single click any more.
     - **Back:** B goes back (the window's `onCancel`).
-    - **Order:** `classesByPlayerIndex` is Warrior, Archer, Augur, the `GameSession.SelectedPlayerIndex` order.
+    - **Order:** `classesByPlayerIndex` is Crusader, Sentinel, Augur, the `GameSession.SelectedPlayerIndex` order.
   - **Transitions:**
     - **How:** `MainMenuController.Switch` fades and slides the old panel out (0.15 s, `slideDistance` to the right) and the new one in (0.25 s), eased (`UIFlight.EaseOutCubic`) on unscaled time. It only touches alpha, `blocksRaycasts` and position; interactability is left to `UIFocusManager`.
     - **Input:** clicks are ignored while a panel moves.
@@ -665,6 +677,11 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
 
 Each class's abilities and bonuses are **items** (its kit), and each item has **tiers** bought with **Favors** in a per-class skill tree.
 
+- **Class names** (renamed Nov 2026, everywhere: code, assets, prefabs, sheet keys): **Crusader** (Ayteel), **Sentinel** (Faelin), **Augur** (Werlem); they were Warrior, Archer and, internally, Mage.
+  - **`CharacterClass` keeps its indexes** (Crusader 1, Augur 2, Sentinel 3): assets store it by index. Append new classes, never reorder.
+  - **The meta save stores classes by name.** `CharacterClassNames` maps the former names, and `MetaState.MigrateClassNames` applies it on load (merging Favors, keeping a node's highest tier), so old files keep their Favors, unlocks and tiers; the next save writes the new names. A future rename needs an entry there. The run save stores the class as `selectedPlayerIndex`, so it needs nothing.
+  - **The class cards' buttons** call `SelectCrusader` / `SelectSentinel` / `SelectAugur` by name (persistent listeners): rename a method and the card silently does nothing. `ClassRenameTests` checks they resolve, that no asset or script still uses a former name, and the aliases.
+
 - **Kit:** 6 starting-only items per class (`Effect.startingOnly`): weapon, off-hand, Emblem, and 3 Glyphs.
   - **Glyphs carry an ability** (`Scripts/Effects/Abilities/`): `AbilityBehavior<TValues>` is a data-only `EffectBehavior` with a per-tier table, one per slot (`AbilitySlot` Primary/Special/Dash).
   - **The class components still perform the ability** and read their numbers with `EffectStore.TryGetAbility<T>`: `SwordWeapon`/`BowWeapon`/`ScepterWeapon` and the `*Dash` classes.
@@ -674,7 +691,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
     - Holy Shot extra cone arrows; they don't raise `onBowAttackLaunched`, so on-hit spawn items trigger once per volley.
     - Fireball impact explosion.
     - Fire Tornado explosion damage.
-    - Whirlwind spin (every tier, reworked Oct 26): the special's hitbox stays on for the tier's **Spin Duration** (2 s), and the 0.58 s special animation replays until then (`SwordWeapon`; a 2 s animation is coming). Each enemy is hit on contact, then every **Tick Interval** (0.7 / 0.6 / 0.5 / 0.4 s since the Oct 26 balance pass) while it stays in it (`WeaponDamageSource.TickInterval`, the pure `HitTicker`). A dash, the cleanse or death ends the spin (`CharacterVisual.OnActionInterrupted`). The Warrior is **not** invulnerable while spinning any more. `WhirlwindTests`.
+    - Whirlwind spin (every tier, reworked Oct 26): the special's hitbox stays on for the tier's **Spin Duration** (2 s), and the 0.58 s special animation replays until then (`SwordWeapon`; a 2 s animation is coming). Each enemy is hit on contact, then every **Tick Interval** (0.7 / 0.6 / 0.5 / 0.4 s since the Oct 26 balance pass) while it stays in it (`WeaponDamageSource.TickInterval`, the pure `HitTicker`). A dash, the cleanse or death ends the spin (`CharacterVisual.OnActionInterrupted`). The Crusader is **not** invulnerable while spinning any more. `WhirlwindTests`.
     - Whirlwind holy shield (3 / 3.5 / 4 s on tiers +1..+3): `PlayerHealth.ActivateProjectileShield`. While it's up, enemy projectiles (`PlayerHealth.IsEnemyProjectile`) are absorbed in `TakeDamage` before invulnerability, Evasion and `onDamageTaken`, destroyed, and heal a fraction of their damage. Melee and contact hits still land.
   - **Emblem:** `MainStatOnLevelUpBehavior` (+1 main stat per level, baseline = level when the item is added) plus the class's stat bonus rules.
   - **Tooltips describe the owned tier:** each ability overrides `Describe(row)` (`AbilityBehavior.DescribeTier`), and `Effect.GetFormattedDescription` adds those lines under the item's text, next to the stat lines.
@@ -684,7 +701,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   - Every tier of a Glyph uses the **same** ability asset; `Effect.tier` picks the table row (a tier past the table uses the last row).
   - Mark fields where smaller is stronger with `[LowerIsBetter]`.
 - **Skill trees:** `SkillTreeDefinition`, one per class in `Resources/Metaprogression/SkillTrees`, read through `SkillTrees`.
-  - Root: `unlockedByDefault` (Warrior only) and `unlockCost`.
+  - Root: `unlockedByDefault` (Crusader only) and `unlockCost`.
   - Nodes (`weapon`, `offhand`, `emblem`, `primary`, `special`, `dash`) list their tier items and `upgradeCosts`. Node ids are saved, so don't rename them.
   - Each node is a linear path: tier N is bought from tier N-1 (`SkillTreeRules`).
 - **Starting kit:** the skill tree is the **only** source of starting items. `ClassKits.Resolve(class)` takes each node at its bought tier, and `PlayerManager.ResetAllPlayerComponentStates` pushes it into `EffectStore.SetStartingKit` before every new-run reset. Upgrades apply from the next new run.
@@ -708,7 +725,7 @@ Each class's abilities and bonuses are **items** (its kit), and each item has **
   - The prefab is generated by `Tools/Flames of Faith/Build Skill Tree Panel Prefab` (`SkillTreePanelBuilder`). Rebuilding overwrites hand edits, so make layout changes in the builder.
 - **The shared Favor pool is on:** players see and spend one total, which is less confusing than per-class pools.
 - **Tests:** `ClassKitTests`, `SkillTreeTests`, `SkillTreeRulesTests`, `FavorTests`, `AbilityTierTests`, `AbilityDescriptionTests`, `ProjectileShieldTests`.
-- **Current costs:** each node's tiers cost 10 / 15 / 20 Favors; Archer and Augur unlocks cost 50. A normal lost run earns about 12–18 Favors.
+- **Current costs:** each node's tiers cost 10 / 15 / 20 Favors; Sentinel and Augur unlocks cost 50. A normal lost run earns about 12–18 Favors.
 - **Adding kit content:**
   1. Create the items with `Tools/Flames of Faith/Items/New Item`: tier 0, then `"<item> +N"` for each tier. On each asset tick Starting Only and set `tier` in the Inspector (they're structural, so not in the sheet).
   2. Fill their text, stats and behaviors in the Items tabs (or the Inspector, then Export CSV).
@@ -840,8 +857,9 @@ The plan and its reasons are in `docs/archive/design/data-driven-analysis.md`. T
     4. Re-exports the CSVs and reports from the assets, so the committed CSVs always match.
     5. Records the version in `BalanceData/snapshot.json` (commit it with the CSVs).
     6. Pushes the reports to the sheet and runs the guard tests.
+  - **Pull in batch:** `-executeMethod Game.BalanceData.Editor.BalanceSheetSync.PullBatch [-dryRun]`: the same with no dialogs, and it never writes to the sheet (push the reports from the menu after). `-dryRun` only logs the plan.
   - **Push Reports to Sheet.**
-  - **Push All to Sheet:** replaces every data tab with the project's numbers, losing unpublished sheet edits. Use it after balance edits made in Unity.
+  - **Push All to Sheet:** replaces every data tab with the project's numbers, losing unpublished sheet edits. Use it after balance edits made in Unity. Batch: `-executeMethod Game.BalanceData.Editor.BalanceSheetSync.PushAllBatch` (no confirm: only with the owner's OK). The sheet's dropdowns are strict, so a renamed key a dropdown lists (e.g. ItemBehaviors' behavior column) must be added to that dropdown first, or the push stops at that tab.
   - **HTTP:** Apps Script answers with a redirect, which is followed by hand (a POST's redirect must be a GET).
   - **Batches:** every push sends at most `TabsPerRequest` (6) tabs per request (`BalanceSheetSync.Batches`, tested in `BalanceSyncTests`). Since step 5 Push All has 58 tabs, and one request outlasted the 60 s timeout ("A task was canceled", Oct 25). Since Nov 6 a request waits up to 180 s, and a batch that times out or loses the connection is sent again up to twice, 10 s apart (`WithRetries`; rewriting a tab is safe to repeat, and the pause lets the script finish the timed-out run, which holds its lock). An explicit refusal from the sheet isn't retried. The error itself is logged to the Console, with the tabs already written; running it again rewrites them all.
 - **Test build override** (`BalanceOverride`), so the designer plays his own numbers without Unity:

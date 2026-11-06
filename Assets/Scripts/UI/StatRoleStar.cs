@@ -17,7 +17,7 @@ namespace Game.UI
             star.color = role == StatRole.Key ? keyColor : complementaryColor;
         }
 
-        /// <summary>Adds the role line ("Key stat for the Warrior: ...") under a stat description.</summary>
+        /// <summary>Adds the role line ("Key stat for the Crusader: ...") under a stat description.</summary>
         public static string AppendRoleLine(string description, string roleLine, Color color)
         {
             if (string.IsNullOrEmpty(roleLine)) return description;

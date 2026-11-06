@@ -37,6 +37,46 @@ namespace Game.Metaprogression
             nodeTiers ??= new List<NodeTierState>();
             seenCutscenes ??= new List<string>();
         }
+
+        /// <summary>
+        /// Maps class names from before the class rename (Nov 2026, CharacterClassNames) to the current ones, so a
+        /// tester's Favors, unlocks and bought tiers survive. Entries that end up on the same class are
+        /// merged: Favors add up, a node keeps its highest tier. The next save writes the new names.
+        /// </summary>
+        public void MigrateClassNames()
+        {
+            EnsureLists();
+
+            var mergedFavors = new List<ClassFavors>();
+            foreach (var entry in favors)
+            {
+                if (entry == null) continue;
+                string name = CharacterClassNames.Normalize(entry.characterClass);
+                var existing = mergedFavors.Find(f => f.characterClass == name);
+                if (existing != null) existing.amount += entry.amount;
+                else mergedFavors.Add(new ClassFavors { characterClass = name, amount = entry.amount });
+            }
+            favors = mergedFavors;
+
+            var classes = new List<string>();
+            foreach (string name in unlockedClasses)
+            {
+                string current = CharacterClassNames.Normalize(name);
+                if (!string.IsNullOrEmpty(current) && !classes.Contains(current)) classes.Add(current);
+            }
+            unlockedClasses = classes;
+
+            var tiers = new List<NodeTierState>();
+            foreach (var entry in nodeTiers)
+            {
+                if (entry == null) continue;
+                string name = CharacterClassNames.Normalize(entry.characterClass);
+                var existing = tiers.Find(n => n.characterClass == name && n.nodeId == entry.nodeId);
+                if (existing != null) existing.tier = Math.Max(existing.tier, entry.tier);
+                else tiers.Add(new NodeTierState { characterClass = name, nodeId = entry.nodeId, tier = entry.tier });
+            }
+            nodeTiers = tiers;
+        }
     }
 
     [System.Serializable]
@@ -59,7 +99,7 @@ namespace Game.Metaprogression
         [SerializeField] private List<GameObject> gameObjectsWithMetaProgression = new List<GameObject>();
 
         [Header("Debug (right-click this component)")]
-        [SerializeField] private CharacterClass debugClass = CharacterClass.Warrior;
+        [SerializeField] private CharacterClass debugClass = CharacterClass.Crusader;
         [Tooltip("weapon, offhand, emblem, primary, special or dash")]
         [SerializeField] private string debugNodeId = "weapon";
         [SerializeField] private int debugFavors = 10;
@@ -150,7 +190,7 @@ namespace Game.Metaprogression
         {
             // Load the meta state from file, if failed or not found, return a new MetaState with null properties
             m_MetaState = LoadStateFromFile();
-            m_MetaState.EnsureLists();
+            m_MetaState.MigrateClassNames();
 
             favorsByClass.Clear();
             foreach (var entry in m_MetaState.favors)

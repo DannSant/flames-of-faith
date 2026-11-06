@@ -74,7 +74,7 @@ namespace Game.Tests
         // --- Several rules ----------------------------------------------------------------------
 
         [Test]
-        public void WarriorStyleRules_GiveEveryTarget()
+        public void CrusaderStyleRules_GiveEveryTarget()
         {
             var rules = new[]
             {

@@ -27,7 +27,7 @@ namespace Game.UI.Style.Editor
         private const string MainMenuScene = "Assets/Scenes/MainMenu.unity";
 
         public const float MenuWidth = 400f;
-        public const float ClassSelectWidth = 640f;
+        public const float ClassSelectWidth = 760f;
         public const float BigButtonWidth = 280f;
         public const float CardsWidth = 180f;
         private const float OutlineOutset = 2f;
@@ -148,7 +148,7 @@ namespace Game.UI.Style.Editor
             saveInfo.rectTransform.sizeDelta = new Vector2(MenuWidth - 2f * m, s.SmallFontSize + 6f);
             CenterWindowLayout.PlainText(saveInfo, TextAlignmentOptions.Center);
             saveInfo.textWrappingMode = TextWrappingModes.NoWrap;
-            saveInfo.text = "Warrior - Act I - Level 7";
+            saveInfo.text = "Crusader - Act I - Level 7";
             StyleText(saveInfo, UIFontSize.Small, false, UIColorRole.Muted, s);
         }
 
@@ -176,7 +176,7 @@ namespace Game.UI.Style.Editor
             PlacePanel(root, s, ClassSelectWidth);
             PlaceWindowTitle(root, s, "Choose your class");
 
-            // Left: the class cards, in GameSession.SelectedPlayerIndex order (Warrior, Archer, Augur)
+            // Left: the class cards, in GameSession.SelectedPlayerIndex order (Crusader, Sentinel, Augur)
             var container = Find(root.transform, "Container");
             container.SetSiblingIndex(1);
             var oldImage = container.GetComponent<Image>();
@@ -248,23 +248,20 @@ namespace Game.UI.Style.Editor
 
             var className = Reuse("ClassName", "TooltipTitle");
             var classDesc = Reuse("ClassDesc", "TooltipDesc");
-            var weaponHeader = Reuse("WeaponHeader", "Title (1)");
-            var weaponName = Reuse("WeaponName", "TooltipItemTitle");
-            var weaponDesc = Reuse("WeaponDesc", "TooltipItemDesc");
             var footer = Reuse("Footer", "Footer");
             DestroyChild(root.transform, "TooltipPane");
+            // The Abilities tab replaced the "Starting weapon" block (Nov 2026)
+            foreach (string old in new[] { "WeaponHeader", "WeaponName", "WeaponDesc" }) DestroyChild(details.transform, old);
 
-            DetailText(className, 0, UIFontSize.Big, UIColorRole.Text, true, TextAlignmentOptions.TopLeft, s, "Warrior");
+            DetailText(className, 0, UIFontSize.Big, UIColorRole.Text, true, TextAlignmentOptions.TopLeft, s, "Crusader");
             DetailText(classDesc, 1, UIFontSize.Small, UIColorRole.Text, false, TextAlignmentOptions.TopLeft, s, "A sturdy fighter...");
-            GetOrAdd<LayoutElement>(classDesc.gameObject).flexibleHeight = 1f;
-            DetailText(weaponHeader, 2, UIFontSize.Small, UIColorRole.Highlight, true, TextAlignmentOptions.TopLeft, s, "Starting weapon");
-            DetailText(weaponName, 3, UIFontSize.Small, UIColorRole.None, true, TextAlignmentOptions.TopLeft, s, "Sword");
-            DetailText(weaponDesc, 4, UIFontSize.Small, UIColorRole.Text, false, TextAlignmentOptions.TopLeft, s, "Swings in an arc.");
-            DetailText(footer, 5, UIFontSize.Small, UIColorRole.None, false, TextAlignmentOptions.Center, s, "Unlocked");
+            GetOrAdd<LayoutElement>(classDesc.gameObject).flexibleHeight = 0f;
+            var tabsUi = BuildDetailsTabs(details.rectTransform, s);
+            DetailText(footer, 4, UIFontSize.Small, UIColorRole.None, false, TextAlignmentOptions.Center, s, "Unlocked");
 
             // Skill Tree: opens the tree on the chosen class (e.g. to unlock it)
             var treeButton = FindOrCreate(details.transform, "SkillTreeButton");
-            treeButton.SetSiblingIndex(6);
+            treeButton.SetSiblingIndex(5);
             GetOrAdd<CanvasRenderer>(treeButton.gameObject);
             var treeImage = GetOrAdd<Image>(treeButton.gameObject);
             GetOrAdd<Button>(treeButton.gameObject).targetGraphic = treeImage;
@@ -277,6 +274,230 @@ namespace Game.UI.Style.Editor
             CenterWindowLayout.StyleSmallButton(treeButton, s);
 
             start.SetAsLastSibling();
+
+            // The tabs link the whole class select for the gamepad
+            var tabsSo = new SerializedObject(tabsUi);
+            var cardList = tabsSo.FindProperty("cards");
+            var cardButtons = container.GetComponentsInChildren<ClassSelectHoverButton>(true).Select(c => c.GetComponent<Selectable>()).ToArray();
+            cardList.arraySize = cardButtons.Length;
+            for (int i = 0; i < cardButtons.Length; i++) cardList.GetArrayElementAtIndex(i).objectReferenceValue = cardButtons[i];
+            tabsSo.FindProperty("skillTreeButton").objectReferenceValue = treeButton.GetComponent<Selectable>();
+            tabsSo.FindProperty("backButton").objectReferenceValue = back.GetComponent<Selectable>();
+            tabsSo.FindProperty("startRunButton").objectReferenceValue = startButton;
+            tabsSo.ApplyModifiedPropertiesWithoutUndo();
+
+            // The cards' buttons choose their class by name (persistent listeners): keep them on the renamed methods
+            foreach (var card in container.GetComponentsInChildren<ClassSelectHoverButton>(true))
+            {
+                if (card.ClassData == null) continue;
+                var cardSo = new SerializedObject(card.GetComponent<Button>());
+                var cardCalls = cardSo.FindProperty("m_OnClick.m_PersistentCalls.m_Calls");
+                if (cardCalls.arraySize == 0) continue;
+                cardCalls.GetArrayElementAtIndex(0).FindPropertyRelative("m_MethodName").stringValue = SelectMethodFor(card.ClassData.characterClass);
+                cardSo.ApplyModifiedPropertiesWithoutUndo();
+            }
+        }
+
+        /// <summary>The MainMenuController method a class card calls when pressed.</summary>
+        public static string SelectMethodFor(Game.Control.CharacterClass characterClass) => characterClass switch
+        {
+            Game.Control.CharacterClass.Crusader => nameof(MainMenuController.SelectCrusader),
+            Game.Control.CharacterClass.Sentinel => nameof(MainMenuController.SelectSentinel),
+            Game.Control.CharacterClass.Augur => nameof(MainMenuController.SelectAugur),
+            _ => string.Empty,
+        };
+
+        public const float DetailTabsHeight = 22f;
+        public const float DetailTabWidth = 110f;
+        // The kit rows' slot: between the Tiny and Small icons, so the six items fit the tab without scrolling
+        public const float KitSlotSize = 36f;
+        public const float DetailRowSpacing = 4f;
+        private static readonly string[] DetailTabNames = { "Abilities", "Lore", "Playstyle" };
+        private static readonly Color RowBandNormal = new Color(1f, 1f, 1f, 0.35f);
+        private static readonly Color RowBandHighlighted = new Color(1f, 1f, 1f, 0.85f);
+        private static readonly Color TextBandNormal = new Color(1f, 1f, 1f, 0f);
+        private static readonly Color TextBandHighlighted = new Color(1f, 1f, 1f, 0.2f);
+
+        // The Abilities / Lore / Playstyle tabs and their scrolling list, between the description and the footer
+        private static ClassDetailsTabsUI BuildDetailsTabs(RectTransform details, UISettings s)
+        {
+            var ui = GetOrAdd<ClassDetailsTabsUI>(details.gameObject);
+
+            var tabsRow = FindOrCreate(details, "Tabs");
+            tabsRow.SetSiblingIndex(2);
+            var tabsLayout = GetOrAdd<HorizontalLayoutGroup>(tabsRow.gameObject);
+            tabsLayout.spacing = s.Spacing;
+            tabsLayout.childAlignment = TextAnchor.MiddleLeft;
+            tabsLayout.childControlWidth = true;
+            tabsLayout.childControlHeight = true;
+            tabsLayout.childForceExpandWidth = false;
+            tabsLayout.childForceExpandHeight = true;
+            var tabsElement = GetOrAdd<LayoutElement>(tabsRow.gameObject);
+            tabsElement.minHeight = tabsElement.preferredHeight = DetailTabsHeight;
+            // Fixed: the buttons' own layout would otherwise make the row share the list's spare height
+            tabsElement.flexibleHeight = 0f;
+
+            var uiSo = new SerializedObject(ui);
+            var tabButtons = uiSo.FindProperty("tabButtons");
+            var tabLabels = uiSo.FindProperty("tabLabels");
+            tabButtons.arraySize = DetailTabNames.Length;
+            tabLabels.arraySize = DetailTabNames.Length;
+            for (int i = 0; i < DetailTabNames.Length; i++)
+            {
+                var tab = FindOrCreate(tabsRow, "Tab_" + DetailTabNames[i]);
+                tab.SetSiblingIndex(i);
+                GetOrAdd<CanvasRenderer>(tab.gameObject);
+                var image = GetOrAdd<Image>(tab.gameObject);
+                var button = GetOrAdd<Button>(tab.gameObject);
+                button.targetGraphic = image;
+                var label = FindOrCreateText(tab, "Label");
+                StatsRestyler.RestyleTab(tab, DetailTabNames[i], new Vector2(0.5f, 0.5f), Vector2.zero, DetailTabWidth, s);
+                var tabElement = GetOrAdd<LayoutElement>(tab.gameObject);
+                tabElement.minWidth = tabElement.preferredWidth = DetailTabWidth;
+                tabElement.flexibleWidth = 0f;
+                tabElement.minHeight = tabElement.preferredHeight = DetailTabsHeight;
+                tabElement.flexibleHeight = 0f;
+                label.color = i == 0 ? s.HighlightColor : s.TextColor;
+                if (i == 0) image.sprite = s.GetTabSprite(true);
+                tabButtons.GetArrayElementAtIndex(i).objectReferenceValue = button;
+                tabLabels.GetArrayElementAtIndex(i).objectReferenceValue = label;
+            }
+
+            // The list: a masked view whose content follows its rows; it only takes the room left over
+            var scrollRect = FindOrCreate(details, "TabScroll");
+            scrollRect.SetSiblingIndex(3);
+            var scrollElement = GetOrAdd<LayoutElement>(scrollRect.gameObject);
+            scrollElement.minHeight = 0f;
+            scrollElement.preferredHeight = 0f;
+            scrollElement.flexibleHeight = 1f;
+            var scroll = GetOrAdd<ScrollRect>(scrollRect.gameObject);
+            var view = FindOrCreate(scrollRect, "View");
+            StretchFull(view);
+            GetOrAdd<RectMask2D>(view.gameObject);
+            var content = FindOrCreate(view, "Content");
+            StatsRestyler.RestyleList(content, s);
+            GetOrAdd<VerticalLayoutGroup>(content.gameObject).spacing = DetailRowSpacing;
+            scroll.viewport = view;
+            scroll.content = content;
+            scroll.horizontal = false;
+            scroll.vertical = true;
+            scroll.movementType = ScrollRect.MovementType.Clamped;
+            scroll.scrollSensitivity = 20f;
+            scroll.verticalScrollbar = null;
+
+            // Row templates, kept inactive next to the view
+            var templates = FindOrCreate(scrollRect, "Templates");
+            templates.gameObject.SetActive(false);
+            var kitRow = BuildRow(templates, "KitRowTemplate", s, RowBandNormal, RowBandHighlighted, out var kitText);
+            float slot = KitSlotSize;
+            var kitLayout = GetOrAdd<HorizontalLayoutGroup>(kitRow.gameObject);
+            kitLayout.padding = new RectOffset(4, 4, 2, 2);
+            kitLayout.spacing = s.Spacing;
+            kitLayout.childAlignment = TextAnchor.MiddleLeft;
+            kitLayout.childControlWidth = true;
+            kitLayout.childControlHeight = true;
+            kitLayout.childForceExpandWidth = false;
+            kitLayout.childForceExpandHeight = false;
+            var frame = FindOrCreateImage(kitRow.transform, "Slot");
+            frame.transform.SetSiblingIndex(0);
+            StyleFrame(frame, UIFrameKind.Slot, s);
+            frame.raycastTarget = false;
+            var frameElement = GetOrAdd<LayoutElement>(frame.gameObject);
+            frameElement.minWidth = frameElement.preferredWidth = slot;
+            frameElement.minHeight = frameElement.preferredHeight = slot;
+            var icon = FindOrCreateImage(frame.transform, "Icon");
+            StretchFull(icon.rectTransform, 4f);
+            icon.preserveAspect = true;
+            icon.raycastTarget = false;
+            kitText.transform.SetSiblingIndex(1);
+            GetOrAdd<LayoutElement>(kitText.gameObject).flexibleWidth = 1f;
+            kitText.alignment = TextAlignmentOptions.MidlineLeft;
+            var kitSo = new SerializedObject(kitRow);
+            kitSo.FindProperty("frame").objectReferenceValue = frame;
+            kitSo.FindProperty("icon").objectReferenceValue = icon;
+            kitSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var textRow = BuildRow(templates, "TextRowTemplate", s, TextBandNormal, TextBandHighlighted, out var paragraph);
+            var textLayout = GetOrAdd<VerticalLayoutGroup>(textRow.gameObject);
+            textLayout.padding = new RectOffset(4, 4, 1, 1);
+            textLayout.childControlWidth = true;
+            textLayout.childControlHeight = true;
+            textLayout.childForceExpandWidth = true;
+            textLayout.childForceExpandHeight = false;
+            paragraph.alignment = TextAlignmentOptions.TopLeft;
+
+            var statRow = BuildRow(templates, "StatRowTemplate", s, TextBandNormal, TextBandHighlighted, out var statText);
+            var statLayout = GetOrAdd<HorizontalLayoutGroup>(statRow.gameObject);
+            statLayout.padding = new RectOffset(4, 4, 1, 1);
+            statLayout.spacing = s.Spacing;
+            statLayout.childAlignment = TextAnchor.UpperLeft;
+            statLayout.childControlWidth = true;
+            statLayout.childControlHeight = true;
+            statLayout.childForceExpandWidth = false;
+            statLayout.childForceExpandHeight = false;
+            var star = FindOrCreateImage(statRow.transform, "Star");
+            star.transform.SetSiblingIndex(0);
+            star.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(CurrencyRowBuilder.FavorIconPath);
+            star.preserveAspect = true;
+            star.raycastTarget = false;
+            float starSize = s.GetFontSize(UIFontSize.Small) + 4f;
+            var starElement = GetOrAdd<LayoutElement>(star.gameObject);
+            starElement.minWidth = starElement.preferredWidth = starSize;
+            starElement.minHeight = starElement.preferredHeight = starSize;
+            statText.transform.SetSiblingIndex(1);
+            GetOrAdd<LayoutElement>(statText.gameObject).flexibleWidth = 1f;
+            statText.alignment = TextAlignmentOptions.TopLeft;
+            var statSo = new SerializedObject(statRow);
+            statSo.FindProperty("star").objectReferenceValue = star;
+            statSo.ApplyModifiedPropertiesWithoutUndo();
+
+            uiSo.FindProperty("scrollRect").objectReferenceValue = scroll;
+            uiSo.FindProperty("content").objectReferenceValue = content;
+            uiSo.FindProperty("kitRowTemplate").objectReferenceValue = kitRow;
+            uiSo.FindProperty("textRowTemplate").objectReferenceValue = textRow;
+            uiSo.FindProperty("statRowTemplate").objectReferenceValue = statRow;
+            uiSo.ApplyModifiedPropertiesWithoutUndo();
+            return ui;
+        }
+
+        // A selectable row: a band (its own image, so the gamepad frame and hover cover it) and a Small text
+        private static ClassDetailsRowUI BuildRow(RectTransform parent, string name, UISettings s, Color normal, Color highlighted, out TextMeshProUGUI text)
+        {
+            var rect = FindOrCreate(parent, name);
+            GetOrAdd<CanvasRenderer>(rect.gameObject);
+            var band = GetOrAdd<Image>(rect.gameObject);
+            band.sprite = s.SlotFrame;
+            band.type = Image.Type.Sliced;
+            band.color = Color.white;
+            band.raycastTarget = true;
+            var button = GetOrAdd<Button>(rect.gameObject);
+            button.targetGraphic = band;
+            button.transition = Selectable.Transition.ColorTint;
+            var colors = ColorBlock.defaultColorBlock;
+            colors.normalColor = normal;
+            colors.highlightedColor = highlighted;
+            colors.selectedColor = highlighted;
+            colors.pressedColor = highlighted;
+            colors.disabledColor = normal;
+            colors.fadeDuration = 0.08f;
+            button.colors = colors;
+            button.navigation = new UnityEngine.UI.Navigation { mode = UnityEngine.UI.Navigation.Mode.Explicit };
+
+            text = FindOrCreateText(rect, "Text");
+            CenterWindowLayout.PlainText(text, TextAlignmentOptions.TopLeft);
+            text.textWrappingMode = TextWrappingModes.Normal;
+            text.overflowMode = TextOverflowModes.Overflow;
+            text.richText = true;
+            text.raycastTarget = false;
+            text.text = name;
+            StyleText(text, UIFontSize.Small, false, UIColorRole.None, s);
+            text.color = s.TextColor;
+
+            var row = GetOrAdd<ClassDetailsRowUI>(rect.gameObject);
+            var so = new SerializedObject(row);
+            so.FindProperty("text").objectReferenceValue = text;
+            so.ApplyModifiedPropertiesWithoutUndo();
+            return row;
         }
 
         private static void DetailText(TextMeshProUGUI text, int index, UIFontSize size, UIColorRole color, bool bold,
@@ -391,6 +612,20 @@ namespace Game.UI.Style.Editor
             var settingsPanel = Instance(SettingsRestyler.SettingsPath);
             var chroniclePanel = Instance(ChronicleRestyler.PanelPath);
 
+            // The shared tooltip, for the class select's Abilities tab: drawn over every panel, never takes raycasts
+            var tooltip = Instance(TooltipRestyler.PanePath);
+            if (tooltip == null)
+            {
+                var canvas = classSelect.GetComponentInParent<Canvas>(true).rootCanvas.transform;
+                tooltip = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(TooltipRestyler.PanePath), canvas);
+                MatchPrefabRootLayout(tooltip);
+            }
+            tooltip.transform.SetAsLastSibling();
+            var tabsUi = classSelect.GetComponentInChildren<ClassDetailsTabsUI>(true);
+            var tabsSo = new SerializedObject(tabsUi);
+            tabsSo.FindProperty("tooltipPane").objectReferenceValue = tooltip.GetComponent<GeneralTooltipPaneUI>();
+            tabsSo.ApplyModifiedPropertiesWithoutUndo();
+
             // Settings rests at its shown spot like the other panels
             if (settingsPanel != null)
             {
@@ -430,8 +665,7 @@ namespace Game.UI.Style.Editor
             so.FindProperty("skillTree").objectReferenceValue = all.Select(t => t.GetComponent<SkillTreeController>()).FirstOrDefault(c => c != null);
             so.FindProperty("classNameText").objectReferenceValue = Text(classSelect, "ClassName");
             so.FindProperty("classDescriptionText").objectReferenceValue = Text(classSelect, "ClassDesc");
-            so.FindProperty("itemNameText").objectReferenceValue = Text(classSelect, "WeaponName");
-            so.FindProperty("itemDescriptionText").objectReferenceValue = Text(classSelect, "WeaponDesc");
+            so.FindProperty("detailsTabs").objectReferenceValue = classSelect.GetComponentInChildren<ClassDetailsTabsUI>(true);
             so.FindProperty("classFooterText").objectReferenceValue = Text(classSelect, "Footer");
             so.FindProperty("saveInfoText").objectReferenceValue = Text(menu, "SaveInfo");
             so.FindProperty("loadGameButton").objectReferenceValue = menu.GetComponentsInChildren<Button>(true).First(b => b.name == "LoadButton");

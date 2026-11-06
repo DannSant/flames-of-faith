@@ -119,7 +119,7 @@ namespace Game.Combat
         {
             if (specialAttackTimer.GetIsEventActive()) return;
 
-            // No invulnerability while spinning (tester feedback, Oct 26): with a 2 s spin the Warrior was
+            // No invulnerability while spinning (tester feedback, Oct 26): with a 2 s spin the Crusader was
             // untouchable most of the time. The upgraded Glyph's projectile shield still protects.
             characterVisual.PlayAttackSpecialAnimation();
             specialAttackTimer.StartEvent();

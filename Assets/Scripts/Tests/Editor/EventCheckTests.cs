@@ -79,8 +79,8 @@ namespace Game.Tests
             Assert.IsFalse(EventCheckMath.Succeeds(0.5f, 0.5f));
         }
 
-        [TestCase("Warrior", StatType.MeleeDamage)]
-        [TestCase("Archer", StatType.RangedDamage)]
+        [TestCase("Crusader", StatType.MeleeDamage)]
+        [TestCase("Sentinel", StatType.RangedDamage)]
         [TestCase("Augur", StatType.MagicDamage)]
         public void KeyStat_IsTheClassKeyStat(string className, StatType expected)
         {

@@ -20,9 +20,9 @@
 
 ## 2. Los tres peregrinos
 
-En las builds de pruebas los tres personajes están desbloqueados. En el juego normal, Archer y Augur cuestan 50 Favors cada uno.
+En las builds de pruebas los tres personajes están desbloqueados. En el juego normal, Centinela y Augur cuestan 50 Favors cada uno.
 
-| | **Warrior** | **Archer** | **Augur** |
+| | **Cruzado** (Crusader) | **Centinela** (Sentinel) | **Augur** |
 |---|---|---|---|
 | **Personaje** | Ayteel Alamoh | Faelin Vidal | Werlem Feth |
 | **Estilo** | Cuerpo a cuerpo, aguanta golpes | A distancia, móvil | Magia, daño en área |
@@ -54,7 +54,7 @@ Cada clase tiene una **stat clave** (estrella dorada) y varias **complementarias
 | Volver / cancelar | Esc | B |
 
 - **Ataque automático** (activado por defecto): atacas solo al enemigo más cercano dentro de tu alcance. Si lo desactivas, atacas tú, con una ligera ayuda al apuntar.
-- **Lock-on:** pulsa F / LT para fijar al enemigo más cercano. Si vuelves a pulsar, pasas al siguiente en el sentido de las agujas del reloj. Si no hay ningún enemigo cerca, el objetivo se suelta. Con el ratón también puedes hacer clic sobre un enemigo. Los especiales del Archer y del Augur apuntan al objetivo fijado. En Settings puedes cambiar al modo «mantener pulsado».
+- **Lock-on:** pulsa F / LT para fijar al enemigo más cercano. Si vuelves a pulsar, pasas al siguiente en el sentido de las agujas del reloj. Si no hay ningún enemigo cerca, el objetivo se suelta. Con el ratón también puedes hacer clic sobre un enemigo. Los especiales del Centinela y del Augur apuntan al objetivo fijado. En Settings puedes cambiar al modo «mantener pulsado».
 - Todo el juego se puede jugar con mando, menús incluidos. Un marco que late indica qué está seleccionado.
 
 ---
@@ -224,7 +224,7 @@ Esta es la parte más importante. No hace falta contestar a todo: céntrate en l
 - ¿Cuánto tarda una Pilgrimage completa hasta el jefe? Algunos mapas tienen caminos mucho más cortos que otros: ¿lo notas?
 
 ### Habilidades y stats
-- **Whirlwind** (Warrior): ¿cómo se siente ahora que dura 2 segundos y ya no te hace invulnerable?
+- **Whirlwind** (Cruzado): ¿cómo se siente ahora que dura 2 segundos y ya no te hace invulnerable?
 - **Attack Speed:** después del ajuste de la v0.5.2, ¿compensa elegirla?
 - ¿Las estrellas de stat clave y complementaria te ayudan a elegir mejoras?
 - ¿Alguna stat que nunca eliges porque no sirve, o una que siempre eliges porque es la mejor?

@@ -16,7 +16,7 @@ namespace Game.Tests
     /// </summary>
     public class AttackSpeedHardCapTests
     {
-        private const string ArcherPrefab = "Assets/Prefabs/Player/PlayerArcher.prefab";
+        private const string SentinelPrefab = "Assets/Prefabs/Player/PlayerSentinel.prefab";
 
         private static PlayerStatSettings Settings => Resources.Load<PlayerStatSettings>("Progression/PlayerStatSettings");
 
@@ -71,8 +71,8 @@ namespace Game.Tests
             return starts.Max(e => e.time);
         }
 
-        [TestCase("Warrior", "Sword")]
-        [TestCase("Archer", "Bow")]
+        [TestCase("Crusader", "Sword")]
+        [TestCase("Sentinel", "Bow")]
         [TestCase("Augur", "Scepter")]
         public void Primary_LandsInsideItsCooldown(string className, string weaponName)
         {
@@ -95,12 +95,12 @@ namespace Game.Tests
         [Test]
         public void Barrage_CooldownOutlastsItsVolley()
         {
-            var bow = AssetDatabase.LoadAssetAtPath<GameObject>(ArcherPrefab).GetComponentInChildren<BowWeapon>(true);
-            Assert.IsNotNull(bow, $"No BowWeapon on {ArcherPrefab}");
+            var bow = AssetDatabase.LoadAssetAtPath<GameObject>(SentinelPrefab).GetComponentInChildren<BowWeapon>(true);
+            Assert.IsNotNull(bow, $"No BowWeapon on {SentinelPrefab}");
             float interval = new SerializedObject(bow).FindProperty("barrageInterval").floatValue;
             int arrows = Ability<BarrageAbility>().Tiers.Max(t => t.targetArrowCount);
 
-            Assert.Greater(CooldownAtHardCap(Weapon("BowSpecial")), SpecialClipLength("Archer") + arrows * interval);
+            Assert.Greater(CooldownAtHardCap(Weapon("BowSpecial")), SpecialClipLength("Sentinel") + arrows * interval);
         }
 
         [Test]

@@ -7,7 +7,7 @@ namespace Game.Combat.Projectiles
     /// <summary>
     /// Pierce stat bonus for linear arrows: each enemy hit has a chance (PierceSettings) to break
     /// off a second arrow of the same type, at reduced damage, in a random direction. Split arrows
-    /// never split again. Put it only on linear player projectiles (the Archer's arrows, Strafe).
+    /// never split again. Put it only on linear player projectiles (the Sentinel's arrows, Strafe).
     /// </summary>
     [RequireComponent(typeof(DamageSourceBase))]
     public class ProjectileSplitOnHit : MonoBehaviour

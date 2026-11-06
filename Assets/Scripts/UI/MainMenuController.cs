@@ -3,6 +3,7 @@ using Game.Combat;
 using Game.Control;
 using Game.Cutscenes;
 using Game.Effects;
+using Game.Progression;
 using Game.Saving;
 using Game.Scene;
 using Game.UI.Chronicle;
@@ -13,6 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.UI
@@ -49,8 +51,8 @@ namespace Game.UI
         [SerializeField] private SkillTreeController skillTree;
         [SerializeField] private TextMeshProUGUI classNameText;
         [SerializeField] private TextMeshProUGUI classDescriptionText;
-        [SerializeField] private TextMeshProUGUI itemNameText;
-        [SerializeField] private TextMeshProUGUI itemDescriptionText;
+        [Tooltip("The Abilities / Lore / Playstyle tabs under the description.")]
+        [SerializeField] private ClassDetailsTabsUI detailsTabs;
         [Tooltip("Green when the class can be played, red with the unlock cost while it's locked.")]
         [SerializeField] private TextMeshProUGUI classFooterText;
         [SerializeField] private string unlockedText = "Unlocked";
@@ -81,6 +83,7 @@ namespace Game.UI
         private readonly List<ClassSelectHoverButton> cards = new();
         private Coroutine transition;
         private int selectedIndex = -1;
+        private CharacterClassData shownClass;
 
         private bool Transitioning => transition != null;
 
@@ -122,6 +125,7 @@ namespace Game.UI
             if (MetaProgressionManager.Instance != null)
             {
                 MetaProgressionManager.Instance.OnClassUnlocked += HandleClassUnlocked;
+                MetaProgressionManager.Instance.OnNodeTierChanged += HandleNodeTierChanged;
             }
         }
 
@@ -140,6 +144,7 @@ namespace Game.UI
             if (MetaProgressionManager.Instance != null)
             {
                 MetaProgressionManager.Instance.OnClassUnlocked -= HandleClassUnlocked;
+                MetaProgressionManager.Instance.OnNodeTierChanged -= HandleNodeTierChanged;
             }
 
             foreach (var card in cards)
@@ -158,21 +163,22 @@ namespace Game.UI
         /// <summary>The class the details show: the one hovered (or gamepad-selected), else the chosen one.</summary>
         public static CharacterClassData ClassToShow(CharacterClassData hovered, CharacterClassData chosen) => hovered != null ? hovered : chosen;
 
-        private void ShowClassInfo(CharacterClassData classData)
+        private void ShowClassInfo(CharacterClassData classData) => ShowClassInfo(classData, false);
+
+        private void ShowClassInfo(CharacterClassData classData, bool force)
         {
             var shown = ClassToShow(classData, SelectedClass);
             if (shown == null) return;
+            // Hover and selection events repeat the same class; rebuilding would recreate the tab's rows under the pointer
+            if (shown == shownClass && !force) return;
+            shownClass = shown;
 
             var settings = UISettings.Instance;
             bool playable = IsClassPlayable(shown.characterClass);
             classNameText.text = shown.characterName;
             classDescriptionText.text = DamageTypeColorHelper.ColorizeMetaTags(shown.classDescription);
 
-            // The class's weapon at the tier bought in its skill tree
-            var weapon = ClassKits.GetWeapon(shown.characterClass);
-            itemNameText.text = weapon != null ? weapon.EffectName : string.Empty;
-            if (weapon != null) itemNameText.color = EffectQualityDisplayHelper.GetQualityColor(weapon.Quality);
-            itemDescriptionText.text = weapon != null ? weapon.GetFormattedDescription() : string.Empty;
+            if (detailsTabs != null) detailsTabs.Show(BuildDetails(shown));
 
             if (classFooterText != null)
             {
@@ -181,16 +187,80 @@ namespace Game.UI
             }
         }
 
+        /// <summary>
+        /// What the tabs show for a class: its starting kit at the tiers bought in its skill tree (ClassKits, the
+        /// same items a new run starts with), its lore and playstyle texts, and its stat guide.
+        /// </summary>
+        public static ClassDetailsView BuildDetails(CharacterClassData classData)
+        {
+            var view = new ClassDetailsView();
+            if (classData == null) return view;
+
+            foreach (var item in ClassKits.Resolve(classData.characterClass))
+            {
+                if (item == null) continue;
+                view.kit.Add(new ClassKitEntry
+                {
+                    icon = item.EffectIcon,
+                    frameColor = EffectQualityDisplayHelper.GetQualityColor(item.Quality),
+                    name = EffectQualityDisplayHelper.ColorizeName(item),
+                    description = item.GetDescriptionText(),
+                    statLines = item.GetStatLines(),
+                });
+            }
+
+            view.lore = classData.lore;
+            view.playstyle = classData.playstyle;
+            if (classData.statPriorities != null)
+            {
+                foreach (var stat in ClassStatGuide.SortForDisplay(ListedStats(classData), classData.statPriorities))
+                {
+                    var priority = ClassStatGuide.Find(classData.statPriorities, stat);
+                    view.stats.Add(new ClassStatEntry
+                    {
+                        statName = StatDisplayNameHelper.GetDisplayName(stat),
+                        role = priority.role,
+                        justification = priority.justification,
+                    });
+                }
+            }
+            return view;
+        }
+
+        private static List<StatType> ListedStats(CharacterClassData classData)
+        {
+            var stats = new List<StatType>();
+            foreach (var priority in classData.statPriorities)
+            {
+                if (priority != null && priority.role != StatRole.None && !stats.Contains(priority.stat)) stats.Add(priority.stat);
+            }
+            return stats;
+        }
+
         // Moving off a card shows the chosen class again (like the item bag's hover preview)
         private void HideClassInfo() => ShowClassInfo(null);
 
         // Clicking a card (A on it with the gamepad) chooses its class; hovering or moving onto it only previews it,
         // so walking the gamepad past the other cards to Start Run doesn't change the class. Start Run starts the run.
-        public void SelectWarrior() => SelectClass(0);
+        public void SelectCrusader() => ChooseFromCard(0);
 
-        public void SelectArcher() => SelectClass(1);
+        public void SelectSentinel() => ChooseFromCard(1);
 
-        public void SelectAugur() => SelectClass(2);
+        public void SelectAugur() => ChooseFromCard(2);
+
+        // With the gamepad, choosing a class moves the selection straight to Start Run (a locked class's
+        // Start Run shows the unlock dialog); the mouse stays where it is.
+        private void ChooseFromCard(int playerIndex)
+        {
+            SelectClass(playerIndex);
+            bool gamepad = InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
+            var next = SelectionAfterChoosing(gamepad, startRunButton != null ? startRunButton.gameObject : null);
+            if (next != null && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(next);
+        }
+
+        /// <summary>Where the gamepad selection goes after a card is pressed: Start Run; nothing moves with the mouse.</summary>
+        public static GameObject SelectionAfterChoosing(bool gamepadActive, GameObject startRun) =>
+            gamepadActive && startRun != null && startRun.activeInHierarchy ? startRun : null;
 
         private void SelectClass(int playerIndex)
         {
@@ -200,6 +270,7 @@ namespace Game.UI
             {
                 card.SetSelected(chosen != null && card.ClassData == chosen);
             }
+            if (detailsTabs != null) detailsTabs.SetChosenClass(chosen);
             ShowClassInfo(null);
         }
 
@@ -250,8 +321,11 @@ namespace Game.UI
         private void HandleClassUnlocked(CharacterClass characterClass)
         {
             RefreshClassLocks();
-            ShowClassInfo(null);
+            ShowClassInfo(null, true);
         }
+
+        // A tier bought in the skill tree (opened from here) changes the Abilities tab's items
+        private void HandleNodeTierChanged(CharacterClass characterClass, string nodeId) => ShowClassInfo(null, true);
 
         private void RefreshClassLocks()
         {
@@ -306,7 +380,7 @@ namespace Game.UI
             }
         }
 
-        /// <summary>The saved run under Load Game: "Warrior - Act I - Level 7".</summary>
+        /// <summary>The saved run under Load Game: "Crusader - Act I - Level 7".</summary>
         public static string FormatSaveInfo(string format, string className, int act, int level)
         {
             return string.Format(format, className, OverworldPlayerStatePresenter.ToRoman(Mathf.Max(1, act)), Mathf.Max(1, level));

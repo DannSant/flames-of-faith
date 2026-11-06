@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a9a85ccb2b9f24487c2fdd7109f3cd, type: 3}
+  m_Name: Crusader
+  m_EditorClassIdentifier: 
+  characterName: Crusader
+  characterClass: 1
+  animatorController: {fileID: 9100000, guid: e1275e69f9dfe584bb3034b339b412a3, type: 2}
+  defaultSprite: {fileID: -4057652279525399919, guid: a24b23e2a0e0fcf4795cc3f843fb12dc, type: 3}
+  icon: {fileID: -258689431989800309, guid: 27556dce21c68d44aa954654aaf4a57c, type: 3}
+  abilityIcons:
+  - {fileID: 21300000, guid: 95de7ebaf4e06d547b6c94707450d6f2, type: 3}
+  - {fileID: 21300000, guid: e7e072706bb6f8f4097434493f40ddaf, type: 3}
+  - {fileID: 21300000, guid: fabe5c1b5ec83234abb7bc20bfc8205a, type: 3}
+  dashName: Charge Dash
+  dashDescription: 'A heavy Dash that pushes away enemys and deals a small amount
+    of _melee_damage_
+
+    Player is invulnerable while dashing'
+  dashCooldown: 4
+  dashSpeed: 3
+  dashDuration: 0.3
+  dashMaxCharges: 1
+  dashDamageStat: 1
+  classDescription: "A fierce warrior trained in the Abidor Institute.\nMain stat: _melee_damage_"
+  lore: "Ayteel Alamoh, Crusader of the Faith\n\nGranddaughter of Gabien Alamoh, the Seared Soul who fell at Ashemdrek, and of Dayla, she was raised in Abidor by a family nobody would speak to. She carries her grandfather's Steeldawn sword, Ashem Elwyn, the Shining Tide. Her rank is self-declared: the Church would never grant the title to an Alamoh.\n\nShe believes her grandfather was slandered, and she means to clear the Alamoh name by finishing the work he failed. Her road starts in the Jesterwoods, his own country, where people still spit at the name."
+  playstyle: "Fights up close. Wade in with the sword, spin through crowds with Whirlwind, and break through a line with Crusader Charge. Your dash is slow to come back and you can still be hurt while spinning, so lean on armor, health and Retribution."
+  statPriorities:
+  - stat: 1
+    role: 1
+    justification: Your sword swings, Whirlwind and Crusader Charge all deal Melee
+      damage.
+  - stat: 21
+    role: 2
+    justification: 'You fight up close and get hit often: Retribution turns those
+      hits back on your attackers.'
+  - stat: 6
+    role: 2
+    justification: Armor reduces the damage you take while you hold the front line.
+  - stat: 0
+    role: 2
+    justification: More health lets you stay in the thick of the fight for longer.
+  - stat: 4
+    role: 2
+    justification: 'Crusader Charge is also an attack: a shorter cooldown means more
+      charges through enemies.'

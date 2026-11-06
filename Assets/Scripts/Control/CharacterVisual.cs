@@ -199,7 +199,7 @@ namespace Game.Control
         }
 
         // Each clip of a blend tree fires its own copy of an animation event, all in the same frame: the
-        // Warrior's 8-direction attack ran the cleave 8 times per swing. Each event goes through once per frame.
+        // Crusader's 8-direction attack ran the cleave 8 times per swing. Each event goes through once per frame.
         private readonly OncePerFrame attackStartGate = new();
         private readonly OncePerFrame attackEndGate = new();
         private readonly OncePerFrame specialAttackStartGate = new();

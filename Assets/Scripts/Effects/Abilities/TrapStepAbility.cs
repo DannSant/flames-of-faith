@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Game.Effects.Abilities
 {
     /// <summary>
-    /// The Archer's dash (Glyph of Trap Step), performed by <see cref="Game.Control.ArcherDash"/>.
+    /// The Sentinel's dash (Glyph of Trap Step), performed by <see cref="Game.Control.SentinelDash"/>.
     /// Without this item the dash keeps its prefab values.
     /// </summary>
-    [CreateAssetMenu(menuName = "Effects/Abilities/Archer/Trap Step")]
+    [CreateAssetMenu(menuName = "Effects/Abilities/Sentinel/Trap Step")]
     public class TrapStepAbility : AbilityBehavior<TrapStepAbility.Values>
     {
         [Serializable]
