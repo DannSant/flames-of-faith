@@ -1,6 +1,6 @@
 # Feature: Light Devourer's new art (isometric hit area, new sheets, no slowed windup)
 
-- **Status:** implemented, waiting for the sheet update and merge OK
+- **Status:** implemented, waiting for a sheet Publish and the merge OK
 - **Branch:** `feature/light-devourer-art` (off `develop`)
 - **Owner session:** implementation session (Nov 5, 2026)
 - **Related docs:** `docs/pm/BACKLOG.md` item 9; `CLAUDE.md` "Enemy sprite sheets & animators" (sheet layout, the Corruptor builder, the melee attack warning), "Balance data" (the pipeline rule, stale YAML), "Combat/effect pipeline" (animation events in blend trees)
@@ -121,7 +121,7 @@ _Written by the implementation session when it finishes. Nobody else edits this 
   - **Tests:** `LightDevourerArtTests`, `IsoGroundAreaTests` (the math, the drawn ring, and the polygon against the ellipse just inside and outside its top, bottom and sides in 8 directions), plus `MeleeTelegraphTests` updated (speed 1, hit time = Attack Delay × clip length, at least 0.5 s to react). The full EditMode suite passes: 1020 / 1020 in batchmode.
   - **CLAUDE.md:** melee warning timing and area, the sheet builder, the Light Devourer art.
 - **Not done / follow-ups:**
-  - **The designer's sheet is not updated yet.** `EnemyBehaviors_MeleeAttacker` still has Telegraph Time and Animation Hit Time 0.3. This needs the owner's OK: either Push All to Sheet, or a targeted edit of that tab (drop the column, set 0.6666667, rewrite its notes panel). Until then, a Pull from Sheet fails on the extra column.
+  - **Sheet:** the `EnemyBehaviors_MeleeAttacker` tab was edited by hand with the owner's OK (Nov 5), not with Push All. Telegraph Time column deleted, Animation Hit Time set to 0.6666667, the panel's Telegraph Time row removed, and the Orbit Radius and Animation Hit Time notes set to the new tooltips. It now matches the committed CSV; the Read Me didn't mention the column. **A new Publish is still needed:** the last published version has the old column, so a Pull fails until the designer publishes again.
   - Not verified in play: the feel, the pivot on the shadow, and the ellipse size. Orbit Radius 1 and the radius 0.5 are unchanged; report the size to the designer if it feels off.
 - **Commits / branch:** `feature/light-devourer-art`: `6b268b24` (sheets), `b327c352` (builder + animations), `a7909d4c` (no slowed windup), `765ce3c7` (isometric area), plus this Handoff. Not merged.
 - **Gotchas for the next session:**
