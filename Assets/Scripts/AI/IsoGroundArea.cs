@@ -13,6 +13,19 @@ namespace Game.AI
         /// <summary>Width and height on screen of a ground circle of <paramref name="radius"/>.</summary>
         public static Vector2 Size(float radius, float groundRatio) => new Vector2(2f * radius, 2f * radius * groundRatio);
 
+        /// <summary>
+        /// A screen offset turned into ground units: the vertical part is divided by the ratio, because the ground is
+        /// drawn squashed. 1 unit up the screen is 2 units of ground at the 0.5 ratio.
+        /// </summary>
+        public static Vector2 ToGround(Vector2 screenOffset, float groundRatio) =>
+            groundRatio <= 0f ? screenOffset : new Vector2(screenOffset.x, screenOffset.y / groundRatio);
+
+        /// <summary>
+        /// Distance between two ground points (e.g. two characters' feet) measured on the ground, so it's the same from
+        /// every side: on screen, a point straight above or below is only half as far as one to the side at the 0.5 ratio.
+        /// </summary>
+        public static float GroundDistance(Vector2 a, Vector2 b, float groundRatio) => ToGround(b - a, groundRatio).magnitude;
+
         /// <summary>Whether <paramref name="point"/> is inside the ground circle of <paramref name="radius"/> at <paramref name="center"/> (edge included).</summary>
         public static bool Contains(Vector2 center, float radius, float groundRatio, Vector2 point)
         {

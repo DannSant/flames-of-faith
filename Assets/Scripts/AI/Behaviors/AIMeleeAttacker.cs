@@ -17,17 +17,20 @@ namespace Game.AI.Behaviors
         // The authored circle the ground area is built from: its radius and offset, in the hitbox's local space
         public float areaRadius = 0.5f;
         public Vector2 areaOffset;
+        // Where the warning was drawn when the swing started: the hit lands exactly there
+        public Vector2 areaCenter;
     }
     [CreateAssetMenu(menuName = "Behaviors/On Update/MeleeAttacker")]
     public class AIMeleeAttacker : AIUpdateBehavior, IAnimationEventReceiver
     {
-        [Tooltip("The enemy attacks only while the player is closer than this.")]
+        [Tooltip("The enemy attacks only while the player is closer than this, measured on the ground between their feet " +
+            "(their body colliders), so it's the same from every side.")]
         [SerializeField] private float maxRange = 7f;
         [Tooltip("Seconds between attacks.")]
         [SerializeField] private float attackCooldown = 2f;
         [SerializeField] private string colliderObjectName = "MeleeCollider";
-        [Tooltip("Distance on the ground from the enemy's center at which the melee hitbox is placed, toward the player " +
-            "(shortened vertically by the ground ratio, like the area itself).")]
+        [Tooltip("Distance on the ground from the enemy's feet (its body collider) to the center of the hit area, toward " +
+            "the player. The area's size is the melee collider's radius.")]
         [SerializeField] private float orbitRadius = 0.5f;
         [Tooltip("Seconds from the start of the attack animation to its hit frame (its attack state's " +
             "MeleeAnimationAttackBehavior Attack Delay x the clip length). The warning fills over this time, so it's full when the hit lands.")]
@@ -35,6 +38,8 @@ namespace Game.AI.Behaviors
         [SerializeField] private float animationHitTime = 0.6666667f;
 
         public float AnimationHitTime => animationHitTime;
+        public float MaxRange => maxRange;
+        public float OrbitRadius => orbitRadius;
 
 
         public override void Tick(BehaviorContext context)
@@ -48,7 +53,8 @@ namespace Game.AI.Behaviors
 
             if (rb == null || colliderObj == null) return;
 
-            float distance = Vector2.Distance(rb.position, context.playerTransform.position);
+            // On the ground, feet to feet: on screen a player straight above or below is only half as far (IsoGround)
+            float distance = IsoGround.Distance(context.enemyTransform, context.playerTransform);
 
             var state = context.GetState<MeleeAttackerBehaviorState>(this);
 
@@ -112,8 +118,10 @@ namespace Game.AI.Behaviors
             state.attackTimer = attackCooldown;
 
             // The direction is chosen when the swing starts, so the warning shows where the hit really lands
-            Vector2 toPlayer = (Vector2)(context.playerTransform.position - context.enemyTransform.position);
+            Vector2 enemyGround = IsoGround.PointOf(context.enemyTransform);
+            Vector2 toPlayer = IsoGround.PointOf(context.playerTransform) - enemyGround;
             if (toPlayer.sqrMagnitude > 0.0001f) state.lockedDirection = toPlayer.normalized;
+            state.areaCenter = AreaCenter(enemyGround, state.lockedDirection, orbitRadius, GroundRatio);
 
             // Hold still and keep facing the target while winding up (isShooting = "an attack is in progress")
             context.isShooting = true;
@@ -122,8 +130,8 @@ namespace Game.AI.Behaviors
 
             if (state.telegraph != null && state.meleeCollider != null)
             {
-                var (center, radius) = HitArea(state, context.enemyTransform.position);
-                state.telegraph.Show(center, radius, animationHitTime);
+                float radius = state.areaRadius * Mathf.Abs(state.meleeCollider.transform.lossyScale.x);
+                state.telegraph.Show(state.areaCenter, radius, animationHitTime);
             }
 
             if (context.enemyAnimController != null)
@@ -146,7 +154,7 @@ namespace Game.AI.Behaviors
 
         /// <summary>
         /// The hitbox is the ellipse the warning draws, so the hit area is exactly what's shown. A CircleCollider2D
-        /// can't be an ellipse, so the prefab's circle (its radius and offset stay the design values) is swapped for
+        /// can't be an ellipse, so the prefab's circle (its radius stays the design value; where it lands is AreaCenter) is swapped for
         /// a PolygonCollider2D outlining the same ground circle, with the circle's trigger and layer settings. Physics
         /// then decides the hit against the player's own collider, where they stand. Other collider shapes are kept as is.
         /// </summary>
@@ -167,15 +175,13 @@ namespace Game.AI.Behaviors
             return polygon;
         }
 
-        // The world ground circle the hitbox will cover at the locked direction: its center and radius
-        private (Vector2 center, float radius) HitArea(MeleeAttackerBehaviorState state, Vector2 enemyPosition)
-        {
-            var hitbox = state.meleeCollider.transform;
-            Vector2 scale = hitbox.lossyScale;
-            Vector2 hitboxPosition = enemyPosition + HitboxOffset(state.lockedDirection, orbitRadius, GroundRatio);
-            Vector2 center = hitboxPosition + Vector2.Scale(state.areaOffset, scale);
-            return (center, state.areaRadius * Mathf.Abs(scale.x));
-        }
+        /// <summary>
+        /// Center of the hit area: <paramref name="orbitRadius"/> on the ground from the enemy's ground point (its feet)
+        /// along <paramref name="direction"/>. Measured from the feet, not the sprite's middle, so it reaches as far
+        /// toward a player above it as below it or beside it.
+        /// </summary>
+        public static Vector2 AreaCenter(Vector2 enemyGround, Vector2 direction, float orbitRadius, float groundRatio) =>
+            enemyGround + HitboxOffset(direction, orbitRadius, groundRatio);
 
         // Same span as isShooting: on when the swing starts, off at its end event, a stun or a freeze
         private static void SetKnockbackImmune(BehaviorContext context, bool immune)
@@ -217,7 +223,7 @@ namespace Game.AI.Behaviors
             if (state.meleeCollider != null)
             {
                 state.meleeCollider.enabled = true;
-                SetColliderPosition(state.meleeCollider.gameObject, state.lockedDirection, context.enemyTransform);
+                PlaceHitbox(state);
             }
             else
             {
@@ -225,9 +231,12 @@ namespace Game.AI.Behaviors
             }
         }
 
-        private void SetColliderPosition(GameObject attackColliderTransform, Vector2 direction, Transform pivotPoint)
+        // Moves the hitbox so its area (the outline around the collider's offset) is centered on the warning
+        private static void PlaceHitbox(MeleeAttackerBehaviorState state)
         {
-            attackColliderTransform.transform.position = pivotPoint.position + (Vector3)HitboxOffset(direction, orbitRadius, GroundRatio);
+            var hitbox = state.meleeCollider.transform;
+            Vector2 offset = Vector2.Scale(state.areaOffset, hitbox.lossyScale);
+            hitbox.position = new Vector3(state.areaCenter.x - offset.x, state.areaCenter.y - offset.y, hitbox.position.z);
         }
     }
 

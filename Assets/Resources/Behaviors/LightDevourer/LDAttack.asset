@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: LDAttack
   m_EditorClassIdentifier: 
   stopDuringGameplayFreeze: 1
-  maxRange: 2
-  attackCooldown: 2
+  maxRange: 1.4
+  attackCooldown: 1
   colliderObjectName: MeleeCollider
   orbitRadius: 1
   animationHitTime: 0.6666667
