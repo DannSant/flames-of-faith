@@ -43,6 +43,8 @@ MonoBehaviour:
 
     Duration of the flames increases with the stat Skill
     Duration'
+  lore: "Werlem Feth, Augur of the Shardless Church\n\nGrandson of Kyro Feth, whose findings founded Runic Math. His parents are academics of the Abidor Institute, and he became an Augur against their wishes; many who expected great things from him resent that he chose faith. He carries the Akeros Graceful Scepter, made by Akeros the Observer, an elf who lived among humans to study Grace.\n\nAfter reading the journeys of Kyro and Gabien, he decided enlightenment lay down another road: faith instead of formulas. He felt something about Ayteel and Faelin at a gathering in the church, and joined them."
+  playstyle: "Fights from mid range with fire. Fireballs set enemies burning, Fire Tornadoes hunt the crowd, and Flame Dash, with two charges, leaves a trail of flames behind you. Your armor is thin, so keep moving, lock on to a target before your special so its explosions land on it, and let the burns do their work."
   statPriorities:
   - stat: 12
     role: 1

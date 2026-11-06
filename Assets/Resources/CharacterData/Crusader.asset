@@ -39,6 +39,8 @@ MonoBehaviour:
     Dash skill: Charge Dash. A heavy Dash that pushes away
     enemys and deals a small amount of _melee_damage_ Player is invulnerable while
     dashing'
+  lore: "Ayteel Alamoh, Crusader of the Faith\n\nGranddaughter of Gabien Alamoh, the Seared Soul who fell at Ashemdrek, and of Dayla, she was raised in Abidor by a family nobody would speak to. She carries her grandfather's Steeldawn sword, Ashem Elwyn, the Shining Tide. Her rank is self-declared: the Church would never grant the title to an Alamoh.\n\nShe believes her grandfather was slandered, and she means to clear the Alamoh name by finishing the work he failed. Her road starts in the Jesterwoods, his own country, where people still spit at the name."
+  playstyle: "Fights up close. Wade in with the sword, spin through crowds with Whirlwind, and use Crusader Charge to break through a line or out of a crowd. Your dash is slow to come back and you can still be hurt while spinning, so lean on armor, health and Retribution, and deal with ranged enemies before they wear you down."
   statPriorities:
   - stat: 1
     role: 1

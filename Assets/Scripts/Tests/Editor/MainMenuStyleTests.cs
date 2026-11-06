@@ -128,9 +128,11 @@ namespace Game.Tests
 
             AssertText(Child(root, "ClassName"), UIFontSize.Big, null, settings);
             AssertText(Child(root, "ClassDesc"), UIFontSize.Small, null, settings);
-            AssertText(Child(root, "WeaponHeader"), UIFontSize.Small, UIColorRole.Highlight, settings);
-            AssertText(Child(root, "WeaponName"), UIFontSize.Small, UIColorRole.None, settings);
-            AssertText(Child(root, "WeaponDesc"), UIFontSize.Small, null, settings);
+            foreach (string old in new[] { "WeaponHeader", "WeaponName", "WeaponDesc" })
+            {
+                Assert.IsFalse(root.GetComponentsInChildren<Transform>(true).Any(x => x.name == old), $"{old}: the Abilities tab replaced the Starting weapon block");
+            }
+            Assert.IsNotNull(Child(root, "Details").GetComponent<ClassDetailsTabsUI>(), "The details have no tabs");
             AssertText(Child(root, "Footer"), UIFontSize.Small, UIColorRole.None, settings);
 
             var start = (RectTransform)Child(root, "StartRunButton");

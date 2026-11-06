@@ -18,7 +18,7 @@ namespace Game.UI.Style.Editor
     public static class TooltipRestyler
     {
         public const string PanePath = "Assets/Prefabs/UI/Misc/GeneralTooltipPane.prefab";
-        private static readonly string[] Scenes = { "Assets/Scenes/UIMain.unity", "Assets/Scenes/LevelSelector.unity" };
+        private static readonly string[] Scenes = { "Assets/Scenes/UIMain.unity", "Assets/Scenes/LevelSelector.unity", "Assets/Scenes/MainMenu.unity" };
 
         public const float Width = 600f;
         public const float ListWidth = 150f;

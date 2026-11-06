@@ -36,6 +36,13 @@ namespace Game.Control
 
         [Header("Menu Display")]
         [TextArea] public string classDescription;
+        [Tooltip("The class select's Lore tab. Starts with the pilgrim's name and title, then two or three short " +
+            "paragraphs (a blank line between them). Only who they are and why they set out: no turning points " +
+            "(Lore.md section 6). Glossary spellings, no em dash (the font lacks it).")]
+        [TextArea(6, 16)] public string lore;
+        [Tooltip("The class select's Playstyle tab: two or three sentences on range, rhythm and what to watch out " +
+            "for. The stat guide below is listed under it.")]
+        [TextArea(3, 8)] public string playstyle;
 
         [Header("Stat Guide")]
         [Tooltip("Stats that matter most for this class: one Key stat (gold star) and its Complementary stats " +
