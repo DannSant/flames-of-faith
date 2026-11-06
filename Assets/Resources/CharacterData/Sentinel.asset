@@ -29,10 +29,7 @@ MonoBehaviour:
   dashDuration: 0.15
   dashMaxCharges: 1
   dashDamageStat: 2
-  classDescription: "A skilled archer, member of the Sentinels, defenders of Divinity.
-    \nMain stat: _ranged_damage_\nDash skill: Trap Step. Quick Dash that leaves a
-    trap behind for a few seconds. Deals _ranged_damage_ to an enemy who steps on
-    it. Duration scales with Skill Duration"
+  classDescription: "A skilled archer, member of the Sentinels, defenders of Divinity.\nMain stat: _ranged_damage_"
   lore: "Faelin Vidal, Sentinel of Abidor\n\nGranddaughter of Orleone Vidal, Grand Crusader of Abidor and Gabien's mentor, she grew up on her mother's stories of him and was recruited young by the Sentinels, Abidor's soldiers and border guard. Her Steeldawn Bow was made by Faraclarian hands.\n\nShe believes in her grandfather and in the institutions he served, and learning that some blame Orleone for Gabien's failure shook her. Ayteel, an outcast who kept going anyway, gave her back her nerve, and Faelin set out beside her."
   playstyle: "Fights from a distance. Keep moving and keep shooting: your dash comes back quickly and leaves a trap behind you, so let enemies chase you onto it. You are fragile up close, so keep your range, and lock on to a target before you use Barrage so its arrows hunt it down."
   statPriorities:

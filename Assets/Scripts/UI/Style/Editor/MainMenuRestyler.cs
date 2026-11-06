@@ -27,7 +27,7 @@ namespace Game.UI.Style.Editor
         private const string MainMenuScene = "Assets/Scenes/MainMenu.unity";
 
         public const float MenuWidth = 400f;
-        public const float ClassSelectWidth = 640f;
+        public const float ClassSelectWidth = 760f;
         public const float BigButtonWidth = 280f;
         public const float CardsWidth = 180f;
         private const float OutlineOutset = 2f;
@@ -307,7 +307,10 @@ namespace Game.UI.Style.Editor
             _ => string.Empty,
         };
 
-        public const float DetailTabsHeight = 32f;
+        public const float DetailTabsHeight = 22f;
+        public const float DetailTabWidth = 110f;
+        // The kit rows' slot: between the Tiny and Small icons, so the six items fit the tab without scrolling
+        public const float KitSlotSize = 36f;
         public const float DetailRowSpacing = 4f;
         private static readonly string[] DetailTabNames = { "Abilities", "Lore", "Playstyle" };
         private static readonly Color RowBandNormal = new Color(1f, 1f, 1f, 0.35f);
@@ -324,12 +327,15 @@ namespace Game.UI.Style.Editor
             tabsRow.SetSiblingIndex(2);
             var tabsLayout = GetOrAdd<HorizontalLayoutGroup>(tabsRow.gameObject);
             tabsLayout.spacing = s.Spacing;
+            tabsLayout.childAlignment = TextAnchor.MiddleLeft;
             tabsLayout.childControlWidth = true;
             tabsLayout.childControlHeight = true;
-            tabsLayout.childForceExpandWidth = true;
+            tabsLayout.childForceExpandWidth = false;
             tabsLayout.childForceExpandHeight = true;
             var tabsElement = GetOrAdd<LayoutElement>(tabsRow.gameObject);
             tabsElement.minHeight = tabsElement.preferredHeight = DetailTabsHeight;
+            // Fixed: the buttons' own layout would otherwise make the row share the list's spare height
+            tabsElement.flexibleHeight = 0f;
 
             var uiSo = new SerializedObject(ui);
             var tabButtons = uiSo.FindProperty("tabButtons");
@@ -345,7 +351,12 @@ namespace Game.UI.Style.Editor
                 var button = GetOrAdd<Button>(tab.gameObject);
                 button.targetGraphic = image;
                 var label = FindOrCreateText(tab, "Label");
-                StatsRestyler.RestyleTab(tab, DetailTabNames[i], new Vector2(0.5f, 0.5f), Vector2.zero, 100f, s);
+                StatsRestyler.RestyleTab(tab, DetailTabNames[i], new Vector2(0.5f, 0.5f), Vector2.zero, DetailTabWidth, s);
+                var tabElement = GetOrAdd<LayoutElement>(tab.gameObject);
+                tabElement.minWidth = tabElement.preferredWidth = DetailTabWidth;
+                tabElement.flexibleWidth = 0f;
+                tabElement.minHeight = tabElement.preferredHeight = DetailTabsHeight;
+                tabElement.flexibleHeight = 0f;
                 label.color = i == 0 ? s.HighlightColor : s.TextColor;
                 if (i == 0) image.sprite = s.GetTabSprite(true);
                 tabButtons.GetArrayElementAtIndex(i).objectReferenceValue = button;
@@ -378,9 +389,9 @@ namespace Game.UI.Style.Editor
             var templates = FindOrCreate(scrollRect, "Templates");
             templates.gameObject.SetActive(false);
             var kitRow = BuildRow(templates, "KitRowTemplate", s, RowBandNormal, RowBandHighlighted, out var kitText);
-            float slot = s.GetIconSize(UIIconSize.Small);
+            float slot = KitSlotSize;
             var kitLayout = GetOrAdd<HorizontalLayoutGroup>(kitRow.gameObject);
-            kitLayout.padding = new RectOffset(4, 4, 4, 4);
+            kitLayout.padding = new RectOffset(4, 4, 2, 2);
             kitLayout.spacing = s.Spacing;
             kitLayout.childAlignment = TextAnchor.MiddleLeft;
             kitLayout.childControlWidth = true;
@@ -395,7 +406,7 @@ namespace Game.UI.Style.Editor
             frameElement.minWidth = frameElement.preferredWidth = slot;
             frameElement.minHeight = frameElement.preferredHeight = slot;
             var icon = FindOrCreateImage(frame.transform, "Icon");
-            StretchFull(icon.rectTransform, 6f);
+            StretchFull(icon.rectTransform, 4f);
             icon.preserveAspect = true;
             icon.raycastTarget = false;
             kitText.transform.SetSiblingIndex(1);
@@ -408,7 +419,7 @@ namespace Game.UI.Style.Editor
 
             var textRow = BuildRow(templates, "TextRowTemplate", s, TextBandNormal, TextBandHighlighted, out var paragraph);
             var textLayout = GetOrAdd<VerticalLayoutGroup>(textRow.gameObject);
-            textLayout.padding = new RectOffset(4, 4, 2, 2);
+            textLayout.padding = new RectOffset(4, 4, 1, 1);
             textLayout.childControlWidth = true;
             textLayout.childControlHeight = true;
             textLayout.childForceExpandWidth = true;
@@ -417,7 +428,7 @@ namespace Game.UI.Style.Editor
 
             var statRow = BuildRow(templates, "StatRowTemplate", s, TextBandNormal, TextBandHighlighted, out var statText);
             var statLayout = GetOrAdd<HorizontalLayoutGroup>(statRow.gameObject);
-            statLayout.padding = new RectOffset(4, 4, 2, 2);
+            statLayout.padding = new RectOffset(4, 4, 1, 1);
             statLayout.spacing = s.Spacing;
             statLayout.childAlignment = TextAnchor.UpperLeft;
             statLayout.childControlWidth = true;

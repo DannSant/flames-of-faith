@@ -105,7 +105,7 @@ namespace Game.Tests
         {
             var settings = Settings();
             var root = Load(ClassSelectPath);
-            AssertPanel(root, 640f, settings);
+            AssertPanel(root, Game.UI.Style.Editor.MainMenuRestyler.ClassSelectWidth, settings);
             Assert.IsFalse(root.GetComponentsInChildren<Transform>(true).Any(t => t.name == "TooltipPane"), "Leftover tooltip pane");
 
             var cards = root.GetComponentsInChildren<ClassSelectHoverButton>(true);
