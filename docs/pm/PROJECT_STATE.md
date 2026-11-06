@@ -16,8 +16,8 @@ _Last updated: 2026-11-06 by the Orchestrator._
 
 ## Resume here (Orchestrator, 2026-11-06)
 - **Merge `feature/light-devourer-art`** once its last check passes (the Corruptor looks and shoots as before) and the owner says so. Then move `docs/features/light-devourer-art.md` to the archive. Its `todo.md` cleanup (`docs/archive/todo-2026-11-06.md`) is committed on that branch, so it reaches `develop` with the merge.
-- **Next code:** CI/CD (BACKLOG 18, needs a spec). Small items from the owner's list (38, 39) fit between bigger ones.
-- **Waiting on the owner:** where items 40 to 42 go (class rename, character select tabs, the map character); class options for Faelin and Werlem at the Shrine; the 7 page briefs to the art team and their size; the five lore questions in `docs/features/act-ii-design.md`.
+- **Next code:** the owner's list, all demo musts (BACKLOG 38 to 42): 38 and 39 are small fixes; 40 (class rename), 41 (class select tabs) and 42 (the pilgrim on the map) need specs. 40 and 41 both touch the class select, so they run one after the other. CI/CD (18) still needs a spec too.
+- **Waiting on the owner:** class options for Faelin and Werlem at the Shrine; the 7 page briefs to the art team and their size; the five lore questions in `docs/features/act-ii-design.md`.
 - **Tester feedback on v0.5.3:** triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
 - **Sound checks** wait for clips (`todo.md` "Sounds waiting for clips"); no spec is open for them.
 

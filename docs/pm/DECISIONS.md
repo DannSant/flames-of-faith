@@ -3,6 +3,8 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-11-06
+- **Cutscene scope cut to 8 scenes** (owner): one at the start and one at the end of each act, for the party as a whole; the opening counts as Act I's start. Replaces the 26 scenes of 2026-10-29 (one per pilgrim before and after each act). Each pilgrim's arc stays in the events. A future party (a DLC) would get its own act-start and act-end scenes.
+- **Items 38 to 42 are demo musts** (owner): the Dreko Eye outline, the class select gamepad step, the class rename, the class select tabs and the pilgrim on the map. "We have time."
 - **Class names: Warrior becomes Crusader, Archer becomes Sentinel** (owner). Augur stays. BACKLOG 40; it needs a spec, because names are saved and are balance sheet keys.
 - **Light Devourer art, from the owner's play-tests:** the hit lands on frame 9 of 11; ranges and areas are measured on the ground from the feet; every enemy body sorts on order 10 with the player and trees; the player's knockback is a steady push (force x time), not an added impulse. The owner's tuning: Orbit Radius 1.3, Max Range 1.8, Attack Cooldown 1, LDChase Min Range 1. Published as sheet version 15.
 - **Push All to Sheet** waits up to 180 s per batch and retries a timed-out batch twice (it stopped partway on large pushes).

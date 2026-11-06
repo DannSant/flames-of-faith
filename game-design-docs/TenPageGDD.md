@@ -1,6 +1,6 @@
 # Flames of Faith – Ten Page GDD
 
-_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-11-01. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
+_Structure follows the Ten Page GDD from Scott Rogers, *Level Up! The Guide to Great Video Game Design*. Last updated 2026-11-06. Where this document and the code disagree, the code (and `CLAUDE.md`) wins; please fix the document. Items marked **TBD** or **Proposed** are not decided yet and are collected in [Open questions](#13--open-questions)._
 
 ---
 
@@ -38,7 +38,7 @@ Short, readable runs where every wave is a small decision about **Grace**: fight
 | Release | Content | Status |
 |---|---|---|
 | **Steam demo** (December 2026) | The full Act I (Jesterwoods): 3 map variants, combat levels, Plerian Shop, campfire, treasure, events, Wayside Shrine of Malien, Act I boss. Three classes with re-designed sprites, skill trees, Favors, run save. The reworked events, the art team's new scenarios (the other pilgrims in non-combat levels), the opening cutscene, the Attack Speed caps. A demo update after launch may add skill-tree item unlocks, more items and the redesigned overworld map. Keyboard/mouse and gamepad. | Act I is playable in tester builds; the demo additions are in the backlog |
-| **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. 26 cutscenes (an opening, an ending, and one per pilgrim before and after each act). A pick-1-of-3 boss reward. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Act II is designed in full (`docs/features/act-ii-design.md`). Acts III–IV are at concept level (see [Enemies](#10--enemies)), and their bosses are **TBD** |
+| **Full release, 1.0** (Fall/Winter 2027) | Acts I–IV, each with its own region, mechanic, enemies, Corruptor and boss. 8 cutscenes: one at the start and one at the end of each act (the opening is Act I's start, and Act IV's end is the ending). A pick-1-of-3 boss reward. Chaos and Holy debuffs. More items (including Epic and Legendary), events and kit upgrades. Steam achievements. Spanish localization. Input remapping. | Act II is designed in full (`docs/features/act-ii-design.md`). Acts III–IV are at concept level (see [Enemies](#10--enemies)), and their bosses are **TBD** |
 | **Nice to have for 1.0** | Steam Cloud saves, Steam Deck verification, Chinese and Japanese localization, a Hard mode | Optional |
 | **After 1.0** | Xbox port; content updates. No DLC planned. | Not scheduled |
 
@@ -95,7 +95,7 @@ Main menu ──> Class select ──> Opening cutscene ──> Overworld map (A
                  Combat         Shop / Campfire   Treasure / Event     Boss
                  (waves)        / Wayside Shrine                         │
                     │                                                    ├─> last act? ending
-                    │                                                    ├─> otherwise: boss reward, cutscenes
+                    │                                                    ├─> otherwise: boss reward, act-end and act-start scenes
                     └────────── back to the map ◄────────────────────────┘   (the next act's map)
 Death or the ending ──> Favors banked ──> Skill tree (main menu) ──> new run
 ```
@@ -111,7 +111,7 @@ Death or the ending ──> Favors banked ──> Skill tree (main menu) ──>
    - **Treasure:** a chest with one reward.
    - **Event** (Strange Encounter): a random story event with 2–3 options.
    - **Wayside Shrine of Malien:** a fixed event focused on Grace (a rest node).
-   - **Boss:** the act's final node. Killing it leads to the boss reward, the cutscenes and the next act's map. After the last act comes the ending. Death at any point starts over from Act I.
+   - **Boss:** the act's final node. Killing it leads to the boss reward, the act's closing cutscene, the next act's opening cutscene and its map. After the last act comes the ending. Death at any point starts over from Act I.
 5. **Inside a combat level:**
    1. A wave starts; enemies spawn from portals for the wave's duration.
    2. When the timer ends, spawning stops and the **Corruptor** appears (see [Grace and Corruption](#mechanic-grace-and-corruption)). Kill it before it escapes.
@@ -430,15 +430,16 @@ _Proposal for Acts III–IV:_ keep the two-phase structure (an invulnerable phas
 ## 11 – Cutscenes
 
 - **Format:** static illustrations with text (no animation). Voice narration is being researched (owner, 2026-10-29).
-- **When** (scope changed 2026-10-29): **26 scenes** for 1.0.
-  - **Opening:** the general story: the Pilgrimage of the Flame, the extinguished altars, the three pilgrims setting out.
-  - **Per character, before and after each act:** 3 pilgrims × 4 acts × 2 = 24 scenes, telling each pilgrim's arc (`Lore.md` §6).
-  - **Ending:** the game's ending.
+- **When** (scope changed 2026-11-06): **8 scenes** for 1.0, one at the start and one at the end of each act, told for the whole **party** (the three pilgrims together), not per character.
+  - **Act starts:** before each act's map. Act I's is the opening: the Pilgrimage of the Flame, the extinguished altars, the three pilgrims setting out.
+  - **Act ends:** after each act's boss. Act IV's is the game's ending.
+  - **Each pilgrim's arc** (`Lore.md` §6) is told through events, not through scenes of their own.
+  - **Future parties:** the scenes belong to the party. If another group of characters is ever released (a DLC, for example), it gets its own scene per act start and act end.
 - **Steam demo:** the opening scene only. Its script and art briefs are in `docs/archive/features/opening-cutscene.md`: 7 pages, a little over a minute of reading, in a neutral chronicle voice, with all three pilgrims and none as the hero. Gabien is named once, as people see him.
 - **When the opening plays:** only on the first New Game, after Start Run and right before the map. Not on Continue or Retry.
 - **Replay:** the **Pilgrim's Chronicle**, a main-menu screen (not in the pause menu), lets the player watch again the cutscenes they have seen. The lore compendium can join it later.
-- The lore and art direction of the other 25 scenes is **TBD** (a design task in the backlog).
-- **Current state:** no cutscenes in the game yet; the opening is designed and waits on the system and the art team, who will deliver all its pages before the demo. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
+- The lore and art direction of the other 7 scenes is **TBD** (a design task in the backlog).
+- **Current state:** the cutscene system and the opening are in the game (v0.5.3), on placeholder art until the art team delivers its pages before the demo. Story is delivered through event texts, item descriptions, map and level names, and the boss's camera focus and phase-transition animation.
 
 ---
 
@@ -463,7 +464,7 @@ _Answered on 2026-10-23 and integrated above: ship and demo dates, the three pil
 4. **Will Break (Act IV):** how it stacks, how it carries over between levels, and how the player clears it.
 5. **Act mechanics carrying over:** answered: Frozen and the Frozen Enemies stay in Act II. Pools of Corruption continue into Act IV.
 6. **Missing values:** the Crawler's and the Cursed Sword's damage and health.
-7. **Cutscene content:** what the other 25 scenes show, and whether cutscenes are narrated. The opening's content was settled on 2026-10-31 (see [Cutscenes](#11--cutscenes)).
+7. **Cutscene content:** what the other 7 scenes show, and whether cutscenes are narrated. The opening's content was settled on 2026-10-31 (see [Cutscenes](#11--cutscenes)).
 8. **Achievements:** the final list.
 9. **Key items:** design.
 10. **Hard mode:** whether to make it, and what it changes.
