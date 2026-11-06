@@ -14,6 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.UI
@@ -241,11 +242,25 @@ namespace Game.UI
 
         // Clicking a card (A on it with the gamepad) chooses its class; hovering or moving onto it only previews it,
         // so walking the gamepad past the other cards to Start Run doesn't change the class. Start Run starts the run.
-        public void SelectCrusader() => SelectClass(0);
+        public void SelectCrusader() => ChooseFromCard(0);
 
-        public void SelectSentinel() => SelectClass(1);
+        public void SelectSentinel() => ChooseFromCard(1);
 
-        public void SelectAugur() => SelectClass(2);
+        public void SelectAugur() => ChooseFromCard(2);
+
+        // With the gamepad, choosing a class moves the selection straight to Start Run (a locked class's
+        // Start Run shows the unlock dialog); the mouse stays where it is.
+        private void ChooseFromCard(int playerIndex)
+        {
+            SelectClass(playerIndex);
+            bool gamepad = InputDeviceManager.Instance != null && InputDeviceManager.Instance.IsGamepadActive;
+            var next = SelectionAfterChoosing(gamepad, startRunButton != null ? startRunButton.gameObject : null);
+            if (next != null && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(next);
+        }
+
+        /// <summary>Where the gamepad selection goes after a card is pressed: Start Run; nothing moves with the mouse.</summary>
+        public static GameObject SelectionAfterChoosing(bool gamepadActive, GameObject startRun) =>
+            gamepadActive && startRun != null && startRun.activeInHierarchy ? startRun : null;
 
         private void SelectClass(int playerIndex)
         {

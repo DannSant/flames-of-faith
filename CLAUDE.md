@@ -624,7 +624,7 @@ The UI was redone window by window to one standard (`todo.md`, Priority 2); ever
         - **Gamepad:** linked by hand (`ClassSelectNavigation.Link`, Explicit everywhere: the menu's other panels rest in the same spot). Cards up/down, Right to the current tab; tabs Left/Right, Down into the rows, then Skill Tree, Back, Start Run; Left from the right side returns to the chosen card.
       - **Buttons:** Start Run in the progress spot, Back above it.
   - **Class select flow:**
-    - **Choosing:** pressing a card chooses its class: a click, or A with the gamepad (the card's button calls `SelectCrusader` / `SelectSentinel` / `SelectAugur`).
+    - **Choosing:** pressing a card chooses its class: a click, or A with the gamepad (the card's button calls `SelectCrusader` / `SelectSentinel` / `SelectAugur`). With the gamepad the selection then moves to **Start Run** (`SelectionAfterChoosing`, Nov 2026, item 39); on a locked class Start Run shows the unlock dialog. The mouse stays where it is.
     - **Previewing:** hovering, or moving onto a card with the gamepad, only previews it (`ClassToShow`); moving off shows the chosen class again.
     - **Why moving doesn't choose:** it used to, and walking the gamepad from the Crusader card down to Start Run passed the Augur card and chose it. A locked Augur then blocked the run.
     - **Start Run** starts the run; on a locked class it shows the unlock dialog. Nothing starts from a single click any more.

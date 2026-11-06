@@ -220,6 +220,43 @@ namespace Game.Tests
             }
         }
 
+        /// <summary>With the gamepad, pressing A on a card chooses it and lands on Start Run (BACKLOG 39).</summary>
+        [Test]
+        public void ChoosingWithTheGamepad_SelectsStartRun()
+        {
+            var start = new GameObject("StartRunButton");
+            try
+            {
+                Assert.AreSame(start, MainMenuController.SelectionAfterChoosing(true, start), "Gamepad: on to Start Run");
+                Assert.IsNull(MainMenuController.SelectionAfterChoosing(false, start), "Mouse: nothing moves");
+                Assert.IsNull(MainMenuController.SelectionAfterChoosing(true, null));
+                start.SetActive(false);
+                Assert.IsNull(MainMenuController.SelectionAfterChoosing(true, start), "Not onto a hidden button");
+            }
+            finally
+            {
+                Object.DestroyImmediate(start);
+            }
+
+            // Start Run can still go back up to the class select (Back, then Skill Tree and the tabs) and left to the cards
+            var prefab = Load(ClassSelectPath);
+            var startButton = Child(prefab, "StartRunButton").GetComponent<Selectable>();
+            var root = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            try
+            {
+                var tabs = root.GetComponentInChildren<ClassDetailsTabsUI>(true);
+                var cards = root.GetComponentsInChildren<ClassSelectHoverButton>(true);
+                tabs.SetChosenClass(cards[1].ClassData);
+                var instanceStart = root.GetComponentsInChildren<Selectable>(true).First(s => s.name == startButton.name);
+                Assert.AreEqual("Back", instanceStart.navigation.selectOnUp?.name);
+                Assert.AreSame(cards[1].GetComponent<Selectable>(), instanceStart.navigation.selectOnLeft, "Left returns to the chosen card");
+            }
+            finally
+            {
+                Object.DestroyImmediate(root);
+            }
+        }
+
         [Test]
         public void MovingOntoACard_OnlyPreviewsIt()
         {
