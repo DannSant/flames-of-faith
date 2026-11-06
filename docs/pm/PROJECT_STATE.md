@@ -26,6 +26,7 @@ _Last updated: 2026-11-05 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.2 | `main` | BACKLOG item 1 | **With testers.** First feedback triaged 2026-11-04 (BACKLOG 5, 35, 36) |
+| Light Devourer's new art | `feature/light-devourer-art` | `docs/features/light-devourer-art.md` | **Ready for the implementation session** (kickoff given 2026-11-05): sheet builder, no slowed windup, isometric hit area. The new sheets are on disk, not committed |
 | Tester fixes from v0.5.2 | `develop` (merged) | `docs/features/tester-fixes-v052.md` | **Merged 2026-11-04** (`30acb5e`): sound packs out of `Resources/`, knockback ignored mid-swing, Ayteel's Shrine option (texts approved by the owner); EditMode 985/985. Manual checks in `todo.md` not run yet; the spec moves to the archive after them |
 | Game feel | `develop` (merged) | `docs/features/game-feel.md` | **Merged 2026-11-04.** Two sound checks left in `todo.md`; spec moves to the archive after them |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |

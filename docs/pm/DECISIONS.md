@@ -3,6 +3,7 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-11-05
+- **Light Devourer attack area** (owner and art team): the circle stays, no cone, but it's drawn and hit as a circle on the isometric ground (an ellipse, half as tall as wide). The windup is now in the animation, so the code stops slowing it.
 - **v0.5.3 released from `develop`** (owner): tagged on `develop`. `bundleVersion` was then set to 0.5.3 and `main` fast-forwarded to `develop` (owner's OK, 2026-11-05), as v0.5.2 was. The tag stays where it is.
 - **Boss balance** (owner, from tester feedback): Taio'Sandir's health 2000 → 8000; contact damage tier 1 → 2, projectile tier 0 → 2.
 
