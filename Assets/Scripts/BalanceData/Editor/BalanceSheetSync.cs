@@ -221,6 +221,32 @@ namespace Game.BalanceData.Editor
             EditorUtility.DisplayDialog("Balance sheet", TryPush(config, "tables", tables), "OK");
         }
 
+        /// <summary>
+        /// Batch Push All: <c>-executeMethod Game.BalanceData.Editor.BalanceSheetSync.PushAllBatch</c>. Like the menu,
+        /// with no confirm: run it only with the owner's OK, since it replaces every data tab. Exits non-zero on failure.
+        /// </summary>
+        public static void PushAllBatch()
+        {
+            int exitCode = 1;
+            try
+            {
+                var config = LoadConfig();
+                if (config == null || string.IsNullOrEmpty(config.url) || string.IsNullOrEmpty(config.token))
+                {
+                    throw new InvalidOperationException("No sheet URL or token in " + ConfigPath);
+                }
+                var tables = BalanceTables.All().Select(ToSnapshotTable).Concat(Reports()).ToArray();
+                string result = TryPush(config, "tables", tables);
+                Debug.Log("[BalanceData] Push All (batch): " + result);
+                if (result.StartsWith("Wrote ")) exitCode = 0;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[BalanceData] Push All failed: " + e);
+            }
+            EditorApplication.Exit(exitCode);
+        }
+
         private static IEnumerable<BalanceSnapshotTable> Reports() =>
             BalanceReports.All().Select(report => new BalanceSnapshotTable { name = ReportPrefix + report.Name, csv = Csv.Write(report) });
 
