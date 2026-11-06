@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaThreshold: 0.1
+    - _AlphaThreshold: 0.55
     - _OutlineThickness: 1
     - _PulseMinAlpha: 0.55
     - _PulsePhase: 0

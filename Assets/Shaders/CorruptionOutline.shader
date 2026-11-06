@@ -3,6 +3,8 @@
 // sprite keeps its own (2D lit) material. Values come per renderer from a MaterialPropertyBlock.
 // The ring is drawn outside the sprite's silhouette, so it needs that much empty space in the sprite
 // mesh: 1 texel fits the default "Extrude Edges" of 1 on Tight meshes.
+// _AlphaThreshold (set per renderer from SpriteOutlineStyle.alphaThreshold) decides what counts as body:
+// keep it above the baked half-transparent ground shadows, or the ring wraps the shadow too.
 Shader "Game/Sprites/CorruptionOutline"
 {
     Properties

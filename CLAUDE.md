@@ -274,7 +274,8 @@ The original spec is `docs/archive/design/corruption-rework.md`, but several dec
 - **How it's drawn:** `SpriteOutlineRenderer` (`Game.Common`, reusable) adds a child SpriteRenderer that copies the body sprite (sprite, flip through scale, sorting + offset, visibility, alpha). It draws that sprite with `Shaders/CorruptionOutline.shader` (unlit, ring only, values in a MaterialPropertyBlock). The body keeps its own 2D-lit material.
 - **Which sprite:** the one on the root, else the `CharacterVisual` one, else the highest sorting order (`CorruptedVisual.FindMainSpriteRenderer`). On the map, `SetAnchor` rebuilds it on the marker's sprite.
 - **Sprite margin:** the ring is drawn outside the silhouette, so the sprite mesh needs that much empty margin. A 1 texel ring fits Tight meshes with the default Extrude Edges of 1.
-- **Tests:** `CorruptionOutlineTests`.
+- **What counts as body:** texels at or above the style's `alphaThreshold` (0.55, pushed to the shader's `_AlphaThreshold`). The enemy sheets bake a ground shadow and a soft halo at up to half alpha; at the old 0.1 the ring went around them too, which on the Dreko Eye gave a ragged shape that didn't match the body, worst from the side (owner's report, Nov 2026).
+- **Tests:** `CorruptionOutlineTests` (also: every enemy prefab outlines the sprite its Animator drives).
 
 Reusable pieces that came out of this work:
 - **`GameplayFreeze`** (`Game.Common`): a semi-pause (time keeps running). Enemy behaviors with `stopDuringGameplayFreeze` skip ticks and animation-event starts, enemy projectiles stop, and player input and damage are blocked.

@@ -106,6 +106,7 @@ namespace Game.Combat
             pulseSpeed = 2.5f,
             pulseMinAlpha = 0.55f,
             sortingOrderOffset = 1,
+            alphaThreshold = 0.55f,
         };
 
         public float CorruptedDamageMultiplier => corruptedDamageMultiplier;

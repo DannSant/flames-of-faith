@@ -17,6 +17,10 @@ namespace Game.Common
         [Range(0f, 1f)] public float pulseMinAlpha;
         [Tooltip("Added to the source's sorting order. Positive draws the ring over neighbors, negative under them.")]
         public int sortingOrderOffset;
+        [Tooltip("Texels at or above this alpha count as the body; the ring goes around them. Keep it above the " +
+            "baked ground shadows and soft halos (drawn at up to half alpha), or the ring wraps them too and " +
+            "stops matching the body (the Dreko Eye, Nov 2026). 0 uses the material's value.")]
+        [Range(0f, 1f)] public float alphaThreshold;
     }
 
     /// <summary>
@@ -33,6 +37,7 @@ namespace Game.Common
         private static readonly int PulseMinAlphaId = Shader.PropertyToID("_PulseMinAlpha");
         private static readonly int PulsePhaseId = Shader.PropertyToID("_PulsePhase");
         private static readonly int SourceAlphaId = Shader.PropertyToID("_SourceAlpha");
+        private static readonly int AlphaThresholdId = Shader.PropertyToID("_AlphaThreshold");
 
         private SpriteRenderer source;
         private SpriteRenderer outline;
@@ -120,10 +125,23 @@ namespace Game.Common
             block.SetFloat(PulseMinAlphaId, style.pulseMinAlpha);
             block.SetFloat(PulsePhaseId, pulsePhase);
             block.SetFloat(SourceAlphaId, sourceAlpha);
+            if (style.alphaThreshold > 0f)
+            {
+                block.SetFloat(AlphaThresholdId, style.alphaThreshold);
+            }
             outline.SetPropertyBlock(block);
 
             lastSprite = source.sprite;
             lastSourceAlpha = sourceAlpha;
+        }
+
+        /// <summary>
+        /// The shader's rule, for tests: a texel is on the ring when it isn't body (alpha at or under the threshold)
+        /// but one of its 8 neighbors at <c>thickness</c> texels is.
+        /// </summary>
+        public static bool IsRingTexel(float alpha, float maxNeighborAlpha, float threshold)
+        {
+            return alpha <= threshold && maxNeighborAlpha >= threshold;
         }
 
         /// <summary>
