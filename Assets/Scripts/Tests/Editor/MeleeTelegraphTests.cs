@@ -33,9 +33,11 @@ namespace Game.Tests
         [Test]
         public void Hitbox_SitsAlongTheLockedDirection()
         {
-            Assert.AreEqual(new Vector2(0f, -1f), AIMeleeAttacker.HitboxOffset(new Vector2(0f, -3f), 1f));
-            Assert.AreEqual(new Vector2(0.5f, 0f), AIMeleeAttacker.HitboxOffset(Vector2.right, 0.5f));
-            Assert.AreEqual(Vector2.zero, AIMeleeAttacker.HitboxOffset(Vector2.zero, 1f));
+            // On the ground: the vertical reach is shortened by the ground ratio (IsoGroundAreaTests)
+            Assert.AreEqual(new Vector2(0f, -0.5f), AIMeleeAttacker.HitboxOffset(new Vector2(0f, -3f), 1f, 0.5f));
+            Assert.AreEqual(new Vector2(0.5f, 0f), AIMeleeAttacker.HitboxOffset(Vector2.right, 0.5f, 0.5f));
+            Assert.AreEqual(new Vector2(0f, -1f), AIMeleeAttacker.HitboxOffset(new Vector2(0f, -3f), 1f, 1f), "Ratio 1: the old circle");
+            Assert.AreEqual(Vector2.zero, AIMeleeAttacker.HitboxOffset(Vector2.zero, 1f, 0.5f));
         }
 
         // --- Assets --------------------------------------------------------------------------------------

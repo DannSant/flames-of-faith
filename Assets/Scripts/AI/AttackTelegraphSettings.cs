@@ -14,6 +14,12 @@ namespace Game.AI
         [Tooltip("Master switch. Off = no warning is drawn.")]
         [SerializeField] private bool showTelegraphs = true;
 
+        [Header("Ground")]
+        [Tooltip("How tall a circle lying on the ground looks next to its width. Level grids are isometric with 1 x 0.5 " +
+            "cells, so 0.5. The warning and the hitbox are both this ellipse, so the hit area is exactly what's drawn.")]
+        [Range(0.1f, 1f)]
+        [SerializeField] private float groundRatio = 0.5f;
+
         [Header("Look (placeholders until the art team draws them)")]
         [Tooltip("Outline of the area that will be hit, shown for the whole windup.")]
         [SerializeField] private Sprite ringSprite;
@@ -32,6 +38,7 @@ namespace Game.AI
         private static AttackTelegraphSettings instance;
 
         public bool ShowTelegraphs => showTelegraphs;
+        public float GroundRatio => groundRatio;
         public Sprite RingSprite => ringSprite;
         public Sprite FillSprite => fillSprite;
         public Color RingColor => ringColor;

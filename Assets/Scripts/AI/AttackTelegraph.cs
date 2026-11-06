@@ -17,6 +17,7 @@ namespace Game.AI
         private float duration;
         private float elapsed;
         private float diameter;
+        private float groundRatio = 1f;
         private bool showing;
 
         public bool IsShowing => showing;
@@ -32,6 +33,7 @@ namespace Game.AI
             group.sortingOrder = settings.SortingOrder;
 
             var telegraph = root.AddComponent<AttackTelegraph>();
+            telegraph.groundRatio = settings.GroundRatio;
             telegraph.area = new GameObject("Area").transform;
             telegraph.area.SetParent(root.transform, false);
             telegraph.ring = CreateLayer(telegraph.area, "Ring", settings.RingSprite, settings.RingColor, 1);
@@ -52,15 +54,15 @@ namespace Game.AI
         }
 
         /// <summary>
-        /// Shows the warning for an area of <paramref name="radius"/> centered at <paramref name="worldCenter"/>,
-        /// filling over <paramref name="windup"/> seconds.
+        /// Shows the warning for a ground circle of <paramref name="radius"/> centered at <paramref name="worldCenter"/>
+        /// (an ellipse on screen, <see cref="IsoGroundArea"/>), filling over <paramref name="windup"/> seconds.
         /// </summary>
         public void Show(Vector2 worldCenter, float radius, float windup)
         {
             gameObject.SetActive(true);
             area.position = new Vector3(worldCenter.x, worldCenter.y, area.position.z);
             diameter = radius * 2f;
-            ring.transform.localScale = ScaleFor(ring.sprite, diameter);
+            ring.transform.localScale = ScaleFor(ring.sprite, diameter, groundRatio);
             duration = windup;
             elapsed = 0f;
             showing = true;
@@ -80,17 +82,20 @@ namespace Game.AI
             ApplyFill();
         }
 
-        private void ApplyFill() => fill.transform.localScale = ScaleFor(fill.sprite, diameter * FillFraction(elapsed, duration));
+        private void ApplyFill() => fill.transform.localScale = ScaleFor(fill.sprite, diameter * FillFraction(elapsed, duration), groundRatio);
 
         /// <summary>How much of the area the growing disc covers: 0 when the windup starts, 1 when the hit lands.</summary>
         public static float FillFraction(float elapsed, float windup) => windup <= 0f ? 1f : Mathf.Clamp01(elapsed / windup);
 
-        // Scales a sprite of any size and pixels-per-unit to the wanted width in world units
-        private static Vector3 ScaleFor(Sprite sprite, float worldWidth)
+        /// <summary>
+        /// Scale that makes a round sprite of any size and pixels-per-unit <paramref name="worldWidth"/> wide and
+        /// <paramref name="groundRatio"/> times as tall: a circle lying on the ground (the fill grows as the same ellipse).
+        /// </summary>
+        public static Vector3 ScaleFor(Sprite sprite, float worldWidth, float groundRatio)
         {
             float spriteWidth = sprite != null ? sprite.bounds.size.x : 1f;
             float scale = spriteWidth > 0f ? worldWidth / spriteWidth : worldWidth;
-            return new Vector3(scale, scale, 1f);
+            return new Vector3(scale, scale * groundRatio, 1f);
         }
     }
 }
