@@ -22,7 +22,7 @@ Spec: `docs/features/light-devourer-art.md`. Put a Light Devourer in a level (or
 - [ ] Stun it mid-swing (a Frost stun or similar): the warning disappears, no hit lands while it's stunned, and it finishes the swing or attacks again normally after.
 - [ ] Knock it back mid-swing: it takes the damage but doesn't move, and the hit lands where the warning was.
 - [ ] The Corruptor looks and shoots as before (it was rebuilt through the same tool with no file changes).
-- [ ] Balance sheet: the `EnemyBehaviors_MeleeAttacker` tab was updated (no Telegraph Time, Animation Hit Time 0.6666667). Publish a new version (Balance > Publish), then Pull from Sheet in Unity: it reports no changes.
+- [ ] Balance sheet: the `EnemyBehaviors_MeleeAttacker` tab (no Telegraph Time, Animation Hit Time 0.6666667, Max Range 1.4, Attack Cooldown 1) and `EnemyBehaviors_ChaserLogic` tab (Measure On Ground column, LDChase Min Range 0.7) were updated. Publish a new version (Balance > Publish), then Pull from Sheet in Unity: it reports no changes.
 
 ## Tester fixes v0.5.2 (branch fix/tester-feedback-v052)
 
