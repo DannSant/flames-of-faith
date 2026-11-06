@@ -1,0 +1,3975 @@
+fileFormatVersion: 2
+guid: 5be16f39c20e97e438ddea0b1d283371
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5454222020674251157
+    second: LDIdle_SS_7f_192x192_0
+  - first:
+      213: 2288685559340556982
+    second: LDIdle_SS_7f_192x192_1
+  - first:
+      213: -632131942620121171
+    second: LDIdle_SS_7f_192x192_2
+  - first:
+      213: -6776680748745777262
+    second: LDIdle_SS_7f_192x192_3
+  - first:
+      213: 7605528367033096433
+    second: LDIdle_SS_7f_192x192_4
+  - first:
+      213: 1088703620743256131
+    second: LDIdle_SS_7f_192x192_5
+  - first:
+      213: 3445088191215698195
+    second: LDIdle_SS_7f_192x192_6
+  - first:
+      213: -6847555971266860639
+    second: LDIdle_SS_7f_192x192_7
+  - first:
+      213: -2659022852188071761
+    second: LDIdle_SS_7f_192x192_8
+  - first:
+      213: -3662039712807560003
+    second: LDIdle_SS_7f_192x192_9
+  - first:
+      213: 3535877643319718441
+    second: LDIdle_SS_7f_192x192_10
+  - first:
+      213: 866690989716780290
+    second: LDIdle_SS_7f_192x192_11
+  - first:
+      213: -6677371926528760213
+    second: LDIdle_SS_7f_192x192_12
+  - first:
+      213: 109353382245207064
+    second: LDIdle_SS_7f_192x192_13
+  - first:
+      213: 4752351094026378428
+    second: LDIdle_SS_7f_192x192_14
+  - first:
+      213: 8691595617152466614
+    second: LDIdle_SS_7f_192x192_15
+  - first:
+      213: -7760232444412388970
+    second: LDIdle_SS_7f_192x192_16
+  - first:
+      213: 4034682824559859706
+    second: LDIdle_SS_7f_192x192_17
+  - first:
+      213: -3078798989211957917
+    second: LDIdle_SS_7f_192x192_18
+  - first:
+      213: 3265219415632318988
+    second: LDIdle_SS_7f_192x192_19
+  - first:
+      213: 1356444286283958549
+    second: LDIdle_SS_7f_192x192_20
+  - first:
+      213: -7624699981099179594
+    second: LDIdle_SS_7f_192x192_21
+  - first:
+      213: 441049903707645690
+    second: LDIdle_SS_7f_192x192_22
+  - first:
+      213: -4531854422226816123
+    second: LDIdle_SS_7f_192x192_23
+  - first:
+      213: 6787478038985172800
+    second: LDIdle_SS_7f_192x192_24
+  - first:
+      213: -8569933667869434987
+    second: LDIdle_SS_7f_192x192_25
+  - first:
+      213: -3902496521625945598
+    second: LDIdle_SS_7f_192x192_26
+  - first:
+      213: -555933326660632278
+    second: LDIdle_SS_7f_192x192_27
+  - first:
+      213: 1621318757969867769
+    second: LDIdle_SS_7f_192x192_28
+  - first:
+      213: 798859635453683721
+    second: LDIdle_SS_7f_192x192_29
+  - first:
+      213: -7530453550467367036
+    second: LDIdle_SS_7f_192x192_30
+  - first:
+      213: 1509814836034926821
+    second: LDIdle_SS_7f_192x192_31
+  - first:
+      213: -2143994302984495687
+    second: LDIdle_SS_7f_192x192_32
+  - first:
+      213: -3217604862675014897
+    second: LDIdle_SS_7f_192x192_33
+  - first:
+      213: -5923651432854719448
+    second: LDIdle_SS_7f_192x192_34
+  - first:
+      213: -8255578106685642326
+    second: LDIdle_SS_7f_192x192_35
+  - first:
+      213: 4301090167887667906
+    second: LDIdle_SS_7f_192x192_36
+  - first:
+      213: 440076415730130997
+    second: LDIdle_SS_7f_192x192_37
+  - first:
+      213: 9076794781421735811
+    second: LDIdle_SS_7f_192x192_38
+  - first:
+      213: 2706883329011323035
+    second: LDIdle_SS_7f_192x192_39
+  - first:
+      213: 3477620912244738650
+    second: LDIdle_SS_7f_192x192_40
+  - first:
+      213: 6216916756013578604
+    second: LDIdle_SS_7f_192x192_41
+  - first:
+      213: 2650419464423725299
+    second: LDIdle_SS_7f_192x192_42
+  - first:
+      213: -5321572515257660425
+    second: LDIdle_SS_7f_192x192_43
+  - first:
+      213: -2587133997855974865
+    second: LDIdle_SS_7f_192x192_44
+  - first:
+      213: -7105894345816090164
+    second: LDIdle_SS_7f_192x192_45
+  - first:
+      213: 5359790018120548657
+    second: LDIdle_SS_7f_192x192_46
+  - first:
+      213: 7020783579581631876
+    second: LDIdle_SS_7f_192x192_47
+  - first:
+      213: -2983877810336679181
+    second: LDIdle_SS_7f_192x192_48
+  - first:
+      213: -3523098466036932753
+    second: LDIdle_SS_7f_192x192_49
+  - first:
+      213: 6995334666892035428
+    second: LDIdle_SS_7f_192x192_50
+  - first:
+      213: -1993190428516099102
+    second: LDIdle_SS_7f_192x192_51
+  - first:
+      213: 3664548983973435730
+    second: LDIdle_SS_7f_192x192_52
+  - first:
+      213: 7115679698202278668
+    second: LDIdle_SS_7f_192x192_53
+  - first:
+      213: -8035479457867955804
+    second: LDIdle_SS_7f_192x192_54
+  - first:
+      213: -4168199070808528267
+    second: LDIdle_SS_7f_192x192_55
+  - first:
+      213: -1822679371604407038
+    second: LDIdle_SS_7f_192x192_56
+  - first:
+      213: 3230130085511177903
+    second: LDIdle_SS_7f_192x192_57
+  - first:
+      213: -6157376929788396949
+    second: LDIdle_SS_7f_192x192_58
+  - first:
+      213: -4783901032039530571
+    second: LDIdle_SS_7f_192x192_59
+  - first:
+      213: 7136735633589656571
+    second: LDIdle_SS_7f_192x192_60
+  - first:
+      213: 9120946189674204112
+    second: LDIdle_SS_7f_192x192_61
+  - first:
+      213: 72614214565281724
+    second: LDIdle_SS_7f_192x192_62
+  - first:
+      213: 3267830437813236297
+    second: LDIdle_SS_7f_192x192_63
+  - first:
+      213: -4412115559938286408
+    second: LDIdle_SS_7f_192x192_64
+  - first:
+      213: -6891573767395415935
+    second: LDIdle_SS_7f_192x192_65
+  - first:
+      213: 5624465555956865538
+    second: LDIdle_SS_7f_192x192_66
+  - first:
+      213: 8988713751811899300
+    second: LDIdle_SS_7f_192x192_67
+  - first:
+      213: -8496640131252293394
+    second: LDIdle_SS_7f_192x192_68
+  - first:
+      213: -5089457200146548859
+    second: LDIdle_SS_7f_192x192_69
+  - first:
+      213: -411411847532041996
+    second: LDIdle_SS_7f_192x192_70
+  - first:
+      213: 8167432877089475928
+    second: LDIdle_SS_7f_192x192_71
+  - first:
+      213: 8604497223369300324
+    second: LDIdle_SS_7f_192x192_72
+  - first:
+      213: -321301882203065423
+    second: LDIdle_SS_7f_192x192_73
+  - first:
+      213: -3871523807378907436
+    second: LDIdle_SS_7f_192x192_74
+  - first:
+      213: -6222754678592117369
+    second: LDIdle_SS_7f_192x192_75
+  - first:
+      213: 2162735912648669362
+    second: LDIdle_SS_7f_192x192_76
+  - first:
+      213: -3588764479556860658
+    second: LDIdle_SS_7f_192x192_77
+  - first:
+      213: 602963841308897863
+    second: LDIdle_SS_7f_192x192_78
+  - first:
+      213: 2262070459183998451
+    second: LDIdle_SS_7f_192x192_79
+  - first:
+      213: -1211480856201830575
+    second: LDIdle_SS_7f_192x192_80
+  - first:
+      213: -3392557239897463643
+    second: LDIdle_SS_7f_192x192_81
+  - first:
+      213: -4120525798074436007
+    second: LDIdle_SS_7f_192x192_82
+  - first:
+      213: -1401043050582695793
+    second: LDIdle_SS_7f_192x192_83
+  - first:
+      213: -352304267356430938
+    second: LDIdle_SS_7f_192x192_84
+  - first:
+      213: -4762967197033521826
+    second: LDIdle_SS_7f_192x192_85
+  - first:
+      213: 3523530149819756372
+    second: LDIdle_SS_7f_192x192_86
+  - first:
+      213: -8069326856698580918
+    second: LDIdle_SS_7f_192x192_87
+  - first:
+      213: 4136774571447107771
+    second: LDIdle_SS_7f_192x192_88
+  - first:
+      213: -3582801528431591478
+    second: LDIdle_SS_7f_192x192_89
+  - first:
+      213: -4568359335294615270
+    second: LDIdle_SS_7f_192x192_90
+  - first:
+      213: 2054940657893978850
+    second: LDIdle_SS_7f_192x192_91
+  - first:
+      213: -8967943923632831174
+    second: LDIdle_SS_7f_192x192_92
+  - first:
+      213: 5100111739793857338
+    second: LDIdle_SS_7f_192x192_93
+  - first:
+      213: -5827818950763419290
+    second: LDIdle_SS_7f_192x192_94
+  - first:
+      213: 3822017183617168439
+    second: LDIdle_SS_7f_192x192_95
+  - first:
+      213: -5296965815908406673
+    second: LDIdle_SS_7f_192x192_96
+  - first:
+      213: 5927491046113944681
+    second: LDIdle_SS_7f_192x192_97
+  - first:
+      213: -1932066274520753403
+    second: LDIdle_SS_7f_192x192_98
+  - first:
+      213: 538952133021045973
+    second: LDIdle_SS_7f_192x192_99
+  - first:
+      213: -5817085162053922764
+    second: LDIdle_SS_7f_192x192_100
+  - first:
+      213: 8975404684361266727
+    second: LDIdle_SS_7f_192x192_101
+  - first:
+      213: 615680428591572392
+    second: LDIdle_SS_7f_192x192_102
+  - first:
+      213: -8921816145334336986
+    second: LDIdle_SS_7f_192x192_103
+  - first:
+      213: 5084787996180706140
+    second: LDIdle_SS_7f_192x192_104
+  - first:
+      213: -2011136566556645249
+    second: LDIdle_SS_7f_192x192_105
+  - first:
+      213: 4025260268131328217
+    second: LDIdle_SS_7f_192x192_106
+  - first:
+      213: -6218501560347303881
+    second: LDIdle_SS_7f_192x192_107
+  - first:
+      213: 124635368171109467
+    second: LDIdle_SS_7f_192x192_108
+  - first:
+      213: 7829096944737741792
+    second: LDIdle_SS_7f_192x192_109
+  - first:
+      213: 840027660916241808
+    second: LDIdle_SS_7f_192x192_110
+  - first:
+      213: 7471127363742668300
+    second: LDIdle_SS_7f_192x192_111
+  - first:
+      213: -8392190304135498174
+    second: LDIdle_SS_7f_192x192_112
+  - first:
+      213: -2064002172325599255
+    second: LDIdle_SS_7f_192x192_113
+  - first:
+      213: 2046927923045250360
+    second: LDIdle_SS_7f_192x192_114
+  - first:
+      213: -6938237055182122543
+    second: LDIdle_SS_7f_192x192_115
+  - first:
+      213: 3694756857764745696
+    second: LDIdle_SS_7f_192x192_116
+  - first:
+      213: 8753758751908582362
+    second: LDIdle_SS_7f_192x192_117
+  - first:
+      213: 963825680726409194
+    second: LDIdle_SS_7f_192x192_118
+  - first:
+      213: 2880348490481072156
+    second: LDIdle_SS_7f_192x192_119
+  - first:
+      213: -3827598034500115965
+    second: LDIdle_SS_7f_192x192_120
+  - first:
+      213: -7998105448183264210
+    second: LDIdle_SS_7f_192x192_121
+  - first:
+      213: -3604993393186179914
+    second: LDIdle_SS_7f_192x192_122
+  - first:
+      213: -7472968497055107171
+    second: LDIdle_SS_7f_192x192_123
+  - first:
+      213: -908892644922361898
+    second: LDIdle_SS_7f_192x192_124
+  - first:
+      213: 6949206856732875889
+    second: LDIdle_SS_7f_192x192_125
+  - first:
+      213: 309318155558398577
+    second: LDIdle_SS_7f_192x192_126
+  - first:
+      213: -4625747912136074044
+    second: LDIdle_SS_7f_192x192_127
+  - first:
+      213: 543878765208326082
+    second: LDIdle_SS_7f_192x192_128
+  - first:
+      213: 4944615306216715739
+    second: LDIdle_SS_7f_192x192_129
+  - first:
+      213: 2943591993852247014
+    second: LDIdle_SS_7f_192x192_130
+  - first:
+      213: 5107455709158549287
+    second: LDIdle_SS_7f_192x192_131
+  - first:
+      213: 2060046392194970915
+    second: LDIdle_SS_7f_192x192_132
+  - first:
+      213: 3972483833918811189
+    second: LDIdle_SS_7f_192x192_133
+  - first:
+      213: 3679208856773252039
+    second: LDIdle_SS_7f_192x192_134
+  - first:
+      213: 2846907695938570225
+    second: LDIdle_SS_7f_192x192_135
+  - first:
+      213: 7514276337639979460
+    second: LDIdle_SS_7f_192x192_136
+  - first:
+      213: -7458626165049105124
+    second: LDIdle_SS_7f_192x192_137
+  - first:
+      213: -6976781197503977221
+    second: LDIdle_SS_7f_192x192_138
+  - first:
+      213: 4600393769234817669
+    second: LDIdle_SS_7f_192x192_139
+  - first:
+      213: -7124649981404738238
+    second: LDIdle_SS_7f_192x192_140
+  - first:
+      213: 1729713765932628332
+    second: LDIdle_SS_7f_192x192_141
+  - first:
+      213: -4072904606909116714
+    second: LDIdle_SS_7f_192x192_142
+  - first:
+      213: 3912946482057152383
+    second: LDIdle_SS_7f_192x192_143
+  - first:
+      213: -8661682500480132006
+    second: LDIdle_SS_7f_192x192_144
+  - first:
+      213: -8320199707221727014
+    second: LDIdle_SS_7f_192x192_145
+  - first:
+      213: 2034141129712517374
+    second: LDIdle_SS_7f_192x192_146
+  - first:
+      213: -2635473275719941335
+    second: LDIdle_SS_7f_192x192_147
+  - first:
+      213: 5859425779313364716
+    second: LDIdle_SS_7f_192x192_148
+  - first:
+      213: -6526808823644025852
+    second: LDIdle_SS_7f_192x192_149
+  - first:
+      213: -7836216776059718688
+    second: LDIdle_SS_7f_192x192_150
+  - first:
+      213: 3556459188585311744
+    second: LDIdle_SS_7f_192x192_151
+  - first:
+      213: -1103113584350933224
+    second: LDIdle_SS_7f_192x192_152
+  - first:
+      213: -36630978685498426
+    second: LDIdle_SS_7f_192x192_153
+  - first:
+      213: -4508340864064597478
+    second: LDIdle_SS_7f_192x192_154
+  - first:
+      213: -4234334511178021571
+    second: LDIdle_SS_7f_192x192_155
+  - first:
+      213: 1188518576092877820
+    second: LDIdle_SS_7f_192x192_156
+  - first:
+      213: -5485567999935112614
+    second: LDIdle_SS_7f_192x192_157
+  - first:
+      213: 2100798881270493124
+    second: LDIdle_SS_7f_192x192_158
+  - first:
+      213: 7285173582610391686
+    second: LDIdle_SS_7f_192x192_159
+  - first:
+      213: 7771749685844071635
+    second: LDIdle_SS_7f_192x192_160
+  - first:
+      213: 5338622502371020647
+    second: LDIdle_SS_7f_192x192_161
+  - first:
+      213: -8564445070162266160
+    second: LDIdle_SS_7f_192x192_162
+  - first:
+      213: 8015083616770606732
+    second: LDIdle_SS_7f_192x192_163
+  - first:
+      213: -2299130366043702283
+    second: LDIdle_SS_7f_192x192_164
+  - first:
+      213: -8053010689028970591
+    second: LDIdle_SS_7f_192x192_165
+  - first:
+      213: 4707142065131982529
+    second: LDIdle_SS_7f_192x192_166
+  - first:
+      213: -3304852634776711869
+    second: LDIdle_SS_7f_192x192_167
+  - first:
+      213: 595958814273258692
+    second: LDIdle_SS_7f_192x192_168
+  - first:
+      213: -4038691035799258434
+    second: LDIdle_SS_7f_192x192_169
+  - first:
+      213: -1112029460377088621
+    second: LDIdle_SS_7f_192x192_170
+  - first:
+      213: -7481881262043920063
+    second: LDIdle_SS_7f_192x192_171
+  - first:
+      213: -7154192257504467722
+    second: LDIdle_SS_7f_192x192_172
+  - first:
+      213: 8121003085744554279
+    second: LDIdle_SS_7f_192x192_173
+  - first:
+      213: 3252131853067677568
+    second: LDIdle_SS_7f_192x192_174
+  - first:
+      213: -7663693073793120844
+    second: LDIdle_SS_7f_192x192_175
+  - first:
+      213: 7149328151031764438
+    second: LDIdle_SS_7f_192x192_176
+  - first:
+      213: -180604486944234414
+    second: LDIdle_SS_7f_192x192_177
+  - first:
+      213: -5028607288287384068
+    second: LDIdle_SS_7f_192x192_178
+  - first:
+      213: -5321393401013100279
+    second: LDIdle_SS_7f_192x192_179
+  - first:
+      213: -151288978984241263
+    second: LDIdle_SS_7f_192x192_180
+  - first:
+      213: -3212284485162093454
+    second: LDIdle_SS_7f_192x192_181
+  - first:
+      213: 8904932952758620657
+    second: LDIdle_SS_7f_192x192_182
+  - first:
+      213: 3814408505036433833
+    second: LDIdle_SS_7f_192x192_183
+  - first:
+      213: 5877111257179715993
+    second: LDIdle_SS_7f_192x192_184
+  - first:
+      213: 3659196814778153610
+    second: LDIdle_SS_7f_192x192_185
+  - first:
+      213: -8733008852769961456
+    second: LDIdle_SS_7f_192x192_186
+  - first:
+      213: 6580424795231885585
+    second: LDIdle_SS_7f_192x192_187
+  - first:
+      213: -6798691730130077273
+    second: LDIdle_SS_7f_192x192_188
+  - first:
+      213: 6009482586000374134
+    second: LDIdle_SS_7f_192x192_189
+  - first:
+      213: 6902145997445985085
+    second: LDIdle_SS_7f_192x192_190
+  - first:
+      213: -3770493268692047220
+    second: LDIdle_SS_7f_192x192_191
+  - first:
+      213: 2401970709177014174
+    second: LDIdle_SS_7f_192x192_192
+  - first:
+      213: -1692192569218357003
+    second: LDIdle_SS_7f_192x192_193
+  - first:
+      213: 1381641351378050742
+    second: LDIdle_SS_7f_192x192_194
+  - first:
+      213: -1024288494411595234
+    second: LDIdle_SS_7f_192x192_195
+  - first:
+      213: -8738425560664771042
+    second: LDIdle_SS_7f_192x192_196
+  - first:
+      213: -1901940498459503464
+    second: LDIdle_SS_7f_192x192_197
+  - first:
+      213: 8655059267747618206
+    second: LDIdle_SS_7f_192x192_198
+  - first:
+      213: 1105949525708014506
+    second: LDIdle_SS_7f_192x192_199
+  - first:
+      213: -4498103360540371280
+    second: LDIdle_SS_7f_192x192_200
+  - first:
+      213: -280008866674349372
+    second: LDIdle_SS_7f_192x192_201
+  - first:
+      213: 8652052639810674133
+    second: LDIdle_SS_7f_192x192_202
+  - first:
+      213: -49622311127277642
+    second: LDIdle_SS_7f_192x192_203
+  - first:
+      213: -5631005784097624127
+    second: LDIdle_SS_7f_192x192_204
+  - first:
+      213: -1482885002167926659
+    second: LDIdle_SS_7f_192x192_205
+  - first:
+      213: -1602128158089409674
+    second: LDIdle_SS_7f_192x192_206
+  - first:
+      213: 7685574045519270672
+    second: LDIdle_SS_7f_192x192_207
+  - first:
+      213: 2673491028673256940
+    second: LDIdle_SS_7f_192x192_208
+  - first:
+      213: 5835014095093844853
+    second: LDIdle_SS_7f_192x192_209
+  - first:
+      213: -4798002811304056429
+    second: LDIdle_SS_7f_192x192_210
+  - first:
+      213: 4185787090868568626
+    second: LDIdle_SS_7f_192x192_211
+  - first:
+      213: -2184082739182451191
+    second: LDIdle_SS_7f_192x192_212
+  - first:
+      213: -8482221439605241120
+    second: LDIdle_SS_7f_192x192_213
+  - first:
+      213: 2053690936218180790
+    second: LDIdle_SS_7f_192x192_214
+  - first:
+      213: -7769776781082729028
+    second: LDIdle_SS_7f_192x192_215
+  - first:
+      213: -3598928074160351261
+    second: LDIdle_SS_7f_192x192_216
+  - first:
+      213: 5734761484456062479
+    second: LDIdle_SS_7f_192x192_217
+  - first:
+      213: 2912862743716873325
+    second: LDIdle_SS_7f_192x192_218
+  - first:
+      213: -1783732303528117395
+    second: LDIdle_SS_7f_192x192_219
+  - first:
+      213: -2791109357430418053
+    second: LDIdle_SS_7f_192x192_220
+  - first:
+      213: -1035947216561223946
+    second: LDIdle_SS_7f_192x192_221
+  - first:
+      213: -1557163831942244059
+    second: LDIdle_SS_7f_192x192_222
+  - first:
+      213: 8584626643612967080
+    second: LDIdle_SS_7f_192x192_223
+  - first:
+      213: 5301248168395331946
+    second: LDIdle_SS_7f_192x192_224
+  - first:
+      213: -4384969566482750702
+    second: LDIdle_SS_7f_192x192_225
+  - first:
+      213: 2533525068659729264
+    second: LDIdle_SS_7f_192x192_226
+  - first:
+      213: -4610941900268556426
+    second: LDIdle_SS_7f_192x192_227
+  - first:
+      213: 1527475449315327946
+    second: LDIdle_SS_7f_192x192_228
+  - first:
+      213: -4903732806967489553
+    second: LDIdle_SS_7f_192x192_229
+  - first:
+      213: -7831588311741000318
+    second: LDIdle_SS_7f_192x192_230
+  - first:
+      213: -5285015792788919659
+    second: LDIdle_SS_7f_192x192_231
+  - first:
+      213: 2640760593881863592
+    second: LDIdle_SS_7f_192x192_232
+  - first:
+      213: -502877406498554449
+    second: LDIdle_SS_7f_192x192_233
+  - first:
+      213: 7738403116090302448
+    second: LDIdle_SS_7f_192x192_234
+  - first:
+      213: -1091633776340829037
+    second: LDIdle_SS_7f_192x192_235
+  - first:
+      213: 3498227785298915221
+    second: LDIdle_SS_7f_192x192_236
+  - first:
+      213: 2996683665520187373
+    second: LDIdle_SS_7f_192x192_237
+  - first:
+      213: 7201017192396777178
+    second: LDIdle_SS_7f_192x192_238
+  - first:
+      213: -867261090493219527
+    second: LDIdle_SS_7f_192x192_239
+  - first:
+      213: 7115306074318357912
+    second: LDIdle_SS_7f_192x192_240
+  - first:
+      213: 3930788338525975214
+    second: LDIdle_SS_7f_192x192_241
+  - first:
+      213: -5543816826917644447
+    second: LDIdle_SS_7f_192x192_242
+  - first:
+      213: -4214325061169295846
+    second: LDIdle_SS_7f_192x192_243
+  - first:
+      213: 7490274907025673864
+    second: LDIdle_SS_7f_192x192_244
+  - first:
+      213: 235380732330674269
+    second: LDIdle_SS_7f_192x192_245
+  - first:
+      213: 2883284798500771433
+    second: LDIdle_SS_7f_192x192_246
+  - first:
+      213: 8849142175394673416
+    second: LDIdle_SS_7f_192x192_247
+  - first:
+      213: -2787492902095353125
+    second: LDIdle_SS_7f_192x192_248
+  - first:
+      213: -3856457712963135920
+    second: LDIdle_SS_7f_192x192_249
+  - first:
+      213: -2987838495229394087
+    second: LDIdle_SS_7f_192x192_250
+  - first:
+      213: -2663472645720223100
+    second: LDIdle_SS_7f_192x192_251
+  - first:
+      213: 5183725907651834339
+    second: LDIdle_SS_7f_192x192_252
+  - first:
+      213: -511694948644002305
+    second: LDIdle_SS_7f_192x192_253
+  - first:
+      213: -1618206450309753482
+    second: LDIdle_SS_7f_192x192_254
+  - first:
+      213: 7325971233039827346
+    second: LDIdle_SS_7f_192x192_255
+  - first:
+      213: 4065630996581170013
+    second: LDIdle_SS_7f_192x192_256
+  - first:
+      213: -2393476395415182774
+    second: LDIdle_SS_7f_192x192_257
+  - first:
+      213: -528364702457712897
+    second: LDIdle_SS_7f_192x192_258
+  - first:
+      213: 1068519525692430230
+    second: LDIdle_SS_7f_192x192_259
+  - first:
+      213: 6087585711468097094
+    second: LDIdle_SS_7f_192x192_260
+  - first:
+      213: -1206847659553250353
+    second: LDIdle_SS_7f_192x192_261
+  - first:
+      213: -4289235281033371227
+    second: LDIdle_SS_7f_192x192_262
+  - first:
+      213: 4289924430746445496
+    second: LDIdle_SS_7f_192x192_263
+  - first:
+      213: -4501744849945067031
+    second: LDIdle_SS_7f_192x192_264
+  - first:
+      213: -3045041437596904864
+    second: LDIdle_SS_7f_192x192_265
+  - first:
+      213: 1786369758474139178
+    second: LDIdle_SS_7f_192x192_266
+  - first:
+      213: -8875434350899908743
+    second: LDIdle_SS_7f_192x192_267
+  - first:
+      213: 8190471060057043792
+    second: LDIdle_SS_7f_192x192_268
+  - first:
+      213: 6863700489579980534
+    second: LDIdle_SS_7f_192x192_269
+  - first:
+      213: -5720894999127855936
+    second: LDIdle_SS_7f_192x192_270
+  - first:
+      213: 3559762633568393052
+    second: LDIdle_SS_7f_192x192_271
+  - first:
+      213: 7902837185470700218
+    second: LDIdle_SS_7f_192x192_272
+  - first:
+      213: 7941456238857904316
+    second: LDIdle_SS_7f_192x192_273
+  - first:
+      213: -7611213365945997592
+    second: LDIdle_SS_7f_192x192_274
+  - first:
+      213: 8316248115968042810
+    second: LDIdle_SS_7f_192x192_275
+  - first:
+      213: -604397312028757472
+    second: LDIdle_SS_7f_192x192_276
+  - first:
+      213: -8589082168771068975
+    second: LDIdle_SS_7f_192x192_277
+  - first:
+      213: -363502862448981010
+    second: LDIdle_SS_7f_192x192_278
+  - first:
+      213: -670303094416917425
+    second: LDIdle_SS_7f_192x192_279
+  - first:
+      213: -6186257609894312749
+    second: LDIdle_SS_7f_192x192_280
+  - first:
+      213: -6886590453629803303
+    second: LDIdle_SS_7f_192x192_281
+  - first:
+      213: 1855070534166503559
+    second: LDIdle_SS_7f_192x192_282
+  - first:
+      213: -3313558583049277769
+    second: LDIdle_SS_7f_192x192_283
+  - first:
+      213: 4464412424529336383
+    second: LDIdle_SS_7f_192x192_284
+  - first:
+      213: 2217034912416236837
+    second: LDIdle_SS_7f_192x192_285
+  - first:
+      213: -349600308854114926
+    second: LDIdle_SS_7f_192x192_286
+  - first:
+      213: -8236874646702870025
+    second: LDIdle_SS_7f_192x192_287
+  - first:
+      213: -8155611976058035162
+    second: LDIdle_SS_7f_192x192_288
+  - first:
+      213: 3888698509392652497
+    second: LDIdle_SS_7f_192x192_289
+  - first:
+      213: -1653207173584049475
+    second: LDIdle_SS_7f_192x192_290
+  - first:
+      213: 2618404717916014703
+    second: LDIdle_SS_7f_192x192_291
+  - first:
+      213: -4573015079795618423
+    second: LDIdle_SS_7f_192x192_292
+  - first:
+      213: -6197347631838336278
+    second: LDIdle_SS_7f_192x192_293
+  - first:
+      213: -1394926348898111653
+    second: LDIdle_SS_7f_192x192_294
+  - first:
+      213: -6785260320262944960
+    second: LDIdle_SS_7f_192x192_295
+  - first:
+      213: 6986548277533222909
+    second: LDIdle_SS_7f_192x192_296
+  - first:
+      213: -715704365372820045
+    second: LDIdle_SS_7f_192x192_297
+  - first:
+      213: -527177423067780406
+    second: LDIdle_SS_7f_192x192_298
+  - first:
+      213: 9096739585966327677
+    second: LDIdle_SS_7f_192x192_299
+  - first:
+      213: -4027117525199552429
+    second: LDIdle_SS_7f_192x192_300
+  - first:
+      213: 3359264798182348872
+    second: LDIdle_SS_7f_192x192_301
+  - first:
+      213: -4017918597657045035
+    second: LDIdle_SS_7f_192x192_302
+  - first:
+      213: -7777466815973274051
+    second: LDIdle_SS_7f_192x192_303
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b4395479ec4e0489625ed7770f31d3
+      internalID: 1016242729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3daf3669a98c7194f809d2ce9a883f4c
+      internalID: -176033625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6ff5ae55401cf4ba56bd9b07565cb0
+      internalID: -1248032254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a289d9e9e715e54a98b72dfc590f8f1
+      internalID: -960498415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1b956b8789f8d45a99e34775d10255
+      internalID: -1411156771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ce3e320148e4d489b77d9dfdd8fd5e
+      internalID: 86897130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9202932011f584cad4c3d7112bc682
+      internalID: -387208896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a068eb4d832a02244b028566e380f4a0
+      internalID: -1105444304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c93cb3af4369794fa0b32ce21ebe95f
+      internalID: 504693995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_9
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891b50670f582b74ab7a80fc3b0143b0
+      internalID: -1517257127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe86a1256f2cf2468388bb43a922263
+      internalID: -1400397197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_11
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c42086c1057ec449e1e37592426fa1
+      internalID: -2106234406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_12
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24bfc911b56a624ebd6495a6e1a4e98
+      internalID: -833354029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_13
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c7a0ee676a70f40b997f355029cd38
+      internalID: 1244702944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_14
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95031080df5410c4789f334a8028f80e
+      internalID: 865693723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_15
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19938f46f1461ea408987bbbb2e585a4
+      internalID: -528333383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf487c9e41c4d74f887ca93295a0a77
+      internalID: -1350106820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e526a7c8f559540849d78b221c7cb1
+      internalID: 965376669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569ff0814d330af4aad600e6bedde3a4
+      internalID: -1289396108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a041371f202224c81c4dd2fb2bda92
+      internalID: 1045351127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_20
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b2117b2d82e8544bec696afb62cb6f
+      internalID: 782221142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_21
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1ecf0de093aa940b8c421dfeac8882
+      internalID: -987974190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_22
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7500b51b5b3e8ab438fbd5186652ad08
+      internalID: 467022183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_23
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f2f1bbdf6fbff47bd537f6df4ab3f8
+      internalID: 518696820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_24
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9066576648a29d40a6b0adcec7fa6f3
+      internalID: 198635290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_25
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb6968fb227f7d40b9850ab4784a933
+      internalID: -1956973952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b755ceaa76c9942963a439a7068b44
+      internalID: -19185247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_27
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da451cebafe64f43ba91c1c626fc836
+      internalID: 1808326912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_28
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2da2d0e0e8c3824aad5b461b582533a
+      internalID: -608279317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_29
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bafd05ce8280097479898eb766df2840
+      internalID: 1038954170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_30
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2809856aae60df48aa9857734efa332
+      internalID: -1849978877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_31
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3755188067ed3c499249a82e687b91e
+      internalID: 290787692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262e2cb8f252c3a43bfc5a87800d6884
+      internalID: 1115249522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bec5c72a4bdcb4aa24a0b0a2550328
+      internalID: 894900576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_34
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344e55346b382a045b699c900d5025cc
+      internalID: 1933172952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_35
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0b79d0114533d49a33b12648c38838
+      internalID: -2045909228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_36
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb06f9af7f092f469640e63b8e3cccc
+      internalID: -711922795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_37
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3b5f582f04b0e4a88aa227b4270d9a
+      internalID: -111283437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_38
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb519df9a5558724a99c53aa5a794035
+      internalID: -232018437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_39
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffc8cef368857847b0317a3ea626cb9
+      internalID: -93057191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_40
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1113c32dc17544d9334724450b37ba
+      internalID: -842534457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_41
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5100bc6440a63284680023f65607ef4f
+      internalID: 1791070030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_42
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a7d8b4b5ae8694eb9c794989f607f4
+      internalID: -837976422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_43
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562f5188175b9184d9ebee6665fb1fc9
+      internalID: -1473277825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_44
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f6a0716946132428343f8fe1c6239b
+      internalID: 146121995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_45
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdfc07755417e747a074e215fcc85e7
+      internalID: -27950419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_46
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aebedba84369f54cb98bd4cd48cd2cc
+      internalID: -1640818391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_47
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 960
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0a2c5ec097e7c43819f6e6ee66cd3a
+      internalID: -886099972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1828afad63d802429a1e081a846d189
+      internalID: -1229793325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2630b13a1d2124e87c0958c1230f4b
+      internalID: -501963936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_50
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c493fd4383f580b4ca41a0943bb74b4c
+      internalID: 489877355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_51
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e32ce9cc6ee3984a9b8ea8737ed8010
+      internalID: -999908759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_52
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26caf4a80f0696408e879e3762b9f95
+      internalID: -586917948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d7652fbbc2f2d4294d55b0dde77b36
+      internalID: 460615304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_54
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1108b8e175df9ff43ae1eadf3e56906e
+      internalID: 1748013774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_55
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c43f4f1f60d6243be8cb978f6e1008
+      internalID: -172321905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_56
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5dde4683deb164e83ec9f917f1ce21
+      internalID: 808605688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_57
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f829376f97c1b84c9d9679f9a982813
+      internalID: -1754220622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_58
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766ab03d1dfecd4418413aa05e836c0e
+      internalID: -2034640158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_59
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48488259ab376b4aa19378f15149771
+      internalID: -1258286256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_60
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9835539283bf9a54f9935a7cf3e2469a
+      internalID: -1403245247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_61
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588bf4b480c8c6d48985f6727337faf2
+      internalID: -1261164418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_62
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1063686f78bc047b9f73acdacbac57
+      internalID: -90371820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_63
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 768
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d06deee55600c0498ccfdc7cb1316da
+      internalID: -5282415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de9442c0b4f3d74d82a14c175adf761
+      internalID: 126002359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_65
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a5867b092bd2c45a5e8464a92a004d
+      internalID: 1322607564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_66
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e17c7063420374894357a370c40c61
+      internalID: -1924714793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_67
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098c1054eef2a3b41ab6708665a1a830
+      internalID: -995159667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_68
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063542ed97ab98f4a801d7f47cfa533e
+      internalID: 633412804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_69
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd13bf59629e4b4e934938c0fb0f4df
+      internalID: 1045279075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_70
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c675573bc7f0641b25a8852a9c5afc
+      internalID: -775986351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_71
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5783ef10c7ca06c46aa27cd6233e08d1
+      internalID: -27971599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_72
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a116997e332c17a47a7b18a08bc8859f
+      internalID: -1786479622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_73
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c2974af2abdbc4b827723e7613e98b
+      internalID: 1342282583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_74
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596041f1a31021e4c9dad9f6718e3f67
+      internalID: 491943424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_75
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31327a059cc9bc4b822908e3b216157
+      internalID: -1984556093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_76
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09dc8f9b2781a254e994f6fb4b9147dc
+      internalID: -1976305312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_77
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183c47d6ab41eee4c9e5fb211ba955f4
+      internalID: -35135398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_78
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf39366f31c0a0b4a9c08ba248f41d31
+      internalID: -2117333839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_79
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 576
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab54770419efdec448bff2db7bc6798a
+      internalID: 1380425616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7363c036f3f7b247a9f2d5ffbf7f49a
+      internalID: -344035125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_81
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1256c911fea9bf54486b17e3a0c9dee5
+      internalID: 636193228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_82
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fec1be5e07def4588dd82ef2c4da10
+      internalID: 1705531885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_83
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02d05db2e2b4e542b164f08b5d4a108
+      internalID: -785727102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_84
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b461923e10d561c429bcea6d2a6f9db1
+      internalID: 495484342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_85
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e50891a6cf77e489843feb366ac8b4
+      internalID: 1609071751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_86
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460923da77a4cab4ebc7294b120c4e98
+      internalID: -1035236796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_87
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b0094fb70857146b653338317453e1
+      internalID: 459681032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_88
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260dd3c75d3d6294faed048e52f223c2
+      internalID: 2132742393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_89
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906d2fc28d93c09409d88fa827311bc4
+      internalID: -690776201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_90
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f76e1f4ece5a04698a1fd4ee4b6998
+      internalID: -1274029332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_91
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719abbc7a6c54f545a34721543933560
+      internalID: 2138344188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_92
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf670530e6689a545b6bb3631d5122c5
+      internalID: -509759214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_93
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807c7b390f4469445ade6465ad586852
+      internalID: 302103075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_94
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5178e521dd8c64694abd3cf3357746
+      internalID: -818203766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_95
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 384
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d02207d23493f4fa07ea4c9600b144
+      internalID: -1216574036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf1f3c75d609e0419d9b0dc4b74cdbe
+      internalID: 623845499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_97
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05cfb33d9d3f88439d36e8aca1f1855
+      internalID: -1837012087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_98
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad348d9009b7fbf428ba6e686a2be43d
+      internalID: -1318273122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_99
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f4da14a03b6824b8f83e53a1c607c5
+      internalID: 2022449582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_100
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb70114db6240be42a7ab827c5c94b77
+      internalID: 911278158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_101
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f62f9f3c29ce564aaefbb99fd6c5dd6
+      internalID: -871384123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_102
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a900f53143457c6479db8fa7042ee49f
+      internalID: 294757669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_103
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1d32dd8f292fa4eaac3e87c2d39920
+      internalID: 1157179784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_104
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b29eec2244f60044b9bdb083641adca
+      internalID: -1459674629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_105
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887de144f0df5a14db00fe07417a77fb
+      internalID: -589227302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_106
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb06439e8990fb4988821889f10af6f
+      internalID: -533607312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_107
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0362ad6609fe0184c8b5145876f8f090
+      internalID: 1225615771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_108
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd283777cdfd2ad409e7d95644b37bee
+      internalID: 1803829455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_109
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d795bd6c6f10324aae7f79362eff04b
+      internalID: 1865812785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_110
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c300c68e68f07ce44b6da51237aa6d38
+      internalID: 1400590925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_111
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 192
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525d547df0471934a98c32c438015049
+      internalID: 331258399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b58dd5921980d3f489b41d253dd1cb17
+      internalID: 1824890373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_113
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a85925dd9e06614ca5315f35b0ccd65
+      internalID: 860443695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_114
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f741c8d4e2660f4f8c27065f5462b96
+      internalID: 740608102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_115
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0398eb9395edf7148ac58d696f79688b
+      internalID: 582031727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_116
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68275b301ffa1af43a373edf01b885b5
+      internalID: 2118590400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_117
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32cfe29e401461f4c8f03343f907fc77
+      internalID: 1414922864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_118
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46a6ea5dcd5bab4c97d6d03691f982b
+      internalID: 174095348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_119
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2980ce47d8e5d4981de64a397c0d58
+      internalID: 1661433308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_120
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138b3a1d4dec5cc48877b14e116079d7
+      internalID: -757212696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_121
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab5ca9aacb18734880f6bcb134bef36
+      internalID: -980403812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_122
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb17ea219e7ec5a45b72ce941cf73df8
+      internalID: 643223749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_123
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abe7e0aed0ea4048bfbf009dfa4abdc
+      internalID: -1052879242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_124
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788996a0607ad6340a56474898fc358e
+      internalID: 973396940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_125
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f797bb9067d9e1f448aa628e9bff97da
+      internalID: 912725560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_126
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8029d374a73fd724e86cdb502acd820c
+      internalID: -172707402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LDIdle_SS_16f_192x192_127
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f50ada184ddf89547b80bc4bf0966550
+      internalID: -81454605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 22fdc2a7f6e1c844fa34e58f976b05a0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":192.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      LDIdle_SS_16f_192x192_0: 1016242729
+      LDIdle_SS_16f_192x192_1: -176033625
+      LDIdle_SS_16f_192x192_10: -1400397197
+      LDIdle_SS_16f_192x192_100: 911278158
+      LDIdle_SS_16f_192x192_101: -871384123
+      LDIdle_SS_16f_192x192_102: 294757669
+      LDIdle_SS_16f_192x192_103: 1157179784
+      LDIdle_SS_16f_192x192_104: -1459674629
+      LDIdle_SS_16f_192x192_105: -589227302
+      LDIdle_SS_16f_192x192_106: -533607312
+      LDIdle_SS_16f_192x192_107: 1225615771
+      LDIdle_SS_16f_192x192_108: 1803829455
+      LDIdle_SS_16f_192x192_109: 1865812785
+      LDIdle_SS_16f_192x192_11: -2106234406
+      LDIdle_SS_16f_192x192_110: 1400590925
+      LDIdle_SS_16f_192x192_111: 331258399
+      LDIdle_SS_16f_192x192_112: 1824890373
+      LDIdle_SS_16f_192x192_113: 860443695
+      LDIdle_SS_16f_192x192_114: 740608102
+      LDIdle_SS_16f_192x192_115: 582031727
+      LDIdle_SS_16f_192x192_116: 2118590400
+      LDIdle_SS_16f_192x192_117: 1414922864
+      LDIdle_SS_16f_192x192_118: 174095348
+      LDIdle_SS_16f_192x192_119: 1661433308
+      LDIdle_SS_16f_192x192_12: -833354029
+      LDIdle_SS_16f_192x192_120: -757212696
+      LDIdle_SS_16f_192x192_121: -980403812
+      LDIdle_SS_16f_192x192_122: 643223749
+      LDIdle_SS_16f_192x192_123: -1052879242
+      LDIdle_SS_16f_192x192_124: 973396940
+      LDIdle_SS_16f_192x192_125: 912725560
+      LDIdle_SS_16f_192x192_126: -172707402
+      LDIdle_SS_16f_192x192_127: -81454605
+      LDIdle_SS_16f_192x192_13: 1244702944
+      LDIdle_SS_16f_192x192_14: 865693723
+      LDIdle_SS_16f_192x192_15: -528333383
+      LDIdle_SS_16f_192x192_16: -1350106820
+      LDIdle_SS_16f_192x192_17: 965376669
+      LDIdle_SS_16f_192x192_18: -1289396108
+      LDIdle_SS_16f_192x192_19: 1045351127
+      LDIdle_SS_16f_192x192_2: -1248032254
+      LDIdle_SS_16f_192x192_20: 782221142
+      LDIdle_SS_16f_192x192_21: -987974190
+      LDIdle_SS_16f_192x192_22: 467022183
+      LDIdle_SS_16f_192x192_23: 518696820
+      LDIdle_SS_16f_192x192_24: 198635290
+      LDIdle_SS_16f_192x192_25: -1956973952
+      LDIdle_SS_16f_192x192_26: -19185247
+      LDIdle_SS_16f_192x192_27: 1808326912
+      LDIdle_SS_16f_192x192_28: -608279317
+      LDIdle_SS_16f_192x192_29: 1038954170
+      LDIdle_SS_16f_192x192_3: -960498415
+      LDIdle_SS_16f_192x192_30: -1849978877
+      LDIdle_SS_16f_192x192_31: 290787692
+      LDIdle_SS_16f_192x192_32: 1115249522
+      LDIdle_SS_16f_192x192_33: 894900576
+      LDIdle_SS_16f_192x192_34: 1933172952
+      LDIdle_SS_16f_192x192_35: -2045909228
+      LDIdle_SS_16f_192x192_36: -711922795
+      LDIdle_SS_16f_192x192_37: -111283437
+      LDIdle_SS_16f_192x192_38: -232018437
+      LDIdle_SS_16f_192x192_39: -93057191
+      LDIdle_SS_16f_192x192_4: -1411156771
+      LDIdle_SS_16f_192x192_40: -842534457
+      LDIdle_SS_16f_192x192_41: 1791070030
+      LDIdle_SS_16f_192x192_42: -837976422
+      LDIdle_SS_16f_192x192_43: -1473277825
+      LDIdle_SS_16f_192x192_44: 146121995
+      LDIdle_SS_16f_192x192_45: -27950419
+      LDIdle_SS_16f_192x192_46: -1640818391
+      LDIdle_SS_16f_192x192_47: -886099972
+      LDIdle_SS_16f_192x192_48: -1229793325
+      LDIdle_SS_16f_192x192_49: -501963936
+      LDIdle_SS_16f_192x192_5: 86897130
+      LDIdle_SS_16f_192x192_50: 489877355
+      LDIdle_SS_16f_192x192_51: -999908759
+      LDIdle_SS_16f_192x192_52: -586917948
+      LDIdle_SS_16f_192x192_53: 460615304
+      LDIdle_SS_16f_192x192_54: 1748013774
+      LDIdle_SS_16f_192x192_55: -172321905
+      LDIdle_SS_16f_192x192_56: 808605688
+      LDIdle_SS_16f_192x192_57: -1754220622
+      LDIdle_SS_16f_192x192_58: -2034640158
+      LDIdle_SS_16f_192x192_59: -1258286256
+      LDIdle_SS_16f_192x192_6: -387208896
+      LDIdle_SS_16f_192x192_60: -1403245247
+      LDIdle_SS_16f_192x192_61: -1261164418
+      LDIdle_SS_16f_192x192_62: -90371820
+      LDIdle_SS_16f_192x192_63: -5282415
+      LDIdle_SS_16f_192x192_64: 126002359
+      LDIdle_SS_16f_192x192_65: 1322607564
+      LDIdle_SS_16f_192x192_66: -1924714793
+      LDIdle_SS_16f_192x192_67: -995159667
+      LDIdle_SS_16f_192x192_68: 633412804
+      LDIdle_SS_16f_192x192_69: 1045279075
+      LDIdle_SS_16f_192x192_7: -1105444304
+      LDIdle_SS_16f_192x192_70: -775986351
+      LDIdle_SS_16f_192x192_71: -27971599
+      LDIdle_SS_16f_192x192_72: -1786479622
+      LDIdle_SS_16f_192x192_73: 1342282583
+      LDIdle_SS_16f_192x192_74: 491943424
+      LDIdle_SS_16f_192x192_75: -1984556093
+      LDIdle_SS_16f_192x192_76: -1976305312
+      LDIdle_SS_16f_192x192_77: -35135398
+      LDIdle_SS_16f_192x192_78: -2117333839
+      LDIdle_SS_16f_192x192_79: 1380425616
+      LDIdle_SS_16f_192x192_8: 504693995
+      LDIdle_SS_16f_192x192_80: -344035125
+      LDIdle_SS_16f_192x192_81: 636193228
+      LDIdle_SS_16f_192x192_82: 1705531885
+      LDIdle_SS_16f_192x192_83: -785727102
+      LDIdle_SS_16f_192x192_84: 495484342
+      LDIdle_SS_16f_192x192_85: 1609071751
+      LDIdle_SS_16f_192x192_86: -1035236796
+      LDIdle_SS_16f_192x192_87: 459681032
+      LDIdle_SS_16f_192x192_88: 2132742393
+      LDIdle_SS_16f_192x192_89: -690776201
+      LDIdle_SS_16f_192x192_9: -1517257127
+      LDIdle_SS_16f_192x192_90: -1274029332
+      LDIdle_SS_16f_192x192_91: 2138344188
+      LDIdle_SS_16f_192x192_92: -509759214
+      LDIdle_SS_16f_192x192_93: 302103075
+      LDIdle_SS_16f_192x192_94: -818203766
+      LDIdle_SS_16f_192x192_95: -1216574036
+      LDIdle_SS_16f_192x192_96: 623845499
+      LDIdle_SS_16f_192x192_97: -1837012087
+      LDIdle_SS_16f_192x192_98: -1318273122
+      LDIdle_SS_16f_192x192_99: 2022449582
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

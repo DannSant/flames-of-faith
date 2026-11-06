@@ -10,8 +10,8 @@ namespace Game.Tests
 {
     /// <summary>
     /// The melee attack warning (tester feedback, 2026-10-26): a ring and a growing disc show where the hit will
-    /// land, the direction is locked when the swing starts, and the attack animation is slowed so the hit lands
-    /// when the disc is full (Telegraph Time).
+    /// land, and the direction is locked when the swing starts. Since the Light Devourer's redraw (Nov 2026) the
+    /// windup is drawn into the art: the attack plays at normal speed and the disc fills over the time to its hit frame.
     /// </summary>
     public class MeleeTelegraphTests
     {
@@ -31,20 +31,13 @@ namespace Game.Tests
         }
 
         [Test]
-        public void Animation_IsSlowedSoTheHitLandsAtTelegraphTime()
-        {
-            float speed = AIMeleeAttacker.AttackAnimationSpeed(0.35f, 0.8f);
-            Assert.AreEqual(0.4375f, speed, 0.0001f);
-            Assert.AreEqual(0.8f, 0.35f / speed, 0.0001f, "The hit frame lands at Telegraph Time");
-            Assert.AreEqual(1f, AIMeleeAttacker.AttackAnimationSpeed(0.35f, 0f), "No telegraph time: normal speed");
-        }
-
-        [Test]
         public void Hitbox_SitsAlongTheLockedDirection()
         {
-            Assert.AreEqual(new Vector2(0f, -1f), AIMeleeAttacker.HitboxOffset(new Vector2(0f, -3f), 1f));
-            Assert.AreEqual(new Vector2(0.5f, 0f), AIMeleeAttacker.HitboxOffset(Vector2.right, 0.5f));
-            Assert.AreEqual(Vector2.zero, AIMeleeAttacker.HitboxOffset(Vector2.zero, 1f));
+            // On the ground: the vertical reach is shortened by the ground ratio (IsoGroundAreaTests)
+            Assert.AreEqual(new Vector2(0f, -0.5f), AIMeleeAttacker.HitboxOffset(new Vector2(0f, -3f), 1f, 0.5f));
+            Assert.AreEqual(new Vector2(0.5f, 0f), AIMeleeAttacker.HitboxOffset(Vector2.right, 0.5f, 0.5f));
+            Assert.AreEqual(new Vector2(0f, -1f), AIMeleeAttacker.HitboxOffset(new Vector2(0f, -3f), 1f, 1f), "Ratio 1: the old circle");
+            Assert.AreEqual(Vector2.zero, AIMeleeAttacker.HitboxOffset(Vector2.zero, 1f, 0.5f));
         }
 
         // --- Assets --------------------------------------------------------------------------------------
@@ -61,7 +54,7 @@ namespace Game.Tests
         }
 
         [Test]
-        public void EveryMeleeAttacker_WarnsLongerThanTheOldSwing()
+        public void EveryMeleeAttacker_GivesTimeToReact()
         {
             var attackers = AssetDatabase.FindAssets("t:AIMeleeAttacker")
                 .Select(AssetDatabase.GUIDToAssetPath)
@@ -70,8 +63,9 @@ namespace Game.Tests
             Assert.IsNotEmpty(attackers, "No melee attackers found");
             foreach (var attacker in attackers)
             {
-                Assert.Greater(attacker.TelegraphTime, attacker.AnimationHitTime,
-                    $"{attacker.name}: the warning must last longer than the swing used to (it was {attacker.AnimationHitTime}s, too short to react)");
+                // The old 0.3s swing was too short to react to (tester feedback, 2026-10-26)
+                Assert.GreaterOrEqual(attacker.AnimationHitTime, 0.5f,
+                    $"{attacker.name}: the warning lasts until the hit frame ({attacker.AnimationHitTime}s), too short to react");
             }
         }
 
@@ -83,14 +77,11 @@ namespace Game.Tests
             Assert.IsNotNull(attacker, $"Missing {LightDevourerAttack}");
             Assert.IsNotNull(controller, $"Missing {LightDevourerController}");
 
-            Assert.IsTrue(controller.parameters.Any(p => p.name == "AttackSpeed" && p.type == AnimatorControllerParameterType.Float),
-                "The controller needs the AttackSpeed float parameter");
-
             var state = controller.layers[0].stateMachine.states.Select(s => s.state)
                 .FirstOrDefault(s => s.behaviours.OfType<MeleeAnimationAttackBehavior>().Any());
             Assert.IsNotNull(state, "No attack state with a MeleeAnimationAttackBehavior");
-            Assert.IsTrue(state.speedParameterActive && state.speedParameter == "AttackSpeed",
-                "The attack state's speed must follow AttackSpeed, or the windup isn't slowed");
+            Assert.IsFalse(state.speedParameterActive, "The attack plays at normal speed: nothing slows the windup any more");
+            Assert.AreEqual(1f, state.speed, "The attack plays at normal speed");
 
             var hitBehaviour = new SerializedObject(state.behaviours.OfType<MeleeAnimationAttackBehavior>().First());
             float attackDelay = hitBehaviour.FindProperty("attackDelay").floatValue;

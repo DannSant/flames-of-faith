@@ -11,6 +11,14 @@ namespace Game.Combat {
         [SerializeField] private float knockbackForce = 15f;
 
         private float damageAmount = 1f;
+        private Transform attacker;
+
+        private void Awake()
+        {
+            // The enemy this hitbox belongs to: the knockback pushes away from where it stands, not from the hitbox
+            var body = GetComponentInParent<Rigidbody2D>();
+            attacker = body != null ? body.transform : transform;
+        }
 
         public void SetDamageAmount(float amount)
         {
@@ -39,7 +47,7 @@ namespace Game.Combat {
             
             if (shouldApplyKnockback && knockback!=null)
             {              
-                knockback.ApplyKnockback(transform, knockbackForce);
+                knockback.ApplyKnockbackFrom(IsoGround.PointOf(attacker != null ? attacker : transform), knockbackForce);
             }
         }
     }

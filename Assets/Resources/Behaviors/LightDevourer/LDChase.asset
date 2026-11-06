@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: LDChase
   m_EditorClassIdentifier: 
   stopDuringGameplayFreeze: 1
-  minRange: 1.1
+  minRange: 1
   buffer: 0.2
+  measureOnGround: 1

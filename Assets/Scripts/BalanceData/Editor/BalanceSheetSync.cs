@@ -212,7 +212,16 @@ namespace Game.BalanceData.Editor
                 {
                     EditorUtility.DisplayProgressBar("Balance sheet",
                         $"Writing to the sheet ({written.Count}/{tables.Length} tabs)...", (float)i / batches.Count);
-                    string json = Post(config.url, JsonUtility.ToJson(new PushRequest { token = config.token, action = action, tables = batches[i] }));
+                    string payload = JsonUtility.ToJson(new PushRequest { token = config.token, action = action, tables = batches[i] });
+                    int batch = i;
+                    string json = WithRetries(() => Post(config.url, payload), PushAttempts, (attempt, error) =>
+                    {
+                        Debug.LogWarning($"[BalanceData] Batch {batch + 1}/{batches.Count} failed ({error.Message}); " +
+                            $"trying again in {RetryPauseSeconds} s (attempt {attempt + 1} of {PushAttempts}).");
+                        EditorUtility.DisplayProgressBar("Balance sheet",
+                            $"The sheet was slow, trying again ({written.Count}/{tables.Length} tabs written)...", (float)batch / batches.Count);
+                        System.Threading.Thread.Sleep(RetryPauseSeconds * 1000);
+                    });
                     var response = JsonUtility.FromJson<PushResponse>(json);
                     if (response == null || !response.ok)
                     {
@@ -233,9 +242,35 @@ namespace Game.BalanceData.Editor
             }
         }
 
+        // Rewriting a tab can be repeated safely, so a batch that times out or loses the connection is sent again.
+        // The script keeps working after the client gives up, holding its lock: the pause lets it finish first.
+        private const int PushAttempts = 3;
+        private const int RetryPauseSeconds = 10;
+
+        /// <summary>
+        /// Runs <paramref name="action"/> up to <paramref name="attempts"/> times, until it doesn't throw. Before each
+        /// new try, <paramref name="onRetry"/> gets the failed attempt's number (1-based) and its error. The last error is thrown.
+        /// </summary>
+        public static T WithRetries<T>(Func<T> action, int attempts, Action<int, Exception> onRetry)
+        {
+            for (int attempt = 1; ; attempt++)
+            {
+                try
+                {
+                    return action();
+                }
+                catch (Exception error) when (attempt < attempts)
+                {
+                    onRetry?.Invoke(attempt, error);
+                }
+            }
+        }
+
         // A failed batch leaves the earlier ones written; say which, so a retry isn't a guess
         private static string PartialResult(List<string> written, string error)
         {
+            // The dialog closes; the Console keeps the reason
+            Debug.LogError($"[BalanceData] {error}");
             if (written.Count == 0) return error;
             Debug.Log($"[BalanceData] Wrote to the sheet before the error: {string.Join(", ", written)}");
             return $"{error}\n\n{written.Count} tabs were written before it (listed in the Console). Running it again rewrites them all.";
@@ -261,11 +296,28 @@ namespace Game.BalanceData.Editor
 
         public static string Post(string url, string json) => Send(HttpMethod.Post, url, json);
 
+        // A batch of 6 tabs, each rewritten with its formatting and checks, sometimes took the script over a minute
+        // (Nov 6: Push All stopped after 30 tabs, then after 6). Apps Script allows a run 6 minutes.
+        private const int HttpTimeoutSeconds = 180;
+
         private static string Send(HttpMethod method, string url, string json)
+        {
+            try
+            {
+                return SendOnce(method, url, json);
+            }
+            catch (TaskCanceledException)
+            {
+                // HttpClient's timeout only says "A task was canceled"
+                throw new TimeoutException($"the sheet didn't answer within {HttpTimeoutSeconds} s");
+            }
+        }
+
+        private static string SendOnce(HttpMethod method, string url, string json)
         {
             return Task.Run(async () =>
             {
-                using var client = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = TimeSpan.FromSeconds(60) };
+                using var client = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }) { Timeout = TimeSpan.FromSeconds(HttpTimeoutSeconds) };
                 var request = new HttpRequestMessage(method, url);
                 if (json != null) request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 

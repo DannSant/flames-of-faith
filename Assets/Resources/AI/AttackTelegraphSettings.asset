@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AttackTelegraphSettings
   m_EditorClassIdentifier: Assembly-CSharp::Game.AI.AttackTelegraphSettings
   showTelegraphs: 1
+  groundRatio: 0.5
   ringSprite: {fileID: 21300000, guid: 0a44ed082dce8744095ea7bec53570f6, type: 3}
   fillSprite: {fileID: 21300000, guid: 1a299d61069113f40990c41bfbec2df1, type: 3}
   ringColor: {r: 1, g: 0.25, b: 0.2, a: 0.9}

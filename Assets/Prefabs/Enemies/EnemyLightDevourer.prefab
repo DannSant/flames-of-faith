@@ -50,6 +50,7 @@ MonoBehaviour:
   knockbackForce: 3
 --- !u!212 &5915406237144421919
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1129213442, guid: 7d596614d1ce90c4fbdac5dd29602510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,7 +106,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1164320253741853043
 CircleCollider2D:
@@ -272,27 +273,23 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 894fd95ddcdc91f4e8ac04c8f9dd61c2, type: 2}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.x
-      value: 0.65712386
+      value: 0.51829875
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.y
-      value: 1.281954
+      value: 0.67609817
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.x
-      value: -0.0006015003
+      value: -0.016026497
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Offset.y
-      value: -0.24443316
+      value: -0.49722984
       objectReference: {fileID: 0}
     - target: {fileID: 6042687595524381101, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Direction
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
-      propertyPath: targetingBodyRadius
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: deathSFX
@@ -306,21 +303,25 @@ PrefabInstance:
       propertyPath: deathVfxPrefab
       value: 
       objectReference: {fileID: 6136071736594798714, guid: af360550c4640c74f972f2be1873e589, type: 3}
+    - target: {fileID: 7008180432358707353, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
+      propertyPath: targetingBodyRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3790566208710447008, guid: 5900acd68d9b83d4788a631cafa4fba6, type: 3}
+      objectReference: {fileID: 1016242729, guid: 5be16f39c20e97e438ddea0b1d283371, type: 3}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8526461644135740295, guid: 149bfc5ab1d047b42a5543178a726592, type: 3}
       propertyPath: m_WasSpriteAssigned

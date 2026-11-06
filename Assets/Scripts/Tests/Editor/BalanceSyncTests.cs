@@ -37,6 +37,34 @@ namespace Game.Tests
 
         // Push All sent every tab in one request and timed out ("A task was canceled", 2026-10-25)
         [Test]
+        public void Push_RetriesAFailedBatch_ThenGivesUpWithTheLastError()
+        {
+            var retries = new System.Collections.Generic.List<int>();
+            int calls = 0;
+            string result = Game.BalanceData.Editor.BalanceSheetSync.WithRetries(() =>
+            {
+                calls++;
+                if (calls < 3) throw new System.TimeoutException("slow " + calls);
+                return "ok";
+            }, 3, (attempt, error) => retries.Add(attempt));
+            Assert.AreEqual("ok", result);
+            CollectionAssert.AreEqual(new[] { 1, 2 }, retries, "Told before each new try");
+
+            calls = 0;
+            var last = Assert.Throws<System.TimeoutException>(() => Game.BalanceData.Editor.BalanceSheetSync.WithRetries<string>(() =>
+            {
+                calls++;
+                throw new System.TimeoutException("slow " + calls);
+            }, 3, null));
+            Assert.AreEqual(3, calls, "No more than the attempts allowed");
+            Assert.AreEqual("slow 3", last.Message, "The last error is the one reported");
+
+            calls = 0;
+            Game.BalanceData.Editor.BalanceSheetSync.WithRetries(() => ++calls, 3, null);
+            Assert.AreEqual(1, calls, "A success isn't repeated");
+        }
+
+        [Test]
         public void Push_SplitsTabsIntoBatches_InOrder_WithNoneLost()
         {
             var tabs = Enumerable.Range(0, 58).ToList();
