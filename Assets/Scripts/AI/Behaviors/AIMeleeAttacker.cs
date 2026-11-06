@@ -155,7 +155,7 @@ namespace Game.AI.Behaviors
         /// <summary>
         /// The hitbox is the ellipse the warning draws, so the hit area is exactly what's shown. A CircleCollider2D
         /// can't be an ellipse, so the prefab's circle (its radius stays the design value; where it lands is AreaCenter) is swapped for
-        /// a PolygonCollider2D outlining the same ground circle, with the circle's trigger and layer settings. Physics
+        /// a trigger PolygonCollider2D outlining the same ground circle, with the circle's layer settings. Physics
         /// then decides the hit against the player's own collider, where they stand. Other collider shapes are kept as is.
         /// </summary>
         public static Collider2D CreateGroundHitbox(Collider2D authored, float groundRatio, MeleeAttackerBehaviorState state)
@@ -167,7 +167,9 @@ namespace Game.AI.Behaviors
             var polygon = circle.GetComponent<PolygonCollider2D>();
             if (polygon == null) polygon = circle.gameObject.AddComponent<PolygonCollider2D>();
             polygon.points = IsoGroundArea.Outline(circle.offset, circle.radius, groundRatio, HitboxSegments);
-            polygon.isTrigger = circle.isTrigger;
+            // A trigger: a solid hitbox appearing over the player made physics shove them out of it, on top of the
+            // knockback, harder the deeper the overlap (sometimes across the level). EnemyDamage hits on triggers too.
+            polygon.isTrigger = true;
             polygon.sharedMaterial = circle.sharedMaterial;
             polygon.includeLayers = circle.includeLayers;
             polygon.excludeLayers = circle.excludeLayers;

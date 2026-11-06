@@ -132,7 +132,7 @@ namespace Game.Tests
                 var hitbox = AIMeleeAttacker.CreateGroundHitbox(circle, Ratio, state) as PolygonCollider2D;
                 Assert.IsNotNull(hitbox, "A circle becomes a polygon outlining the ground ellipse");
                 Assert.IsFalse(circle.enabled, "The authored circle must not hit too");
-                Assert.AreEqual(circle.isTrigger, hitbox.isTrigger);
+                Assert.IsTrue(hitbox.isTrigger, "A solid hitbox shoves the player out of it on top of the knockback");
                 Assert.AreEqual((0.5f, new Vector2(0f, -0.5f)), (state.areaRadius, state.areaOffset), "The warning uses the authored circle");
                 Assert.AreSame(hitbox, AIMeleeAttacker.CreateGroundHitbox(hitbox, Ratio, state), "Other shapes are kept as they are");
 

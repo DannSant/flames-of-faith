@@ -19,6 +19,8 @@ Spec: `docs/features/light-devourer-art.md`. Put a Light Devourer in a level (or
 - [ ] The warning is a flat ellipse on the ground, twice as wide as tall, in every direction, including when you're straight north or south of it (it must not float above or sink below the enemy).
 - [ ] Standing just inside the ellipse's top, bottom and sides gets you hit; standing just outside them doesn't. Try at least north, south, east and west of the enemy. If the area feels too small or too large, note it for the designer (Orbit Radius and the melee collider's radius are unchanged).
 - [ ] Ground fix: let it reach you from the south (you above it), the north, and both sides. Each time it stops about the same distance away, the ellipse sits where you stand (not on its body), and the swing hits.
+- [ ] Draw order: stand just north of a Light Devourer (and a slime, a DrekoEye, a FlameShooter): it draws over you. Step south of it: you draw over it. Same next to an oak tree.
+- [ ] Getting hit by its swing pushes you a short, steady distance away from it (about one step sideways, half that up or down), every time. Never across the level, and never toward or into it. Also when it hits you from the north and the south.
 - [ ] Stun it mid-swing (a Frost stun or similar): the warning disappears, no hit lands while it's stunned, and it finishes the swing or attacks again normally after.
 - [ ] Knock it back mid-swing: it takes the damage but doesn't move, and the hit lands where the warning was.
 - [ ] The Corruptor looks and shoots as before (it was rebuilt through the same tool with no file changes).
