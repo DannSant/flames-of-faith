@@ -4,14 +4,14 @@ namespace Game.AI
 {
     /// <summary>
     /// How a melee enemy's attack warning (<see cref="AttackTelegraph"/>) looks, shared by every melee attacker.
-    /// The timing is per enemy, on its AIMeleeAttacker (Telegraph Time). Loaded from Resources/AI/AttackTelegraphSettings.
+    /// The timing is per enemy: the time to its hit frame, on its AIMeleeAttacker (Animation Hit Time). Loaded from Resources/AI/AttackTelegraphSettings.
     /// </summary>
     [CreateAssetMenu(fileName = "AttackTelegraphSettings", menuName = "AI/Attack Telegraph Settings")]
     public class AttackTelegraphSettings : ScriptableObject
     {
         private const string ResourcePath = "AI/AttackTelegraphSettings";
 
-        [Tooltip("Master switch. Off = no warning is drawn (the slower windup still applies).")]
+        [Tooltip("Master switch. Off = no warning is drawn.")]
         [SerializeField] private bool showTelegraphs = true;
 
         [Header("Look (placeholders until the art team draws them)")]

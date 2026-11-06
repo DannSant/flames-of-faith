@@ -9,8 +9,6 @@ namespace Game.Enemies
     public class EnemyAnimationController : MonoBehaviour
     {
         private Animator animator;
-        private static readonly int AttackSpeedParameter = Animator.StringToHash("AttackSpeed");
-        private bool hasAttackSpeedParameter;
         private Rigidbody2D rb;
         private BehaviorContext context;
         private Transform playerTransform;
@@ -19,11 +17,6 @@ namespace Game.Enemies
         {
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
-            foreach (var parameter in animator.parameters)
-            {
-                if (parameter.nameHash == AttackSpeedParameter) hasAttackSpeedParameter = true;
-            }           
-           
         }
 
         private void Start()
@@ -39,14 +32,9 @@ namespace Game.Enemies
             PlayAttackSound();
         }
 
-        /// <param name="speed">
-        /// Speed of the attack animation (its state's AttackSpeed parameter, 1 = normal). A melee attacker slows
-        /// it so the hit lands when its warning is full. Ignored by controllers without the parameter.
-        /// </param>
-        public void PlayAttack(float speed = 1f)
+        public void PlayAttack()
         {
             CommitFacingToPlayer();
-            if (hasAttackSpeedParameter) animator.SetFloat(AttackSpeedParameter, speed);
             animator.SetTrigger("Attack");
             PlayAttackSound();
         }

@@ -25,16 +25,11 @@ namespace Game.AI.Behaviors
         [SerializeField] private string colliderObjectName = "MeleeCollider";
         [Tooltip("Distance from the enemy's center at which the melee hitbox is placed, toward the player.")]
         [SerializeField] private float orbitRadius = 0.5f;
-        [Tooltip("Seconds between the start of the swing and the hit: the warning shows the hit area for this long, " +
-            "and the attack animation is slowed so its hit frame lands then.")]
-        [Min(0.05f)]
-        [SerializeField] private float telegraphTime = 0.8f;
-        [Tooltip("Seconds into the attack animation, at normal speed, when the hit lands (its attack state's " +
-            "MeleeAnimationAttackBehavior Attack Delay x the clip length). Used to slow the animation to Telegraph Time.")]
+        [Tooltip("Seconds from the start of the attack animation to its hit frame (its attack state's " +
+            "MeleeAnimationAttackBehavior Attack Delay x the clip length). The warning fills over this time, so it's full when the hit lands.")]
         [Min(0.01f)]
-        [SerializeField] private float animationHitTime = 0.3f;
+        [SerializeField] private float animationHitTime = 0.6666667f;
 
-        public float TelegraphTime => telegraphTime;
         public float AnimationHitTime => animationHitTime;
 
 
@@ -124,18 +119,14 @@ namespace Game.AI.Behaviors
             if (state.telegraph != null && state.meleeCollider != null)
             {
                 var (center, radius) = HitArea(state.meleeCollider, context.enemyTransform.position, state.lockedDirection);
-                state.telegraph.Show(center, radius, telegraphTime);
+                state.telegraph.Show(center, radius, animationHitTime);
             }
 
             if (context.enemyAnimController != null)
             {
-                context.enemyAnimController.PlayAttack(AttackAnimationSpeed(animationHitTime, telegraphTime));
+                context.enemyAnimController.PlayAttack();
             }
         }
-
-        /// <summary>Speed of the attack animation so its hit frame (at <paramref name="animationHitTime"/>) lands after <paramref name="telegraphTime"/>.</summary>
-        public static float AttackAnimationSpeed(float animationHitTime, float telegraphTime) =>
-            telegraphTime <= 0f ? 1f : Mathf.Max(0.05f, animationHitTime / telegraphTime);
 
         /// <summary>Where the hitbox sits relative to the enemy: <paramref name="orbitRadius"/> along the locked direction.</summary>
         public static Vector2 HitboxOffset(Vector2 direction, float orbitRadius) =>

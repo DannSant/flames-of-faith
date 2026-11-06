@@ -57,6 +57,7 @@ namespace Game.Enemies.Editor
         /// <summary>Batchmode entry (-executeMethod Game.Enemies.Editor.LightDevourerArtBuilder.RunBatch).</summary>
         public static void RunBatch() => Build();
 
+        // The attack plays at normal speed: the windup is drawn into the art, and the warning fills over the time to the hit frame
         private static void ConfigureAttackState(AnimatorController controller, AnimatorState attack)
         {
             EnemySheetArtBuilder.TryParseSheetName(Sheets[Sheets.Length - 1].FileName, out int frames, out _, out _);
@@ -66,16 +67,6 @@ namespace Game.Enemies.Editor
             serialized.FindProperty("colliderDelay").floatValue = NormalizedFrameTime(AttackEndFrame, frames);
             serialized.FindProperty("animationEventName").stringValue = "Attack";
             serialized.ApplyModifiedPropertiesWithoutUndo();
-
-            // Still slowed to the warning's Telegraph Time (AIMeleeAttacker) until that goes
-            controller.AddParameter(new AnimatorControllerParameter
-            {
-                name = "AttackSpeed",
-                type = AnimatorControllerParameterType.Float,
-                defaultFloat = 1f,
-            });
-            attack.speedParameterActive = true;
-            attack.speedParameter = "AttackSpeed";
         }
     }
 }
