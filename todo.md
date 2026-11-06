@@ -4,6 +4,7 @@
 - Change the attack area of the melee attacker enemy AI Behavior. Previously we wanted a cone instead of a circle, however after talking with the art team we agreed th circle can stay but it needs to be adjusted to the isometric perpective. 
 - Rename objects and classes. Warrior to Crusader. Archer to Sentinel
 - Redesign the character select screen with tabs: Abilities, Lore, Playstyle
+- Animate the character in the map and user the proper sprite
 
 # Pending manual tests
 
