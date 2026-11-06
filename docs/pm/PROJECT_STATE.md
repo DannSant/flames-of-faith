@@ -10,13 +10,14 @@ _Last updated: 2026-11-06 by the Orchestrator._
 
 ## Git reality (checked 2026-11-06)
 - `main` = `origin/main` = `a9a381e` (v0.5.3 plus the version fix; the tag `v0.5.3` is on `50631ef`).
-- `develop` has the Light Devourer spec on top (`f1af099`) and these docs updates; check `git status` for unpushed commits.
-- `feature/light-devourer-art` is pushed and **not merged**: 15 commits (the spec's three parts, three rounds of play-test fixes, the Push All retry fix, the owner's tuning). Waiting for its last manual check and the owner's OK.
-- `feature/opening-cutscene`, `feature/game-feel` and `fix/tester-feedback-v052` are merged and can be deleted, locally and on `origin`, with the owner's OK.
+- `develop` has `feature/light-devourer-art` merged (`e48d21e`, 2026-11-06, owner's OK) and the spec for items 38 to 42 on top; check `git status` for unpushed commits.
+- `feature/demo-musts` (items 38 to 42) is created by its implementation session, off `develop`.
+- `feature/opening-cutscene`, `feature/game-feel`, `fix/tester-feedback-v052` and `feature/light-devourer-art` are merged and can be deleted, locally and on `origin`, with the owner's OK.
 
 ## Resume here (Orchestrator, 2026-11-06)
-- **Merge `feature/light-devourer-art`** once its last check passes (the Corruptor looks and shoots as before) and the owner says so. Then move `docs/features/light-devourer-art.md` to the archive. Its `todo.md` cleanup (`docs/archive/todo-2026-11-06.md`) is committed on that branch, so it reaches `develop` with the merge.
-- **Next code:** the owner's list, all demo musts (BACKLOG 38 to 42): 38 and 39 are small fixes; 40 (class rename), 41 (class select tabs) and 42 (the pilgrim on the map) need specs. 40 and 41 both touch the class select, so they run one after the other. CI/CD (18) still needs a spec too.
+- **Items 38 to 42** (demo musts) run in one implementation session on `feature/demo-musts`, spec `docs/features/demo-musts.md`, in the order 38, 40, 41, 39, 42. The class rename stops for the owner's OK before Push All to Sheet; after it, the owner publishes a new sheet version, or test builds' overrides fail on the old keys.
+- **When it finishes:** read its Handoff, update these files, rebuild the tester guide (`.docx` / `.pdf`) with the new class names, and get the owner's review of the drafted Lore and Playstyle texts.
+- **Next code after that:** CI/CD (BACKLOG 18, needs a spec).
 - **Waiting on the owner:** class options for Faelin and Werlem at the Shrine; the 7 page briefs to the art team and their size; the five lore questions in `docs/features/act-ii-design.md`.
 - **Tester feedback on v0.5.3:** triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
 - **Sound checks** wait for clips (`todo.md` "Sounds waiting for clips"); no spec is open for them.
@@ -25,13 +26,13 @@ _Last updated: 2026-11-06 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.3 | `main` | BACKLOG item 1 | **With testers** |
-| Light Devourer's new art | `feature/light-devourer-art` | `docs/features/light-devourer-art.md` | **Implemented and play-tested, not merged.** All checks passed but one (the Corruptor, rebuilt through the shared tool). Sheet published as version 15 and pulled with no changes |
+| Demo musts (BACKLOG 38 to 42): Dreko Eye outline, class rename, class select tabs, gamepad to Start Run, the pilgrim on the map | `feature/demo-musts` | `docs/features/demo-musts.md` | **Ready**, implementation session starting |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 
 ## Done recently
 - **Tester fixes from v0.5.2** (merged 2026-11-04, `30acb5e`; manual tests passed 2026-11-06): sound packs out of `Resources/`, no knockback mid-swing, Ayteel's Shrine option. Spec archived: `docs/archive/features/tester-fixes-v052.md`.
 - **Game feel** (merged 2026-11-04; manual tests passed 2026-11-06, except three sound checks that wait for clips, kept in `todo.md`): spec archived, `docs/archive/features/game-feel.md`.
-- **Light Devourer's new art** (implemented 2026-11-05/06, on its branch): new sheets (attack 11 frames, idle 16) through a shared enemy sheet builder that the Corruptor uses too; no slowed windup (the hit on frame 9 of 11); the attack area is a circle on the isometric ground for the warning and the hitbox; ranges measured on the ground from the feet; enemies sort with the player and trees (order 10); the player's knockback is a steady push. The reusable pieces are listed in the spec's Handoff.
+- **Light Devourer's new art** (merged 2026-11-06, `e48d21e`; manual tests passed; spec archived, `docs/archive/features/light-devourer-art.md`): new sheets (attack 11 frames, idle 16) through a shared enemy sheet builder that the Corruptor uses too; no slowed windup (the hit on frame 9 of 11); the attack area is a circle on the isometric ground for the warning and the hitbox; ranges measured on the ground from the feet; enemies sort with the player and trees (order 10); the player's knockback is a steady push. The reusable pieces are listed in the spec's Handoff.
 - **Tester guide** (2026-11-04, Spanish): `PatchNotes/guia-del-tester.md`, for the tester joining now: the game, every system, controls, Act I, what we want feedback on and how to report. Update it when a build adds features (the 🆕 marks are what came after v0.5.2).
 - **Game feel** (merged 2026-11-04, fast-forward to `12318a9`): a low-health vignette with a heartbeat; a sound table with hooks everywhere the spec listed, one voice per sound, per-class player voices and clips from the owner's packs; shake, hit stop, slow motion and rumble on five moments, with Settings sliders. `PauseManager` is now the only writer of `Time.timeScale`.
 - **Opening cutscene and Pilgrim's Chronicle** (merged 2026-11-02, `d5d6b1e`; manual tests passed): `CutscenePlayer.Play(id, onEnded)`, played on the first New Game only, on placeholder art. Spec and art briefs: `docs/archive/features/opening-cutscene.md`. Between-act scenes for 1.0 must play before the scene unload (its Handoff explains why).
@@ -46,14 +47,13 @@ _Last updated: 2026-11-06 by the Orchestrator._
 ## Waiting on others / decisions
 - **Demo scope trimmed (2026-10-29)** to 8 musts (BACKLOG "Before the Steam demo"); the rest is in "Demo update". Four musts wait on art: the re-designed characters, the scenarios with companion idle animations, the boss shield, and the opening cutscene's art. **Ask the art team for delivery dates**; they set the demo's critical path.
 - **Art team:** the opening cutscene's 7 pages (promised before the demo; size still to agree), re-designed characters, scenarios and companion idle animations, map decorations, the boss shield, cutscene art, The Star Reader's event art, the Plerian trader, the Favor icon, the 2 s Whirlwind animation, melee telegraph sprites, a blood-like low-health vignette (the current one is a placeholder).
-- **Balance sheet:** published version 15 (2026-11-06, the Light Devourer's tuning) matches the project's CSVs; `snapshot.json` records it on the Light Devourer branch.
+- **Balance sheet:** published version 15 (2026-11-06, the Light Devourer's tuning) matches the project's CSVs; `snapshot.json` records it.
 - **Designer:** Min Levels Beaten per item (all 0), Luck Scale 2 looks steep in `Report_LootOdds`, Move Speed and Frost per-point values look too small.
 
 ## Open manual tests
-- **Light Devourer branch:** the Corruptor looks and shoots as before.
 - **Sounds waiting for clips:** the heartbeat, and the once-per-event sounds (dodge, shield, dash, wave start and end, Corruptor, boss); one optional check (enemy attack and boss cast sounds).
 
-Finished tests are in `docs/archive/todo-2026-11-06.md` (on the Light Devourer branch until it merges).
+Finished tests are in `docs/archive/todo-2026-11-06.md`.
 
 ## Known open issues
 - **Light Devourer pivot vs body collider:** the figure stands about 1.3 below its transform while its body collider (its ground point) is at -0.5. Fine in play; a pivot at the feet would make sorting and ground points exact, but that's a larger prefab change.

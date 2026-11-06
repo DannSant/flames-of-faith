@@ -3,6 +3,10 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-11-06
+- **Light Devourer art merged** into `develop` (`e48d21e`) after the last check (the Corruptor) passed.
+- **The class rename goes all the way** (owner): Warrior becomes Crusader and Archer becomes Sentinel in code, assets, prefabs and the sheet's keys, and the internal Mage becomes Augur. Old meta saves load through aliases. Done once, before the Steam page shows class names.
+- **Class select tabs:** the implementation session drafts the Lore (from `Lore.md` §6, no spoilers past an arc's start) and Playstyle texts; the owner reviews them.
+- **The pilgrim on the map walks, then waits** (owner): picking the next node walks the class's pilgrim along the path; entering the level stays a second click or A.
 - **Cutscene scope cut to 8 scenes** (owner): one at the start and one at the end of each act, for the party as a whole; the opening counts as Act I's start. Replaces the 26 scenes of 2026-10-29 (one per pilgrim before and after each act). Each pilgrim's arc stays in the events. A future party (a DLC) would get its own act-start and act-end scenes.
 - **Items 38 to 42 are demo musts** (owner): the Dreko Eye outline, the class select gamepad step, the class rename, the class select tabs and the pilgrim on the map. "We have time."
 - **Class names: Warrior becomes Crusader, Archer becomes Sentinel** (owner). Augur stays. BACKLOG 40; it needs a spec, because names are saved and are balance sheet keys.

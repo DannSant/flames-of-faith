@@ -1,6 +1,6 @@
 # Feature: Light Devourer's new art (isometric hit area, new sheets, no slowed windup)
 
-- **Status:** implemented, waiting for the play-test and the merge OK
+- **Status:** done and archived (2026-11-06): merged into `develop` (`e48d21e`), manual tests passed.
 - **Branch:** `feature/light-devourer-art` (off `develop`)
 - **Owner session:** implementation session (Nov 5, 2026)
 - **Related docs:** `docs/pm/BACKLOG.md` item 9; `CLAUDE.md` "Enemy sprite sheets & animators" (sheet layout, the Corruptor builder, the melee attack warning), "Balance data" (the pipeline rule, stale YAML), "Combat/effect pipeline" (animation events in blend trees)
