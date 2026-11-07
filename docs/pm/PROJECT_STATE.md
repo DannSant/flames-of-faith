@@ -10,14 +10,14 @@ _Last updated: 2026-11-06 by the Orchestrator._
 
 ## Git reality (checked 2026-11-06)
 - `main` = `origin/main` = `a9a381e` (v0.5.3 plus the version fix; the tag `v0.5.3` is on `50631ef`).
-- `develop` has `feature/light-devourer-art` merged (`e48d21e`, 2026-11-06, owner's OK) and the spec for items 38 to 42 on top; check `git status` for unpushed commits.
-- `feature/demo-musts` (items 38 to 42) is created by its implementation session, off `develop`.
-- `feature/opening-cutscene`, `feature/game-feel`, `fix/tester-feedback-v052` and `feature/light-devourer-art` are merged and can be deleted, locally and on `origin`, with the owner's OK.
+- `develop` = `origin/develop` = `45bc3c5` (2026-11-06): the Light Devourer art (`e48d21e`) and the demo musts, items 38 to 42 (`45bc3c5`), are merged and pushed. This closing docs pass may sit on top, unpushed; check `git status`.
+- `feature/demo-musts`, `feature/opening-cutscene`, `feature/game-feel`, `fix/tester-feedback-v052` and `feature/light-devourer-art` are merged and can be deleted, locally and on `origin`, with the owner's OK.
 
 ## Resume here (Orchestrator, 2026-11-06)
-- **Items 38 to 42** (demo musts) run in one implementation session on `feature/demo-musts`, spec `docs/features/demo-musts.md`, in the order 38, 40, 41, 39, 42. The class rename stops for the owner's OK before Push All to Sheet; after it, the owner publishes a new sheet version, or test builds' overrides fail on the old keys.
-- **When it finishes:** read its Handoff, update these files, rebuild the tester guide (`.docx` / `.pdf`) with the new class names, and get the owner's review of the drafted Lore and Playstyle texts.
-- **Next code after that:** CI/CD (BACKLOG 18, needs a spec).
+- **Demo musts (items 38 to 42) are done**, merged and pushed; the spec is archived and the tester guide's `.docx` / `.pdf` are rebuilt with the new class names.
+- **Owner: publish the balance sheet** (Balance > Publish). It has the renamed class keys since the push, but the published version is still 15 with the old keys, so test builds' overrides and Pull from Sheet fail until then.
+- **Tell the art team** about the renamed art folders (list in the archived spec's Handoff, "Gotchas").
+- **Next code:** CI/CD (BACKLOG 18, needs a spec). Small text item: the class descriptions' lore pass (BACKLOG 43).
 - **Waiting on the owner:** class options for Faelin and Werlem at the Shrine; the 7 page briefs to the art team and their size; the five lore questions in `docs/features/act-ii-design.md`.
 - **Tester feedback on v0.5.3:** triage each batch into the backlog; the balance pass (5) and the SQLite deletion (16) follow this round.
 - **Sound checks** wait for clips (`todo.md` "Sounds waiting for clips"); no spec is open for them.
@@ -26,10 +26,10 @@ _Last updated: 2026-11-06 by the Orchestrator._
 | Feature | Branch | Spec | Status |
 |---|---|---|---|
 | Tester build v0.5.3 | `main` | BACKLOG item 1 | **With testers** |
-| Demo musts (BACKLOG 38 to 42): Dreko Eye outline, class rename, class select tabs, gamepad to Start Run, the pilgrim on the map | `feature/demo-musts` | `docs/features/demo-musts.md` | **Ready**, implementation session starting |
 | Act II build | `feature/act-ii` (chunk 1 on `develop`) | `docs/features/act-ii-design.md` | **Designed, not started.** Waits for the demo |
 
 ## Done recently
+- **Demo musts, BACKLOG 38 to 42** (merged and pushed 2026-11-06, `45bc3c5`; the owner tested everything; spec archived, `docs/archive/features/demo-musts.md`): the Corrupted outline ignores the sheets' baked shadow (alpha threshold 0.55); the classes are **Crusader, Sentinel and Augur** everywhere, code, assets and the sheet's keys included, with old meta saves loading through aliases; the class select has Abilities / Lore / Playstyle tabs (760 wide, nothing scrolls); A on a class card jumps to Start Run; the map shows the played class's pilgrim, walking along the path to the next node.
 - **Tester fixes from v0.5.2** (merged 2026-11-04, `30acb5e`; manual tests passed 2026-11-06): sound packs out of `Resources/`, no knockback mid-swing, Ayteel's Shrine option. Spec archived: `docs/archive/features/tester-fixes-v052.md`.
 - **Game feel** (merged 2026-11-04; manual tests passed 2026-11-06, except three sound checks that wait for clips, kept in `todo.md`): spec archived, `docs/archive/features/game-feel.md`.
 - **Light Devourer's new art** (merged 2026-11-06, `e48d21e`; manual tests passed; spec archived, `docs/archive/features/light-devourer-art.md`): new sheets (attack 11 frames, idle 16) through a shared enemy sheet builder that the Corruptor uses too; no slowed windup (the hit on frame 9 of 11); the attack area is a circle on the isometric ground for the warning and the hitbox; ranges measured on the ground from the feet; enemies sort with the player and trees (order 10); the player's knockback is a steady push. The reusable pieces are listed in the spec's Handoff.
@@ -47,7 +47,7 @@ _Last updated: 2026-11-06 by the Orchestrator._
 ## Waiting on others / decisions
 - **Demo scope trimmed (2026-10-29)** to 8 musts (BACKLOG "Before the Steam demo"); the rest is in "Demo update". Four musts wait on art: the re-designed characters, the scenarios with companion idle animations, the boss shield, and the opening cutscene's art. **Ask the art team for delivery dates**; they set the demo's critical path.
 - **Art team:** the opening cutscene's 7 pages (promised before the demo; size still to agree), re-designed characters, scenarios and companion idle animations, map decorations, the boss shield, cutscene art, The Star Reader's event art, the Plerian trader, the Favor icon, the 2 s Whirlwind animation, melee telegraph sprites, a blood-like low-health vignette (the current one is a placeholder).
-- **Balance sheet:** published version 15 (2026-11-06, the Light Devourer's tuning) matches the project's CSVs; `snapshot.json` records it.
+- **Balance sheet:** the sheet holds the project's numbers with the renamed class keys (Push All, 2026-11-06), but the latest **published** version is still 15 (old keys); `snapshot.json` records 15. The owner publishes the next one.
 - **Designer:** Min Levels Beaten per item (all 0), Luck Scale 2 looks steep in `Report_LootOdds`, Move Speed and Frost per-point values look too small.
 
 ## Open manual tests

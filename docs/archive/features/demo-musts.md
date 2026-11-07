@@ -1,6 +1,6 @@
 # Feature: Demo musts from the owner's list (BACKLOG 38 to 42)
 
-- **Status:** done, merged into `develop` (2026-11-06)
+- **Status:** done and archived (2026-11-06): merged into `develop` (`45bc3c5`) and pushed; the owner tested everything and reviewed the Lore and Playstyle texts.
 - **Branch:** `feature/demo-musts` (off `develop`, after the Light Devourer merge `e48d21e`)
 - **Owner session:** implementation session, finished
 - **Related docs:** `docs/pm/BACKLOG.md` items 38 to 42; `CLAUDE.md` "Corrupted outline", "UI standards & revamp" (main menu, class select flow, restylers), "Gamepad & UI navigation", "Class kits, skill trees & Favors", "Class stat guide", "Effect data pipeline", "Balance data" (the pipeline rule), "Two parallel map systems" (Overworld), "Run save / load"; `game-design-docs/Lore.md` §6 and the glossary

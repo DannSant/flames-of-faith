@@ -3,6 +3,9 @@
 Newest first. Format: date, decision, reason.
 
 ## 2026-11-06
+- **Demo musts merged and pushed** (owner): items 38 to 42 merged into `develop` (`45bc3c5`) after the owner tested everything, and `develop` pushed. The owner reviewed the Lore and Playstyle texts.
+- **Balance sheet pushed with the new class keys** (owner's OK, in the implementation session): Push All wrote all 58 tabs; the ItemBehaviors behavior dropdown was updated first. Not published yet.
+- **Class select adjustments** (owner, after testing): the window is 760 wide, the tabs are small, and every tab of every class fits without scrolling; the dash text left the class descriptions (the dash Glyph's tooltip has it).
 - **Light Devourer art merged** into `develop` (`e48d21e`) after the last check (the Corruptor) passed.
 - **The class rename goes all the way** (owner): Warrior becomes Crusader and Archer becomes Sentinel in code, assets, prefabs and the sheet's keys, and the internal Mage becomes Augur. Old meta saves load through aliases. Done once, before the Steam page shows class names.
 - **Class select tabs:** the implementation session drafts the Lore (from `Lore.md` §6, no spoilers past an arc's start) and Playstyle texts; the owner reviews them.
